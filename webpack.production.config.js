@@ -11,6 +11,7 @@ var extractCSS = new ExtractTextPlugin('styles.css', {
 
 var config = {
   entry: [
+    'babel-polyfill',
     APP_DIR + '/App.js'
   ],
   output: {
@@ -32,6 +33,10 @@ var config = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: 'url?limit=10000!img?progressive=true'
+      },
+      {
+        test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        loader : 'file-loader'
       }
     ]
   },

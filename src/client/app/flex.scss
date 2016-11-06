@@ -1,0 +1,33 @@
+.flexContainerRow {
+  display : flex;
+  flex-direction: row;
+}
+
+.flexContainerColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.flexOne {
+  flex-grow: 1;
+}
+
+.flexTen {
+  flex-grow : 10;
+}
+
+.flexBasis50 {
+  flex-basis: 50%;
+}
+
+.flexBasis33 {
+  flex-basis: 33%;
+}
+
+.flexInner {
+ margin : 5px;
+}
