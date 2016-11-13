@@ -3,12 +3,36 @@ import {
   observable,
   computed
 } from 'mobx';
+import appConfig from '../utils/appConfig';
 
 import {ShowModel} from './models';
 
 class SeriesStore {
 
   @observable series = [];
+
+  @action
+  async getFavorites() {
+    try {
+      let response = await fetch(`${appConfig.baseUrl}/api/favorites`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      if (!response.ok) {
+        throw new Error(response);
+      }
+      let favorites = await response.json();
+      this.series   = [];
+      favorites.map((favorite) => {
+          this.getSerie(favorite.serieId);
+      });
+      return this.series;
+    }
+    catch (error) {
+      throw error;
+    }
+  }
 
   @action
   async searchForSeries(searchText) {
@@ -30,9 +54,12 @@ class SeriesStore {
       let episodes;
       let show;
       if (!serie) {
-        res   = await fetch(`http://api.tvmaze.com/shows/${id}`);
+        res   = await fetch(`http://api.tvmaze.com/shows/${id}?embed[]=episodes`);
         show  = await res.json();
         serie = new ShowModel(show);
+        if(show._embedded && show._embedded.episodes) {
+          serie.addEpisodes(show._embedded.episodes);
+        }
         this.series.push(serie);
       }
       if (serie.episodes.length === 0) {
@@ -46,6 +73,7 @@ class SeriesStore {
       console.log('fail', error);
     }
   }
+
 }
 
 const seriesStore = new SeriesStore();

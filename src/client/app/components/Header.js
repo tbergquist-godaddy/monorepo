@@ -7,7 +7,8 @@ import {
   NavDropdown,
   MenuItem
 } from 'react-bootstrap';
-
+import {Link} from 'react-router';
+import {LinkContainer} from 'react-router-bootstrap';
 
 @observer
 class Header extends React.Component {
@@ -18,28 +19,46 @@ class Header extends React.Component {
 
   render() {
     return (
-      <Navbar inverse collapseOnSelect>
+      <Navbar
+        inverse
+        collapseOnSelect
+        fluid
+      >
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">React-Bootstrap</a>
+            <Link to="/">TV-Helper</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="#">Link</NavItem>
-            <NavItem eventKey={2} href="#">Link</NavItem>
-            <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>Action</MenuItem>
-              <MenuItem eventKey={3.2}>Another action</MenuItem>
-              <MenuItem eventKey={3.3}>Something else here</MenuItem>
-              <MenuItem divider/>
-              <MenuItem eventKey={3.3}>Separated link</MenuItem>
-            </NavDropdown>
+            <LinkContainer to="/">
+              <NavItem eventKey={1}>
+                Search
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to="/favorites">
+              <NavItem eventKey={2}>
+                Favorites
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <NavItem eventKey={3}>
+                About
+              </NavItem>
+            </LinkContainer>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={1} href="#">Link Right</NavItem>
-            <NavItem eventKey={2} href="#">Link Right</NavItem>
+            <LinkContainer to="/account/create">
+              <NavItem eventKey={4}>
+                Create account
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer to="/login">
+              <NavItem eventKey={5}>
+                Login
+              </NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

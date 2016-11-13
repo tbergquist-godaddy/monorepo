@@ -41,6 +41,7 @@ class SearchPage extends React.Component {
       <div className={`${flex.flexContainerRow}`}>
         <div className={flex.flexBasis50}>
           <div className={flex.flexInner}>
+            <h2>Search for serie</h2>
             <SearchForm
               onChange={this.onChange}
               value={this.searchText}
@@ -50,6 +51,7 @@ class SearchPage extends React.Component {
         </div>
         <div className={flex.flexBasis50}>
           <div className={flex.flexInner}>
+            {SeriesStore.series.length > 0 ? <h2>Search results</h2> : null}
             <SearchResult />
           </div>
         </div>

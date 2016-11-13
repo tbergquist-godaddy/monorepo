@@ -18,7 +18,7 @@ class ShowModel {
 
   constructor(show) {
     this.id       = show.id;
-    this.score    = show.rating.average;
+    this.score    = show.rating ? show.rating.average : 0;
     this.name     = show.name;
     this.status   = show.status;
     this.imageUrl = show.image ? show.image.medium : null;
@@ -28,9 +28,7 @@ class ShowModel {
 
   @action
   addEpisodes(episodes) {
-    console.log('adding episodes');
     episodes.map(episode => {
-      console.log('episode', episode);
       this.episodes.push(new EpisodeModel(episode));
     });
   }

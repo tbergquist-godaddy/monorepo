@@ -9,12 +9,9 @@ import {Header} from './';
 @observer
 class App extends React.Component {
 
-  @observable userStore = new UserStore();
 
   componentWillMount() {
-    if (!this.userStore.isAuthenticated) {
-      browserHistory.push('/');
-    }
+
   }
 
   render() {

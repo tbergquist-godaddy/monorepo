@@ -23,6 +23,7 @@ class SearchForm extends React.Component {
             type="submit"
             className="btn btn-primary pull-right"
             value="Search"
+            style={{marginTop : '5px'}}
           />
         </form>
       </div>

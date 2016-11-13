@@ -1,16 +1,12 @@
 import React from 'react';
-import styles from '../app.scss';
-import {Link} from 'react-router'
 import {observer} from 'mobx-react';
 import {
   FlexContainerColumn,
   FlexContainerRow,
-  FlexItem
+  FlexItem,
+  MySpinner
 } from '../components';
-import {
-  action,
-  observable
-} from 'mobx';
+import {observable, action} from 'mobx';
 import {
   FormGroup,
   ControlLabel,
@@ -20,22 +16,23 @@ import {
 import {UserStore} from '../stores';
 
 @observer
-class LoginPage extends React.Component {
+class CreateAccountPage extends React.Component {
 
-  @observable user = null;
+  @observable user = {
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  };
+
+  @observable showSpinner = false;
 
   constructor(props) {
     super(props);
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  componentWillMount() {
-    this.user = {
-      username: '',
-      password: ''
-    };
+    this.onChange       = this.onChange.bind(this);
+    this.onSubmit       = this.onSubmit.bind(this);
+    this.setShowSpinner = this.setShowSpinner.bind(this);
   }
 
   @action
@@ -43,19 +40,31 @@ class LoginPage extends React.Component {
     this.user[e.target.name] = e.target.value;
   }
 
-  @action
+
   async onSubmit(e) {
     e.preventDefault();
     try {
-      let token = await UserStore.login(this.user.username, this.user.password);
-      this.user = {
-        username: '',
-        password: ''
-      };
+      this.setShowSpinner(true);
+      let user = await UserStore.createUser(this.user);
+      console.log('success', user);
+      alert('success');
     }
-    catch (error) {
-      console.log('error', error);
+    catch (err) {
+      alert('failure');
+      console.log(err);
     }
+    finally {
+      this.setShowSpinner(false);
+    }
+  }
+
+  validateTest() {
+    return 'error';
+  }
+
+  @action
+  setShowSpinner(show) {
+    this.showSpinner = show;
   }
 
   render() {
@@ -64,12 +73,11 @@ class LoginPage extends React.Component {
         <FlexContainerRow
           justifyContent="center"
         >
-          <h2>Log in</h2>
+          <h2>Create account</h2>
         </FlexContainerRow>
         <FlexContainerRow
           justifyContent="center"
         >
-
           <FlexItem flex="50">
             <form onSubmit={this.onSubmit}>
               <FormGroup
@@ -84,6 +92,16 @@ class LoginPage extends React.Component {
                 <FormControl.Feedback />
               </FormGroup>
               <FormGroup>
+                <ControlLabel>Email</ControlLabel>
+                <FormControl
+                  type="text"
+                  value={this.user.email}
+                  name="email"
+                  onChange={this.onChange}
+                />
+                <FormControl.Feedback />
+              </FormGroup>
+              <FormGroup>
                 <ControlLabel>Password</ControlLabel>
                 <FormControl
                   type="password"
@@ -93,12 +111,23 @@ class LoginPage extends React.Component {
                 />
                 <FormControl.Feedback />
               </FormGroup>
+              <FormGroup>
+                <ControlLabel>Confirm password</ControlLabel>
+                <FormControl
+                  type="password"
+                  value={this.user.confirmPassword}
+                  name="confirmPassword"
+                  onChange={this.onChange}
+                />
+                <FormControl.Feedback />
+              </FormGroup>
               <input
                 type="submit"
-                value="Log in"
                 className="btn btn-primary pull-right"
+                value="Save"
               />
             </form>
+            <MySpinner spin={this.showSpinner}/>
           </FlexItem>
         </FlexContainerRow>
       </FlexContainerColumn>
@@ -106,4 +135,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+export default CreateAccountPage;
