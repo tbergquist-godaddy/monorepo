@@ -1,5 +1,5 @@
 const config = {
-  baseUrl : 'http://localhost:9005'
+  baseUrl : 'https://tv-helper-backend.herokuapp.com'
 };
 
 export default config;

@@ -6,7 +6,8 @@ import {
   SerieInformationPage,
   CreateAccountPage,
   LoginPage,
-  FavoritesPage
+  FavoritesPage,
+  AboutPage
 } from '../pages';
 
 class Routes extends Component {
@@ -21,6 +22,7 @@ class Routes extends Component {
           <Route path="/account/create" component={CreateAccountPage}/>
           <Route path="/login" component={LoginPage}/>
           <Route path="/favorites" component={FavoritesPage}/>
+          <Route path="/about" component={AboutPage}/>
         </Route>
 
       </Router>

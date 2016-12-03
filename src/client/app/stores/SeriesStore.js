@@ -12,6 +12,24 @@ class SeriesStore {
   @observable series = [];
 
   @action
+  async deleteFavorite(id) {
+    try {
+      await fetch(`${appConfig.baseUrl}/api/favorites/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        method: 'delete'
+      });
+
+      let index = this.series.findIndex(serie => serie.id === id);
+      this.series.splice(index, 1);
+    }
+    catch (err) {
+      throw err;
+    }
+  }
+
+  @action
   async getFavorites() {
     try {
       let response = await fetch(`${appConfig.baseUrl}/api/favorites`, {
@@ -25,7 +43,7 @@ class SeriesStore {
       let favorites = await response.json();
       this.series   = [];
       favorites.map((favorite) => {
-          this.getSerie(favorite.serieId);
+        this.getSerie(favorite.serieId);
       });
       return this.series;
     }
@@ -57,7 +75,7 @@ class SeriesStore {
         res   = await fetch(`http://api.tvmaze.com/shows/${id}?embed[]=episodes`);
         show  = await res.json();
         serie = new ShowModel(show);
-        if(show._embedded && show._embedded.episodes) {
+        if (show._embedded && show._embedded.episodes) {
           serie.addEpisodes(show._embedded.episodes);
         }
         this.series.push(serie);

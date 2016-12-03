@@ -12,6 +12,7 @@ class FlexItem extends React.Component {
   render() {
     return (
       <div
+        onClick={this.props.onClick}
         className={this.props.className}
         style={{flexBasis : `${this.props.flex}%`}}
       >

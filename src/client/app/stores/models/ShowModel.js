@@ -5,6 +5,7 @@ import {
 } from 'mobx';
 
 import {EpisodeModel} from './';
+import moment from 'moment';
 
 class ShowModel {
 
@@ -15,6 +16,7 @@ class ShowModel {
   @observable imageUrl;
   @observable summary;
   @observable episodes;
+
 
   constructor(show) {
     this.id       = show.id;
@@ -31,6 +33,36 @@ class ShowModel {
     episodes.map(episode => {
       this.episodes.push(new EpisodeModel(episode));
     });
+  }
+
+  @computed
+  get nextEpisode() {
+    let next = null;
+    this.episodes.forEach(episode => {
+      if(!next && moment(episode.airdate) >= moment().set('hour', 0).set('minute', 0).set('second', 0)) {
+        next = episode;
+      }
+      else if(next && moment(episode.airdate) >= moment().set('hour', 0).set('minute', 0).set('second', 0)
+        && moment(episode.airdate) < moment(next.airdate)) {
+        next = episode;
+      }
+    });
+    return next;
+  }
+
+  @computed
+  get latestEpisode() {
+    let next = null;
+    this.episodes.forEach(episode => {
+      if(!next && moment(episode.airdate) < moment().set('hour', 0).set('minute', 0).set('second', 0)) {
+        next = episode;
+      }
+      else if(next && moment(episode.airdate) < moment().set('hour', 0).set('minute', 0).set('second', 0)
+        && moment(episode.airdate) > moment(next.airdate)) {
+        next = episode;
+      }
+    });
+    return next;
   }
 }
 

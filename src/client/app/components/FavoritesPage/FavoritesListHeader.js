@@ -21,23 +21,32 @@ class FavoritesListHeader extends React.Component {
     return (
       <FlexContainerRow>
         <FlexItem
-          className={`${styles.borderItem} ${styles.header}`}
+          onClick={() => this.props.sortBy('name')}
+          className={`${styles.borderItem} ${styles.header} ${appStyles.clickable}`}
           flex={25}>
           Name
         </FlexItem>
         <FlexItem
-          className={`${styles.borderItem} ${styles.header}`}
+          onClick={() => this.props.sortBy('status')}
+          className={`${styles.borderItem} ${styles.header} ${appStyles.clickable}`}
           flex={25}>
           Status
         </FlexItem>
         <FlexItem
-          className={`${styles.borderItem} ${styles.header}`}
-          flex={25}>
+          onClick={() => this.props.sortByAirDate()}
+          className={`${styles.borderItem} ${styles.header} ${appStyles.clickable}`}
+          flex={20}>
           Next episode
         </FlexItem>
         <FlexItem
+          onClick={() => this.props.sortBypreviousDate()}
+          className={`${styles.borderItem} ${styles.header} ${appStyles.clickable}`}
+          flex={20}>
+          Latest episode
+        </FlexItem>
+        <FlexItem
           className={`${styles.borderItem} ${styles.header}`}
-          flex={25}>
+          flex={10}>
           Action
         </FlexItem>
       </FlexContainerRow>

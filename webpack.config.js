@@ -28,7 +28,7 @@ var config = {
       {
         test: /\.jsx?/,
         include: APP_DIR,
-        loaders: ['react-hot', 'babel']
+        loaders: ['babel']
       },
       {
         test: /\.css$/,

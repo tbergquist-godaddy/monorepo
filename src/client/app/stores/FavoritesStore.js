@@ -57,6 +57,24 @@ class FavoritesStore {
     }
   }
 
+  async isFavorite(id) {
+    try {
+      let response = await fetch(`${appConfig.baseUrl}/api/favorites/isFavorite/${id}`, {
+        headers : {
+          'Authorization' : `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      if(!response.ok) {
+        throw new Error(response);
+      }
+      let data = await response.json();
+      return data.isFavorite;
+    }
+    catch(err) {
+      throw err;
+    }
+  }
+
 
 
 }

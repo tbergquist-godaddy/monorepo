@@ -16,7 +16,8 @@ import {MySpinner} from '../components';
 @observer
 class SerieInformationPage extends React.Component {
 
-  @observable serie = null;
+  @observable serie      = null;
+  @observable isFavorite = false;
 
   constructor(props) {
     super(props);
@@ -26,16 +27,17 @@ class SerieInformationPage extends React.Component {
 
   @action
   async componentWillMount() {
-    this.serie = await SeriesStore.getSerie(this.props.params.id);
+    this.isFavorite = await FavoritesStore.isFavorite(this.props.params.id);
+    this.serie      = await SeriesStore.getSerie(this.props.params.id);
   }
 
   @action
   async addToFavorites() {
     try {
-      let reply = await FavoritesStore.addToFavorites(this.serie.id);
-      alert('added');
+      let reply       = await FavoritesStore.addToFavorites(this.serie.id);
+      this.isFavorite = true;
     }
-    catch(error) {
+    catch (error) {
       console.log('err')
     }
   }
@@ -49,14 +51,16 @@ class SerieInformationPage extends React.Component {
       <div >
 
         <SerieInformation serie={serie}/>
-        <button
-          className="btn btn-success"
-          style={{marginBottom : '5px'}}
-          onClick={this.addToFavorites}
-        >
-          Add to favorites
-        </button>
-        <Episodes episodes={serie.episodes} />
+        {this.isFavorite ? <div className="alert alert-info">This show is already in favorites</div> :
+          <button
+            className="btn btn-success"
+            style={{marginBottom : '5px'}}
+            onClick={this.addToFavorites}
+            disabled={this.isFavorite}
+          >
+            Add to favorites
+          </button>}
+        <Episodes episodes={serie.episodes}/>
       </div>
     )
   }
