@@ -5,6 +5,7 @@ import {Transportation} from '../utils';
 
 class UserStore {
 
+  @observable user = null;
 
   async createUser(user) {
     try {
@@ -29,11 +30,12 @@ class UserStore {
       return false;
     }
     try {
-      // create later
-      throw new Error('Not yet implemented');
+      let user = Transportation.call('/api/auth/me');
+      console.log('user', user);
+      return true;
     }
     catch (err) {
-      throw err;
+      return false;
     }
   }
 

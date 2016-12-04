@@ -5,7 +5,8 @@ import {observer} from 'mobx-react';
 import {
   FlexContainerColumn,
   FlexContainerRow,
-  FlexItem
+  FlexItem,
+  Toast
 } from '../components';
 import {
   action,
@@ -22,7 +23,9 @@ import {UserStore} from '../stores';
 @observer
 class LoginPage extends React.Component {
 
-  @observable user = null;
+  @observable user      = null;
+  @observable showToast = false;
+  @observable toastText = '';
 
   constructor(props) {
     super(props);
@@ -52,9 +55,14 @@ class LoginPage extends React.Component {
         username: '',
         password: ''
       };
+      this.toastText = 'Login succeded';
     }
     catch (error) {
+      this.toastText = 'Login failed';
       console.log('error', error);
+    }
+    finally {
+      this.showToast = true;
     }
   }
 
@@ -101,6 +109,11 @@ class LoginPage extends React.Component {
             </form>
           </FlexItem>
         </FlexContainerRow>
+        <Toast
+          visible={this.showToast}
+          text={this.toastText}
+          callback={() => this.showToast = false}
+        />
       </FlexContainerColumn>
     )
   }
