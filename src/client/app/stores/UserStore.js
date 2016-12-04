@@ -19,14 +19,11 @@ class UserStore {
   @action
   async createUser(user) {
     try {
-      let response = await Transportation.call(`/api/users`, {
+
+      let serverUser = await Transportation.call(`/api/users`, {
         method: 'post',
         body: JSON.stringify(user)
       });
-      if (!response.ok) {
-        throw new Error(response);
-      }
-      let serverUser = await response.json();
       return serverUser;
     }
     catch (err) {

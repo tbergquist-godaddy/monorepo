@@ -4,7 +4,8 @@ import {
   FlexContainerColumn,
   FlexContainerRow,
   FlexItem,
-  MySpinner
+  MySpinner,
+  Toast
 } from '../components';
 import {observable, action} from 'mobx';
 import {
@@ -24,6 +25,9 @@ class CreateAccountPage extends React.Component {
     password: '',
     confirmPassword: ''
   };
+
+  @observable showToast = false;
+  @observable toastText = '';
 
   @observable showSpinner = false;
 
@@ -46,15 +50,16 @@ class CreateAccountPage extends React.Component {
     try {
       this.setShowSpinner(true);
       let user = await UserStore.createUser(this.user);
-      console.log('success', user);
-      alert('success');
+
+      this.toastText = 'Account was created';
     }
     catch (err) {
-      alert('failure');
+      this.toastText = `Account was not created`;
+      this.setShowSpinner(false);
       console.log(err);
     }
     finally {
-      this.setShowSpinner(false);
+      this.showToast = true;
     }
   }
 
@@ -64,6 +69,7 @@ class CreateAccountPage extends React.Component {
 
   @action
   setShowSpinner(show) {
+    console.log('set show spinner to ', show);
     this.showSpinner = show;
   }
 
@@ -130,6 +136,11 @@ class CreateAccountPage extends React.Component {
             <MySpinner spin={this.showSpinner}/>
           </FlexItem>
         </FlexContainerRow>
+        <Toast
+          visible={this.showToast}
+          text={this.toastText}
+          callback={() => this.showToast = false}
+        />
       </FlexContainerColumn>
     )
   }

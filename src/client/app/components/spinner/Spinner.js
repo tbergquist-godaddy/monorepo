@@ -36,6 +36,8 @@ class MySpinner extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.stopSpinner = this.stopSpinner.bind(this);
   }
 
   componentDidMount() {
@@ -47,23 +49,30 @@ class MySpinner extends React.Component {
 
   componentWillUnmount() {
     if (this.spinner) {
-      this.spinner.stop();
+      this.stopSpinner();
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.spin) {
+
+    if (nextProps.spin) {
       var target   = document.getElementById('spinner');
       this.spinner = new Spinner(opts).spin(target);
     }
-    else {
-      this.spinner.stop();
+    else if(this.props.spin && !nextProps.spin) {
+      this.stopSpinner();
     }
   }
 
+  @action
+  stopSpinner() {
+    this.spinner.stop();
+  }
+
   render() {
+    let display = this.props.spin ? '' : 'none';
     return (
-      <div id="spinner"/>
+      <div id="spinner" style={{display : display}}/>
     )
   }
 }
