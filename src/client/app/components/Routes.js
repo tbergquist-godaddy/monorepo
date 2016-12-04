@@ -7,7 +7,8 @@ import {
   CreateAccountPage,
   LoginPage,
   FavoritesPage,
-  AboutPage
+  AboutPage,
+  EditAccountPage
 } from '../pages';
 
 class Routes extends Component {
@@ -23,6 +24,7 @@ class Routes extends Component {
           <Route path="/login" component={LoginPage}/>
           <Route path="/favorites" component={FavoritesPage}/>
           <Route path="/about" component={AboutPage}/>
+          <Route path="/account/edit" component={EditAccountPage} />
         </Route>
 
       </Router>

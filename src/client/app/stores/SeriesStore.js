@@ -13,6 +13,11 @@ class SeriesStore {
   @observable series = [];
 
   @action
+  clear() {
+    this.series = [];
+  }
+
+  @action
   async deleteFavorite(id) {
     try {
       await fetch(`${appConfig.baseUrl}/api/favorites/${id}`, {

@@ -7,17 +7,35 @@ import {
   NavDropdown,
   MenuItem
 } from 'react-bootstrap';
-import {Link} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
+import {UserStore, SeriesStore} from '../stores';
+import {
+  action
+} from 'mobx'
 
 @observer
 class Header extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.logout = this.logout.bind(this);
+  }
+
+  @action
+  logout(e) {
+    e.preventDefault();
+
+    UserStore.logout();
+    SeriesStore.clear();
+    browserHistory.push('/');
   }
 
   render() {
+
+    let username = UserStore.username;
+
     return (
       <Navbar
         inverse
@@ -49,16 +67,34 @@ class Header extends React.Component {
             </LinkContainer>
           </Nav>
           <Nav pullRight>
-            <LinkContainer to="/account/create">
-              <NavItem eventKey={4}>
-                Create account
-              </NavItem>
-            </LinkContainer>
-            <LinkContainer to="/login">
-              <NavItem eventKey={5}>
-                Login
-              </NavItem>
-            </LinkContainer>
+            {username ?
+              <LinkContainer to="/account/edit">
+                <NavItem eventKey={4}>
+                  Hello {username}
+                </NavItem>
+              </LinkContainer>
+              :
+              <LinkContainer to="/account/create">
+                <NavItem eventKey={4}>
+                  Create account
+                </NavItem>
+              </LinkContainer>
+            }
+            {username ?
+              <LinkContainer
+                to="#"
+                onClick={this.logout}
+              >
+                <NavItem eventKey={5}>
+                  Log out
+                </NavItem>
+              </LinkContainer>
+              :
+              <LinkContainer to="/login">
+                <NavItem eventKey={5}>
+                  Log in
+                </NavItem>
+              </LinkContainer>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

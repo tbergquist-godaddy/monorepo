@@ -2,11 +2,21 @@ import {observer} from 'mobx-react';
 import {observable, action, computed} from 'mobx';
 import config from '../utils/appConfig';
 import {Transportation} from '../utils';
+import jwtDecode from 'jwt-decode';
 
 class UserStore {
 
-  @observable user = null;
+  @observable username = null;
 
+  constructor() {
+    let token = localStorage.getItem('token');
+    if (token) {
+      let decoded   = jwtDecode(token);
+      this.username = decoded.username;
+    }
+  }
+
+  @action
   async createUser(user) {
     try {
       let response = await Transportation.call(`/api/users`, {
@@ -39,6 +49,7 @@ class UserStore {
     }
   }
 
+  @action
   async login(username, password) {
     try {
       let token = await Transportation.call(`/api/auth`, {
@@ -49,13 +60,21 @@ class UserStore {
         })
       });
 
-      console.log('token', token);
       localStorage.setItem('token', token);
+      let decoded   = jwtDecode(token);
+      this.username = decoded.username;
+
       return token;
     }
     catch (error) {
       throw error;
     }
+  }
+
+  @action
+  logout() {
+    localStorage.removeItem('token');
+    this.username = null;
   }
 
 }

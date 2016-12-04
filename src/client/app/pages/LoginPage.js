@@ -20,6 +20,7 @@ import {
 } from 'react-bootstrap';
 import {UserStore} from '../stores';
 
+
 @observer
 class LoginPage extends React.Component {
 
@@ -55,6 +56,7 @@ class LoginPage extends React.Component {
         username: '',
         password: ''
       };
+
       this.toastText = 'Login succeded';
     }
     catch (error) {
