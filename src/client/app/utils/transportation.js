@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:9005';
+const BASE_URL = 'https://tv-helper-backend.herokuapp.com';//'http://localhost:9005';
 
 class Transportation {
 
