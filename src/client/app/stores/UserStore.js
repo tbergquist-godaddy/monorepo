@@ -1,20 +1,18 @@
 import {observer} from 'mobx-react';
 import {observable, action, computed} from 'mobx';
 import config from '../utils/appConfig';
+import {Transportation} from '../utils';
 
 class UserStore {
 
 
   async createUser(user) {
     try {
-      let response   = await fetch(`${config.baseUrl}/api/users`, {
+      let response = await Transportation.call(`/api/users`, {
         method: 'post',
-        body: JSON.stringify(user),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+        body: JSON.stringify(user)
       });
-      if(!response.ok) {
+      if (!response.ok) {
         throw new Error(response);
       }
       let serverUser = await response.json();
@@ -27,34 +25,28 @@ class UserStore {
 
   async isLoggedIn() {
     let token = localStorage.getItem('token');
-    if(!token) {
+    if (!token) {
       return false;
     }
     try {
       // create later
       throw new Error('Not yet implemented');
     }
-    catch(err) {
+    catch (err) {
       throw err;
     }
   }
 
   async login(username, password) {
     try {
-      let response = await fetch(`${config.baseUrl}/api/auth`, {
-        method : 'post',
-        body : JSON.stringify({
-          username : username,
-          password : password
-        }),
-        headers : {
-          'Content-Type': 'application/json'
-        }
+      let token = await Transportation.call(`/api/auth`, {
+        method: 'post',
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
       });
-      if(!response.ok) {
-        throw new Error(response);
-      }
-      let token = await response.json();
+
       console.log('token', token);
       localStorage.setItem('token', token);
       return token;

@@ -33,20 +33,15 @@ class SeriesStore {
   @action
   async getFavorites() {
     try {
-      let response = await fetch(`${appConfig.baseUrl}/api/favorites`, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      if (!response.ok) {
-        throw new Error(response);
-      }
-      let favorites = await response.json();
+      let favorites = await Transportation.call(`/api/favorites`);
       this.series   = [];
-      favorites.map((favorite) => {
-        this.getSerie(favorite.serieId);
+
+      favorites.forEach(favorite => {
+        let serie = new ShowModel(favorite);
+        serie.addEpisodes(favorite._embedded.episodes);
+        this.series.push(serie);
       });
-      return this.series;
+
     }
     catch (error) {
       throw error;
@@ -56,8 +51,8 @@ class SeriesStore {
   @action
   async searchForSeries(searchText) {
 
-    let series   = await Transportation.call(`/api/series/search/${searchText}`);
-    this.series  = [];
+    let series  = await Transportation.call(`/api/series/search/${searchText}`);
+    this.series = [];
     series.map(serie => {
       this.series.push(new ShowModel(serie.show));
     });

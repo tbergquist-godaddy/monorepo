@@ -5,7 +5,7 @@ import {
 } from 'mobx';
 import {ShowModel} from './models';
 import appConfig from '../utils/appConfig';
-
+import {Transportation} from '../utils';
 
 class FavoritesStore {
 
@@ -59,15 +59,8 @@ class FavoritesStore {
 
   async isFavorite(id) {
     try {
-      let response = await fetch(`${appConfig.baseUrl}/api/favorites/isFavorite/${id}`, {
-        headers : {
-          'Authorization' : `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      if(!response.ok) {
-        throw new Error(response);
-      }
-      let data = await response.json();
+      let data = await Transportation.call(`/api/favorites/isFavorite/${id}`);
+
       return data.isFavorite;
     }
     catch(err) {
