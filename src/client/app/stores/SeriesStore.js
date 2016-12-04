@@ -4,6 +4,7 @@ import {
   computed
 } from 'mobx';
 import appConfig from '../utils/appConfig';
+import {Transportation} from '../utils';
 
 import {ShowModel} from './models';
 
@@ -55,13 +56,11 @@ class SeriesStore {
   @action
   async searchForSeries(searchText) {
 
-    let response = await fetch(`http://api.tvmaze.com/search/shows?q=${searchText}`);
-    let series   = await response.json();
+    let series   = await Transportation.call(`/api/series/search/${searchText}`);
     this.series  = [];
     series.map(serie => {
       this.series.push(new ShowModel(serie.show));
     });
-    console.log(series);
   }
 
   @action
@@ -71,9 +70,9 @@ class SeriesStore {
       let res;
       let episodes;
       let show;
+
       if (!serie) {
-        res   = await fetch(`http://api.tvmaze.com/shows/${id}?embed[]=episodes`);
-        show  = await res.json();
+        show  = await Transportation.call(`/api/series/${id}`);
         serie = new ShowModel(show);
         if (show._embedded && show._embedded.episodes) {
           serie.addEpisodes(show._embedded.episodes);
@@ -81,8 +80,7 @@ class SeriesStore {
         this.series.push(serie);
       }
       if (serie.episodes.length === 0) {
-        res      = await fetch(`http://api.tvmaze.com/shows/${id}/episodes`);
-        episodes = await res.json();
+        episodes = await Transportation.call(`/api/series/${id}/episodes`);
         serie.addEpisodes(episodes);
       }
       return serie;

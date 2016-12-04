@@ -18,6 +18,7 @@ class SerieInformationPage extends React.Component {
 
   @observable serie      = null;
   @observable isFavorite = false;
+  @observable isLoggedIn = true;
 
   constructor(props) {
     super(props);
@@ -27,8 +28,13 @@ class SerieInformationPage extends React.Component {
 
   @action
   async componentWillMount() {
-    this.isFavorite = await FavoritesStore.isFavorite(this.props.params.id);
-    this.serie      = await SeriesStore.getSerie(this.props.params.id);
+    try {
+      this.isFavorite = await FavoritesStore.isFavorite(this.props.params.id);
+    }
+    catch (err) {
+      this.isLoggedIn = false;
+    }
+    this.serie = await SeriesStore.getSerie(this.props.params.id);
   }
 
   @action
@@ -51,12 +57,12 @@ class SerieInformationPage extends React.Component {
       <div >
 
         <SerieInformation serie={serie}/>
-        {this.isFavorite ? <div className="alert alert-info">This show is already in favorites</div> :
+        {this.isFavorite && this.isLoggedIn ? <div className="alert alert-info">This show is already in favorites</div> :
           <button
             className="btn btn-success"
             style={{marginBottom : '5px'}}
             onClick={this.addToFavorites}
-            disabled={this.isFavorite}
+            disabled={!this.isLoggedIn}
           >
             Add to favorites
           </button>}
