@@ -25,4 +25,3 @@ server.listen(port, function () {
   console.log(`Example app listening on port ${port}!`);
 });
 
-console.log("Running at Port 3000");

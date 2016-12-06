@@ -7,11 +7,13 @@ import {
   SearchResult
 } from '../components/SearchPage';
 import {SeriesStore} from '../stores';
+import {MySpinner} from '../components';
 
 @observer
 class SearchPage extends React.Component {
 
   @observable searchText;
+  @observable showSpinner = false;
 
   constructor(props) {
     super(props);
@@ -32,8 +34,10 @@ class SearchPage extends React.Component {
   @action
   async onSubmit(e) {
     e.preventDefault();
-    console.log('seaching');
+    this.showSpinner = true;
+    //console.log('seaching');
     await SeriesStore.searchForSeries(this.searchText);
+    this.showSpinner = false;
   }
 
   render() {
@@ -55,6 +59,9 @@ class SearchPage extends React.Component {
             <SearchResult />
           </div>
         </div>
+        <MySpinner
+          spin={this.showSpinner}
+        />
       </div>
     )
   }
