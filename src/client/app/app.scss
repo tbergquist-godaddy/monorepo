@@ -10,3 +10,8 @@
 .clickable {
   cursor: pointer;
 }
+
+.appContainer {
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+}
