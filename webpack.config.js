@@ -1,69 +1,60 @@
-var webpack           = require('webpack');
-var path              = require('path');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
-var BUILD_DIR  = path.resolve(__dirname, 'src/client/public');
-var APP_DIR    = path.resolve(__dirname, 'src/client/app');
-var extractCSS = new ExtractTextPlugin('styles.css', {
-  allChunks : true
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './src/index.html',
+  filename: 'index.html',
+  inject: 'body',
 });
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-
-
-var config = {
-  entry: [
-    'babel-polyfill',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    APP_DIR + '/App.js'
-  ],
+module.exports = {
+  entry: './src/app.js',
   output: {
-    path: BUILD_DIR,
+    path: path.resolve('dist'),
+    publicPath: '/',
     filename: 'bundle.js',
-    publicPath: ""
+    sourceMapFilename: '[file].map',
   },
   module: {
     loaders: [
       {
-        test: /\.jsx?/,
-        include: APP_DIR,
-        loaders: ['babel']
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
-        loaders: [
-          'style?sourceMap',
-          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-        ]
+        test: /\.jsx$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader',
+        }),
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'url?limit=10000!img?progressive=true'
+        loader: 'url-loader?limit=10000!img-loader?progressive=true',
       },
       {
-        test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-        loader : 'file-loader'
-      }
-    ]
+        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        loader: 'file-loader',
+      },
+    ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    extractCSS,
-    new HtmlWebpackPlugin({
-      title: 'tut1',
-      template: APP_DIR + '/index.html'
-    })
+    HtmlWebpackPluginConfig,
+    new ExtractTextPlugin('[name].css'),
   ],
   devServer: {
-    hot: true,
-    contentBase: './src/client/public',
-    historyApiFallback: true
-  }
+    historyApiFallback: true,
+    publicPath: '/',
+    contentBase: './dist',
+  },
 };
-
-module.exports = config;
