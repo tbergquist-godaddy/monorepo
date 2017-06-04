@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/LoginForm.actions';
 import { withRouter } from 'react-router-dom';
 import alertify from 'alertifyjs';
+import FormField from '../components/FormField.jsx';
 
 class LoginForm extends React.Component {
 
@@ -42,26 +43,19 @@ class LoginForm extends React.Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <div className="form-group">
-          <label>Username</label>
-          <input
-            type="text"
-            name="username"
-            className="form-control"
-            value={username}
-            onChange={this.onChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Username</label>
-          <input
-            type="password"
-            name="password"
-            className="form-control"
-            value={password}
-            onChange={this.onChange}
-          />
-        </div>
+        <FormField
+          name="username"
+          value={username}
+          onChange={this.onChange}
+          labelText="Username"
+        />
+        <FormField
+          name="password"
+          value={password}
+          onChange={this.onChange}
+          labelText="Password"
+          type="password"
+        />
         <div className="form-group">
           <input type="submit" className="btn btn-primary pull-right" value="Log in"/>
         </div>

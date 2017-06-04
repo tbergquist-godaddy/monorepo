@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { searchTextChange } from '../actions/SearchForm.actions';
+import FormField from '../components/FormField.jsx';
 
 class SearchForm extends React.Component {
 
@@ -27,17 +28,12 @@ class SearchForm extends React.Component {
     const { name } = this.props;
     return (
       <form onSubmit={this.onSubmit}>
-        <div className="form-group">
-          <label>Tv show</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="search"
-            value={name}
-            onChange={this.onChange}
-          />
-
-        </div>
+        <FormField
+          value={name}
+          onChange={this.onChange}
+          placeholder="search"
+          labelText="Tv show"
+        />
         <div className="form-group">
           <input
             type="submit"
