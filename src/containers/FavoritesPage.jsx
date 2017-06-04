@@ -14,6 +14,7 @@ class FavoritesPage extends React.Component {
     super(props);
 
     this.deleteFavorite = this.deleteFavorite.bind(this);
+    this.sortBy = this.sortBy.bind(this);
   }
 
   componentDidMount() {
@@ -35,9 +36,19 @@ class FavoritesPage extends React.Component {
     dispatch(actions.deleteFavorite(id));
   }
 
+  sortBy(property) {
+    const { dispatch, sortProperty } = this.props;
+
+    if (sortProperty === property && sortProperty.charAt(0) !== '-') {
+      property = `-${property}`;
+    }
+
+    dispatch(actions.sortFavorites(property));
+  }
+
   render() {
     const { favorites } = this.props;
-
+    console.log('favorites', favorites);
     return (
       <div>
         <Navbar/>
@@ -49,6 +60,7 @@ class FavoritesPage extends React.Component {
               <FavoritesTable
                 favorites={favorites}
                 deleteFavorite={this.deleteFavorite}
+                sortBy={this.sortBy}
               />
             </div>
           </div>
@@ -61,6 +73,7 @@ class FavoritesPage extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   favorites: state.FavoritesPage.favorites,
   loadError: state.FavoritesPage.loadError,
+  sortProperty: state.FavoritesPage.sortProperty,
 });
 
 export default connect(mapStateToProps)(withRouter(FavoritesPage));

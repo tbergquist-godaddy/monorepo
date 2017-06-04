@@ -5,6 +5,7 @@ import alertify from 'alertifyjs';
 export const LOAD_FAVORITES_SUCCESS = 'LOAD_FAVORITES_SUCCESS';
 export const LOAD_FAVORITES_ERROR = 'LOAD_FAVORITES_ERROR';
 export const DELETE_FAVORITE_SUCCESS = 'DELETE_FAVORITE_SUCCESS';
+export const SORT_FAVORITES = 'SORT_FAVORITES';
 
 export const fetchFavorites = () => dispatch => {
   dispatch({
@@ -46,3 +47,8 @@ export const deleteFavorite = id => dispatch => {
       alertify.notify('Failed to delete favorite', 'danger', 5);
     });
 };
+
+export const sortFavorites = property => ({
+  type: SORT_FAVORITES,
+  property,
+});

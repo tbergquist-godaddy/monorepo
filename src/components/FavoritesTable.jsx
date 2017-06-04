@@ -9,7 +9,7 @@ export default class FavoritesTable extends React.Component {
   }
 
   render() {
-    const { favorites, deleteFavorite } = this.props;
+    const { favorites, deleteFavorite, sortBy } = this.props;
 
     if (favorites.length === 0) {
       return null;
@@ -20,8 +20,8 @@ export default class FavoritesTable extends React.Component {
         <table className="table table-bordered">
           <thead>
           <tr>
-            <th>Name</th>
-            <th>Status</th>
+            <th onClick={() => sortBy('name')}>Name</th>
+            <th onClick={() => sortBy('status')}>Status</th>
             <th>Next episode</th>
             <th>Latest episode</th>
             <th>Action</th>
@@ -51,4 +51,5 @@ FavoritesTable.PropTypes = {
     }).isRequired,
   ).isRequired,
   deleteFavorite: PropTypes.func.isRequired,
+  sortBy: PropTypes.func.isRequired,
 };
