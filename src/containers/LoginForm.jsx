@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
     const { loginError, loginSuccess, history } = nextProps;
 
     if (loginSuccess) {
-      history.push('/');
+      history.push('/favorites');
     }
     else if (loginError) {
       alertify.notify('Wrong username or password', 'error', 5);
@@ -64,10 +64,6 @@ class LoginForm extends React.Component {
   }
 }
 
-/* LoginForm.PropTypes = {
- id: PropTypes.number.isRequired,
- };
- */
 const mapStateToProps = (state, ownProps) => ({
   username: state.LoginForm.username,
   password: state.LoginForm.password,

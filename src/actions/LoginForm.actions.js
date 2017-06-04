@@ -1,3 +1,4 @@
+import { STOP_SPINNER, SHOW_SPINNER } from './Spinner.actions';
 import Transport from '../utils/Transport';
 
 export const VALUE_CHANGED = 'VALUE_CHANGED';
@@ -9,8 +10,11 @@ export const valueChanged = event => ({
   event,
 });
 
-export const login = (username, password) => dispatch =>
-  Transport.call(`auth`, {
+export const login = (username, password) => dispatch => {
+  dispatch({
+    type: SHOW_SPINNER,
+  });
+  return Transport.call(`auth`, {
     method: 'POST',
     body: {
       username,
@@ -23,10 +27,17 @@ export const login = (username, password) => dispatch =>
         type: LOGIN_SUCCESS,
         token,
       });
+      dispatch({
+        type: STOP_SPINNER,
+      });
     })
     .catch(err => {
       dispatch({
         type: LOGIN_FAILED,
         err,
       });
+      dispatch({
+        type: STOP_SPINNER,
+      });
     });
+};

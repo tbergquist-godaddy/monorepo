@@ -22,7 +22,7 @@ class Transport {
       params.headers['Content-Type'] = 'application/json';
     }
     if (this.token) {
-      params.headers['Authorization'] = `Token ${this.token}`;
+      params.headers['Authorization'] = `Bearer ${this.token}`;
     }
     if (params.body && typeof params.body !== 'string') {
       params.body = JSON.stringify(params.body);

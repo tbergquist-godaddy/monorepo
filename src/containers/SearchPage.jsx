@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar.jsx';
 import SearchForm from './SearchForm.jsx';
 import * as actions from '../actions/SearchPage.actions';
 import SerieTable from '../components/SerieTable.jsx';
+import Spinner from './spinner/Spinner.jsx';
 
 class SearchPage extends React.Component {
 
@@ -19,7 +20,7 @@ class SearchPage extends React.Component {
   }
 
   render() {
-    const { series } = this.props;
+    const { series, loading } = this.props;
     let seriesTableHeader = series.length > 0 ? 'Search Result' : null;
     return (
       <div>
@@ -40,6 +41,7 @@ class SearchPage extends React.Component {
             </div>
           </div>
         </div>
+        <Spinner />
       </div>
     );
   }
@@ -47,6 +49,7 @@ class SearchPage extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
   series: state.SearchPage.series,
+  loading: state.SearchPage.loading,
 });
 
 export default connect(mapStateToProps)(SearchPage);

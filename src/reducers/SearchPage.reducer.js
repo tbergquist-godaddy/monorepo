@@ -7,9 +7,9 @@ const initialState = {
 export default function searchPage(state = initialState, action) {
   switch (action.type) {
     case actions.SEARCH_RESULT_SUCCESS:
-      return {
+      return Object.assign({}, state, {
         series: action.series,
-      };
+      });
     default:
       return state;
   }

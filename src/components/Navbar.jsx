@@ -39,6 +39,8 @@ class Header extends React.Component {
 
   render() {
     let rightNav;
+    let favoritesLink = null;
+
     if (this.isLoggedIn) {
       rightNav = (
         <Nav pullRight>
@@ -49,7 +51,9 @@ class Header extends React.Component {
             Log out
           </NavItem>
         </Nav>
-      )
+      );
+      favoritesLink =
+        <NavItem href="/favorites" onClick={() => this.onLinkClick('/favorites')}>Favorites</NavItem>;
     }
     else {
       rightNav = (
@@ -61,7 +65,7 @@ class Header extends React.Component {
             Log in
           </NavItem>
         </Nav>
-      )
+      );
     }
     return (
       <Navbar inverse collapseOnSelect fixedTop>
@@ -79,6 +83,7 @@ class Header extends React.Component {
             >
               Search
             </NavItem>
+            {favoritesLink}
           </Nav>
           {rightNav}
         </Navbar.Collapse>
