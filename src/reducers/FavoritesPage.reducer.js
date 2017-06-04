@@ -29,7 +29,6 @@ export default function favoritesPage(state = initialState, action) {
 }
 
 const sortFavorites = (property, favorites) => {
-  console.log('sort', property);
   switch (property) {
     case 'name':
     case 'status':
