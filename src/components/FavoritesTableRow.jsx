@@ -44,7 +44,7 @@ export default class FavoritesTableRow extends React.Component {
   }
 
   render() {
-    const { favorite } = this.props;
+    const { favorite, deleteFavorite } = this.props;
     const latestEpisode = this.latestEpisodeDate();
     const nextEpisode = this.nextEpisode();
 
@@ -57,7 +57,7 @@ export default class FavoritesTableRow extends React.Component {
         <td>{latestEpisode}</td>
         <td>{nextEpisode}</td>
         <td>
-          <button className="btn btn-danger">
+          <button className="btn btn-danger" onClick={() => deleteFavorite(favorite.id)}>
             <span className="glyphicon glyphicon-trash"/>
           </button>
         </td>
@@ -68,6 +68,7 @@ export default class FavoritesTableRow extends React.Component {
 
 FavoritesTableRow.PropTypes = {
   favorite: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     _embedded: PropTypes.arrayOf(
@@ -76,5 +77,6 @@ FavoritesTableRow.PropTypes = {
       }).isRequired,
     ).isRequired,
   }).isRequired,
+  deleteFavorite: PropTypes.func.isRequired,
 };
 

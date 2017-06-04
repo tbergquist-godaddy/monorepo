@@ -14,6 +14,9 @@ export default function favoritesPage(state = initialState, action) {
       });
     case actions.LOAD_FAVORITES_ERROR:
       return Object.assign({}, state, { loadError: true });
+    case actions.DELETE_FAVORITE_SUCCESS:
+      const newFavorites = state.favorites.filter(serie => serie.id !== action.id);
+      return Object.assign({}, state, { favorites: newFavorites});
     default:
       return state;
   }

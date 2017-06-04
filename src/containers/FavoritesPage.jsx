@@ -12,6 +12,8 @@ class FavoritesPage extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.deleteFavorite = this.deleteFavorite.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +30,11 @@ class FavoritesPage extends React.Component {
     }
   }
 
+  deleteFavorite(id) {
+    const { dispatch } = this.props;
+    dispatch(actions.deleteFavorite(id));
+  }
+
   render() {
     const { favorites } = this.props;
 
@@ -39,7 +46,10 @@ class FavoritesPage extends React.Component {
           <div className="row">
             <div className="col-xs-12">
               <h2>My favorites</h2>
-              <FavoritesTable favorites={favorites}/>
+              <FavoritesTable
+                favorites={favorites}
+                deleteFavorite={this.deleteFavorite}
+              />
             </div>
           </div>
         </div>

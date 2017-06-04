@@ -9,7 +9,7 @@ export default class FavoritesTable extends React.Component {
   }
 
   render() {
-    const { favorites } = this.props;
+    const { favorites, deleteFavorite } = this.props;
 
     if (favorites.length === 0) {
       return null;
@@ -30,7 +30,11 @@ export default class FavoritesTable extends React.Component {
           <tbody>
           {favorites.map(favorite => {
             return (
-              <FavoritesTableRow key={favorite.id} favorite={favorite} />
+              <FavoritesTableRow
+                key={favorite.id}
+                favorite={favorite}
+                deleteFavorite={deleteFavorite}
+              />
             );
           })}
           </tbody>
@@ -46,4 +50,5 @@ FavoritesTable.PropTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  deleteFavorite: PropTypes.func.isRequired,
 };
