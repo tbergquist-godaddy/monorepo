@@ -10,6 +10,7 @@ import HelloWorld from './HelloWorld.jsx';
 import SearchPage from '../containers/SearchPage.jsx';
 import LoginPage from '../containers/LoginPage.jsx';
 import FavoritesPage from '../containers/FavoritesPage.jsx';
+import SeriesPage from '../containers/SeriesPage.jsx';
 
 const history = createHistory();
 const middleware = routerMiddleware(history);
@@ -30,6 +31,7 @@ export default class Routes extends React.Component {
             <Route exact path="/" component={SearchPage}/>
             <Route exact path="/login" component={LoginPage}/>
             <Route exact path="/favorites" component={FavoritesPage}/>
+            <Route exact path="/serie/:id" component={SeriesPage}/>
           </div>
         </ConnectedRouter>
       </Provider>

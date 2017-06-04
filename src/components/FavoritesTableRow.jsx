@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 export default class FavoritesTableRow extends React.Component {
 
@@ -49,7 +50,9 @@ export default class FavoritesTableRow extends React.Component {
 
     return (
       <tr>
-        <td>{favorite.name}</td>
+        <td>
+          <Link to={`/serie/${favorite.id}`}>{favorite.name}</Link>
+          </td>
         <td>{favorite.status}</td>
         <td>{latestEpisode}</td>
         <td>{nextEpisode}</td>
@@ -67,6 +70,11 @@ FavoritesTableRow.PropTypes = {
   favorite: PropTypes.shape({
     name: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
+    _embedded: PropTypes.arrayOf(
+      PropTypes.shape({
+        airdate: PropTypes.string.isRequired,
+      }).isRequired,
+    ).isRequired,
   }).isRequired,
 };
 
