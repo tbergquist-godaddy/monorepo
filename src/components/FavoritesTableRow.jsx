@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { Glyphicon } from 'react-bootstrap';
 
 export default class FavoritesTableRow extends React.Component {
 
@@ -58,7 +59,7 @@ export default class FavoritesTableRow extends React.Component {
         <td>{nextEpisode}</td>
         <td>
           <button className="btn btn-danger" onClick={() => deleteFavorite(favorite.id)}>
-            <span className="glyphicon glyphicon-trash"/>
+            Delete
           </button>
         </td>
       </tr>

@@ -11,7 +11,7 @@ class Transport {
     }
   }
 
-  async call(url, params) {
+  call(url, params) {
     if (!params) {
       params = {};
     }
@@ -27,22 +27,22 @@ class Transport {
     if (params.body && typeof params.body !== 'string') {
       params.body = JSON.stringify(params.body);
     }
-    try {
-      let response = await fetch(`${this.baseUrl}/${url}`, params);
-
-      if (response.status === 204) {
-        return null;
-      }
-      if (!response.ok) {
-        throw new Error(response);
-      }
-      let json = await response.json();
-
-      return json;
-    }
-    catch (err) {
-      throw err;
-    }
+    return fetch(`${this.baseUrl}/${url}`, params)
+      .then(response => {
+        if (response.status === 204) {
+          return null;
+        }
+        if (!response.ok) {
+          throw new Error(response);
+        }
+        return response.json();
+      })
+      .then(json => {
+        return json;
+      })
+      .catch(err => {
+        throw err;
+      });
   }
 
   clearToken() {
