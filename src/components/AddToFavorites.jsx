@@ -9,18 +9,24 @@ export default class AddToFavorites extends React.Component {
   }
 
   render() {
-    const { isFavorite } = this.props;
+    const { isFavorite, addToFavorite } = this.props;
     if (!Transport.isLoggedIn()) {
       return null;
     }
 
     if (!isFavorite) {
       return (
-        <button className="btn btn-success" style={{marginTop: '10px'}}>Add to favorites</button>
+        <button
+          className="btn btn-success"
+          style={{ marginTop: '10px' }}
+          onClick={() => addToFavorite()}
+        >
+          Add to favorites
+        </button>
       );
     }
     return (
-      <div className="alert alert-info" style={{marginTop: '10px'}}>
+      <div className="alert alert-info" style={{ marginTop: '10px' }}>
         The show is already in favorites
       </div>
     );
@@ -29,5 +35,6 @@ export default class AddToFavorites extends React.Component {
 
 AddToFavorites.PropTypes = {
   isFavorite: PropTypes.bool.isRequired,
+  addToFavorite: PropTypes.func.isRequired,
 };
 

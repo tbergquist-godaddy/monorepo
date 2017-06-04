@@ -22,6 +22,10 @@ export default function seriePage(state = initialState, action) {
       return Object.assign({}, state, {
         isFavorite: action.isFavorite,
       });
+    case actions.ADD_TO_FAVORITE_SUCCESS:
+      return Object.assign({}, state, {
+        isFavorite: true,
+      });
     default:
       return state;
   }

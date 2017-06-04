@@ -12,12 +12,19 @@ class SeriesPage extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.addToFavorite = this.addToFavorite.bind(this);
   }
 
   componentDidMount() {
     const { dispatch, match } = this.props;
     dispatch(actions.loadSerie(match.params.id));
     dispatch(actions.isFavorite(match.params.id));
+  }
+
+  addToFavorite() {
+    const { dispatch, match } = this.props;
+    dispatch(actions.addToFavorite(match.params.id));
   }
 
   render() {
@@ -32,7 +39,10 @@ class SeriesPage extends React.Component {
               <SeriesHeader
                 serie={serie}
               />
-              <AddToFavorites isFavorite={isFavorite}/>
+              <AddToFavorites
+                isFavorite={isFavorite}
+                addToFavorite={this.addToFavorite}
+              />
               <EpisodeTable
                 episodes={serie._embedded.episodes}
               />
