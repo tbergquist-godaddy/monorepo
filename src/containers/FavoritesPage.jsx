@@ -48,7 +48,7 @@ class FavoritesPage extends React.Component {
 
   render() {
     const { favorites } = this.props;
-    console.log('favorites', favorites);
+
     return (
       <div>
         <Navbar/>

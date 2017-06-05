@@ -16,14 +16,14 @@ export default class FavoritesTable extends React.Component {
     }
 
     return (
-      <div className="table-responsive">
+      <div className="table-responsive favorites-table">
         <table className="table table-bordered">
           <thead>
           <tr>
-            <th onClick={() => sortBy('name')}>Name</th>
-            <th onClick={() => sortBy('status')}>Status</th>
-            <th>Next episode</th>
-            <th>Latest episode</th>
+            <th className="sort-header" onClick={() => sortBy('name')}>Name</th>
+            <th className="sort-header" onClick={() => sortBy('status')}>Status</th>
+            <th className="sort-header" onClick={() => sortBy('nextEpisode')}>Next episode</th>
+            <th className="sort-header" onClick={() => sortBy('latestEpisode')}>Latest episode</th>
             <th>Action</th>
           </tr>
           </thead>
