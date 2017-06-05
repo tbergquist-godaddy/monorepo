@@ -7,6 +7,7 @@ const initialState = {
     },
     _embedded: {
       episodes: [],
+      cast: [],
     }
   },
   isFavorite: false,

@@ -7,6 +7,7 @@ import * as actions from '../actions/SeriesPage.actions';
 import SeriesHeader from '../components/SeriesHeader.jsx';
 import EpisodeTable from '../components/EpisodeTable.jsx';
 import AddToFavorites from '../components/AddToFavorites.jsx';
+import Cast from '../components/Cast.jsx';
 
 class SeriesPage extends React.Component {
 
@@ -42,6 +43,9 @@ class SeriesPage extends React.Component {
               <AddToFavorites
                 isFavorite={isFavorite}
                 addToFavorite={this.addToFavorite}
+              />
+              <Cast
+                cast={serie._embedded.cast}
               />
               <EpisodeTable
                 episodes={serie._embedded.episodes}
