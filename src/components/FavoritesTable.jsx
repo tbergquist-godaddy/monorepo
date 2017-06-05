@@ -22,8 +22,8 @@ export default class FavoritesTable extends React.Component {
           <tr>
             <th className="sort-header" onClick={() => sortBy('name')}>Name</th>
             <th className="sort-header" onClick={() => sortBy('status')}>Status</th>
-            <th className="sort-header" onClick={() => sortBy('nextEpisode')}>Next episode</th>
             <th className="sort-header" onClick={() => sortBy('latestEpisode')}>Latest episode</th>
+            <th className="sort-header" onClick={() => sortBy('nextEpisode')}>Next episode</th>
             <th>Action</th>
           </tr>
           </thead>
