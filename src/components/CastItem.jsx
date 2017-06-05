@@ -9,10 +9,11 @@ export default class CastItem extends React.Component {
 
   render() {
     const { person } = this.props;
+    let imgUrl = person.character.image && person.character.image.medium ? person.character.image.medium : '';
 
     return (
       <div className="cast-item">
-        <img src={person.character.image.medium || ''} alt={person.character.name} />
+        <img src={imgUrl} alt={person.character.name} />
         <div>Character: {person.character.name}</div>
         <div>Actor: {person.person.name}</div>
       </div>
