@@ -3,11 +3,21 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { Glyphicon } from 'react-bootstrap';
+import alertify from 'alertifyjs';
 
 export default class FavoritesTableRow extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.confirmDelete = this.confirmDelete.bind(this);
+  }
+
+  confirmDelete() {
+    const { favorite, deleteFavorite } = this.props;
+    alertify.confirm(`Are you sure you want to delete ${favorite.name}?`, () => {
+      deleteFavorite(favorite.id);
+    });
   }
 
   latestEpisodeDate() {
@@ -53,12 +63,12 @@ export default class FavoritesTableRow extends React.Component {
       <tr>
         <td>
           <Link to={`/serie/${favorite.id}`}>{favorite.name}</Link>
-          </td>
+        </td>
         <td>{favorite.status}</td>
         <td>{latestEpisode}</td>
         <td>{nextEpisode}</td>
         <td>
-          <button className="btn btn-danger" onClick={() => deleteFavorite(favorite.id)}>
+          <button className="btn btn-danger" onClick={this.confirmDelete}>
             <Glyphicon
               glyph="trash"
             />
