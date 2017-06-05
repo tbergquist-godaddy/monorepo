@@ -12,7 +12,7 @@ export default class CastItem extends React.Component {
 
     return (
       <div className="cast-item">
-        <img src={person.character.image.medium} alt={person.character.name} />
+        <img src={person.character.image.medium || ''} alt={person.character.name} />
         <div>Character: {person.character.name}</div>
         <div>Actor: {person.person.name}</div>
       </div>
