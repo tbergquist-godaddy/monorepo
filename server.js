@@ -13,6 +13,15 @@ app.get('*/styles.css', function(req, res) {
   res.sendFile(path.join(__dirname+'/styles.css'));
 });
 
+app.get('*/*.woff', function(req, res) {
+  res.sendFile(path.join(__dirname + req.path));
+});
+
+app.get('*/*.woff2', function(req, res) {
+  res.sendFile(path.join(__dirname + req.path));
+});
+
+
 app.get('*',function(req,res){
   console.log('serving for ->', path.join(__dirname+'/index.html'));
   res.sendFile(path.join(__dirname+'/index.html'));

@@ -59,7 +59,9 @@ export default class FavoritesTableRow extends React.Component {
         <td>{nextEpisode}</td>
         <td>
           <button className="btn btn-danger" onClick={() => deleteFavorite(favorite.id)}>
-            Delete
+            <Glyphicon
+              glyph="trash"
+            />
           </button>
         </td>
       </tr>
