@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Media } from 'react-bootstrap';
 
 export default class SeriesHeader extends React.Component {
 
@@ -11,13 +12,17 @@ export default class SeriesHeader extends React.Component {
     const { serie } = this.props;
     return (
       <div>
-        <h2>{serie.name}</h2>
-        <div className="series-header">
-          <img src={serie.image.medium} alt="Image missing"/>
-          <div style={{ paddingLeft: '10px' }}
-            dangerouslySetInnerHTML={{ __html: serie.summary }}/>
-
-        </div>
+        <Media>
+          <Media.Left>
+            <img src={serie.image.medium} alt="Image missing"/>
+          </Media.Left>
+          <Media.Body>
+            <Media.Heading>
+              {serie.name}
+            </Media.Heading>
+            <p dangerouslySetInnerHTML={{ __html: serie.summary }} />
+          </Media.Body>
+        </Media>
       </div>
     );
   }
