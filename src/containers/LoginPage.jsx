@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar.jsx';
 import LoginForm from './LoginForm.jsx';
 import Spinner from './spinner/Spinner.jsx';
+import Translate from '../utils/Translate';
 
 export default class LoginPage extends React.Component {
 
@@ -14,7 +15,7 @@ export default class LoginPage extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
-                <h2 style={{ textAlign: 'center' }}>Log in</h2>
+                <h2 style={{ textAlign: 'center' }}>{Translate('containers.LoginForm.login')}</h2>
               </div>
               <div className="col-xs-12 col-sm-4 col-sm-offset-4">
                 <LoginForm/>

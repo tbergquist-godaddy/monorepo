@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CastItem from './CastItem.jsx';
+import Translate from '../utils/Translate';
 
 export default class Cast extends React.Component {
 
@@ -13,7 +14,7 @@ export default class Cast extends React.Component {
 
     return (
       <div>
-        <h2>Cast</h2>
+        <h2>{Translate('components.Cast.cast')}</h2>
       <div className="well cast-container">
 
         {cast.map(person => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SerieTableRow from './SerieTableRow.jsx';
+import Translate from '../utils/Translate';
 
 export default class SerieTable extends React.Component {
 
@@ -19,9 +20,9 @@ export default class SerieTable extends React.Component {
         <table className="table table-bordered">
           <thead>
           <tr>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Score</th>
+            <th>{Translate('components.SerieTable.name')}</th>
+            <th>{Translate('components.SerieTable.status')}</th>
+            <th>{Translate('components.SerieTable.score')}</th>
           </tr>
           </thead>
           <tbody>

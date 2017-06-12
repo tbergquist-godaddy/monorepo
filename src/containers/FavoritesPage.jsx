@@ -7,6 +7,7 @@ import Spinner from './spinner/Spinner.jsx';
 import alertify from 'alertifyjs';
 import { withRouter } from 'react-router-dom';
 import FavoritesTable from '../components/FavoritesTable.jsx';
+import Translate from '../utils/Translate';
 
 class FavoritesPage extends React.Component {
 
@@ -26,7 +27,7 @@ class FavoritesPage extends React.Component {
     const { loadError, history } = nextProps;
 
     if (loadError) {
-      alertify.notify('Failed to fetch favorites', 'error', 5);
+      alertify.notify(Translate('containers.FavoritesPage.loadFavoritesError'), 'error', 5);
       history.push('/login');
     }
   }
@@ -56,7 +57,7 @@ class FavoritesPage extends React.Component {
         <div className="container main-content">
           <div className="row">
             <div className="col-xs-12">
-              <h2>My favorites</h2>
+              <h2>{Translate('containers.FavoritesPage.myFavorites')}</h2>
               <FavoritesTable
                 favorites={favorites}
                 deleteFavorite={this.deleteFavorite}

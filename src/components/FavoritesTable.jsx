@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FavoritesTableRow from './FavoritesTableRow.jsx';
+import Translate from '../utils/Translate';
 
 export default class FavoritesTable extends React.Component {
 
@@ -20,11 +21,12 @@ export default class FavoritesTable extends React.Component {
         <table className="table table-bordered">
           <thead>
           <tr>
-            <th className="sort-header" onClick={() => sortBy('name')}>Name</th>
-            <th className="sort-header" onClick={() => sortBy('status')}>Status</th>
-            <th className="sort-header" onClick={() => sortBy('latestEpisode')}>Latest episode</th>
-            <th className="sort-header" onClick={() => sortBy('nextEpisode')}>Next episode</th>
-            <th>Action</th>
+            <th className="sort-header"
+              onClick={() => sortBy('name')}>{Translate('components.FavoritesTable.name')}</th>
+            <th className="sort-header" onClick={() => sortBy('status')}>{Translate('components.FavoritesTable.status')}</th>
+            <th className="sort-header" onClick={() => sortBy('latestEpisode')}>{Translate('components.FavoritesTable.latestEpisode')}</th>
+            <th className="sort-header" onClick={() => sortBy('nextEpisode')}>{Translate('components.FavoritesTable.nextEpisode')}</th>
+            <th></th>
           </tr>
           </thead>
           <tbody>

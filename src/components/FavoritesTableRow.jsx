@@ -4,6 +4,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { Glyphicon } from 'react-bootstrap';
 import alertify from 'alertifyjs';
+import Translate from '../utils/Translate';
 
 export default class FavoritesTableRow extends React.Component {
 
@@ -15,7 +16,7 @@ export default class FavoritesTableRow extends React.Component {
 
   confirmDelete() {
     const { favorite, deleteFavorite } = this.props;
-    alertify.confirm(`Are you sure you want to delete ${favorite.name}?`, () => {
+    alertify.confirm(`${Translate('components.FavoritesTableRow.confirmDelete')} ${favorite.name}?`, () => {
       deleteFavorite(favorite.id);
     });
   }
@@ -33,7 +34,7 @@ export default class FavoritesTableRow extends React.Component {
         episodeToReturn = episode;
       }
     });
-    return episodeToReturn ? moment(episodeToReturn.airdate).format('L') : 'Unkown';
+    return episodeToReturn ? moment(episodeToReturn.airdate).format('L') : Translate('components.FavoritesTableRow.unkown');
 
   }
 
@@ -51,7 +52,7 @@ export default class FavoritesTableRow extends React.Component {
       }
     });
 
-    return next ? moment(next.airdate).format('L') : 'Unknown';
+    return next ? moment(next.airdate).format('L') : Translate('components.FavoritesTableRow.unkown');
   }
 
   render() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import EpisodeTableRow from './EpisodeTableRow.jsx';
+import Translate from '../utils/Translate';
 
 export default class EpisodeTable extends React.Component {
 
@@ -16,10 +17,10 @@ export default class EpisodeTable extends React.Component {
         <table className="table table-bordered">
           <thead>
           <tr>
-            <th>Season/episode</th>
-            <th>name</th>
-            <th>Airdate</th>
-            <th>Summary</th>
+            <th>{Translate('components.EpisodeTable.seasonEpisode')}</th>
+            <th>{Translate('components.EpisodeTable.name')}</th>
+            <th>{Translate('components.EpisodeTable.airdate')}</th>
+            <th>{Translate('components.EpisodeTable.summary')}</th>
           </tr>
           </thead>
           <tbody>

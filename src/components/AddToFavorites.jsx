@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Transport from '../utils/Transport';
+import Translate from '../utils/Translate';
 
 export default class AddToFavorites extends React.Component {
 
@@ -19,15 +20,15 @@ export default class AddToFavorites extends React.Component {
         <button
           className="btn btn-success"
           style={{ marginTop: '10px' }}
-          onClick={() => addToFavorite()}
+          onClick={addToFavorite}
         >
-          Add to favorites
+          {Translate('components.AddToFavorites.addToFavorites')}
         </button>
       );
     }
     return (
       <div className="alert alert-info" style={{ marginTop: '10px' }}>
-        The show is already in favorites
+        {Translate('components.AddToFavorites.isFavorite')}
       </div>
     );
   }

@@ -5,6 +5,7 @@ import * as actions from '../actions/LoginForm.actions';
 import { withRouter } from 'react-router-dom';
 import alertify from 'alertifyjs';
 import FormField from '../components/FormField.jsx';
+import Translate from '../utils/Translate';
 
 class LoginForm extends React.Component {
 
@@ -22,7 +23,7 @@ class LoginForm extends React.Component {
       history.push('/favorites');
     }
     else if (loginError) {
-      alertify.notify('Wrong username or password', 'error', 5);
+      alertify.notify(Translate('containers.LoginForm.loginError'), 'error', 5);
     }
   }
 
@@ -47,17 +48,17 @@ class LoginForm extends React.Component {
           name="username"
           value={username}
           onChange={this.onChange}
-          labelText="Username"
+          labelText={Translate('containers.LoginForm.username')}
         />
         <FormField
           name="password"
           value={password}
           onChange={this.onChange}
-          labelText="Password"
+          labelText={Translate('containers.LoginForm.password')}
           type="password"
         />
         <div className="form-group">
-          <input type="submit" className="btn btn-primary pull-right" value="Log in"/>
+          <input type="submit" className="btn btn-primary pull-right" value={Translate('containers.LoginForm.login')}/>
         </div>
       </form>
     );

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { searchTextChange } from '../actions/SearchForm.actions';
 import FormField from '../components/FormField.jsx';
+import Translate from '../utils/Translate';
 
 class SearchForm extends React.Component {
 
@@ -31,14 +32,15 @@ class SearchForm extends React.Component {
         <FormField
           value={name}
           onChange={this.onChange}
-          placeholder="search"
-          labelText="Tv show"
+          placeholder={Translate('containers.SearchForm.search')}
+          labelText={Translate('containers.SearchForm.tvShow')}
         />
         <div className="form-group">
           <input
             type="submit"
             className="btn btn-primary pull-right"
-            value="Search"/>
+            value={Translate('containers.SearchForm.search')}
+          />
         </div>
       </form>
     );

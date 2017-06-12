@@ -5,6 +5,7 @@ import SearchForm from './SearchForm.jsx';
 import * as actions from '../actions/SearchPage.actions';
 import SerieTable from '../components/SerieTable.jsx';
 import Spinner from './spinner/Spinner.jsx';
+import Translate from '../utils/Translate';
 
 class SearchPage extends React.Component {
 
@@ -21,7 +22,7 @@ class SearchPage extends React.Component {
 
   render() {
     const { series, loading } = this.props;
-    let seriesTableHeader = series.length > 0 ? 'Search Result' : null;
+    let seriesTableHeader = series.length > 0 ? Translate('containers.SearchPage.searchResult') : null;
     return (
       <div>
         <Navbar/>
@@ -29,7 +30,7 @@ class SearchPage extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-6 col-xs-12">
-                <h2>Search</h2>
+                <h2>{Translate('containers.SearchPage.search')}</h2>
                 <SearchForm
                   onFormSubmitted={this.searchSeries}
                 />

@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import Transport from '../utils/Transport';
+import Translate from '../utils/Translate';
 
 class Header extends React.Component {
 
@@ -48,12 +49,12 @@ class Header extends React.Component {
             href="/logout"
             onClick={this.onLogoutClick}
           >
-            Log out
+            {Translate('components.Header.logout')}
           </NavItem>
         </Nav>
       );
       favoritesLink =
-        <NavItem href="/favorites" onClick={() => this.onLinkClick('/favorites')}>Favorites</NavItem>;
+        <NavItem href="/favorites" onClick={() => this.onLinkClick('/favorites')}>{Translate('components.Header.favorites')}</NavItem>;
     }
     else {
       rightNav = (
@@ -62,7 +63,7 @@ class Header extends React.Component {
             href="/login"
             onClick={() => this.onLinkClick('/login')}
           >
-            Log in
+            {Translate('components.Header.login')}
           </NavItem>
         </Nav>
       );
@@ -81,7 +82,7 @@ class Header extends React.Component {
               href="/"
               onClick={() => this.onLinkClick('/')}
             >
-              Search
+              {Translate('components.Header.search')}
             </NavItem>
             {favoritesLink}
           </Nav>
