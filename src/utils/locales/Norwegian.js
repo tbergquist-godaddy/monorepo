@@ -1,6 +1,7 @@
 export const norwegian = {
   general: {
     altText: 'Bilde mangler',
+    submit: 'Send inn',
   },
   components: {
     AddToFavorites: {
@@ -51,7 +52,9 @@ export const norwegian = {
       loginError: 'Feil brukernavn eller passord',
       username: 'Brukernavn',
       password: 'Passord',
-      login: 'Logg inn'
+      login: 'Logg inn',
+      noAccount: 'Har du ikke konto? ',
+      signUp: 'opprett konto'
     },
     SearchForm: {
       search: 'Søk',
@@ -60,6 +63,17 @@ export const norwegian = {
     SearchPage: {
       searchResult: 'Søkeresultat',
       search: 'Søk',
+    },
+    CreateAccountPage: {
+      header: 'Opprett konto'
+    },
+    CreateAccountForm: {
+      username: 'Brukernavn',
+      email: 'E-mail',
+      password: 'Passord',
+      confirmPassword: 'Bekreft passord',
+      successMessage: 'Brukeren ble opprettet',
+      errorMessage: 'Kunne ikke opprette bruker'
     }
   }
 };

@@ -12,16 +12,11 @@ export default function translate(key) {
       locale = english;
       break;
   }
-  return getTranslationFromKey(key, locale);
+  return key.split('.').reduce((item, key) => {
+    if (!item) {
+      return locale[key]
+    }
+    return item[key];
+  }, null);
 }
 
-function getTranslationFromKey(key, locale) {
-  const splittedKey = key.split('.');
-  let translation = locale[splittedKey[0]];
-
-  for(let i = 1; i < splittedKey.length; i++) {
-    translation = translation[splittedKey[i]];
-  }
-
-  return translation || key;
-}

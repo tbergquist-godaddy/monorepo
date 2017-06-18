@@ -6,6 +6,7 @@ import LoginForm from './LoginForm.reducer';
 import FavoritesPage from './FavoritesPage.reducer';
 import Spinner from './Spinner.reducer';
 import SeriePage from './SeriePage.reducer';
+import CreateAccountForm from './CreateAccountForm.reducer';
 
 
 const reducers = combineReducers({
@@ -15,6 +16,7 @@ const reducers = combineReducers({
   FavoritesPage,
   Spinner,
   SeriePage,
+  CreateAccountForm,
 });
 
 export default reducers;

@@ -1,6 +1,7 @@
 export const english = {
   general: {
     altText: 'Image missing',
+    submit: 'Submit',
   },
   components: {
     AddToFavorites: {
@@ -51,7 +52,9 @@ export const english = {
       loginError: 'Wrong username or password',
       username: 'Username',
       password: 'Password',
-      login: 'Log in'
+      login: 'Log in',
+      noAccount: 'Don\'t have an account? ',
+      signUp: 'sign up'
     },
     SearchForm: {
       search: 'Search',
@@ -60,6 +63,17 @@ export const english = {
     SearchPage: {
       searchResult: 'Search result',
       search: 'Search',
+    },
+    CreateAccountPage: {
+      header: 'Create account'
+    },
+    CreateAccountForm: {
+      username: 'Username',
+      email: 'Email',
+      password: 'Password',
+      confirmPassword: 'Confirm password',
+      successMessage: 'User was successfully created',
+      errorMessage: 'User could not be created'
     }
   }
 };

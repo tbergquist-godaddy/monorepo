@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import alertify from 'alertifyjs';
 import FormField from '../components/FormField.jsx';
 import Translate from '../utils/Translate';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
 
@@ -58,7 +59,11 @@ class LoginForm extends React.Component {
           type="password"
         />
         <div className="form-group">
-          <input type="submit" className="btn btn-primary pull-right" value={Translate('containers.LoginForm.login')}/>
+          <div className="pull-left">
+            {Translate('containers.LoginForm.noAccount')} <Link to="/createAccount">{Translate('containers.LoginForm.signUp')}</Link>
+          </div>
+          <input type="submit" className="btn btn-primary pull-right"
+            value={Translate('containers.LoginForm.login')}/>
         </div>
       </form>
     );

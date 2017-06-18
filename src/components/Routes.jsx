@@ -11,6 +11,7 @@ import SearchPage from '../containers/SearchPage.jsx';
 import LoginPage from '../containers/LoginPage.jsx';
 import FavoritesPage from '../containers/FavoritesPage.jsx';
 import SeriesPage from '../containers/SeriesPage.jsx';
+import CreateAccountPage from '../containers/CreateAccountPage.jsx';
 
 const history = createHistory();
 const middleware = routerMiddleware(history);
@@ -32,6 +33,7 @@ export default class Routes extends React.Component {
             <Route exact path="/login" component={LoginPage}/>
             <Route exact path="/favorites" component={FavoritesPage}/>
             <Route exact path="/serie/:id" component={SeriesPage}/>
+            <Route exact path="/createAccount" component={CreateAccountPage}/>
           </div>
         </ConnectedRouter>
       </Provider>
