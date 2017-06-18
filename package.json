@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack -p --config webpack.production.config.js && cp server.js dist/",
+    "build": "./node_modules/.bin/webpack -p --config webpack.production.config.js && cp server.js dist/ && cp favicon.ico dist/",
     "watch": "./node_modules/.bin/webpack -d --watch",
     "dev": "./node_modules/.bin/webpack-dev-server",
     "start": "node dist/server.js",

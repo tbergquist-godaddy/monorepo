@@ -4,7 +4,7 @@ class Transport {
   token;
 
   constructor() {
-    this.baseUrl = 'https://tv-helper-backend.herokuapp.com/api';
+    this.baseUrl = BASE_URL;
     let token = localStorage.getItem('token');
     if (token) {
       this.token = token;

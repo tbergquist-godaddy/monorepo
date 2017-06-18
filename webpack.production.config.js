@@ -55,7 +55,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
-      }
+      },
+      'BASE_URL': JSON.stringify('https://tv-helper-backend.herokuapp.com/api')
     })
   ],
   devServer: {
