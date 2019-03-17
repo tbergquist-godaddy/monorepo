@@ -8,6 +8,9 @@ const GlobalStyle = createGlobalStyle({
   html: {
     height: '100%',
   },
+  body: {
+    fontFamily: 'Roboto, sans-serif',
+  },
 });
 
 export default class MyDocument extends Document {
