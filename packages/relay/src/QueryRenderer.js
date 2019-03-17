@@ -6,6 +6,7 @@ import {
   type GraphQLTaggedNode,
   createEnvironment,
 } from '@kiwicom/relay';
+import fetch from '@kiwicom/fetch';
 
 type Props = {|
   +query: GraphQLTaggedNode,
@@ -14,9 +15,16 @@ type Props = {|
 |};
 
 export const TOKEN_KEY = 'tokenKey';
+const getToken = () => {
+  try {
+    return localStorage.getItem(TOKEN_KEY) ?? '';
+  } catch (err) {
+    return '';
+  }
+};
+
 const fetchFn = async (operation, variables) => {
-  const token =
-    localStorage != null ? localStorage.getItem(TOKEN_KEY) ?? '' : '';
+  const token = getToken();
   const res = await fetch('https://tbergq-graphql.now.sh/graphql/', {
     method: 'POST',
     headers: {

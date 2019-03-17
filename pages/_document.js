@@ -1,8 +1,14 @@
 // @flow
 
 import * as React from 'react';
-import Document from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, { Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle({
+  html: {
+    height: '100%',
+  },
+});
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -28,5 +34,24 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return (
+      <html>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700"
+            rel="stylesheet"
+          />
+          <GlobalStyle />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </html>
+    );
   }
 }

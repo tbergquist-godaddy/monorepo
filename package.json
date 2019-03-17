@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tbergq/tvhelper-components": "^0",
     "@tbergq/tvhelper-relay": "^0",
     "next": "^8.0.3",
     "next-plugin-transpile-modules": "^2.0.0",

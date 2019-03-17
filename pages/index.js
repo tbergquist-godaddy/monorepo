@@ -3,6 +3,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { QueryRenderer, graphql } from '@tbergq/tvhelper-relay';
+import { Layout } from '@tbergq/tvhelper-components';
 
 import type { pagesQueryResponse } from './__generated__/pagesQuery.graphql';
 
@@ -18,21 +19,23 @@ const renderInner = (props: pagesQueryResponse) => {
 };
 export default function Index() {
   return (
-    <QueryRenderer
-      query={graphql`
-        query pagesQuery($query: String!) {
-          searchTvShow(query: $query) {
-            edges {
-              node {
-                id
-                name
+    <Layout>
+      <QueryRenderer
+        query={graphql`
+          query pagesQuery($query: String!) {
+            searchTvShow(query: $query) {
+              edges {
+                node {
+                  id
+                  name
+                }
               }
             }
           }
-        }
-      `}
-      variables={{ query: 'the 100' }}
-      render={renderInner}
-    />
+        `}
+        variables={{ query: 'the 100' }}
+        render={renderInner}
+      />
+    </Layout>
   );
 }

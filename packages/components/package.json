@@ -1,0 +1,12 @@
+{
+  "name": "@tbergq/tvhelper-components",
+  "private": true,
+  "main": "index.js",
+  "version": "0.0.1",
+  "dependencies": {
+    "react-grid-system": "^4.4.3"
+  },
+  "peerDependencies": {
+    "react": ""
+  }
+}
