@@ -5,7 +5,15 @@
 [libs]
 
 [lints]
+unnecessary-optional-chain=error
 
 [options]
+esproposal.optional_chaining=enable
+esproposal.nullish_coalescing=enable
 
 [strict]
+
+
+[untyped]
+<PROJECT_ROOT>/node_modules/@kiwicom/js/src/.+
+<PROJECT_ROOT>/node_modules/@kiwicom/fetch/src/.+
