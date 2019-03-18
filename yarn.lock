@@ -991,6 +991,20 @@
   resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.5.0.tgz#8424ba078a81af041fa9932c3faa1bc16eee8fff"
   integrity sha512-/bRJ9NdMMWYybk0sK/pJ+JxWDe4acIypRzYB0MMoM8ZLlVIb4afNMj9p1AJo1jQmUOfMYjn/7aj0A3iG+efZug==
 
+"@kiwicom/orbit-components@^0.35.0":
+  version "0.35.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.35.0.tgz#52efb8d1dbd0b487720f67f87d6ca02ea97c3d6c"
+  integrity sha512-5yxuzyLwtItDY0Rku9ntZ9C2qPrddBLdaiaH2D/Qi0s8ymGDAOfLnQ74yxT249buDmtTjIosH1HSrf4/47y9sQ==
+  dependencies:
+    "@kiwicom/orbit-design-tokens" "^0.4.0"
+
+"@kiwicom/orbit-design-tokens@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.4.0.tgz#b8d286dea59ea5f6d17a476991d4b4fa33598e40"
+  integrity sha512-vMmCbkMLTiKEs6FA8fp0vZmS9tjJ77lvjT3PYODJA6AB1FpeF/H7HafEZhu2tGTc5qZPbSPLT2ByXUSRJEdmDA==
+  dependencies:
+    ramda "^0.26.1"
+
 "@kiwicom/relay@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@kiwicom/relay/-/relay-1.0.1.tgz#f7e0f5aa451ca38b0badc27b2b074cb8bb879b2b"
@@ -4877,6 +4891,11 @@ querystring@0.2.0, querystring@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
+
+ramda@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
