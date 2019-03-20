@@ -13,6 +13,7 @@ declare export opaque type SearchResultItem_tvShow$ref: FragmentReference;
 export type SearchResultItem_tvShow = {|
   +name: ?string,
   +rating: ?number,
+  +id: ?string,
   +$refType: SearchResultItem_tvShow$ref,
 |};
 */
@@ -38,9 +39,16 @@ const node/*: ReaderFragment*/ = {
       "name": "rating",
       "args": null,
       "storageKey": null
+    },
+    {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "id",
+      "args": null,
+      "storageKey": null
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '70383b8effc967d915fa1c45e035dbbf';
+(node/*: any*/).hash = '9c144a68d278a0217e873f8b2ca872d0';
 module.exports = node;
