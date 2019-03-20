@@ -34,7 +34,7 @@ export default function Navbar() {
   return (
     <Nav>
       <NavContainer>
-        <Link>
+        <Link href="/">
           <Brand href="/">Tvhelper</Brand>
         </Link>
       </NavContainer>

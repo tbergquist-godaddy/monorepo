@@ -1,4 +1,4 @@
 // @flow
 
 export { default as QueryRenderer } from './src/QueryRenderer';
-export { graphql } from '@kiwicom/relay';
+export { graphql, createFragmentContainer } from '@kiwicom/relay';
