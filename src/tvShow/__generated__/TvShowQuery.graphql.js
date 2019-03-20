@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash c6916fd1373614a6498d5123c43295eb
+ * @relayHash 8083e3a3150066d676560597c0d6a073
  */
 
 /* eslint-disable */
@@ -42,6 +42,22 @@ fragment TvShowPage_tvShow on TvShow {
     id
   }
   summary(stripTags: false)
+  ...Episodes_episodes
+}
+
+fragment Episodes_episodes on TvShow {
+  episodes {
+    id
+    ...Episode_episode
+  }
+}
+
+fragment Episode_episode on Episode {
+  name
+  seasonAndNumber
+  airdate
+  summary
+  watched
 }
 */
 
@@ -63,6 +79,13 @@ v1 = [
   }
 ],
 v2 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "name",
+  "args": null,
+  "storageKey": null
+},
+v3 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "id",
@@ -110,13 +133,7 @@ return {
         "concreteType": "TvShow",
         "plural": false,
         "selections": [
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "name",
-            "args": null,
-            "storageKey": null
-          },
+          (v2/*: any*/),
           {
             "kind": "LinkedField",
             "alias": null,
@@ -133,7 +150,7 @@ return {
                 "args": null,
                 "storageKey": null
               },
-              (v2/*: any*/)
+              (v3/*: any*/)
             ]
           },
           {
@@ -150,7 +167,48 @@ return {
             ],
             "storageKey": "summary(stripTags:false)"
           },
-          (v2/*: any*/)
+          {
+            "kind": "LinkedField",
+            "alias": null,
+            "name": "episodes",
+            "storageKey": null,
+            "args": null,
+            "concreteType": "Episode",
+            "plural": true,
+            "selections": [
+              (v3/*: any*/),
+              (v2/*: any*/),
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "seasonAndNumber",
+                "args": null,
+                "storageKey": null
+              },
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "airdate",
+                "args": null,
+                "storageKey": null
+              },
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "summary",
+                "args": null,
+                "storageKey": null
+              },
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "watched",
+                "args": null,
+                "storageKey": null
+              }
+            ]
+          },
+          (v3/*: any*/)
         ]
       }
     ]
@@ -159,7 +217,7 @@ return {
     "operationKind": "query",
     "name": "TvShowQuery",
     "id": null,
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  image {\n    original\n    id\n  }\n  summary(stripTags: false)\n}\n",
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  image {\n    original\n    id\n  }\n  summary(stripTags: false)\n  ...Episodes_episodes\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    ...Episode_episode\n  }\n}\n\nfragment Episode_episode on Episode {\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n",
     "metadata": {}
   }
 };

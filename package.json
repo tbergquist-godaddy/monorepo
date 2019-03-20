@@ -20,6 +20,7 @@
   "dependencies": {
     "@tbergq/tvhelper-components": "^0",
     "@tbergq/tvhelper-relay": "^0",
+    "date-fns": "^1.30.1",
     "next": "^8.0.3",
     "next-plugin-transpile-modules": "^2.0.0",
     "react": "^16.8.4",

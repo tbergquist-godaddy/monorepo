@@ -8,6 +8,7 @@
 
 /*::
 import type { ReaderFragment } from 'relay-runtime';
+type Episodes_episodes$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type TvShowPage_tvShow$ref: FragmentReference;
 export type TvShowPage_tvShow = {|
@@ -16,6 +17,7 @@ export type TvShowPage_tvShow = {|
     +original: ?string
   |},
   +summary: ?string,
+  +$fragmentRefs: Episodes_episodes$ref,
   +$refType: TvShowPage_tvShow$ref,
 |};
 */
@@ -66,9 +68,14 @@ const node/*: ReaderFragment*/ = {
         }
       ],
       "storageKey": "summary(stripTags:false)"
+    },
+    {
+      "kind": "FragmentSpread",
+      "name": "Episodes_episodes",
+      "args": null
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'f0d6b7190541c52d9b46129312f8fded';
+(node/*: any*/).hash = '8a83241824d4868b4ad0d80c6d36a730';
 module.exports = node;
