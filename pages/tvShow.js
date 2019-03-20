@@ -4,6 +4,8 @@ import * as React from 'react';
 import { Layout } from '@tbergq/tvhelper-components';
 import { withRouter, type Router } from 'next/router';
 
+import TvShowQuery from '../src/tvShow/TvShowQuery';
+
 type Props = {
   +router: Router,
 };
@@ -11,7 +13,7 @@ type Props = {
 function TvShowPage(props: Props) {
   return (
     <Layout>
-      <div>{props.router.query.id}</div>
+      <TvShowQuery tvShowId={props.router.query.id} />
     </Layout>
   );
 }

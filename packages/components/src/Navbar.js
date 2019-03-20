@@ -4,6 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Container } from 'react-grid-system';
 import Link from 'next/link';
+import defaultTokens from '@kiwicom/orbit-components/lib/defaultTokens';
 
 const Nav = styled.nav({
   backgroundColor: '#222',
@@ -13,6 +14,7 @@ const Nav = styled.nav({
   right: 0,
   left: 0,
   minHeight: '50px',
+  zIndex: defaultTokens.orbit.zIndexOnTheTop,
 });
 
 const Brand = styled.a({
