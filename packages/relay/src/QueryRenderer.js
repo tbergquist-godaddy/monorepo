@@ -38,7 +38,9 @@ const fetchFn = async (operation, variables) => {
   });
   return res.json();
 };
-const environment = createEnvironment({
+
+// TODO: Should only be temporary fix, need to wrap login in a query and pass environment from there
+export const environment = createEnvironment({
   fetchFn,
 });
 

@@ -8,6 +8,7 @@ type Props = {|
   +submit?: boolean,
   +children: React.Node,
   +type?: 'primary' | 'secondary' | 'info' | 'warning' | 'critical',
+  +loading?: boolean,
 |};
 
 export default function Button(props: Props) {

@@ -7,6 +7,7 @@ type Props = {|
   +value: string,
   +onChange: Function,
   +label?: string,
+  +type?: 'text' | 'number' | 'password' | 'passportid',
 |};
 
 export default function Input(props: Props) {

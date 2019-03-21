@@ -9,7 +9,9 @@
     "dev": "next",
     "flow": "flow --include-warnings",
     "graphql": "yarn babel-node packages/relay/scripts/getSchema.js",
-    "relay": "yarn relay-compiler --src . --schema ./schema.graphql --verbose"
+    "relay": "yarn relay-compiler --src . --schema ./schema.graphql --verbose",
+    "build": "next build",
+    "start": "next start"
   },
   "workspaces": [
     "packages/*"

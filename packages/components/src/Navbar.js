@@ -17,15 +17,24 @@ const Nav = styled.nav({
   zIndex: defaultTokens.orbit.zIndexOnTheTop,
 });
 
-const Brand = styled.a({
-  paddingTop: '15px',
-  paddingBottom: '15px',
+const NavLink = styled.a({
   color: '#e2e2e2',
-  fontSize: '18px',
   textDecoration: 'none',
   ':hover': {
     color: '#fff',
   },
+});
+
+const Brand = styled(NavLink)({
+  fontSize: '18px',
+});
+
+const Content = styled.div({
+  paddingTop: '15px',
+  paddingBottom: '15px',
+  display: 'flex',
+  justifyContent: 'space-between',
+  flex: 1,
 });
 
 const NavContainer = styled(Container)({
@@ -36,9 +45,14 @@ export default function Navbar() {
   return (
     <Nav>
       <NavContainer>
-        <Link href="/">
-          <Brand href="/">Tvhelper</Brand>
-        </Link>
+        <Content>
+          <Link href="/">
+            <Brand href="/">Tvhelper</Brand>
+          </Link>
+          <Link href="/login">
+            <NavLink href="/login">login</NavLink>
+          </Link>
+        </Content>
       </NavContainer>
     </Nav>
   );
