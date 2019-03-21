@@ -16,6 +16,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "node": "16.6"
+  },
   "private": true,
   "author": "",
   "license": "ISC",
