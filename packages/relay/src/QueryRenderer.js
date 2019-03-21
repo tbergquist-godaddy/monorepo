@@ -7,6 +7,7 @@ import {
   createEnvironment,
 } from '@kiwicom/relay';
 import fetch from '@kiwicom/fetch';
+import Loading from '@kiwicom/orbit-components/lib/Loading';
 
 type Props = {|
   +query: GraphQLTaggedNode,
@@ -44,6 +45,8 @@ export const environment = createEnvironment({
   fetchFn,
 });
 
+const onLoading = () => <Loading />;
+
 export default function QueryRenderer(props: Props) {
   return (
     <KiwiQueryRenderer
@@ -51,6 +54,7 @@ export default function QueryRenderer(props: Props) {
       variables={props.variables}
       onResponse={props.render}
       environment={environment}
+      onLoading={onLoading}
     />
   );
 }

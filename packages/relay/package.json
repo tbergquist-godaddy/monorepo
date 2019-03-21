@@ -9,6 +9,7 @@
     "graphql": "^14.1.1"
   },
   "peerDependencies": {
-    "react": ""
+    "react": "",
+    "@kiwicom/orbit-components":""
   }
 }

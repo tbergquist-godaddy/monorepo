@@ -18,13 +18,14 @@ const Nav = styled.nav({
   zIndex: defaultTokens.orbit.zIndexOnTheTop,
 });
 
-const NavLink = styled.a({
+const NavLink = styled.a(({ marginLeft }) => ({
   color: '#e2e2e2',
   textDecoration: 'none',
   ':hover': {
     color: '#fff',
   },
-});
+  marginLeft,
+}));
 
 const Brand = styled(NavLink)({
   fontSize: '18px',
@@ -48,10 +49,19 @@ export default function Navbar() {
     <Nav>
       <NavContainer>
         <Content>
-          <Link href="/">
-            <Brand href="/">Tvhelper</Brand>
-          </Link>
-          {loggedIn && (
+          <div>
+            <Link href="/">
+              <Brand href="/">Tvhelper</Brand>
+            </Link>
+            {loggedIn && (
+              <Link href="/favorites">
+                <NavLink marginLeft="8px" href="/favorites">
+                  Favorites
+                </NavLink>
+              </Link>
+            )}
+          </div>
+          {!loggedIn && (
             <Link href="/login">
               <NavLink href="/login">login</NavLink>
             </Link>

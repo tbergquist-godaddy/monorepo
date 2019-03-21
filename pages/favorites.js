@@ -5,6 +5,8 @@ import { Layout } from '@tbergq/tvhelper-components';
 import { isLoggedIn } from '@tbergq/tvhelper-utils';
 import Router from 'next/router';
 
+import FavoriteQuery from '../src/favorites/FavoriteQuery';
+
 export default function Favorites() {
   React.useEffect(() => {
     if (!isLoggedIn()) {
@@ -13,7 +15,7 @@ export default function Favorites() {
   });
   return (
     <Layout>
-      <div>TODO</div>
+      <FavoriteQuery />
     </Layout>
   );
 }
