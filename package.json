@@ -11,7 +11,8 @@
     "graphql": "yarn babel-node packages/relay/scripts/getSchema.js",
     "relay": "yarn relay-compiler --src . --schema ./schema.graphql --verbose",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "next build"
   },
   "workspaces": [
     "packages/*"
