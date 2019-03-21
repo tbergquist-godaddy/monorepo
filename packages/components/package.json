@@ -5,12 +5,13 @@
   "version": "0.0.1",
   "dependencies": {
     "@kiwicom/orbit-components": "^0.35.0",
-    "react-grid-system": "^4.4.3"
+    "react-grid-system": "^4.4.3",
+    "react-icons": "^3.5.0"
   },
   "peerDependencies": {
+    "@tbergq/tvhelper-utils": "",
     "next": "",
     "react": "",
-    "styled-components": "",
-    "@tbergq/tvhelper-utils": ""
+    "styled-components": ""
   }
 }

@@ -9,6 +9,8 @@ type Props = {|
   +children: React.Node,
   +type?: 'primary' | 'secondary' | 'info' | 'warning' | 'critical',
   +loading?: boolean,
+  +circled?: boolean,
+  +iconLeft?: React.Node,
 |};
 
 export default function Button(props: Props) {

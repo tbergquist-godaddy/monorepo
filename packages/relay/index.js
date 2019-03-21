@@ -1,5 +1,7 @@
 // @flow
 
+import { type RelayProp as _RelayProp } from '@kiwicom/relay';
+
 export {
   default as QueryRenderer,
   environment,
@@ -10,3 +12,5 @@ export {
   createFragmentContainer,
   commitMutation,
 } from '@kiwicom/relay';
+
+export type RelayProp = _RelayProp;

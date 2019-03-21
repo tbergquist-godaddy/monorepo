@@ -3,29 +3,23 @@
 import * as React from 'react';
 import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
 import { Row, Col, Heading } from '@tbergq/tvhelper-components';
-import styled from 'styled-components';
 
 import type { TvShowPage_tvShow as TvShow } from './__generated__/TvShowPage_tvShow.graphql';
 import Episodes from './episodes/Episodes';
+import TvShowImage from './TvShowImage';
 
 type Props = {|
   +tvShow: ?TvShow,
 |};
 
-const Image = styled.img({
-  width: '100%',
-  maxHeight: '300px',
-});
-
 const TvShowPage = (props: Props) => {
-  const src = props.tvShow?.image?.original ?? '';
   const name = props.tvShow?.name ?? '';
   return (
     <>
       <Heading>{name}</Heading>
       <Row>
         <Col md={6} sm={12}>
-          <Image src={src} alt="lol" />
+          <TvShowImage tvShow={props.tvShow} />
         </Col>
         <Col md={6} sm={12}>
           <div dangerouslySetInnerHTML={{ __html: props.tvShow?.summary }} />
@@ -44,10 +38,8 @@ export default createFragmentContainer(TvShowPage, {
   tvShow: graphql`
     fragment TvShowPage_tvShow on TvShow {
       name
-      image {
-        original
-      }
       summary(stripTags: false)
+      ...TvShowImage_tvShow
       ...Episodes_episodes
     }
   `,

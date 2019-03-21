@@ -42,5 +42,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.2",
     "flow-bin": "^0.95.1"
+  },
+  "peerDependencies": {
+    "react-icons": ""
   }
 }

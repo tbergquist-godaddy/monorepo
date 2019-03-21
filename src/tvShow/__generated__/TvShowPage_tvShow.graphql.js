@@ -9,15 +9,13 @@
 /*::
 import type { ReaderFragment } from 'relay-runtime';
 type Episodes_episodes$ref = any;
+type TvShowImage_tvShow$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type TvShowPage_tvShow$ref: FragmentReference;
 export type TvShowPage_tvShow = {|
   +name: ?string,
-  +image: ?{|
-    +original: ?string
-  |},
   +summary: ?string,
-  +$fragmentRefs: Episodes_episodes$ref,
+  +$fragmentRefs: TvShowImage_tvShow$ref & Episodes_episodes$ref,
   +$refType: TvShowPage_tvShow$ref,
 |};
 */
@@ -38,24 +36,6 @@ const node/*: ReaderFragment*/ = {
       "storageKey": null
     },
     {
-      "kind": "LinkedField",
-      "alias": null,
-      "name": "image",
-      "storageKey": null,
-      "args": null,
-      "concreteType": "TvHelperImage",
-      "plural": false,
-      "selections": [
-        {
-          "kind": "ScalarField",
-          "alias": null,
-          "name": "original",
-          "args": null,
-          "storageKey": null
-        }
-      ]
-    },
-    {
       "kind": "ScalarField",
       "alias": null,
       "name": "summary",
@@ -71,11 +51,16 @@ const node/*: ReaderFragment*/ = {
     },
     {
       "kind": "FragmentSpread",
+      "name": "TvShowImage_tvShow",
+      "args": null
+    },
+    {
+      "kind": "FragmentSpread",
       "name": "Episodes_episodes",
       "args": null
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '8a83241824d4868b4ad0d80c6d36a730';
+(node/*: any*/).hash = 'e344a4c30160f9a67ac3145e608236a2';
 module.exports = node;
