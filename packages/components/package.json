@@ -10,6 +10,7 @@
   "peerDependencies": {
     "next": "",
     "react": "",
-    "styled-components": ""
+    "styled-components": "",
+    "@tbergq/tvhelper-utils": ""
   }
 }

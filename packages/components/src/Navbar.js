@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Container } from 'react-grid-system';
 import Link from 'next/link';
 import defaultTokens from '@kiwicom/orbit-components/lib/defaultTokens';
+import { isLoggedIn } from '@tbergq/tvhelper-utils';
 
 const Nav = styled.nav({
   backgroundColor: '#222',
@@ -42,6 +43,7 @@ const NavContainer = styled(Container)({
 });
 
 export default function Navbar() {
+  const loggedIn = isLoggedIn();
   return (
     <Nav>
       <NavContainer>
@@ -49,9 +51,11 @@ export default function Navbar() {
           <Link href="/">
             <Brand href="/">Tvhelper</Brand>
           </Link>
-          <Link href="/login">
-            <NavLink href="/login">login</NavLink>
-          </Link>
+          {loggedIn && (
+            <Link href="/login">
+              <NavLink href="/login">login</NavLink>
+            </Link>
+          )}
         </Content>
       </NavContainer>
     </Nav>

@@ -2,8 +2,15 @@
 
 import * as React from 'react';
 import { Layout } from '@tbergq/tvhelper-components';
+import { isLoggedIn } from '@tbergq/tvhelper-utils';
+import Router from 'next/router';
 
 export default function Favorites() {
+  React.useEffect(() => {
+    if (!isLoggedIn()) {
+      Router.push('/login');
+    }
+  });
   return (
     <Layout>
       <div>TODO</div>
