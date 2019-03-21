@@ -1,0 +1,15 @@
+{
+  "name": "@tbergq/tvhelper-relay",
+  "private": true,
+  "main": "index.js",
+  "version": "0.0.1",
+  "dependencies": {
+    "@kiwicom/fetch": "^2.2.3",
+    "@kiwicom/relay": "^1.0.1",
+    "graphql": "^14.1.1"
+  },
+  "peerDependencies": {
+    "react": "",
+    "@kiwicom/orbit-components":""
+  }
+}
