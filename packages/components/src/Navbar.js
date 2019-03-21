@@ -6,6 +6,7 @@ import { Container } from 'react-grid-system';
 import Link from 'next/link';
 import defaultTokens from '@kiwicom/orbit-components/lib/defaultTokens';
 import { isLoggedIn } from '@tbergq/tvhelper-utils';
+import { TOKEN_KEY } from '@tbergq/tvhelper-relay';
 
 const Nav = styled.nav({
   backgroundColor: '#222',
@@ -43,6 +44,10 @@ const NavContainer = styled(Container)({
   display: 'flex',
 });
 
+const onLogout = () => {
+  localStorage.removeItem(TOKEN_KEY);
+};
+
 export default function Navbar() {
   const loggedIn = isLoggedIn();
   return (
@@ -61,9 +66,15 @@ export default function Navbar() {
               </Link>
             )}
           </div>
-          {!loggedIn && (
+          {!loggedIn ? (
             <Link href="/login">
               <NavLink href="/login">login</NavLink>
+            </Link>
+          ) : (
+            <Link href="/">
+              <NavLink href="/" onClick={onLogout}>
+                logout
+              </NavLink>
             </Link>
           )}
         </Content>
