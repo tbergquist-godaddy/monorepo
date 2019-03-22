@@ -8,6 +8,9 @@ import {
 } from '@kiwicom/relay';
 import fetch from '@kiwicom/fetch';
 import Loading from '@kiwicom/orbit-components/lib/Loading';
+import { QueryResponseCache } from 'relay-runtime';
+
+const cache = new QueryResponseCache({ size: 100, ttl: 1000 * 60 * 60 * 15 }); // 15 minutes
 
 type Props = {|
   +query: GraphQLTaggedNode,
@@ -25,6 +28,12 @@ const getToken = () => {
 };
 
 const fetchFn = async (operation, variables) => {
+  const queryId = operation.name;
+
+  const cachedData = cache.get(queryId, variables);
+  if (cachedData != null) {
+    return cachedData;
+  }
   const token = getToken();
   const res = await fetch('https://tbergq-graphql.now.sh/graphql/', {
     method: 'POST',
@@ -37,7 +46,15 @@ const fetchFn = async (operation, variables) => {
       variables,
     }),
   });
-  return res.json();
+  const data = await res.json();
+
+  cache.set(queryId, variables, data);
+
+  if (operation.operationKind === 'mutation') {
+    cache.clear();
+  }
+
+  return data;
 };
 
 // TODO: Should only be temporary fix, need to wrap login in a query and pass environment from there
