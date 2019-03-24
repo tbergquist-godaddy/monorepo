@@ -16,7 +16,7 @@ const DATE_FORMAT = 'Do MMM YYYY';
 
 const getFormattedDate = (date: ?string) => {
   if (date == null) {
-    return 'Unkown';
+    return 'Unknown';
   }
   return format(date, DATE_FORMAT);
 };
