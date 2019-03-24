@@ -11,6 +11,7 @@ unnecessary-optional-chain=error
 [options]
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
+suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
 
 [strict]
 
@@ -18,3 +19,4 @@ esproposal.nullish_coalescing=enable
 [untyped]
 <PROJECT_ROOT>/node_modules/@kiwicom/js/src/.+
 <PROJECT_ROOT>/node_modules/@kiwicom/fetch/src/.+
+<PROJECT_ROOT>/node_modules/graphql/.+

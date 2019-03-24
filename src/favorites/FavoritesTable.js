@@ -35,7 +35,7 @@ const Loader = styled.div({
 });
 
 const FavoritesTable = (props: Props) => {
-  const edges = props.favorites.favorites?.edges ?? [];
+  const edges = props.favorites?.favorites?.edges ?? [];
   const [options, setOptions] = React.useState({
     sortBy: 'NAME',
     ascending: true,
@@ -79,6 +79,7 @@ const FavoritesTable = (props: Props) => {
       <Table>
         <TableHead>
           <TableRow>
+            {/* $FlowExpectedError: To strict typing on TableRow */}
             <FavoriteHeaderCell
               {...options}
               sortKey="NAME"
@@ -87,6 +88,7 @@ const FavoritesTable = (props: Props) => {
             >
               Name
             </FavoriteHeaderCell>
+            {/* $FlowExpectedError: To strict typing on TableRow */}
             <FavoriteHeaderCell
               {...options}
               sortKey="NEXT_EPISODE"
@@ -95,6 +97,7 @@ const FavoritesTable = (props: Props) => {
             >
               Next episode
             </FavoriteHeaderCell>
+            {/* $FlowExpectedError: To strict typing on TableRow */}
             <FavoriteHeaderCell
               {...options}
               sortKey="PREVIOUS_EPISODE"

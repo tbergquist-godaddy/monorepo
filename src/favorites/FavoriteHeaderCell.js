@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { MdChevronLeft } from 'react-icons/md';
 
 type Props = {|
-  +align?: string,
+  +align?: 'left' | 'center' | 'right',
   +children: string,
   +onClick: Function,
   +sortKey: string,

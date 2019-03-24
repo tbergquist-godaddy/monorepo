@@ -10,6 +10,7 @@
   },
   "peerDependencies": {
     "@tbergq/tvhelper-utils": "",
+    "@tbergq/tvhelper-relay": "",
     "next": "",
     "react": "",
     "styled-components": ""
