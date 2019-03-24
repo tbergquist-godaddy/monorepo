@@ -12,7 +12,9 @@ import {
   TableRow,
   TableBody,
   Heading,
+  Loading,
 } from '@tbergq/tvhelper-components';
+import styled from 'styled-components';
 
 import type { FavoritesTable_favorites as Favorites } from './__generated__/FavoritesTable_favorites.graphql';
 import FavoriteItem from './FavoriteItem';
@@ -23,14 +25,26 @@ type Props = {|
   +relay: RefetchRelayProp,
 |};
 
+const Loader = styled.div({
+  position: 'fixed',
+  top: '50%',
+  right: '50%',
+  zIndex: 100,
+  backgroundColor: 'rgba(0,0,0,0.5)',
+  borderRadius: '6px',
+});
+
 const FavoritesTable = (props: Props) => {
   const edges = props.favorites.favorites?.edges ?? [];
   const [options, setOptions] = React.useState({
     sortBy: 'NAME',
     ascending: true,
   });
+  const [isLoading, setIsLoading] = React.useState(false);
 
   function onClick(e) {
+    e.persist();
+    setIsLoading(true);
     setOptions(oldValue => {
       const newOptions = {
         sortBy: e.target.id,
@@ -39,32 +53,53 @@ const FavoritesTable = (props: Props) => {
             ? !oldValue.ascending
             : oldValue.ascending,
       };
-      props.relay.refetch({
-        options: {
-          sortBy: newOptions.sortBy,
-          sortDirection: newOptions.ascending ? 'ASC' : 'DESC',
+      props.relay.refetch(
+        {
+          options: {
+            sortBy: newOptions.sortBy,
+            sortDirection: newOptions.ascending ? 'ASC' : 'DESC',
+          },
         },
-      });
+        null,
+        () => {
+          setIsLoading(false);
+        },
+      );
       return newOptions;
     });
   }
   return (
     <>
       <Heading>Favorites</Heading>
+      {isLoading && (
+        <Loader>
+          <Loading />
+        </Loader>
+      )}
       <Table>
         <TableHead>
           <TableRow>
-            <FavoriteHeaderCell sortKey="NAME" onClick={onClick} align="left">
+            <FavoriteHeaderCell
+              {...options}
+              sortKey="NAME"
+              onClick={onClick}
+              align="left"
+            >
               Name
             </FavoriteHeaderCell>
             <FavoriteHeaderCell
+              {...options}
               sortKey="NEXT_EPISODE"
               onClick={onClick}
               align="left"
             >
               Next episode
             </FavoriteHeaderCell>
-            <FavoriteHeaderCell sortKey="PREVIOUS_EPISODE" onClick={onClick}>
+            <FavoriteHeaderCell
+              {...options}
+              sortKey="PREVIOUS_EPISODE"
+              onClick={onClick}
+            >
               Previous episode
             </FavoriteHeaderCell>
           </TableRow>
