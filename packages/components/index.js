@@ -14,3 +14,4 @@ export {
   TableRow,
   TableCell,
 } from '@kiwicom/orbit-components/lib/Table';
+export { default as Loading } from '@kiwicom/orbit-components/lib/Loading';

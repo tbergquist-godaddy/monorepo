@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash dfd91f53bbea791f8be3cd53f5467f20
+ * @relayHash e5cb098a16b6be10eacb43821dfc118e
  */
 
 /* eslint-disable */
@@ -10,24 +10,34 @@
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
 type FavoritesTable_favorites$ref = any;
-export type FavoriteQueryVariables = {||};
-export type FavoriteQueryResponse = {|
+export type SortBy = "NAME" | "NEXT_EPISODE" | "PREVIOUS_EPISODE" | "STATUS" | "%future added value";
+export type SortDirection = "ASC" | "DESC" | "%future added value";
+export type SortOptions = {|
+  sortDirection?: ?SortDirection,
+  sortBy?: ?SortBy,
+|};
+export type FavoritesTableQueryVariables = {|
+  options?: ?SortOptions
+|};
+export type FavoritesTableQueryResponse = {|
   +$fragmentRefs: FavoritesTable_favorites$ref
 |};
-export type FavoriteQuery = {|
-  variables: FavoriteQueryVariables,
-  response: FavoriteQueryResponse,
+export type FavoritesTableQuery = {|
+  variables: FavoritesTableQueryVariables,
+  response: FavoritesTableQueryResponse,
 |};
 */
 
 
 /*
-query FavoriteQuery {
-  ...FavoritesTable_favorites
+query FavoritesTableQuery(
+  $options: SortOptions
+) {
+  ...FavoritesTable_favorites_2Rby0E
 }
 
-fragment FavoritesTable_favorites on RootQuery {
-  favorites(options: {sortDirection: ASC, sortBy: NAME}) {
+fragment FavoritesTable_favorites_2Rby0E on RootQuery {
+  favorites(options: $options) {
     edges {
       node {
         id
@@ -45,40 +55,53 @@ fragment FavoriteItem_favorite on TvShow {
 }
 */
 
-const node/*: ConcreteRequest*/ = {
+const node/*: ConcreteRequest*/ = (function(){
+var v0 = [
+  {
+    "kind": "LocalArgument",
+    "name": "options",
+    "type": "SortOptions",
+    "defaultValue": null
+  }
+];
+return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "FavoriteQuery",
+    "name": "FavoritesTableQuery",
     "type": "RootQuery",
     "metadata": null,
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "FragmentSpread",
         "name": "FavoritesTable_favorites",
-        "args": null
+        "args": [
+          {
+            "kind": "Variable",
+            "name": "options",
+            "variableName": "options",
+            "type": null
+          }
+        ]
       }
     ]
   },
   "operation": {
     "kind": "Operation",
-    "name": "FavoriteQuery",
-    "argumentDefinitions": [],
+    "name": "FavoritesTableQuery",
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
         "alias": null,
         "name": "favorites",
-        "storageKey": "favorites(options:{\"sortBy\":\"NAME\",\"sortDirection\":\"ASC\"})",
+        "storageKey": null,
         "args": [
           {
-            "kind": "Literal",
+            "kind": "Variable",
             "name": "options",
-            "value": {
-              "sortBy": "NAME",
-              "sortDirection": "ASC"
-            },
+            "variableName": "options",
             "type": "SortOptions"
           }
         ],
@@ -141,12 +164,13 @@ const node/*: ConcreteRequest*/ = {
   },
   "params": {
     "operationKind": "query",
-    "name": "FavoriteQuery",
+    "name": "FavoritesTableQuery",
     "id": null,
-    "text": "query FavoriteQuery {\n  ...FavoritesTable_favorites\n}\n\nfragment FavoritesTable_favorites on RootQuery {\n  favorites(options: {sortDirection: ASC, sortBy: NAME}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n}\n",
+    "text": "query FavoritesTableQuery(\n  $options: SortOptions\n) {\n  ...FavoritesTable_favorites_2Rby0E\n}\n\nfragment FavoritesTable_favorites_2Rby0E on RootQuery {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n}\n",
     "metadata": {}
   }
 };
+})();
 // prettier-ignore
-(node/*: any*/).hash = '554ac8e999e1efdbb7aa32f9736f1593';
+(node/*: any*/).hash = '46fb2dbb88c1044f1be74408843022b3';
 module.exports = node;

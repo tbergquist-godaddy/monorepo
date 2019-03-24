@@ -4,10 +4,10 @@ import * as React from 'react';
 import { graphql, QueryRenderer } from '@tbergq/tvhelper-relay';
 
 import type { FavoriteQueryResponse } from './__generated__/FavoriteQuery.graphql';
-import FavoriteScene from './FavoriteScene';
+import FavoritesTable from './FavoritesTable';
 
 const renderQuery = (props: FavoriteQueryResponse) => (
-  <FavoriteScene favorites={props.favorites} />
+  <FavoritesTable favorites={props} />
 );
 
 export default function FavoriteQuery() {
@@ -15,9 +15,7 @@ export default function FavoriteQuery() {
     <QueryRenderer
       query={graphql`
         query FavoriteQuery {
-          favorites {
-            ...FavoriteScene_favorites
-          }
+          ...FavoritesTable_favorites
         }
       `}
       variables={{}}
