@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 3edf89d50f7f7da0f5f99882c32b070d
+ * @relayHash 0f734739b93152c468bb56e9e739c547
  */
 
 /* eslint-disable */
@@ -9,11 +9,11 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-type FavoritesTable_favorites$ref = any;
+type FavoriteScene_favorites$ref = any;
 export type FavoriteQueryVariables = {||};
 export type FavoriteQueryResponse = {|
   +favorites: ?{|
-    +$fragmentRefs: FavoritesTable_favorites$ref
+    +$fragmentRefs: FavoriteScene_favorites$ref
   |}
 |};
 export type FavoriteQuery = {|
@@ -26,8 +26,12 @@ export type FavoriteQuery = {|
 /*
 query FavoriteQuery {
   favorites {
-    ...FavoritesTable_favorites
+    ...FavoriteScene_favorites
   }
+}
+
+fragment FavoriteScene_favorites on TvShowConnection {
+  ...FavoritesTable_favorites
 }
 
 fragment FavoritesTable_favorites on TvShowConnection {
@@ -67,7 +71,7 @@ const node/*: ConcreteRequest*/ = {
         "selections": [
           {
             "kind": "FragmentSpread",
-            "name": "FavoritesTable_favorites",
+            "name": "FavoriteScene_favorites",
             "args": null
           }
         ]
@@ -146,10 +150,10 @@ const node/*: ConcreteRequest*/ = {
     "operationKind": "query",
     "name": "FavoriteQuery",
     "id": null,
-    "text": "query FavoriteQuery {\n  favorites {\n    ...FavoritesTable_favorites\n  }\n}\n\nfragment FavoritesTable_favorites on TvShowConnection {\n  edges {\n    node {\n      id\n      ...FavoriteItem_favorite\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n}\n",
+    "text": "query FavoriteQuery {\n  favorites {\n    ...FavoriteScene_favorites\n  }\n}\n\nfragment FavoriteScene_favorites on TvShowConnection {\n  ...FavoritesTable_favorites\n}\n\nfragment FavoritesTable_favorites on TvShowConnection {\n  edges {\n    node {\n      id\n      ...FavoriteItem_favorite\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n}\n",
     "metadata": {}
   }
 };
 // prettier-ignore
-(node/*: any*/).hash = '650a9d99f79631da9de393fe60fdb1e8';
+(node/*: any*/).hash = 'fda78555e2ce4003f90dec9aca72dc84';
 module.exports = node;

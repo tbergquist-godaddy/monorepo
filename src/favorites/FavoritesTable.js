@@ -23,7 +23,9 @@ const FavoritesTable = (props: Props) => {
     <Table>
       <TableHead>
         <TableRow>
-          <TableCell align="left">Name</TableCell>
+          <TableCell align="left">
+            <div>Name</div>
+          </TableCell>
           <TableCell align="left">Next episode</TableCell>
           <TableCell>Previous episode</TableCell>
         </TableRow>
