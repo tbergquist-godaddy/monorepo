@@ -14,10 +14,15 @@ type Props = {|
 
 const DATE_FORMAT = 'Do MMM YYYY';
 
+const getFormattedDate = (date: ?string) => {
+  if (date == null) {
+    return 'Unkown';
+  }
+  return format(date, DATE_FORMAT);
+};
+
 const FavoriteItem = (props: Props) => {
   const id = props.favorite?.id ?? '';
-  const nextEpisode = props.favorite?.nextEpisode ?? '';
-  const previousEpisode = props.favorite?.previousEpisode ?? '';
   return (
     <TableRow>
       <TableCell align="left">
@@ -25,8 +30,10 @@ const FavoriteItem = (props: Props) => {
           <a href={`/tvShow?id=${id}`}>{props.favorite?.name}</a>
         </Link>
       </TableCell>
-      <TableCell align="left">{format(nextEpisode, DATE_FORMAT)}</TableCell>
-      <TableCell>{format(previousEpisode, DATE_FORMAT)}</TableCell>
+      <TableCell align="left">
+        {getFormattedDate(props.favorite?.nextEpisode)}
+      </TableCell>
+      <TableCell>{getFormattedDate(props.favorite?.previousEpisode)}</TableCell>
     </TableRow>
   );
 };
