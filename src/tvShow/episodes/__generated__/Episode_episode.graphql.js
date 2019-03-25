@@ -11,6 +11,7 @@ import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type Episode_episode$ref: FragmentReference;
 export type Episode_episode = {|
+  +id: ?string,
   +name: ?string,
   +seasonAndNumber: ?string,
   +airdate: ?any,
@@ -28,6 +29,13 @@ const node/*: ReaderFragment*/ = {
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
+    {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "id",
+      "args": null,
+      "storageKey": null
+    },
     {
       "kind": "ScalarField",
       "alias": null,
@@ -66,5 +74,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'e9e67a9d2ff605813ff66e9e9ca97ee2';
+(node/*: any*/).hash = 'b37a76627f44969c23b45279d8831218';
 module.exports = node;

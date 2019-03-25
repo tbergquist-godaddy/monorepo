@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash c266757b0f9a0b210daab1c165b825a1
+ * @relayHash b3c0634d753abad2f4e4c572337e4637
  */
 
 /* eslint-disable */
@@ -59,6 +59,7 @@ fragment Episodes_episodes on TvShow {
 }
 
 fragment Episode_episode on Episode {
+  id
   name
   seasonAndNumber
   airdate
@@ -230,7 +231,7 @@ return {
     "operationKind": "query",
     "name": "TvShowQuery",
     "id": null,
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    ...Episode_episode\n  }\n}\n\nfragment Episode_episode on Episode {\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n",
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    ...Episode_episode\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n",
     "metadata": {}
   }
 };
