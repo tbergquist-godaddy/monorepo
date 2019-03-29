@@ -8,6 +8,7 @@ import {
 } from '@tbergq/tvhelper-relay';
 import { ListItem } from '@tbergq/tvhelper-components';
 import format from 'date-fns/format';
+import { isLoggedIn } from '@tbergq/tvhelper-utils';
 
 import type { Episode_episode as EpisodeType } from './__generated__/Episode_episode.graphql';
 import markAsWatchedMutation from './mutation/MarkAsWatched';
@@ -55,7 +56,7 @@ const Episode = (props: Props) => {
     title: `${seasonAndNumber} - ${name} - ${date}`,
     description: summary,
     icon: null,
-    selectable: true,
+    selectable: isLoggedIn(),
     selected: watched,
     onClick: toggleWatched,
   };
