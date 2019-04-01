@@ -2,15 +2,23 @@
 
 import * as React from 'react';
 import { Row, Col } from '@tbergq/tvhelper-components';
+import Router from 'next/router';
 
 import SearchForm from './SearchForm';
 import SearchQuery from './SearchQuery';
 
-export default function SearchScene() {
-  const [query, onQueryChange] = React.useState('');
+type Props = {|
+  +query: ?string,
+|};
+
+export default function SearchScene(props: Props) {
+  const [query, onQueryChange] = React.useState(props.query ?? '');
 
   function onSubmit(query: string) {
     onQueryChange(query);
+    const href = '/?query=' + query;
+    const as = href;
+    Router.push(href, as, { shallow: true });
   }
   return (
     <Row>
