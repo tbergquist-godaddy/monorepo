@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash e5cb098a16b6be10eacb43821dfc118e
+ * @relayHash 958c844dbb3015248e0c43fc581ce457
  */
 
 /* eslint-disable */
@@ -52,6 +52,7 @@ fragment FavoriteItem_favorite on TvShow {
   nextEpisode
   previousEpisode
   id
+  status
 }
 */
 
@@ -153,6 +154,13 @@ return {
                     "name": "previousEpisode",
                     "args": null,
                     "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "status",
+                    "args": null,
+                    "storageKey": null
                   }
                 ]
               }
@@ -166,7 +174,7 @@ return {
     "operationKind": "query",
     "name": "FavoritesTableQuery",
     "id": null,
-    "text": "query FavoritesTableQuery(\n  $options: SortOptions\n) {\n  ...FavoritesTable_favorites_2Rby0E\n}\n\nfragment FavoritesTable_favorites_2Rby0E on RootQuery {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n}\n",
+    "text": "query FavoritesTableQuery(\n  $options: SortOptions\n) {\n  ...FavoritesTable_favorites_2Rby0E\n}\n\nfragment FavoritesTable_favorites_2Rby0E on RootQuery {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n",
     "metadata": {}
   }
 };

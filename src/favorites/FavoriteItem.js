@@ -34,6 +34,7 @@ const FavoriteItem = (props: Props) => {
         {getFormattedDate(props.favorite?.nextEpisode)}
       </TableCell>
       <TableCell>{getFormattedDate(props.favorite?.previousEpisode)}</TableCell>
+      <TableCell>{props.favorite?.status}</TableCell>
     </TableRow>
   );
 };
@@ -45,6 +46,7 @@ export default createFragmentContainer(FavoriteItem, {
       nextEpisode
       previousEpisode
       id
+      status
     }
   `,
 });

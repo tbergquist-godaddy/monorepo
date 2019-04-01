@@ -15,6 +15,7 @@ export type FavoriteItem_favorite = {|
   +nextEpisode: ?any,
   +previousEpisode: ?any,
   +id: ?string,
+  +status: ?string,
   +$refType: FavoriteItem_favorite$ref,
 |};
 */
@@ -54,9 +55,16 @@ const node/*: ReaderFragment*/ = {
       "name": "id",
       "args": null,
       "storageKey": null
+    },
+    {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "status",
+      "args": null,
+      "storageKey": null
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '171fc6daa0e73697ecd553cb7b2cca75';
+(node/*: any*/).hash = '059bc1b25e5f8b3b8ed3f9ff7b53375b';
 module.exports = node;

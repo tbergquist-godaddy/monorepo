@@ -105,6 +105,10 @@ const FavoritesTable = (props: Props) => {
             >
               Previous episode
             </FavoriteHeaderCell>
+            {/* $FlowExpectedError: To strict typing on TableRow */}
+            <FavoriteHeaderCell {...options} sortKey="STATUS" onClick={onClick}>
+              Status
+            </FavoriteHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
