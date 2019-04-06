@@ -17,9 +17,6 @@ const ButtonWrapper = styled('div')({
 export default function SearchForm(props: Props) {
   const [query, onQueryChange] = React.useState('');
 
-  function onChange(e: SyntheticInputEvent<HTMLInputElement>) {
-    onQueryChange(e.target.value);
-  }
   function onSubmit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     props.onSubmit(query);
@@ -27,7 +24,7 @@ export default function SearchForm(props: Props) {
 
   return (
     <form onSubmit={onSubmit}>
-      <Input value={query} onChange={onChange} label="Search" />
+      <Input value={query} onChange={onQueryChange} label="Search" />
       <ButtonWrapper>
         <Button submit={true}>Search</Button>
       </ButtonWrapper>

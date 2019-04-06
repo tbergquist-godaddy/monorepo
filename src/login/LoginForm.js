@@ -40,20 +40,15 @@ export default function LoginForm() {
       },
     );
   }
-  function onUsernameChange(e: SyntheticInputEvent<HTMLInputElement>) {
-    changeUsername(e.target.value);
-  }
-  function onPasswordChange(e: SyntheticInputEvent<HTMLInputElement>) {
-    changePassword(e.target.value);
-  }
+
   return (
     <form onSubmit={onSubmit}>
-      <Input label="Username" value={username} onChange={onUsernameChange} />
+      <Input label="Username" value={username} onChange={changeUsername} />
       <Input
         type="password"
         label="Password"
         value={password}
-        onChange={onPasswordChange}
+        onChange={changePassword}
       />
       <ButtonWrapper>
         <Button loading={loading} submit={true}>

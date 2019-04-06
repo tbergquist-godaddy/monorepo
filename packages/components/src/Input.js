@@ -10,6 +10,9 @@ type Props = {|
   +type?: 'text' | 'number' | 'password' | 'passportid',
 |};
 
-export default function Input(props: Props) {
-  return <InputField {...props} />;
+export default function Input({ onChange, ...rest }: Props) {
+  function change(e: SyntheticInputEvent<HTMLInputElement>) {
+    onChange(e.target.value);
+  }
+  return <InputField {...rest} onChange={change} />;
 }
