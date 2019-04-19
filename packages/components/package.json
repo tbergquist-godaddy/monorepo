@@ -14,6 +14,7 @@
     "@tbergq/tvhelper-utils": "",
     "next": "",
     "react": "",
-    "styled-components": ""
+    "styled-components": "",
+    "react-test-renderer": ""
   }
 }
