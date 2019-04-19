@@ -4,13 +4,14 @@
   "main": "index.js",
   "version": "0.0.1",
   "dependencies": {
-    "@kiwicom/orbit-components": "^0.35.0",
+    "@kiwicom/orbit-components": "^0.39.0",
+    "@kiwicom/orbit-design-tokens": "^0.5.0",
     "react-grid-system": "^4.4.3",
     "react-icons": "^3.5.0"
   },
   "peerDependencies": {
-    "@tbergq/tvhelper-utils": "",
     "@tbergq/tvhelper-relay": "",
+    "@tbergq/tvhelper-utils": "",
     "next": "",
     "react": "",
     "styled-components": ""

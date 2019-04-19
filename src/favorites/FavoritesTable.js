@@ -79,7 +79,6 @@ const FavoritesTable = (props: Props) => {
       <Table>
         <TableHead>
           <TableRow>
-            {/* $FlowExpectedError: To strict typing on TableRow */}
             <FavoriteHeaderCell
               {...options}
               sortKey="NAME"
@@ -88,7 +87,6 @@ const FavoritesTable = (props: Props) => {
             >
               Name
             </FavoriteHeaderCell>
-            {/* $FlowExpectedError: To strict typing on TableRow */}
             <FavoriteHeaderCell
               {...options}
               sortKey="NEXT_EPISODE"
@@ -97,7 +95,6 @@ const FavoritesTable = (props: Props) => {
             >
               Next episode
             </FavoriteHeaderCell>
-            {/* $FlowExpectedError: To strict typing on TableRow */}
             <FavoriteHeaderCell
               {...options}
               sortKey="PREVIOUS_EPISODE"
@@ -105,7 +102,6 @@ const FavoritesTable = (props: Props) => {
             >
               Previous episode
             </FavoriteHeaderCell>
-            {/* $FlowExpectedError: To strict typing on TableRow */}
             <FavoriteHeaderCell {...options} sortKey="STATUS" onClick={onClick}>
               Status
             </FavoriteHeaderCell>

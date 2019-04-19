@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Container } from 'react-grid-system';
 import Link from 'next/link';
-import defaultTokens from '@kiwicom/orbit-components/lib/defaultTokens';
+import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 import { isLoggedIn } from '@tbergq/tvhelper-utils';
 import { TOKEN_KEY } from '@tbergq/tvhelper-relay';
 
@@ -16,7 +16,7 @@ const Nav = styled.nav({
   right: 0,
   left: 0,
   minHeight: '50px',
-  zIndex: defaultTokens.orbit.zIndexOnTheTop,
+  zIndex: defaultTokens.zIndexOnTheTop,
 });
 
 const NavLink = styled.a(({ marginLeft }) => ({
