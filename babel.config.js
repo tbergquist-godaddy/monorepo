@@ -16,7 +16,7 @@ module.exports = function(api /*: ApiType */) {
   api.cache.forever();
 
   const presets = ['@kiwicom/babel-preset-kiwicom'];
-  const extraPlugins = [['styled-components', { ssr: true }]];
+  const extraPlugins = [];
 
   return {
     presets,
