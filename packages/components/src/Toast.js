@@ -27,9 +27,11 @@ type Props = {|
 
 export default function Toast({ message, onHide, timeout = 3000 }: Props) {
   React.useEffect(() => {
-    setTimeout(() => {
-      onHide();
-    }, timeout);
+    if (message != null && message !== '') {
+      setTimeout(() => {
+        onHide();
+      }, timeout);
+    }
   }, [message, onHide, timeout]);
 
   return <ToastContainer show={message != null}>{message}</ToastContainer>;
