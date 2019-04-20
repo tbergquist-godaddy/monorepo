@@ -1260,7 +1260,7 @@
     "@kiwicom/babel-plugin-orbit-components" "^1.2.0"
     babel-plugin-relay "^3.0.0"
 
-"@kiwicom/eslint-config@^3.1.2":
+"@kiwicom/eslint-config@^3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/eslint-config/-/eslint-config-3.4.0.tgz#a4c8b16cbe077ee929a0c7beb3cc26b0c791b3cd"
   integrity sha512-wwg3ssAZ6gQTqqqqLT4y8Z5aOCxKJfJB9+aZKvsN6pS8OvfxwKPyMcV/4NqqjRtez0M+wkr3Svs3ulMJI2JzkA==
