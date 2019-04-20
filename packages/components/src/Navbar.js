@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import { Container } from 'react-grid-system';
 import Link from 'next/link';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
-import { isLoggedIn } from '@tbergq/tvhelper-utils';
-import { TOKEN_KEY } from '@tbergq/tvhelper-relay';
 
 const Nav = styled.nav({
   backgroundColor: '#222',
@@ -19,7 +17,7 @@ const Nav = styled.nav({
   zIndex: defaultTokens.zIndexOnTheTop,
 });
 
-const NavLink = styled.a(({ marginLeft }) => ({
+export const NavLink = styled.a(({ marginLeft }) => ({
   color: '#e2e2e2',
   textDecoration: 'none',
   ':hover': {
@@ -44,39 +42,24 @@ const NavContainer = styled(Container)({
   display: 'flex',
 });
 
-const onLogout = () => {
-  localStorage.removeItem(TOKEN_KEY);
-};
+type Props = {|
+  +brand: React.Node,
+  +headerLeft?: React.Node,
+  +headerRight?: React.Node,
+|};
 
-export default function Navbar() {
-  const loggedIn = isLoggedIn();
+export default function Navbar(props: Props) {
   return (
     <Nav>
       <NavContainer>
         <Content>
           <div>
             <Link href="/">
-              <Brand href="/">Tvhelper</Brand>
+              <Brand href="/">{props.brand}</Brand>
             </Link>
-            {loggedIn && (
-              <Link href="/favorites">
-                <NavLink marginLeft="8px" href="/favorites">
-                  Favorites
-                </NavLink>
-              </Link>
-            )}
+            {props.headerLeft}
           </div>
-          {!loggedIn ? (
-            <Link href="/login">
-              <NavLink href="/login">login</NavLink>
-            </Link>
-          ) : (
-            <Link href="/">
-              <NavLink href="/" onClick={onLogout}>
-                logout
-              </NavLink>
-            </Link>
-          )}
+          <div>{props.headerRight}</div>
         </Content>
       </NavContainer>
     </Nav>
