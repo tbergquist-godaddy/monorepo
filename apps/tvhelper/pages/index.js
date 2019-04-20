@@ -1,9 +1,9 @@
 // @flow
 
 import * as React from 'react';
-import { Layout } from '@tbergq/tvhelper-components';
 import { withRouter, type Router } from 'next/router';
 
+import Layout from '../src/components/Layout';
 import SearchScene from '../src/search/SearchScene';
 
 type Props = {

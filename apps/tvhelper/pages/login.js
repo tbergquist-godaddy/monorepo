@@ -1,11 +1,12 @@
 // @flow
 
 import * as React from 'react';
-import { Layout, Row, Col } from '@tbergq/tvhelper-components';
+import { Row, Col } from '@tbergq/tvhelper-components';
 import { isLoggedIn } from '@tbergq/tvhelper-utils';
 import Router from 'next/router';
 import Link from 'next/link';
 
+import Layout from '../src/components/Layout';
 import LoginForm from '../src/login/LoginForm';
 
 export default function Login() {

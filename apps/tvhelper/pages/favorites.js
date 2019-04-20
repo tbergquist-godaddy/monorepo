@@ -1,10 +1,10 @@
 // @flow
 
 import * as React from 'react';
-import { Layout } from '@tbergq/tvhelper-components';
 import { isLoggedIn } from '@tbergq/tvhelper-utils';
 import Router from 'next/router';
 
+import Layout from '../src/components/Layout';
 import FavoriteQuery from '../src/favorites/FavoriteQuery';
 
 export default function Favorites() {

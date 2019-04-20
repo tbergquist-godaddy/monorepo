@@ -1,9 +1,10 @@
 // @flow
 
 import * as React from 'react';
-import { Layout, Row, Col } from '@tbergq/tvhelper-components';
+import { Row, Col } from '@tbergq/tvhelper-components';
 
 import SignupForm from '../src/signup/SignupForm';
+import Layout from '../src/components/Layout';
 
 export default function Signup() {
   return (
