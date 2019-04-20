@@ -1,52 +1,39 @@
 {
-  "name": "tvhelper",
+  "name": "@tbergq/web-monorepo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "yarn eslint .",
-    "dev": "next",
+    "lint": "yarn eslint . --report-unused-disable-directives",
     "flow": "flow --include-warnings",
     "graphql": "yarn babel-node packages/relay/scripts/getSchema.js",
     "relay": "yarn relay-compiler --src . --schema ./schema.graphql --verbose",
     "build": "next build",
     "start": "next start -p $PORT",
     "heroku-postbuild": "next build",
-    "test-ci": "yarn lint && yarn flow && yarn test"
+    "test-ci": "yarn lint && yarn flow && yarn test",
+    "now-build": "yarn workspace @tbergq/tvhelper build"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
-  "engines": {
-    "node": ">=11.6"
-  },
   "private": true,
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@tbergq/tvhelper-components": "^0",
-    "@tbergq/tvhelper-relay": "^0",
-    "@tbergq/tvhelper-utils": "^0",
-    "date-fns": "^1.30.1",
-    "next": "^8.1.0",
-    "next-transpile-modules": "^2.3.1",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "styled-components": "^4.1.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@kiwicom/babel-preset-kiwicom": "^2.6.2",
     "@kiwicom/eslint-config": "^3.1.2",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.2",
     "flow-bin": "^0.97.0",
     "jest": "^24.7.1",
+    "now": "^15.0.6",
     "react-test-renderer": "^16.8.6"
-  },
-  "peerDependencies": {
-    "react-icons": ""
   }
 }
