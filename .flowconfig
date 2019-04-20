@@ -12,6 +12,7 @@ unnecessary-optional-chain=error
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
+server.max_workers=4
 
 [strict]
 
