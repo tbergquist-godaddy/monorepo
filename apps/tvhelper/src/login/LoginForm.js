@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Input, Button } from '@tbergq/tvhelper-components';
+import { Input, Button, Toast } from '@tbergq/tvhelper-components';
 import styled from 'styled-components';
 import { TOKEN_KEY } from '@tbergq/tvhelper-relay';
 import Router from 'next/router';
@@ -19,6 +19,10 @@ export default function LoginForm() {
   const [username, changeUsername] = React.useState('');
   const [password, changePassword] = React.useState('');
   const [loading, changeLoading] = React.useState(false);
+  const [toastMessage, setToastMessage] = React.useState(null);
+  function onHide() {
+    setToastMessage(null);
+  }
   function onSubmit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     changeLoading(true);
@@ -34,7 +38,7 @@ export default function LoginForm() {
           localStorage.setItem(TOKEN_KEY, token);
           Router.push({ pathname: '/favorites' });
         } else {
-          alert('Login failed');
+          setToastMessage('Login failed');
         }
         changeLoading(false);
       },
@@ -42,19 +46,22 @@ export default function LoginForm() {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <Input label="Username" value={username} onChange={changeUsername} />
-      <Input
-        type="password"
-        label="Password"
-        value={password}
-        onChange={changePassword}
-      />
-      <ButtonWrapper>
-        <Button loading={loading} submit={true}>
-          Login
-        </Button>
-      </ButtonWrapper>
-    </form>
+    <>
+      <form onSubmit={onSubmit}>
+        <Input label="Username" value={username} onChange={changeUsername} />
+        <Input
+          type="password"
+          label="Password"
+          value={password}
+          onChange={changePassword}
+        />
+        <ButtonWrapper>
+          <Button loading={loading} submit={true}>
+            Login
+          </Button>
+        </ButtonWrapper>
+      </form>
+      <Toast message={toastMessage} onHide={onHide} />
+    </>
   );
 }
