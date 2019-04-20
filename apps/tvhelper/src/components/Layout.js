@@ -27,7 +27,7 @@ export default function Layout(props: Props) {
       </NavLink>
     </Link>
   ) : null;
-  const headerRight = loggedIn ? (
+  const headerRight = !loggedIn ? (
     <Link href="/login">
       <NavLink href="/login">login</NavLink>
     </Link>
