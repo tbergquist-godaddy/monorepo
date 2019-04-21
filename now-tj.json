@@ -1,19 +1,20 @@
 {
   "version": 2,
+  "name": "trainingjournal",
   "builds": [
     {
-      "src": "apps/tvhelper/next.config.js",
+      "src": "apps/trainingjournal/next.config.js",
       "use": "@now/next",
       "config": {
         "maxLambdaSize": "50mb"
       }
     }
   ],
-  "alias": "tvhelper.now.sh",
+  "alias": "trainingjournal.now.sh",
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/apps/tvhelper/$1"
+      "dest": "/apps/trainingjournal/$1"
     }
   ]
 }
