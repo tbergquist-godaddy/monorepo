@@ -6,6 +6,7 @@ export { default as Button } from './src/Button';
 export { default as Toast } from './src/Toast';
 export { default as Navbar } from './src/Navbar';
 export { NavLink } from './src/Navbar';
+export { default as LoginForm } from './src/loginForm/LoginForm';
 
 export { Container, Row, Col } from 'react-grid-system';
 export { default as ListItem } from '@kiwicom/orbit-components/lib/ListChoice';
