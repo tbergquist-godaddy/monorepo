@@ -13,7 +13,7 @@
     "start": "next start -p $PORT",
     "heroku-postbuild": "next build",
     "test-ci": "yarn lint && yarn flow && yarn test",
-    "now-build": "yarn workspace @tbergq/tvhelper build"
+    "now-build": "yarn workspace @tbergq/tvhelper build && yarn workspace @tbergq/trainingjournal build"
   },
   "workspaces": [
     "packages/*",
