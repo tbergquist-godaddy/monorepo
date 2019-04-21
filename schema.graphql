@@ -93,6 +93,7 @@ type RootMutation {
 
   """Toggle tv show from favorite list"""
   toggleFavorite(serieId: ID!, add: Boolean!): ToggleFavorite @deprecated(reason: "Use deleteFavorite and addFavorite instead")
+  trainingJournalLogin(username: String!, password: String!): LoginType
   tvHelperLogin(username: String!, password: String!): LoginType
 }
 
