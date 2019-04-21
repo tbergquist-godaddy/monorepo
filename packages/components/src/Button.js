@@ -11,6 +11,7 @@ type Props = {|
   +loading?: boolean,
   +circled?: boolean,
   +iconLeft?: React.Node,
+  +size?: 'normal' | 'small',
 |};
 
 export default function Button(props: Props) {
@@ -19,4 +20,5 @@ export default function Button(props: Props) {
 
 Button.defaultProps = {
   type: 'info',
+  size: 'normal',
 };
