@@ -1,30 +1,23 @@
 // @flow
 
 import * as React from 'react';
-import { Input, Button, Toast } from '@tbergq/tvhelper-components';
-import styled from 'styled-components';
+import {
+  LoginForm as CommonLoginForm,
+  Toast,
+} from '@tbergq/tvhelper-components';
 import { TOKEN_KEY } from '@tbergq/tvhelper-relay';
 import Router from 'next/router';
 
 import loginMutation from './mutation/LoginMutation';
 import type { LoginMutationResponse } from './mutation/__generated__/LoginMutation.graphql';
 
-const ButtonWrapper = styled.div({
-  display: 'flex',
-  justifyContent: 'flex-end',
-  marginTop: '8px',
-});
-
 export default function LoginForm() {
-  const [username, changeUsername] = React.useState('');
-  const [password, changePassword] = React.useState('');
   const [loading, changeLoading] = React.useState(false);
   const [toastMessage, setToastMessage] = React.useState(null);
   function onHide() {
     setToastMessage(null);
   }
-  function onSubmit(e: SyntheticEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function onSubmit(username, password) {
     changeLoading(true);
     loginMutation(
       {
@@ -47,20 +40,7 @@ export default function LoginForm() {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <Input label="Username" value={username} onChange={changeUsername} />
-        <Input
-          type="password"
-          label="Password"
-          value={password}
-          onChange={changePassword}
-        />
-        <ButtonWrapper>
-          <Button loading={loading} submit={true}>
-            Login
-          </Button>
-        </ButtonWrapper>
-      </form>
+      <CommonLoginForm onSubmit={onSubmit} loading={loading} />
       <Toast message={toastMessage} onHide={onHide} />
     </>
   );
