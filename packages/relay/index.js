@@ -3,6 +3,7 @@
 import {
   type RelayProp as _RelayProp,
   type RefetchRelayProp as _RefetchRelayProp,
+  type PaginationRelayProp as _PaginationRelayProp,
 } from '@kiwicom/relay';
 
 export {
@@ -15,7 +16,9 @@ export {
   createFragmentContainer,
   commitMutation,
   createRefetchContainer,
+  createPaginationContainer,
 } from '@kiwicom/relay';
 
 export type RelayProp = _RelayProp;
 export type RefetchRelayProp = _RefetchRelayProp;
+export type PaginationRelayProp = _PaginationRelayProp;

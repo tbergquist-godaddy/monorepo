@@ -71,6 +71,34 @@ type Person {
   image: TvHelperImage
 }
 
+type Program {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+}
+
+"""A connection to a list of items."""
+type ProgramConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [ProgramEdge]
+}
+
+"""An edge in a connection."""
+type ProgramEdge {
+  """The item at the end of the edge"""
+  node: Program
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
 type RangeDelete {
   success: Boolean
   id: ID
@@ -104,6 +132,7 @@ type RootQuery {
 
   """Get your favorites"""
   favorites(after: String, first: Int, before: String, last: Int, options: SortOptions = {sortDirection: ASC, sortBy: NAME}): TvShowConnection
+  programs(after: String, first: Int = 10, before: String, last: Int): ProgramConnection
 
   """Search for tv shows by name"""
   searchTvShow(query: String!, after: String, first: Int, before: String, last: Int): TvShowConnection
