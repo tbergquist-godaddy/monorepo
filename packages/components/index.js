@@ -19,3 +19,8 @@ export {
   TableCell,
 } from '@kiwicom/orbit-components/lib/Table';
 export { default as Loading } from '@kiwicom/orbit-components/lib/Loading';
+export {
+  default as Card,
+  CardSection,
+  CardSectionContent,
+} from '@kiwicom/orbit-components/lib/Card';
