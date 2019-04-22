@@ -10,6 +10,8 @@ export default function Index() {
   React.useEffect(() => {
     if (!isLoggedIn(false)) {
       Router.push('/login');
+    } else {
+      Router.push('/home');
     }
   }, []);
   return (

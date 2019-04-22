@@ -20,7 +20,7 @@ export default function LoginScene() {
         const token = res?.trainingJournalLogin?.token;
         if (success && token) {
           localStorage.setItem(TOKEN_KEY, token);
-          Router.push('/');
+          Router.push('/home');
         } else {
           setToastMessage('Wrong username or password');
         }
