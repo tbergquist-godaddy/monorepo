@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 4347d556c95db75c5a07a80c0d85890d
+ * @relayHash 52b8b5d334a1b5d1ab6f69a339a5b9c2
  */
 
 /* eslint-disable */
@@ -44,6 +44,7 @@ fragment ProgramList_programs on RootQuery {
 }
 
 fragment ProgramItem_program on Program {
+  id
   name
 }
 */
@@ -179,7 +180,7 @@ return {
     "operationKind": "query",
     "name": "ProgramsQuery",
     "id": null,
-    "text": "query ProgramsQuery {\n  ...ProgramList_programs\n}\n\nfragment ProgramList_programs on RootQuery {\n  programs(first: 10) {\n    edges {\n      node {\n        id\n        ...ProgramItem_program\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment ProgramItem_program on Program {\n  name\n}\n",
+    "text": "query ProgramsQuery {\n  ...ProgramList_programs\n}\n\nfragment ProgramList_programs on RootQuery {\n  programs(first: 10) {\n    edges {\n      node {\n        id\n        ...ProgramItem_program\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment ProgramItem_program on Program {\n  id\n  name\n}\n",
     "metadata": {}
   }
 };

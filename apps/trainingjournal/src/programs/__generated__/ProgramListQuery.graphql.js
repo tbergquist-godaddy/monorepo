@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 48b9cbe6ce8f344885b860c86bf1c0d2
+ * @relayHash ca01b1a842dcd043a449b7849d607377
  */
 
 /* eslint-disable */
@@ -50,6 +50,7 @@ fragment ProgramList_programs_3r7Ke1 on RootQuery {
 }
 
 fragment ProgramItem_program on Program {
+  id
   name
 }
 */
@@ -218,7 +219,7 @@ return {
     "operationKind": "query",
     "name": "ProgramListQuery",
     "id": null,
-    "text": "query ProgramListQuery(\n  $first: Int!\n  $after: String\n) {\n  ...ProgramList_programs_3r7Ke1\n}\n\nfragment ProgramList_programs_3r7Ke1 on RootQuery {\n  programs(first: $first, after: $after) {\n    edges {\n      node {\n        id\n        ...ProgramItem_program\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment ProgramItem_program on Program {\n  name\n}\n",
+    "text": "query ProgramListQuery(\n  $first: Int!\n  $after: String\n) {\n  ...ProgramList_programs_3r7Ke1\n}\n\nfragment ProgramList_programs_3r7Ke1 on RootQuery {\n  programs(first: $first, after: $after) {\n    edges {\n      node {\n        id\n        ...ProgramItem_program\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment ProgramItem_program on Program {\n  id\n  name\n}\n",
     "metadata": {}
   }
 };
