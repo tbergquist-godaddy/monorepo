@@ -15,7 +15,9 @@
     "styled-components": "^4.1.3"
   },
   "peerDependencies": {
-    "react-icons": ""
+    "react-icons": "",
+    "@kiwicom/orbit-design-tokens": "",
+    "react-test-renderer": ""
   },
   "scripts": {
     "dev": "next",

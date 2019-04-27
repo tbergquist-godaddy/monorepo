@@ -8,6 +8,19 @@ type AddFavorite {
   tvShow: TvShowNode
 }
 
+type BaseExercise {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+  videoLink: String
+  description: String
+  muscleGroup: MuscleGroup
+}
+
 type Cast {
   id: ID
   person: Person
@@ -24,6 +37,35 @@ outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
 representation of dates and times using the Gregorian calendar.
 """
 scalar Date
+
+type Day {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+  exercises(after: String, first: Int, before: String, last: Int): ExerciseConnection
+}
+
+"""A connection to a list of items."""
+type DayConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [DayEdge]
+}
+
+"""An edge in a connection."""
+type DayEdge {
+  """The item at the end of the edge"""
+  node: Day
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
 
 """Episodes of the tv show"""
 type Episode {
@@ -45,9 +87,51 @@ type EpisodeWatched {
   episode: Episode
 }
 
+type Exercise {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+  set: String
+  reps: String
+  breakTime: String
+  baseExercise: BaseExercise
+}
+
+"""A connection to a list of items."""
+type ExerciseConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [ExerciseEdge]
+}
+
+"""An edge in a connection."""
+type ExerciseEdge {
+  """The item at the end of the edge"""
+  node: Exercise
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
 type LoginType {
   token: String
   success: Boolean
+}
+
+type MuscleGroup {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
 }
 
 """Information about pagination in a connection."""
@@ -79,6 +163,7 @@ type Program {
   """
   id(opaque: Boolean = true): ID!
   name: String
+  weeks(after: String, first: Int, before: String, last: Int): WeekConnection
 }
 
 """A connection to a list of items."""
@@ -132,6 +217,7 @@ type RootQuery {
 
   """Get your favorites"""
   favorites(after: String, first: Int, before: String, last: Int, options: SortOptions = {sortDirection: ASC, sortBy: NAME}): TvShowConnection
+  program(programId: ID!): Program
   programs(after: String, first: Int = 10, before: String, last: Int): ProgramConnection
 
   """Search for tv shows by name"""
@@ -205,4 +291,33 @@ type TvShowEdge {
 
 type TvShowNode {
   node: TvShow
+}
+
+type Week {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+  days(after: String, first: Int, before: String, last: Int): DayConnection
+}
+
+"""A connection to a list of items."""
+type WeekConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [WeekEdge]
+}
+
+"""An edge in a connection."""
+type WeekEdge {
+  """The item at the end of the edge"""
+  node: Week
+
+  """A cursor for use in pagination"""
+  cursor: String!
 }
