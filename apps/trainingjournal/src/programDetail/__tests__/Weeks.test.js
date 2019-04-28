@@ -7,10 +7,11 @@ import { Weeks } from '../Weeks';
 
 const renderer = new ShallowRenderer();
 const $refType: any = null;
+const $fragmentRefs: any = null;
 
 const program = {
   weeks: {
-    edges: [{ node: { id: 'id', name: 'week name' } }],
+    edges: [{ node: { id: 'id', $fragmentRefs } }],
   },
   $refType,
 };
@@ -18,9 +19,17 @@ const program = {
 it('renders', () => {
   expect(renderer.render(<Weeks program={program} />)).toMatchInlineSnapshot(`
     <div>
-      <div>
-        week name
-      </div>
+      <React.Fragment>
+        <ForwardRef(Relay(Week))
+          week={
+            Object {
+              "$fragmentRefs": null,
+              "id": "id",
+            }
+          }
+        />
+        <ForwardRef />
+      </React.Fragment>
     </div>
   `);
 });

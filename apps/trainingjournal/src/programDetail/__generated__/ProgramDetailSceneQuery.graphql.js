@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 19d7c992d5e470b11b25f43af44ed908
+ * @relayHash 01555ecbe1b7db5f7295c206d133e43b
  */
 
 /* eslint-disable */
@@ -45,10 +45,14 @@ fragment Weeks_program on Program {
     edges {
       node {
         id
-        name
+        ...Week_week
       }
     }
   }
+}
+
+fragment Week_week on Week {
+  name
 }
 */
 
@@ -169,7 +173,7 @@ return {
     "operationKind": "query",
     "name": "ProgramDetailSceneQuery",
     "id": null,
-    "text": "query ProgramDetailSceneQuery(\n  $programId: ID!\n) {\n  program(programId: $programId) {\n    ...Program_program\n    id\n  }\n}\n\nfragment Program_program on Program {\n  name\n  ...Weeks_program\n}\n\nfragment Weeks_program on Program {\n  weeks {\n    edges {\n      node {\n        id\n        name\n      }\n    }\n  }\n}\n",
+    "text": "query ProgramDetailSceneQuery(\n  $programId: ID!\n) {\n  program(programId: $programId) {\n    ...Program_program\n    id\n  }\n}\n\nfragment Program_program on Program {\n  name\n  ...Weeks_program\n}\n\nfragment Weeks_program on Program {\n  weeks {\n    edges {\n      node {\n        id\n        ...Week_week\n      }\n    }\n  }\n}\n\nfragment Week_week on Week {\n  name\n}\n",
     "metadata": {}
   }
 };
