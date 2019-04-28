@@ -2,8 +2,15 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
+import styled from 'styled-components';
+import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
 import type { Weeks_program as ProgramType } from './__generated__/Weeks_program.graphql';
+import Week from './Week';
+
+const Separator = styled.div({
+  marginBottom: defaultTokens.spaceXSmall,
+});
 
 type Props = {|
   +program: ?ProgramType,
@@ -14,7 +21,10 @@ export const Weeks = (props: Props) => {
   return (
     <div>
       {weeks.map(week => (
-        <div key={week?.node?.id}>{week?.node?.name}</div>
+        <React.Fragment key={week?.node?.id}>
+          <Week week={week?.node} />
+          <Separator />
+        </React.Fragment>
       ))}
     </div>
   );
@@ -27,7 +37,7 @@ export default createFragmentContainer(Weeks, {
         edges {
           node {
             id
-            name
+            ...Week_week
           }
         }
       }

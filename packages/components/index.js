@@ -23,4 +23,6 @@ export {
   default as Card,
   CardSection,
   CardSectionContent,
+  CardHeader,
+  CardSectionHeader,
 } from '@kiwicom/orbit-components/lib/Card';
