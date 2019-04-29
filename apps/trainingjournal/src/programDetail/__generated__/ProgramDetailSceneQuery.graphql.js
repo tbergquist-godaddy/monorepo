@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 01555ecbe1b7db5f7295c206d133e43b
+ * @relayHash 528eaea1e3ea5c084755eb01a2ea0497
  */
 
 /* eslint-disable */
@@ -52,6 +52,22 @@ fragment Weeks_program on Program {
 }
 
 fragment Week_week on Week {
+  ...Days_week
+  name
+}
+
+fragment Days_week on Week {
+  days {
+    edges {
+      node {
+        id
+        ...Day_day
+      }
+    }
+  }
+}
+
+fragment Day_day on Day {
   name
 }
 */
@@ -157,6 +173,41 @@ return {
                     "plural": false,
                     "selections": [
                       (v3/*: any*/),
+                      {
+                        "kind": "LinkedField",
+                        "alias": null,
+                        "name": "days",
+                        "storageKey": null,
+                        "args": null,
+                        "concreteType": "DayConnection",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "kind": "LinkedField",
+                            "alias": null,
+                            "name": "edges",
+                            "storageKey": null,
+                            "args": null,
+                            "concreteType": "DayEdge",
+                            "plural": true,
+                            "selections": [
+                              {
+                                "kind": "LinkedField",
+                                "alias": null,
+                                "name": "node",
+                                "storageKey": null,
+                                "args": null,
+                                "concreteType": "Day",
+                                "plural": false,
+                                "selections": [
+                                  (v3/*: any*/),
+                                  (v2/*: any*/)
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
                       (v2/*: any*/)
                     ]
                   }
@@ -173,7 +224,7 @@ return {
     "operationKind": "query",
     "name": "ProgramDetailSceneQuery",
     "id": null,
-    "text": "query ProgramDetailSceneQuery(\n  $programId: ID!\n) {\n  program(programId: $programId) {\n    ...Program_program\n    id\n  }\n}\n\nfragment Program_program on Program {\n  name\n  ...Weeks_program\n}\n\nfragment Weeks_program on Program {\n  weeks {\n    edges {\n      node {\n        id\n        ...Week_week\n      }\n    }\n  }\n}\n\nfragment Week_week on Week {\n  name\n}\n",
+    "text": "query ProgramDetailSceneQuery(\n  $programId: ID!\n) {\n  program(programId: $programId) {\n    ...Program_program\n    id\n  }\n}\n\nfragment Program_program on Program {\n  name\n  ...Weeks_program\n}\n\nfragment Weeks_program on Program {\n  weeks {\n    edges {\n      node {\n        id\n        ...Week_week\n      }\n    }\n  }\n}\n\nfragment Week_week on Week {\n  ...Days_week\n  name\n}\n\nfragment Days_week on Week {\n  days {\n    edges {\n      node {\n        id\n        ...Day_day\n      }\n    }\n  }\n}\n\nfragment Day_day on Day {\n  name\n}\n",
     "metadata": {}
   }
 };

@@ -7,10 +7,12 @@ import { Week } from '../Week';
 
 const renderer = new ShallowRenderer();
 const $refType: any = null;
+const $fragmentRefs: any = null;
 
 const week = {
   name: 'Week name',
   $refType,
+  $fragmentRefs,
 };
 
 it('renders', () => {
@@ -24,9 +26,15 @@ it('renders', () => {
           Week name
         </CardSectionHeader>
         <CardSectionContent>
-          <div>
-            todo
-          </div>
+          <ForwardRef(Relay(Days))
+            week={
+              Object {
+                "$fragmentRefs": null,
+                "$refType": null,
+                "name": "Week name",
+              }
+            }
+          />
         </CardSectionContent>
       </CardSection>
     </Card>
