@@ -10,6 +10,7 @@ import {
 } from '@tbergq/tvhelper-components';
 
 import type { Week_week as WeekType } from './__generated__/Week_week.graphql';
+import Days from './Days';
 
 type Props = {|
   +week: ?WeekType,
@@ -22,7 +23,7 @@ export const Week = (props: Props) => {
       <CardSection expandable={true} initialExpanded={false}>
         <CardSectionHeader>{name}</CardSectionHeader>
         <CardSectionContent>
-          <div>todo</div>
+          <Days week={props.week} />
         </CardSectionContent>
       </CardSection>
     </Card>
@@ -32,6 +33,7 @@ export const Week = (props: Props) => {
 export default createFragmentContainer(Week, {
   week: graphql`
     fragment Week_week on Week {
+      ...Days_week
       name
     }
   `,
