@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Days 1`] = `
+<div>
+  <div
+    className="sc-bdVaJa eznQCp"
+  >
+    <div>
+      &lt;mock-value-for-field-"name"&gt;
+    </div>
+  </div>
+</div>
+`;

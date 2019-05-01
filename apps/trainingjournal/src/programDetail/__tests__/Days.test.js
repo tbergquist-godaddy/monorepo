@@ -1,34 +1,40 @@
 // @flow
 
 import * as React from 'react';
-import ShallowRenderer from 'react-test-renderer/shallow';
+import { QueryRenderer, graphql } from '@kiwicom/relay';
+import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
+import { create } from 'react-test-renderer';
 
-import { Days } from '../Days';
+import Days from '../Days';
 
-const renderer = new ShallowRenderer();
-const $refType: any = null;
-const $fragmentRefs: any = null;
+const renderInner = props => <Days week={props.program.weeks.edges[0].node} />;
 
-const week = {
-  days: {
-    edges: [{ node: { id: '1', $fragmentRefs } }],
-  },
-  $refType,
-};
-
-it('renders', () => {
-  expect(renderer.render(<Days week={week} />)).toMatchInlineSnapshot(`
-    <div>
-      <ForwardRef>
-        <ForwardRef(Relay(Day))
-          day={
-            Object {
-              "$fragmentRefs": null,
-              "id": "1",
+test('Days', () => {
+  const environment = createMockEnvironment();
+  const TestRenderer = () => (
+    <QueryRenderer
+      environment={environment}
+      query={graphql`
+        query DaysQuery @relay_test_operation {
+          program(programId: "123") {
+            weeks {
+              edges {
+                node {
+                  ...Days_week
+                }
+              }
             }
           }
-        />
-      </ForwardRef>
-    </div>
-  `);
+        }
+      `}
+      variables={{}}
+      onResponse={renderInner}
+    />
+  );
+  const renderer = create(<TestRenderer />);
+  environment.mock.resolveMostRecentOperation(operation =>
+    MockPayloadGenerator.generate(operation),
+  );
+
+  expect(renderer).toMatchSnapshot();
 });

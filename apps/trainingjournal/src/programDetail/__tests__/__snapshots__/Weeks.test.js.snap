@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Weeks 1`] = `
+<div>
+  <div
+    className="Card__StyledCard-ff0z2v-1 ebswgY"
+  >
+    <div
+      className="Card__StyledChildWrapper-ff0z2v-0 jzawZG"
+    >
+      <div
+        className="CardSection__StyledCardSection-o8zdxr-2 dVGchG"
+      >
+        <div
+          aria-expanded={false}
+          className="CardSectionHeader__StyledCardSectionHeader-sc-1gmw3sa-1 fzMVvy"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          <div
+            className="CardSectionHeader__StyledCardSectionHeaderContent-sc-1gmw3sa-3 lcnsxe"
+          >
+            &lt;mock-value-for-field-"name"&gt;
+          </div>
+          <svg
+            className="CardSectionHeader__StyledCardSectionIconRight-sc-1gmw3sa-0 dtdYCR Icon__StyledIcon-sc-1pnzn3g-0 gsgdYz"
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            />
+          </svg>
+        </div>
+        <div
+          className="CardSectionContent__StyledCardSectionContent-sc-1mj8dfx-0 leDSYY"
+        >
+          <div
+            className="Slide__StyledSlide-sc-1xbmdp2-0 chjGAw"
+          >
+            <div>
+              <div>
+                <div
+                  className="sc-VigVT iPwdqm"
+                >
+                  <div>
+                    &lt;mock-value-for-field-"name"&gt;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-jTzLTM cvLfZx"
+  />
+</div>
+`;
