@@ -15,5 +15,8 @@
       "src": "/(.*)",
       "dest": "/apps/tvhelper/$1"
     }
-  ]
+  ],
+  "engines": {
+    "node": "^11"
+  }
 }

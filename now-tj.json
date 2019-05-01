@@ -16,5 +16,8 @@
       "src": "/(.*)",
       "dest": "/apps/trainingjournal/$1"
     }
-  ]
+  ],
+  "engines": {
+    "node": "^11"
+  }
 }

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "lint": "yarn eslint . --report-unused-disable-directives",
+    "test": "monorepo-run-tests",
+    "lint": "yarn jest --config=.jest-eslint.config.js",
     "flow": "flow --include-warnings",
     "graphql": "yarn babel-node packages/relay/scripts/getSchema.js",
     "heroku-postbuild": "next build",
@@ -26,6 +26,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@kiwicom/babel-preset-kiwicom": "^2.8.0",
     "@kiwicom/eslint-config": "^4.0.1",
+    "@kiwicom/monorepo": "^0.20.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.2",
     "flow-bin": "^0.98.0",
