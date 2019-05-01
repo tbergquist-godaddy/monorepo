@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 3f07bc068c0d65dd702bac227131ab68
+ * @relayHash d1ca447e7fcd155db540fedb5cb7a93a
  */
 
 /* eslint-disable */
@@ -69,6 +69,17 @@ fragment Days_week on Week {
 
 fragment Day_day on Day {
   name
+  exercises {
+    edges {
+      node {
+        id
+        baseExercise {
+          name
+          id
+        }
+      }
+    }
+  }
 }
 */
 
@@ -200,7 +211,54 @@ return {
                                 "plural": false,
                                 "selections": [
                                   (v3/*: any*/),
-                                  (v2/*: any*/)
+                                  (v2/*: any*/),
+                                  {
+                                    "kind": "LinkedField",
+                                    "alias": null,
+                                    "name": "exercises",
+                                    "storageKey": null,
+                                    "args": null,
+                                    "concreteType": "ExerciseConnection",
+                                    "plural": false,
+                                    "selections": [
+                                      {
+                                        "kind": "LinkedField",
+                                        "alias": null,
+                                        "name": "edges",
+                                        "storageKey": null,
+                                        "args": null,
+                                        "concreteType": "ExerciseEdge",
+                                        "plural": true,
+                                        "selections": [
+                                          {
+                                            "kind": "LinkedField",
+                                            "alias": null,
+                                            "name": "node",
+                                            "storageKey": null,
+                                            "args": null,
+                                            "concreteType": "Exercise",
+                                            "plural": false,
+                                            "selections": [
+                                              (v3/*: any*/),
+                                              {
+                                                "kind": "LinkedField",
+                                                "alias": null,
+                                                "name": "baseExercise",
+                                                "storageKey": null,
+                                                "args": null,
+                                                "concreteType": "BaseExercise",
+                                                "plural": false,
+                                                "selections": [
+                                                  (v2/*: any*/),
+                                                  (v3/*: any*/)
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
                                 ]
                               }
                             ]
@@ -223,7 +281,7 @@ return {
     "operationKind": "query",
     "name": "ProgramDetailSceneQuery",
     "id": null,
-    "text": "query ProgramDetailSceneQuery(\n  $programId: ID!\n) {\n  program(programId: $programId) {\n    ...Program_program\n    id\n  }\n}\n\nfragment Program_program on Program {\n  name\n  ...Weeks_program\n}\n\nfragment Weeks_program on Program {\n  weeks {\n    edges {\n      node {\n        id\n        ...Week_week\n      }\n    }\n  }\n}\n\nfragment Week_week on Week {\n  ...Days_week\n  name\n}\n\nfragment Days_week on Week {\n  days {\n    edges {\n      node {\n        id\n        ...Day_day\n      }\n    }\n  }\n}\n\nfragment Day_day on Day {\n  name\n}\n",
+    "text": "query ProgramDetailSceneQuery(\n  $programId: ID!\n) {\n  program(programId: $programId) {\n    ...Program_program\n    id\n  }\n}\n\nfragment Program_program on Program {\n  name\n  ...Weeks_program\n}\n\nfragment Weeks_program on Program {\n  weeks {\n    edges {\n      node {\n        id\n        ...Week_week\n      }\n    }\n  }\n}\n\nfragment Week_week on Week {\n  ...Days_week\n  name\n}\n\nfragment Days_week on Week {\n  days {\n    edges {\n      node {\n        id\n        ...Day_day\n      }\n    }\n  }\n}\n\nfragment Day_day on Day {\n  name\n  exercises {\n    edges {\n      node {\n        id\n        baseExercise {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

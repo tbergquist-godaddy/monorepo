@@ -1,7 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Fragment Container 1`] = `
-<div>
-  lol
+exports[`Day 1`] = `
+<div
+  className="sc-VigVT jrGaHV"
+>
+  <h3
+    className="Heading__StyledHeading-sc-1b8cso5-0 kyjUks"
+  >
+    <a
+      href="/todo"
+      onClick={[Function]}
+    >
+      Day name
+    </a>
+  </h3>
+  <div>
+    &lt;mock-value-for-field-"name"&gt;
+  </div>
 </div>
 `;

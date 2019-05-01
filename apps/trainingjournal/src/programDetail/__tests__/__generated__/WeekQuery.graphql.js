@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 4f1c3481b47aa3b0195d17fdc2c5ecd7
+ * @relayHash 095e6be454aaa56002fee94d8ee8fadd
  */
 
 /* eslint-disable */
@@ -62,6 +62,17 @@ fragment Days_week on Week {
 
 fragment Day_day on Day {
   name
+  exercises {
+    edges {
+      node {
+        id
+        baseExercise {
+          name
+          id
+        }
+      }
+    }
+  }
 }
 */
 
@@ -98,6 +109,12 @@ v4 = {
   "enumValues": null,
   "plural": false,
   "nullable": true
+},
+v5 = {
+  "type": "ID",
+  "enumValues": null,
+  "plural": false,
+  "nullable": false
 };
 return {
   "kind": "Request",
@@ -228,7 +245,54 @@ return {
                                 "plural": false,
                                 "selections": [
                                   (v1/*: any*/),
-                                  (v2/*: any*/)
+                                  (v2/*: any*/),
+                                  {
+                                    "kind": "LinkedField",
+                                    "alias": null,
+                                    "name": "exercises",
+                                    "storageKey": null,
+                                    "args": null,
+                                    "concreteType": "ExerciseConnection",
+                                    "plural": false,
+                                    "selections": [
+                                      {
+                                        "kind": "LinkedField",
+                                        "alias": null,
+                                        "name": "edges",
+                                        "storageKey": null,
+                                        "args": null,
+                                        "concreteType": "ExerciseEdge",
+                                        "plural": true,
+                                        "selections": [
+                                          {
+                                            "kind": "LinkedField",
+                                            "alias": null,
+                                            "name": "node",
+                                            "storageKey": null,
+                                            "args": null,
+                                            "concreteType": "Exercise",
+                                            "plural": false,
+                                            "selections": [
+                                              (v1/*: any*/),
+                                              {
+                                                "kind": "LinkedField",
+                                                "alias": null,
+                                                "name": "baseExercise",
+                                                "storageKey": null,
+                                                "args": null,
+                                                "concreteType": "BaseExercise",
+                                                "plural": false,
+                                                "selections": [
+                                                  (v2/*: any*/),
+                                                  (v1/*: any*/)
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
                                 ]
                               }
                             ]
@@ -252,7 +316,7 @@ return {
     "operationKind": "query",
     "name": "WeekQuery",
     "id": null,
-    "text": "query WeekQuery {\n  program(programId: \"123\") {\n    weeks {\n      edges {\n        node {\n          ...Week_week\n          id\n        }\n      }\n    }\n    id\n  }\n}\n\nfragment Week_week on Week {\n  ...Days_week\n  name\n}\n\nfragment Days_week on Week {\n  days {\n    edges {\n      node {\n        id\n        ...Day_day\n      }\n    }\n  }\n}\n\nfragment Day_day on Day {\n  name\n}\n",
+    "text": "query WeekQuery {\n  program(programId: \"123\") {\n    weeks {\n      edges {\n        node {\n          ...Week_week\n          id\n        }\n      }\n    }\n    id\n  }\n}\n\nfragment Week_week on Week {\n  ...Days_week\n  name\n}\n\nfragment Days_week on Week {\n  days {\n    edges {\n      node {\n        id\n        ...Day_day\n      }\n    }\n  }\n}\n\nfragment Day_day on Day {\n  name\n  exercises {\n    edges {\n      node {\n        id\n        baseExercise {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "program": {
@@ -300,13 +364,35 @@ return {
           "plural": false,
           "nullable": true
         },
-        "program.weeks.edges.node.days.edges.node.id": {
-          "type": "ID",
+        "program.weeks.edges.node.days.edges.node.id": (v5/*: any*/),
+        "program.weeks.edges.node.days.edges.node.name": (v4/*: any*/),
+        "program.weeks.edges.node.days.edges.node.exercises": {
+          "type": "ExerciseConnection",
           "enumValues": null,
           "plural": false,
-          "nullable": false
+          "nullable": true
         },
-        "program.weeks.edges.node.days.edges.node.name": (v4/*: any*/)
+        "program.weeks.edges.node.days.edges.node.exercises.edges": {
+          "type": "ExerciseEdge",
+          "enumValues": null,
+          "plural": true,
+          "nullable": true
+        },
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node": {
+          "type": "Exercise",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.id": (v5/*: any*/),
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise": {
+          "type": "BaseExercise",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise.name": (v4/*: any*/),
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise.id": (v3/*: any*/)
       }
     }
   }

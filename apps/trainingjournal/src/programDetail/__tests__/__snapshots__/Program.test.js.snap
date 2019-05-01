@@ -8,7 +8,7 @@ exports[`Program 1`] = `
     Program name
   </h1>
   <div
-    className="sc-fjdhpX iKiItj"
+    className="sc-jzJRlG gwmmR"
   >
     <div>
       <div
@@ -52,10 +52,24 @@ exports[`Program 1`] = `
                 <div>
                   <div>
                     <div
-                      className="sc-VigVT iPwdqm"
+                      className="sc-jTzLTM fRbprf"
                     >
-                      <div>
-                        &lt;mock-value-for-field-"name"&gt;
+                      <div
+                        className="sc-VigVT jrGaHV"
+                      >
+                        <h3
+                          className="Heading__StyledHeading-sc-1b8cso5-0 kyjUks"
+                        >
+                          <a
+                            href="/todo"
+                            onClick={[Function]}
+                          >
+                            &lt;mock-value-for-field-"name"&gt;
+                          </a>
+                        </h3>
+                        <div>
+                          &lt;mock-value-for-field-"name"&gt;
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -66,7 +80,7 @@ exports[`Program 1`] = `
         </div>
       </div>
       <div
-        className="sc-jTzLTM cvLfZx"
+        className="sc-fjdhpX fSDCGo"
       />
     </div>
   </div>

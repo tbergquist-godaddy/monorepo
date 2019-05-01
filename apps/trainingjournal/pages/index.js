@@ -16,7 +16,8 @@ export default function Index() {
   }, []);
   return (
     <Layout>
-      <div>test</div>
+      <div>This page is not yet finished</div>
+      <div>You are being redirected soon...</div>
     </Layout>
   );
 }
