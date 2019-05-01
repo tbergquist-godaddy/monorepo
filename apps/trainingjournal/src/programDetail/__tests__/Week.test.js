@@ -1,42 +1,42 @@
 // @flow
 
 import * as React from 'react';
-import ShallowRenderer from 'react-test-renderer/shallow';
+import { QueryRenderer, graphql } from '@kiwicom/relay';
+import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
+import { create } from 'react-test-renderer';
 
-import { Week } from '../Week';
+import Week from '../Week';
 
-const renderer = new ShallowRenderer();
-const $refType: any = null;
-const $fragmentRefs: any = null;
+const renderInner = props => <Week week={props.program.weeks.edges[0].node} />;
 
-const week = {
-  name: 'Week name',
-  $refType,
-  $fragmentRefs,
-};
-
-it('renders', () => {
-  expect(renderer.render(<Week week={week} />)).toMatchInlineSnapshot(`
-    <Card>
-      <CardSection
-        expandable={true}
-        initialExpanded={false}
-      >
-        <CardSectionHeader>
-          Week name
-        </CardSectionHeader>
-        <CardSectionContent>
-          <ForwardRef(Relay(Days))
-            week={
-              Object {
-                "$fragmentRefs": null,
-                "$refType": null,
-                "name": "Week name",
+test('Week', () => {
+  const environment = createMockEnvironment();
+  const TestRenderer = () => (
+    <QueryRenderer
+      environment={environment}
+      query={graphql`
+        query WeekQuery @relay_test_operation {
+          program(programId: "123") {
+            weeks {
+              edges {
+                node {
+                  ...Week_week
+                }
               }
             }
-          />
-        </CardSectionContent>
-      </CardSection>
-    </Card>
-  `);
+          }
+        }
+      `}
+      variables={{}}
+      onResponse={renderInner}
+    />
+  );
+  const renderer = create(<TestRenderer />);
+  environment.mock.resolveMostRecentOperation(operation =>
+    MockPayloadGenerator.generate(operation, {
+      Week: () => ({ name: 'Week name' }),
+    }),
+  );
+
+  expect(renderer).toMatchSnapshot();
 });
