@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { Row, Col } from '@tbergq/tvhelper-components';
-import { isLoggedIn } from '@tbergq/tvhelper-utils';
+import { Row, Col } from '@tbergq/components';
+import { isLoggedIn } from '@tbergq/utils';
 import Router from 'next/router';
 import Link from 'next/link';
 

@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@tbergq/tvhelper-components": "^0",
-    "@tbergq/tvhelper-relay": "^0",
-    "@tbergq/tvhelper-utils": "^0",
+    "@tbergq/components": "^0",
+    "@tbergq/relay": "^0",
+    "@tbergq/utils": "^0",
     "date-fns": "^1.30.1",
     "next": "^8.1.0",
     "next-plugin-custom-babel-config": "^1.0.0",

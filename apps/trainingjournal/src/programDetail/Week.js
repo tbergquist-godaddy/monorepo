@@ -1,13 +1,13 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
 import {
   Card,
   CardSection,
   CardSectionContent,
   CardSectionHeader,
-} from '@tbergq/tvhelper-components';
+} from '@tbergq/components';
 
 import type { Week_week as WeekType } from './__generated__/Week_week.graphql';
 import Days from './Days';

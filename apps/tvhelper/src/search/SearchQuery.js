@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { QueryRenderer, graphql } from '@tbergq/tvhelper-relay';
+import { QueryRenderer, graphql } from '@tbergq/relay';
 
 import type { SearchQueryResponse } from './__generated__/SearchQuery.graphql';
 import SearchResults from './searchResults/SearchResults';

@@ -5,8 +5,8 @@ import {
   graphql,
   createPaginationContainer,
   type PaginationRelayProp,
-} from '@tbergq/tvhelper-relay';
-import { Button } from '@tbergq/tvhelper-components';
+} from '@tbergq/relay';
+import { Button } from '@tbergq/components';
 
 import type { ProgramList_programs as Programs } from './__generated__/ProgramList_programs.graphql';
 import ProgramItem from './ProgramItem';

@@ -5,8 +5,8 @@ import {
   graphql,
   createFragmentContainer,
   type RelayProp,
-} from '@tbergq/tvhelper-relay';
-import { Button } from '@tbergq/tvhelper-components';
+} from '@tbergq/relay';
+import { Button } from '@tbergq/components';
 import styled from 'styled-components';
 import { MdFavorite } from 'react-icons/md';
 

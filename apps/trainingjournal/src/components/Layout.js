@@ -1,14 +1,10 @@
 // @flow
 
 import * as React from 'react';
-import {
-  Layout as PageLayout,
-  Navbar,
-  NavLink,
-} from '@tbergq/tvhelper-components';
-import { isLoggedIn } from '@tbergq/tvhelper-utils';
+import { Layout as PageLayout, Navbar, NavLink } from '@tbergq/components';
+import { isLoggedIn } from '@tbergq/utils';
 import Link from 'next/link';
-import { TOKEN_KEY } from '@tbergq/tvhelper-relay';
+import { TOKEN_KEY } from '@tbergq/relay';
 
 type Props = {|
   +children: React.Node,

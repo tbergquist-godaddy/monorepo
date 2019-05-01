@@ -1,6 +1,6 @@
 // @flow
 
-import { commitMutation, graphql, environment } from '@tbergq/tvhelper-relay';
+import { commitMutation, graphql, environment } from '@tbergq/relay';
 
 import type { createUserMutationVariables } from './__generated__/createUserMutation.graphql';
 

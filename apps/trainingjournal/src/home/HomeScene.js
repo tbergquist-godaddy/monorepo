@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Row, Col } from '@tbergq/tvhelper-components';
+import { Row, Col } from '@tbergq/components';
 import styled from 'styled-components';
 import { MdAssignment } from 'react-icons/md';
 

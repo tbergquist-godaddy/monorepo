@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
-import { Heading } from '@tbergq/tvhelper-components';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { Heading } from '@tbergq/components';
 import styled from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 

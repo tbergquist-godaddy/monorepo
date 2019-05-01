@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
-import { ListItem } from '@tbergq/tvhelper-components';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { ListItem } from '@tbergq/components';
 import Router from 'next/router';
 
 import type { SearchResultItem_tvShow as TvShow } from './__generated__/SearchResultItem_tvShow.graphql';

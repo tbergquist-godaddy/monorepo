@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
 
 import type { Day_day as DayType } from './__generated__/Day_day.graphql';
 

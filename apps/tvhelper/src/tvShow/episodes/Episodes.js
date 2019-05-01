@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
 
 import type { Episodes_episodes as EpisodeType } from './__generated__/Episodes_episodes.graphql';
 import Episode from './Episode';

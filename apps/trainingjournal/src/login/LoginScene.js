@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { LoginForm, Toast } from '@tbergq/tvhelper-components';
-import { TOKEN_KEY } from '@tbergq/tvhelper-relay';
+import { LoginForm, Toast } from '@tbergq/components';
+import { TOKEN_KEY } from '@tbergq/relay';
 import Router from 'next/router';
 
 import loginMutation from './mutation/trainingJournalLogin';

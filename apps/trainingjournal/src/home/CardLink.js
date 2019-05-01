@@ -1,11 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import {
-  Card,
-  CardSection,
-  CardSectionContent,
-} from '@tbergq/tvhelper-components';
+import { Card, CardSection, CardSectionContent } from '@tbergq/components';
 import Link from 'next/link';
 
 type Props = {|
