@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash d2ad81f081e542f064f25336518df958
+ * @relayHash 93f280b5c6c31b69fa028b5afeb09f73
  */
 
 /* eslint-disable */
@@ -59,6 +59,17 @@ query DayQuery {
 
 fragment Day_day on Day {
   name
+  exercises {
+    edges {
+      node {
+        id
+        baseExercise {
+          name
+          id
+        }
+      }
+    }
+  }
 }
 */
 
@@ -73,12 +84,25 @@ var v0 = [
 v1 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "id",
+  "name": "name",
   "args": null,
   "storageKey": null
 },
 v2 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v3 = {
   "type": "ID",
+  "enumValues": null,
+  "plural": false,
+  "nullable": true
+},
+v4 = {
+  "type": "String",
   "enumValues": null,
   "plural": false,
   "nullable": true
@@ -244,28 +268,69 @@ return {
                                 "concreteType": "Day",
                                 "plural": false,
                                 "selections": [
+                                  (v1/*: any*/),
                                   {
-                                    "kind": "ScalarField",
+                                    "kind": "LinkedField",
                                     "alias": null,
-                                    "name": "name",
+                                    "name": "exercises",
+                                    "storageKey": null,
                                     "args": null,
-                                    "storageKey": null
+                                    "concreteType": "ExerciseConnection",
+                                    "plural": false,
+                                    "selections": [
+                                      {
+                                        "kind": "LinkedField",
+                                        "alias": null,
+                                        "name": "edges",
+                                        "storageKey": null,
+                                        "args": null,
+                                        "concreteType": "ExerciseEdge",
+                                        "plural": true,
+                                        "selections": [
+                                          {
+                                            "kind": "LinkedField",
+                                            "alias": null,
+                                            "name": "node",
+                                            "storageKey": null,
+                                            "args": null,
+                                            "concreteType": "Exercise",
+                                            "plural": false,
+                                            "selections": [
+                                              (v2/*: any*/),
+                                              {
+                                                "kind": "LinkedField",
+                                                "alias": null,
+                                                "name": "baseExercise",
+                                                "storageKey": null,
+                                                "args": null,
+                                                "concreteType": "BaseExercise",
+                                                "plural": false,
+                                                "selections": [
+                                                  (v1/*: any*/),
+                                                  (v2/*: any*/)
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
                                   },
-                                  (v1/*: any*/)
+                                  (v2/*: any*/)
                                 ]
                               }
                             ]
                           }
                         ]
                       },
-                      (v1/*: any*/)
+                      (v2/*: any*/)
                     ]
                   }
                 ]
               }
             ]
           },
-          (v1/*: any*/)
+          (v2/*: any*/)
         ]
       }
     ]
@@ -274,7 +339,7 @@ return {
     "operationKind": "query",
     "name": "DayQuery",
     "id": null,
-    "text": "query DayQuery {\n  program(programId: \"123\") {\n    weeks {\n      edges {\n        node {\n          days {\n            edges {\n              node {\n                ...Day_day\n                id\n              }\n            }\n          }\n          id\n        }\n      }\n    }\n    id\n  }\n}\n\nfragment Day_day on Day {\n  name\n}\n",
+    "text": "query DayQuery {\n  program(programId: \"123\") {\n    weeks {\n      edges {\n        node {\n          days {\n            edges {\n              node {\n                ...Day_day\n                id\n              }\n            }\n          }\n          id\n        }\n      }\n    }\n    id\n  }\n}\n\nfragment Day_day on Day {\n  name\n  exercises {\n    edges {\n      node {\n        id\n        baseExercise {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "program": {
@@ -289,7 +354,7 @@ return {
           "plural": false,
           "nullable": true
         },
-        "program.id": (v2/*: any*/),
+        "program.id": (v3/*: any*/),
         "program.weeks.edges": {
           "type": "WeekEdge",
           "enumValues": null,
@@ -308,7 +373,7 @@ return {
           "plural": false,
           "nullable": true
         },
-        "program.weeks.edges.node.id": (v2/*: any*/),
+        "program.weeks.edges.node.id": (v3/*: any*/),
         "program.weeks.edges.node.days.edges": {
           "type": "DayEdge",
           "enumValues": null,
@@ -321,13 +386,40 @@ return {
           "plural": false,
           "nullable": true
         },
-        "program.weeks.edges.node.days.edges.node.id": (v2/*: any*/),
-        "program.weeks.edges.node.days.edges.node.name": {
-          "type": "String",
+        "program.weeks.edges.node.days.edges.node.id": (v3/*: any*/),
+        "program.weeks.edges.node.days.edges.node.name": (v4/*: any*/),
+        "program.weeks.edges.node.days.edges.node.exercises": {
+          "type": "ExerciseConnection",
           "enumValues": null,
           "plural": false,
           "nullable": true
-        }
+        },
+        "program.weeks.edges.node.days.edges.node.exercises.edges": {
+          "type": "ExerciseEdge",
+          "enumValues": null,
+          "plural": true,
+          "nullable": true
+        },
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node": {
+          "type": "Exercise",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.id": {
+          "type": "ID",
+          "enumValues": null,
+          "plural": false,
+          "nullable": false
+        },
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise": {
+          "type": "BaseExercise",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise.name": (v4/*: any*/),
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise.id": (v3/*: any*/)
       }
     }
   }

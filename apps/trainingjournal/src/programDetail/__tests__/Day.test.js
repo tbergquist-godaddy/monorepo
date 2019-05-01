@@ -11,7 +11,7 @@ const renderInner = props => (
   <Day day={props.program.weeks.edges[0].node.days.edges[0].node} />
 );
 
-test('Fragment Container', () => {
+test('Day', () => {
   const environment = createMockEnvironment();
   const TestRenderer = () => (
     <QueryRenderer
@@ -42,7 +42,7 @@ test('Fragment Container', () => {
   const renderer = create(<TestRenderer />);
   environment.mock.resolveMostRecentOperation(operation =>
     MockPayloadGenerator.generate(operation, {
-      Day: () => ({ name: 'lol' }),
+      Day: () => ({ name: 'Day name' }),
     }),
   );
 
