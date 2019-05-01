@@ -11,6 +11,7 @@ import type { ReaderFragment } from 'relay-runtime';
 type ProgramItem_program$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type ProgramList_programs$ref: FragmentReference;
+declare export opaque type ProgramList_programs$fragmentType: ProgramList_programs$ref;
 export type ProgramList_programs = {|
   +programs: ?{|
     +edges: ?$ReadOnlyArray<?{|
@@ -22,6 +23,11 @@ export type ProgramList_programs = {|
   |},
   +$refType: ProgramList_programs$ref,
 |};
+export type ProgramList_programs$data = ProgramList_programs;
+export type ProgramList_programs$key = {
+  +$data?: ProgramList_programs$data,
+  +$fragmentRefs: ProgramList_programs$ref,
+};
 */
 
 
@@ -91,16 +97,16 @@ const node/*: ReaderFragment*/ = {
                   "storageKey": null
                 },
                 {
-                  "kind": "FragmentSpread",
-                  "name": "ProgramItem_program",
-                  "args": null
-                },
-                {
                   "kind": "ScalarField",
                   "alias": null,
                   "name": "__typename",
                   "args": null,
                   "storageKey": null
+                },
+                {
+                  "kind": "FragmentSpread",
+                  "name": "ProgramItem_program",
+                  "args": null
                 }
               ]
             },

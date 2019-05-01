@@ -10,6 +10,7 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type FavoriteItem_favorite$ref: FragmentReference;
+declare export opaque type FavoriteItem_favorite$fragmentType: FavoriteItem_favorite$ref;
 export type FavoriteItem_favorite = {|
   +name: ?string,
   +nextEpisode: ?any,
@@ -18,6 +19,11 @@ export type FavoriteItem_favorite = {|
   +status: ?string,
   +$refType: FavoriteItem_favorite$ref,
 |};
+export type FavoriteItem_favorite$data = FavoriteItem_favorite;
+export type FavoriteItem_favorite$key = {
+  +$data?: FavoriteItem_favorite$data,
+  +$fragmentRefs: FavoriteItem_favorite$ref,
+};
 */
 
 

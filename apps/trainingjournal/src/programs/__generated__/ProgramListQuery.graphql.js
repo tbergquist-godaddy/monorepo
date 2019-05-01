@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash ca01b1a842dcd043a449b7849d607377
+ * @relayHash 9a1a33a0d48ee24fd768814fe2774c30
  */
 
 /* eslint-disable */
@@ -70,19 +70,18 @@ var v0 = [
     "defaultValue": null
   }
 ],
-v1 = [
+v1 = {
+  "kind": "Variable",
+  "name": "first",
+  "variableName": "first"
+},
+v2 = [
   {
     "kind": "Variable",
     "name": "after",
-    "variableName": "after",
-    "type": "String"
+    "variableName": "after"
   },
-  {
-    "kind": "Variable",
-    "name": "first",
-    "variableName": "first",
-    "type": "Int"
-  }
+  (v1/*: any*/)
 ];
 return {
   "kind": "Request",
@@ -100,15 +99,9 @@ return {
           {
             "kind": "Variable",
             "name": "cursor",
-            "variableName": "after",
-            "type": null
+            "variableName": "after"
           },
-          {
-            "kind": "Variable",
-            "name": "first",
-            "variableName": "first",
-            "type": null
-          }
+          (v1/*: any*/)
         ]
       }
     ]
@@ -123,7 +116,7 @@ return {
         "alias": null,
         "name": "programs",
         "storageKey": null,
-        "args": (v1/*: any*/),
+        "args": (v2/*: any*/),
         "concreteType": "ProgramConnection",
         "plural": false,
         "selections": [
@@ -208,7 +201,7 @@ return {
         "kind": "LinkedHandle",
         "alias": null,
         "name": "programs",
-        "args": (v1/*: any*/),
+        "args": (v2/*: any*/),
         "handle": "connection",
         "key": "ProgramList_programs",
         "filters": null

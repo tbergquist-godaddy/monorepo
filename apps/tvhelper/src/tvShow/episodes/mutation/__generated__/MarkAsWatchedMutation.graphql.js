@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a189b13fb57eb86cfcc5f8a662c3fa1b
+ * @relayHash c9345402e743030d73ac2848f72a6905
  */
 
 /* eslint-disable */
@@ -61,8 +61,7 @@ v1 = [
       {
         "kind": "Variable",
         "name": "episodeId",
-        "variableName": "episodeId",
-        "type": "ID!"
+        "variableName": "episodeId"
       }
     ],
     "concreteType": "EpisodeWatched",

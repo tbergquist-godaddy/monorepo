@@ -11,6 +11,7 @@ import type { ReaderFragment } from 'relay-runtime';
 type SearchResultItem_tvShow$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type SearchResults_results$ref: FragmentReference;
+declare export opaque type SearchResults_results$fragmentType: SearchResults_results$ref;
 export type SearchResults_results = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
@@ -20,6 +21,11 @@ export type SearchResults_results = {|
   |}>,
   +$refType: SearchResults_results$ref,
 |};
+export type SearchResults_results$data = SearchResults_results;
+export type SearchResults_results$key = {
+  +$data?: SearchResults_results$data,
+  +$fragmentRefs: SearchResults_results$ref,
+};
 */
 
 

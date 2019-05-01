@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 6fe5e5f2c5d21e6ab98ef775740815c2
+ * @relayHash 4c679f1c1ec24c5b21ea40399eca0fd0
  */
 
 /* eslint-disable */
@@ -63,14 +63,12 @@ v1 = [
       {
         "kind": "Variable",
         "name": "password",
-        "variableName": "password",
-        "type": "String!"
+        "variableName": "password"
       },
       {
         "kind": "Variable",
         "name": "username",
-        "variableName": "username",
-        "type": "String!"
+        "variableName": "username"
       }
     ],
     "concreteType": "LoginType",

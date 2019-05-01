@@ -12,12 +12,18 @@ type Episodes_episodes$ref = any;
 type TvShowImage_tvShow$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type TvShowPage_tvShow$ref: FragmentReference;
+declare export opaque type TvShowPage_tvShow$fragmentType: TvShowPage_tvShow$ref;
 export type TvShowPage_tvShow = {|
   +name: ?string,
   +summary: ?string,
   +$fragmentRefs: TvShowImage_tvShow$ref & Episodes_episodes$ref,
   +$refType: TvShowPage_tvShow$ref,
 |};
+export type TvShowPage_tvShow$data = TvShowPage_tvShow;
+export type TvShowPage_tvShow$key = {
+  +$data?: TvShowPage_tvShow$data,
+  +$fragmentRefs: TvShowPage_tvShow$ref,
+};
 */
 
 
@@ -43,8 +49,7 @@ const node/*: ReaderFragment*/ = {
         {
           "kind": "Literal",
           "name": "stripTags",
-          "value": false,
-          "type": "Boolean"
+          "value": false
         }
       ],
       "storageKey": "summary(stripTags:false)"

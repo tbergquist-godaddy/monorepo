@@ -10,6 +10,7 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type Episode_episode$ref: FragmentReference;
+declare export opaque type Episode_episode$fragmentType: Episode_episode$ref;
 export type Episode_episode = {|
   +id: ?string,
   +name: ?string,
@@ -19,6 +20,11 @@ export type Episode_episode = {|
   +watched: ?boolean,
   +$refType: Episode_episode$ref,
 |};
+export type Episode_episode$data = Episode_episode;
+export type Episode_episode$key = {
+  +$data?: Episode_episode$data,
+  +$fragmentRefs: Episode_episode$ref,
+};
 */
 
 

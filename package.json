@@ -8,9 +8,6 @@
     "lint": "yarn eslint . --report-unused-disable-directives",
     "flow": "flow --include-warnings",
     "graphql": "yarn babel-node packages/relay/scripts/getSchema.js",
-    "relay": "yarn relay-compiler --src . --schema ./schema.graphql --verbose",
-    "build": "next build",
-    "start": "next start -p $PORT",
     "heroku-postbuild": "next build",
     "test-ci": "yarn lint && yarn flow && yarn test",
     "now-build": "yarn workspace @tbergq/tvhelper build && yarn workspace @tbergq/trainingjournal build"
@@ -24,10 +21,10 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.3.4",
+    "@babel/core": "^7.4.4",
     "@babel/node": "^7.2.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@kiwicom/babel-preset-kiwicom": "^2.6.2",
+    "@kiwicom/babel-preset-kiwicom": "^2.8.0",
     "@kiwicom/eslint-config": "^3.4.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.2",

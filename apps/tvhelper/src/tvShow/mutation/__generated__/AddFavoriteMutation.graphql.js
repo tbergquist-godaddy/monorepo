@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a49dc22a917cd616d061ce1cb83164e0
+ * @relayHash 67c8e04a62be76a3fa0c4404a164fe00
  */
 
 /* eslint-disable */
@@ -65,8 +65,7 @@ v1 = [
       {
         "kind": "Variable",
         "name": "serieId",
-        "variableName": "serieId",
-        "type": "ID!"
+        "variableName": "serieId"
       }
     ],
     "concreteType": "AddFavorite",

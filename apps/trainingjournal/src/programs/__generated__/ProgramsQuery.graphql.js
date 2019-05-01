@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 52b8b5d334a1b5d1ab6f69a339a5b9c2
+ * @relayHash 87391502a0d6f0d2dcb08571dd9bba5c
  */
 
 /* eslint-disable */
@@ -54,8 +54,7 @@ var v0 = [
   {
     "kind": "Literal",
     "name": "first",
-    "value": 10,
-    "type": "Int"
+    "value": 10
   }
 ];
 return {

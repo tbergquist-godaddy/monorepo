@@ -11,6 +11,7 @@ import type { ReaderFragment } from 'relay-runtime';
 type FavoriteItem_favorite$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type FavoritesTable_favorites$ref: FragmentReference;
+declare export opaque type FavoritesTable_favorites$fragmentType: FavoritesTable_favorites$ref;
 export type FavoritesTable_favorites = {|
   +favorites: ?{|
     +edges: ?$ReadOnlyArray<?{|
@@ -22,6 +23,11 @@ export type FavoritesTable_favorites = {|
   |},
   +$refType: FavoritesTable_favorites$ref,
 |};
+export type FavoritesTable_favorites$data = FavoritesTable_favorites;
+export type FavoritesTable_favorites$key = {
+  +$data?: FavoritesTable_favorites$data,
+  +$fragmentRefs: FavoritesTable_favorites$ref,
+};
 */
 
 
@@ -51,8 +57,7 @@ const node/*: ReaderFragment*/ = {
         {
           "kind": "Variable",
           "name": "options",
-          "variableName": "options",
-          "type": "SortOptions"
+          "variableName": "options"
         }
       ],
       "concreteType": "TvShowConnection",

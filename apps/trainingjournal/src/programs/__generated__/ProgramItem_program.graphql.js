@@ -10,11 +10,17 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type ProgramItem_program$ref: FragmentReference;
+declare export opaque type ProgramItem_program$fragmentType: ProgramItem_program$ref;
 export type ProgramItem_program = {|
   +id: string,
   +name: ?string,
   +$refType: ProgramItem_program$ref,
 |};
+export type ProgramItem_program$data = ProgramItem_program;
+export type ProgramItem_program$key = {
+  +$data?: ProgramItem_program$data,
+  +$fragmentRefs: ProgramItem_program$ref,
+};
 */
 
 

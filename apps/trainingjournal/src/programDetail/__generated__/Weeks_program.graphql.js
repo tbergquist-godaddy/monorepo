@@ -11,6 +11,7 @@ import type { ReaderFragment } from 'relay-runtime';
 type Week_week$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type Weeks_program$ref: FragmentReference;
+declare export opaque type Weeks_program$fragmentType: Weeks_program$ref;
 export type Weeks_program = {|
   +weeks: ?{|
     +edges: ?$ReadOnlyArray<?{|
@@ -22,6 +23,11 @@ export type Weeks_program = {|
   |},
   +$refType: Weeks_program$ref,
 |};
+export type Weeks_program$data = Weeks_program;
+export type Weeks_program$key = {
+  +$data?: Weeks_program$data,
+  +$fragmentRefs: Weeks_program$ref,
+};
 */
 
 

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash c995430cd335e3c92e3e03c3c690abd7
+ * @relayHash ba3daae6476e874b594d1633a58d2cfa
  */
 
 /* eslint-disable */
@@ -63,8 +63,7 @@ v1 = [
   {
     "kind": "Variable",
     "name": "query",
-    "variableName": "query",
-    "type": "String!"
+    "variableName": "query"
   }
 ];
 return {

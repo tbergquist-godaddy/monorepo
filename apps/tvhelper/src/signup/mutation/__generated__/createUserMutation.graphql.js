@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 0f747fb0870366696563ce1b6a9e790c
+ * @relayHash 379f4f2444dfc5b8f3e07693a44a5f7c
  */
 
 /* eslint-disable */
@@ -69,20 +69,17 @@ v1 = [
       {
         "kind": "Variable",
         "name": "email",
-        "variableName": "email",
-        "type": "String!"
+        "variableName": "email"
       },
       {
         "kind": "Variable",
         "name": "password",
-        "variableName": "password",
-        "type": "String!"
+        "variableName": "password"
       },
       {
         "kind": "Variable",
         "name": "username",
-        "variableName": "username",
-        "type": "String!"
+        "variableName": "username"
       }
     ],
     "concreteType": "CreateUserMutation",

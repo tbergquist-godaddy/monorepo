@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash b3c0634d753abad2f4e4c572337e4637
+ * @relayHash d577134f5335f5a25979ff6b0ce49cee
  */
 
 /* eslint-disable */
@@ -81,8 +81,7 @@ v1 = [
   {
     "kind": "Variable",
     "name": "id",
-    "variableName": "id",
-    "type": "ID!"
+    "variableName": "id"
   }
 ],
 v2 = {
@@ -149,8 +148,7 @@ return {
               {
                 "kind": "Literal",
                 "name": "stripTags",
-                "value": false,
-                "type": "Boolean"
+                "value": false
               }
             ],
             "storageKey": "summary(stripTags:false)"

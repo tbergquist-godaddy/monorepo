@@ -10,10 +10,16 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type Day_day$ref: FragmentReference;
+declare export opaque type Day_day$fragmentType: Day_day$ref;
 export type Day_day = {|
   +name: ?string,
   +$refType: Day_day$ref,
 |};
+export type Day_day$data = Day_day;
+export type Day_day$key = {
+  +$data?: Day_day$data,
+  +$fragmentRefs: Day_day$ref,
+};
 */
 
 

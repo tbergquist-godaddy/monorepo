@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 34dd80e4819ad59ea3423f9b31af354e
+ * @relayHash e50324062c83cb38ccd7c196e3e72749
  */
 
 /* eslint-disable */
@@ -48,8 +48,7 @@ v1 = [
   {
     "kind": "Variable",
     "name": "serieId",
-    "variableName": "serieId",
-    "type": "ID!"
+    "variableName": "serieId"
   }
 ],
 v2 = {

@@ -11,6 +11,7 @@ import type { ReaderFragment } from 'relay-runtime';
 type Day_day$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type Days_week$ref: FragmentReference;
+declare export opaque type Days_week$fragmentType: Days_week$ref;
 export type Days_week = {|
   +days: ?{|
     +edges: ?$ReadOnlyArray<?{|
@@ -22,6 +23,11 @@ export type Days_week = {|
   |},
   +$refType: Days_week$ref,
 |};
+export type Days_week$data = Days_week;
+export type Days_week$key = {
+  +$data?: Days_week$data,
+  +$fragmentRefs: Days_week$ref,
+};
 */
 
 

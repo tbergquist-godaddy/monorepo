@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 958c844dbb3015248e0c43fc581ce457
+ * @relayHash 8444a3f005df711fd495832b12bbea1d
  */
 
 /* eslint-disable */
@@ -64,6 +64,13 @@ var v0 = [
     "type": "SortOptions",
     "defaultValue": null
   }
+],
+v1 = [
+  {
+    "kind": "Variable",
+    "name": "options",
+    "variableName": "options"
+  }
 ];
 return {
   "kind": "Request",
@@ -77,14 +84,7 @@ return {
       {
         "kind": "FragmentSpread",
         "name": "FavoritesTable_favorites",
-        "args": [
-          {
-            "kind": "Variable",
-            "name": "options",
-            "variableName": "options",
-            "type": null
-          }
-        ]
+        "args": (v1/*: any*/)
       }
     ]
   },
@@ -98,14 +98,7 @@ return {
         "alias": null,
         "name": "favorites",
         "storageKey": null,
-        "args": [
-          {
-            "kind": "Variable",
-            "name": "options",
-            "variableName": "options",
-            "type": "SortOptions"
-          }
-        ],
+        "args": (v1/*: any*/),
         "concreteType": "TvShowConnection",
         "plural": false,
         "selections": [

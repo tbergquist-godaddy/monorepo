@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 528eaea1e3ea5c084755eb01a2ea0497
+ * @relayHash 3f07bc068c0d65dd702bac227131ab68
  */
 
 /* eslint-disable */
@@ -85,8 +85,7 @@ v1 = [
   {
     "kind": "Variable",
     "name": "programId",
-    "variableName": "programId",
-    "type": "ID!"
+    "variableName": "programId"
   }
 ],
 v2 = {

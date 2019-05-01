@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 394348a79f35d3667e5ace93ca0fa2e5
+ * @relayHash 1821dea920a746e17750ecda28938dfd
  */
 
 /* eslint-disable */
@@ -79,8 +79,7 @@ const node/*: ConcreteRequest*/ = {
             "value": {
               "sortBy": "NAME",
               "sortDirection": "ASC"
-            },
-            "type": "SortOptions"
+            }
           }
         ],
         "concreteType": "TvShowConnection",
