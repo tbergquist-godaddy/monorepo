@@ -1,6 +1,6 @@
 // @flow
 
-import { TOKEN_KEY } from '@tbergq/tvhelper-relay';
+import { TOKEN_KEY } from '@tbergq/relay';
 import decodeToken from 'jwt-decode';
 
 export default function isLoggedIn(isJwt: boolean = true) {

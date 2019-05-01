@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { isLoggedIn } from '@tbergq/tvhelper-utils';
+import { isLoggedIn } from '@tbergq/utils';
 import Router from 'next/router';
 
 import Layout from '../src/components/Layout';

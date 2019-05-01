@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { TableCell } from '@tbergq/tvhelper-components';
+import { TableCell } from '@tbergq/components';
 import styled from 'styled-components';
 import { MdChevronLeft } from 'react-icons/md';
 

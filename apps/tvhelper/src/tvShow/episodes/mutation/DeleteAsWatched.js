@@ -1,6 +1,6 @@
 // @flow
 
-import { graphql, commitMutation } from '@tbergq/tvhelper-relay';
+import { graphql, commitMutation } from '@tbergq/relay';
 
 import type { DeleteAsWatchedMutationVariables } from './__generated__/DeleteAsWatchedMutation.graphql';
 

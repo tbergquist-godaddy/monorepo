@@ -5,10 +5,10 @@ import {
   graphql,
   createFragmentContainer,
   type RelayProp,
-} from '@tbergq/tvhelper-relay';
-import { ListItem } from '@tbergq/tvhelper-components';
+} from '@tbergq/relay';
+import { ListItem } from '@tbergq/components';
 import format from 'date-fns/format';
-import { isLoggedIn } from '@tbergq/tvhelper-utils';
+import { isLoggedIn } from '@tbergq/utils';
 
 import type { Episode_episode as EpisodeType } from './__generated__/Episode_episode.graphql';
 import markAsWatchedMutation from './mutation/MarkAsWatched';

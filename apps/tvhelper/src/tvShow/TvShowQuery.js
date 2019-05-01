@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, QueryRenderer } from '@tbergq/tvhelper-relay';
+import { graphql, QueryRenderer } from '@tbergq/relay';
 
 import type { TvShowQueryResponse } from './__generated__/TvShowQuery.graphql';
 import TvShowPage from './TvShowPage';

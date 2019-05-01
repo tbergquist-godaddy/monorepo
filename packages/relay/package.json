@@ -1,5 +1,5 @@
 {
-  "name": "@tbergq/tvhelper-relay",
+  "name": "@tbergq/relay",
   "private": true,
   "main": "index.js",
   "version": "0.0.1",

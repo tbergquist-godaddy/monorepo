@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Input, Button } from '@tbergq/tvhelper-components';
+import { Input, Button } from '@tbergq/components';
 import styled from 'styled-components';
 
 type Props = {|

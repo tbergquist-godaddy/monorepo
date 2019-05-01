@@ -1,5 +1,5 @@
 {
-  "name": "@tbergq/tvhelper-components",
+  "name": "@tbergq/components",
   "private": true,
   "main": "index.js",
   "version": "0.0.1",
@@ -10,8 +10,8 @@
     "react-icons": "^3.5.0"
   },
   "peerDependencies": {
-    "@tbergq/tvhelper-relay": "",
-    "@tbergq/tvhelper-utils": "",
+    "@tbergq/relay": "",
+    "@tbergq/utils": "",
     "next": "",
     "react": "",
     "styled-components": "",

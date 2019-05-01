@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
 
 import type { SearchResults_results as ResultsType } from './__generated__/SearchResults_results.graphql';
 import SearchResultItem from './SearchResultItem';

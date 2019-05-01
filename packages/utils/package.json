@@ -1,5 +1,5 @@
 {
-  "name": "@tbergq/tvhelper-utils",
+  "name": "@tbergq/utils",
   "private": true,
   "main": "index.js",
   "version": "0.0.1",
@@ -7,6 +7,6 @@
     "jwt-decode": "^2.2.0"
   },
   "peerDependencies": {
-    "@tbergq/tvhelper-relay": ""
+    "@tbergq/relay": ""
   }
 }

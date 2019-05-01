@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
 import styled from 'styled-components';
 
 import type { Days_week as WeekType } from './__generated__/Days_week.graphql';

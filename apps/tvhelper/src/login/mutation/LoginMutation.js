@@ -1,6 +1,6 @@
 // @flow
 
-import { graphql, commitMutation, environment } from '@tbergq/tvhelper-relay';
+import { graphql, commitMutation, environment } from '@tbergq/relay';
 
 import type {
   LoginMutationVariables,

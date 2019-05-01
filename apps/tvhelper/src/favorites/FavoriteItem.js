@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/tvhelper-relay';
-import { TableRow, TableCell } from '@tbergq/tvhelper-components';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { TableRow, TableCell } from '@tbergq/components';
 import Link from 'next/link';
 import format from 'date-fns/format';
 

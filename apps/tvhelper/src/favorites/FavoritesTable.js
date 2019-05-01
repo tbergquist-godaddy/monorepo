@@ -5,7 +5,7 @@ import {
   graphql,
   createRefetchContainer,
   type RefetchRelayProp,
-} from '@tbergq/tvhelper-relay';
+} from '@tbergq/relay';
 import {
   Table,
   TableHead,
@@ -13,7 +13,7 @@ import {
   TableBody,
   Heading,
   Loading,
-} from '@tbergq/tvhelper-components';
+} from '@tbergq/components';
 import styled from 'styled-components';
 
 import type { FavoritesTable_favorites as Favorites } from './__generated__/FavoritesTable_favorites.graphql';

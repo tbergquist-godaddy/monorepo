@@ -8,10 +8,6 @@ module.exports = withCustomBabelConfigFile(
   withTM({
     babelConfigFile: path.join(__dirname, '.babelrc'),
     target: 'serverless',
-    transpileModules: [
-      '@tbergq/tvhelper-relay',
-      '@tbergq/tvhelper-components',
-      '@tbergq/tvhelper-utils',
-    ],
+    transpileModules: ['@tbergq/relay', '@tbergq/components', '@tbergq/utils'],
   }),
 );
