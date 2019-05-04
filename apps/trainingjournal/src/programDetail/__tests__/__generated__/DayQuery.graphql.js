@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 93f280b5c6c31b69fa028b5afeb09f73
+ * @relayHash e773c14ade224dddc48d06175745017b
  */
 
 /* eslint-disable */
@@ -58,6 +58,7 @@ query DayQuery {
 }
 
 fragment Day_day on Day {
+  id
   name
   exercises {
     edges {
@@ -84,14 +85,14 @@ var v0 = [
 v1 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "name",
+  "name": "id",
   "args": null,
   "storageKey": null
 },
 v2 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "id",
+  "name": "name",
   "args": null,
   "storageKey": null
 },
@@ -102,6 +103,12 @@ v3 = {
   "nullable": true
 },
 v4 = {
+  "type": "ID",
+  "enumValues": null,
+  "plural": false,
+  "nullable": false
+},
+v5 = {
   "type": "String",
   "enumValues": null,
   "plural": false,
@@ -269,6 +276,7 @@ return {
                                 "plural": false,
                                 "selections": [
                                   (v1/*: any*/),
+                                  (v2/*: any*/),
                                   {
                                     "kind": "LinkedField",
                                     "alias": null,
@@ -296,7 +304,7 @@ return {
                                             "concreteType": "Exercise",
                                             "plural": false,
                                             "selections": [
-                                              (v2/*: any*/),
+                                              (v1/*: any*/),
                                               {
                                                 "kind": "LinkedField",
                                                 "alias": null,
@@ -306,8 +314,8 @@ return {
                                                 "concreteType": "BaseExercise",
                                                 "plural": false,
                                                 "selections": [
-                                                  (v1/*: any*/),
-                                                  (v2/*: any*/)
+                                                  (v2/*: any*/),
+                                                  (v1/*: any*/)
                                                 ]
                                               }
                                             ]
@@ -315,22 +323,21 @@ return {
                                         ]
                                       }
                                     ]
-                                  },
-                                  (v2/*: any*/)
+                                  }
                                 ]
                               }
                             ]
                           }
                         ]
                       },
-                      (v2/*: any*/)
+                      (v1/*: any*/)
                     ]
                   }
                 ]
               }
             ]
           },
-          (v2/*: any*/)
+          (v1/*: any*/)
         ]
       }
     ]
@@ -339,7 +346,7 @@ return {
     "operationKind": "query",
     "name": "DayQuery",
     "id": null,
-    "text": "query DayQuery {\n  program(programId: \"123\") {\n    weeks {\n      edges {\n        node {\n          days {\n            edges {\n              node {\n                ...Day_day\n                id\n              }\n            }\n          }\n          id\n        }\n      }\n    }\n    id\n  }\n}\n\nfragment Day_day on Day {\n  name\n  exercises {\n    edges {\n      node {\n        id\n        baseExercise {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n",
+    "text": "query DayQuery {\n  program(programId: \"123\") {\n    weeks {\n      edges {\n        node {\n          days {\n            edges {\n              node {\n                ...Day_day\n                id\n              }\n            }\n          }\n          id\n        }\n      }\n    }\n    id\n  }\n}\n\nfragment Day_day on Day {\n  id\n  name\n  exercises {\n    edges {\n      node {\n        id\n        baseExercise {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "program": {
@@ -386,8 +393,8 @@ return {
           "plural": false,
           "nullable": true
         },
-        "program.weeks.edges.node.days.edges.node.id": (v3/*: any*/),
-        "program.weeks.edges.node.days.edges.node.name": (v4/*: any*/),
+        "program.weeks.edges.node.days.edges.node.id": (v4/*: any*/),
+        "program.weeks.edges.node.days.edges.node.name": (v5/*: any*/),
         "program.weeks.edges.node.days.edges.node.exercises": {
           "type": "ExerciseConnection",
           "enumValues": null,
@@ -406,19 +413,14 @@ return {
           "plural": false,
           "nullable": true
         },
-        "program.weeks.edges.node.days.edges.node.exercises.edges.node.id": {
-          "type": "ID",
-          "enumValues": null,
-          "plural": false,
-          "nullable": false
-        },
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.id": (v4/*: any*/),
         "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise": {
           "type": "BaseExercise",
           "enumValues": null,
           "plural": false,
           "nullable": true
         },
-        "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise.name": (v4/*: any*/),
+        "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise.name": (v5/*: any*/),
         "program.weeks.edges.node.days.edges.node.exercises.edges.node.baseExercise.id": (v3/*: any*/)
       }
     }

@@ -51,7 +51,7 @@ exports[`Week 1`] = `
                     className="Heading__StyledHeading-sc-1b8cso5-0 kyjUks"
                   >
                     <a
-                      href="/todo"
+                      href="/programs/day?dayId=<Day-mock-id-1>"
                       onClick={[Function]}
                     >
                       &lt;mock-value-for-field-"name"&gt;

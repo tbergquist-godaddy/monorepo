@@ -212,6 +212,8 @@ type RootMutation {
 
 """Root Query"""
 type RootQuery {
+  day(dayId: ID!): Day
+
   """Load episode by id"""
   episode(id: ID!): Episode
 

@@ -12,6 +12,7 @@ import type { FragmentReference } from "relay-runtime";
 declare export opaque type Day_day$ref: FragmentReference;
 declare export opaque type Day_day$fragmentType: Day_day$ref;
 export type Day_day = {|
+  +id: string,
   +name: ?string,
   +exercises: ?{|
     +edges: ?$ReadOnlyArray<?{|
@@ -37,6 +38,13 @@ const node/*: ReaderFragment*/ = (function(){
 var v0 = {
   "kind": "ScalarField",
   "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v1 = {
+  "kind": "ScalarField",
+  "alias": null,
   "name": "name",
   "args": null,
   "storageKey": null
@@ -49,6 +57,7 @@ return {
   "argumentDefinitions": [],
   "selections": [
     (v0/*: any*/),
+    (v1/*: any*/),
     {
       "kind": "LinkedField",
       "alias": null,
@@ -76,13 +85,7 @@ return {
               "concreteType": "Exercise",
               "plural": false,
               "selections": [
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "id",
-                  "args": null,
-                  "storageKey": null
-                },
+                (v0/*: any*/),
                 {
                   "kind": "LinkedField",
                   "alias": null,
@@ -92,7 +95,7 @@ return {
                   "concreteType": "BaseExercise",
                   "plural": false,
                   "selections": [
-                    (v0/*: any*/)
+                    (v1/*: any*/)
                   ]
                 }
               ]
@@ -105,5 +108,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '0def3f7006804f4986247427d2b942be';
+(node/*: any*/).hash = 'c6afd0288d91394f83f571b36116fa3e';
 module.exports = node;

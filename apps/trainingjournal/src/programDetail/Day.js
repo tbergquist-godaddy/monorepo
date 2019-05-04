@@ -19,10 +19,11 @@ type Props = {|
 export const Day = (props: Props) => {
   const exercises = props.day?.exercises?.edges ?? [];
   const dayName = props.day?.name ?? '';
+  const dayId = props.day?.id ?? '';
   return (
     <DayWrapper>
       <Heading element="h3" type="title3">
-        <Link href="/todo">{dayName}</Link>
+        <Link href={`/programs/day?dayId=${dayId}`}>{dayName}</Link>
       </Heading>
       {exercises.map(edge => (
         <div key={edge?.node?.id}>{edge?.node?.baseExercise?.name}</div>
@@ -34,6 +35,7 @@ export const Day = (props: Props) => {
 export default createFragmentContainer(Day, {
   day: graphql`
     fragment Day_day on Day {
+      id
       name
       exercises {
         edges {
