@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+Array [
+  <h1
+    className="Heading__StyledHeading-sc-1b8cso5-0 kCqDso"
+  >
+    &lt;mock-value-for-field-"name"&gt;
+  </h1>,
+  <div
+    className="Table__StyledTableOuter-sc-156ovmd-0 eJfAYr"
+  >
+    <div
+      className="Table__StyledTableInner-sc-156ovmd-1 jsHlsU"
+      onScroll={[Function]}
+    >
+      <table
+        className="Table__StyledTable-sc-156ovmd-2 fCREQU"
+      >
+        <thead
+          className="TableHead__StyledTableHead-sc-17bka47-0 kXbKtX"
+        >
+          <tr
+            className="TableRow__StyledTableRow-nnt9s9-0 efbCJT"
+          >
+            <td
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+            >
+              Exercise
+            </td>
+            <td
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+            >
+              Sets
+            </td>
+            <td
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+            >
+              Reps
+            </td>
+            <td
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+            >
+              Break
+            </td>
+          </tr>
+        </thead>
+        <tbody
+          className="TableBody__StyledTableBody-sc-1uovf8k-0 kqMaSS"
+        >
+          <tr
+            className="TableRow__StyledTableRow-nnt9s9-0 efbCJT"
+          >
+            <td
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+            >
+              Knebøy
+            </td>
+            <td
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+            >
+              4
+            </td>
+            <td
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+            >
+              5
+            </td>
+            <td
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+            >
+              2
+               min
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+]
+`;

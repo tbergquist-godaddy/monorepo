@@ -4,6 +4,7 @@ import * as React from 'react';
 import { QueryRenderer, graphql } from '@tbergq/relay';
 
 import type { DayDetailSceneQueryResponse } from './__generated__/DayDetailSceneQuery.graphql';
+import DayDetail from './DayDetail';
 
 type Props = {|
   +dayId: string,
@@ -12,7 +13,7 @@ type Props = {|
 export default function DayDetailScene(props: Props) {
   const render = React.useCallback(
     (renderProps: DayDetailSceneQueryResponse) => {
-      return <div>{renderProps.day?.name}</div>;
+      return <DayDetail day={renderProps.day} />;
     },
     [],
   );
@@ -21,7 +22,7 @@ export default function DayDetailScene(props: Props) {
       query={graphql`
         query DayDetailSceneQuery($dayId: ID!) {
           day(dayId: $dayId) {
-            name
+            ...DayDetail_day
           }
         }
       `}

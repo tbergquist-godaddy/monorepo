@@ -17,8 +17,8 @@ export {
   TableHead,
   TableBody,
   TableRow,
-  TableCell,
 } from '@kiwicom/orbit-components/lib/Table';
+export { default as TableCell } from './src/table/TableCell';
 export { default as Loading } from '@kiwicom/orbit-components/lib/Loading';
 export {
   default as Card,
