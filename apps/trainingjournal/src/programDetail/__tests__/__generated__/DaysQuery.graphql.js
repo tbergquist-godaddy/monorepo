@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 80ecb131acbad5bae9866517f93bd6b1
+ * @relayHash 11ab5ff46572f8814983fb2fe29ab363
  */
 
 /* eslint-disable */
@@ -56,6 +56,7 @@ fragment Days_week on Week {
 }
 
 fragment Day_day on Day {
+  id
   name
   exercises {
     edges {
@@ -310,7 +311,7 @@ return {
     "operationKind": "query",
     "name": "DaysQuery",
     "id": null,
-    "text": "query DaysQuery {\n  program(programId: \"123\") {\n    weeks {\n      edges {\n        node {\n          ...Days_week\n          id\n        }\n      }\n    }\n    id\n  }\n}\n\nfragment Days_week on Week {\n  days {\n    edges {\n      node {\n        id\n        ...Day_day\n      }\n    }\n  }\n}\n\nfragment Day_day on Day {\n  name\n  exercises {\n    edges {\n      node {\n        id\n        baseExercise {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n",
+    "text": "query DaysQuery {\n  program(programId: \"123\") {\n    weeks {\n      edges {\n        node {\n          ...Days_week\n          id\n        }\n      }\n    }\n    id\n  }\n}\n\nfragment Days_week on Week {\n  days {\n    edges {\n      node {\n        id\n        ...Day_day\n      }\n    }\n  }\n}\n\nfragment Day_day on Day {\n  id\n  name\n  exercises {\n    edges {\n      node {\n        id\n        baseExercise {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "program": {
