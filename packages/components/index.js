@@ -27,3 +27,4 @@ export {
   CardHeader,
   CardSectionHeader,
 } from '@kiwicom/orbit-components/lib/Card';
+export { default as Autocomplete } from './src/autocomplete/Autocomplete';
