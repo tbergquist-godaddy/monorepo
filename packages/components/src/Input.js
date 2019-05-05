@@ -5,7 +5,7 @@ import InputField from '@kiwicom/orbit-components/lib/InputField';
 
 type Props = {|
   +value: string,
-  +onChange: Function,
+  +onChange: string => void,
   +label?: string,
   +type?: 'text' | 'number' | 'password' | 'passportid',
 |};

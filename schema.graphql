@@ -21,10 +21,32 @@ type BaseExercise {
   muscleGroup: MuscleGroup
 }
 
+"""A connection to a list of items."""
+type BaseExerciseConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [BaseExerciseEdge]
+}
+
+"""An edge in a connection."""
+type BaseExerciseEdge {
+  """The item at the end of the edge"""
+  node: BaseExercise
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
 type Cast {
   id: ID
   person: Person
   character: Person
+}
+
+type CreateExerciseEdge {
+  exerciseEdge: ExerciseEdge
 }
 
 type CreateUserMutation {
@@ -119,6 +141,15 @@ type ExerciseEdge {
   cursor: String!
 }
 
+input ExerciseInput {
+  breakTime: Int!
+  dayId: ID!
+  description: String
+  reps: String!
+  set: String!
+  baseExerciseId: ID!
+}
+
 type LoginType {
   token: String
   success: Boolean
@@ -193,6 +224,7 @@ type RangeDelete {
 type RootMutation {
   """Add tv show to favorite list"""
   addFavorite(serieId: ID!): AddFavorite
+  createExercise(exercise: ExerciseInput!): CreateExerciseEdge
   createUser(username: String!, password: String!, email: String!): CreateUserMutation
 
   """Remove tv show from favorite list"""
@@ -212,6 +244,7 @@ type RootMutation {
 
 """Root Query"""
 type RootQuery {
+  baseExercises(after: String, first: Int, before: String, last: Int): BaseExerciseConnection
   day(dayId: ID!): Day
 
   """Load episode by id"""

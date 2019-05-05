@@ -41,7 +41,7 @@ const ExerciseTable = (props: Props) => {
 export default createFragmentContainer(ExerciseTable, {
   day: graphql`
     fragment ExerciseTable_day on Day {
-      exercises {
+      exercises(first: 50) @connection(key: "ExerciseTable_exercises") {
         edges {
           node {
             id

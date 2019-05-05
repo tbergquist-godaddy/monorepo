@@ -77,5 +77,35 @@ Array [
       </table>
     </div>
   </div>,
+  <button
+    className="sc-jTzLTM gTSBeP Button__StyledButton-sc-1brqp3f-1 eFDeCy"
+    data-test="fab"
+    onClick={[Function]}
+    size="normal"
+    type="button"
+  >
+    <div
+      className="Button__StyledButtonContent-sc-1brqp3f-2 bmuxXg"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+        />
+      </svg>
+    </div>
+  </button>,
 ]
 `;

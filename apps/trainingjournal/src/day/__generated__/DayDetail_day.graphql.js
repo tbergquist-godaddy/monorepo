@@ -8,13 +8,14 @@
 
 /*::
 import type { ReaderFragment } from 'relay-runtime';
+type AddExerciseForm_day$ref = any;
 type ExerciseTable_day$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type DayDetail_day$ref: FragmentReference;
 declare export opaque type DayDetail_day$fragmentType: DayDetail_day$ref;
 export type DayDetail_day = {|
   +name: ?string,
-  +$fragmentRefs: ExerciseTable_day$ref,
+  +$fragmentRefs: ExerciseTable_day$ref & AddExerciseForm_day$ref,
   +$refType: DayDetail_day$ref,
 |};
 export type DayDetail_day$data = DayDetail_day;
@@ -43,9 +44,14 @@ const node/*: ReaderFragment*/ = {
       "kind": "FragmentSpread",
       "name": "ExerciseTable_day",
       "args": null
+    },
+    {
+      "kind": "FragmentSpread",
+      "name": "AddExerciseForm_day",
+      "args": null
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'cb82392e62316f3ae8b12dd6123a5e13';
+(node/*: any*/).hash = '0129c21f0d4c46c28fe8920ebab52bf6';
 module.exports = node;
