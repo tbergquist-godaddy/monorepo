@@ -35,13 +35,24 @@ const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
   "name": "ExerciseTable_day",
   "type": "Day",
-  "metadata": null,
+  "metadata": {
+    "connection": [
+      {
+        "count": null,
+        "cursor": null,
+        "direction": "forward",
+        "path": [
+          "exercises"
+        ]
+      }
+    ]
+  },
   "argumentDefinitions": [],
   "selections": [
     {
       "kind": "LinkedField",
-      "alias": null,
-      "name": "exercises",
+      "alias": "exercises",
+      "name": "__ExerciseTable_exercises_connection",
       "storageKey": null,
       "args": null,
       "concreteType": "ExerciseConnection",
@@ -73,11 +84,50 @@ const node/*: ReaderFragment*/ = {
                   "storageKey": null
                 },
                 {
+                  "kind": "ScalarField",
+                  "alias": null,
+                  "name": "__typename",
+                  "args": null,
+                  "storageKey": null
+                },
+                {
                   "kind": "FragmentSpread",
                   "name": "ExerciseRow_exercise",
                   "args": null
                 }
               ]
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "cursor",
+              "args": null,
+              "storageKey": null
+            }
+          ]
+        },
+        {
+          "kind": "LinkedField",
+          "alias": null,
+          "name": "pageInfo",
+          "storageKey": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "endCursor",
+              "args": null,
+              "storageKey": null
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "hasNextPage",
+              "args": null,
+              "storageKey": null
             }
           ]
         }
@@ -86,5 +136,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '9ff4280faa3bf847cf6e6449308176d0';
+(node/*: any*/).hash = '7671b096d5b454254d0b688ad20a6247';
 module.exports = node;

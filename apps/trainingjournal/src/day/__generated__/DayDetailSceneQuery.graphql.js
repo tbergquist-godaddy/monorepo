@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 0428fce8612fa73751891fc09b83f918
+ * @relayHash aecea7092fa03f404f2da9329cc9e46d
  */
 
 /* eslint-disable */
@@ -38,17 +38,28 @@ query DayDetailSceneQuery(
 fragment DayDetail_day on Day {
   name
   ...ExerciseTable_day
+  ...AddExerciseForm_day
 }
 
 fragment ExerciseTable_day on Day {
-  exercises {
+  exercises(first: 50) {
     edges {
       node {
         id
         ...ExerciseRow_exercise
+        __typename
       }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
     }
   }
+}
+
+fragment AddExerciseForm_day on Day {
+  id
 }
 
 fragment ExerciseRow_exercise on Exercise {
@@ -85,7 +96,14 @@ v2 = {
   "args": null,
   "storageKey": null
 },
-v3 = {
+v3 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 50
+  }
+],
+v4 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "id",
@@ -138,8 +156,8 @@ return {
             "kind": "LinkedField",
             "alias": null,
             "name": "exercises",
-            "storageKey": null,
-            "args": null,
+            "storageKey": "exercises(first:50)",
+            "args": (v3/*: any*/),
             "concreteType": "ExerciseConnection",
             "plural": false,
             "selections": [
@@ -161,7 +179,7 @@ return {
                     "concreteType": "Exercise",
                     "plural": false,
                     "selections": [
-                      (v3/*: any*/),
+                      (v4/*: any*/),
                       {
                         "kind": "ScalarField",
                         "alias": null,
@@ -193,16 +211,64 @@ return {
                         "plural": false,
                         "selections": [
                           (v2/*: any*/),
-                          (v3/*: any*/)
+                          (v4/*: any*/)
                         ]
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "__typename",
+                        "args": null,
+                        "storageKey": null
                       }
                     ]
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "cursor",
+                    "args": null,
+                    "storageKey": null
+                  }
+                ]
+              },
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "name": "pageInfo",
+                "storageKey": null,
+                "args": null,
+                "concreteType": "PageInfo",
+                "plural": false,
+                "selections": [
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "endCursor",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "hasNextPage",
+                    "args": null,
+                    "storageKey": null
                   }
                 ]
               }
             ]
           },
-          (v3/*: any*/)
+          {
+            "kind": "LinkedHandle",
+            "alias": null,
+            "name": "exercises",
+            "args": (v3/*: any*/),
+            "handle": "connection",
+            "key": "ExerciseTable_exercises",
+            "filters": null
+          },
+          (v4/*: any*/)
         ]
       }
     ]
@@ -211,7 +277,7 @@ return {
     "operationKind": "query",
     "name": "DayDetailSceneQuery",
     "id": null,
-    "text": "query DayDetailSceneQuery(\n  $dayId: ID!\n) {\n  day(dayId: $dayId) {\n    ...DayDetail_day\n    id\n  }\n}\n\nfragment DayDetail_day on Day {\n  name\n  ...ExerciseTable_day\n}\n\nfragment ExerciseTable_day on Day {\n  exercises {\n    edges {\n      node {\n        id\n        ...ExerciseRow_exercise\n      }\n    }\n  }\n}\n\nfragment ExerciseRow_exercise on Exercise {\n  set\n  reps\n  breakTime\n  baseExercise {\n    name\n    id\n  }\n}\n",
+    "text": "query DayDetailSceneQuery(\n  $dayId: ID!\n) {\n  day(dayId: $dayId) {\n    ...DayDetail_day\n    id\n  }\n}\n\nfragment DayDetail_day on Day {\n  name\n  ...ExerciseTable_day\n  ...AddExerciseForm_day\n}\n\nfragment ExerciseTable_day on Day {\n  exercises(first: 50) {\n    edges {\n      node {\n        id\n        ...ExerciseRow_exercise\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment AddExerciseForm_day on Day {\n  id\n}\n\nfragment ExerciseRow_exercise on Exercise {\n  set\n  reps\n  breakTime\n  baseExercise {\n    name\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
