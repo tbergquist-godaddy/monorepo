@@ -21,8 +21,8 @@ type Props = {|
 
 export default function AutoComplete({ onClick, id, name }: Props) {
   const onSelect = React.useCallback(() => {
-    onClick(id);
-  }, [id, onClick]);
+    onClick(id, name);
+  }, [id, name, onClick]);
   return (
     <SelectItem role="button" onClick={onSelect}>
       {name}

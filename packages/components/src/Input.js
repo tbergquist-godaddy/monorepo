@@ -8,6 +8,8 @@ type Props = {|
   +onChange: string => void,
   +label?: string,
   +type?: 'text' | 'number' | 'password' | 'passportid',
+  +onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  +onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
 |};
 
 export default function Input({ onChange, ...rest }: Props) {
