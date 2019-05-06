@@ -32,7 +32,9 @@ it('renders', () => {
         >
           <input
             className="InputField__Input-sc-4opay-6 isCXzD"
+            onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             type="text"
             value=""
           />

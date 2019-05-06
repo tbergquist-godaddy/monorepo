@@ -32,19 +32,36 @@ type Props = {|
 
 export default function Autocomplete({ values, onSelect, ...rest }: Props) {
   const [input, setInput] = React.useState('');
+  const [isFocused, setIsFocused] = React.useState(false);
   const matchedItems = values.filter(value => value.name.includes(input));
+
   const onClick = React.useCallback(
-    (id: string) => {
+    (id: string, name: string) => {
       onSelect(id);
-      setInput('');
+      setInput(name);
     },
     [onSelect],
   );
+
+  const onFocus = React.useCallback(() => {
+    setIsFocused(true);
+  }, []);
+
+  const onBlur = React.useCallback(() => {
+    setIsFocused(false);
+  }, []);
+
   return (
     <Container>
-      <Input value={input} onChange={setInput} {...rest} />
+      <Input
+        value={input}
+        onChange={setInput}
+        {...rest}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
 
-      <SelectWrapper open={input !== ''}>
+      <SelectWrapper open={isFocused}>
         {matchedItems.map(item => (
           <AutocompleteItem
             key={item.id}
