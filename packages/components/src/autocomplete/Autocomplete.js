@@ -33,7 +33,9 @@ type Props = {|
 export default function Autocomplete({ values, onSelect, ...rest }: Props) {
   const [input, setInput] = React.useState('');
   const [isFocused, setIsFocused] = React.useState(false);
-  const matchedItems = values.filter(value => value.name.includes(input));
+  const matchedItems = values.filter(value =>
+    value.name.toLowerCase().includes(input.toLowerCase()),
+  );
 
   const onClick = React.useCallback(
     (id: string, name: string) => {
