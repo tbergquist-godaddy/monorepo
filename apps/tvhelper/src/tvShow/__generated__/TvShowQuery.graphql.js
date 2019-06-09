@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash d577134f5335f5a25979ff6b0ce49cee
+ * @relayHash f949364753a76a7cf27c24ea1c62d246
  */
 
 /* eslint-disable */
@@ -228,8 +228,8 @@ return {
   "params": {
     "operationKind": "query",
     "name": "TvShowQuery",
-    "id": null,
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    ...Episode_episode\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n",
+    "id": "66e64306ffcb45ed83bfc4c70c213cb7",
+    "text": null,
     "metadata": {}
   }
 };

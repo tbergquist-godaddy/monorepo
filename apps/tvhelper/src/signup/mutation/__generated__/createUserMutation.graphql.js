@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 379f4f2444dfc5b8f3e07693a44a5f7c
+ * @relayHash e7e6f04715d28702569641f76f31e0ee
  */
 
 /* eslint-disable */
@@ -114,8 +114,8 @@ return {
   "params": {
     "operationKind": "mutation",
     "name": "createUserMutation",
-    "id": null,
-    "text": "mutation createUserMutation(\n  $username: String!\n  $password: String!\n  $email: String!\n) {\n  createUser(username: $username, password: $password, email: $email) {\n    success\n  }\n}\n",
+    "id": "ea49701e432506ad1a8a55ddc7ffa269",
+    "text": null,
     "metadata": {}
   }
 };

@@ -27,6 +27,19 @@ const getToken = () => {
   }
 };
 
+const getBody = (operation, variables) => {
+  if (operation.id) {
+    return {
+      queryId: operation.id,
+      variables,
+    };
+  }
+  return {
+    query: operation.text,
+    variables,
+  };
+};
+
 const fetchFn = async (operation, variables) => {
   const queryId = operation.name;
 
@@ -41,10 +54,7 @@ const fetchFn = async (operation, variables) => {
       Authorization: token,
       'content-type': 'application/json',
     },
-    body: JSON.stringify({
-      query: operation.text,
-      variables,
-    }),
+    body: JSON.stringify(getBody(operation, variables)),
   });
   const data = await res.json();
 
