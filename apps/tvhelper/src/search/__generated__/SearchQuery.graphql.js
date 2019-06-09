@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash ba3daae6476e874b594d1633a58d2cfa
+ * @relayHash a5511f90374a6ee512389a219c6632c4
  */
 
 /* eslint-disable */
@@ -157,8 +157,8 @@ return {
   "params": {
     "operationKind": "query",
     "name": "SearchQuery",
-    "id": null,
-    "text": "query SearchQuery(\n  $query: String!\n) {\n  searchTvShow(query: $query) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...SearchResultItem_tvShow\n    }\n  }\n}\n\nfragment SearchResultItem_tvShow on TvShow {\n  name\n  rating\n  id\n}\n",
+    "id": "228d1eb95febd0d9d078667c410e1e44",
+    "text": null,
     "metadata": {}
   }
 };

@@ -1548,13 +1548,26 @@
     strip-ansi "^5.2.0"
     text-table "^0.2.0"
 
-"@kiwicom/fetch@^2.2.3", "@kiwicom/fetch@^2.3.1":
+"@kiwicom/fetch@^2.3.1":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@kiwicom/fetch/-/fetch-2.3.2.tgz#76914508ac244a7c5000d394020cfab6965d6016"
   integrity sha512-ZTVNYB7FZPLJ8fOgb99cAPzhFHo6tTK5WVcYSpCqNQ8V7S5O3crKu/0ZSvjm0YG7ocFnak8FPmnkg4IgvTBKMA==
   dependencies:
     "@kiwicom/js" "^0.8.0"
     cross-fetch "^3.0.2"
+
+"@kiwicom/fetch@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@kiwicom/fetch/-/fetch-2.4.1.tgz#c9a0d88c0e38061ba6ac41bbe684653d3130ed08"
+  integrity sha512-Grldb7XUew1g7I/CxZafF727uNh0iAqVlqsE37dXK32kvUWji38nSDmldOVL6te+tjdU5mdkLnR0JlwMNmCjRA==
+  dependencies:
+    "@kiwicom/js" "^0.11.0"
+    cross-fetch "^3.0.3"
+
+"@kiwicom/js@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.11.0.tgz#2ecd9a031705a9b6b579fe09f307b194f527dc31"
+  integrity sha512-8QcVCdfkeHaRiHJdWAXgBYMbTwC83gbHA3fjFfdCgljBS2dtoF4xdZnrAn1nvLOtorLaFru9hBsIEvZXDhEmig==
 
 "@kiwicom/js@^0.8.0":
   version "0.8.0"
@@ -2985,6 +2998,14 @@ cross-fetch@^3.0.2:
   integrity sha512-a4Z0EJ5Nck6QtMy9ZqloLfpvu2uMV3sBfMCR+CgSBCZc6z5KR4bfEiD3dkepH8iZgJMXQpTqf8FjMmvu/GMFkg==
   dependencies:
     node-fetch "2.3.0"
+    whatwg-fetch "3.0.0"
+
+cross-fetch@^3.0.3:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.4.tgz#7bef7020207e684a7638ef5f2f698e24d9eb283c"
+  integrity sha512-MSHgpjQqgbT/94D4CyADeNoYh52zMkCX4pcJvPP5WqPsLFMKjr2TCMg381ox5qI0ii2dPwaLx/00477knXqXVw==
+  dependencies:
+    node-fetch "2.6.0"
     whatwg-fetch "3.0.0"
 
 cross-spawn@^5.0.1:
@@ -5902,6 +5923,11 @@ node-fetch@2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.3.0.tgz#1a1d940bbfb916a1d3e0219f037e89e71f8c5fa5"
   integrity sha512-MOd8pV3fxENbryESLgVIeaGKrdl+uaYhCSSVkjeOb/31/njTpcis5aWfdqgNlHIrKOLRbMnfPINPOML2CIFeXA==
+
+node-fetch@2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
 node-fetch@^1.0.1:
   version "1.7.3"
