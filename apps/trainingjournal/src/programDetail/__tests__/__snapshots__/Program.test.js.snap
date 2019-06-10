@@ -34,7 +34,7 @@ exports[`Program 1`] = `
                 &lt;mock-value-for-field-"name"&gt;
               </div>
               <svg
-                className="CardSectionHeader__StyledCardSectionIconRight-sc-1gmw3sa-0 dtdYCR Icon__StyledIcon-sc-1pnzn3g-0 gsgdYz"
+                className="CardSectionHeader__StyledCardSectionIconRight-sc-1gmw3sa-0 dtdYCR Icon__StyledIcon-sc-1pnzn3g-0 gbYGej"
                 preserveAspectRatio="xMidYMid meet"
                 viewBox="0 0 24 24"
               >
@@ -44,18 +44,18 @@ exports[`Program 1`] = `
               </svg>
             </div>
             <div
-              className="CardSectionContent__StyledCardSectionContent-sc-1mj8dfx-0 leDSYY"
+              className="CardSectionContent__StyledCardSectionContent-sc-1mj8dfx-0 gvncVV"
             >
               <div
-                className="Slide__StyledSlide-sc-1xbmdp2-0 chjGAw"
+                className="Slide__StyledSlide-sc-1xbmdp2-0 dyEvPN"
               >
                 <div>
                   <div>
                     <div
-                      className="sc-cSHVUG kqukHW"
+                      className="sc-cSHVUG fVyIja"
                     >
                       <div
-                        className="sc-jzJRlG TAPDy"
+                        className="sc-jzJRlG kOehLW"
                       >
                         <h3
                           className="Heading__StyledHeading-sc-1b8cso5-0 kyjUks"

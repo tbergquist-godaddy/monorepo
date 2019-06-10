@@ -5,8 +5,8 @@
   "version": "0.0.1",
   "dependencies": {
     "@kiwicom/fetch": "^2.4.1",
-    "@kiwicom/relay": "^2.0.0",
-    "graphql": "^14.1.1"
+    "@kiwicom/relay": "^2.3.0",
+    "graphql": "^14.3.1"
   },
   "peerDependencies": {
     "@kiwicom/orbit-components": "",

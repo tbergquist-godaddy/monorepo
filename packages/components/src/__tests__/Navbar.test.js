@@ -16,7 +16,7 @@ it('renders', () => {
     ),
   ).toMatchInlineSnapshot(`
     <nav
-      className="sc-bdVaJa bxROHK"
+      className="sc-bdVaJa feiUkA"
     >
       <div
         className="sc-EHOje ZgWUm"
@@ -33,23 +33,23 @@ it('renders', () => {
         }
       >
         <div
-          className="sc-bxivhb hcxIPy"
+          className="sc-bxivhb jIGCc"
         >
           <div
-            className="sc-ifAKCX cNgdKV"
+            className="sc-ifAKCX ghdMKp"
           >
             <div
               className="sc-htoDjs kOiEgj"
             >
               <a
-                className="sc-bwzfXH sc-htpNat iprUmX"
+                className="sc-bwzfXH sc-htpNat iIxnfn"
                 href="/"
                 onClick={[Function]}
               >
                 Brand
               </a>
               <div
-                className="sc-gzVnrw jdfCU"
+                className="sc-gzVnrw gqAEGQ"
               >
                 <div>
                   left
@@ -57,39 +57,43 @@ it('renders', () => {
               </div>
             </div>
             <div
-              className="sc-gzVnrw jdfCU"
+              className="sc-gzVnrw gqAEGQ"
             >
               <div>
                 right
               </div>
             </div>
             <button
-              className="sc-bZQynM bPyPMW Button__StyledButton-sc-1brqp3f-1 haWQQK"
+              className="sc-bZQynM NSbTD Button__StyledButton-sc-1brqp3f-1 dceYnw"
               onClick={[Function]}
               size="small"
               type="button"
             >
               <div
-                className="Button__StyledButtonContent-sc-1brqp3f-2 bmuxXg"
+                className="Button__StyledButtonContent-sc-1brqp3f-2 jGhOsc"
               >
-                <svg
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  strokeWidth="0"
-                  style={
-                    Object {
-                      "color": undefined,
-                    }
-                  }
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  className="Button__StyledButtonContentChildren-sc-1brqp3f-3 hFLPMQ"
                 >
-                  <path
-                    d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                  />
-                </svg>
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                    />
+                  </svg>
+                </div>
               </div>
             </button>
           </div>

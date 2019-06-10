@@ -28,9 +28,7 @@ export const NavLink = styled.a(({ marginLeft }) => ({
     color: '#fff',
   },
   marginLeft: 0,
-  [`@media only screen and (min-width: ${
-    defaultTokens.widthBreakpointTablet
-  }px)`]: {
+  [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
     marginLeft,
   },
 }));
@@ -61,18 +59,14 @@ const BurgerButton = styled(Button)({
   ':hover': {
     backgroundColor: NAV_BACKGROUND,
   },
-  [`@media only screen and (min-width: ${
-    defaultTokens.widthBreakpointTablet
-  }px)`]: {
+  [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
     display: 'none',
   },
 });
 
 const HeaderContainer = styled.div({
   display: 'none',
-  [`@media only screen and (min-width: ${
-    defaultTokens.widthBreakpointTablet
-  }px)`]: {
+  [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
     display: 'flex',
   },
 });
@@ -83,9 +77,7 @@ const HeaderLeftContainer = styled.div({
 
 const ExpandedHeader = styled.div({
   paddingTop: '8px',
-  [`@media only screen and (min-width: ${
-    defaultTokens.widthBreakpointTablet
-  }px)`]: {
+  [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
     display: 'none',
   },
 });

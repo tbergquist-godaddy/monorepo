@@ -11,7 +11,7 @@ it('renders', () => {
   expect(create(<Toast message="test" onHide={jest.fn()} />))
     .toMatchInlineSnapshot(`
     <div
-      className="sc-bdVaJa dBwOnI"
+      className="sc-bdVaJa dNRzKi"
     >
       test
     </div>

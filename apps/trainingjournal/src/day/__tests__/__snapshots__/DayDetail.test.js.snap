@@ -24,22 +24,22 @@ Array [
             className="TableRow__StyledTableRow-nnt9s9-0 efbCJT"
           >
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
             >
               Exercise
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
             >
               Sets
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
             >
               Reps
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
             >
               Break
             </td>
@@ -52,22 +52,22 @@ Array [
             className="TableRow__StyledTableRow-nnt9s9-0 efbCJT"
           >
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
             >
               Knebøy
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
             >
               4
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
             >
               5
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 jTONqK"
+              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
             >
               2
                min
@@ -78,33 +78,37 @@ Array [
     </div>
   </div>,
   <button
-    className="sc-cSHVUG dExaMC Button__StyledButton-sc-1brqp3f-1 eFDeCy"
+    className="sc-cSHVUG epSsWD Button__StyledButton-sc-1brqp3f-1 evlMQS"
     data-test="fab"
     onClick={[Function]}
     size="normal"
     type="button"
   >
     <div
-      className="Button__StyledButtonContent-sc-1brqp3f-2 bmuxXg"
+      className="Button__StyledButtonContent-sc-1brqp3f-2 jGhOsc"
     >
-      <svg
-        fill="currentColor"
-        height="1em"
-        stroke="currentColor"
-        strokeWidth="0"
-        style={
-          Object {
-            "color": undefined,
-          }
-        }
-        viewBox="0 0 24 24"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        className="Button__StyledButtonContentChildren-sc-1brqp3f-3 hFLPMQ"
       >
-        <path
-          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-        />
-      </svg>
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          />
+        </svg>
+      </div>
     </div>
   </button>,
 ]
