@@ -17,9 +17,7 @@ import SelectExerciseQuery from './SelectExerciseQuery';
 const ButtonWrapper = styled(Col)({
   display: 'flex',
   alignItems: 'flex-end',
-  [`@media only screen and (max-width: ${
-    defaultTokens.widthBreakpointTablet
-  }px)`]: {
+  [`@media only screen and (max-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
     justifyContent: 'flex-end',
     marginTop: defaultTokens.spaceXSmall,
   },
