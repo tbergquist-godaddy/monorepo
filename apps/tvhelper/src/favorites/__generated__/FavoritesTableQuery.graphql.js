@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash f59e36b036a72ee4e053bfd6aabbe156
+ * @relayHash 8444a3f005df711fd495832b12bbea1d
  */
 
 /* eslint-disable */
@@ -166,8 +166,8 @@ return {
   "params": {
     "operationKind": "query",
     "name": "FavoritesTableQuery",
-    "id": "7c56d4866b24eace6d5fc95c6636d6eb",
-    "text": null,
+    "id": null,
+    "text": "query FavoritesTableQuery(\n  $options: SortOptions\n) {\n  ...FavoritesTable_favorites_2Rby0E\n}\n\nfragment FavoritesTable_favorites_2Rby0E on RootQuery {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n",
     "metadata": {}
   }
 };

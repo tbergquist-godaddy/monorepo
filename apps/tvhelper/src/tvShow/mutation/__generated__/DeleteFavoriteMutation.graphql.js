@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 3bc202c8239f4fc2c90498c736ba8ebd
+ * @relayHash e50324062c83cb38ccd7c196e3e72749
  */
 
 /* eslint-disable */
@@ -110,8 +110,8 @@ return {
   "params": {
     "operationKind": "mutation",
     "name": "DeleteFavoriteMutation",
-    "id": "6902c83e00749d0a1ef2b636b1d4347b",
-    "text": null,
+    "id": null,
+    "text": "mutation DeleteFavoriteMutation(\n  $serieId: ID!\n) {\n  deleteFavorite(serieId: $serieId) {\n    success\n    id\n  }\n}\n",
     "metadata": {}
   }
 };

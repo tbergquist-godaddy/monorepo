@@ -1,9 +1,9 @@
 // @flow
 
-import { execSync } from 'child_process';
-import fs from 'fs';
-import path from 'path';
-import fetch from '@kiwicom/fetch';
+const fs = require('fs');
+const path = require('path');
+const fetch = require('node-fetch');
+const execSync = require('child_process').execSync;
 
 const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
   createdStoredOperations(storedOperations: $storedOperations) {
@@ -14,7 +14,7 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
   }
 }`;
 
-(async () => {
+(() => {
   execSync('yarn relay --persist-output ./persisted-queries.json', {
     stdio: 'inherit',
   });
@@ -26,7 +26,7 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
     ),
   );
 
-  await fetch('https://tbergq-graphql.now.sh/graphql/', {
+  fetch('https://tbergq-graphql.now.sh/graphql/', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
@@ -40,5 +40,8 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
         })),
       },
     }),
-  });
+  })
+    .then(res => res.json())
+    // eslint-disable-next-line no-console
+    .then(json => console.log(json));
 })();

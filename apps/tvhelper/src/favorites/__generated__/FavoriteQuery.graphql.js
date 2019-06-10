@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 4e9d64fc92dcf383e0fe6d3f44de41ef
+ * @relayHash 1821dea920a746e17750ecda28938dfd
  */
 
 /* eslint-disable */
@@ -149,8 +149,8 @@ const node/*: ConcreteRequest*/ = {
   "params": {
     "operationKind": "query",
     "name": "FavoriteQuery",
-    "id": "f52d49972a5435eee26e789d7bbf965a",
-    "text": null,
+    "id": null,
+    "text": "query FavoriteQuery {\n  ...FavoritesTable_favorites\n}\n\nfragment FavoritesTable_favorites on RootQuery {\n  favorites(options: {sortDirection: ASC, sortBy: NAME}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n",
     "metadata": {}
   }
 };

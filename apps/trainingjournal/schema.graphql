@@ -49,6 +49,10 @@ type CreateExerciseEdge {
   exerciseEdge: ExerciseEdge
 }
 
+type CreateStoredOperation {
+  createdOperations: [StoredOperation]
+}
+
 type CreateUserMutation {
   success: Boolean
 }
@@ -225,6 +229,7 @@ type RootMutation {
   """Add tv show to favorite list"""
   addFavorite(serieId: ID!): AddFavorite
   createExercise(exercise: ExerciseInput!): CreateExerciseEdge
+  createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
   createUser(username: String!, password: String!, email: String!): CreateUserMutation
 
   """Remove tv show from favorite list"""
@@ -277,6 +282,16 @@ enum SortDirection {
 input SortOptions {
   sortDirection: SortDirection = ASC
   sortBy: SortBy = NAME
+}
+
+type StoredOperation {
+  operationId: String
+  text: String
+}
+
+input StoredOperationInput {
+  operationId: String!
+  text: String!
 }
 
 type ToggleFavorite {
