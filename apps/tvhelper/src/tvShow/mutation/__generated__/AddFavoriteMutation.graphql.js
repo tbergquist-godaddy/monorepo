@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash ab650d40a5f80903e0a3c2d2f8096e8e
+ * @relayHash 67c8e04a62be76a3fa0c4404a164fe00
  */
 
 /* eslint-disable */
@@ -136,8 +136,8 @@ return {
   "params": {
     "operationKind": "mutation",
     "name": "AddFavoriteMutation",
-    "id": "354f7565a9fdef385b12a1be6ecbfcbb",
-    "text": null,
+    "id": null,
+    "text": "mutation AddFavoriteMutation(\n  $serieId: ID!\n) {\n  addFavorite(serieId: $serieId) {\n    success\n    tvShow {\n      node {\n        id\n        isFavorite\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

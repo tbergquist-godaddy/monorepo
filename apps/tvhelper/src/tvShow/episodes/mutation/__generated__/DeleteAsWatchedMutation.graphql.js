@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash fea9d91f646d673c717a0c05e68f3f12
+ * @relayHash 63d4aafe325ec7400a2b85c475d8b9c4
  */
 
 /* eslint-disable */
@@ -121,8 +121,8 @@ return {
   "params": {
     "operationKind": "mutation",
     "name": "DeleteAsWatchedMutation",
-    "id": "930c9570fb568aa4ca8f2a9c140f460a",
-    "text": null,
+    "id": null,
+    "text": "mutation DeleteAsWatchedMutation(\n  $episodeId: ID!\n) {\n  deleteWatchedEpisode(episodeId: $episodeId) {\n    success\n    episode {\n      id\n      watched\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

@@ -24,7 +24,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "relay": "yarn relay-compiler --src ./src --schema ../../schema.graphql --verbose --exclude='**/node_modules/**','**/__mocks__/**','**/__generated__/**'"
+    "relay": "yarn relay-compiler --src ./src --schema ./schema.graphql --verbose --exclude='**/node_modules/**','**/__mocks__/**','**/__generated__/**'"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
