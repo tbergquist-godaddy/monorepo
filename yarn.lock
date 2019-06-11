@@ -1586,23 +1586,23 @@
     "@kiwicom/js" "^0.8.0"
     cross-fetch "^3.0.2"
 
-"@kiwicom/fetch@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@kiwicom/fetch/-/fetch-2.4.1.tgz#c9a0d88c0e38061ba6ac41bbe684653d3130ed08"
-  integrity sha512-Grldb7XUew1g7I/CxZafF727uNh0iAqVlqsE37dXK32kvUWji38nSDmldOVL6te+tjdU5mdkLnR0JlwMNmCjRA==
+"@kiwicom/fetch@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@kiwicom/fetch/-/fetch-2.4.2.tgz#2480a0e3a0da068543781cbcdfa82f7063a2a4b4"
+  integrity sha512-mdy4FFqKpAruI9zalBGm9591BBIzVPXK3ofMBqpvLfmYhwjqf+GZc1DHKxa6Sod5/lBtgodSTTpHrqX0Z2YNIw==
   dependencies:
-    "@kiwicom/js" "^0.11.0"
-    cross-fetch "^3.0.3"
+    "@kiwicom/js" "^0.12.0"
+    cross-fetch "^3.0.4"
 
 "@kiwicom/js@^0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.10.0.tgz#79f317e5a6c6ad8e81375215829d65f6c10bbe74"
   integrity sha512-rTTPAth4/8f9JHkt4c8NyWbfvg4YMe7/F+BjJziA/4QZ1gTTqzfGAncUn6MRRFCFEDk0wJ6YIFKH/mTRy7ecgw==
 
-"@kiwicom/js@^0.11.0":
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.11.0.tgz#2ecd9a031705a9b6b579fe09f307b194f527dc31"
-  integrity sha512-8QcVCdfkeHaRiHJdWAXgBYMbTwC83gbHA3fjFfdCgljBS2dtoF4xdZnrAn1nvLOtorLaFru9hBsIEvZXDhEmig==
+"@kiwicom/js@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.12.0.tgz#5bde0d3a182e70744f1e71e976bd0bfae608166a"
+  integrity sha512-ePo4diOMrfKpjOUzRtUr9zWcuF8a+WLXyi/gXfh3HQ5RPqbH05yC/31XN06N77vuOw1UprzxP1JeQqZ6iO6JaQ==
 
 "@kiwicom/js@^0.8.0":
   version "0.8.0"
@@ -3038,7 +3038,7 @@ cross-fetch@^3.0.2:
     node-fetch "2.3.0"
     whatwg-fetch "3.0.0"
 
-cross-fetch@^3.0.3:
+cross-fetch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.4.tgz#7bef7020207e684a7638ef5f2f698e24d9eb283c"
   integrity sha512-MSHgpjQqgbT/94D4CyADeNoYh52zMkCX4pcJvPP5WqPsLFMKjr2TCMg381ox5qI0ii2dPwaLx/00477knXqXVw==
