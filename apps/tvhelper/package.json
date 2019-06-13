@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@kiwicom/fetch": "^2.4.2",
-    "@kiwicom/relay": "^2.3.0",
+    "@kiwicom/fetch": "^2.4.3",
+    "@kiwicom/relay": "^3.0.0",
     "@tbergq/components": "^0",
     "@tbergq/relay": "^0",
     "@tbergq/utils": "^0",
@@ -30,6 +30,6 @@
   },
   "devDependencies": {
     "@babel/node": "^7.4.5",
-    "relay-compiler": "^4.0.0"
+    "relay-compiler": "^5.0.0"
   }
 }
