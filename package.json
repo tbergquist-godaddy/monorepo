@@ -25,12 +25,12 @@
     "@babel/node": "^7.4.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@kiwicom/babel-preset-kiwicom": "^3.4.0",
-    "@kiwicom/eslint-config": "^4.6.0",
+    "@kiwicom/eslint-config": "^4.7.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.2",
-    "flow-bin": "^0.100.0",
-    "jest": "^24.7.1",
-    "now": "^15.4.0",
+    "flow-bin": "^0.101.0",
+    "jest": "^24.8.0",
+    "now": "^15.5.0",
     "react-test-renderer": "^16.8.6"
   }
 }
