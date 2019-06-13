@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
-    "@kiwicom/babel-preset-kiwicom": "^2.8.0",
+    "@kiwicom/babel-preset-kiwicom": "^3.4.0",
     "relay-test-utils": "^4.0.0"
   }
 }
