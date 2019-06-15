@@ -16,7 +16,7 @@ export default function SearchScene(props: Props) {
 
   function onSubmit(query: string) {
     onQueryChange(query);
-    const href = '/?query=' + query;
+    const href = `/?query=${query}`;
     const as = href;
     Router.push(href, as, { shallow: true });
   }

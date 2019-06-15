@@ -8,6 +8,7 @@ import DayDetailScene from '../../src/day/DayDetailScene';
 
 type Props = {
   +router: Router,
+  ...
 };
 
 const Day = ({ router }: Props) => {
@@ -15,4 +16,4 @@ const Day = ({ router }: Props) => {
   return <Layout>{dayId != null && <DayDetailScene dayId={dayId} />}</Layout>;
 };
 
-export default withRouter<{}>(Day);
+export default withRouter<{ ... }>(Day);

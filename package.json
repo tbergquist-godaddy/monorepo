@@ -25,7 +25,7 @@
     "@babel/node": "^7.4.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@kiwicom/babel-preset-kiwicom": "^3.4.0",
-    "@kiwicom/eslint-config": "^4.7.0",
+    "@kiwicom/eslint-config": "^4.7.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.2",
     "flow-bin": "^0.101.0",

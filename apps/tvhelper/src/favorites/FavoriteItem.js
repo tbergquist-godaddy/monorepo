@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer } from '@tbergq/relay';
-import { TableRow, TableCell } from '@tbergq/components';
-import Link from 'next/link';
+import { TableRow, TableCell, Link } from '@tbergq/components';
 import format from 'date-fns/format';
 
 import type { FavoriteItem_favorite as Favorite } from './__generated__/FavoriteItem_favorite.graphql';
@@ -26,9 +25,7 @@ const FavoriteItem = (props: Props) => {
   return (
     <TableRow>
       <TableCell align="left">
-        <Link href={`/tvShow?id=${id}`}>
-          <a href={`/tvShow?id=${id}`}>{props.favorite?.name}</a>
-        </Link>
+        <Link href={`/tvShow?id=${id}`}>{props.favorite?.name}</Link>
       </TableCell>
       <TableCell align="left">
         {getFormattedDate(props.favorite?.nextEpisode)}

@@ -44,7 +44,6 @@ it('renders', () => {
               <a
                 className="sc-bwzfXH sc-htpNat iIxnfn"
                 href="/"
-                onClick={[Function]}
               >
                 Brand
               </a>

@@ -3,7 +3,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Container } from 'react-grid-system';
-import Link from 'next/link';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 import { MdMenu } from 'react-icons/md';
 
@@ -21,7 +20,7 @@ const Nav = styled.nav({
   zIndex: defaultTokens.zIndexOnTheTop,
 });
 
-export const NavLink = styled.a(({ marginLeft }) => ({
+const NavLink = styled.a(({ marginLeft }) => ({
   color: '#e2e2e2',
   textDecoration: 'none',
   ':hover': {
@@ -99,9 +98,7 @@ export default function Navbar(props: Props) {
         <ContentPadding>
           <FlexContainer>
             <HeaderLeftContainer>
-              <Link href="/">
-                <Brand href="/">{props.brand}</Brand>
-              </Link>
+              <Brand href="/">{props.brand}</Brand>
               <HeaderContainer>{props.headerLeft}</HeaderContainer>
             </HeaderLeftContainer>
             <HeaderContainer>{props.headerRight}</HeaderContainer>

@@ -8,6 +8,7 @@ import ProgramDetailScene from '../../src/programDetail/ProgramDetailScene';
 
 type Props = {
   +router: Router,
+  ...
 };
 
 const Detail = ({ router }: Props) => {
@@ -17,4 +18,4 @@ const Detail = ({ router }: Props) => {
   );
 };
 
-export default withRouter<{}>(Detail);
+export default withRouter<{ ... }>(Detail);

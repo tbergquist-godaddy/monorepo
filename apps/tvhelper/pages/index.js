@@ -8,6 +8,7 @@ import SearchScene from '../src/search/SearchScene';
 
 type Props = {
   +router: Router,
+  ...
 };
 
 function Index({ router }: Props) {
@@ -19,4 +20,4 @@ function Index({ router }: Props) {
   );
 }
 
-export default withRouter<{}>(Index);
+export default withRouter<{ ... }>(Index);

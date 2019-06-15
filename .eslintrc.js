@@ -14,4 +14,13 @@ module.exports = {
     node: true,
     browser: true,
   },
+  rules: {
+    'no-restricted-imports': [
+      ERROR,
+      {
+        name: "next/link",
+        message: "Please use '@tbergq/components' Link instead."
+      }
+    ]
+  }
 };
