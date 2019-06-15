@@ -26,6 +26,7 @@ export default function trainingJournalLogin(
     errors: ?$ReadOnlyArray<Error>,
   ) => void,
 ) {
+  // $FlowExpectedError: Need to fix this
   commitMutation(environment, {
     mutation,
     variables,
