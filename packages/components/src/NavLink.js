@@ -30,11 +30,12 @@ export default function NavLink({
   href,
   children,
   marginLeft,
+  onClick,
   ...rest
 }: Props) {
   return (
     <Link href={href} {...rest}>
-      <NavLinkInner marginLeft={marginLeft} href={href}>
+      <NavLinkInner onClick={onClick} marginLeft={marginLeft} href={href}>
         {children}
       </NavLinkInner>
     </Link>
