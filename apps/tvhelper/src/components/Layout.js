@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { Layout as PageLayout, Navbar, NavLink } from '@tbergq/components';
 import { isLoggedIn } from '@tbergq/utils';
-import Link from 'next/link';
 import { TOKEN_KEY } from '@tbergq/relay';
 
 type Props = {|
@@ -17,22 +16,16 @@ const onLogout = () => {
 export default function Layout(props: Props) {
   const loggedIn = isLoggedIn();
   const headerLeft = loggedIn ? (
-    <Link href="/favorites">
-      <NavLink marginLeft="8px" href="/favorites">
-        Favorites
-      </NavLink>
-    </Link>
+    <NavLink marginLeft="8px" href="/favorites">
+      Favorites
+    </NavLink>
   ) : null;
   const headerRight = !loggedIn ? (
-    <Link href="/login">
-      <NavLink href="/login">login</NavLink>
-    </Link>
+    <NavLink href="/login">login</NavLink>
   ) : (
-    <Link href="/">
-      <NavLink href="/" onClick={onLogout}>
-        logout
-      </NavLink>
-    </Link>
+    <NavLink href="/" onClick={onLogout}>
+      logout
+    </NavLink>
   );
   return (
     <>

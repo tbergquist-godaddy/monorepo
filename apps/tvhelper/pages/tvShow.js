@@ -8,6 +8,7 @@ import TvShowQuery from '../src/tvShow/TvShowQuery';
 
 type Props = {
   +router: Router,
+  ...
 };
 
 function TvShowPage(props: Props) {
@@ -18,4 +19,4 @@ function TvShowPage(props: Props) {
   );
 }
 
-export default withRouter<{}>(TvShowPage);
+export default withRouter<{ ... }>(TvShowPage);

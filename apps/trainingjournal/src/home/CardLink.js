@@ -1,8 +1,12 @@
 // @flow
 
 import * as React from 'react';
-import { Card, CardSection, CardSectionContent } from '@tbergq/components';
-import Link from 'next/link';
+import {
+  Card,
+  CardSection,
+  CardSectionContent,
+  Link,
+} from '@tbergq/components';
 
 type Props = {|
   +href: string,
@@ -12,13 +16,11 @@ type Props = {|
 export default function CardLink(props: Props) {
   return (
     <Link href={props.href}>
-      <a>
-        <Card>
-          <CardSection>
-            <CardSectionContent>{props.children}</CardSectionContent>
-          </CardSection>
-        </Card>
-      </a>
+      <Card>
+        <CardSection>
+          <CardSectionContent>{props.children}</CardSectionContent>
+        </CardSection>
+      </Card>
     </Link>
   );
 }
