@@ -9,13 +9,11 @@ import loginMutation from './mutation/LoginMutation';
 import type { LoginMutationResponse } from './mutation/__generated__/LoginMutation.graphql';
 
 export default function LoginForm() {
-  const [loading, changeLoading] = React.useState(false);
-  const [toastMessage, setToastMessage] = React.useState(null);
-  function onHide() {
-    setToastMessage(null);
-  }
-  function onSubmit(username, password) {
-    changeLoading(true);
+  const [loading, setLoading] = React.useState(false);
+  const toastRef = React.useRef<React.ElementRef<typeof Toast> | null>(null);
+
+  const onSubmit = React.useCallback((username, password) => {
+    setLoading(true);
     loginMutation(
       {
         username,
@@ -27,18 +25,18 @@ export default function LoginForm() {
         if (success && token) {
           localStorage.setItem(TOKEN_KEY, token);
           Router.push({ pathname: '/favorites' });
-        } else {
-          setToastMessage('Login failed');
+        } else if (toastRef.current != null) {
+          toastRef.current.show('Login failed');
         }
-        changeLoading(false);
+        setLoading(false);
       },
     );
-  }
+  }, []);
 
   return (
     <>
       <CommonLoginForm onSubmit={onSubmit} loading={loading} />
-      <Toast message={toastMessage} onHide={onHide} />
+      <Toast ref={toastRef} />
     </>
   );
 }

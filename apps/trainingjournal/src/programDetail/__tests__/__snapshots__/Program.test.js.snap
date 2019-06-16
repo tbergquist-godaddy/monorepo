@@ -8,7 +8,7 @@ exports[`Program 1`] = `
     Program name
   </h1>
   <div
-    className="sc-kgoBCf jUTWkl"
+    className="sc-kGXeez caUYur"
   >
     <div>
       <div
@@ -52,10 +52,10 @@ exports[`Program 1`] = `
                 <div>
                   <div>
                     <div
-                      className="sc-kAzzGY feDzoW"
+                      className="sc-chPdSV lgFnri"
                     >
                       <div
-                        className="sc-cSHVUG fUqPbE"
+                        className="sc-kAzzGY fDfBxx"
                       >
                         <h3
                           className="Heading__StyledHeading-sc-1b8cso5-0 kyjUks"
@@ -80,7 +80,7 @@ exports[`Program 1`] = `
         </div>
       </div>
       <div
-        className="sc-chPdSV hYxHKu"
+        className="sc-kgoBCf iWRYak"
       />
     </div>
   </div>

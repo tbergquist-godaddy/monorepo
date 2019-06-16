@@ -10,8 +10,9 @@ import type { trainingJournalLoginMutationResponse } from './mutation/__generate
 
 export default function LoginScene() {
   const [isLoading, setIsLoading] = React.useState(false);
-  const [toastMessage, setToastMessage] = React.useState(null);
-  function onSubmit(username, password) {
+  const toastRef = React.useRef<React.ElementRef<typeof Toast> | null>(null);
+
+  const onSubmit = React.useCallback((username, password) => {
     setIsLoading(true);
     loginMutation(
       { username, password },
@@ -21,20 +22,18 @@ export default function LoginScene() {
         if (success && token) {
           localStorage.setItem(TOKEN_KEY, token);
           Router.push('/home');
-        } else {
-          setToastMessage('Wrong username or password');
+        } else if (toastRef.current != null) {
+          toastRef.current.show('Wrong username or password');
         }
         setIsLoading(false);
       },
     );
-  }
-  function onHide() {
-    setToastMessage(null);
-  }
+  }, []);
+
   return (
     <>
       <LoginForm onSubmit={onSubmit} loading={isLoading} />
-      <Toast message={toastMessage} onHide={onHide} />
+      <Toast />
     </>
   );
 }

@@ -6,33 +6,75 @@ import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
 const ToastContainer = styled.div(props => ({
   position: 'fixed',
-  bottom: 0,
-  right: 0,
+  ...(props.top ? { top: 51 } : { bottom: 0 }),
+  ...(props.left ? { left: 0 } : { right: 0 }),
   minWidth: '200px',
   maxHeight: props.show ? '1000px' : 0,
   zIndex: defaultTokens.zIndexSticky,
   backgroundColor: defaultTokens.paletteInkDark,
   opacity: 0.4,
   color: defaultTokens.paletteWhite,
-  padding: props.show ? '20px' : 0,
+  padding: 0,
   borderRadius: defaultTokens.borderRadiusNormal,
-  transition: 'all 0.3s ease-out',
+  transition: `max-height 0.3s ease-in-out`,
+}));
+
+const TextContainer = styled.div(props => ({
+  padding: props.show ? 20 : 0,
 }));
 
 type Props = {|
-  +onHide: () => void,
-  +message: ?string,
-  +timeout?: number,
+  +timeout: number,
+  +top: boolean,
+  +left: boolean,
+  +onHide?: () => void,
 |};
 
-export default function Toast({ message, onHide, timeout = 3000 }: Props) {
-  React.useEffect(() => {
-    if (message != null && message !== '') {
-      setTimeout(() => {
-        onHide();
-      }, timeout);
-    }
-  }, [message, onHide, timeout]);
+type State = {|
+  +isVisible: boolean,
+  +message: string | null,
+|};
 
-  return <ToastContainer show={message != null}>{message}</ToastContainer>;
+export default class Toast extends React.Component<Props, State> {
+  static defaultProps = {
+    timeout: 3000,
+    top: false,
+    left: false,
+  };
+
+  state = {
+    isVisible: false,
+    message: null,
+  };
+
+  show = (message: string) => {
+    this.setState({ isVisible: true, message }, () => {
+      setTimeout(() => {
+        this.hide();
+      }, this.props.timeout);
+    });
+  };
+
+  hide = () => {
+    this.setState({ isVisible: false }, () => {
+      if (this.props.onHide) {
+        this.props.onHide();
+      }
+      this.setState({ message: null });
+    });
+  };
+
+  render() {
+    return (
+      <ToastContainer
+        show={this.state.isVisible}
+        top={this.props.top}
+        left={this.props.left}
+      >
+        <TextContainer show={this.state.isVisible}>
+          {this.state.message}
+        </TextContainer>
+      </ToastContainer>
+    );
+  }
 }

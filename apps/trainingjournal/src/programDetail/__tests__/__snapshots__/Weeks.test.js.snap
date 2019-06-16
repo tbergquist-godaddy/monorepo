@@ -43,10 +43,10 @@ exports[`Weeks 1`] = `
             <div>
               <div>
                 <div
-                  className="sc-kAzzGY feDzoW"
+                  className="sc-chPdSV lgFnri"
                 >
                   <div
-                    className="sc-cSHVUG fUqPbE"
+                    className="sc-kAzzGY fDfBxx"
                   >
                     <h3
                       className="Heading__StyledHeading-sc-1b8cso5-0 kyjUks"
@@ -71,7 +71,7 @@ exports[`Weeks 1`] = `
     </div>
   </div>
   <div
-    className="sc-chPdSV hYxHKu"
+    className="sc-kgoBCf iWRYak"
   />
 </div>
 `;
