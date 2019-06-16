@@ -78,7 +78,7 @@ Array [
     </div>
   </div>,
   <button
-    className="sc-kAzzGY hIJOhe Button__StyledButton-sc-1brqp3f-1 evlMQS"
+    className="sc-chPdSV liBcOG Button__StyledButton-sc-1brqp3f-1 evlMQS"
     data-test="fab"
     onClick={[Function]}
     size="normal"
