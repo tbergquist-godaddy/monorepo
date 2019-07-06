@@ -16,6 +16,7 @@ module.exports = {
   resolver: {
     blacklistRE: blacklist([
       /node_modules\/.*\/node_modules\/react-native\/.*/,
+      /packages\/.*\/node_modules\/react-native\/.*/,
     ]),
   },
   watchFolders: [
