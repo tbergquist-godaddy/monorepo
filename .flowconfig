@@ -78,7 +78,7 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 
 [strict]
 deprecated-type
-nonstrict-import
+;nonstrict-import
 sketchy-null
 unclear-type
 unsafe-getters-setters
