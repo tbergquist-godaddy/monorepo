@@ -5,10 +5,12 @@
   "scripts": {
     "start": "react-native start",
     "ios": "react-native run-ios",
-    "android": "react-native run-android"
+    "android": "react-native run-android",
+    "relay": "yarn relay-compiler --src ./src --schema ./schema.graphql --verbose --exclude='**/node_modules/**','**/__mocks__/**','**/__generated__/**'"
   },
   "dependencies": {
     "@tbergq/rn-components": "*",
+    "@tbergq/relay": "*",
     "metro-config": "^0.55.0",
     "react": "16.8.6",
     "react-native": "0.60.0",

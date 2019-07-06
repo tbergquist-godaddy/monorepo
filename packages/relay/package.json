@@ -9,7 +9,6 @@
     "graphql": "^14.4.2"
   },
   "peerDependencies": {
-    "@kiwicom/orbit-components": "",
     "react": "",
     "relay-runtime": ""
   }
