@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "yarn eslint . --report-unused-disable-directives",
+    "lint": "yarn jest --config=.jest-eslint.config.js",
     "flow": "flow --include-warnings",
     "graphql": "yarn babel-node packages/relay/scripts/getSchema.js && yarn babel-node scripts/copySchemaToWorkspaces.js",
     "test-ci": "yarn lint && yarn flow && yarn test",
