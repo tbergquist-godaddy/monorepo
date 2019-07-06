@@ -17,6 +17,7 @@ export {
   commitMutation,
   createRefetchContainer,
   createPaginationContainer,
+  createEnvironment,
 } from '@kiwicom/relay';
 
 export type RelayProp = _RelayProp;
