@@ -70,6 +70,7 @@ it('renders', () => {
             >
               <div
                 className="Button__StyledButtonContent-sc-1brqp3f-2 jGhOsc"
+                loading={false}
               >
                 <div
                   className="Button__StyledButtonContentChildren-sc-1brqp3f-3 hFLPMQ"
