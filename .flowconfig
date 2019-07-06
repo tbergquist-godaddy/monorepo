@@ -34,7 +34,6 @@ flow-typed/
 unnecessary-optional-chain=error
 
 
-
 [options]
 emoji=true
 esproposal.optional_chaining=enable
@@ -88,6 +87,7 @@ untyped-type-import
 [untyped]
 <PROJECT_ROOT>/node_modules/@kiwicom/js/src/.+
 <PROJECT_ROOT>/node_modules/@kiwicom/fetch/src/.+
+<PROJECT_ROOT>/node_modules/@kiwicom/monorepo-utils/src/.+
 <PROJECT_ROOT>/node_modules/graphql/.+
 .+/node_modules/react-native/Libraries/Lists/SectionList.js
 .+/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js
