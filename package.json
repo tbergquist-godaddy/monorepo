@@ -18,7 +18,9 @@
     ],
     "nohoist": [
       "**/react-native",
-      "**/react-native/**"
+      "**/react-native/**",
+      "**/react-native-gesture-handler",
+      "**/react-native-gesture-handler/**"
     ]
   },
   "private": true,
