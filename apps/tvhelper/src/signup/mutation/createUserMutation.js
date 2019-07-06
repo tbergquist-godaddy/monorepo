@@ -20,7 +20,6 @@ export default function createUserMuatation(
   variables: createUserMutationVariables,
   onCompleted?: Function,
 ) {
-  // $FlowExpectedError: Need to fix this
   commitMutation(environment, {
     mutation,
     variables,
