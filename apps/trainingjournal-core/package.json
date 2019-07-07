@@ -1,0 +1,12 @@
+{
+  "name": "@tbergq/trainingjournal-core",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "@tbergq/relay": "*"
+  },
+  "scripts": {
+    "relay": "yarn relay-compiler --src ./src --schema ./schema.graphql --verbose --exclude='**/node_modules/**','**/__mocks__/**','**/__generated__/**'"
+  }
+}
