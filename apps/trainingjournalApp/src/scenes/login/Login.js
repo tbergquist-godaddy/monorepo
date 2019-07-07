@@ -1,20 +1,35 @@
 // @flow strict
 
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, AsyncStorage, Alert } from 'react-native';
 import { TextInput, Button } from '@tbergq/rn-components';
-import { loginMutation } from '@tbergq/trainingjournal-core';
+import {
+  loginMutation,
+  type LoginMutationResponse,
+} from '@tbergq/trainingjournal-core';
+import { withNavigation } from 'react-navigation';
 
-export default function Login() {
+type Props = {|
+  +navigation: { +navigate: string => void, ... },
+|};
+
+function Login(props: Props) {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const { navigate } = props.navigation;
 
   const onLoginPress = React.useCallback(() => {
-    loginMutation({ username, password }, res => {
-      // eslint-disable-next-line no-console
-      console.warn(res);
+    loginMutation({ username, password }, (res: ?LoginMutationResponse) => {
+      const token = res?.trainingJournalLogin?.token;
+      if (token != null) {
+        AsyncStorage.setItem('@tj:token', token);
+        navigate('LoggedInStack');
+      } else {
+        Alert.alert('Login failed');
+      }
     });
-  }, [password, username]);
+  }, [navigate, password, username]);
+
   return (
     <View style={styles.container}>
       <TextInput value={username} onChangeText={setUsername} label="Username" />
@@ -35,3 +50,5 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
+
+export default withNavigation(Login);
