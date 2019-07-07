@@ -8,6 +8,20 @@ module.exports = withCustomBabelConfigFile(
   withTM({
     babelConfigFile: path.join(__dirname, '.babelrc'),
     target: 'serverless',
-    transpileModules: ['@tbergq/relay', '@tbergq/components', '@tbergq/utils'],
+    transpileModules: ['@tbergq'],
+    webpack: config => {
+      config.resolve.alias = {
+        ...(config.resolve.alias || {}),
+        'react-native$': 'react-native-web',
+      };
+
+      config.resolve.extensions = [
+        ...config.resolve.extensions,
+        '.web.js',
+        '.js',
+      ];
+
+      return config;
+    },
   }),
 );

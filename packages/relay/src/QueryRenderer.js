@@ -8,6 +8,7 @@ import {
 } from '@kiwicom/relay';
 import fetch from '@kiwicom/fetch';
 import { QueryResponseCache } from 'relay-runtime';
+import { Loader } from '@tbergq/rn-components';
 
 const cache = new QueryResponseCache({ size: 100, ttl: 1000 * 60 * 60 * 15 }); // 15 minutes
 
@@ -71,8 +72,7 @@ export const environment = createEnvironment({
   fetchFn,
 });
 
-// TODO: Add loader xplat loader
-const onLoading = () => null;
+const onLoading = () => <Loader size="large" />;
 
 export default function QueryRenderer(props: Props) {
   return (
