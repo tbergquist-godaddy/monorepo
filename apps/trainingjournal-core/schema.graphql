@@ -1,0 +1,373 @@
+schema {
+  query: RootQuery
+  mutation: RootMutation
+}
+
+type AddFavorite {
+  success: Boolean
+  tvShow: TvShowNode
+}
+
+type BaseExercise {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+  videoLink: String
+  description: String
+  muscleGroup: MuscleGroup
+}
+
+"""A connection to a list of items."""
+type BaseExerciseConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [BaseExerciseEdge]
+}
+
+"""An edge in a connection."""
+type BaseExerciseEdge {
+  """The item at the end of the edge"""
+  node: BaseExercise
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type Cast {
+  id: ID
+  person: Person
+  character: Person
+}
+
+type CreateExerciseEdge {
+  exerciseEdge: ExerciseEdge
+}
+
+type CreateStoredOperation {
+  createdOperations: [StoredOperation]
+}
+
+type CreateUserMutation {
+  success: Boolean
+}
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format
+outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
+representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+type Day {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+  exercises(after: String, first: Int, before: String, last: Int): ExerciseConnection
+}
+
+"""A connection to a list of items."""
+type DayConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [DayEdge]
+}
+
+"""An edge in a connection."""
+type DayEdge {
+  """The item at the end of the edge"""
+  node: Day
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+"""Episodes of the tv show"""
+type Episode {
+  id: ID
+  image: TvHelperImage
+  name: String
+  season: Int
+  number: Int
+
+  """Gives season and episode number on format S01E01"""
+  seasonAndNumber: String
+  airdate: Date
+  summary(stripTags: Boolean = true): String
+  watched: Boolean
+}
+
+type EpisodeWatched {
+  success: Boolean
+  episode: Episode
+}
+
+type Exercise {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+  set: String
+  reps: String
+  breakTime: String
+  baseExercise: BaseExercise
+}
+
+"""A connection to a list of items."""
+type ExerciseConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [ExerciseEdge]
+}
+
+"""An edge in a connection."""
+type ExerciseEdge {
+  """The item at the end of the edge"""
+  node: Exercise
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+input ExerciseInput {
+  breakTime: Int!
+  dayId: ID!
+  description: String
+  reps: String!
+  set: String!
+  baseExerciseId: ID!
+}
+
+type LoginType {
+  token: String
+  success: Boolean
+}
+
+type MuscleGroup {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+type Person {
+  id: ID
+  name: String
+  image: TvHelperImage
+}
+
+type Program {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+  weeks(after: String, first: Int, before: String, last: Int): WeekConnection
+}
+
+"""A connection to a list of items."""
+type ProgramConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [ProgramEdge]
+}
+
+"""An edge in a connection."""
+type ProgramEdge {
+  """The item at the end of the edge"""
+  node: Program
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type RangeDelete {
+  success: Boolean
+  id: ID
+}
+
+"""Root Mutation."""
+type RootMutation {
+  """Add tv show to favorite list"""
+  addFavorite(serieId: ID!): AddFavorite
+  createExercise(exercise: ExerciseInput!): CreateExerciseEdge
+  createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
+  createUser(username: String!, password: String!, email: String!): CreateUserMutation
+
+  """Remove tv show from favorite list"""
+  deleteFavorite(serieId: ID!): RangeDelete
+
+  """Delete an episode as watched"""
+  deleteWatchedEpisode(episodeId: ID!): EpisodeWatched
+
+  """Mark an episode as watched"""
+  markAsWatched(episodeId: ID!): EpisodeWatched
+
+  """Toggle tv show from favorite list"""
+  toggleFavorite(serieId: ID!, add: Boolean!): ToggleFavorite @deprecated(reason: "Use deleteFavorite and addFavorite instead")
+  trainingJournalLogin(username: String!, password: String!): LoginType
+  tvHelperLogin(username: String!, password: String!): LoginType
+}
+
+"""Root Query"""
+type RootQuery {
+  baseExercises(after: String, first: Int, before: String, last: Int): BaseExerciseConnection
+  day(dayId: ID!): Day
+
+  """Load episode by id"""
+  episode(id: ID!): Episode
+
+  """Get your favorites"""
+  favorites(after: String, first: Int, before: String, last: Int, options: SortOptions = {sortDirection: ASC, sortBy: NAME}): TvShowConnection
+  program(programId: ID!): Program
+  programs(after: String, first: Int = 10, before: String, last: Int): ProgramConnection
+
+  """Search for tv shows by name"""
+  searchTvShow(query: String!, after: String, first: Int, before: String, last: Int): TvShowConnection
+
+  """Tv show lookup by id"""
+  tvShowDetail(id: ID!): TvShow
+}
+
+enum SortBy {
+  NAME
+  NEXT_EPISODE
+  PREVIOUS_EPISODE
+  STATUS
+}
+
+enum SortDirection {
+  ASC
+  DESC
+}
+
+input SortOptions {
+  sortDirection: SortDirection = ASC
+  sortBy: SortBy = NAME
+}
+
+type StoredOperation {
+  operationId: String
+  text: String
+}
+
+input StoredOperationInput {
+  operationId: String!
+  text: String!
+}
+
+type ToggleFavorite {
+  success: Boolean
+  serieId: ID
+  tvShow: TvShowNode
+}
+
+type TvHelperImage {
+  id: ID
+  original: String
+  medium: String
+}
+
+type TvShow {
+  id: ID
+  name: String
+  status: String
+  premiered: Date
+  rating: Float
+  image: TvHelperImage
+  summary(stripTags: Boolean = true): String
+  isFavorite: Boolean
+  episodes: [Episode]
+  previousEpisode: Date
+  nextEpisode: Date
+  cast: [Cast]
+}
+
+"""A connection to a list of items."""
+type TvShowConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [TvShowEdge]
+}
+
+"""An edge in a connection."""
+type TvShowEdge {
+  """The item at the end of the edge"""
+  node: TvShow
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type TvShowNode {
+  node: TvShow
+}
+
+type Week {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+  days(after: String, first: Int, before: String, last: Int): DayConnection
+}
+
+"""A connection to a list of items."""
+type WeekConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [WeekEdge]
+}
+
+"""An edge in a connection."""
+type WeekEdge {
+  """The item at the end of the edge"""
+  node: Week
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}

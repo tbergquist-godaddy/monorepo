@@ -3,8 +3,7 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TextInput, Button } from '@tbergq/rn-components';
-
-import loginMutation from './mutation/LoginMutation';
+import { loginMutation } from '@tbergq/trainingjournal-core';
 
 export default function Login() {
   const [username, setUsername] = React.useState('');

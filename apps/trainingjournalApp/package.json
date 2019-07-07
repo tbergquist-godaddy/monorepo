@@ -11,6 +11,7 @@
   "dependencies": {
     "@tbergq/rn-components": "*",
     "@tbergq/relay": "*",
+    "@tbergq/trainingjournal-core": "*",
     "metro-config": "^0.55.0",
     "react": "16.8.6",
     "react-native": "0.60.0",

@@ -23,6 +23,7 @@ module.exports = {
     cwd,
     path.resolve(cwd, '../../packages'),
     path.resolve(cwd, '../../node_modules'),
+    path.resolve(cwd, '..', '..', 'apps', 'trainingjournal-core'),
   ],
   transformer: {
     // eslint-disable-next-line require-await
