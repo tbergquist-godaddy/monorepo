@@ -2,21 +2,24 @@
 
 import { createStackNavigator } from 'react-navigation';
 
-import LoginScreen from '../screens/LoginScreen';
+import LoginStack from './LoginStack';
+import LoggedInStack from './LoggedInStack';
 
-const MainNavigator = createStackNavigator({
-  Login: {
-    screen: LoginScreen,
-    navigationOptions: {
-      title: 'Login',
-      headerStyle: {
-        backgroundColor: 'deeppink',
-      },
-      headerTitleStyle: {
-        color: '#fff',
+const MainNavigator = createStackNavigator(
+  {
+    Login: {
+      screen: LoginStack,
+    },
+    LoggedInStack: {
+      screen: LoggedInStack,
+      navigationOptions: {
+        gesturesEnabled: false,
       },
     },
   },
-});
+  {
+    headerMode: 'none',
+  },
+);
 
 export default MainNavigator;
