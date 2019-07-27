@@ -9,8 +9,8 @@
     "relay": "yarn relay-compiler --src ./src --schema ./schema.graphql --verbose --exclude='**/node_modules/**','**/__mocks__/**','**/__generated__/**'"
   },
   "dependencies": {
-    "@tbergq/rn-components": "*",
     "@tbergq/relay": "*",
+    "@tbergq/rn-components": "*",
     "@tbergq/trainingjournal-core": "*",
     "metro-config": "^0.55.0",
     "react": "16.8.6",
@@ -19,8 +19,8 @@
     "react-navigation": "^3.11.0"
   },
   "devDependencies": {
-    "@babel/core": "7.5.0",
-    "@babel/runtime": "7.5.1",
+    "@babel/core": "7.5.5",
+    "@babel/runtime": "7.5.5",
     "babel-jest": "24.8.0",
     "metro-react-native-babel-preset": "0.54.1",
     "react-test-renderer": "16.8.6"

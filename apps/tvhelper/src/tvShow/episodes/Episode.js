@@ -1,11 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import {
-  graphql,
-  createFragmentContainer,
-  type RelayProp,
-} from '@tbergq/relay';
+import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
 import { ListItem } from '@tbergq/components';
 import format from 'date-fns/format';
 import { isLoggedIn } from '@tbergq/utils';

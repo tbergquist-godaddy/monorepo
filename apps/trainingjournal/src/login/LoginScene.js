@@ -4,10 +4,7 @@ import * as React from 'react';
 import { LoginForm, Toast } from '@tbergq/components';
 import { TOKEN_KEY } from '@tbergq/relay';
 import Router from 'next/router';
-import {
-  loginMutation,
-  type LoginMutationResponse,
-} from '@tbergq/trainingjournal-core';
+import { loginMutation, type LoginMutationResponse } from '@tbergq/trainingjournal-core';
 
 export default function LoginScene() {
   const [isLoading, setIsLoading] = React.useState(false);

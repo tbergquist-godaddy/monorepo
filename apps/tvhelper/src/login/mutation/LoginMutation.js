@@ -18,10 +18,7 @@ const mutation = graphql`
 
 export default function LoginMutation(
   variables: LoginMutationVariables,
-  onCompleted: (
-    response: ?LoginMutationResponse,
-    errors: ?$ReadOnlyArray<Error>,
-  ) => void,
+  onCompleted: (response: ?LoginMutationResponse, errors: ?$ReadOnlyArray<Error>) => void,
 ) {
   // $FlowExpectedError: Need to fix this
   commitMutation(environment, {

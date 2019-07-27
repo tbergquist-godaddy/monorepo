@@ -20,10 +20,7 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
   });
 
   const persistedQueries = JSON.parse(
-    fs.readFileSync(
-      path.join(__dirname, '..', 'persisted-queries.json'),
-      'utf8',
-    ),
+    fs.readFileSync(path.join(__dirname, '..', 'persisted-queries.json'), 'utf8'),
   );
 
   fetch('https://tbergq-graphql.now.sh/graphql/', {

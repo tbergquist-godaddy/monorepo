@@ -2,12 +2,7 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer } from '@tbergq/relay';
-import {
-  Card,
-  CardSection,
-  CardSectionContent,
-  CardSectionHeader,
-} from '@tbergq/components';
+import { Card, CardSection, CardSectionContent, CardSectionHeader } from '@tbergq/components';
 
 import type { Week_week as WeekType } from './__generated__/Week_week.graphql';
 import Days from './Days';

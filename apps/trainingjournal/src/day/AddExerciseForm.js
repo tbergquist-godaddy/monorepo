@@ -3,11 +3,7 @@
 import * as React from 'react';
 import { Input, Button, Row, Col } from '@tbergq/components';
 import styled from 'styled-components';
-import {
-  createFragmentContainer,
-  graphql,
-  type RelayProp,
-} from '@tbergq/relay';
+import { createFragmentContainer, graphql, type RelayProp } from '@tbergq/relay';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
 import addExerciseMutation from './mutation/addExerciseMutation';

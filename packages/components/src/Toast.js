@@ -66,14 +66,8 @@ export default class Toast extends React.Component<Props, State> {
 
   render() {
     return (
-      <ToastContainer
-        show={this.state.isVisible}
-        top={this.props.top}
-        left={this.props.left}
-      >
-        <TextContainer show={this.state.isVisible}>
-          {this.state.message}
-        </TextContainer>
+      <ToastContainer show={this.state.isVisible} top={this.props.top} left={this.props.left}>
+        <TextContainer show={this.state.isVisible}>{this.state.message}</TextContainer>
       </ToastContainer>
     );
   }

@@ -13,9 +13,7 @@ type Props = {|
 const SearchResults = (props: Props) => {
   const edges = props.results?.edges ?? [];
 
-  return edges.map(edge => (
-    <SearchResultItem key={edge?.node?.id} tvShow={edge?.node} />
-  ));
+  return edges.map(edge => <SearchResultItem key={edge?.node?.id} tvShow={edge?.node} />);
 };
 
 export default createFragmentContainer(SearchResults, {

@@ -18,13 +18,7 @@ const SelectExerciseQuery = (props: Props) => {
         id: edge?.node?.id ?? '',
         name: edge?.node?.name ?? '',
       }));
-      return (
-        <Autocomplete
-          values={data}
-          onSelect={props.onSelect}
-          label="Exercise"
-        />
-      );
+      return <Autocomplete values={data} onSelect={props.onSelect} label="Exercise" />;
     },
     [props.onSelect],
   );

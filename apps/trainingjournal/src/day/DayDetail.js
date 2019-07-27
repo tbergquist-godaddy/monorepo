@@ -34,9 +34,7 @@ const DayDetail = (props: Props) => {
   return (
     <>
       <Heading>{dayName}</Heading>
-      {showCreateFrom && (
-        <AddExerciseForm hideForm={hideForm} day={props.day} />
-      )}
+      {showCreateFrom && <AddExerciseForm hideForm={hideForm} day={props.day} />}
       <ExerciseTable day={props.day} />
       <Fab dataTest="fab" circled={true} onClick={showForm}>
         <MdAdd />

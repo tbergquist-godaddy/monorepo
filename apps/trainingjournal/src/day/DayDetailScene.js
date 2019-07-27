@@ -11,12 +11,9 @@ type Props = {|
 |};
 
 export default function DayDetailScene(props: Props) {
-  const render = React.useCallback(
-    (renderProps: DayDetailSceneQueryResponse) => {
-      return <DayDetail day={renderProps.day} />;
-    },
-    [],
-  );
+  const render = React.useCallback((renderProps: DayDetailSceneQueryResponse) => {
+    return <DayDetail day={renderProps.day} />;
+  }, []);
   return (
     <QueryRenderer
       query={graphql`

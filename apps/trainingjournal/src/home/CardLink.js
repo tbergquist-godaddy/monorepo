@@ -1,12 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import {
-  Card,
-  CardSection,
-  CardSectionContent,
-  Link,
-} from '@tbergq/components';
+import { Card, CardSection, CardSectionContent, Link } from '@tbergq/components';
 
 type Props = {|
   +href: string,

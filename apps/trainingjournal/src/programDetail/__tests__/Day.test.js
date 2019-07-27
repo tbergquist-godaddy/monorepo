@@ -7,9 +7,7 @@ import { create } from 'react-test-renderer';
 
 import Day from '../Day';
 
-const renderInner = props => (
-  <Day day={props.program.weeks.edges[0].node.days.edges[0].node} />
-);
+const renderInner = props => <Day day={props.program.weeks.edges[0].node.days.edges[0].node} />;
 
 test('Day', () => {
   const environment = createMockEnvironment();

@@ -22,9 +22,7 @@ export default function Button({ type = 'primary', ...props }: Props) {
       onPress={props.onPress}
       style={[styles.button, styles[type], props.style]}
     >
-      <Text style={[buttonTextStyles.text, buttonTextStyles[type]]}>
-        {props.text}
-      </Text>
+      <Text style={[buttonTextStyles.text, buttonTextStyles[type]]}>{props.text}</Text>
     </TouchableOpacity>
   );
 }

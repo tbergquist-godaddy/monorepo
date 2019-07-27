@@ -7,13 +7,7 @@ import Navbar from '../Navbar';
 
 it('renders', () => {
   expect(
-    create(
-      <Navbar
-        brand="Brand"
-        headerLeft={<div>left</div>}
-        headerRight={<div>right</div>}
-      />,
-    ),
+    create(<Navbar brand="Brand" headerLeft={<div>left</div>} headerRight={<div>right</div>} />),
   ).toMatchInlineSnapshot(`
     <nav
       className="sc-bdVaJa feiUkA"
@@ -70,7 +64,6 @@ it('renders', () => {
             >
               <div
                 className="Button__StyledButtonContent-sc-1brqp3f-2 jGhOsc"
-                loading={false}
               >
                 <div
                   className="Button__StyledButtonContentChildren-sc-1brqp3f-3 hFLPMQ"

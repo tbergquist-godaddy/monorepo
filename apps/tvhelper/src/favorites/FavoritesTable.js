@@ -1,19 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import {
-  graphql,
-  createRefetchContainer,
-  type RefetchRelayProp,
-} from '@tbergq/relay';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableBody,
-  Heading,
-  Loading,
-} from '@tbergq/components';
+import { graphql, createRefetchContainer, type RefetchRelayProp } from '@tbergq/relay';
+import { Table, TableHead, TableRow, TableBody, Heading, Loading } from '@tbergq/components';
 import styled from 'styled-components';
 
 import type { FavoritesTable_favorites as Favorites } from './__generated__/FavoritesTable_favorites.graphql';
@@ -48,10 +37,7 @@ const FavoritesTable = (props: Props) => {
     setOptions(oldValue => {
       const newOptions = {
         sortBy: e.target.id,
-        ascending:
-          e.target.id === oldValue.sortBy
-            ? !oldValue.ascending
-            : oldValue.ascending,
+        ascending: e.target.id === oldValue.sortBy ? !oldValue.ascending : oldValue.ascending,
       };
       props.relay.refetch(
         {
@@ -79,27 +65,13 @@ const FavoritesTable = (props: Props) => {
       <Table>
         <TableHead>
           <TableRow>
-            <FavoriteHeaderCell
-              {...options}
-              sortKey="NAME"
-              onClick={onClick}
-              align="left"
-            >
+            <FavoriteHeaderCell {...options} sortKey="NAME" onClick={onClick} align="left">
               Name
             </FavoriteHeaderCell>
-            <FavoriteHeaderCell
-              {...options}
-              sortKey="NEXT_EPISODE"
-              onClick={onClick}
-              align="left"
-            >
+            <FavoriteHeaderCell {...options} sortKey="NEXT_EPISODE" onClick={onClick} align="left">
               Next episode
             </FavoriteHeaderCell>
-            <FavoriteHeaderCell
-              {...options}
-              sortKey="PREVIOUS_EPISODE"
-              onClick={onClick}
-            >
+            <FavoriteHeaderCell {...options} sortKey="PREVIOUS_EPISODE" onClick={onClick}>
               Previous episode
             </FavoriteHeaderCell>
             <FavoriteHeaderCell {...options} sortKey="STATUS" onClick={onClick}>
@@ -123,10 +95,7 @@ export default createRefetchContainer(
     favorites: graphql`
       fragment FavoritesTable_favorites on RootQuery
         @argumentDefinitions(
-          options: {
-            type: "SortOptions"
-            defaultValue: { sortDirection: "ASC", sortBy: "NAME" }
-          }
+          options: { type: "SortOptions", defaultValue: { sortDirection: "ASC", sortBy: "NAME" } }
         ) {
         favorites(options: $options) {
           edges {

@@ -3,11 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import fetch from '@kiwicom/fetch';
-import {
-  buildClientSchema,
-  getIntrospectionQuery,
-  printSchema,
-} from 'graphql/utilities';
+import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql/utilities';
 
 (async () => {
   const res = await fetch('https://tbergq-graphql.now.sh/graphql/', {
@@ -22,8 +18,5 @@ import {
   });
   const schemaJSON = await res.json();
   const clientSchema = printSchema(buildClientSchema(schemaJSON.data));
-  fs.writeFileSync(
-    path.join(__dirname, '..', '..', '..', 'schema.graphql'),
-    clientSchema,
-  );
+  fs.writeFileSync(path.join(__dirname, '..', '..', '..', 'schema.graphql'), clientSchema);
 })();
