@@ -8,7 +8,7 @@ type AddFavorite {
   tvShow: TvShowNode
 }
 
-type BaseExercise {
+type BaseExercise implements Node {
   """
   The globally unique ID of an object. You can unmask this ID to get original
   value but please note that this unmasked ID is not globally unique anymore and
@@ -18,7 +18,7 @@ type BaseExercise {
   name: String
   videoLink: String
   description: String
-  muscleGroup: MuscleGroup
+  muscleGroup: String
 }
 
 """A connection to a list of items."""
@@ -39,14 +39,17 @@ type BaseExerciseEdge {
   cursor: String!
 }
 
+input BaseExerciseInput {
+  name: String!
+  videoLink: String
+  description: String
+  muscleGroup: String!
+}
+
 type Cast {
   id: ID
   person: Person
   character: Person
-}
-
-type CreateExerciseEdge {
-  exerciseEdge: ExerciseEdge
 }
 
 type CreateStoredOperation {
@@ -64,7 +67,7 @@ representation of dates and times using the Gregorian calendar.
 """
 scalar Date
 
-type Day {
+type Day implements Node {
   """
   The globally unique ID of an object. You can unmask this ID to get original
   value but please note that this unmasked ID is not globally unique anymore and
@@ -113,15 +116,14 @@ type EpisodeWatched {
   episode: Episode
 }
 
-type Exercise {
+type Exercise implements Node {
   """
   The globally unique ID of an object. You can unmask this ID to get original
   value but please note that this unmasked ID is not globally unique anymore and
   therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
-  name: String
-  set: String
+  sets: String
   reps: String
   breakTime: String
   baseExercise: BaseExercise
@@ -146,11 +148,11 @@ type ExerciseEdge {
 }
 
 input ExerciseInput {
-  breakTime: Int!
+  breakTime: String!
   dayId: ID!
   description: String
   reps: String!
-  set: String!
+  sets: String!
   baseExerciseId: ID!
 }
 
@@ -159,14 +161,19 @@ type LoginType {
   success: Boolean
 }
 
-type MuscleGroup {
-  """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
-  """
-  id(opaque: Boolean = true): ID!
-  name: String
+type MutationEdge {
+  success: Boolean
+  edge: MutationNode
+}
+
+type MutationNode {
+  node: Node
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
 }
 
 """Information about pagination in a connection."""
@@ -190,7 +197,7 @@ type Person {
   image: TvHelperImage
 }
 
-type Program {
+type Program implements Node {
   """
   The globally unique ID of an object. You can unmask this ID to get original
   value but please note that this unmasked ID is not globally unique anymore and
@@ -198,6 +205,7 @@ type Program {
   """
   id(opaque: Boolean = true): ID!
   name: String
+  date: Date
   weeks(after: String, first: Int, before: String, last: Int): WeekConnection
 }
 
@@ -228,9 +236,20 @@ type RangeDelete {
 type RootMutation {
   """Add tv show to favorite list"""
   addFavorite(serieId: ID!): AddFavorite
-  createExercise(exercise: ExerciseInput!): CreateExerciseEdge
+  createBaseExercise(baseExercise: BaseExerciseInput!): MutationEdge
+
+  """Add a day to a week"""
+  createDay(name: String!, weekId: ID!): MutationEdge
+  createExercise(exercise: ExerciseInput!): MutationEdge
+
+  """Create a trainingjournal program"""
+  createProgram(name: String!): MutationEdge
   createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
+  createTrainingjournalUser(username: String!, password: String!, email: String!): CreateUserMutation
   createUser(username: String!, password: String!, email: String!): CreateUserMutation
+
+  """Add a week to a program"""
+  createWeek(name: String!, programId: ID!): MutationEdge
 
   """Remove tv show from favorite list"""
   deleteFavorite(serieId: ID!): RangeDelete
@@ -343,7 +362,7 @@ type TvShowNode {
   node: TvShow
 }
 
-type Week {
+type Week implements Node {
   """
   The globally unique ID of an object. You can unmask this ID to get original
   value but please note that this unmasked ID is not globally unique anymore and
