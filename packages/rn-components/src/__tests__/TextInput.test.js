@@ -6,8 +6,7 @@ import { create } from 'react-test-renderer';
 import TextInput from '../TextInput';
 
 test('TextInput', () => {
-  expect(create(<TextInput value="test" onChangeText={jest.fn()} />))
-    .toMatchInlineSnapshot(`
+  expect(create(<TextInput value="test" onChangeText={jest.fn()} />)).toMatchInlineSnapshot(`
     <TextInput
       allowFontScaling={true}
       onChangeText={[MockFunction]}

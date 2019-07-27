@@ -1,11 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import {
-  graphql,
-  createPaginationContainer,
-  type PaginationRelayProp,
-} from '@tbergq/relay';
+import { graphql, createPaginationContainer, type PaginationRelayProp } from '@tbergq/relay';
 import { Button } from '@tbergq/components';
 
 import type { ProgramList_programs as Programs } from './__generated__/ProgramList_programs.graphql';
@@ -50,8 +46,7 @@ export default createPaginationContainer(
           first: { type: "Int", defaultValue: 10 }
           cursor: { type: "String", defaultValue: null }
         ) {
-        programs(first: $first, after: $cursor)
-          @connection(key: "ProgramList_programs") {
+        programs(first: $first, after: $cursor) @connection(key: "ProgramList_programs") {
           edges {
             node {
               id

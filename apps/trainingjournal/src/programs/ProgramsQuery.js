@@ -6,9 +6,7 @@ import { graphql, QueryRenderer } from '@tbergq/relay';
 import type { ProgramsQueryResponse } from './__generated__/ProgramsQuery.graphql';
 import ProgramList from './ProgramList';
 
-const renderInner = (props: ProgramsQueryResponse) => (
-  <ProgramList programs={props} />
-);
+const renderInner = (props: ProgramsQueryResponse) => <ProgramList programs={props} />;
 
 export default function ProgramsQuery() {
   return (

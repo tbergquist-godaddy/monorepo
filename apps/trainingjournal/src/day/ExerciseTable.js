@@ -2,13 +2,7 @@
 
 import * as React from 'react';
 import { createFragmentContainer, graphql } from '@tbergq/relay';
-import {
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from '@tbergq/components';
+import { Table, TableHead, TableRow, TableCell, TableBody } from '@tbergq/components';
 
 import type { ExerciseTable_day as DayType } from './__generated__/ExerciseTable_day.graphql';
 import ExerciseRow from './ExerciseRow';

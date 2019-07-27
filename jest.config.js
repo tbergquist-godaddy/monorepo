@@ -33,6 +33,7 @@ function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
 module.exports = {
   rootDir: __dirname,
   verbose: false,
+  setupFilesAfterEnv: ['./scripts/setupTest.js'],
   projects: [
     ...Workspaces.getWorkspacesSync().map(packageJSONLocation => {
       // $FlowExpectedError: This is a valid string, but flow does not recognise it

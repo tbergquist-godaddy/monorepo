@@ -6,11 +6,7 @@ import {
   type PaginationRelayProp as _PaginationRelayProp,
 } from '@kiwicom/relay';
 
-export {
-  default as QueryRenderer,
-  environment,
-  TOKEN_KEY,
-} from './src/QueryRenderer';
+export { default as QueryRenderer, environment, TOKEN_KEY } from './src/QueryRenderer';
 export {
   graphql,
   createFragmentContainer,

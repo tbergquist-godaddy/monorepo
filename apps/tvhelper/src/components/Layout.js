@@ -29,11 +29,7 @@ export default function Layout(props: Props) {
   );
   return (
     <>
-      <Navbar
-        brand="Tvhelper"
-        headerLeft={headerLeft}
-        headerRight={headerRight}
-      />
+      <Navbar brand="Tvhelper" headerLeft={headerLeft} headerRight={headerRight} />
       <PageLayout>{props.children}</PageLayout>
     </>
   );

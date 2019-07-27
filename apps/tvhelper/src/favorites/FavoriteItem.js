@@ -27,9 +27,7 @@ const FavoriteItem = (props: Props) => {
       <TableCell align="left">
         <Link href={`/tvShow?id=${id}`}>{props.favorite?.name}</Link>
       </TableCell>
-      <TableCell align="left">
-        {getFormattedDate(props.favorite?.nextEpisode)}
-      </TableCell>
+      <TableCell align="left">{getFormattedDate(props.favorite?.nextEpisode)}</TableCell>
       <TableCell>{getFormattedDate(props.favorite?.previousEpisode)}</TableCell>
       <TableCell>{props.favorite?.status}</TableCell>
     </TableRow>

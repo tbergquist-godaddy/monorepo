@@ -13,9 +13,7 @@ type Props = {
 
 const Detail = ({ router }: Props) => {
   const programId = router.query.programId;
-  return (
-    <Layout>{programId && <ProgramDetailScene programId={programId} />}</Layout>
-  );
+  return <Layout>{programId && <ProgramDetailScene programId={programId} />}</Layout>;
 };
 
 export default withRouter<{ ... }>(Detail);

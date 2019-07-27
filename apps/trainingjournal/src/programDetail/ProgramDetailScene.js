@@ -11,12 +11,9 @@ type Props = {|
 |};
 
 export default function ProgramDetailScene(props: Props) {
-  const renderInner = React.useCallback(
-    (renderProps: ProgramDetailSceneQueryResponse) => {
-      return <Program program={renderProps.program} />;
-    },
-    [],
-  );
+  const renderInner = React.useCallback((renderProps: ProgramDetailSceneQueryResponse) => {
+    return <Program program={renderProps.program} />;
+  }, []);
   return (
     <QueryRenderer
       query={graphql`

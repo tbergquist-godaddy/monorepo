@@ -3,10 +3,7 @@
 import * as React from 'react';
 import { View, StyleSheet, AsyncStorage, Alert } from 'react-native';
 import { TextInput, Button } from '@tbergq/rn-components';
-import {
-  loginMutation,
-  type LoginMutationResponse,
-} from '@tbergq/trainingjournal-core';
+import { loginMutation, type LoginMutationResponse } from '@tbergq/trainingjournal-core';
 import { withNavigation } from 'react-navigation';
 
 type Props = {|

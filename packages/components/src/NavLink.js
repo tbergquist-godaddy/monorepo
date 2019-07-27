@@ -26,13 +26,7 @@ type Props = {|
   +onClick?: () => void,
 |};
 
-export default function NavLink({
-  href,
-  children,
-  marginLeft,
-  onClick,
-  ...rest
-}: Props) {
+export default function NavLink({ href, children, marginLeft, onClick, ...rest }: Props) {
   return (
     <Link href={href} {...rest}>
       <NavLinkInner onClick={onClick} marginLeft={marginLeft} href={href}>

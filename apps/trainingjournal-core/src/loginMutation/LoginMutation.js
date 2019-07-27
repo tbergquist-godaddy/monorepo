@@ -38,10 +38,7 @@ const mutation = graphql`
 
 export default function login(
   variables: LoginMutationVariables,
-  onCompleted: (
-    response: ?LoginMutationResponse,
-    errors: ?$ReadOnlyArray<Error>,
-  ) => void,
+  onCompleted: (response: ?LoginMutationResponse, errors: ?$ReadOnlyArray<Error>) => void,
 ) {
   commitMutation(environment, {
     mutation,

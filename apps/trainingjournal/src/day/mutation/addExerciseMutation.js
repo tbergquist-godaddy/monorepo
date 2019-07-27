@@ -37,9 +37,7 @@ export default function addExercise(
       {
         type: 'RANGE_ADD',
         parentID: variables.exercise.dayId,
-        connectionInfo: [
-          { key: 'ExerciseTable_exercises', rangeBehavior: 'append' },
-        ],
+        connectionInfo: [{ key: 'ExerciseTable_exercises', rangeBehavior: 'append' }],
         edgeName: 'exerciseEdge',
       },
     ],

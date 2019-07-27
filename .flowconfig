@@ -35,6 +35,7 @@ unnecessary-optional-chain=error
 
 
 [options]
+sharedmemory.hash_table_pow=21
 emoji=true
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable

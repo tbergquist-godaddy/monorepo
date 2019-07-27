@@ -15,11 +15,7 @@ module.exports = withCustomBabelConfigFile(
         'react-native$': 'react-native-web',
       };
 
-      config.resolve.extensions = [
-        ...config.resolve.extensions,
-        '.web.js',
-        '.js',
-      ];
+      config.resolve.extensions = [...config.resolve.extensions, '.web.js', '.js'];
 
       return config;
     },

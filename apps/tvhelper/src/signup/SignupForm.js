@@ -46,12 +46,7 @@ export default function SignupForm() {
     <form onSubmit={onSubmit}>
       <Input value={username} onChange={setUsername} label="Username" />
       <Input value={email} onChange={setEmail} label="Email" />
-      <Input
-        value={password}
-        onChange={setPassword}
-        label="Password"
-        type="password"
-      />
+      <Input value={password} onChange={setPassword} label="Password" type="password" />
       <Input
         value={confirmPassword}
         onChange={setConfirmPassword}

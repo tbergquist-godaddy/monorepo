@@ -6,8 +6,7 @@ import { create } from 'react-test-renderer';
 import Button from '../Button';
 
 test('Text', () => {
-  expect(create(<Button onPress={jest.fn()} text="test" />))
-    .toMatchInlineSnapshot(`
+  expect(create(<Button onPress={jest.fn()} text="test" />)).toMatchInlineSnapshot(`
     <View
       accessible={true}
       clickable={true}

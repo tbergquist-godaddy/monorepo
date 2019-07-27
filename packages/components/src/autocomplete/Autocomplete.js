@@ -55,22 +55,11 @@ export default function Autocomplete({ values, onSelect, ...rest }: Props) {
 
   return (
     <Container>
-      <Input
-        value={input}
-        onChange={setInput}
-        {...rest}
-        onFocus={onFocus}
-        onBlur={onBlur}
-      />
+      <Input value={input} onChange={setInput} {...rest} onFocus={onFocus} onBlur={onBlur} />
 
       <SelectWrapper open={isFocused}>
         {matchedItems.map(item => (
-          <AutocompleteItem
-            key={item.id}
-            onClick={onClick}
-            id={item.id}
-            name={item.name}
-          />
+          <AutocompleteItem key={item.id} onClick={onClick} id={item.id} name={item.name} />
         ))}
       </SelectWrapper>
     </Container>
