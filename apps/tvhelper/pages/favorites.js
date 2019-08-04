@@ -19,3 +19,7 @@ export default function Favorites() {
     </Layout>
   );
 }
+
+Favorites.getInitialProps = () => {
+  return {};
+};
