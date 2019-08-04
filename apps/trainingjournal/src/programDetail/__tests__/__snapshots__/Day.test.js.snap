@@ -10,6 +10,7 @@ exports[`Day 1`] = `
     <a
       href="/programs/day?dayId=<Day-mock-id-1>"
       onClick={[Function]}
+      onMouseEnter={[Function]}
     >
       Day name
     </a>
