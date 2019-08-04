@@ -27,8 +27,8 @@ node_modules/warning/.*
 
 [libs]
 flow-typed/
-./apps/trainingjournalApp/node_modules/react-native/Libraries/react-native/react-native-interface.js
-./apps/trainingjournalApp/node_modules/react-native/flow/
+./node_modules/react-native/Libraries/react-native/react-native-interface.js
+./node_modules/react-native/flow/
 
 [lints]
 unnecessary-optional-chain=error
@@ -56,11 +56,11 @@ module.system.haste.name_reducers='^\(.*\)\.android$' -> '\1'
 module.system.haste.name_reducers='^\(.*\)\.native$' -> '\1'
 module.system.haste.paths.blacklist=.*/__tests__/.*
 module.system.haste.paths.blacklist=.*/__mocks__/.*
-module.system.haste.paths.whitelist=<PROJECT_ROOT>/apps/trainingjournalApp/node_modules/react-native/Libraries/.*
-module.system.haste.paths.whitelist=<PROJECT_ROOT>/apps/trainingjournalApp/node_modules/react-native/RNTester/.*
-module.system.haste.paths.whitelist=<PROJECT_ROOT>/apps/trainingjournalApp/node_modules/react-native/IntegrationTests/.*
-module.system.haste.paths.blacklist=<PROJECT_ROOT>/apps/trainingjournalApp/node_modules/react-native/Libraries/react-native/react-native-implementation.js
-module.system.haste.paths.blacklist=<PROJECT_ROOT>/apps/trainingjournalApp/node_modules/react-native/Libraries/Animated/src/polyfills/.*
+module.system.haste.paths.whitelist=<PROJECT_ROOT>/node_modules/react-native/Libraries/.*
+module.system.haste.paths.whitelist=<PROJECT_ROOT>/node_modules/react-native/RNTester/.*
+module.system.haste.paths.whitelist=<PROJECT_ROOT>/node_modules/react-native/IntegrationTests/.*
+module.system.haste.paths.blacklist=<PROJECT_ROOT>/node_modules/react-native/Libraries/react-native/react-native-implementation.js
+module.system.haste.paths.blacklist=<PROJECT_ROOT>/node_modules/react-native/Libraries/Animated/src/polyfills/.*
 
 munge_underscores=true
 

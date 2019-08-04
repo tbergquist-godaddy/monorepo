@@ -11,18 +11,10 @@
     "test-ci": "yarn lint && yarn flow && yarn test",
     "now-build": "yarn workspace @tbergq/tvhelper build && yarn workspace @tbergq/trainingjournal build"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "apps/*"
-    ],
-    "nohoist": [
-      "**/react-native",
-      "**/react-native/**",
-      "**/react-native-gesture-handler",
-      "**/react-native-gesture-handler/**"
-    ]
-  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "private": true,
   "author": "",
   "license": "ISC",
@@ -41,6 +33,7 @@
     "jest": "^24.8.0",
     "jest-styled-components": "^6.3.3",
     "now": "^15.8.7",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "rimraf": "^2.6.3"
   }
 }
