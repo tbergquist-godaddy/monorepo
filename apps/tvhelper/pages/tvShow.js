@@ -3,8 +3,8 @@
 import * as React from 'react';
 import { withRouter, type Router } from 'next/router';
 
-import Layout from '../../src/components/Layout';
-import TvShowQuery from '../../src/tvShow/TvShowQuery';
+import Layout from '../src/components/Layout';
+import TvShowQuery from '../src/tvShow/TvShowQuery';
 
 type Props = {
   +router: Router,
