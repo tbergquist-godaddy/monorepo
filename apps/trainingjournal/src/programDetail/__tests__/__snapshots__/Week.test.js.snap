@@ -54,6 +54,7 @@ exports[`Week 1`] = `
                     <a
                       href="/programs/day?dayId=<Day-mock-id-1>"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       &lt;mock-value-for-field-"name"&gt;
                     </a>

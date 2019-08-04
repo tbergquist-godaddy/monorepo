@@ -10,6 +10,7 @@ it('renders', () => {
     <a
       href="/test"
       onClick={[Function]}
+      onMouseEnter={[Function]}
     >
       test
     </a>
