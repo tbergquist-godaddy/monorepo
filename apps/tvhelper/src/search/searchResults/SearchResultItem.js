@@ -13,10 +13,14 @@ type Props = {|
 
 const SearchResultItem = (props: Props) => {
   function onClick() {
-    Router.push({
-      pathname: '/tvShow',
-      query: { id: props.tvShow?.id },
-    });
+    const id = props.tvShow?.id;
+    if (id != null) {
+      Router.push({
+        pathname: `/tvShow/${id}`,
+      });
+    } else {
+      // TODO: Show error message
+    }
   }
   const description = props.tvShow?.rating ?? '';
   const listItemProps = {
