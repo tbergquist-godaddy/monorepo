@@ -57,7 +57,7 @@ it('renders', () => {
               </div>
             </div>
             <button
-              className="sc-bZQynM NSbTD Button__StyledButton-sc-1brqp3f-1 dceYnw"
+              className="sc-bZQynM NSbTD Button__StyledButton-sc-1brqp3f-1 geTfxb"
               onClick={[Function]}
               size="small"
               type="button"

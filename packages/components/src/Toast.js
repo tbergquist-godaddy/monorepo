@@ -11,7 +11,7 @@ const ToastContainer = styled.div(props => ({
   minWidth: '200px',
   maxHeight: props.show ? '1000px' : 0,
   zIndex: defaultTokens.zIndexSticky,
-  backgroundColor: defaultTokens.paletteInkDark,
+  backgroundColor: defaultTokens.paletteInkNormalActive,
   opacity: 0.4,
   color: defaultTokens.paletteWhite,
   padding: 0,

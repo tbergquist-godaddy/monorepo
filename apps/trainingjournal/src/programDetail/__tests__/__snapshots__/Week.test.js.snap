@@ -2,17 +2,17 @@
 
 exports[`Week 1`] = `
 <div
-  className="Card__StyledCard-ff0z2v-1 ebswgY"
+  className="Card__StyledCard-ff0z2v-1 iEHTtI"
 >
   <div
-    className="Card__StyledChildWrapper-ff0z2v-0 jzawZG"
+    className="Card__StyledChildWrapper-ff0z2v-0 cQfjSh"
   >
     <div
-      className="CardSection__StyledCardSection-o8zdxr-2 dVGchG"
+      className="CardSection__StyledCardSection-o8zdxr-2 dUIlHY"
     >
       <div
         aria-expanded={false}
-        className="CardSectionHeader__StyledCardSectionHeader-sc-1gmw3sa-1 fzMVvy"
+        className="CardSectionHeader__StyledCardSectionHeader-sc-1gmw3sa-1 hcXQfl"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="button"
@@ -34,10 +34,11 @@ exports[`Week 1`] = `
         </svg>
       </div>
       <div
-        className="CardSectionContent__StyledCardSectionContent-sc-1mj8dfx-0 gvncVV"
+        className="CardSectionContent__StyledCardSectionContent-sc-1mj8dfx-0 dyblzu"
       >
         <div
-          className="Slide__StyledSlide-sc-1xbmdp2-0 dyEvPN"
+          aria-hidden={true}
+          className="Slide__StyledSlide-sc-1xbmdp2-0 iKvziG"
         >
           <div>
             <div>
@@ -48,7 +49,7 @@ exports[`Week 1`] = `
                   className="sc-kAzzGY fDfBxx"
                 >
                   <h3
-                    className="Heading__StyledHeading-sc-1b8cso5-0 kyjUks"
+                    className="Heading__StyledHeading-sc-1b8cso5-0 hSLFky"
                   >
                     <a
                       href="/programs/day?dayId=<Day-mock-id-1>"

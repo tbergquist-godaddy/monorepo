@@ -10,7 +10,7 @@ jest.useFakeTimers();
 it('renders', () => {
   expect(create(<Toast onHide={jest.fn()} />)).toMatchInlineSnapshot(`
     <div
-      className="sc-bdVaJa hoicaJ"
+      className="sc-bdVaJa cRtdEi"
     >
       <div
         className="sc-bwzfXH iNPUwu"

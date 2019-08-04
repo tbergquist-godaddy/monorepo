@@ -3,7 +3,7 @@
 exports[`renders 1`] = `
 Array [
   <h1
-    className="Heading__StyledHeading-sc-1b8cso5-0 kCqDso"
+    className="Heading__StyledHeading-sc-1b8cso5-0 bmvhpa"
   >
     &lt;mock-value-for-field-"name"&gt;
   </h1>,
@@ -15,10 +15,10 @@ Array [
       onScroll={[Function]}
     >
       <table
-        className="Table__StyledTable-sc-156ovmd-2 fCREQU"
+        className="Table__StyledTable-sc-156ovmd-2 kHlylv"
       >
         <thead
-          className="TableHead__StyledTableHead-sc-17bka47-0 kXbKtX"
+          className="TableHead__StyledTableHead-sc-17bka47-0 cvjbOq"
         >
           <tr
             className="TableRow__StyledTableRow-nnt9s9-0 efbCJT"
@@ -46,7 +46,7 @@ Array [
           </tr>
         </thead>
         <tbody
-          className="TableBody__StyledTableBody-sc-1uovf8k-0 kqMaSS"
+          className="TableBody__StyledTableBody-sc-1uovf8k-0 QEroG"
         >
           <tr
             className="TableRow__StyledTableRow-nnt9s9-0 efbCJT"
@@ -78,7 +78,7 @@ Array [
     </div>
   </div>,
   <button
-    className="sc-chPdSV liBcOG Button__StyledButton-sc-1brqp3f-1 evlMQS"
+    className="sc-chPdSV liBcOG Button__StyledButton-sc-1brqp3f-1 bUuxAI"
     data-test="fab"
     onClick={[Function]}
     size="normal"
