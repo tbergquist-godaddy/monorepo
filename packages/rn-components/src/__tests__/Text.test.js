@@ -7,17 +7,16 @@ import Text from '../Text';
 
 test('Text', () => {
   expect(create(<Text>test</Text>)).toMatchInlineSnapshot(`
-    <Text
+    <div
+      className="css-text-901oao"
+      dir="auto"
       style={
-        Array [
-          Object {
-            "fontSize": 15,
-          },
-          undefined,
-        ]
+        Object {
+          "fontSize": "15px",
+        }
       }
     >
       test
-    </Text>
+    </div>
   `);
 });

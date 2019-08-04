@@ -1,8 +1,14 @@
 // @flow
 
-// This configuration is merged with the project configuration defined
-// in this monorepo root.
+const path = require('path');
+
 module.exports = {
   rootDir: __dirname,
-  preset: 'react-native',
+  moduleNameMapper: {
+    'react-native$': 'react-native-web',
+  },
+  setupFilesAfterEnv: [
+    path.join(__dirname, '..', '..', 'node_modules', 'react-native-web', 'jest', 'setup.js'),
+  ],
+  testEnvironment: 'jsdom',
 };
