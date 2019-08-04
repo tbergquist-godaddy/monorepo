@@ -6,7 +6,7 @@
   "dependencies": {
     "@kiwicom/orbit-components": "^0.52.0",
     "@kiwicom/orbit-design-tokens": "^0.6.5",
-    "react-grid-system": "^4.4.10",
+    "react-grid-system": "^5.0.2",
     "react-icons": "^3.7.0"
   },
   "peerDependencies": {
