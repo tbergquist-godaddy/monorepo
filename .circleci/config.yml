@@ -5,12 +5,12 @@
 defaults: &defaults
   working_directory: ~/tbergq-monorepo
   docker:
-    - image: circleci/node:11
+    - image: circleci/node:12
 
 
 version: 2
 jobs:
-  test:
+  install:
     <<: *defaults
     steps:
       - checkout
@@ -28,7 +28,28 @@ jobs:
       - persist_to_workspace:
           root: .
           paths: .
-      - run: yarn test-ci
+
+  flow:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/tbergq-monorepo
+      - run: yarn flow
+
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/tbergq-monorepo
+      - run: yarn lint
+
+  jest:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/tbergq-monorepo
+      - run: yarn test
+  
   deploy-traningjournal:
     <<: *defaults
     steps:
@@ -41,10 +62,21 @@ workflows:
   version: 2
   test-and-release:
     jobs:
-      - test
+      - install
+      - flow:
+          requires:
+            - install
+      - lint:
+          requires:
+            - install
+      - jest:
+          requires:
+            - install
       - deploy-traningjournal:
           requires:
-            - test
+            - flow
+            - lint
+            - jest
           filters:
             branches:
               only: master

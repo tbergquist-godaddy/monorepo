@@ -8,7 +8,7 @@ import Button from '../Button';
 it('renders', () => {
   expect(create(<Button>test</Button>)).toMatchInlineSnapshot(`
     <button
-      className="Button__StyledButton-sc-1brqp3f-1 caVSKF"
+      className="Button__StyledButton-sc-1brqp3f-1 klWgji"
       size="normal"
       type="button"
     >
