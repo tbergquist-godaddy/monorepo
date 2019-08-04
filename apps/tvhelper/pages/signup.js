@@ -17,3 +17,7 @@ export default function Signup() {
     </Layout>
   );
 }
+
+Signup.getInitialProps = () => {
+  return {};
+};

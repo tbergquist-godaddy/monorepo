@@ -19,4 +19,8 @@ function TvShowPage(props: Props) {
   );
 }
 
+TvShowPage.getInitialProps = () => {
+  return {};
+};
+
 export default withRouter<{ ... }>(TvShowPage);

@@ -29,3 +29,7 @@ export default function Login() {
     </Layout>
   );
 }
+
+Login.getInitialProps = () => {
+  return {};
+};
