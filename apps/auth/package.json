@@ -1,0 +1,19 @@
+{
+  "name": "@tbergq/auth",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "devDependencies": {
+    "google-protobuf": "^3.9.1",
+    "grpc-tools": "^1.8.0",
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "protoc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:src/__generated__ --grpc_out=src/__generated__ --proto_path=src auth.proto",
+    "dev": "nodemon -x \"monorepo-babel-node src/application.js\""
+  },
+  "dependencies": {
+    "@kiwicom/monorepo-utils": "^0.22.0",
+    "grpc": "^1.22.2"
+  }
+}
