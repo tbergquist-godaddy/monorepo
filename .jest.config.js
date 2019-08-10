@@ -20,10 +20,7 @@ const commonProjectConfig = {
 function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
   if (fs.existsSync(configPath)) {
     // eslint-disable-next-line no-console
-    console.warn(
-      'Loaded additional config %s',
-      configPath.replace(__dirname, ''),
-    );
+    console.warn('Loaded additional config %s', configPath.replace(__dirname, ''));
     // $FlowExpectedError: This is a valid string, but flow does not recognise it
     return require(configPath);
   }
@@ -44,9 +41,7 @@ module.exports = {
         rootDir: workspaceDirname,
         testMatch: [`**/${TESTS_GLOB}`],
         ...commonProjectConfig,
-        ...tryToLoadWorkspaceConfig(
-          path.join(workspaceDirname, 'jest.config.js'),
-        ),
+        ...tryToLoadWorkspaceConfig(path.join(workspaceDirname, 'jest.config.js')),
       };
     }),
   ],
