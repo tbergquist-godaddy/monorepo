@@ -6,3 +6,4 @@ dist/
 .next/
 yarn-error.log
 persisted-queries.json
+.env
