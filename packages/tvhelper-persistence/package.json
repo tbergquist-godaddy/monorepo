@@ -1,0 +1,18 @@
+{
+  "name": "@tbergq/tvhelper-persistence",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "@kiwicom/monorepo-utils": "^0.22.0",
+    "dotenv": "^8.0.0",
+    "mongodb": "^3.3.0-beta2",
+    "mongoose": "^5.6.9"
+  },
+  "peerDependencies": {
+    "mockingoose": "^2.13.2"
+  },
+  "devDependencies": {
+    "mockingoose": "^2.13.2"
+  }
+}
