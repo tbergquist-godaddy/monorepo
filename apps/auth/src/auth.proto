@@ -1,9 +1,10 @@
 syntax = "proto3";
 package auth.v1;
-// The greeting service definition.
+// The auth service definition.
 service Auth {
-  // Sends a greeting
+  // Logs a user in
   rpc Login (LoginRequest) returns (LoginReply) {}
+  rpc Authenticate (AuthenticateRequest) returns (AuthenticateReply) {}
 }
 
 // The request message containing the username and password.
@@ -23,4 +24,18 @@ message LoginReply {
 enum App {
   TVHELPER = 0;
   TRAININGJOURNAL = 1;
+}
+
+message AuthenticateRequest {
+  string token = 1;
+}
+
+message AuthenticateReply {
+  User user = 1;
+}
+
+message User {
+  string id = 1;
+  string username = 2;
+  App app = 3;
 }
