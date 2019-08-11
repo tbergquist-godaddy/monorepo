@@ -4,43 +4,43 @@
 var grpc = require('grpc');
 var auth_pb = require('./auth_pb.js');
 
-function serialize_HelloReply(arg) {
-  if (!(arg instanceof auth_pb.HelloReply)) {
-    throw new Error('Expected argument of type HelloReply');
+function serialize_auth_v1_LoginReply(arg) {
+  if (!(arg instanceof auth_pb.LoginReply)) {
+    throw new Error('Expected argument of type auth.v1.LoginReply');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_HelloReply(buffer_arg) {
-  return auth_pb.HelloReply.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_auth_v1_LoginReply(buffer_arg) {
+  return auth_pb.LoginReply.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_HelloRequest(arg) {
-  if (!(arg instanceof auth_pb.HelloRequest)) {
-    throw new Error('Expected argument of type HelloRequest');
+function serialize_auth_v1_LoginRequest(arg) {
+  if (!(arg instanceof auth_pb.LoginRequest)) {
+    throw new Error('Expected argument of type auth.v1.LoginRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_HelloRequest(buffer_arg) {
-  return auth_pb.HelloRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_auth_v1_LoginRequest(buffer_arg) {
+  return auth_pb.LoginRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
 // The greeting service definition.
-var GreeterService = exports.GreeterService = {
+var AuthService = exports.AuthService = {
   // Sends a greeting
-  sayHello: {
-    path: '/Greeter/SayHello',
+  login: {
+    path: '/auth.v1.Auth/Login',
     requestStream: false,
     responseStream: false,
-    requestType: auth_pb.HelloRequest,
-    responseType: auth_pb.HelloReply,
-    requestSerialize: serialize_HelloRequest,
-    requestDeserialize: deserialize_HelloRequest,
-    responseSerialize: serialize_HelloReply,
-    responseDeserialize: deserialize_HelloReply,
+    requestType: auth_pb.LoginRequest,
+    responseType: auth_pb.LoginReply,
+    requestSerialize: serialize_auth_v1_LoginRequest,
+    requestDeserialize: deserialize_auth_v1_LoginRequest,
+    responseSerialize: serialize_auth_v1_LoginReply,
+    responseDeserialize: deserialize_auth_v1_LoginReply,
   },
 };
 
-exports.GreeterClient = grpc.makeGenericClientConstructor(GreeterService);
+exports.AuthClient = grpc.makeGenericClientConstructor(AuthService);
