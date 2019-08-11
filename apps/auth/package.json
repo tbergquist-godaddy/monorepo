@@ -6,6 +6,7 @@
   "devDependencies": {
     "google-protobuf": "^3.9.1",
     "grpc-tools": "^1.8.0",
+    "mockingoose": "^2.13.2",
     "nodemon": "^1.19.1"
   },
   "scripts": {
@@ -14,6 +15,9 @@
   },
   "dependencies": {
     "@kiwicom/monorepo-utils": "^0.22.0",
-    "grpc": "^1.22.2"
+    "@tbergq/tvhelper-persistence": "*",
+    "grpc": "^1.22.2",
+    "jsonwebtoken": "^8.5.1",
+    "password-hash": "^1.2.2"
   }
 }
