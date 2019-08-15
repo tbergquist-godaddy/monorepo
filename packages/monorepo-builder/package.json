@@ -1,0 +1,11 @@
+{
+  "name": "@tbergq/monorepo-builder",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@kiwicom/monorepo-utils": "^0.22.0",
+    "rimraf": "^2.6.3"
+  }
+}
