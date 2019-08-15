@@ -1,0 +1,10 @@
+{
+  "name": "@tbergq/graphql-services",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "@kiwicom/fetch": "^2.4.3",
+    "dataloader": "^1.4.0"
+  }
+}

@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import passport from 'passport';
 
 import Schema from './Schema';
+import createGraphqlContext from './services/createGraphqlContext';
 
 const port = process.env.PORT || 3001;
 
@@ -21,7 +22,7 @@ function createGraphqlServer() {
   return graphqlHTTP({
     schema: Schema,
     graphiql: true,
-    context: {},
+    context: createGraphqlContext(),
   });
 }
 

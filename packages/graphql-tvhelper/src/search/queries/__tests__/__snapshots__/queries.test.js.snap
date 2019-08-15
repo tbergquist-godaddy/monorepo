@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: SearchTvShow.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query {
+  searchTvShow(query:"the 100") {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "searchTvShow": {
+      "edges": [
+        {
+          "node": {
+            "id": "dHZTaG93OjEzOQ==",
+            "name": "Girls"
+          }
+        }
+      ]
+    }
+  }
+}
+`;
