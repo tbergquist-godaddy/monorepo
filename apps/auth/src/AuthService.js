@@ -29,7 +29,7 @@ export async function login(call: $FlowFixMe, callback: $FlowFixMe) {
   const repository = getRepository(request.app);
   const user = await repository.findUser(request.username);
 
-  const isCorrect = verify(request.password, user.password);
+  const isCorrect = verify(request.password, user?.password);
 
   if (!isCorrect) {
     callback(null, new LoginReply(['Wrong username or password', '', false]));
