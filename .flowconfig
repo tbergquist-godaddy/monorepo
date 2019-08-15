@@ -87,6 +87,8 @@ unsafe-getters-setters
 untyped-type-import
 
 [untyped]
+<PROJECT_ROOT>/node_modules/graphql/.*
+<PROJECT_ROOT>/node_modules/express-graphql/.*
 <PROJECT_ROOT>/node_modules/@kiwicom/js/src/.+
 <PROJECT_ROOT>/node_modules/@kiwicom/fetch/src/.+
 <PROJECT_ROOT>/node_modules/@kiwicom/monorepo-utils/src/.+
