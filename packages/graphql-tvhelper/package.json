@@ -1,0 +1,14 @@
+{
+  "name": "@tbergq/graphql-tvhelper",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "@kiwicom/test-utils": "^0.9.0",
+    "@tbergq/graphql-services": "*",
+    "dataloader": "^1.4.0",
+    "graphql": "^14.4.2",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-relay": "^0.6.0"
+  }
+}

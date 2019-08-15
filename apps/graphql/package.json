@@ -11,7 +11,9 @@
     "graphql": "^14.4.2",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "@tbergq/graphql-tvhelper": "*",
+    "@tbergq/graphql-services": "*"
   },
   "scripts": {
     "dev": "yarn run nodemon --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn monorepo-babel-node src/index.js"

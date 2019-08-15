@@ -23,6 +23,8 @@ node_modules/warning/.*
 ; Flow doesn't support platforms
 .*/Libraries/Utilities/HMRLoadingView.js
 
+<PROJECT_ROOT>/node_modules/graphql-iso-date/dist/time/index.js.flow
+
 [include]
 
 [libs]
@@ -75,7 +77,7 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(<VERSION>\\)? *\\(si
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(<VERSION>\\)? *\\(site=[a-z,_]*react_native\\(_ios\\)?_\\(oss\\|fb\\)[a-z,_]*\\)?)\\)?:? #[0-9]+
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
-
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: 
 
 [strict]
 deprecated-type
