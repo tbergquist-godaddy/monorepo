@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@kiwicom/monorepo-utils": "^0.22.0",
+    "@kiwicom/monorepo-utils": "^0.23.0",
     "@tbergq/tvhelper-persistence": "*",
     "grpc": "^1.22.2",
     "jsonwebtoken": "^8.5.1",
