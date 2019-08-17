@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@babel/core": "^7.5.5",
-    "@kiwicom/monorepo-utils": "^0.22.0",
-    "rimraf": "^2.6.3"
+    "@kiwicom/monorepo-utils": "^0.23.0",
+    "rimraf": "^3.0.0"
   }
 }

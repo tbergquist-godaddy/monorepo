@@ -13,7 +13,6 @@ export default function findRelatedWorkspaceLocations(
   workspaceDependencies: WorkspaceDependencies,
   rootWorkspaceName: string,
 ): $ReadOnlySet<string> {
-  // eslint-disable-next-line no-undef
   const locations = new Set();
 
   (function recurse(workspaceName) {

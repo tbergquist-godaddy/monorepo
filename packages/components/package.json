@@ -4,8 +4,8 @@
   "main": "index.js",
   "version": "0.0.1",
   "dependencies": {
-    "@kiwicom/orbit-components": "^0.53.0",
-    "@kiwicom/orbit-design-tokens": "^0.6.5",
+    "@kiwicom/orbit-components": "^0.54.0",
+    "@kiwicom/orbit-design-tokens": "^0.6.6",
     "react-grid-system": "^5.0.2",
     "react-icons": "^3.7.0"
   },

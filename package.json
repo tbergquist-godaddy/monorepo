@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@kiwicom/monorepo-utils": "^0.22.0"
+    "@kiwicom/monorepo-utils": "^0.23.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -28,11 +28,11 @@
     "@kiwicom/eslint-config": "^6.5.2",
     "babel-eslint": "^10.0.2",
     "eslint": "^6.1.0",
-    "flow-bin": "^0.104.0",
-    "jest": "^24.8.0",
+    "flow-bin": "^0.105.2",
+    "jest": "^24.9.0",
     "jest-styled-components": "^6.3.3",
     "now": "^16.1.1",
     "react-test-renderer": "^16.8.6",
-    "rimraf": "^2.6.3"
+    "rimraf": "^3.0.0"
   }
 }
