@@ -1,7 +1,7 @@
 // @flow
 
 // Dataloaders
-export { default as SearchTvShowLoader } from './src/search/dataloaders/SearchTvShowLoader';
+export { default as getDataloaders } from './getDataloaders';
 
 // queries
-export { default as SearchTvShow } from './src/search/queries/SearchTvShow';
+export { default as TvhelperQueries } from './TvhelperQueries';

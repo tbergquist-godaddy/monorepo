@@ -1,0 +1,3 @@
+{
+  "http://api.tvmaze.com/search/shows?q=the 100&embed[]=nextepisode&embed[]=previousepisode": "searchTvshow.json"
+}

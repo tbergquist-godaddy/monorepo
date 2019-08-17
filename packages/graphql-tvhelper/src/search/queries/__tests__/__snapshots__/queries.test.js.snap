@@ -3,7 +3,7 @@
 exports[`matches expected output: SearchTvShow.graphql 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 query {
-  searchTvShow(query:"the 100") {
+  searchTvShow(query:"the 100", first: 2) {
     edges {
       node {
         id
@@ -19,8 +19,14 @@ query {
       "edges": [
         {
           "node": {
-            "id": "dHZTaG93OjEzOQ==",
-            "name": "Girls"
+            "id": "dHZTaG93OjY=",
+            "name": "The 100"
+          }
+        },
+        {
+          "node": {
+            "id": "dHZTaG93OjEzNjUy",
+            "name": "100% Hotter"
           }
         }
       ]
