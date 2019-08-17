@@ -11,7 +11,15 @@ type FetchOptions = {
   ...
 };
 
+const log = (...args: $ReadOnlyArray<string>) => {
+  // eslint-disable-next-line no-console
+  console.log(...args);
+};
 const Fetch = async (url: string, options: FetchOptions = {}) => {
+  if (__DEV__) {
+    log(url);
+  }
+
   try {
     const defaultHeaders = {
       'Content-Type': 'application/json',
@@ -27,7 +35,7 @@ const Fetch = async (url: string, options: FetchOptions = {}) => {
     const json = await response.json();
     return json;
   } catch (err) {
-    console.log(err); // eslint-disable-line no-console
+    log(err);
     throw err;
   }
 };

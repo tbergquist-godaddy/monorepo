@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@kiwicom/fetch": "^2.4.3",
-    "dataloader": "^1.4.0"
+    "dataloader": "^1.4.0",
+    "graphql": "^14.4.2"
   }
 }

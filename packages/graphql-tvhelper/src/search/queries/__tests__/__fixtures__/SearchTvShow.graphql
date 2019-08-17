@@ -1,5 +1,5 @@
 query {
-  searchTvShow(query:"the 100") {
+  searchTvShow(query:"the 100", first: 2) {
     edges {
       node {
         id
