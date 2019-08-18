@@ -4,6 +4,8 @@
   "private": true,
   "main": "index.js",
   "devDependencies": {
+    "@tbergq/monorepo-builder": "*",
+    "@tbergq/test-utils": "*",
     "google-protobuf": "^3.9.1",
     "grpc-tools": "^1.8.0",
     "mockingoose": "^2.13.2",
@@ -16,14 +18,13 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
+    "@kiwicom/js": "^0.13.0",
     "@kiwicom/monorepo-utils": "^0.23.0",
     "@tbergq/tvhelper-persistence": "*",
+    "dotenv": "^8.1.0",
     "grpc": "^1.22.2",
     "jsonwebtoken": "^8.5.1",
     "password-hash": "^1.2.2",
     "rimraf": "^3.0.0"
-  },
-  "peerDependencies": {
-    "@tbergq/monorepo-builder": "*"
   }
 }

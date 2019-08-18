@@ -13,6 +13,7 @@
     "graphql-relay": "^0.6.0"
   },
   "devDependencies": {
-    "mockingoose": "^2.13.2"
+    "mockingoose": "^2.13.2",
+    "@tbergq/test-utils": "*"
   }
 }

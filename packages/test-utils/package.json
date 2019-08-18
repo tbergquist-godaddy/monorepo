@@ -1,0 +1,10 @@
+{
+  "name": "@tbergq/test-utils",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "mongodb-memory-server": "^5.2.0",
+    "mongoose": "^5.6.9"
+  }
+}

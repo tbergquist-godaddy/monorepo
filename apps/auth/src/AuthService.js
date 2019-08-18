@@ -3,9 +3,11 @@
 import { UserRepository } from '@tbergq/tvhelper-persistence';
 import { verify } from 'password-hash';
 import jwt from 'jsonwebtoken';
+import { config } from 'dotenv';
 
 import { LoginReply, AuthenticateReply, User } from './__generated__/auth_pb';
 
+config();
 const { JWT_SECRET } = process.env;
 
 function getRepository(app: number) {

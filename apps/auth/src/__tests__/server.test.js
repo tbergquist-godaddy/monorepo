@@ -4,6 +4,7 @@ import grpc from 'grpc';
 import mockingoose from 'mockingoose';
 import { UserModel } from '@tbergq/tvhelper-persistence';
 import { verify, decode } from 'jsonwebtoken';
+import { useMongoDb } from '@tbergq/test-utils';
 
 import server from '../server';
 import { LoginRequest, AuthenticateRequest } from '../__generated__/auth_pb';
@@ -12,6 +13,7 @@ import { AuthClient } from '../__generated__/auth_grpc_pb';
 let port;
 let client;
 
+useMongoDb();
 jest.mock('password-hash', () => ({ verify: () => true }));
 jest.mock('jsonwebtoken', () => ({
   sign: jest.fn(() => 'token'),
