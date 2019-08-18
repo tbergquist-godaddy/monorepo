@@ -4,6 +4,8 @@ import fetchWithRetries from '@kiwicom/fetch';
 
 import fetch from '../fetch';
 
+jest.unmock('../fetch.js');
+
 jest.mock('@kiwicom/fetch', () => {
   return jest.fn(() => {
     return Promise.resolve({

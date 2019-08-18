@@ -22,6 +22,7 @@ module.exports = {
         name: "next/link",
         message: "Please use '@tbergq/components' Link instead."
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": [ERROR, {"devDependencies": ["**/*.test.js", "**/*.spec.js", "./scripts/*.js"]}]
   }
 };

@@ -6,9 +6,13 @@
   "dependencies": {
     "@kiwicom/test-utils": "^0.9.0",
     "@tbergq/graphql-services": "*",
+    "@tbergq/tvhelper-persistence": "*",
     "dataloader": "^1.4.0",
     "graphql": "^14.4.2",
     "graphql-iso-date": "^3.6.1",
     "graphql-relay": "^0.6.0"
+  },
+  "devDependencies": {
+    "mockingoose": "^2.13.2"
   }
 }

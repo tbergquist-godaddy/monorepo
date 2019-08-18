@@ -7,16 +7,131 @@ import Button from '../Button';
 
 it('renders', () => {
   expect(create(<Button>test</Button>)).toMatchInlineSnapshot(`
+    .c0 {
+      position: relative;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      width: auto;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      height: 44px;
+      background: #0172CB;
+      color: #FFFFFF !important;
+      border: 0;
+      border-radius: 3px;
+      padding: 0 16px;
+      font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
+      font-weight: 700!important;
+      font-size: 14px;
+      cursor: pointer;
+      -webkit-transition: all 0.15s ease-in-out !important;
+      transition: all 0.15s ease-in-out !important;
+      outline: 0;
+    }
+
+    .c0:hover {
+      background: #0161AC;
+      color: #FFFFFF!important;
+    }
+
+    .c0:hover .c4 {
+      color: #FFFFFF;
+    }
+
+    .c0:active {
+      background: #01508E;
+      color: #FFFFFF!important;
+      box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
+    }
+
+    .c0:active .c4 {
+      color: #FFFFFF;
+    }
+
+    .c0:focus {
+      box-shadow: 0 0 1px 1px #FFFFFF,0 0 1px 3px rgba(1,114,203,0.6);
+    }
+
+    .c0:focus:active {
+      box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
+    }
+
+    .c0 .c3 {
+      width: 24px;
+      height: 24px;
+    }
+
+    .c1 {
+      height: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .c2 {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-basis: auto;
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    @media all and (-ms-high-contrast:none),(-ms-high-contrast:active) {
+      .c1 {
+        min-width: 100%;
+        max-width: 1px;
+      }
+    }
+
     <button
-      className="Button__StyledButton-sc-1brqp3f-1 klWgji"
+      className="c0"
       size="normal"
       type="button"
     >
       <div
-        className="Button__StyledButtonContent-sc-1brqp3f-2 jGhOsc"
+        className="c1"
       >
         <div
-          className="Button__StyledButtonContentChildren-sc-1brqp3f-3 hFLPMQ"
+          className="c2"
         >
           test
         </div>

@@ -5,7 +5,11 @@
   "main": "index.js",
   "dependencies": {
     "@kiwicom/fetch": "^2.4.3",
+    "@kiwicom/graphql-global-id": "^0.10.0",
     "dataloader": "^1.4.0",
-    "graphql": "^14.4.2"
+    "graphql": "^14.4.2",
+    "graphql-relay": "^0.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "password-hash": "^1.2.2"
   }
 }

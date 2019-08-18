@@ -15,6 +15,7 @@ const commonProjectConfig = {
     '^.+\\.js$': 'babel-jest',
   },
   timers: 'fake',
+  setupFilesAfterEnv: [path.join(__dirname, 'scripts/setupTest.js')],
 };
 
 function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
@@ -30,10 +31,9 @@ function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
 module.exports = {
   rootDir: __dirname,
   verbose: false,
-  setupFilesAfterEnv: ['./scripts/setupTest.js'],
   projects: [
     ...Workspaces.getWorkspacesSync().map(packageJSONLocation => {
-      // $FlowExpectedError: This is a valid string, but flow does not recognise it
+      // $FlowAllowDynamicImport
       const packageJSON = require(packageJSONLocation);
       const workspaceDirname = path.dirname(packageJSONLocation);
       return {
