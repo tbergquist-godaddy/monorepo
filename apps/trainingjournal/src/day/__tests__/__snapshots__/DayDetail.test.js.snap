@@ -2,72 +2,179 @@
 
 exports[`renders 1`] = `
 Array [
-  <h1
-    className="Heading__StyledHeading-sc-1b8cso5-0 bmvhpa"
+  .c0 {
+  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #252A31;
+  line-height: 36px;
+  margin: 0;
+}
+
+<h1
+    className="c0"
   >
     &lt;mock-value-for-field-"name"&gt;
   </h1>,
-  <div
-    className="Table__StyledTableOuter-sc-156ovmd-0 eJfAYr"
+  .c5 {
+  box-sizing: border-box;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.c7 {
+  box-sizing: border-box;
+  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
+  font-size: 14px;
+  color: #5F738C;
+  text-align: left;
+}
+
+.c9 {
+  width: 100%;
+  white-space: nowrap;
+  border-left: 1px solid #EFF2F5;
+  border-right: 1px solid #EFF2F5;
+  border-bottom: 1px solid #EFF2F5;
+}
+
+.c3 {
+  border-bottom: 1px solid #BAC7D5;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.c3 .c6 {
+  font-weight: 700;
+}
+
+.c0 {
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.c0::after,
+.c0::before {
+  content: " ";
+  display: none;
+  position: absolute;
+  width: 16px;
+  height: 100%;
+  top: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.c0::after {
+  opacity: 0;
+  background-image: linear-gradient(to right,transparent,rgba(186,199,213,0.23));
+  right: 0;
+}
+
+.c0::before {
+  opacity: 0;
+  left: 0;
+  background-image: linear-gradient(to left,transparent,rgba(186,199,213,0.23));
+}
+
+.c1 {
+  width: 100%;
+}
+
+.c2 {
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.c2 .c8 > .c4 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #EFF2F5;
+  -webkit-transition: background-color 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.c2 .c8 > .c4:nth-of-type(even) {
+  background-color: #F5F7F9;
+}
+
+.c2 .c8 > .c4:last-child {
+  border: 0;
+}
+
+.c2 .c8 > .c4:hover {
+  background-color: #EFF2F5;
+}
+
+.c2 .c6 {
+  min-height: 48px;
+  padding: 12px 16px;
+}
+
+<div
+    className="c0"
   >
     <div
-      className="Table__StyledTableInner-sc-156ovmd-1 jsHlsU"
+      className="c1"
       onScroll={[Function]}
     >
       <table
-        className="Table__StyledTable-sc-156ovmd-2 kHlylv"
+        className="c2"
       >
         <thead
-          className="TableHead__StyledTableHead-sc-17bka47-0 cvjbOq"
+          className="c3"
         >
           <tr
-            className="TableRow__StyledTableRow-nnt9s9-0 efbCJT"
+            className="c4 c5"
           >
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
+              className="c6 c7"
             >
               Exercise
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
+              className="c6 c7"
             >
               Sets
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
+              className="c6 c7"
             >
               Reps
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
+              className="c6 c7"
             >
               Break
             </td>
           </tr>
         </thead>
         <tbody
-          className="TableBody__StyledTableBody-sc-1uovf8k-0 QEroG"
+          className="c8 c9"
         >
           <tr
-            className="TableRow__StyledTableRow-nnt9s9-0 efbCJT"
+            className="c4 c5"
           >
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
+              className="c6 c7"
             >
               Knebøy
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
+              className="c6 c7"
             >
               4
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
+              className="c6 c7"
             >
               5
             </td>
             <td
-              className="TableCell__StyledTableCell-sc-1dr7ow2-0 iCuIZy"
+              className="c6 c7"
             >
               2
                min
@@ -77,18 +184,140 @@ Array [
       </table>
     </div>
   </div>,
-  <button
-    className="sc-chPdSV liBcOG Button__StyledButton-sc-1brqp3f-1 bUuxAI"
+  .c1 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  height: 44px;
+  background: #0172CB;
+  color: #FFFFFF !important;
+  border: 0;
+  border-radius: 44px;
+  padding: 0 16px;
+  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
+  font-weight: 700!important;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-transition: all 0.15s ease-in-out !important;
+  transition: all 0.15s ease-in-out !important;
+  outline: 0;
+}
+
+.c1:hover {
+  background: #0161AC;
+  color: #FFFFFF!important;
+}
+
+.c1:hover .c5 {
+  color: #FFFFFF;
+}
+
+.c1:active {
+  background: #01508E;
+  color: #FFFFFF!important;
+  box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
+}
+
+.c1:active .c5 {
+  color: #FFFFFF;
+}
+
+.c1:focus {
+  box-shadow: 0 0 1px 1px #FFFFFF,0 0 1px 3px rgba(1,114,203,0.6);
+}
+
+.c1:focus:active {
+  box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
+}
+
+.c1 .c4 {
+  width: 24px;
+  height: 24px;
+}
+
+.c2 {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 100;
+}
+
+@media all and (-ms-high-contrast:none),(-ms-high-contrast:active) {
+  .c2 {
+    min-width: 100%;
+    max-width: 1px;
+  }
+}
+
+<button
+    className="c0 c1"
     data-test="fab"
     onClick={[Function]}
     size="normal"
     type="button"
   >
     <div
-      className="Button__StyledButtonContent-sc-1brqp3f-2 jGhOsc"
+      className="c2"
     >
       <div
-        className="Button__StyledButtonContentChildren-sc-1brqp3f-3 hFLPMQ"
+        className="c3"
       >
         <svg
           fill="currentColor"

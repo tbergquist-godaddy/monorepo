@@ -2,8 +2,12 @@
 
 import UserModel from '../models/UserModel';
 
-const findUser = (username: string) => UserModel.findOne({ username });
+export default class UserRepository {
+  findUser(username: string) {
+    return UserModel.findOne({ username });
+  }
 
-export default {
-  findUser,
-};
+  findUsers(usernames: $ReadOnlyArray<string>) {
+    return UserModel.find({ username: { $in: usernames } });
+  }
+}

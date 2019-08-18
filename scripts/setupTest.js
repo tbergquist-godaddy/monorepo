@@ -1,4 +1,5 @@
 // @flow
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import 'jest-styled-components';
+
+jest.mock('../packages/graphql-services/src/fetch.js');

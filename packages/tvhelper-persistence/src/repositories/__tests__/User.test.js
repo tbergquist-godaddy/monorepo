@@ -3,7 +3,9 @@
 import mockingoose from 'mockingoose';
 
 import model from '../../models/UserModel';
-import repository from '../User';
+import UserRepository from '../User';
+
+const repository = new UserRepository();
 
 it('should find the user with findOne', async () => {
   const user = {

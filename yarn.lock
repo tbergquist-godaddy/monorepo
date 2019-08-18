@@ -1714,6 +1714,13 @@
     "@kiwicom/js" "^0.12.0"
     cross-fetch "^3.0.4"
 
+"@kiwicom/graphql-global-id@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/graphql-global-id/-/graphql-global-id-0.10.0.tgz#4a31c32e317b4a9c49ce6c7c289588c411efe66e"
+  integrity sha512-tIi8vgxHwFoM1ORWG5hztL3nSGOrg+ATAImx3JT8nE1NqPCTDr6E4ivpivrmxx/x1NSXFNc1o2XeWiyXktWbkQ==
+  dependencies:
+    "@kiwicom/js" "^0.8.0"
+
 "@kiwicom/js@^0.12.0":
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.12.0.tgz#5bde0d3a182e70744f1e71e976bd0bfae608166a"

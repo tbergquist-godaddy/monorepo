@@ -11,7 +11,7 @@ const { JWT_SECRET } = process.env;
 function getRepository(app: number) {
   switch (app) {
     case 0:
-      return UserRepository;
+      return new UserRepository();
     default:
       throw new Error('Unknown app');
   }
