@@ -1,12 +1,12 @@
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
- 
+
 module.exports = {
   root: true,
- 
+
   extends: ['@kiwicom/eslint-config'],
- 
+
   // adjust the rules as needed
   parser: 'babel-eslint',
   env: {
@@ -23,6 +23,9 @@ module.exports = {
         message: "Please use '@tbergq/components' Link instead."
       }
     ],
-    "import/no-extraneous-dependencies": [ERROR, {"devDependencies": ["**/*.test.js", "**/*.spec.js", "./scripts/*.js"]}]
+    "import/no-extraneous-dependencies": [
+      ERROR, {
+        "devDependencies": ["**/*.test.js", "**/*.spec.js", "**/scripts/*.js", "**/__mocks__/*.js"]
+      }]
   }
 };
