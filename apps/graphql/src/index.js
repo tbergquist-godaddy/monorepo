@@ -8,9 +8,12 @@ import morgan from 'morgan';
 import passport from 'passport';
 import { tvHelperConnection } from '@tbergq/tvhelper-persistence';
 import { invariant } from '@kiwicom/js';
+import { config } from 'dotenv';
 
 import Schema from './Schema';
 import createGraphqlContext from './services/createGraphqlContext';
+
+config();
 
 const { PORT, TVHELPER_DB_URL } = process.env;
 
