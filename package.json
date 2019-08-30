@@ -24,15 +24,18 @@
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@kiwicom/babel-preset-kiwicom": "^3.4.0",
-    "@kiwicom/eslint-config": "^6.5.2",
-    "babel-eslint": "^10.0.2",
-    "eslint": "^6.1.0",
-    "flow-bin": "^0.105.2",
+    "@kiwicom/babel-preset-kiwicom": "^3.5.0",
+    "@kiwicom/eslint-config": "^7.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.2.2",
+    "flow-bin": "^0.106.3",
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.3",
-    "now": "^16.1.1",
+    "now": "^16.1.2",
     "react-test-renderer": "^16.8.6",
     "rimraf": "^3.0.0"
+  },
+  "resolutions": {
+    "eslint-plugin-jest": "22.15.2"
   }
 }

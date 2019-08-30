@@ -1,3 +1,3 @@
 // @flow
 
-export { default as useMongoDb } from './src/useMongoDb';
+export { default as withMongoDb } from './src/useMongoDb';

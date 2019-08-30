@@ -8,12 +8,12 @@
     "@tbergq/graphql-services": "*",
     "@tbergq/tvhelper-persistence": "*",
     "dataloader": "^1.4.0",
-    "graphql": "^14.4.2",
+    "graphql": "^14.5.4",
     "graphql-iso-date": "^3.6.1",
     "graphql-relay": "^0.6.0"
   },
   "devDependencies": {
-    "mockingoose": "^2.13.2",
-    "@tbergq/test-utils": "*"
+    "@tbergq/test-utils": "*",
+    "mockingoose": "^2.13.2"
   }
 }
