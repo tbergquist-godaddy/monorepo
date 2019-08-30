@@ -5,9 +5,9 @@
   "version": "0.0.1",
   "dependencies": {
     "@kiwicom/fetch": "^2.4.3",
-    "@kiwicom/relay": "^3.2.0",
+    "@kiwicom/relay": "^3.3.0",
     "@tbergq/rn-components": "*",
-    "graphql": "^14.4.2"
+    "graphql": "^14.5.4"
   },
   "peerDependencies": {
     "react": "",

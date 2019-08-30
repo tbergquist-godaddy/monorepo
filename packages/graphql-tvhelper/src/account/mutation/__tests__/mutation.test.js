@@ -4,12 +4,12 @@ import { generateTestsFromFixtures } from '@kiwicom/test-utils';
 import { generateExecuteTestQuery } from '@tbergq/graphql-services';
 import mockingoose from 'mockingoose';
 import { UserModel } from '@tbergq/tvhelper-persistence';
-import { useMongoDb } from '@tbergq/test-utils';
+import { withMongoDb } from '@tbergq/test-utils';
 
 import Mutations from '../../../../TvHelperMutations';
 import getDataloaders from '../../../../getDataloaders';
 
-useMongoDb();
+withMongoDb();
 const context = {
   dataLoader: {
     tvhelper: getDataloaders(),
