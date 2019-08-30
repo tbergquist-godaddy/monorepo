@@ -10,6 +10,7 @@ export type GraphqlContextType = {|
     +tvhelper: {|
       +searchTvShow: Dataloader<string, Array<TvShow>>,
       +user: Dataloader<string, ?User>,
+      +tvDetail: Dataloader<string, TvShow>,
     |},
   |},
 |};

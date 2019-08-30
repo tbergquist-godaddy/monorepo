@@ -1,3 +1,4 @@
 {
-  "http://api.tvmaze.com/search/shows?q=the 100&embed[]=nextepisode&embed[]=previousepisode": "searchTvshow.json"
+  "http://api.tvmaze.com/search/shows?q=the 100&embed[]=nextepisode&embed[]=previousepisode": "searchTvshow.json",
+  "http://api.tvmaze.com/shows/6?embed[]=episodes&embed[]=nextepisode&embed[]=previousepisode&embed[]=cast": "tvDetail.json"
 }

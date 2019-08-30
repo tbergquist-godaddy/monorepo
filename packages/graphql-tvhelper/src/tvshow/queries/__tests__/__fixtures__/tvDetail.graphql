@@ -1,0 +1,9 @@
+query detail {
+  tvShowDetail(id:"dHZTaG93OjY=") {
+    id
+    name
+    status
+    premiered
+    rating
+  }
+}

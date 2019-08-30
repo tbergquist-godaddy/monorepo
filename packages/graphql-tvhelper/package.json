@@ -4,6 +4,7 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
+    "@kiwicom/graphql-global-id": "^0.10.0",
     "@kiwicom/test-utils": "^0.9.0",
     "@tbergq/graphql-services": "*",
     "@tbergq/tvhelper-persistence": "*",

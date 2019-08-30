@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: tvDetail.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query detail {
+  tvShowDetail(id:"dHZTaG93OjY=") {
+    id
+    name
+    status
+    premiered
+    rating
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "tvShowDetail": {
+      "id": "dHZTaG93OjY=",
+      "name": "The 100",
+      "status": "Running",
+      "premiered": "2014-03-19",
+      "rating": 7.9
+    }
+  }
+}
+`;
