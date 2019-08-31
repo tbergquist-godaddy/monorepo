@@ -27,6 +27,8 @@ query detail {
       seasonAndNumber
       airdate
     }
+    nextEpisode
+    previousEpisode
   }
 }
 
@@ -603,7 +605,9 @@ query detail {
           "seasonAndNumber": "S06E13",
           "airdate": "2019-08-06"
         }
-      ]
+      ],
+      "nextEpisode": null,
+      "previousEpisode": "2019-08-06"
     }
   }
 }
