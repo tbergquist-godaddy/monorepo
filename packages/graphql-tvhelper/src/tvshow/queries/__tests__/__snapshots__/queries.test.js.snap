@@ -22,6 +22,11 @@ query detail {
         name
       }
     }
+    episodes {
+      id
+      seasonAndNumber
+      airdate
+    }
   }
 }
 
@@ -175,6 +180,428 @@ query detail {
           "character": {
             "name": "Callie Cartwig"
           }
+        }
+      ],
+      "episodes": [
+        {
+          "id": "RXBpc29kZToxNzU=",
+          "seasonAndNumber": "S01E01",
+          "airdate": "2014-03-19"
+        },
+        {
+          "id": "RXBpc29kZToxNzY=",
+          "seasonAndNumber": "S01E02",
+          "airdate": "2014-03-26"
+        },
+        {
+          "id": "RXBpc29kZToxNzc=",
+          "seasonAndNumber": "S01E03",
+          "airdate": "2014-04-02"
+        },
+        {
+          "id": "RXBpc29kZToxNzg=",
+          "seasonAndNumber": "S01E04",
+          "airdate": "2014-04-09"
+        },
+        {
+          "id": "RXBpc29kZToxNzk=",
+          "seasonAndNumber": "S01E05",
+          "airdate": "2014-04-16"
+        },
+        {
+          "id": "RXBpc29kZToxODA=",
+          "seasonAndNumber": "S01E06",
+          "airdate": "2014-04-23"
+        },
+        {
+          "id": "RXBpc29kZToxODE=",
+          "seasonAndNumber": "S01E07",
+          "airdate": "2014-04-30"
+        },
+        {
+          "id": "RXBpc29kZToxODI=",
+          "seasonAndNumber": "S01E08",
+          "airdate": "2014-05-07"
+        },
+        {
+          "id": "RXBpc29kZToxODM=",
+          "seasonAndNumber": "S01E09",
+          "airdate": "2014-05-14"
+        },
+        {
+          "id": "RXBpc29kZToxODQ=",
+          "seasonAndNumber": "S01E10",
+          "airdate": "2014-05-21"
+        },
+        {
+          "id": "RXBpc29kZToxODU=",
+          "seasonAndNumber": "S01E11",
+          "airdate": "2014-05-28"
+        },
+        {
+          "id": "RXBpc29kZToxODY=",
+          "seasonAndNumber": "S01E12",
+          "airdate": "2014-06-04"
+        },
+        {
+          "id": "RXBpc29kZToxODc=",
+          "seasonAndNumber": "S01E13",
+          "airdate": "2014-06-11"
+        },
+        {
+          "id": "RXBpc29kZToxODg=",
+          "seasonAndNumber": "S02E01",
+          "airdate": "2014-10-22"
+        },
+        {
+          "id": "RXBpc29kZToxNTgzOQ==",
+          "seasonAndNumber": "S02E02",
+          "airdate": "2014-10-29"
+        },
+        {
+          "id": "RXBpc29kZToxNTg0MA==",
+          "seasonAndNumber": "S02E03",
+          "airdate": "2014-11-05"
+        },
+        {
+          "id": "RXBpc29kZTozMjI1Mg==",
+          "seasonAndNumber": "S02E04",
+          "airdate": "2014-11-12"
+        },
+        {
+          "id": "RXBpc29kZTozOTYyMw==",
+          "seasonAndNumber": "S02E05",
+          "airdate": "2014-11-19"
+        },
+        {
+          "id": "RXBpc29kZTo0NTc2NA==",
+          "seasonAndNumber": "S02E06",
+          "airdate": "2014-12-03"
+        },
+        {
+          "id": "RXBpc29kZTo0NTc5Mw==",
+          "seasonAndNumber": "S02E07",
+          "airdate": "2014-12-10"
+        },
+        {
+          "id": "RXBpc29kZTo0NTc5NA==",
+          "seasonAndNumber": "S02E08",
+          "airdate": "2014-12-17"
+        },
+        {
+          "id": "RXBpc29kZTo0NTc5NQ==",
+          "seasonAndNumber": "S02E09",
+          "airdate": "2015-01-21"
+        },
+        {
+          "id": "RXBpc29kZToxMDk1NDM=",
+          "seasonAndNumber": "S02E10",
+          "airdate": "2015-01-28"
+        },
+        {
+          "id": "RXBpc29kZToxMDk1NDQ=",
+          "seasonAndNumber": "S02E11",
+          "airdate": "2015-02-04"
+        },
+        {
+          "id": "RXBpc29kZToxMTc1MjU=",
+          "seasonAndNumber": "S02E12",
+          "airdate": "2015-02-11"
+        },
+        {
+          "id": "RXBpc29kZToxMTc1MjY=",
+          "seasonAndNumber": "S02E13",
+          "airdate": "2015-02-18"
+        },
+        {
+          "id": "RXBpc29kZToxMTc1Mjc=",
+          "seasonAndNumber": "S02E14",
+          "airdate": "2015-02-25"
+        },
+        {
+          "id": "RXBpc29kZToxMTc1OTE=",
+          "seasonAndNumber": "S02E15",
+          "airdate": "2015-03-04"
+        },
+        {
+          "id": "RXBpc29kZToxMTc1OTI=",
+          "seasonAndNumber": "S02E16",
+          "airdate": "2015-03-11"
+        },
+        {
+          "id": "RXBpc29kZTo0ODY4Mzk=",
+          "seasonAndNumber": "S03E01",
+          "airdate": "2016-01-21"
+        },
+        {
+          "id": "RXBpc29kZTo0ODczNzg=",
+          "seasonAndNumber": "S03E02",
+          "airdate": "2016-01-28"
+        },
+        {
+          "id": "RXBpc29kZTo1MjcyMTY=",
+          "seasonAndNumber": "S03E03",
+          "airdate": "2016-02-04"
+        },
+        {
+          "id": "RXBpc29kZTo1MjcyMTc=",
+          "seasonAndNumber": "S03E04",
+          "airdate": "2016-02-11"
+        },
+        {
+          "id": "RXBpc29kZTo1NzA0MzE=",
+          "seasonAndNumber": "S03E05",
+          "airdate": "2016-02-18"
+        },
+        {
+          "id": "RXBpc29kZTo2MDA2Mzk=",
+          "seasonAndNumber": "S03E06",
+          "airdate": "2016-02-25"
+        },
+        {
+          "id": "RXBpc29kZTo2MTE1Njc=",
+          "seasonAndNumber": "S03E07",
+          "airdate": "2016-03-03"
+        },
+        {
+          "id": "RXBpc29kZTo2MjE5MDk=",
+          "seasonAndNumber": "S03E08",
+          "airdate": "2016-03-10"
+        },
+        {
+          "id": "RXBpc29kZTo2NDY5MDY=",
+          "seasonAndNumber": "S03E09",
+          "airdate": "2016-03-31"
+        },
+        {
+          "id": "RXBpc29kZTo2NDczNzQ=",
+          "seasonAndNumber": "S03E10",
+          "airdate": "2016-04-07"
+        },
+        {
+          "id": "RXBpc29kZTo2NDczNzU=",
+          "seasonAndNumber": "S03E11",
+          "airdate": "2016-04-14"
+        },
+        {
+          "id": "RXBpc29kZTo2NDczNzY=",
+          "seasonAndNumber": "S03E12",
+          "airdate": "2016-04-21"
+        },
+        {
+          "id": "RXBpc29kZTo2NDczNzc=",
+          "seasonAndNumber": "S03E13",
+          "airdate": "2016-04-28"
+        },
+        {
+          "id": "RXBpc29kZTo2NDczNzg=",
+          "seasonAndNumber": "S03E14",
+          "airdate": "2016-05-05"
+        },
+        {
+          "id": "RXBpc29kZTo2NDczNzk=",
+          "seasonAndNumber": "S03E15",
+          "airdate": "2016-05-12"
+        },
+        {
+          "id": "RXBpc29kZTo2NDczODA=",
+          "seasonAndNumber": "S03E16",
+          "airdate": "2016-05-19"
+        },
+        {
+          "id": "RXBpc29kZTo5MjE3MDk=",
+          "seasonAndNumber": "S04E01",
+          "airdate": "2017-02-01"
+        },
+        {
+          "id": "RXBpc29kZToxMDMzOTQ2",
+          "seasonAndNumber": "S04E02",
+          "airdate": "2017-02-08"
+        },
+        {
+          "id": "RXBpc29kZToxMDMzOTQ3",
+          "seasonAndNumber": "S04E03",
+          "airdate": "2017-02-15"
+        },
+        {
+          "id": "RXBpc29kZToxMDQ3MzQ0",
+          "seasonAndNumber": "S04E04",
+          "airdate": "2017-02-22"
+        },
+        {
+          "id": "RXBpc29kZToxMDQ5NDg5",
+          "seasonAndNumber": "S04E05",
+          "airdate": "2017-03-01"
+        },
+        {
+          "id": "RXBpc29kZToxMDQ4MjIy",
+          "seasonAndNumber": "S04E06",
+          "airdate": "2017-03-15"
+        },
+        {
+          "id": "RXBpc29kZToxMDg1NDUy",
+          "seasonAndNumber": "S04E07",
+          "airdate": "2017-03-22"
+        },
+        {
+          "id": "RXBpc29kZToxMDg4MzM4",
+          "seasonAndNumber": "S04E08",
+          "airdate": "2017-03-29"
+        },
+        {
+          "id": "RXBpc29kZToxMTA2MTQ2",
+          "seasonAndNumber": "S04E09",
+          "airdate": "2017-04-26"
+        },
+        {
+          "id": "RXBpc29kZToxMTA2MTQ3",
+          "seasonAndNumber": "S04E10",
+          "airdate": "2017-05-03"
+        },
+        {
+          "id": "RXBpc29kZToxMTA2MTQ4",
+          "seasonAndNumber": "S04E11",
+          "airdate": "2017-05-10"
+        },
+        {
+          "id": "RXBpc29kZToxMDQ5MjQ4",
+          "seasonAndNumber": "S04E12",
+          "airdate": "2017-05-17"
+        },
+        {
+          "id": "RXBpc29kZToxMDc2MjY5",
+          "seasonAndNumber": "S04E13",
+          "airdate": "2017-05-24"
+        },
+        {
+          "id": "RXBpc29kZToxMjYwNzI2",
+          "seasonAndNumber": "S05E01",
+          "airdate": "2018-04-24"
+        },
+        {
+          "id": "RXBpc29kZToxMjc0ODM3",
+          "seasonAndNumber": "S05E02",
+          "airdate": "2018-05-01"
+        },
+        {
+          "id": "RXBpc29kZToxMjcwNTA5",
+          "seasonAndNumber": "S05E03",
+          "airdate": "2018-05-08"
+        },
+        {
+          "id": "RXBpc29kZToxMjg1MzQx",
+          "seasonAndNumber": "S05E04",
+          "airdate": "2018-05-15"
+        },
+        {
+          "id": "RXBpc29kZToxMzAyOTA4",
+          "seasonAndNumber": "S05E05",
+          "airdate": "2018-05-22"
+        },
+        {
+          "id": "RXBpc29kZToxMzExNTMy",
+          "seasonAndNumber": "S05E06",
+          "airdate": "2018-06-05"
+        },
+        {
+          "id": "RXBpc29kZToxMzUxOTMz",
+          "seasonAndNumber": "S05E07",
+          "airdate": "2018-06-19"
+        },
+        {
+          "id": "RXBpc29kZToxMzUxOTM0",
+          "seasonAndNumber": "S05E08",
+          "airdate": "2018-06-26"
+        },
+        {
+          "id": "RXBpc29kZToxMzYwOTQx",
+          "seasonAndNumber": "S05E09",
+          "airdate": "2018-07-10"
+        },
+        {
+          "id": "RXBpc29kZToxMzYwOTQy",
+          "seasonAndNumber": "S05E10",
+          "airdate": "2018-07-17"
+        },
+        {
+          "id": "RXBpc29kZToxMzg5OTYx",
+          "seasonAndNumber": "S05E11",
+          "airdate": "2018-07-24"
+        },
+        {
+          "id": "RXBpc29kZToxMzg5OTYz",
+          "seasonAndNumber": "S05E12",
+          "airdate": "2018-07-31"
+        },
+        {
+          "id": "RXBpc29kZToxNDcxNjk3",
+          "seasonAndNumber": "S05E13",
+          "airdate": "2018-08-07"
+        },
+        {
+          "id": "RXBpc29kZToxNTEzOTY1",
+          "seasonAndNumber": "S06E01",
+          "airdate": "2019-04-30"
+        },
+        {
+          "id": "RXBpc29kZToxNTEzOTY2",
+          "seasonAndNumber": "S06E02",
+          "airdate": "2019-05-07"
+        },
+        {
+          "id": "RXBpc29kZToxNjQxODEx",
+          "seasonAndNumber": "S06E03",
+          "airdate": "2019-05-14"
+        },
+        {
+          "id": "RXBpc29kZToxNjUxMzQx",
+          "seasonAndNumber": "S06E04",
+          "airdate": "2019-05-21"
+        },
+        {
+          "id": "RXBpc29kZToxNjU0NzIy",
+          "seasonAndNumber": "S06E05",
+          "airdate": "2019-05-28"
+        },
+        {
+          "id": "RXBpc29kZToxNjYwMzI1",
+          "seasonAndNumber": "S06E06",
+          "airdate": "2019-06-11"
+        },
+        {
+          "id": "RXBpc29kZToxNjYzMzEy",
+          "seasonAndNumber": "S06E07",
+          "airdate": "2019-06-18"
+        },
+        {
+          "id": "RXBpc29kZToxNjY0OTc1",
+          "seasonAndNumber": "S06E08",
+          "airdate": "2019-06-25"
+        },
+        {
+          "id": "RXBpc29kZToxNjY0OTc2",
+          "seasonAndNumber": "S06E09",
+          "airdate": "2019-07-09"
+        },
+        {
+          "id": "RXBpc29kZToxNjY0OTc3",
+          "seasonAndNumber": "S06E10",
+          "airdate": "2019-07-16"
+        },
+        {
+          "id": "RXBpc29kZToxNjY0OTc4",
+          "seasonAndNumber": "S06E11",
+          "airdate": "2019-07-23"
+        },
+        {
+          "id": "RXBpc29kZToxNjY0OTc5",
+          "seasonAndNumber": "S06E12",
+          "airdate": "2019-07-30"
+        },
+        {
+          "id": "RXBpc29kZToxNjY0OTgw",
+          "seasonAndNumber": "S06E13",
+          "airdate": "2019-08-06"
         }
       ]
     }
