@@ -12,6 +12,8 @@ query {
           id
           name
         }
+        nextEpisode
+        previousEpisode
       }
     }
   }
@@ -362,7 +364,9 @@ query {
                 "id": "RXBpc29kZToxNjY0OTgw",
                 "name": "The Blood of Sanctum"
               }
-            ]
+            ],
+            "nextEpisode": null,
+            "previousEpisode": "2019-08-06"
           }
         },
         {
@@ -482,7 +486,9 @@ query {
                 "id": "RXBpc29kZToxNDM1MTg2",
                 "name": "Episode 6"
               }
-            ]
+            ],
+            "nextEpisode": null,
+            "previousEpisode": "2018-03-21"
           }
         }
       ]

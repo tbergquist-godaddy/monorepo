@@ -2,13 +2,14 @@
 
 import { GraphQLObjectType, GraphQLString, GraphQLFloat, GraphQLList } from 'graphql';
 import { GraphQLDate } from 'graphql-iso-date';
-import type { TvShow } from '@tbergq/graphql-services';
+import type { TvShow, GraphqlContextType } from '@tbergq/graphql-services';
 import GlobalID from '@kiwicom/graphql-global-id';
 
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
 import Summary from './Summary';
 import Cast from '../../../common/types/output/Cast';
 import Episode from './Episode';
+import { resolvePreviousEpisode, resolveNextEpisode } from '../../resolvers/episodeResolvers';
 
 export default new GraphQLObjectType({
   name: 'TvShow',
@@ -42,6 +43,16 @@ export default new GraphQLObjectType({
 
         return episodes;
       },
+    },
+    previousEpisode: {
+      type: GraphQLDate,
+      resolve: ({ _embedded, id }: TvShow, _: mixed, { dataLoader }: GraphqlContextType) =>
+        _embedded?.previousepisode?.airdate ?? resolvePreviousEpisode(dataLoader, id),
+    },
+    nextEpisode: {
+      type: GraphQLDate,
+      resolve: ({ _embedded, id }: TvShow, _: mixed, { dataLoader }: GraphqlContextType) =>
+        _embedded?.nextepisode?.airdate ?? resolveNextEpisode(dataLoader, id),
     },
   },
 });
