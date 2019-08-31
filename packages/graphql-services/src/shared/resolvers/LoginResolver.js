@@ -3,6 +3,7 @@
 import { verify } from 'password-hash';
 import { toGlobalId } from 'graphql-relay';
 import jwt from 'jsonwebtoken';
+import { config } from 'dotenv';
 
 import type { User } from '../../types/tvhelper/account/User';
 
@@ -15,6 +16,8 @@ export type LoggedInUser = {|
   +token?: string,
   +app: Apps,
 |};
+
+config();
 
 const { JWT_SECRET } = process.env;
 

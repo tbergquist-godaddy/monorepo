@@ -5,9 +5,10 @@ import { Schema } from 'mongoose';
 import connection from '../connection';
 
 export type UserType = {|
-  +id: string,
+  +_id: string,
   +username: string,
   +password: string,
+  +email: string,
 |};
 
 const UserSchema = new Schema({

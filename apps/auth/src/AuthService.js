@@ -10,10 +10,10 @@ import { LoginReply, AuthenticateReply, User } from './__generated__/auth_pb';
 config();
 const { JWT_SECRET } = process.env;
 
-function getRepository(app: number) {
+function getFindUserFunction(app: number) {
   switch (app) {
     case 0:
-      return new UserRepository();
+      return UserRepository.findUser;
     default:
       throw new Error('Unknown app');
   }
@@ -28,8 +28,9 @@ function signToken(user: {| +id: string, +username: string, +app: number |}) {
 
 export async function login(call: $FlowFixMe, callback: $FlowFixMe) {
   const request = call.request.toObject();
-  const repository = getRepository(request.app);
-  const user = await repository.findUser(request.username);
+  const findUser = getFindUserFunction(request.app);
+  // $FlowIssue: https://github.com/facebook/flow/issues/5294
+  const user = await findUser(request.username);
 
   const isCorrect = verify(request.password, user?.password);
 
@@ -38,8 +39,8 @@ export async function login(call: $FlowFixMe, callback: $FlowFixMe) {
     return;
   }
   const token = signToken({
-    id: user.id,
-    username: user.username,
+    id: user?.id,
+    username: user?.username,
     app: request.app,
   });
 

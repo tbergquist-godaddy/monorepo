@@ -5,8 +5,6 @@ import mockingoose from 'mockingoose';
 import model from '../../models/UserModel';
 import UserRepository from '../User';
 
-const repository = new UserRepository();
-
 it('should find the user with findOne', async () => {
   const user = {
     _id: '507f191e810c19729de860ea',
@@ -16,10 +14,10 @@ it('should find the user with findOne', async () => {
   };
 
   mockingoose(model).toReturn(user, 'findOne');
-  const dbuser = await repository.findUser('name');
+  const dbuser = await UserRepository.findUser('name');
 
-  expect(dbuser.id).toEqual(user._id);
-  expect(dbuser.username).toEqual(user.username);
-  expect(dbuser.email).toEqual(user.email);
-  expect(dbuser.password).toEqual(user.password);
+  expect(dbuser?.id).toEqual(user._id);
+  expect(dbuser?.username).toEqual(user.username);
+  expect(dbuser?.email).toEqual(user.email);
+  expect(dbuser?.password).toEqual(user.password);
 });

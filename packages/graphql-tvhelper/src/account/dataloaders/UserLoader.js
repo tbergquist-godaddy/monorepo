@@ -4,23 +4,21 @@ import Dataloader from 'dataloader';
 import { UserRepository } from '@tbergq/tvhelper-persistence';
 import type { User as UserType } from '@tbergq/graphql-services';
 
-const fetchUser = async (usernames: $ReadOnlyArray<string>, userRepository: UserRepository) => {
-  const users = await userRepository.findUsers(usernames);
+const fetchUser = async (usernames: $ReadOnlyArray<string>) => {
+  const users = await UserRepository.findUsers(usernames);
   return users.map(user => {
     if (user == null) {
       return null;
     }
     return {
-      id: user._id,
+      id: user.id,
       username: user.username,
       password: user.password,
     };
   });
 };
 
-const UserLoader = (userRepository: UserRepository) =>
-  new Dataloader<string, ?UserType>((usernames: $ReadOnlyArray<string>) =>
-    fetchUser(usernames, userRepository),
-  );
+const UserLoader = () =>
+  new Dataloader<string, ?UserType>((usernames: $ReadOnlyArray<string>) => fetchUser(usernames));
 
 export default UserLoader;
