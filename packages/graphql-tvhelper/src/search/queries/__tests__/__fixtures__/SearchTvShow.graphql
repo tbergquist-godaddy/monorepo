@@ -4,6 +4,10 @@ query {
       node {
         id
         name
+        episodes {
+          id
+          name
+        }
       }
     }
   }

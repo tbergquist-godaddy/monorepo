@@ -8,6 +8,10 @@ query {
       node {
         id
         name
+        episodes {
+          id
+          name
+        }
       }
     }
   }
@@ -20,13 +24,465 @@ query {
         {
           "node": {
             "id": "VHZTaG93OjY=",
-            "name": "The 100"
+            "name": "The 100",
+            "episodes": [
+              {
+                "id": "RXBpc29kZToxNzU=",
+                "name": "Pilot"
+              },
+              {
+                "id": "RXBpc29kZToxNzY=",
+                "name": "Earth Skills"
+              },
+              {
+                "id": "RXBpc29kZToxNzc=",
+                "name": "Earth Kills"
+              },
+              {
+                "id": "RXBpc29kZToxNzg=",
+                "name": "Murphy's Law"
+              },
+              {
+                "id": "RXBpc29kZToxNzk=",
+                "name": "Twilight's Last Gleaming"
+              },
+              {
+                "id": "RXBpc29kZToxODA=",
+                "name": "His Sister's Keeper"
+              },
+              {
+                "id": "RXBpc29kZToxODE=",
+                "name": "Contents Under Pressure"
+              },
+              {
+                "id": "RXBpc29kZToxODI=",
+                "name": "Day Trip"
+              },
+              {
+                "id": "RXBpc29kZToxODM=",
+                "name": "Unity Day"
+              },
+              {
+                "id": "RXBpc29kZToxODQ=",
+                "name": "I Am Become Death"
+              },
+              {
+                "id": "RXBpc29kZToxODU=",
+                "name": "The Calm"
+              },
+              {
+                "id": "RXBpc29kZToxODY=",
+                "name": "We Are Grounders - Part I"
+              },
+              {
+                "id": "RXBpc29kZToxODc=",
+                "name": "We Are Grounders - Part II"
+              },
+              {
+                "id": "RXBpc29kZToxODg=",
+                "name": "The 48"
+              },
+              {
+                "id": "RXBpc29kZToxNTgzOQ==",
+                "name": "Inclement Weather"
+              },
+              {
+                "id": "RXBpc29kZToxNTg0MA==",
+                "name": "Reapercussions"
+              },
+              {
+                "id": "RXBpc29kZTozMjI1Mg==",
+                "name": "Many Happy Returns"
+              },
+              {
+                "id": "RXBpc29kZTozOTYyMw==",
+                "name": "Human Trials"
+              },
+              {
+                "id": "RXBpc29kZTo0NTc2NA==",
+                "name": "Fog of War"
+              },
+              {
+                "id": "RXBpc29kZTo0NTc5Mw==",
+                "name": "Long Into an Abyss"
+              },
+              {
+                "id": "RXBpc29kZTo0NTc5NA==",
+                "name": "Spacewalker"
+              },
+              {
+                "id": "RXBpc29kZTo0NTc5NQ==",
+                "name": "Remember Me"
+              },
+              {
+                "id": "RXBpc29kZToxMDk1NDM=",
+                "name": "Survival of the Fittest"
+              },
+              {
+                "id": "RXBpc29kZToxMDk1NDQ=",
+                "name": "Coup de Grâce"
+              },
+              {
+                "id": "RXBpc29kZToxMTc1MjU=",
+                "name": "Rubicon"
+              },
+              {
+                "id": "RXBpc29kZToxMTc1MjY=",
+                "name": "Resurrection"
+              },
+              {
+                "id": "RXBpc29kZToxMTc1Mjc=",
+                "name": "Bodyguard of Lies"
+              },
+              {
+                "id": "RXBpc29kZToxMTc1OTE=",
+                "name": "Blood Must Have Blood, Part One"
+              },
+              {
+                "id": "RXBpc29kZToxMTc1OTI=",
+                "name": "Blood Must Have Blood, Part Two"
+              },
+              {
+                "id": "RXBpc29kZTo0ODY4Mzk=",
+                "name": "Wanheda: Part One"
+              },
+              {
+                "id": "RXBpc29kZTo0ODczNzg=",
+                "name": "Wanheda: Part Two"
+              },
+              {
+                "id": "RXBpc29kZTo1MjcyMTY=",
+                "name": "Ye Who Enter Here"
+              },
+              {
+                "id": "RXBpc29kZTo1MjcyMTc=",
+                "name": "Watch the Thrones"
+              },
+              {
+                "id": "RXBpc29kZTo1NzA0MzE=",
+                "name": "Hakeldama"
+              },
+              {
+                "id": "RXBpc29kZTo2MDA2Mzk=",
+                "name": "Bitter Harvest"
+              },
+              {
+                "id": "RXBpc29kZTo2MTE1Njc=",
+                "name": "Thirteen"
+              },
+              {
+                "id": "RXBpc29kZTo2MjE5MDk=",
+                "name": "Terms and Conditions"
+              },
+              {
+                "id": "RXBpc29kZTo2NDY5MDY=",
+                "name": "Stealing Fire"
+              },
+              {
+                "id": "RXBpc29kZTo2NDczNzQ=",
+                "name": "Fallen"
+              },
+              {
+                "id": "RXBpc29kZTo2NDczNzU=",
+                "name": "Nevermore"
+              },
+              {
+                "id": "RXBpc29kZTo2NDczNzY=",
+                "name": "Demons"
+              },
+              {
+                "id": "RXBpc29kZTo2NDczNzc=",
+                "name": "Join or Die"
+              },
+              {
+                "id": "RXBpc29kZTo2NDczNzg=",
+                "name": "Red Sky at Morning"
+              },
+              {
+                "id": "RXBpc29kZTo2NDczNzk=",
+                "name": "Perverse Instantiation - Part One"
+              },
+              {
+                "id": "RXBpc29kZTo2NDczODA=",
+                "name": "Perverse Instantiation - Part Two"
+              },
+              {
+                "id": "RXBpc29kZTo5MjE3MDk=",
+                "name": "Echoes"
+              },
+              {
+                "id": "RXBpc29kZToxMDMzOTQ2",
+                "name": "Heavy Lies the Crown"
+              },
+              {
+                "id": "RXBpc29kZToxMDMzOTQ3",
+                "name": "The Four Horsemen"
+              },
+              {
+                "id": "RXBpc29kZToxMDQ3MzQ0",
+                "name": "A Lie Guarded"
+              },
+              {
+                "id": "RXBpc29kZToxMDQ5NDg5",
+                "name": "The Tinder Box"
+              },
+              {
+                "id": "RXBpc29kZToxMDQ4MjIy",
+                "name": "We Will Rise"
+              },
+              {
+                "id": "RXBpc29kZToxMDg1NDUy",
+                "name": "Gimme Shelter"
+              },
+              {
+                "id": "RXBpc29kZToxMDg4MzM4",
+                "name": "God Complex"
+              },
+              {
+                "id": "RXBpc29kZToxMTA2MTQ2",
+                "name": "DNR"
+              },
+              {
+                "id": "RXBpc29kZToxMTA2MTQ3",
+                "name": "Die All, Die Merrily"
+              },
+              {
+                "id": "RXBpc29kZToxMTA2MTQ4",
+                "name": "The Other Side"
+              },
+              {
+                "id": "RXBpc29kZToxMDQ5MjQ4",
+                "name": "The Chosen"
+              },
+              {
+                "id": "RXBpc29kZToxMDc2MjY5",
+                "name": "Praimfaya"
+              },
+              {
+                "id": "RXBpc29kZToxMjYwNzI2",
+                "name": "Eden"
+              },
+              {
+                "id": "RXBpc29kZToxMjc0ODM3",
+                "name": "Red Queen"
+              },
+              {
+                "id": "RXBpc29kZToxMjcwNTA5",
+                "name": "Sleeping Giants"
+              },
+              {
+                "id": "RXBpc29kZToxMjg1MzQx",
+                "name": "Pandora's Box"
+              },
+              {
+                "id": "RXBpc29kZToxMzAyOTA4",
+                "name": "Shifting Sands"
+              },
+              {
+                "id": "RXBpc29kZToxMzExNTMy",
+                "name": "Exit Wounds"
+              },
+              {
+                "id": "RXBpc29kZToxMzUxOTMz",
+                "name": "Acceptable Losses"
+              },
+              {
+                "id": "RXBpc29kZToxMzUxOTM0",
+                "name": "How We Get to Peace"
+              },
+              {
+                "id": "RXBpc29kZToxMzYwOTQx",
+                "name": "Sic Semper Tyrannis"
+              },
+              {
+                "id": "RXBpc29kZToxMzYwOTQy",
+                "name": "The Warriors Will"
+              },
+              {
+                "id": "RXBpc29kZToxMzg5OTYx",
+                "name": "The Dark Year"
+              },
+              {
+                "id": "RXBpc29kZToxMzg5OTYz",
+                "name": "Damocles - Part One"
+              },
+              {
+                "id": "RXBpc29kZToxNDcxNjk3",
+                "name": "Damocles - Part Two"
+              },
+              {
+                "id": "RXBpc29kZToxNTEzOTY1",
+                "name": "Sanctum"
+              },
+              {
+                "id": "RXBpc29kZToxNTEzOTY2",
+                "name": "Red Sun Rising"
+              },
+              {
+                "id": "RXBpc29kZToxNjQxODEx",
+                "name": "The Children of Gabriel"
+              },
+              {
+                "id": "RXBpc29kZToxNjUxMzQx",
+                "name": "The Face Behind the Glass"
+              },
+              {
+                "id": "RXBpc29kZToxNjU0NzIy",
+                "name": "The Gospel of Josephine"
+              },
+              {
+                "id": "RXBpc29kZToxNjYwMzI1",
+                "name": "Memento Mori"
+              },
+              {
+                "id": "RXBpc29kZToxNjYzMzEy",
+                "name": "Nevermind"
+              },
+              {
+                "id": "RXBpc29kZToxNjY0OTc1",
+                "name": "The Old Man and the Anomaly"
+              },
+              {
+                "id": "RXBpc29kZToxNjY0OTc2",
+                "name": "What You Take With You"
+              },
+              {
+                "id": "RXBpc29kZToxNjY0OTc3",
+                "name": "Matryoshka"
+              },
+              {
+                "id": "RXBpc29kZToxNjY0OTc4",
+                "name": "Ashes to Ashes"
+              },
+              {
+                "id": "RXBpc29kZToxNjY0OTc5",
+                "name": "Adjustment Protocol"
+              },
+              {
+                "id": "RXBpc29kZToxNjY0OTgw",
+                "name": "The Blood of Sanctum"
+              }
+            ]
           }
         },
         {
           "node": {
             "id": "VHZTaG93OjEzNjUy",
-            "name": "100% Hotter"
+            "name": "100% Hotter",
+            "episodes": [
+              {
+                "id": "RXBpc29kZTo4MTgxMjc=",
+                "name": "Episode 1"
+              },
+              {
+                "id": "RXBpc29kZTo4MjU2MzE=",
+                "name": "Episode 2"
+              },
+              {
+                "id": "RXBpc29kZTo4MzUzNjE=",
+                "name": "Episode 3"
+              },
+              {
+                "id": "RXBpc29kZTo4MzU0ODA=",
+                "name": "Episode 4"
+              },
+              {
+                "id": "RXBpc29kZTo4NTA5NTc=",
+                "name": "Episode 5"
+              },
+              {
+                "id": "RXBpc29kZTo4NjAyNDM=",
+                "name": "Episode 6"
+              },
+              {
+                "id": "RXBpc29kZTo4NjQ4Njc=",
+                "name": "Episode 7"
+              },
+              {
+                "id": "RXBpc29kZTo4NzA1MzY=",
+                "name": "Episode 8"
+              },
+              {
+                "id": "RXBpc29kZTo4Nzk4NDI=",
+                "name": "Episode 9"
+              },
+              {
+                "id": "RXBpc29kZTo4ODYzMTU=",
+                "name": "Episode 10"
+              },
+              {
+                "id": "RXBpc29kZToxMDU1ODky",
+                "name": "Episode 1"
+              },
+              {
+                "id": "RXBpc29kZToxMDU1ODkz",
+                "name": "Episode 2"
+              },
+              {
+                "id": "RXBpc29kZToxMDY5MTM3",
+                "name": "Episode 3"
+              },
+              {
+                "id": "RXBpc29kZToxMDc1NTQ1",
+                "name": "Episode 4"
+              },
+              {
+                "id": "RXBpc29kZToxMDc1NTQ2",
+                "name": "Episode 5"
+              },
+              {
+                "id": "RXBpc29kZToxMDg4NjQ4",
+                "name": "Episode 6"
+              },
+              {
+                "id": "RXBpc29kZToxMDk3OTc5",
+                "name": "Episode 7"
+              },
+              {
+                "id": "RXBpc29kZToxMDk3OTgw",
+                "name": "Episode 8"
+              },
+              {
+                "id": "RXBpc29kZToxMTE0Nzcx",
+                "name": "Episode 9"
+              },
+              {
+                "id": "RXBpc29kZToxMTE0Nzcy",
+                "name": "Episode 10"
+              },
+              {
+                "id": "RXBpc29kZToxMzUwMzU5",
+                "name": "Episode 1"
+              },
+              {
+                "id": "RXBpc29kZToxMzU2NDE4",
+                "name": "Episode 2"
+              },
+              {
+                "id": "RXBpc29kZToxNDA5Mjg0",
+                "name": "Episode 1"
+              },
+              {
+                "id": "RXBpc29kZToxNDA5Mjg1",
+                "name": "Episode 2"
+              },
+              {
+                "id": "RXBpc29kZToxNDA5Mjg2",
+                "name": "Episode 3"
+              },
+              {
+                "id": "RXBpc29kZToxNDE0MDk5",
+                "name": "Episode 4"
+              },
+              {
+                "id": "RXBpc29kZToxNDI3MDc5",
+                "name": "Episode 5"
+              },
+              {
+                "id": "RXBpc29kZToxNDM1MTg2",
+                "name": "Episode 6"
+              }
+            ]
           }
         }
       ]

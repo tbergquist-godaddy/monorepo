@@ -18,5 +18,10 @@ query detail {
         name
       }
     }
+    episodes {
+      id
+      seasonAndNumber
+      airdate
+    }
   }
 }

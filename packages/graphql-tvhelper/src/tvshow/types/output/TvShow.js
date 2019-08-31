@@ -8,6 +8,7 @@ import GlobalID from '@kiwicom/graphql-global-id';
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
 import Summary from './Summary';
 import Cast from '../../../common/types/output/Cast';
+import Episode from './Episode';
 
 export default new GraphQLObjectType({
   name: 'TvShow',
@@ -33,6 +34,14 @@ export default new GraphQLObjectType({
     cast: {
       type: GraphQLList(Cast),
       resolve: ({ _embedded }: TvShow) => _embedded?.cast,
+    },
+    episodes: {
+      type: GraphQLList(Episode),
+      resolve: async ({ id, _embedded }: TvShow, _: mixed, { dataLoader }) => {
+        const episodes = _embedded?.episodes ?? (await dataLoader.tvhelper.episodes.load(id));
+
+        return episodes;
+      },
     },
   },
 });
