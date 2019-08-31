@@ -9,6 +9,19 @@ query detail {
     status
     premiered
     rating
+    image {
+      original
+    }
+    summary
+    withoutTags: summary(stripTags: false)
+    cast {
+      person {
+        name
+      }
+      character {
+        name
+      }
+    }
   }
 }
 
@@ -16,11 +29,154 @@ query detail {
 {
   "data": {
     "tvShowDetail": {
-      "id": "dHZTaG93OjY=",
+      "id": "VHZTaG93OjY=",
       "name": "The 100",
       "status": "Running",
       "premiered": "2014-03-19",
-      "rating": 7.9
+      "rating": 7.9,
+      "image": {
+        "original": "http://static.tvmaze.com/uploads/images/original_untouched/189/474423.jpg"
+      },
+      "summary": "Ninety-seven years ago, nuclear Armageddon decimated planet Earth, destroying civilization. The only survivors were the 400 inhabitants of 12 international space stations that were in orbit at the time. Three generations have been born in space, the survivors now number 4,000, and resources are running out on their dying \\"Ark\\" - the 12 stations now linked together and repurposed to keep the survivors alive. Draconian measures including capital punishment and population control are the order of the day, as the leaders of the Ark take ruthless steps to ensure their future, including secretly exiling a group of 100 juvenile prisoners to the Earth's surface to test whether it's habitable.",
+      "withoutTags": "<p>Ninety-seven years ago, nuclear Armageddon decimated planet Earth, destroying civilization. The only survivors were the 400 inhabitants of 12 international space stations that were in orbit at the time. Three generations have been born in space, the survivors now number 4,000, and resources are running out on their dying \\"Ark\\" - the 12 stations now linked together and repurposed to keep the survivors alive. Draconian measures including capital punishment and population control are the order of the day, as the leaders of the Ark take ruthless steps to ensure their future, including secretly exiling a group of 100 juvenile prisoners to the Earth's surface to test whether it's habitable.</p>",
+      "cast": [
+        {
+          "person": {
+            "name": "Bob Morley"
+          },
+          "character": {
+            "name": "Bellamy Blake"
+          }
+        },
+        {
+          "person": {
+            "name": "Eliza Taylor-Cotter"
+          },
+          "character": {
+            "name": "Clarke Griffin"
+          }
+        },
+        {
+          "person": {
+            "name": "Marie Avgeropoulos"
+          },
+          "character": {
+            "name": "Octavia Blake"
+          }
+        },
+        {
+          "person": {
+            "name": "Lindsey Morgan"
+          },
+          "character": {
+            "name": "Raven Reyes"
+          }
+        },
+        {
+          "person": {
+            "name": "Paige Turco"
+          },
+          "character": {
+            "name": "Abigail Griffin"
+          }
+        },
+        {
+          "person": {
+            "name": "Richard Harmon"
+          },
+          "character": {
+            "name": "Jonathan Murphy"
+          }
+        },
+        {
+          "person": {
+            "name": "Henry Ian Cusick"
+          },
+          "character": {
+            "name": "Marcus Kane"
+          }
+        },
+        {
+          "person": {
+            "name": "Christopher Larkin"
+          },
+          "character": {
+            "name": "Monty Green"
+          }
+        },
+        {
+          "person": {
+            "name": "Isaiah Washington"
+          },
+          "character": {
+            "name": "Thelonious Jaha"
+          }
+        },
+        {
+          "person": {
+            "name": "Devon Bostick"
+          },
+          "character": {
+            "name": "Jasper Jordan"
+          }
+        },
+        {
+          "person": {
+            "name": "Tasya Teles"
+          },
+          "character": {
+            "name": "Echo"
+          }
+        },
+        {
+          "person": {
+            "name": "Ricky Whittle"
+          },
+          "character": {
+            "name": "Lincoln"
+          }
+        },
+        {
+          "person": {
+            "name": "Thomas McDonell"
+          },
+          "character": {
+            "name": "Finn Collins"
+          }
+        },
+        {
+          "person": {
+            "name": "Zach McGowan"
+          },
+          "character": {
+            "name": "Roan"
+          }
+        },
+        {
+          "person": {
+            "name": "Shannon Kook"
+          },
+          "character": {
+            "name": "Jordan Jasper Green"
+          }
+        },
+        {
+          "person": {
+            "name": "Eli Goree"
+          },
+          "character": {
+            "name": "Wells Jaha"
+          }
+        },
+        {
+          "person": {
+            "name": "Kelly Hu"
+          },
+          "character": {
+            "name": "Callie Cartwig"
+          }
+        }
+      ]
     }
   }
 }

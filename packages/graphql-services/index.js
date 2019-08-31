@@ -13,4 +13,6 @@ export { default as LoginResolver } from './src/shared/resolvers/LoginResolver';
 export type { SearchTvShowType } from './src/types/tvhelper/search/SearchApiResponse';
 export type { GraphqlContextType } from './src/types/GraphqlContext';
 export type { TvShow } from './src/types/tvhelper/tvshow/TvShow';
+export type { Cast } from './src/types/tvhelper/tvshow/TvShow';
+export type { Person } from './src/types/tvhelper/tvshow/TvShow';
 export type { User } from './src/types/tvhelper/account/User';

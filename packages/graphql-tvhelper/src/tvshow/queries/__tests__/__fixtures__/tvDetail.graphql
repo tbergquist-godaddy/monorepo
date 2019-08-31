@@ -5,5 +5,18 @@ query detail {
     status
     premiered
     rating
+    image {
+      original
+    }
+    summary
+    withoutTags: summary(stripTags: false)
+    cast {
+      person {
+        name
+      }
+      character {
+        name
+      }
+    }
   }
 }
