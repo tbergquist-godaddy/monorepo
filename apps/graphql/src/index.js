@@ -9,13 +9,25 @@ import passport from 'passport';
 import { tvHelperConnection } from '@tbergq/tvhelper-persistence';
 import { invariant } from '@kiwicom/js';
 import { config } from 'dotenv';
+import passportJwt from 'passport-jwt';
 
 import Schema from './Schema';
 import createGraphqlContext from './services/createGraphqlContext';
+import { jwtFromRequest, tokenToUser, attachUserToRequest } from './services/auth';
 
 config();
 
-const { PORT, TVHELPER_DB_URL } = process.env;
+const { PORT, TVHELPER_DB_URL, JWT_SECRET } = process.env;
+
+passport.use(
+  new passportJwt.Strategy(
+    {
+      secretOrKey: JWT_SECRET,
+      jwtFromRequest,
+    },
+    tokenToUser,
+  ),
+);
 
 const app = express();
 app.use(cors({ methods: ['GET', 'POST'] }));
@@ -23,16 +35,16 @@ app.use(compression());
 app.use(morgan('dev'));
 passport.initialize();
 
-function createGraphqlServer() {
+function createGraphqlServer(request: $Request) {
   return graphqlHTTP({
     schema: Schema,
     graphiql: true,
-    context: createGraphqlContext(),
+    context: createGraphqlContext(request),
   });
 }
 
-app.use('/', (request: $Request, response: $Response) => {
-  return createGraphqlServer()(request, response);
+app.use('/', attachUserToRequest, (request: $Request, response: $Response) => {
+  return createGraphqlServer(request)(request, response);
 });
 
 invariant(TVHELPER_DB_URL != null, 'Expected to have db url for tvheper, but did not');
