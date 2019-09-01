@@ -4,12 +4,10 @@ import { generateTestsFromFixtures } from '@kiwicom/test-utils';
 import { generateExecuteTestQuery } from '@tbergq/graphql-services';
 import mockingoose from 'mockingoose';
 import { UserModel } from '@tbergq/tvhelper-persistence';
-import { withMongoDb } from '@tbergq/test-utils';
 
 import Mutations from '../../../../TvHelperMutations';
 import getDataloaders from '../../../../getDataloaders';
 
-withMongoDb();
 const context = {
   dataLoader: {
     tvhelper: getDataloaders(),
@@ -24,6 +22,7 @@ jest.mock('../../../../../graphql-services/src/shared/resolvers/LoginResolver.js
     success: true,
   };
 });
+
 const user = {
   _id: '507f191e810c19729de860ea',
   username: 'tito',

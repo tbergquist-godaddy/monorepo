@@ -19,6 +19,7 @@
   "devDependencies": {
     "@tbergq/test-utils": "*",
     "mockdate": "^2.0.5",
-    "mockingoose": "^2.13.2"
+    "mockingoose": "^2.13.2",
+    "mongodb-memory-server": "^5.2.0"
   }
 }

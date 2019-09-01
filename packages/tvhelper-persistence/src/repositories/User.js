@@ -2,6 +2,12 @@
 
 import UserModel, { type UserType } from '../models/UserModel';
 
+type CreateUserType = {|
+  +username: string,
+  +password: string,
+  +email: string,
+|};
+
 export default class UserRepository {
   id: string;
   username: string;
@@ -24,5 +30,9 @@ export default class UserRepository {
   static async findUsers(usernames: $ReadOnlyArray<string>) {
     const users = await UserModel.find({ username: { $in: usernames } });
     return users.map(user => (user == null ? null : new UserRepository(user)));
+  }
+
+  static createUser(user: CreateUserType) {
+    return UserModel.create(user);
   }
 }

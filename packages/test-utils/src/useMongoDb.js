@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 
 export default function useMongoDb() {
+  // eslint-disable-next-line no-console
+  console.log('Please refactor, this most likey does not work');
   let mongoServer;
   const opts = { useNewUrlParser: true };
 
