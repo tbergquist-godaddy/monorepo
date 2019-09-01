@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`lol works 1`] = `
+exports[`AddFavorite works 1`] = `
 Object {
   "data": Object {
     "addFavorite": Object {

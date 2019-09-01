@@ -14,4 +14,9 @@ export default class FavoritesRepository {
     const favorite = await FavoritesModel.create({ userId, serieId });
     return new Favorite(favorite);
   }
+
+  static async deleteFavorite(userId: string, serieId: string) {
+    const response = await FavoritesModel.deleteOne({ userId, serieId });
+    return response.ok && response.deletedCount > 0;
+  }
 }

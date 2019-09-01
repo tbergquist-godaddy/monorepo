@@ -5,6 +5,7 @@ export { default as generateExecuteTestQuery } from './src/generateExecuteTestQu
 
 // graphql shared types
 export { default as LoginType } from './src/shared/types/output/LoginType';
+export { default as RangeDelete } from './src/shared/types/output/RangeDelete';
 
 // graphql shared resolvers
 export { default as LoginResolver } from './src/shared/resolvers/LoginResolver';

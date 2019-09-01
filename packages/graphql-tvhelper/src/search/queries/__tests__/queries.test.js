@@ -13,4 +13,6 @@ const context = {
 };
 const executeTestQuery = generateExecuteTestQuery(queries, null, context);
 
-generateTestsFromFixtures(`${__dirname}/__fixtures__`, input => executeTestQuery(input, null));
+describe('queries', () => {
+  generateTestsFromFixtures(`${__dirname}/__fixtures__`, input => executeTestQuery(input, null));
+});
