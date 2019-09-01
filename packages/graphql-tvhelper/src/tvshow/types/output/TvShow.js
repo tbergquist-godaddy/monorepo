@@ -12,9 +12,9 @@ import type { TvShow, GraphqlContextType } from '@tbergq/graphql-services';
 import GlobalID from '@kiwicom/graphql-global-id';
 
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
-import Summary from './Summary';
+import Summary from '../../../common/types/output/Summary';
 import Cast from '../../../common/types/output/Cast';
-import Episode from './Episode';
+import Episode from '../../../episode/types/output/Episode';
 import { resolvePreviousEpisode, resolveNextEpisode } from '../../resolvers/episodeResolvers';
 
 export default new GraphQLObjectType({
