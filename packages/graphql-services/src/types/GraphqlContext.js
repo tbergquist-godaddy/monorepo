@@ -1,6 +1,7 @@
 // @flow strict
 
 import Dataloader from 'dataloader';
+import type { FavoriteType } from '@tbergq/tvhelper-persistence';
 
 import type { TvShow, Episode } from './tvhelper/tvshow/TvShow';
 import type { User } from './tvhelper/account/User';
@@ -14,6 +15,7 @@ export type GraphqlContextType = {|
       +user: Dataloader<string, ?User>,
       +tvDetail: Dataloader<string, TvShow>,
       +episodes: Dataloader<string, Episode[]>,
+      +favorites: Dataloader<string, FavoriteType[]>,
     |},
   |},
 |};

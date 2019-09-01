@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`matches expected output: Favorites.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query favorites {
+  favorites {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "favorites": {
+      "edges": [
+        {
+          "node": {
+            "id": "VHZTaG93OjY=",
+            "name": "The 100"
+          }
+        }
+      ]
+    }
+  }
+}
+`;
+
 exports[`matches expected output: tvDetail.graphql 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 query detail {
