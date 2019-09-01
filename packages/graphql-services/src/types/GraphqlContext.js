@@ -15,6 +15,7 @@ export type GraphqlContextType = {|
       +user: Dataloader<string, ?User>,
       +tvDetail: Dataloader<string, TvShow>,
       +episodes: Dataloader<string, Episode[]>,
+      +episode: Dataloader<string, Episode>,
       +favorites: Dataloader<string, FavoriteType[]>,
     |},
   |},

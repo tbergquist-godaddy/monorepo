@@ -6,7 +6,7 @@ import { GraphQLDate } from 'graphql-iso-date';
 import type { Episode } from '@tbergq/graphql-services';
 
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
-import Summary from './Summary';
+import Summary from '../../../common/types/output/Summary';
 
 export default new GraphQLObjectType({
   name: 'Episode',

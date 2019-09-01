@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: Episode.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query episode {
+  episode(id: "ZXBpc29kZToxMjM=") {
+    id
+    name
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "episode": {
+      "id": "RXBpc29kZToxMjM=",
+      "name": "Trust But Verify"
+    }
+  }
+}
+`;
