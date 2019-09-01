@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateUser works 1`] = `
+Object {
+  "data": Object {
+    "createUser": Object {
+      "success": true,
+    },
+  },
+}
+`;
