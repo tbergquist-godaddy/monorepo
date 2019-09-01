@@ -5,7 +5,6 @@
   "main": "index.js",
   "devDependencies": {
     "@tbergq/monorepo-builder": "*",
-    "@tbergq/test-utils": "*",
     "google-protobuf": "^3.9.1",
     "grpc-tools": "^1.8.0",
     "mockingoose": "^2.13.2",
