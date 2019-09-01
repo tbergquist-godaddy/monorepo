@@ -1,0 +1,10 @@
+query favorites {
+  favorites {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+  }
+}
