@@ -1,6 +1,12 @@
 // @flow
 
-import { GraphQLObjectType, GraphQLString, GraphQLFloat, GraphQLList } from 'graphql';
+import {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLFloat,
+  GraphQLList,
+  GraphQLBoolean,
+} from 'graphql';
 import { GraphQLDate } from 'graphql-iso-date';
 import type { TvShow, GraphqlContextType } from '@tbergq/graphql-services';
 import GlobalID from '@kiwicom/graphql-global-id';
@@ -53,6 +59,22 @@ export default new GraphQLObjectType({
       type: GraphQLDate,
       resolve: ({ _embedded, id }: TvShow, _: mixed, { dataLoader }: GraphqlContextType) =>
         _embedded?.nextepisode?.airdate ?? resolveNextEpisode(dataLoader, id),
+    },
+    isFavorite: {
+      type: GraphQLBoolean,
+      resolve: async (
+        { id: serieId }: TvShow,
+        _: mixed,
+        { user, dataLoader }: GraphqlContextType,
+      ) => {
+        const userId = user?.id;
+        if (userId == null) {
+          return null;
+        }
+        const favorites = await dataLoader.tvhelper.favorites.load(userId);
+
+        return favorites.find(favorite => favorite.serieId === serieId) != null;
+      },
     },
   },
 });
