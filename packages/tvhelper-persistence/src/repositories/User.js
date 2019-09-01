@@ -1,6 +1,9 @@
 // @flow
 
-import UserModel, { type UserType } from '../models/UserModel';
+import { generate } from 'password-hash';
+
+import UserModel from '../models/UserModel';
+import User from '../dataObjects/User';
 
 type CreateUserType = {|
   +username: string,
@@ -9,30 +12,22 @@ type CreateUserType = {|
 |};
 
 export default class UserRepository {
-  id: string;
-  username: string;
-  password: string;
-  email: string;
-
-  constructor(user: UserType) {
-    this.id = user._id.toString();
-    this.username = user.username;
-    this.password = user.password;
-    this.email = user.email;
-  }
-
   static async findUser(username: ?string) {
     const user = await UserModel.findOne({ username });
 
-    return user == null ? null : new UserRepository(user);
+    return user == null ? null : new User(user);
   }
 
   static async findUsers(usernames: $ReadOnlyArray<string>) {
     const users = await UserModel.find({ username: { $in: usernames } });
-    return users.map(user => (user == null ? null : new UserRepository(user)));
+    return users.map(user => (user == null ? null : new User(user)));
   }
 
-  static createUser(user: CreateUserType) {
-    return UserModel.create(user);
+  static async createUser({ password, ...rest }: CreateUserType) {
+    const addedUser = await UserModel.create({
+      password: generate(password),
+      ...rest,
+    });
+    return new User(addedUser);
   }
 }
