@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches expected output: Episode.graphql 1`] = `
+exports[`queries matches expected output: Episode.graphql 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 query episode {
   episode(id: "ZXBpc29kZToxMjM=") {

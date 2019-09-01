@@ -1,14 +1,11 @@
 // @flow
 
-import { MongoMemoryServer } from 'mongodb-memory-server';
 import { generateExecuteTestQuery } from '@tbergq/graphql-services';
 import { tvHelperConnection, UserRepository } from '@tbergq/tvhelper-persistence';
 
 import Mutations from '../../../../TvHelperMutations';
 import getDataloaders from '../../../../getDataloaders';
 
-let mongoServer;
-const opts = { useNewUrlParser: true, useCreateIndex: true };
 const context = {
   user: { id: '123' },
   dataLoader: {
@@ -18,12 +15,8 @@ const context = {
 
 const executeTestQuery = generateExecuteTestQuery(null, Mutations, context);
 
-describe('lol', () => {
-  beforeAll(async () => {
-    mongoServer = new MongoMemoryServer();
-    const uri = await mongoServer.getConnectionString();
-
-    await tvHelperConnection.openUri(uri, opts);
+describe('AddFavorite', () => {
+  beforeEach(async () => {
     const user = await UserRepository.createUser({
       username: 'lol',
       password: 'lol',
@@ -32,9 +25,9 @@ describe('lol', () => {
     context.user.id = user.id;
   }, 600000);
 
-  afterAll(async () => {
-    await mongoServer.stop();
-  }, 5000);
+  afterEach(async () => {
+    await tvHelperConnection.collection('users').drop();
+  });
 
   it('works', async () => {
     const res = await executeTestQuery(`mutation addFavorite {

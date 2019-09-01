@@ -532,6 +532,7 @@ declare class Mongoose$Collection {
   collectionName: string;
   conn: Mongoose$Connection;
   name: string;
+  drop(): any; 
 }
 
 type ConnectionConnectOpts = {
