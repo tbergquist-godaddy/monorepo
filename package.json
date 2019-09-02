@@ -8,7 +8,8 @@
     "lint": "yarn jest --config=.jest-eslint.config.js",
     "flow": "flow --include-warnings",
     "graphql": "yarn babel-node packages/relay/scripts/getSchema.js && yarn babel-node scripts/copySchemaToWorkspaces.js",
-    "test-ci": "yarn lint && yarn flow && yarn test"
+    "test-ci": "yarn lint && yarn flow && yarn test",
+    "postinstall": "jetify"
   },
   "workspaces": [
     "packages/*",
@@ -31,8 +32,9 @@
     "flow-bin": "^0.106.3",
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.3",
+    "jetifier": "^1.6.4",
     "now": "^16.1.2",
-    "react-test-renderer": "^16.8.6",
+    "react-test-renderer": "^16.9.0",
     "rimraf": "^3.0.0"
   },
   "resolutions": {

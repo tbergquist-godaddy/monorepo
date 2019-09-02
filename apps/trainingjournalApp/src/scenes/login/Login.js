@@ -10,7 +10,7 @@ type Props = {|
   +navigation: { +navigate: string => void, ... },
 |};
 
-function Login(props: Props) {
+export function Login(props: Props) {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const { navigate } = props.navigation;
