@@ -71,6 +71,7 @@ exports[`Week 1`] = `
 
 .c11 {
   position: relative;
+  width: 100%;
   -webkit-transition: max-height 0.15s linear;
   transition: max-height 0.15s linear;
   max-height: 0px;
