@@ -8,7 +8,7 @@
     "google-protobuf": "^3.9.1",
     "grpc-tools": "^1.8.0",
     "mockingoose": "^2.13.2",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.2"
   },
   "scripts": {
     "protoc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:src/__generated__ --grpc_out=src/__generated__ --proto_path=src auth.proto",

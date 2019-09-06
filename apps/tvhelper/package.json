@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@kiwicom/fetch": "^2.4.3",
-    "@kiwicom/relay": "^3.3.0",
+    "@kiwicom/relay": "^3.5.0",
     "@tbergq/components": "^0",
     "@tbergq/relay": "^0",
     "@tbergq/utils": "^0",
