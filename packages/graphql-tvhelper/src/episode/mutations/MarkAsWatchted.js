@@ -27,7 +27,7 @@ export default {
     if (userId == null) {
       return { success: false, episode: null };
     }
-    await WatchedEpisodeRepository.markAsWatched(userId, episodeId);
+    await WatchedEpisodeRepository.markAsWatched(userId, parseInt(episodeId, 10));
 
     return { success: true, episode: { id: episodeId, isWatched: true } };
   },

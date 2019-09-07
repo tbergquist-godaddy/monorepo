@@ -7,7 +7,7 @@ import connection from '../connection';
 export type WatchedEpisodeType = {|
   +_id: string,
   +userId: ?string,
-  +episodeId: string,
+  +episodeId: number,
 |};
 
 const WatchedEpisodesSchema = new Schema({

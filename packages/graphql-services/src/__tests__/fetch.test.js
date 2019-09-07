@@ -14,8 +14,6 @@ jest.mock('@kiwicom/fetch', () => {
   });
 });
 
-global.console = { log: jest.fn() };
-
 const url = 'test.url';
 it('assigns content-type as default header', async () => {
   await fetch(url);
@@ -42,8 +40,9 @@ it('passes along assigned config', async () => {
 });
 
 it('throws an error if fetch fails', async () => {
+  const spy = jest.spyOn(console, 'log');
   fetchWithRetries.mockReturnValueOnce(Promise.reject(new Error('Bad request')));
   await expect(fetch(url)).rejects.toThrow('Bad request');
-  // eslint-disable-next-line no-console
-  expect(console.log).toHaveBeenCalledWith(new Error('Bad request'));
+
+  expect(spy).toHaveBeenCalledWith(new Error('Bad request'));
 });

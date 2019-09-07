@@ -33,8 +33,12 @@
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.3",
     "jetifier": "^1.6.4",
+    "mongodb-memory-server": "^5.2.1",
     "now": "^16.2.0",
     "react-test-renderer": "^16.9.0",
     "rimraf": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@tbergq/tvhelper-persistence": "*"
   }
 }
