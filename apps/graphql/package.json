@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@kiwicom/js": "^0.14.0",
+    "@kiwicom/monorepo-utils": "^0.23.0",
     "@tbergq/graphql-persistence": "*",
     "@tbergq/graphql-services": "*",
     "@tbergq/graphql-tvhelper": "*",
@@ -22,10 +23,14 @@
     "passport-jwt": "^4.0.0"
   },
   "scripts": {
-    "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn monorepo-babel-node src/index.js"
+    "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn monorepo-babel-node src/index.js",
+    "deploy": "yarn monorepo-babel-node scripts/build.js",
+    "build": "echo \"already build\" "
   },
   "devDependencies": {
     "@kiwicom/test-utils": "^0.10.0",
-    "nodemon": "^1.19.2"
+    "@tbergq/monorepo-builder": "*",
+    "nodemon": "^1.19.2",
+    "rimraf": "^3.0.0"
   }
 }

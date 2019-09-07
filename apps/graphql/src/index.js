@@ -19,7 +19,7 @@ import getPersistedQuery from './middleware/getPersistedQuery';
 
 config();
 
-const { PORT, TVHELPER_DB_URL, JWT_SECRET, GRAPHQL_DB_URL } = process.env;
+const { PORT, DB_URL: TVHELPER_DB_URL, JWT_SECRET, GRAPHQL_DB_URL } = process.env;
 
 passport.use(
   new passportJwt.Strategy(
