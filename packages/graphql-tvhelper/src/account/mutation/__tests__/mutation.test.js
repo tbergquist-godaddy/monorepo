@@ -32,4 +32,6 @@ const user = {
 
 mockingoose(UserModel).toReturn([user], 'find');
 
-generateTestsFromFixtures(`${__dirname}/__fixtures__`, input => executeTestQuery(input));
+describe('mutations', () => {
+  generateTestsFromFixtures(`${__dirname}/__fixtures__`, input => executeTestQuery(input));
+});

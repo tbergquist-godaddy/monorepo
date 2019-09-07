@@ -8,7 +8,7 @@ export default function createContext(request: $Request): GraphqlContextType {
   return {
     user: request.user,
     dataLoader: {
-      tvhelper: getTvhelperLoaders(),
+      tvhelper: getTvhelperLoaders(request.user),
     },
   };
 }

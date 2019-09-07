@@ -1,9 +1,9 @@
 // @flow
 
-import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql';
+import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql';
 import GlobalID from '@kiwicom/graphql-global-id';
 import { GraphQLDate } from 'graphql-iso-date';
-import type { Episode } from '@tbergq/graphql-services';
+import type { Episode, GraphqlContextType } from '@tbergq/graphql-services';
 
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
 import Summary from '../../../common/types/output/Summary';
@@ -39,5 +39,23 @@ export default new GraphQLObjectType({
       resolve: ({ airdate }: Episode) => airdate || null, // Failes with nullish coalescing maybe date can be emptystring, which is invalid date
     },
     summary: Summary,
+    watched: {
+      type: GraphQLBoolean,
+      resolve: async (
+        { id, isWatched }: Episode,
+        _: mixed,
+        { user, dataLoader }: GraphqlContextType,
+      ) => {
+        if (user == null) {
+          return false;
+        }
+        if (isWatched != null) {
+          return isWatched;
+        }
+        const watched = await dataLoader.tvhelper.episodeWatched.load(id);
+
+        return watched != null;
+      },
+    },
   },
 });

@@ -5,7 +5,7 @@ import type { WatchedEpisodeType } from '../models/WatchedEpisode';
 export default class WatchedEpisode {
   id: string;
   userId: string;
-  episodeId: string;
+  episodeId: number;
 
   constructor(episode: WatchedEpisodeType) {
     this.id = episode._id.toString();

@@ -19,3 +19,5 @@ export type { Cast } from './src/types/tvhelper/tvshow/TvShow';
 export type { Person } from './src/types/tvhelper/tvshow/TvShow';
 export type { User } from './src/types/tvhelper/account/User';
 export type { Apps } from './src/shared/resolvers/LoginResolver';
+export type { LoggedInUser } from './src/shared/resolvers/LoginResolver';
+export type { EpisodeWatched } from './src/types/tvhelper/episode/WatchedEpisode';
