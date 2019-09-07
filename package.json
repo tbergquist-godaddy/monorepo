@@ -39,6 +39,7 @@
     "rimraf": "^3.0.0"
   },
   "peerDependencies": {
-    "@tbergq/tvhelper-persistence": "*"
+    "@tbergq/tvhelper-persistence": "*",
+    "@tbergq/graphql-persistence": "*"
   }
 }
