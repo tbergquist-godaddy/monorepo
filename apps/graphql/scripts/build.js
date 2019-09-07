@@ -18,20 +18,29 @@ const log = (...args: $ReadOnlyArray<string>) => {
 };
 
 const thisWorkspace = '@tbergq/graphql';
+const { ZEIT_TOKEN } = process.env;
 
+if (ZEIT_TOKEN == null) {
+  throw new Error('ZEIT_TOKEN cannot be undefined');
+}
 (async () => {
-  const touchedWorkapaces = getTouchedWorkspaces();
-  const workspaces = Array.from(touchedWorkapaces);
+  try {
+    const touchedWorkapaces = getTouchedWorkspaces();
+    const workspaces = Array.from(touchedWorkapaces);
 
-  if (!workspaces.includes(thisWorkspace)) {
-    log('no changes, skipping deploy');
-    process.exit(0);
+    if (!workspaces.includes(thisWorkspace)) {
+      log('no changes, skipping deploy.');
+      process.exit(0);
+    }
+    await rimrafPromise(buildDir);
+    await monorepoBuilder(thisWorkspace, buildDir, { removeRootDependencies: false });
+    fs.copyFileSync(path.join(__dirname, '..', 'now.json'), path.join(buildDir, 'now.json'));
+    log('built to', buildDir);
+    new ShellCommand(buildDir, 'now', '--prod', `--token=${ZEIT_TOKEN}`)
+      .setOutputToScreen()
+      .runSynchronously();
+  } catch (e) {
+    log(e);
+    process.exit(-1);
   }
-  await rimrafPromise(buildDir);
-  await monorepoBuilder(thisWorkspace, buildDir, { removeRootDependencies: false });
-  fs.copyFileSync(path.join(__dirname, '..', 'now.json'), path.join(buildDir, 'now.json'));
-  log('built to', buildDir);
-  new ShellCommand(buildDir, 'now', '--prod', '--token=$ZEIT_TOKEN')
-    .setOutputToScreen()
-    .runSynchronously();
 })();
