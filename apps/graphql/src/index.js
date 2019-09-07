@@ -15,6 +15,7 @@ import passportJwt from 'passport-jwt';
 import Schema from './Schema';
 import createGraphqlContext from './services/createGraphqlContext';
 import { jwtFromRequest, tokenToUser, attachUserToRequest } from './services/auth';
+import getPersistedQuery from './middleware/getPersistedQuery';
 
 config();
 
@@ -44,7 +45,7 @@ function createGraphqlServer(request: $Request) {
   });
 }
 
-app.use('/', attachUserToRequest, (request: $Request, response: $Response) => {
+app.use('/', attachUserToRequest, getPersistedQuery(), (request: $Request, response: $Response) => {
   return createGraphqlServer(request)(request, response);
 });
 
