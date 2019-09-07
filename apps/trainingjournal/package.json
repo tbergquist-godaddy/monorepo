@@ -30,7 +30,7 @@
     "relay": "yarn relay-compiler --src ./src --schema ./schema.graphql --verbose --exclude='**/node_modules/**','**/__mocks__/**','**/__generated__/**'"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
+    "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@kiwicom/babel-preset-kiwicom": "^3.5.0",
     "babel-plugin-react-native-web": "^0.11.7",
