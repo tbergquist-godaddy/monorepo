@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { Input, Button } from '@tbergq/components';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
 type Props = {|
   +onSubmit: string => void,
@@ -15,7 +16,8 @@ const ButtonWrapper = styled('div')({
 });
 
 export default function SearchForm(props: Props) {
-  const [query, onQueryChange] = React.useState('');
+  const router = useRouter();
+  const [query, onQueryChange] = React.useState(router.query?.query ?? '');
 
   function onSubmit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();

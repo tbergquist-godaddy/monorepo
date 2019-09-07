@@ -7,12 +7,8 @@ import Router from 'next/router';
 import SearchForm from './SearchForm';
 import SearchQuery from './SearchQuery';
 
-type Props = {|
-  +query: ?string,
-|};
-
-export default function SearchScene(props: Props) {
-  const [query, onQueryChange] = React.useState(props.query ?? '');
+export default function SearchScene() {
+  const [query, onQueryChange] = React.useState('');
 
   function onSubmit(query: string) {
     onQueryChange(query);
@@ -20,6 +16,7 @@ export default function SearchScene(props: Props) {
     const as = href;
     Router.push(href, as, { shallow: true });
   }
+
   return (
     <Row>
       <Col md={6} sm={12} xs={12}>
