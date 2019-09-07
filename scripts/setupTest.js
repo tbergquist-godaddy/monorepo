@@ -3,19 +3,27 @@
 import 'jest-styled-components';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import { tvHelperConnection } from '@tbergq/tvhelper-persistence';
+import { graphqlConnection } from '@tbergq/graphql-persistence';
 
 jest.mock('../packages/graphql-services/src/fetch.js');
 
-let mongoServer;
+let tvhelperServer;
+let graphqlMongoServer;
 const opts = { useNewUrlParser: true, useCreateIndex: true };
 
 beforeAll(async () => {
-  mongoServer = new MongoMemoryServer();
-  const uri = await mongoServer.getConnectionString();
+  tvhelperServer = new MongoMemoryServer();
+  const tvhelperUri = await tvhelperServer.getConnectionString();
 
-  await tvHelperConnection.openUri(uri, opts);
+  graphqlMongoServer = new MongoMemoryServer();
+  const graphqlMongoServerUri = await graphqlMongoServer.getConnectionString();
+
+  await Promise.all([
+    tvHelperConnection.openUri(tvhelperUri, opts),
+    graphqlConnection.openUri(graphqlMongoServerUri, opts),
+  ]);
 }, 600000);
 
 afterAll(async () => {
-  await mongoServer.stop();
+  await Promise.all([tvhelperServer.stop(), graphqlMongoServer.stop()]);
 }, 5000);
