@@ -5,10 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "@kiwicom/js": "^0.14.0",
+    "@tbergq/graphql-persistence": "*",
     "@tbergq/graphql-services": "*",
     "@tbergq/graphql-tvhelper": "*",
     "@tbergq/tvhelper-persistence": "*",
-    "@tbergq/graphql-persistence": "*",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
@@ -24,6 +24,7 @@
     "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn monorepo-babel-node src/index.js"
   },
   "devDependencies": {
+    "@kiwicom/test-utils": "^0.10.0",
     "nodemon": "^1.19.2"
   }
 }
