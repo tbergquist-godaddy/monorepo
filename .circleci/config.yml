@@ -55,7 +55,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/tbergq-monorepo
-      - run: yarn now -A now-tj.json --target production --token=$ZEIT_TOKEN
+      - run: yarn now -A now-tj.json --prod --token=$ZEIT_TOKEN
         
 
 workflows:
