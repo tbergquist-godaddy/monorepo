@@ -30,7 +30,7 @@
     "prenow-build": "node scripts/persistQueries.js"
   },
   "devDependencies": {
-    "@babel/node": "^7.5.5",
+    "@babel/node": "^7.6.1",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "relay-compiler": "^5.0.0"
   }

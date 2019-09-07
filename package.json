@@ -22,8 +22,8 @@
     "@kiwicom/monorepo-utils": "^0.23.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/node": "^7.5.5",
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@kiwicom/babel-preset-kiwicom": "^3.5.0",
     "@kiwicom/eslint-config": "^7.1.1",
@@ -39,7 +39,7 @@
     "rimraf": "^3.0.0"
   },
   "peerDependencies": {
-    "@tbergq/tvhelper-persistence": "*",
-    "@tbergq/graphql-persistence": "*"
+    "@tbergq/graphql-persistence": "*",
+    "@tbergq/tvhelper-persistence": "*"
   }
 }
