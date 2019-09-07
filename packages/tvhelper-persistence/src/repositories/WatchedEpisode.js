@@ -9,6 +9,11 @@ export default class WatchedEpisodeRepository {
     return new WatchedEpisode(episode);
   }
 
+  static async deleteWatchedEpisode(userId: ?string, episodeId: number) {
+    const response = await WatchedEpisodeModel.deleteOne({ userId, episodeId });
+    return response.ok && response.deletedCount > 0;
+  }
+
   static async findEpisodes(userId: ?string, episodeIds: $ReadOnlyArray<number>) {
     const episodes = await WatchedEpisodeModel.find({ userId, episodeId: { $in: episodeIds } });
 

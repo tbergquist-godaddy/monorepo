@@ -43,4 +43,17 @@ describe('WatchedEpisode', () => {
     const episodes = await WatchedEpisode.findEpisodes(user2Id, [episodeId]);
     expect(episodes).toHaveLength(0);
   });
+
+  it('it deletes watched episode', async () => {
+    const success = await WatchedEpisode.deleteWatchedEpisode(user1Id, episodeId);
+    expect(success).toEqual(true);
+
+    const episodes = await WatchedEpisode.findEpisodes(user1Id, [episodeId]);
+    expect(episodes).toHaveLength(0);
+  });
+
+  it('it returns false if trying to delete non existing episode', async () => {
+    const success = await WatchedEpisode.deleteWatchedEpisode(user1Id, 7);
+    expect(success).toEqual(false);
+  });
 });
