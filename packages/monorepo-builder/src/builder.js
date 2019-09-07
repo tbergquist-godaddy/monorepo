@@ -22,7 +22,19 @@ function copyAndTranspileFileSync(absoluteFrom, absoluteTo, babelConfig) {
   fs.writeFileSync(absoluteTo, transformFileSync(absoluteFrom, babelConfig).code);
 }
 
-export default async function build(rootWorkspace: string, buildDir: string) {
+type Config = {|
+  +removeRootDependencies: boolean,
+|};
+
+const defaultConfig = {
+  removeRootDependencies: true,
+};
+
+export default async function build(
+  rootWorkspace: string,
+  buildDir: string,
+  config: Config = defaultConfig,
+) {
   await rimrafPromise(buildDir);
   const workspacesInfo = new ShellCommand(null, 'yarn', 'workspaces', 'info')
     .runSynchronously()
@@ -57,8 +69,7 @@ export default async function build(rootWorkspace: string, buildDir: string) {
     JSON.stringify(
       {
         ...packageJSON,
-        dependencies: {},
-        devDependencies: {},
+        ...(config.removeRootDependencies ? { dependencies: {}, devDependencies: {} } : {}),
       },
       null,
       2,
