@@ -5,6 +5,7 @@ import CreateUser from './src/account/mutation/CreateUser';
 import AddFavorite from './src/tvshow/mutations/AddFavorite';
 import DeleteFavorite from './src/tvshow/mutations/DeleteFavorite';
 import MarkAsWatched from './src/episode/mutations/MarkAsWatchted';
+import DeleteWatchedEpisode from './src/episode/mutations/DeleteWatchedEpisode';
 
 export default {
   tvHelperLogin: Login,
@@ -12,4 +13,5 @@ export default {
   createUser: CreateUser,
   deleteFavorite: DeleteFavorite,
   markAsWatched: MarkAsWatched,
+  deleteWatchedEpisode: DeleteWatchedEpisode,
 };
