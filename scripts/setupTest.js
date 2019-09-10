@@ -1,6 +1,7 @@
 // @flow
 
 import 'jest-styled-components';
+import '@testing-library/jest-dom/extend-expect';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import { tvHelperConnection } from '@tbergq/tvhelper-persistence';
 import { graphqlConnection } from '@tbergq/graphql-persistence';
