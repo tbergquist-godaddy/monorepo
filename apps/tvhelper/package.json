@@ -19,7 +19,8 @@
     "styled-components": "^4.3.2"
   },
   "peerDependencies": {
-    "react-icons": ""
+    "react-icons": "",
+    "react-native": "*"
   },
   "scripts": {
     "dev": "next",
