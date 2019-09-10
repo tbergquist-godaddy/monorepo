@@ -3,6 +3,7 @@
 import * as React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
+import { AppRegistry } from 'react-native';
 
 const GlobalStyle = createGlobalStyle({
   html: {
@@ -17,7 +18,9 @@ export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
-
+    AppRegistry.registerComponent('tvhelper-web', () => Main);
+    // $FlowExpectedError: This is react-native-web specific
+    const { getStyleElement } = AppRegistry.getApplication('tvhelper-web');
     try {
       ctx.renderPage = () =>
         originalRenderPage({
@@ -31,6 +34,8 @@ export default class MyDocument extends Document {
           <>
             {initialProps.styles}
             {sheet.getStyleElement()}
+            {getStyleElement()}
+            <GlobalStyle />
           </>
         ),
       };
@@ -48,7 +53,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700"
             rel="stylesheet"
           />
-          <GlobalStyle />
         </Head>
         <body>
           <Main />
