@@ -12,6 +12,7 @@ type Props = {|
   +circled?: boolean,
   +iconLeft?: React.Node,
   +size?: 'normal' | 'small',
+  +dataTest?: string,
 |};
 
 export default function Button(props: Props) {
