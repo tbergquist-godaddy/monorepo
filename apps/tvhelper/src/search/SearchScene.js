@@ -2,13 +2,14 @@
 
 import * as React from 'react';
 import { Row, Col } from '@tbergq/components';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 
 import SearchForm from './SearchForm';
 import SearchQuery from './SearchQuery';
 
 export default function SearchScene() {
-  const [query, onQueryChange] = React.useState('');
+  const router = useRouter();
+  const [query, onQueryChange] = React.useState(router.query?.query ?? '');
 
   function onSubmit(query: string) {
     onQueryChange(query);
