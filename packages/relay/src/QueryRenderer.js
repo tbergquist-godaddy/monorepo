@@ -30,7 +30,8 @@ export default function QueryRenderer(props: Props) {
   const environment = Environment.getEnvironment(token, context);
 
   const getSSRData = () => {
-    if (typeof process !== 'undefined') {
+    if (typeof window === 'undefined') {
+      // What about react-native 🤔
       const store = environment.getStore();
       const { getRequest } = environment.unstable_internal;
       const operation = createOperationDescriptor(getRequest(props.query), props.variables);
