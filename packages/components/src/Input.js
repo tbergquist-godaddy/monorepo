@@ -10,6 +10,7 @@ type Props = {|
   +type?: 'text' | 'number' | 'password' | 'passportid',
   +onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   +onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  +dataTest?: string,
 |};
 
 export default function Input({ onChange, ...rest }: Props) {
