@@ -1,6 +1,6 @@
 // @flow
 
-import { commitMutation, graphql, environment } from '@tbergq/relay';
+import { commitMutation, graphql, Environment } from '@tbergq/relay';
 
 import type { createUserMutationVariables } from './__generated__/createUserMutation.graphql';
 
@@ -16,6 +16,7 @@ export default function createUserMuatation(
   variables: createUserMutationVariables,
   onCompleted?: Function,
 ) {
+  const environment = Environment.getEnvironment();
   commitMutation(environment, {
     mutation,
     variables,

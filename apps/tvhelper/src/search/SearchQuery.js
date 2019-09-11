@@ -10,6 +10,14 @@ type Props = {|
   +query: string,
 |};
 
+export const searchQuery = graphql`
+  query SearchQuery($query: String!) {
+    searchTvShow(query: $query) {
+      ...SearchResults_results
+    }
+  }
+`;
+
 const renderInner = (props: SearchQueryResponse) => {
   return <SearchResults results={props.searchTvShow} />;
 };
@@ -19,16 +27,6 @@ export default function SearchQuery(props: Props) {
     return null;
   }
   return (
-    <QueryRenderer
-      query={graphql`
-        query SearchQuery($query: String!) {
-          searchTvShow(query: $query) {
-            ...SearchResults_results
-          }
-        }
-      `}
-      render={renderInner}
-      variables={{ query: props.query }}
-    />
+    <QueryRenderer query={searchQuery} render={renderInner} variables={{ query: props.query }} />
   );
 }

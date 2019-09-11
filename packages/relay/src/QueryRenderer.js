@@ -1,21 +1,17 @@
 // @flow
 
 import * as React from 'react';
-import {
-  QueryRenderer as KiwiQueryRenderer,
-  type GraphQLTaggedNode,
-  createEnvironment,
-} from '@kiwicom/relay';
-import fetch from '@kiwicom/fetch';
-import { QueryResponseCache } from 'relay-runtime';
-import { Loader } from '@tbergq/rn-components';
+import { QueryRenderer as KiwiQueryRenderer, type GraphQLTaggedNode } from '@kiwicom/relay';
+import { Loader, Text, View } from '@tbergq/rn-components';
+import { createOperationDescriptor } from 'relay-runtime';
 
-const cache = new QueryResponseCache({ size: 100, ttl: 1000 * 60 * 60 * 15 }); // 15 minutes
+import Environment from './Environment';
+import { useQueryRenderer } from './QueryRendererContext';
 
 type Props = {|
   +query: GraphQLTaggedNode,
-  +variables: Object,
-  +render: Object => React.Node,
+  +variables: { ... },
+  +render: ({| +[key: string]: any |}) => React.Node,
 |};
 
 export const TOKEN_KEY = 'tokenKey';
@@ -27,61 +23,46 @@ const getToken = () => {
   }
 };
 
-const getBody = (operation, variables) => {
-  if (operation.id) {
-    return {
-      queryId: operation.id,
-      variables,
-    };
-  }
-  return {
-    query: operation.text,
-    variables,
-  };
-};
-
-const fetchFn = async (operation, variables) => {
-  const queryId = operation.name;
-
-  const cachedData = cache.get(queryId, variables);
-  if (cachedData != null) {
-    return cachedData;
-  }
-  const token = getToken();
-  const res = await fetch('https://tbergq-graphql.now.sh/graphql/', {
-    method: 'POST',
-    headers: {
-      Authorization: token,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(getBody(operation, variables)),
-  });
-  const data = await res.json();
-
-  cache.set(queryId, variables, data);
-
-  if (operation.operationKind === 'mutation') {
-    cache.clear();
-  }
-
-  return data;
-};
-
-// TODO: Should only be temporary fix, need to wrap login in a query and pass environment from there
-export const environment = createEnvironment({
-  fetchFn,
-});
-
-const onLoading = () => <Loader size="large" />;
-
 export default function QueryRenderer(props: Props) {
+  const context = useQueryRenderer();
+
+  const token = getToken();
+  const environment = Environment.getEnvironment(token, context);
+
+  const getSSRData = () => {
+    if (typeof process !== 'undefined') {
+      const store = environment.getStore();
+      const { getRequest } = environment.unstable_internal;
+      const operation = createOperationDescriptor(getRequest(props.query), props.variables);
+      return store.lookup(operation.root);
+    }
+    return null;
+  };
+
+  const contextData = getSSRData();
+
+  function render({ props: rendererProps, error }) {
+    const data = rendererProps ?? contextData?.data;
+    if (error) {
+      return (
+        <View>
+          <Text>Failed to load data from the server</Text>
+        </View>
+      );
+    }
+    if (data) {
+      return props.render(data);
+    }
+    return <Loader size="large" />;
+  }
+
   return (
     <KiwiQueryRenderer
       query={props.query}
       variables={props.variables}
-      onResponse={props.render}
       environment={environment}
-      onLoading={onLoading}
+      render={render}
+      dataFrom="STORE_THEN_NETWORK"
     />
   );
 }
