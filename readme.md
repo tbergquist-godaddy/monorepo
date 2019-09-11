@@ -16,7 +16,7 @@ root
     ...
 ```
 
-the apps folder is my apps, and packages are packages that supports the apps. Probably I should merge them into a structure like 🤔
+The apps folder contains my apps, and packages contains packages that support the apps. Probably I should merge them into a structure like 🤔
 
 ```
 root
