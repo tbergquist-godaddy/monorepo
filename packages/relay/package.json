@@ -12,5 +12,8 @@
   "peerDependencies": {
     "react": "",
     "relay-runtime": ""
+  },
+  "devDependencies": {
+    "relay-test-utils": "^5.0.0"
   }
 }

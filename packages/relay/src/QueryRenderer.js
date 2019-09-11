@@ -53,7 +53,7 @@ export default function QueryRenderer(props: Props) {
     if (data) {
       return props.render(data);
     }
-    return <Loader size="large" />;
+    return <Loader testID="queryRenderLoader" size="large" />;
   }
 
   return (
