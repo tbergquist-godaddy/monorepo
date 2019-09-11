@@ -25,8 +25,14 @@ export default function SearchForm(props: Props) {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <Input dataTest="SearchFormInput" value={query} onChange={onQueryChange} label="Search" />
+    <form onSubmit={onSubmit} action="/api/search" method="post">
+      <Input
+        name="query"
+        dataTest="SearchFormInput"
+        value={query}
+        onChange={onQueryChange}
+        label="Search"
+      />
       <ButtonWrapper>
         <Button dataTest="SearchFormButton" submit={true}>
           Search

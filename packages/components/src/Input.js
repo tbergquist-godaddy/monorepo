@@ -11,6 +11,7 @@ type Props = {|
   +onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   +onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   +dataTest?: string,
+  +name?: string,
 |};
 
 export default function Input({ onChange, ...rest }: Props) {
