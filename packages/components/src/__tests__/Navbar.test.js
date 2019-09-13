@@ -100,21 +100,7 @@ it('renders', () => {
     }
 
     .c10 {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-basis: auto;
-      -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-align-items: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
+      display: inline-block;
     }
 
     .c0 {
