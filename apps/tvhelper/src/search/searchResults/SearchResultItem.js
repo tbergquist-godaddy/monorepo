@@ -9,6 +9,7 @@ import type { SearchResultItem_tvShow as TvShow } from './__generated__/SearchRe
 
 type Props = {|
   +tvShow: ?TvShow,
+  +dataTest?: string,
 |};
 
 const SearchResultItem = (props: Props) => {
@@ -25,7 +26,7 @@ const SearchResultItem = (props: Props) => {
     onClick,
     icon: null,
   };
-  return <ListItem {...listItemProps} />;
+  return <ListItem dataTest={props.dataTest} {...listItemProps} />;
 };
 
 export default createFragmentContainer(SearchResultItem, {
