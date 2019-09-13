@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "@kiwicom/js": "^0.14.0",
+    "@kiwicom/js": "^0.15.0",
     "@kiwicom/monorepo-utils": "^0.23.0",
     "@tbergq/graphql-persistence": "*",
     "@tbergq/graphql-services": "*",
@@ -16,7 +16,7 @@
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
-    "graphql": "^14.5.4",
+    "graphql": "^14.5.5",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",

@@ -4,13 +4,13 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "@kiwicom/graphql-global-id": "^0.10.0",
-    "@kiwicom/js": "^0.14.0",
+    "@kiwicom/graphql-global-id": "^0.12.0",
+    "@kiwicom/js": "^0.15.0",
     "@kiwicom/test-utils": "^0.10.0",
     "@tbergq/graphql-services": "*",
     "@tbergq/tvhelper-persistence": "*",
     "dataloader": "^1.4.0",
-    "graphql": "^14.5.4",
+    "graphql": "^14.5.5",
     "graphql-iso-date": "^3.6.1",
     "graphql-relay": "^0.6.0",
     "ramda": "^0.26.1",
@@ -19,6 +19,6 @@
   "devDependencies": {
     "mockdate": "^2.0.5",
     "mockingoose": "^2.13.2",
-    "mongodb-memory-server": "^5.2.1"
+    "mongodb-memory-server": "^5.2.3"
   }
 }
