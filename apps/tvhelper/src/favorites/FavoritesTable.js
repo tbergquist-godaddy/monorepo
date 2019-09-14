@@ -31,13 +31,12 @@ const FavoritesTable = (props: Props) => {
   });
   const [isLoading, setIsLoading] = React.useState(false);
 
-  function onClick(e) {
-    e.persist();
+  function onClick(sortBy: string) {
     setIsLoading(true);
     setOptions(oldValue => {
       const newOptions = {
-        sortBy: e.target.id,
-        ascending: e.target.id === oldValue.sortBy ? !oldValue.ascending : oldValue.ascending,
+        sortBy,
+        ascending: sortBy === oldValue.sortBy ? !oldValue.ascending : oldValue.ascending,
       };
       props.relay.refetch(
         {
@@ -54,12 +53,13 @@ const FavoritesTable = (props: Props) => {
       return newOptions;
     });
   }
+
   return (
     <>
       <Heading>Favorites</Heading>
       {isLoading && (
         <Loader>
-          <Loading />
+          <Loading dataTest="tableLoader" />
         </Loader>
       )}
       <Table>
