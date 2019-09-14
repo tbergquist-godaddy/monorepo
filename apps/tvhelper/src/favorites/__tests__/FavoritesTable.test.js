@@ -1,0 +1,113 @@
+// @flow
+
+import * as React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import { QueryRenderer, graphql } from '@kiwicom/relay';
+import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
+import '@testing-library/jest-dom/extend-expect';
+
+import FavoritesTable from '../FavoritesTable';
+
+const payload = {
+  TvShowConnection: () => {
+    return {
+      edges: [
+        {
+          node: {
+            id: '123',
+            name: 'Show 123',
+            nextEpisode: '10-06-2019',
+            previousEpisode: '09-06-2019',
+            status: 'Running',
+          },
+        },
+        {
+          node: {
+            id: '234',
+            name: 'Show 234',
+            nextEpisode: null,
+            previousEpisode: '09-06-2019',
+            status: 'Ended',
+          },
+        },
+      ],
+    };
+  },
+};
+
+const refetchPayload = {
+  TvShowConnection: () => {
+    return {
+      edges: [
+        {
+          node: {
+            id: '321',
+            name: 'Show 321',
+            nextEpisode: '10-06-2019',
+            previousEpisode: '09-06-2019',
+            status: 'Running',
+          },
+        },
+        {
+          node: {
+            id: '432',
+            name: 'Show 432',
+            nextEpisode: null,
+            previousEpisode: '09-06-2019',
+            status: 'Ended',
+          },
+        },
+      ],
+    };
+  },
+};
+
+const renderer = props => {
+  return <FavoritesTable favorites={props} />;
+};
+let environment;
+
+const TestRenderer = () => (
+  <QueryRenderer
+    query={graphql`
+      query FavoritesTableTestQuery @relay_test_operation {
+        ...FavoritesTable_favorites
+      }
+    `}
+    onResponse={renderer}
+    environment={environment}
+  />
+);
+
+beforeEach(() => {
+  environment = createMockEnvironment();
+});
+
+describe('Favorites table', () => {
+  it('handles on header click', () => {
+    const { getByText, getByTestId } = render(<TestRenderer />);
+    environment.mock.resolveMostRecentOperation(operation =>
+      MockPayloadGenerator.generate(operation, payload),
+    );
+
+    const nextEpisodeHeader = getByText('Next episode');
+    fireEvent.click(nextEpisodeHeader);
+    const loader = getByTestId('tableLoader');
+    // $FlowFixMe
+    expect(loader).toBeInTheDocument();
+    const sortIcon = nextEpisodeHeader.querySelector('svg');
+    // $FlowFixMe
+    expect(sortIcon).toBeInTheDocument();
+
+    environment.mock.resolveMostRecentOperation(operation =>
+      MockPayloadGenerator.generate(operation, refetchPayload),
+    );
+
+    // $FlowFixMe
+    expect(loader).not.toBeInTheDocument();
+
+    const refetchedTvShow = getByText('Show 432');
+    // $FlowFixMe
+    expect(refetchedTvShow).toBeInTheDocument();
+  });
+});

@@ -8,7 +8,7 @@ import { MdChevronLeft } from 'react-icons/md';
 type Props = {|
   +align?: 'left' | 'center' | 'right',
   +children: string,
-  +onClick: Function,
+  +onClick: string => void,
   +sortKey: string,
   +sortBy: string,
   +ascending: boolean,
@@ -18,7 +18,6 @@ const InnerCell = styled.div({ cursor: 'pointer' });
 const Chevron = styled(MdChevronLeft)(props => {
   return {
     transform: `rotate(${props.deg}deg)`,
-    visibility: props.shouldshow,
   };
 });
 
@@ -30,15 +29,38 @@ export default function FavoriteHeaderCell({
   ascending,
   ...rest
 }: Props) {
+  const buttonRef = React.useRef(null);
+  const handleClick = React.useCallback(() => {
+    onClick(sortKey);
+  }, [onClick, sortKey]);
+
+  const spaceListener = React.useCallback(
+    (e: KeyboardEvent) => {
+      if (e.keyCode === 32) {
+        e.preventDefault();
+        handleClick();
+      }
+    },
+    [handleClick],
+  );
+
+  React.useEffect(() => {
+    const ref = buttonRef.current;
+    if (ref != null) {
+      ref.addEventListener('keypress', spaceListener);
+    }
+    return () => {
+      if (ref != null) {
+        ref.removeEventListener('keypress', spaceListener);
+      }
+    };
+  }, [spaceListener]);
   return (
     <TableCell {...rest}>
-      <InnerCell id={sortKey} onClick={onClick}>
+      <InnerCell ref={buttonRef} id={sortKey} onClick={handleClick} tabIndex="0" role="button">
         {children}
 
-        <Chevron
-          shouldshow={sortBy === sortKey ? 'visible' : 'hidden'}
-          deg={ascending ? '90' : '-90'}
-        />
+        {sortBy === sortKey && <Chevron deg={ascending ? '90' : '-90'} />}
       </InnerCell>
     </TableCell>
   );
