@@ -57,7 +57,7 @@ export default function FavoriteHeaderCell({
   }, [spaceListener]);
   return (
     <TableCell {...rest}>
-      <InnerCell ref={buttonRef} id={sortKey} onClick={handleClick} tabIndex="0" role="button">
+      <InnerCell ref={buttonRef} onClick={handleClick} tabIndex="0" role="button">
         {children}
 
         {sortBy === sortKey && <Chevron deg={ascending ? '90' : '-90'} />}
