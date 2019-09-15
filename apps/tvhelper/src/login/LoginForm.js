@@ -12,7 +12,7 @@ export default function LoginForm() {
   const [loading, setLoading] = React.useState(false);
   const toastRef = React.useRef<React.ElementRef<typeof Toast> | null>(null);
 
-  const onSubmit = React.useCallback((username, password) => {
+  const onSubmit = (username, password) => {
     setLoading(true);
     loginMutation(
       {
@@ -31,7 +31,7 @@ export default function LoginForm() {
         setLoading(false);
       },
     );
-  }, []);
+  };
 
   return (
     <>
