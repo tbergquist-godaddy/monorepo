@@ -31,7 +31,7 @@ export default function LoginForm(props: Props) {
       <Input label="Username" value={username} onChange={changeUsername} />
       <Input type="password" label="Password" value={password} onChange={changePassword} />
       <ButtonWrapper>
-        <Button loading={props.loading} submit={true}>
+        <Button loading={props.loading} submit={true} dataTest="LoginFormSubmit">
           Login
         </Button>
       </ButtonWrapper>
