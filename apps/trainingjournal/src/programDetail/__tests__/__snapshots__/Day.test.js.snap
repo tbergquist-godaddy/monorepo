@@ -1,25 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Day 1`] = `
-.c1 {
-  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: #252A31;
-  line-height: 24px;
-  margin: 0;
-}
-
-.c0 {
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-
 <div
-  className="c0"
+  className="sc-kAzzGY fDfBxx"
 >
   <h3
-    className="c1"
+    className="Heading__StyledHeading-sc-1b8cso5-0 hSLFky"
   >
     <a
       href="/programs/day?dayId=<Day-mock-id-1>"
