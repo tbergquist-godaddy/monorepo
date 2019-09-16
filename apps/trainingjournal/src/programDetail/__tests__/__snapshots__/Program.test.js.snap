@@ -1,220 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Program 1`] = `
-.c11 {
-  width: 24px;
-  height: 24px;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  vertical-align: middle;
-  fill: currentColor;
-  color: #5F738C;
-}
-
-.c0 {
-  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: #252A31;
-  line-height: 36px;
-  margin: 0;
-}
-
-.c16 {
-  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: #252A31;
-  line-height: 24px;
-  margin: 0;
-}
-
-.c10 {
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  -webkit-transition: 0.15s;
-  transition: 0.15s;
-}
-
-.c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-transition: margin 0.15s linear;
-  transition: margin 0.15s linear;
-  cursor: pointer;
-  position: relative;
-  min-height: 24px;
-  margin: -16px;
-  padding: 16px;
-}
-
-.c7:hover {
-  background: #F5F7F9;
-}
-
-.c7 .c9 {
-  margin-left: 16px;
-}
-
-.c7:focus {
-  background: #F5F7F9;
-  outline: none;
-}
-
-.c8 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.c13 {
-  position: relative;
-  width: 100%;
-  -webkit-transition: max-height 0.15s linear;
-  transition: max-height 0.15s linear;
-  max-height: 0px;
-  overflow: hidden;
-  visibility: hidden;
-}
-
-.c12 {
-  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
-  font-size: 14px;
-  line-height: 1.4;
-  color: #252A31;
-  border-top: 0px solid #EFF2F5;
-  -webkit-transition: padding 0.15s linear,border-top 0.15s linear;
-  transition: padding 0.15s linear,border-top 0.15s linear;
-}
-
-.c6 {
-  width: 100%;
-  padding: 16px;
-  box-sizing: border-box;
-  position: relative;
-  background: #FFFFFF;
-}
-
-.c4 {
-  -webkit-transition: margin 0.15s ease-in-out;
-  transition: margin 0.15s ease-in-out;
-}
-
-.c4 .c5,
-.c4 .c18,
-.c4 > .Loading__StyledLoading-sc-1psg3na-0 {
-  border-left: 1px solid #EFF2F5;
-  border-right: 1px solid #EFF2F5;
-  border-bottom: 1px solid #EFF2F5;
-  background: #FFFFFF;
-}
-
-.c2 {
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
-}
-
-.c2 .c3:first-of-type .c18,
-.c2 .c3:first-of-type .c5,
-.c2 .c3:first-of-type > .Loading__StyledLoading-sc-1psg3na-0 {
-  border-top: 1px solid #EFF2F5;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-
-.c2 .c3:last-of-type .c18,
-.c2 .c3:last-of-type .c5 {
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.c15 {
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-
-.c14 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.c17 {
-  margin-bottom: 8px;
-}
-
-.c1 {
-  margin-top: 12px;
-}
-
-@media (min-width:992px) {
-  .c7 {
-    padding: 24px;
-    margin: -24px;
-  }
-}
-
-@media (min-width:992px) {
-  .c6 {
-    padding: 24px;
-  }
-}
-
 <div>
-  <h1
-    className="c0"
+  <div
+    className="Heading__StyledHeading-sc-1b8cso5-0 bmvhpa"
   >
     Program name
-  </h1>
+  </div>
   <div
-    className="c1"
+    className="sc-kGXeez caUYur"
   >
     <div>
       <div
-        className="c2"
+        className="Card__StyledCard-ff0z2v-1 iEHTtI"
       >
         <div
-          className="c3 c4"
+          className="Card__StyledChildWrapper-ff0z2v-0 cQfjSh"
         >
           <div
-            className="c5 c6"
+            className="CardSection__StyledCardSection-o8zdxr-2 dUIlHY"
           >
             <div
               aria-expanded={false}
-              className="c7"
+              className="CardSectionHeader__StyledCardSectionHeader-sc-1gmw3sa-1 hcXQfl"
               onClick={[Function]}
               onKeyDown={[Function]}
               role="button"
               tabIndex="0"
             >
               <div
-                className="c8"
+                className="CardSectionHeader__StyledCardSectionHeaderContent-sc-1gmw3sa-3 lcnsxe"
               >
                 &lt;mock-value-for-field-"name"&gt;
               </div>
               <svg
-                className="c9 c10 c11"
+                className="CardSectionHeader__StyledCardSectionIconRight-sc-1gmw3sa-0 dtdYCR Icon__StyledIcon-sc-1pnzn3g-0 gbYGej"
                 preserveAspectRatio="xMidYMid meet"
                 viewBox="0 0 24 24"
               >
@@ -224,22 +44,22 @@ exports[`Program 1`] = `
               </svg>
             </div>
             <div
-              className="c12"
+              className="CardSectionContent__StyledCardSectionContent-sc-1mj8dfx-0 dyblzu"
             >
               <div
                 aria-hidden={true}
-                className="c13"
+                className="Slide__StyledSlide-sc-1xbmdp2-0 giSUKE"
               >
                 <div>
                   <div>
                     <div
-                      className="c14"
+                      className="sc-chPdSV lgFnri"
                     >
                       <div
-                        className="c15"
+                        className="sc-kAzzGY fDfBxx"
                       >
                         <h3
-                          className="c16"
+                          className="Heading__StyledHeading-sc-1b8cso5-0 hSLFky"
                         >
                           <a
                             href="/programs/day?dayId=<Day-mock-id-2>"
@@ -262,7 +82,7 @@ exports[`Program 1`] = `
         </div>
       </div>
       <div
-        className="c17"
+        className="sc-kgoBCf iWRYak"
       />
     </div>
   </div>

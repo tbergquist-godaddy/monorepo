@@ -1,43 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Days renders 1`] = `
-.c2 {
-  font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: #252A31;
-  line-height: 24px;
-  margin: 0;
-}
-
-.c1 {
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
 <div>
   <div
-    className="c0"
+    className="sc-chPdSV lgFnri"
   >
     <div
-      className="c1"
+      className="sc-kAzzGY fDfBxx"
     >
       <h3
-        className="c2"
+        className="Heading__StyledHeading-sc-1b8cso5-0 hSLFky"
       >
         <a
           href="/programs/day?dayId=<Day-mock-id-1>"
