@@ -57,6 +57,7 @@ const TvShowImage = (props: Props) => {
           circled={true}
           type={isFavorite ? 'critical' : 'info'}
           onClick={onToggleFavorite}
+          dataTest="toggleFavoriteButton"
         >
           <MdFavorite />
         </FavoriteButton>
