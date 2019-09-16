@@ -28,7 +28,7 @@ export default function LoginScene() {
   return (
     <>
       <LoginForm onSubmit={onSubmit} loading={isLoading} />
-      <Toast />
+      <Toast ref={toastRef} />
     </>
   );
 }
