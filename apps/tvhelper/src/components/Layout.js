@@ -4,13 +4,14 @@ import * as React from 'react';
 import { Layout as PageLayout, Navbar, NavLink } from '@tbergq/components';
 import { isLoggedIn } from '@tbergq/utils';
 import { TOKEN_KEY } from '@tbergq/relay';
+import cookie from 'js-cookie';
 
 type Props = {|
   +children: React.Node,
 |};
 
 const onLogout = () => {
-  localStorage.removeItem(TOKEN_KEY);
+  cookie.remove(TOKEN_KEY);
 };
 
 export default function Layout(props: Props) {

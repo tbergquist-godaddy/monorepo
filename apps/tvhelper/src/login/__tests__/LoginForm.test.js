@@ -5,6 +5,7 @@ import { render, fireEvent, act } from '@testing-library/react';
 import { Environment } from '@tbergq/relay';
 import { MockPayloadGenerator } from 'relay-test-utils';
 import Router from 'next/router';
+import cookie from 'js-cookie';
 
 import LoginForm from '../LoginForm';
 
@@ -37,7 +38,7 @@ describe('LoginForm', () => {
     const { getByTestId } = render(<LoginForm />);
 
     const button = getByTestId('LoginFormSubmit');
-    const spy = jest.spyOn(Storage.prototype, 'setItem');
+    const spy = jest.spyOn(cookie, 'set').mockImplementationOnce(jest.fn());
     const push = jest.fn();
     jest.spyOn(Router, 'push').mockImplementationOnce(push);
     act(() => {
@@ -54,7 +55,7 @@ describe('LoginForm', () => {
       );
     });
 
-    expect(spy).toHaveBeenCalledWith('tokenKey', 'myValidToken');
+    expect(spy).toHaveBeenCalledWith('tokenKey', 'myValidToken', { expires: 365 });
     expect(push).toHaveBeenCalledWith({ pathname: '/favorites' });
   });
 });
