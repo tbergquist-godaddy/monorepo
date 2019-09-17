@@ -12,13 +12,12 @@ type Props = {|
   +query: GraphQLTaggedNode,
   +variables: { ... },
   +render: ({| +[key: string]: any |}) => React.Node,
-  +token?: string,
 |};
 
 export default function QueryRenderer(props: Props) {
-  const context = useQueryRenderer();
+  const { ssrData, token } = useQueryRenderer();
 
-  const environment = Environment.getEnvironment(props.token, context);
+  const environment = Environment.getEnvironment(token, ssrData);
 
   const getSSRData = () => {
     if (typeof window === 'undefined') {

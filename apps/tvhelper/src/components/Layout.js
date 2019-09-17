@@ -2,11 +2,12 @@
 
 import * as React from 'react';
 import { Layout as PageLayout, Navbar, NavLink } from '@tbergq/components';
-import { isLoggedIn, TOKEN_KEY } from '@tbergq/utils';
+import { TOKEN_KEY } from '@tbergq/utils';
 import cookie from 'js-cookie';
 
 type Props = {|
   +children: React.Node,
+  +isLoggedIn: boolean,
 |};
 
 const onLogout = () => {
@@ -14,7 +15,7 @@ const onLogout = () => {
 };
 
 export default function Layout(props: Props) {
-  const loggedIn = isLoggedIn();
+  const loggedIn = props.isLoggedIn;
   const headerLeft = loggedIn ? (
     <NavLink marginLeft="8px" href="/favorites">
       Favorites

@@ -1,9 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { isLoggedIn, TOKEN_KEY } from '@tbergq/utils';
-import Router from 'next/router';
-import nextCookie from 'next-cookies';
+import { getNextToken } from '@tbergq/utils';
 import { QueryRendererProvider, fetchQuery, Environment } from '@tbergq/relay';
 
 import Layout from '../src/components/Layout';
@@ -11,17 +9,13 @@ import FavoriteQuery, { favoritesQuery } from '../src/favorites/FavoriteQuery';
 
 type Props = {|
   +json: {| +[key: string]: mixed |},
+  +token: ?string,
 |};
 
 export default function Favorites(props: Props) {
-  React.useEffect(() => {
-    if (!isLoggedIn()) {
-      Router.push('/login');
-    }
-  });
   return (
-    <QueryRendererProvider initialValue={props.json}>
-      <Layout>
+    <QueryRendererProvider initialValue={props.json} token={props.token}>
+      <Layout isLoggedIn={props.token != null}>
         <FavoriteQuery />
       </Layout>
     </QueryRendererProvider>
@@ -29,8 +23,8 @@ export default function Favorites(props: Props) {
 }
 
 Favorites.getInitialProps = async ctx => {
-  const tokens = nextCookie(ctx) ?? {};
-  const token = tokens[TOKEN_KEY];
+  const token = getNextToken(ctx);
+
   const environment = Environment.getEnvironment(token);
   const query = ctx.query?.query;
   let json;
@@ -45,5 +39,5 @@ Favorites.getInitialProps = async ctx => {
     ctx.res.end();
   }
 
-  return { json };
+  return { json, token };
 };
