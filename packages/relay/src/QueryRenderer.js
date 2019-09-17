@@ -4,7 +4,6 @@ import * as React from 'react';
 import { QueryRenderer as KiwiQueryRenderer, type GraphQLTaggedNode } from '@kiwicom/relay';
 import { Loader, Text, View } from '@tbergq/rn-components';
 import { createOperationDescriptor } from 'relay-runtime';
-import cookie from 'js-cookie';
 
 import Environment from './Environment';
 import { useQueryRenderer } from './QueryRendererContext';
@@ -16,20 +15,10 @@ type Props = {|
   +token?: string,
 |};
 
-export const TOKEN_KEY = 'tokenKey';
-const getToken = () => {
-  try {
-    return cookie.get(TOKEN_KEY) ?? '';
-  } catch (err) {
-    return '';
-  }
-};
-
 export default function QueryRenderer(props: Props) {
   const context = useQueryRenderer();
 
-  const token = getToken();
-  const environment = Environment.getEnvironment(token, context);
+  const environment = Environment.getEnvironment(props.token, context);
 
   const getSSRData = () => {
     if (typeof window === 'undefined') {
