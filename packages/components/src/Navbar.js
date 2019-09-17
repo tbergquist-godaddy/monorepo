@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { Container } from 'react-grid-system';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 import { MdMenu } from 'react-icons/md';
+// eslint-disable-next-line no-restricted-imports
+import Link from 'next/link';
 
 import Button from './Button';
 
@@ -98,7 +100,9 @@ export default function Navbar(props: Props) {
         <ContentPadding>
           <FlexContainer>
             <HeaderLeftContainer>
-              <Brand href="/">{props.brand}</Brand>
+              <Link href="/">
+                <Brand href="/">{props.brand}</Brand>
+              </Link>
               <HeaderContainer>{props.headerLeft}</HeaderContainer>
             </HeaderLeftContainer>
             <HeaderContainer>{props.headerRight}</HeaderContainer>
