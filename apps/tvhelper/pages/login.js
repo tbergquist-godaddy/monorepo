@@ -15,7 +15,7 @@ export default function Login() {
     }
   });
   return (
-    <Layout>
+    <Layout isLoggedIn={false}>
       <Row>
         <Col offset={{ md: 3 }} md={6}>
           <LoginForm />

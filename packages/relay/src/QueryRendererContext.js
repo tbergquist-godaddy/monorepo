@@ -2,25 +2,34 @@
 
 import * as React from 'react';
 
-const QueryRendererContext = React.createContext<?{ ... }>();
-
 type Props = {|
   +children: React.Node,
-  +initialValue: { ... },
+  +initialValue: ?{ ... },
+  +token: ?string,
 |};
 
+type State = {|
+  +ssrData: ?{ ... },
+  +token: ?string,
+|};
+const QueryRendererContext = React.createContext<?State>();
+
 function QueryRendererProvider(props: Props) {
+  const state = React.useMemo(() => {
+    return {
+      ssrData: props.initialValue,
+      token: props.token,
+    };
+  }, [props.initialValue, props.token]);
   return (
-    <QueryRendererContext.Provider value={props.initialValue}>
-      {props.children}
-    </QueryRendererContext.Provider>
+    <QueryRendererContext.Provider value={state}>{props.children}</QueryRendererContext.Provider>
   );
 }
 
-function useQueryRenderer(): ?{ ... } {
+function useQueryRenderer(): State {
   const context = React.useContext(QueryRendererContext);
 
-  return context;
+  return context ?? { ssrData: {}, token: null };
 }
 
 export { QueryRendererProvider, useQueryRenderer };

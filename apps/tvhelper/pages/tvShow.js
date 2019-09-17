@@ -1,26 +1,30 @@
 // @flow
 
 import * as React from 'react';
-import { withRouter, type Router } from 'next/router';
+import { useRouter } from 'next/router';
+import { getNextToken } from '@tbergq/utils';
+import { QueryRendererProvider } from '@tbergq/relay';
 
 import Layout from '../src/components/Layout';
 import TvShowQuery from '../src/tvShow/TvShowQuery';
 
-type Props = {
-  +router: Router,
-  ...
-};
+type Props = {|
+  +token: ?string,
+|};
 
 function TvShowPage(props: Props) {
+  const router = useRouter();
   return (
-    <Layout>
-      <TvShowQuery tvShowId={props.router.query.id} />
-    </Layout>
+    <QueryRendererProvider initialValue={null} token={props.token}>
+      <Layout isLoggedIn={props.token != null}>
+        <TvShowQuery tvShowId={router.query.id} />
+      </Layout>
+    </QueryRendererProvider>
   );
 }
 
-TvShowPage.getInitialProps = () => {
-  return {};
+TvShowPage.getInitialProps = ctx => {
+  return { token: getNextToken(ctx) };
 };
 
-export default withRouter<{ ... }>(TvShowPage);
+export default TvShowPage;

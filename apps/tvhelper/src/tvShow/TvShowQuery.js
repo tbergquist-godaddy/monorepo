@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { graphql, QueryRenderer } from '@tbergq/relay';
-import { getToken } from '@tbergq/utils';
 
 import type { TvShowQueryResponse } from './__generated__/TvShowQuery.graphql';
 import TvShowPage from './TvShowPage';
@@ -30,7 +29,6 @@ export default function TvShowQuery(props: Props) {
       `}
       variables={{ id: props.tvShowId }}
       render={renderQuery}
-      token={getToken()}
     />
   );
 }

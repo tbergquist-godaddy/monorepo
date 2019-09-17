@@ -2,19 +2,12 @@
 
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { isLoggedIn } from '@tbergq/utils';
 
 import Layout from '../Layout';
 
-jest.mock('@tbergq/utils', () => ({
-  isLoggedIn: jest.fn(),
-}));
-
 it('does not render favorites link when not logged in', () => {
-  // $FlowExpectedError: flow does not know this is a mock
-  isLoggedIn.mockReturnValueOnce(false);
   const { queryByText } = render(
-    <Layout>
+    <Layout isLoggedIn={false}>
       <div />
     </Layout>,
   );
@@ -22,10 +15,8 @@ it('does not render favorites link when not logged in', () => {
 });
 
 it('renders favorites link when logged in', () => {
-  // $FlowExpectedError: flow does not know this is a mock
-  isLoggedIn.mockReturnValueOnce(true);
   const { getByText } = render(
-    <Layout>
+    <Layout isLoggedIn={true}>
       <div />
     </Layout>,
   );
@@ -33,10 +24,8 @@ it('renders favorites link when logged in', () => {
 });
 
 it('renders login link when not logged in', () => {
-  // $FlowExpectedError: flow does not know this is a mock
-  isLoggedIn.mockReturnValueOnce(false);
   const { getByText, queryByText } = render(
-    <Layout>
+    <Layout isLoggedIn={false}>
       <div />
     </Layout>,
   );
@@ -45,10 +34,8 @@ it('renders login link when not logged in', () => {
 });
 
 it('renders logout link when logged in', () => {
-  // $FlowExpectedError: flow does not know this is a mock
-  isLoggedIn.mockReturnValueOnce(true);
   const { queryByText, getByText } = render(
-    <Layout>
+    <Layout isLoggedIn={true}>
       <div />
     </Layout>,
   );
