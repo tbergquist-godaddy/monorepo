@@ -8,7 +8,7 @@ import Layout from '../src/components/Layout';
 
 export default function Index() {
   React.useEffect(() => {
-    if (!isLoggedIn(false)) {
+    if (!isLoggedIn()) {
       Router.push('/login');
     } else {
       Router.push('/home');

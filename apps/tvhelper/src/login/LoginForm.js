@@ -4,6 +4,7 @@ import * as React from 'react';
 import { LoginForm as CommonLoginForm, Toast } from '@tbergq/components';
 import { TOKEN_KEY } from '@tbergq/relay';
 import Router from 'next/router';
+import cookie from 'js-cookie';
 
 import loginMutation from './mutation/LoginMutation';
 import type { LoginMutationResponse } from './mutation/__generated__/LoginMutation.graphql';
@@ -23,7 +24,7 @@ export default function LoginForm() {
         const success = response?.tvHelperLogin?.success;
         const token = response?.tvHelperLogin?.token;
         if (success && token) {
-          localStorage.setItem(TOKEN_KEY, token);
+          cookie.set(TOKEN_KEY, token, { expires: 365 });
           Router.push({ pathname: '/favorites' });
         } else if (toastRef.current != null) {
           toastRef.current.show('Login failed');

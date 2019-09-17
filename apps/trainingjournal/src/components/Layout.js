@@ -14,7 +14,7 @@ const onLogout = () => {
 };
 
 export default function Layout(props: Props) {
-  const loggedIn = isLoggedIn(false);
+  const loggedIn = isLoggedIn();
   const headerRight = !loggedIn ? (
     <NavLink href="/login">login</NavLink>
   ) : (

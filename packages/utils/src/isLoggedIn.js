@@ -1,20 +1,13 @@
 // @flow
 
 import { TOKEN_KEY } from '@tbergq/relay';
-import decodeToken from 'jwt-decode';
+import cookie from 'js-cookie';
 
-export default function isLoggedIn(isJwt: boolean = true) {
+export default function isLoggedIn() {
   try {
-    const token = localStorage.getItem(TOKEN_KEY);
-    if (token == null) {
-      return false;
-    } else if (token != null && isJwt === false) {
-      return true;
-    }
-    const tokenInfo = decodeToken(token);
-    const tokenExpiry = new Date(tokenInfo.exp * 1000);
+    const token = cookie.get(TOKEN_KEY);
 
-    return tokenExpiry > Date.now();
+    return token != null;
   } catch {
     return false;
   }

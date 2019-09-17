@@ -4,6 +4,7 @@ import * as React from 'react';
 import { QueryRenderer as KiwiQueryRenderer, type GraphQLTaggedNode } from '@kiwicom/relay';
 import { Loader, Text, View } from '@tbergq/rn-components';
 import { createOperationDescriptor } from 'relay-runtime';
+import cookie from 'js-cookie';
 
 import Environment from './Environment';
 import { useQueryRenderer } from './QueryRendererContext';
@@ -12,12 +13,13 @@ type Props = {|
   +query: GraphQLTaggedNode,
   +variables: { ... },
   +render: ({| +[key: string]: any |}) => React.Node,
+  +token?: string,
 |};
 
 export const TOKEN_KEY = 'tokenKey';
 const getToken = () => {
   try {
-    return localStorage.getItem(TOKEN_KEY) ?? '';
+    return cookie.get(TOKEN_KEY) ?? '';
   } catch (err) {
     return '';
   }
