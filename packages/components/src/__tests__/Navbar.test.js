@@ -226,6 +226,8 @@ it('renders', () => {
               <a
                 className="c5"
                 href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 Brand
               </a>
