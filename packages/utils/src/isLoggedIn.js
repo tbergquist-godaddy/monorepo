@@ -1,11 +1,10 @@
 // @flow
 
-import { TOKEN_KEY } from '@tbergq/relay';
-import cookie from 'js-cookie';
+import getToken from './getToken';
 
 export default function isLoggedIn() {
   try {
-    const token = cookie.get(TOKEN_KEY);
+    const token = getToken();
 
     return token != null;
   } catch {

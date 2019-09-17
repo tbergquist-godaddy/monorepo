@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import { Layout as PageLayout, Navbar, NavLink } from '@tbergq/components';
-import { isLoggedIn } from '@tbergq/utils';
-import { TOKEN_KEY } from '@tbergq/relay';
+import { isLoggedIn, TOKEN_KEY } from '@tbergq/utils';
 
 type Props = {|
   +children: React.Node,

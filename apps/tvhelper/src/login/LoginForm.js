@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { LoginForm as CommonLoginForm, Toast } from '@tbergq/components';
-import { TOKEN_KEY } from '@tbergq/relay';
+import { TOKEN_KEY } from '@tbergq/utils';
 import Router from 'next/router';
 import cookie from 'js-cookie';
 

@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { QueryRenderer, graphql } from '@tbergq/relay';
+import { getToken } from '@tbergq/utils';
 
 import type { SearchQueryResponse } from './__generated__/SearchQuery.graphql';
 import SearchResults from './searchResults/SearchResults';
@@ -27,6 +28,11 @@ export default function SearchQuery(props: Props) {
     return null;
   }
   return (
-    <QueryRenderer query={searchQuery} render={renderInner} variables={{ query: props.query }} />
+    <QueryRenderer
+      token={getToken()}
+      query={searchQuery}
+      render={renderInner}
+      variables={{ query: props.query }}
+    />
   );
 }

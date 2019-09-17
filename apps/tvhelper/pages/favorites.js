@@ -1,10 +1,10 @@
 // @flow
 
 import * as React from 'react';
-import { isLoggedIn } from '@tbergq/utils';
+import { isLoggedIn, TOKEN_KEY } from '@tbergq/utils';
 import Router from 'next/router';
 import nextCookie from 'next-cookies';
-import { QueryRendererProvider, fetchQuery, Environment, TOKEN_KEY } from '@tbergq/relay';
+import { QueryRendererProvider, fetchQuery, Environment } from '@tbergq/relay';
 
 import Layout from '../src/components/Layout';
 import FavoriteQuery, { favoritesQuery } from '../src/favorites/FavoriteQuery';
