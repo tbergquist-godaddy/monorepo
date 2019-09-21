@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { QueryRenderer as KiwiQueryRenderer, type GraphQLTaggedNode } from '@kiwicom/relay';
 import { Loader, Text, View } from '@tbergq/rn-components';
-import { createOperationDescriptor } from 'relay-runtime';
+import { createOperationDescriptor, getRequest } from 'relay-runtime';
 
 import Environment from './Environment';
 import { useQueryRenderer } from './QueryRendererContext';
@@ -23,7 +23,7 @@ export default function QueryRenderer(props: Props) {
     if (typeof window === 'undefined') {
       // What about react-native 🤔
       const store = environment.getStore();
-      const { getRequest } = environment.unstable_internal;
+
       const operation = createOperationDescriptor(getRequest(props.query), props.variables);
       return store.lookup(operation.root);
     }
