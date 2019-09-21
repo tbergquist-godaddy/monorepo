@@ -35,6 +35,13 @@ if (ZEIT_TOKEN == null) {
     await rimrafPromise(buildDir);
     await monorepoBuilder(thisWorkspace, buildDir, { removeRootDependencies: false });
     fs.copyFileSync(path.join(__dirname, '..', 'now.json'), path.join(buildDir, 'now.json'));
+    // $FlowAllowDynamicImport
+    const packageJson = require(path.join(buildDir, 'apps', 'graphql', 'package.json'));
+    packageJson.engines = { node: '10.x' };
+    fs.writeFileSync(
+      path.join(buildDir, 'apps', 'tvhelper', 'package.json'),
+      JSON.stringify(packageJson, null, 2),
+    );
     log('built to', buildDir);
     new ShellCommand(buildDir, 'now', '--prod', `--token=${ZEIT_TOKEN}`)
       .setOutputToScreen()
