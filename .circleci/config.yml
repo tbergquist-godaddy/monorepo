@@ -34,7 +34,15 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/tbergq-monorepo
-      - run: yarn flow
+      - restore_cache:
+          keys:
+          - dependency-cache-flow
+          - v1-dependencies-{{ checksum "yarn.lock" }}
+      - run: yarn typecheck
+      - save_cache:
+          paths:
+            - .flow.saved_state
+          key: dependency-cache-flow
 
   lint:
     <<: *defaults
