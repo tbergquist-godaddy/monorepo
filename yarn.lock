@@ -7752,7 +7752,7 @@ metro-minify-uglify@0.56.0:
   dependencies:
     uglify-es "^3.1.9"
 
-metro-react-native-babel-preset@0.56.0:
+metro-react-native-babel-preset@0.56.0, metro-react-native-babel-preset@^0.56.0:
   version "0.56.0"
   resolved "https://registry.yarnpkg.com/metro-react-native-babel-preset/-/metro-react-native-babel-preset-0.56.0.tgz#fa47dfd5f7678e89cffd1249020b8add6938fc48"
   integrity sha512-MAo1fm0dNn6MVZmylaz6k2HC1MINHLTLfE7O3a9Xz3fAtbGbApisp06rBUfK5uUqIJDmAaKgbiT34lHJSIiE6Q==
@@ -9550,10 +9550,10 @@ react-native-web@^0.11.7:
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.4"
 
-react-native@0.61.0-rc.0:
-  version "0.61.0-rc.0"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.61.0-rc.0.tgz#5f376fefee982c463eee52d691a8bdb7a37650c2"
-  integrity sha512-Q7iSVoj2jylbXTdrjBKlEb6YLyVUFTIS7yIUjnKZgzpBj8NDYVCBPuqqRyypmRH/mV4a+lQ1xyhyGaj2LCeptg==
+react-native@0.61.0-rc.3:
+  version "0.61.0-rc.3"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.61.0-rc.3.tgz#880b1ca4805fe5095a506306461c38cf4e74452d"
+  integrity sha512-1jG098scd2vBXx2vZYpsrdX7dfmO8bSMJq+eB52x6RWmr70c8Zy7VUNpgndB6EEjthDUEfkcZmBHbkmuSEfzvg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@react-native-community/cli" "^3.0.0-alpha.1"
@@ -9600,7 +9600,7 @@ react-relay@^6.0.0:
     nullthrows "^1.1.0"
     relay-runtime "6.0.0"
 
-react-test-renderer@^16.9.0:
+react-test-renderer@16.9.0, react-test-renderer@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.9.0.tgz#7ed657a374af47af88f66f33a3ef99c9610c8ae9"
   integrity sha512-R62stB73qZyhrJo7wmCW9jgl/07ai+YzvouvCXIJLBkRlRqLx4j9RqcLEAfNfU3OxTGucqR2Whmn3/Aad6L3hQ==
