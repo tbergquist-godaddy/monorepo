@@ -53,7 +53,7 @@ export default function QueryRenderer(props: Props) {
       variables={props.variables}
       environment={environment}
       render={render}
-      dataFrom="STORE_THEN_NETWORK"
+      fetchPolicy="store-and-network"
     />
   );
 }

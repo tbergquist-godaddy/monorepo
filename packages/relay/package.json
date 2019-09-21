@@ -4,16 +4,16 @@
   "main": "index.js",
   "version": "0.0.1",
   "dependencies": {
-    "@kiwicom/fetch": "^2.4.3",
-    "@kiwicom/relay": "^3.6.1",
+    "@kiwicom/fetch": "^2.5.0",
+    "@kiwicom/relay": "^4.0.0",
     "@tbergq/rn-components": "*",
-    "graphql": "^14.5.6"
+    "graphql": "^14.5.7"
   },
   "peerDependencies": {
     "react": "",
     "relay-runtime": ""
   },
   "devDependencies": {
-    "relay-test-utils": "^5.0.0"
+    "relay-test-utils": "^6.0.0"
   }
 }
