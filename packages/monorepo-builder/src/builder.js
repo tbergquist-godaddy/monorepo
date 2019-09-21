@@ -24,17 +24,23 @@ function copyAndTranspileFileSync(absoluteFrom, absoluteTo, babelConfig) {
 
 type Config = {|
   +removeRootDependencies: boolean,
+  +transpile: boolean,
 |};
 
 const defaultConfig = {
   removeRootDependencies: true,
+  transpile: true,
 };
 
 export default async function build(
   rootWorkspace: string,
   buildDir: string,
-  config: Config = defaultConfig,
+  config: $Shape<Config> = {},
 ) {
+  const buildConfig = {
+    ...defaultConfig,
+    ...config,
+  };
   await rimrafPromise(buildDir);
   const workspacesInfo = new ShellCommand(null, 'yarn', 'workspaces', 'info')
     .runSynchronously()
@@ -52,7 +58,7 @@ export default async function build(
     });
     for (const rawFileName of rawFileNames) {
       const destinationFilename = path.join(buildDir, rawFileName.replace(repoRoot, ''));
-      if (rawFileName.endsWith('.js')) {
+      if (rawFileName.endsWith('.js') && buildConfig.transpile) {
         copyAndTranspileFileSync(rawFileName, destinationFilename, {
           cwd: projectRoot,
           rootMode: 'upward',
@@ -69,7 +75,7 @@ export default async function build(
     JSON.stringify(
       {
         ...packageJSON,
-        ...(config.removeRootDependencies ? { dependencies: {}, devDependencies: {} } : {}),
+        ...(buildConfig.removeRootDependencies ? { dependencies: {}, devDependencies: {} } : {}),
       },
       null,
       2,

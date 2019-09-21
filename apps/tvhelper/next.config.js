@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = withCustomBabelConfigFile(
   withTM({
-    babelConfigFile: path.join(__dirname, '.babelrc'),
+    babelConfigFile: path.join(__dirname, '.babelrc.js'),
     target: 'serverless',
     transpileModules: ['react-native-web', '@tbergq'],
     webpack: config => {

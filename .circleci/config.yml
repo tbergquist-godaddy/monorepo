@@ -64,6 +64,13 @@ jobs:
       - attach_workspace:
           at: ~/tbergq-monorepo
       - run: yarn workspace @tbergq/graphql deploy
+
+  deploy-tvhelper:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/tbergq-monorepo
+      - run: yarn workspace @tbergq/tvhelper deploy
         
 
 workflows:
@@ -88,3 +95,11 @@ workflows:
           filters:
             branches:
               only: master
+      - deploy-tvhelper:
+          requires:
+            - flow
+            - lint
+            - jest
+          filters:
+            branches:
+              only: master              

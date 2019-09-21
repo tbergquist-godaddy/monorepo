@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@kiwicom/fetch": "^2.5.0",
+    "@kiwicom/monorepo-utils": "^0.23.0",
     "@kiwicom/relay": "^4.0.0",
     "@tbergq/components": "^0",
     "@tbergq/relay": "^0",
@@ -22,13 +23,14 @@
   },
   "peerDependencies": {
     "react-icons": "",
-    "react-native": "*"
+    "react-native": "*",
+    "@tbergq/monorepo-builder": "*"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "deploy": "yarn now",
+    "deploy": "yarn monorepo-babel-node scripts/deploy.js",
     "relay": "yarn relay-compiler --src ./src --schema ./schema.graphql --verbose --exclude='**/node_modules/**','**/__mocks__/**','**/__generated__/**'",
     "prenow-build": "node scripts/persistQueries.js"
   },
@@ -39,6 +41,7 @@
     "@testing-library/react": "^9.1.4",
     "babel-plugin-react-native-web": "^0.11.7",
     "relay-compiler": "^6.0.0",
-    "relay-test-utils": "^6.0.0"
+    "relay-test-utils": "^6.0.0",
+    "rimraf": "^3.0.0"
   }
 }
