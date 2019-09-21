@@ -39,7 +39,7 @@ if (ZEIT_TOKEN == null) {
     const packageJson = require(path.join(buildDir, 'apps', 'graphql', 'package.json'));
     packageJson.engines = { node: '10.x' };
     fs.writeFileSync(
-      path.join(buildDir, 'apps', 'tvhelper', 'package.json'),
+      path.join(buildDir, 'apps', 'graphql', 'package.json'),
       JSON.stringify(packageJson, null, 2),
     );
     log('built to', buildDir);
