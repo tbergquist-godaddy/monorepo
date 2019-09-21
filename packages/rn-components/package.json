@@ -6,8 +6,11 @@
   "dependencies": {
     "react": "16.9.0"
   },
+  "devDependencies": {
+    "react-native": "0.61.0-rc.0"
+  },
   "peerDependencies": {
-    "react-native": "0.61.0-rc.0",
-    "react-test-renderer": "*"
+    "react-test-renderer": "*",
+    "react-native": "0.61.0-rc.0"
   }
 }
