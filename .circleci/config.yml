@@ -57,13 +57,6 @@ jobs:
       - attach_workspace:
           at: ~/tbergq-monorepo
       - run: yarn test --max-workers=1 --silent
-  
-  deploy-traningjournal:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/tbergq-monorepo
-      - run: yarn now -A now-tj.json --prod --token=$ZEIT_TOKEN
 
   deploy-graphql:
     <<: *defaults
@@ -87,14 +80,6 @@ workflows:
       - jest:
           requires:
             - install
-      - deploy-traningjournal:
-          requires:
-            - flow
-            - lint
-            - jest
-          filters:
-            branches:
-              only: master
       - deploy-graphql:
           requires:
             - flow
