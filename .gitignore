@@ -7,3 +7,5 @@ dist/
 yarn-error.log
 persisted-queries.json
 .env
+.flow.saved_state
+.flow.saved_state_file_changes
