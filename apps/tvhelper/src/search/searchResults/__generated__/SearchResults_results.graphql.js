@@ -15,7 +15,7 @@ declare export opaque type SearchResults_results$fragmentType: SearchResults_res
 export type SearchResults_results = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
-      +id: ?string,
+      +id: string,
       +$fragmentRefs: SearchResultItem_tvShow$ref,
     |}
   |}>,

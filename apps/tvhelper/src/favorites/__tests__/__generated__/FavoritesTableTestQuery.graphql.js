@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash abe04eff8302ded50d1ea0b9fae11433
+ * @relayHash c4a5fe314bf96002a98f96dd46c09ea2
  */
 
 /* eslint-disable */
@@ -188,7 +188,7 @@ return {
           "type": "ID",
           "enumValues": null,
           "plural": false,
-          "nullable": true
+          "nullable": false
         },
         "favorites.edges.node.name": (v0/*: any*/),
         "favorites.edges.node.nextEpisode": (v1/*: any*/),

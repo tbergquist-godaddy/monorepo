@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 63d4aafe325ec7400a2b85c475d8b9c4
+ * @relayHash 66cd36838312cbc8f9a05f249fb02d73
  */
 
 /* eslint-disable */
@@ -16,7 +16,7 @@ export type DeleteAsWatchedMutationResponse = {|
   +deleteWatchedEpisode: ?{|
     +success: ?boolean,
     +episode: ?{|
-      +id: ?string,
+      +id: string,
       +watched: ?boolean,
     |},
   |}

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 2e72a5441cf6beead5526d6b314293c9
+ * @relayHash 7bbf9b96e2f3cc78e52cb756e8e47533
  */
 
 /* eslint-disable */
@@ -67,12 +67,6 @@ v2 = {
   "name": "id",
   "args": null,
   "storageKey": null
-},
-v3 = {
-  "type": "ID",
-  "enumValues": null,
-  "plural": false,
-  "nullable": true
 };
 return {
   "kind": "Request",
@@ -159,7 +153,12 @@ return {
           "plural": false,
           "nullable": true
         },
-        "tvShowDetail.id": (v3/*: any*/),
+        "tvShowDetail.id": {
+          "type": "ID",
+          "enumValues": null,
+          "plural": false,
+          "nullable": false
+        },
         "tvShowDetail.image": {
           "type": "TvHelperImage",
           "enumValues": null,
@@ -178,7 +177,12 @@ return {
           "plural": false,
           "nullable": true
         },
-        "tvShowDetail.image.id": (v3/*: any*/)
+        "tvShowDetail.image.id": {
+          "type": "ID",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        }
       }
     }
   }

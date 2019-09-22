@@ -42,6 +42,10 @@ if (ZEIT_TOKEN == null) {
       path.join(__dirname, '..', '.babelrc.js'),
       path.join(buildDir, 'apps', 'tvhelper', '.babelrc.js'),
     );
+    fs.copyFileSync(
+      path.join(__dirname, '..', '..', '..', 'schema.graphql'),
+      path.join(buildDir, 'schema.graphql'),
+    );
     // $FlowAllowDynamicImport
     const packageJson = require(path.join(buildDir, 'apps', 'tvhelper', 'package.json'));
     packageJson.engines = { node: '10.x' };
