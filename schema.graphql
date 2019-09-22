@@ -1,3 +1,8 @@
+# @generated SignedSource<<73c67fbf969b8be84702788f6e0da61d>>
+
+# <BREAKING-CHANGES-LOG>
+# </BREAKING-CHANGES-LOG>
+
 schema {
   query: RootQuery
   mutation: RootMutation

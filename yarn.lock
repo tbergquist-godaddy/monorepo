@@ -1873,6 +1873,13 @@
     flow-bin "^0.108.0"
     is-ci "^2.0.0"
 
+"@kiwicom/graphql-bc-checker@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@kiwicom/graphql-bc-checker/-/graphql-bc-checker-1.4.1.tgz#ce90507f4fa00b9249dc1a5acbe6c4e67d5f5faf"
+  integrity sha512-8T02RoNt4MHMDNz/bfbYgAwdiE/S78uztN1RzQGOC4H3+RZxHKSJWnQh24Y7SQN+2u5vrhfjv4MQEMov2Id9lQ==
+  dependencies:
+    chalk "^2.4.2"
+
 "@kiwicom/graphql-global-id@^0.12.0":
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/graphql-global-id/-/graphql-global-id-0.12.0.tgz#5983473244705006d0554ab6c21f73fd004b6939"
