@@ -15,7 +15,7 @@ export type FavoriteItem_favorite = {|
   +name: ?string,
   +nextEpisode: ?any,
   +previousEpisode: ?any,
-  +id: ?string,
+  +id: string,
   +status: ?string,
   +$refType: FavoriteItem_favorite$ref,
 |};

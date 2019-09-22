@@ -9,7 +9,8 @@
     "typecheck": "kiwicom-flow-bin",
     "graphql": "yarn babel-node packages/relay/scripts/getSchema.js && yarn babel-node scripts/copySchemaToWorkspaces.js",
     "test-ci": "yarn lint && yarn typecheck && yarn test",
-    "postinstall": "jetify"
+    "postinstall": "jetify",
+    "relay": "yarn relay-compiler"
   },
   "workspaces": [
     "packages/*",

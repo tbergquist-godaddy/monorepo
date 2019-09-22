@@ -82,6 +82,6 @@ export default async function build(
     ),
   );
   copyFileSync(path.join(repoRoot, 'yarn.lock'), path.join(buildDir, 'yarn.lock'));
-
+  copyFileSync(path.join(repoRoot, 'babel.config.js'), path.join(buildDir, 'babel.config.js'));
   new ShellCommand(buildDir, 'yarn', 'install').setOutputToScreen().runSynchronously();
 }

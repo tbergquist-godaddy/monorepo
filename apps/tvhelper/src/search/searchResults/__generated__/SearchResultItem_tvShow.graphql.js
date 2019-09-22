@@ -14,7 +14,7 @@ declare export opaque type SearchResultItem_tvShow$fragmentType: SearchResultIte
 export type SearchResultItem_tvShow = {|
   +name: ?string,
   +rating: ?number,
-  +id: ?string,
+  +id: string,
   +$refType: SearchResultItem_tvShow$ref,
 |};
 export type SearchResultItem_tvShow$data = SearchResultItem_tvShow;

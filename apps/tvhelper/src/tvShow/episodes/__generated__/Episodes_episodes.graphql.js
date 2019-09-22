@@ -14,7 +14,7 @@ declare export opaque type Episodes_episodes$ref: FragmentReference;
 declare export opaque type Episodes_episodes$fragmentType: Episodes_episodes$ref;
 export type Episodes_episodes = {|
   +episodes: ?$ReadOnlyArray<?{|
-    +id: ?string,
+    +id: string,
     +$fragmentRefs: Episode_episode$ref,
   |}>,
   +$refType: Episodes_episodes$ref,

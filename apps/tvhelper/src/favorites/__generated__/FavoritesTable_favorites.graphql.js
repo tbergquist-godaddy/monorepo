@@ -16,7 +16,7 @@ export type FavoritesTable_favorites = {|
   +favorites: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
-        +id: ?string,
+        +id: string,
         +$fragmentRefs: FavoriteItem_favorite$ref,
       |}
     |}>

@@ -1,9 +1,8 @@
 // @flow
 
-const fs = require('fs');
-const path = require('path');
-const fetch = require('node-fetch');
-const execSync = require('child_process').execSync;
+import path from 'path';
+import fetch from '@kiwicom/fetch';
+import { ShellCommand } from '@kiwicom/monorepo-utils';
 
 const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
   createdStoredOperations(storedOperations: $storedOperations) {
@@ -14,16 +13,16 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
   }
 }`;
 
-(() => {
-  execSync('yarn relay --persist-output ./persisted-queries.json', {
-    stdio: 'inherit',
-  });
+(async () => {
+  const monorepoRoot = path.join(__dirname, '..', '..', '..');
+  new ShellCommand(monorepoRoot, 'yarn relay --persist-output ./persisted-queries.json')
+    .setOutputToScreen()
+    .runSynchronously();
 
-  const persistedQueries = JSON.parse(
-    fs.readFileSync(path.join(__dirname, '..', 'persisted-queries.json'), 'utf8'),
-  );
+  // $FlowAllowDynamicImport
+  const persistedQueries = require(path.join(monorepoRoot, 'persisted-queries.json'));
 
-  fetch('https://tbergq-graphql.now.sh/graphql/', {
+  const response = await fetch('https://tbergq-graphql.now.sh/graphql/', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
@@ -37,8 +36,8 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
         })),
       },
     }),
-  })
-    .then(res => res.json())
-    // eslint-disable-next-line no-console
-    .then(json => console.log(json));
+  });
+  const json = await response.json();
+  // eslint-disable-next-line no-console
+  console.log(json);
 })();

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 67c8e04a62be76a3fa0c4404a164fe00
+ * @relayHash edf4747f0dd5a7eab275fe2f46aa349d
  */
 
 /* eslint-disable */
@@ -17,7 +17,7 @@ export type AddFavoriteMutationResponse = {|
     +success: ?boolean,
     +tvShow: ?{|
       +node: ?{|
-        +id: ?string,
+        +id: string,
         +isFavorite: ?boolean,
       |}
     |},

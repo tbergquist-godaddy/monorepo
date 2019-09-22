@@ -12,7 +12,7 @@ import type { FragmentReference } from "relay-runtime";
 declare export opaque type Episode_episode$ref: FragmentReference;
 declare export opaque type Episode_episode$fragmentType: Episode_episode$ref;
 export type Episode_episode = {|
-  +id: ?string,
+  +id: string,
   +name: ?string,
   +seasonAndNumber: ?string,
   +airdate: ?any,

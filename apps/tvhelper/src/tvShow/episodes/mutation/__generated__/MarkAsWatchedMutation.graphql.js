@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash c9345402e743030d73ac2848f72a6905
+ * @relayHash 91d2a0b4526fbae7e03b882373ed8383
  */
 
 /* eslint-disable */
@@ -16,7 +16,7 @@ export type MarkAsWatchedMutationResponse = {|
   +markAsWatched: ?{|
     +success: ?boolean,
     +episode: ?{|
-      +id: ?string,
+      +id: string,
       +watched: ?boolean,
     |},
   |}

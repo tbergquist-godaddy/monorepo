@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 8444a3f005df711fd495832b12bbea1d
+ * @relayHash d8299e58a9cab0d61f1c9703aa05b27f
  */
 
 /* eslint-disable */
@@ -13,8 +13,8 @@ type FavoritesTable_favorites$ref = any;
 export type SortBy = "NAME" | "NEXT_EPISODE" | "PREVIOUS_EPISODE" | "STATUS" | "%future added value";
 export type SortDirection = "ASC" | "DESC" | "%future added value";
 export type SortOptions = {|
-  sortDirection?: ?SortDirection,
   sortBy?: ?SortBy,
+  sortDirection?: ?SortDirection,
 |};
 export type FavoritesTableQueryVariables = {|
   options?: ?SortOptions

@@ -22,21 +22,21 @@
     "styled-components": "^4.3.2"
   },
   "peerDependencies": {
+    "@tbergq/monorepo-builder": "*",
     "react-icons": "",
-    "react-native": "*",
-    "@tbergq/monorepo-builder": "*"
+    "react-native": "*"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
     "deploy": "yarn monorepo-babel-node scripts/deploy.js",
-    "relay": "yarn relay-compiler --src ./src --schema ./schema.graphql --verbose --exclude='**/node_modules/**','**/__mocks__/**','**/__generated__/**'",
-    "prenow-build": "node scripts/persistQueries.js"
+    "prenow-build": "yarn monorepo-babel-node scripts/persistQueries.js"
   },
   "devDependencies": {
     "@babel/node": "^7.6.1",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@kiwicom/monorepo-utils": "^0.23.0",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4",
     "babel-plugin-react-native-web": "^0.11.7",

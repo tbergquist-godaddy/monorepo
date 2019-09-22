@@ -12,7 +12,7 @@ import type { FragmentReference } from "relay-runtime";
 declare export opaque type TvShowImage_tvShow$ref: FragmentReference;
 declare export opaque type TvShowImage_tvShow$fragmentType: TvShowImage_tvShow$ref;
 export type TvShowImage_tvShow = {|
-  +id: ?string,
+  +id: string,
   +image: ?{|
     +original: ?string
   |},
