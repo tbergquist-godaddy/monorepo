@@ -27,7 +27,6 @@
     "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn monorepo-babel-node src/index.js",
     "deploy": "yarn monorepo-babel-node scripts/build.js",
     "build": "echo \"already build\" ",
-    "schema": "yarn monorepo-babel-node scripts/generateSchema.js",
     "test-bc": "yarn monorepo-babel-node scripts/test-bc.js"
   },
   "devDependencies": {
