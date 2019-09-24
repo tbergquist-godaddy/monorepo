@@ -1,0 +1,13 @@
+{
+  "name": "@tbergq/tvhelper-xplat",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {},
+  "peerDependencies": {
+    "@tbergq/relay": "*"
+  },
+  "devDependencies": {
+    "@tbergq/relay": "*"
+  }
+}
