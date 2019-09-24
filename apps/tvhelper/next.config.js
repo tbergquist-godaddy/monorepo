@@ -8,7 +8,7 @@ module.exports = withCustomBabelConfigFile(
   withTM({
     babelConfigFile: path.join(__dirname, '.babelrc.js'),
     target: 'serverless',
-    transpileModules: ['react-native-web', '@tbergq'],
+    transpileModules: ['react-native-web', '@tbergq', 'react-native-read-more-text'],
     webpack: config => {
       config.resolve.alias = {
         ...(config.resolve.alias || {}),
