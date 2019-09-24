@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Text, Colors, Touchable } from '@tbergq/rn-components';
-import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
 import { Image, View, StyleSheet, Dimensions } from 'react-native';
 import { withNavigation, type NavigationScreenProp } from 'react-navigation';
 
@@ -11,6 +11,7 @@ import type { TvShowItem_data as TvShow } from './__generated__/TvShowItem_data.
 type Props = {|
   +data: ?TvShow,
   +navigation: NavigationScreenProp<{||}>,
+  +relay: RelayProp,
 |};
 
 class TvShowItem extends React.Component<Props> {
@@ -18,6 +19,7 @@ class TvShowItem extends React.Component<Props> {
     this.props.navigation.navigate('TvShow', {
       id: this.props.data?.id,
       name: this.props.data?.name,
+      environment: this.props.relay.environment,
     });
   };
 

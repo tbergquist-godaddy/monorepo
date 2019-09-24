@@ -1,6 +1,6 @@
 // @flow
 
-import { graphql, commitMutation } from '@tbergq/relay';
+import { graphql, commitMutation, type RelayEnvironmentType } from '@tbergq/relay';
 
 import type { DeleteFavoriteMutationVariables } from './__generated__/DeleteFavoriteMutation.graphql';
 
@@ -8,19 +8,22 @@ const mutation = graphql`
   mutation DeleteFavoriteMutation($serieId: ID!) {
     deleteFavorite(serieId: $serieId) {
       success
+      id
     }
   }
 `;
 
 export default function deleteFavorite(
-  environment: $FlowFixMe,
+  environment: RelayEnvironmentType,
   variables: DeleteFavoriteMutationVariables,
   onCompleted: Function,
+  configs?: $FlowFixMe,
 ) {
   commitMutation(environment, {
     mutation,
     variables,
     onCompleted,
+    configs,
     updater: store => {
       const payload = store.getRootField('deleteFavorite') ?? {};
       const success = payload.getValue('success') ?? false;

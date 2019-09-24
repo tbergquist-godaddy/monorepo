@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash e50324062c83cb38ccd7c196e3e72749
+ * @relayHash 8e82e585030d06be4ac31d035af2478a
  */
 
 /* eslint-disable */
@@ -14,7 +14,8 @@ export type DeleteFavoriteMutationVariables = {|
 |};
 export type DeleteFavoriteMutationResponse = {|
   +deleteFavorite: ?{|
-    +success: ?boolean
+    +success: ?boolean,
+    +id: ?string,
   |}
 |};
 export type DeleteFavoriteMutation = {|
@@ -46,18 +47,37 @@ var v0 = [
 ],
 v1 = [
   {
-    "kind": "Variable",
-    "name": "serieId",
-    "variableName": "serieId"
+    "kind": "LinkedField",
+    "alias": null,
+    "name": "deleteFavorite",
+    "storageKey": null,
+    "args": [
+      {
+        "kind": "Variable",
+        "name": "serieId",
+        "variableName": "serieId"
+      }
+    ],
+    "concreteType": "RangeDelete",
+    "plural": false,
+    "selections": [
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "success",
+        "args": null,
+        "storageKey": null
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "id",
+        "args": null,
+        "storageKey": null
+      }
+    ]
   }
-],
-v2 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "success",
-  "args": null,
-  "storageKey": null
-};
+];
 return {
   "kind": "Request",
   "fragment": {
@@ -66,46 +86,13 @@ return {
     "type": "RootMutation",
     "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
-    "selections": [
-      {
-        "kind": "LinkedField",
-        "alias": null,
-        "name": "deleteFavorite",
-        "storageKey": null,
-        "args": (v1/*: any*/),
-        "concreteType": "RangeDelete",
-        "plural": false,
-        "selections": [
-          (v2/*: any*/)
-        ]
-      }
-    ]
+    "selections": (v1/*: any*/)
   },
   "operation": {
     "kind": "Operation",
     "name": "DeleteFavoriteMutation",
     "argumentDefinitions": (v0/*: any*/),
-    "selections": [
-      {
-        "kind": "LinkedField",
-        "alias": null,
-        "name": "deleteFavorite",
-        "storageKey": null,
-        "args": (v1/*: any*/),
-        "concreteType": "RangeDelete",
-        "plural": false,
-        "selections": [
-          (v2/*: any*/),
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "id",
-            "args": null,
-            "storageKey": null
-          }
-        ]
-      }
-    ]
+    "selections": (v1/*: any*/)
   },
   "params": {
     "operationKind": "mutation",
@@ -117,5 +104,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '5d5e70542c8bf1d81545b696e615b85c';
+(node/*: any*/).hash = '2cf755bafefadf0ffa5432512e443be2';
 module.exports = node;
