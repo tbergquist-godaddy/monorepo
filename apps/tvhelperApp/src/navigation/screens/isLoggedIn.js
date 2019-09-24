@@ -1,6 +1,6 @@
 // @flow strict
 
-import { AsyncStorage } from 'react-native'; // TODO: Use package from community
+import AsyncStorage from '@react-native-community/async-storage';
 import { TOKEN_KEY } from '@tbergq/utils';
 import decode from 'jwt-decode';
 

@@ -5,8 +5,9 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { QueryRendererProvider } from '@tbergq/relay';
 import { TOKEN_KEY } from '@tbergq/utils';
-import { AsyncStorage, StatusBar, ActivityIndicator } from 'react-native';
+import { StatusBar, ActivityIndicator } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import SearchStack from './stacks/SearchStack';
 import FavoritesStack from './stacks/FavoritesStack';
