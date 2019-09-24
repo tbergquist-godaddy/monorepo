@@ -2,9 +2,10 @@
 
 import * as React from 'react';
 import { TOKEN_KEY } from '@tbergq/utils';
-import { AsyncStorage, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import type { NavigationScreenProp } from 'react-navigation';
 import { Touchable, Text, Colors } from '@tbergq/rn-components';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import LoginScene from '../../scenes/login/LoginScene';
 import FavoritesScene from '../../scenes/favorites/FavoritesScene';
