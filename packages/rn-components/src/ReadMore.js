@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-// import OriginalReadMore from 'react-native-read-more-text';
+import OriginalReadMore from 'react-native-read-more-text';
 
 import Text from './Text';
 import Touchable from './Touchable';
@@ -44,13 +44,13 @@ export default class ReadMore extends React.Component<Props> {
   render() {
     return (
       <>
-        {/*  <OriginalReadMore
-        numberOfLines={this.props.numberOfLines}
-        renderTruncatedFooter={this.renderTruncatedFooter}
-        renderRevealedFooter={this.renderRevealedFooter}
-      > */}
-        <Text>{this.props.children ?? ''}</Text>
-        {/* </OriginalReadMore> */}
+        <OriginalReadMore
+          numberOfLines={this.props.numberOfLines}
+          renderTruncatedFooter={this.renderTruncatedFooter}
+          renderRevealedFooter={this.renderRevealedFooter}
+        >
+          {this.props.children}
+        </OriginalReadMore>
       </>
     );
   }
