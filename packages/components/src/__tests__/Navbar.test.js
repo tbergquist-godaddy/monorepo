@@ -9,7 +9,7 @@ it('renders', () => {
   expect(
     create(<Navbar brand="Brand" headerLeft={<div>left</div>} headerRight={<div>right</div>} />),
   ).toMatchInlineSnapshot(`
-    .c8 {
+    .c7 {
       position: relative;
       display: -webkit-box;
       display: -webkit-flex;
@@ -48,34 +48,34 @@ it('renders', () => {
       outline: 0;
     }
 
-    .c8:hover {
+    .c7:hover {
       background: #0161AC;
       color: #FFFFFF!important;
     }
 
-    .c8:hover .c12 {
+    .c7:hover .c12 {
       color: #FFFFFF;
     }
 
-    .c8:active {
+    .c7:active {
       background: #01508E;
       color: #FFFFFF!important;
       box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
     }
 
-    .c8:active .c12 {
+    .c7:active .c12 {
       color: #FFFFFF;
     }
 
-    .c8:focus {
+    .c7:focus {
       box-shadow: 0 0 1px 1px #FFFFFF,0 0 1px 3px rgba(1,114,203,0.6);
     }
 
-    .c8:focus:active {
+    .c7:focus:active {
       box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
     }
 
-    .c8 .c11 {
+    .c7 .c11 {
       width: 16px;
       height: 16px;
     }
@@ -155,12 +155,12 @@ it('renders', () => {
       display: flex;
     }
 
-    .c7 {
+    .c8 {
       max-height: 20px;
       background-color: #222;
     }
 
-    .c7:hover {
+    .c8:hover {
       background-color: #222;
     }
 
@@ -183,7 +183,7 @@ it('renders', () => {
     }
 
     @media only screen and (min-width:768px) {
-      .c7 {
+      .c8 {
         display: none;
       }
     }

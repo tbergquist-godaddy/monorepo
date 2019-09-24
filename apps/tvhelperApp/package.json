@@ -14,14 +14,14 @@
     "react-native": "0.61.0-rc.3",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-reanimated": "^1.2.0",
-    "react-navigation": "^4.0.7",
+    "react-navigation": "^4.0.8",
     "react-navigation-drawer": "^2.2.2",
-    "react-navigation-stack": "^1.8.1",
+    "react-navigation-stack": "^1.9.0",
     "react-navigation-tabs": "^2.5.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/runtime": "^7.6.0",
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
     "@tbergq/relay": "*",
     "@tbergq/rn-components": "*",
     "@tbergq/tvhelper-xplat": "*",

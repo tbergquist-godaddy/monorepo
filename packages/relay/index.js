@@ -16,8 +16,11 @@ export {
   createRefetchContainer,
   createPaginationContainer,
   createEnvironment,
+  fetchQuery,
+  RelayEnvironmentProvider,
+  useRelayEnvironment,
 } from '@kiwicom/relay';
-export { ReactRelayContext, fetchQuery } from 'react-relay';
+
 export {
   QueryRendererProvider,
   useQueryRenderer,

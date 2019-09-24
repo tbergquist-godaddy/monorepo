@@ -5,14 +5,14 @@
   "version": "0.0.1",
   "dependencies": {
     "@kiwicom/fetch": "^2.5.0",
-    "@kiwicom/relay": "^4.0.0",
+    "@kiwicom/relay": "^4.2.0",
     "@tbergq/rn-components": "*",
     "graphql": "^14.5.7"
   },
   "peerDependencies": {
     "react": "",
-    "relay-runtime": "",
-    "react-native":""
+    "react-native": "",
+    "relay-runtime": ""
   },
   "devDependencies": {
     "relay-test-utils": "^6.0.0"

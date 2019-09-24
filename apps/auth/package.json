@@ -5,7 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "@tbergq/monorepo-builder": "*",
-    "google-protobuf": "^3.9.1",
+    "google-protobuf": "^3.9.2",
     "grpc-tools": "^1.8.0",
     "mockingoose": "^2.13.2",
     "nodemon": "^1.19.2"
@@ -16,7 +16,7 @@
     "build": "monorepo-babel-node scripts/build.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.0",
+    "@babel/runtime": "^7.6.2",
     "@kiwicom/js": "^0.15.0",
     "@kiwicom/monorepo-utils": "^0.23.0",
     "@tbergq/tvhelper-persistence": "*",
