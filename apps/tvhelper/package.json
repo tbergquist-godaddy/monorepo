@@ -5,7 +5,7 @@
   "dependencies": {
     "@kiwicom/fetch": "^2.5.0",
     "@kiwicom/monorepo-utils": "^0.23.0",
-    "@kiwicom/relay": "^4.0.0",
+    "@kiwicom/relay": "^4.2.0",
     "@tbergq/components": "^0",
     "@tbergq/relay": "^0",
     "@tbergq/utils": "^0",
@@ -19,13 +19,13 @@
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-native-web": "^0.11.7",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.4.0"
   },
   "peerDependencies": {
     "@tbergq/monorepo-builder": "*",
+    "@tbergq/tvhelper-xplat": "*",
     "react-icons": "",
-    "react-native": "*",
-    "@tbergq/tvhelper-xplat": "*"
+    "react-native": "*"
   },
   "scripts": {
     "dev": "next",
@@ -35,15 +35,15 @@
     "prenow-build": "yarn monorepo-babel-node scripts/persistQueries.js"
   },
   "devDependencies": {
-    "@babel/node": "^7.6.1",
+    "@babel/node": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@kiwicom/monorepo-utils": "^0.23.0",
+    "@tbergq/tvhelper-xplat": "*",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4",
     "babel-plugin-react-native-web": "^0.11.7",
     "relay-compiler": "^6.0.0",
     "relay-test-utils": "^6.0.0",
-    "rimraf": "^3.0.0",
-    "@tbergq/tvhelper-xplat": "*"
+    "rimraf": "^3.0.0"
   }
 }
