@@ -11,7 +11,8 @@
   },
   "peerDependencies": {
     "react": "",
-    "relay-runtime": ""
+    "relay-runtime": "",
+    "react-native":""
   },
   "devDependencies": {
     "relay-test-utils": "^6.0.0"

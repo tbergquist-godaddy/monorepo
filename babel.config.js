@@ -21,5 +21,6 @@ module.exports = function(api /*: ApiType */) {
   return {
     presets,
     plugins: extraPlugins,
+    babelrcRoots: ['.', './apps/*', './packages/*'],
   };
 };

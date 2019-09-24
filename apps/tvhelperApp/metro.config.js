@@ -15,6 +15,7 @@ module.exports = {
   watchFolders: [
     path.resolve(cwd, '..', '..', 'packages'),
     path.resolve(cwd, '..', '..', 'node_modules'),
+    path.resolve(cwd, '..', 'tvhelper-xplat'),
   ],
   transformer: {
     // eslint-disable-next-line require-await

@@ -5,10 +5,12 @@ import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay'
 import { Button } from '@tbergq/components';
 import styled from 'styled-components';
 import { MdFavorite } from 'react-icons/md';
+import {
+  AddFavoriteMutation as addFavorite,
+  DeleteFavoriteMutation as deleteFavorite,
+} from '@tbergq/tvhelper-xplat';
 
 import type { TvShowImage_tvShow as TvShow } from './__generated__/TvShowImage_tvShow.graphql';
-import addFavorite from './mutation/AddFavorite';
-import deleteFavorite from './mutation/DeleteFavorite';
 
 type Props = {|
   +tvShow: ?TvShow,
