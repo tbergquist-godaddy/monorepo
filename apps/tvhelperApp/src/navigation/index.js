@@ -6,11 +6,12 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { QueryRendererProvider } from '@tbergq/relay';
 import { TOKEN_KEY } from '@tbergq/utils';
 import { AsyncStorage, StatusBar } from 'react-native';
-// import { MaterialIcons } from '@expo/vector-icons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import SearchStack from './stacks/SearchStack';
 import FavoritesStack from './stacks/FavoritesStack';
 
+MaterialIcons.loadFont();
 let token;
 
 AsyncStorage.getItem(TOKEN_KEY).then(storedToken => {
@@ -21,19 +22,17 @@ const tabs = createBottomTabNavigator(
   {
     Search: {
       screen: SearchStack,
-      // navigationOptions: {
-      //   tabBarIcon: ({ tintColor }) => (
-      //     <MaterialIcons color={tintColor} name="search" size={20} />
-      //   ),
-      // },
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => <MaterialIcons color={tintColor} name="search" size={20} />,
+      },
     },
     Favorites: {
       screen: FavoritesStack,
-      // navigationOptions: {
-      //   tabBarIcon: ({ tintColor }) => (
-      //     <MaterialIcons color={tintColor} name="favorite" size={20} />
-      //   ),
-      // },
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <MaterialIcons color={tintColor} name="favorite" size={20} />
+        ),
+      },
     },
   },
   {
