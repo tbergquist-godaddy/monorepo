@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { Text, Touchable, Colors } from '@tbergq/rn-components';
-import { createFragmentContainer, graphql } from '@tbergq/relay';
+import { createFragmentContainer, graphql, type RelayProp } from '@tbergq/relay';
 import { withNavigation, type NavigationScreenProp } from 'react-navigation';
 
 import EpisodeDateRow from './EpisodeDateRow';
@@ -12,6 +12,7 @@ import type { FavoritesItem_data as FavoritesType } from './__generated__/Favori
 type Props = {|
   +data: ?FavoritesType,
   +navigation: NavigationScreenProp<{||}>,
+  +relay: RelayProp,
 |};
 
 class FavoritesItem extends React.Component<Props> {
@@ -19,6 +20,7 @@ class FavoritesItem extends React.Component<Props> {
     this.props.navigation.navigate('TvShow', {
       id: this.props.data?.id,
       name: this.props.data?.name,
+      environment: this.props.relay.environment,
     });
   };
 

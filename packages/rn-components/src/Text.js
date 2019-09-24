@@ -6,6 +6,7 @@ import { Text as RNText, StyleSheet } from 'react-native';
 type Props = {|
   +children: React.Node,
   +style?: Object,
+  +testID?: string,
 |};
 
 export default function Text(props: Props) {

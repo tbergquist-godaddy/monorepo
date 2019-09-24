@@ -7,6 +7,7 @@ import { tvHelperConnection } from '@tbergq/tvhelper-persistence';
 import { graphqlConnection } from '@tbergq/graphql-persistence';
 
 jest.mock('../packages/graphql-services/src/fetch.js');
+jest.mock('@tbergq/relay/src/Environment');
 
 let tvhelperServer;
 let graphqlMongoServer;

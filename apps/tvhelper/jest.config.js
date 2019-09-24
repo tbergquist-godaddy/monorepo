@@ -11,5 +11,6 @@ module.exports = {
   setupFilesAfterEnv: [
     path.join(__dirname, '..', '..', 'node_modules', 'react-native-web', 'jest', 'setup.js'),
     '<rootDir>/scripts/jest.js',
+    path.join(__dirname, '..', '..', 'scripts', 'setupTest.js'),
   ],
 };
