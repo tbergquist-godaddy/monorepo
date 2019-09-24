@@ -5,18 +5,13 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { QueryRendererProvider } from '@tbergq/relay';
 import { TOKEN_KEY } from '@tbergq/utils';
-import { AsyncStorage, StatusBar } from 'react-native';
+import { AsyncStorage, StatusBar, ActivityIndicator } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import SearchStack from './stacks/SearchStack';
 import FavoritesStack from './stacks/FavoritesStack';
 
 MaterialIcons.loadFont();
-let token;
-
-AsyncStorage.getItem(TOKEN_KEY).then(storedToken => {
-  token = storedToken; // TODO: Improve this
-});
 
 const tabs = createBottomTabNavigator(
   {
@@ -47,11 +42,34 @@ const tabs = createBottomTabNavigator(
 
 const App = createAppContainer(tabs);
 
-export default function MainNavigator() {
-  return (
-    <QueryRendererProvider initialValue={null} token={token}>
-      <StatusBar barStyle="light-content" />
-      <App />
-    </QueryRendererProvider>
-  );
+type State = {|
+  +token: ?string,
+  +hasLoaded: boolean,
+|};
+
+export default class MainNavigator extends React.Component<{||}, State> {
+  state = {
+    token: null,
+    hasLoaded: false,
+  };
+
+  async componentDidMount() {
+    const token = await AsyncStorage.getItem(TOKEN_KEY);
+    this.setState({
+      token,
+      hasLoaded: true,
+    });
+  }
+
+  render() {
+    if (!this.state.hasLoaded) {
+      return <ActivityIndicator />;
+    }
+    return (
+      <QueryRendererProvider initialValue={null} token={this.state.token}>
+        <StatusBar barStyle="light-content" />
+        <App />
+      </QueryRendererProvider>
+    );
+  }
 }
