@@ -15,7 +15,8 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
 
 (async () => {
   const monorepoRoot = path.join(__dirname, '..', '..', '..');
-  new ShellCommand(monorepoRoot, 'yarn relay --persist-output ./persisted-queries.json')
+
+  new ShellCommand(monorepoRoot, 'yarn', 'relay', '--persist-output', './persisted-queries.json')
     .setOutputToScreen()
     .runSynchronously();
 
