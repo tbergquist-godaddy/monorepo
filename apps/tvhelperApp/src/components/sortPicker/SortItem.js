@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { Text, Touchable, Colors } from '@tbergq/rn-components';
 import { View, StyleSheet } from 'react-native';
-// import { MaterialIcons } from '@expo/vector-icons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 type Props = {|
   +label: string,
@@ -16,11 +16,11 @@ export default function SortItem(props: Props) {
     <Touchable onPress={props.onPress}>
       <View style={styles.row}>
         <Text>{props.label}</Text>
-        {/*  <MaterialIcons
+        <MaterialIcons
           name={props.isChecked ? 'check-box' : 'check-box-outline-blank'}
           size={20}
           color={props.isChecked ? Colors.success : Colors.primary}
-        /> */}
+        />
       </View>
     </Touchable>
   );

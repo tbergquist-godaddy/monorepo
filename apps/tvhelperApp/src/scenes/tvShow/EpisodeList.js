@@ -4,7 +4,7 @@ import * as React from 'react';
 import { graphql, createFragmentContainer } from '@tbergq/relay';
 import { Text, Touchable, Colors } from '@tbergq/rn-components';
 import { StyleSheet, Animated } from 'react-native';
-// import { MaterialIcons } from '@expo/vector-icons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import type { EpisodeList_data as EpisodeListType } from './__generated__/EpisodeList_data.graphql';
 import EpisodeItem from './EpisodeItem';
@@ -62,8 +62,7 @@ class EpisodeList extends React.Component<Props, State> {
         >
           <Text>Episodes</Text>
           <Animated.View style={{ transform: [{ rotate: transformation }] }}>
-            <Text>TODO</Text>
-            {/* <MaterialIcons name={'expand-less'} size={20} color={Colors.primary} /> */}
+            <MaterialIcons name={'expand-less'} size={20} color={Colors.primary} />
           </Animated.View>
         </Touchable>
         {this.state.showEpisodes &&
