@@ -5,6 +5,7 @@ import {
   type RefetchRelayProp as _RefetchRelayProp,
   type PaginationRelayProp as _PaginationRelayProp,
   type Environment as _RelayEnvironmentType,
+  type DeclarativeMutationConfig,
 } from '@kiwicom/relay';
 
 export { default as QueryRenderer } from './src/QueryRenderer';
@@ -31,3 +32,4 @@ export type RelayProp = _RelayProp;
 export type RefetchRelayProp = _RefetchRelayProp;
 export type PaginationRelayProp = _PaginationRelayProp;
 export type RelayEnvironmentType = _RelayEnvironmentType;
+export type MutationConfig = DeclarativeMutationConfig;

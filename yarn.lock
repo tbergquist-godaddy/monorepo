@@ -1961,10 +1961,10 @@
   dependencies:
     ramda "^0.26.1"
 
-"@kiwicom/relay@^4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/relay/-/relay-4.2.0.tgz#e8b4c8aeb0f1b12acbbca9912c464dc2b417a386"
-  integrity sha512-6T0R826ObjZyIpXwCN84yKNMnMuB9C4/v3gOb9pXn2XPXlhQx6XP1dPlTLATSzTiai24V3dafDByC1zTQVuGPA==
+"@kiwicom/relay@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/relay/-/relay-4.3.0.tgz#864362e755977e631cca0bc450b79cebfa8dcaad"
+  integrity sha512-6ngVQBoZ11sH1PcQmMp6tmMOQUO331t8A3GNwG0DFKy/aH0tajdM2GmgDg4ZVjH3HkzaQkMDJ0Ts0ARDaDaGYQ==
   dependencies:
     "@babel/register" "^7.6.0"
     "@kiwicom/fetch" "^2.4.3"
@@ -9754,10 +9754,10 @@ react-navigation-tabs@^2.5.5:
     react-native-safe-area-view "^0.14.6"
     react-native-tab-view "^2.9.0"
 
-react-navigation@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-4.0.8.tgz#84958783ba232d2c8cb60f265c403ee50fc4f7bd"
-  integrity sha512-nwKuPQgq+Vv4on4cS4cvPzAnKf12dG53r7VoV3sQewfut4PB9ZkdWcrhK56FKiLzanhuz3mFfzJV1y466hlTlw==
+react-navigation@^4.0.9:
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-4.0.9.tgz#2fb7547d1888442eb94aa33fa40f72e4b26cc915"
+  integrity sha512-IfqqAd18VQzg9c1yvHPy5eV6EI6jEzbZ7uUFvL3o5yW9h1ygNvWt06wUp1d3M7uWSUuDbYPOKRA8GCaepERnKw==
   dependencies:
     "@react-navigation/core" "^3.5.1"
     "@react-navigation/native" "^3.6.2"

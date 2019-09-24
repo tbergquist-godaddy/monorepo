@@ -1,6 +1,11 @@
 // @flow
 
-import { graphql, commitMutation, type RelayEnvironmentType } from '@tbergq/relay';
+import {
+  graphql,
+  commitMutation,
+  type RelayEnvironmentType,
+  type MutationConfig,
+} from '@tbergq/relay';
 
 import type { AddFavoriteMutationVariables } from './__generated__/AddFavoriteMutation.graphql';
 
@@ -22,7 +27,7 @@ export default function addFavorite(
   environment: RelayEnvironmentType,
   variables: AddFavoriteMutationVariables,
   onCompleted: Function,
-  configs: $FlowFixMe,
+  configs?: $ReadOnlyArray<MutationConfig>,
 ) {
   commitMutation(environment, {
     mutation,
