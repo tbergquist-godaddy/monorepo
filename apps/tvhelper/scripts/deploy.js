@@ -46,6 +46,10 @@ if (ZEIT_TOKEN == null) {
       path.join(__dirname, '..', '..', '..', 'schema.graphql'),
       path.join(buildDir, 'schema.graphql'),
     );
+    fs.copyFileSync(
+      path.join(__dirname, '..', '..', '..', 'relay.config.js'),
+      path.join(buildDir, 'relay.config.js'),
+    );
     // $FlowAllowDynamicImport
     const packageJson = require(path.join(buildDir, 'apps', 'tvhelper', 'package.json'));
     packageJson.engines = { node: '10.x' };
