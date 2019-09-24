@@ -41,6 +41,7 @@ it('passes along assigned config', async () => {
 
 it('throws an error if fetch fails', async () => {
   const spy = jest.spyOn(console, 'log');
+  // $FlowExpectedError: Ok for testing
   fetchWithRetries.mockReturnValueOnce(Promise.reject(new Error('Bad request')));
   await expect(fetch(url)).rejects.toThrow('Bad request');
 

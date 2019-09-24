@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "dependencies": {
     "@kiwicom/fetch": "^2.5.0",
-    "@kiwicom/relay": "^4.2.0",
+    "@kiwicom/relay": "^4.3.0",
     "@tbergq/rn-components": "*",
     "graphql": "^14.5.7"
   },
