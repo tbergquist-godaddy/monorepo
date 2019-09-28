@@ -17,11 +17,11 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.6.2",
-    "@kiwicom/js": "^0.15.0",
-    "@kiwicom/monorepo-utils": "^0.23.0",
+    "@kiwicom/js": "^0.16.0",
+    "@kiwicom/monorepo-utils": "^0.24.0",
     "@tbergq/tvhelper-persistence": "*",
     "dotenv": "^8.1.0",
-    "grpc": "^1.23.3",
+    "grpc": "^1.24.0",
     "jsonwebtoken": "^8.5.1",
     "password-hash": "^1.2.2",
     "rimraf": "^3.0.0"
