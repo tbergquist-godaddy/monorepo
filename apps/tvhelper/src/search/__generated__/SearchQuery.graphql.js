@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash ba3daae6476e874b594d1633a58d2cfa
+ * @relayHash 4378ea0b9fe0d291b2dcddc9be468de3
  */
 
 /* eslint-disable */
@@ -35,18 +35,27 @@ query SearchQuery(
 }
 
 fragment SearchResults_results on TvShowConnection {
+  ...TvShowList_data
+}
+
+fragment TvShowList_data on TvShowConnection {
   edges {
     node {
       id
-      ...SearchResultItem_tvShow
+      ...TvShowItem_data
     }
   }
 }
 
-fragment SearchResultItem_tvShow on TvShow {
-  name
-  rating
+fragment TvShowItem_data on TvShow {
   id
+  name
+  status
+  rating
+  image {
+    medium
+    id
+  }
 }
 */
 
@@ -65,7 +74,14 @@ v1 = [
     "name": "query",
     "variableName": "query"
   }
-];
+],
+v2 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
 return {
   "kind": "Request",
   "fragment": {
@@ -125,13 +141,7 @@ return {
                 "concreteType": "TvShow",
                 "plural": false,
                 "selections": [
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "id",
-                    "args": null,
-                    "storageKey": null
-                  },
+                  (v2/*: any*/),
                   {
                     "kind": "ScalarField",
                     "alias": null,
@@ -142,9 +152,35 @@ return {
                   {
                     "kind": "ScalarField",
                     "alias": null,
+                    "name": "status",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
                     "name": "rating",
                     "args": null,
                     "storageKey": null
+                  },
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "image",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "TvHelperImage",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "medium",
+                        "args": null,
+                        "storageKey": null
+                      },
+                      (v2/*: any*/)
+                    ]
                   }
                 ]
               }
@@ -158,7 +194,7 @@ return {
     "operationKind": "query",
     "name": "SearchQuery",
     "id": null,
-    "text": "query SearchQuery(\n  $query: String!\n) {\n  searchTvShow(query: $query) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...SearchResultItem_tvShow\n    }\n  }\n}\n\nfragment SearchResultItem_tvShow on TvShow {\n  name\n  rating\n  id\n}\n",
+    "text": "query SearchQuery(\n  $query: String!\n) {\n  searchTvShow(query: $query) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  ...TvShowList_data\n}\n\nfragment TvShowList_data on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowItem_data\n    }\n  }\n}\n\nfragment TvShowItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n",
     "metadata": {}
   }
 };

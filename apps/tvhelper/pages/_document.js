@@ -15,6 +15,11 @@ const GlobalStyle = createGlobalStyle({
   '#nprogress .bar': {
     height: '4px',
   },
+  '#__next': {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+  },
 });
 
 export default class MyDocument extends Document {

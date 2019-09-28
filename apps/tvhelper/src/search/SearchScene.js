@@ -20,10 +20,10 @@ export default function SearchScene() {
 
   return (
     <Row>
-      <Col md={6} sm={12} xs={12}>
+      <Col xs={12}>
         <SearchForm onSubmit={onSubmit} />
       </Col>
-      <Col md={6} sm={12} xs={12}>
+      <Col xs={12}>
         <SearchQuery query={query} />
       </Col>
     </Row>

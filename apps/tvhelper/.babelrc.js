@@ -5,7 +5,12 @@ module.exports = {
   plugins: [
     ['styled-components', { ssr: true }],
     'relay',
-    'react-native-web',
+    [
+      "react-native-web",
+      {
+        "commonjs": true
+      }
+    ],
     '@babel/plugin-proposal-class-properties',
   ],
 };
