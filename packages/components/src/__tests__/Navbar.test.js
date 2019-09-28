@@ -33,6 +33,7 @@ it('renders', () => {
       -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
       flex: 0 0 auto;
+      max-width: 100%;
       height: 32px;
       background: #0172CB;
       color: #FFFFFF !important;

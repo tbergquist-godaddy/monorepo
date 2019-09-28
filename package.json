@@ -19,15 +19,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@kiwicom/monorepo-utils": "^0.23.0"
+    "@kiwicom/monorepo-utils": "^0.24.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/node": "^7.6.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@kiwicom/babel-preset-kiwicom": "^3.6.0",
-    "@kiwicom/eslint-config": "^8.1.0",
-    "@kiwicom/flow-bin": "^0.3.0",
+    "@kiwicom/eslint-config": "^8.1.1",
+    "@kiwicom/flow-bin": "^0.4.0",
     "@testing-library/jest-dom": "^4.1.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.4.0",
