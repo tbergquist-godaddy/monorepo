@@ -12,6 +12,9 @@ const GlobalStyle = createGlobalStyle({
   body: {
     fontFamily: 'Roboto, sans-serif',
   },
+  '#nprogress .bar': {
+    height: '4px',
+  },
 });
 
 export default class MyDocument extends Document {
