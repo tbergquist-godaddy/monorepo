@@ -8,17 +8,12 @@
 
 /*::
 import type { ReaderFragment } from 'relay-runtime';
-type SearchResultItem_tvShow$ref = any;
+type TvShowList_data$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type SearchResults_results$ref: FragmentReference;
 declare export opaque type SearchResults_results$fragmentType: SearchResults_results$ref;
 export type SearchResults_results = {|
-  +edges: ?$ReadOnlyArray<?{|
-    +node: ?{|
-      +id: string,
-      +$fragmentRefs: SearchResultItem_tvShow$ref,
-    |}
-  |}>,
+  +$fragmentRefs: TvShowList_data$ref,
   +$refType: SearchResults_results$ref,
 |};
 export type SearchResults_results$data = SearchResults_results;
@@ -37,41 +32,12 @@ const node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "selections": [
     {
-      "kind": "LinkedField",
-      "alias": null,
-      "name": "edges",
-      "storageKey": null,
-      "args": null,
-      "concreteType": "TvShowEdge",
-      "plural": true,
-      "selections": [
-        {
-          "kind": "LinkedField",
-          "alias": null,
-          "name": "node",
-          "storageKey": null,
-          "args": null,
-          "concreteType": "TvShow",
-          "plural": false,
-          "selections": [
-            {
-              "kind": "ScalarField",
-              "alias": null,
-              "name": "id",
-              "args": null,
-              "storageKey": null
-            },
-            {
-              "kind": "FragmentSpread",
-              "name": "SearchResultItem_tvShow",
-              "args": null
-            }
-          ]
-        }
-      ]
+      "kind": "FragmentSpread",
+      "name": "TvShowList_data",
+      "args": null
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '33ea172e1b794c29cfb948875b7ee9ee';
+(node/*: any*/).hash = '5ae348488a9390bd69ba5236cc45b7b4';
 module.exports = node;

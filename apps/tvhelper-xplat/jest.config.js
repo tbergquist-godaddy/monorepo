@@ -10,5 +10,9 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
     path.join(__dirname, '..', '..', 'node_modules', 'react-native-web', 'jest', 'setup.js'),
+    path.join(__dirname, '..', '..', 'scripts', 'setupTest.js'),
+  ],
+  transformIgnorePatterns: [
+    '/node_modules/(?!react-native|react-navigation|react-native-read-more-text)',
   ],
 };

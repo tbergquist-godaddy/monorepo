@@ -5,9 +5,15 @@
   "main": "index.js",
   "dependencies": {},
   "peerDependencies": {
-    "@tbergq/relay": "*"
+    "@tbergq/relay": "*",
+    "@tbergq/rn-components": "",
+    "react": "",
+    "react-native": "",
+    "react-navigation": ""
   },
   "devDependencies": {
-    "@tbergq/relay": "*"
+    "@tbergq/relay": "*",
+    "react-test-renderer": "16.9.0",
+    "relay-test-utils": "^6.0.0"
   }
 }

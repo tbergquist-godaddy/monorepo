@@ -2,21 +2,31 @@
 
 import * as React from 'react';
 import { Text, Colors, Touchable } from '@tbergq/rn-components';
-import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
-import { Image, View, StyleSheet, Dimensions } from 'react-native';
-import { withNavigation, type NavigationScreenProp } from 'react-navigation';
+import {
+  graphql,
+  createFragmentContainer,
+  type RelayProp,
+  type RelayEnvironmentType,
+} from '@tbergq/relay';
+import { Image, View, StyleSheet, Dimensions, Platform } from 'react-native';
 
 import type { TvShowItem_data as TvShow } from './__generated__/TvShowItem_data.graphql';
 
+type NavigationOptions = {|
+  +id: ?string,
+  +name: ?string,
+  +environment: RelayEnvironmentType,
+|};
+
 type Props = {|
   +data: ?TvShow,
-  +navigation: NavigationScreenProp<{||}>,
+  +onPress: NavigationOptions => void,
   +relay: RelayProp,
 |};
 
 class TvShowItem extends React.Component<Props> {
   onPress = () => {
-    this.props.navigation.navigate('TvShow', {
+    this.props.onPress({
       id: this.props.data?.id,
       name: this.props.data?.name,
       environment: this.props.relay.environment,
@@ -47,8 +57,8 @@ class TvShowItem extends React.Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    width: (Dimensions.get('window').width - 30) / 2,
-    height: 150,
+    width: Platform.OS === 'web' ? 300 : (Dimensions.get('window').width - 30) / 2,
+    height: Platform.OS === 'web' ? 300 : 150,
     marginEnd: 5,
     marginBottom: 5,
     backgroundColor: Colors.gray,
@@ -74,8 +84,8 @@ const styles = StyleSheet.create({
     color: Colors.danger,
   },
 });
-// $FlowFixMe
-export default createFragmentContainer(withNavigation(TvShowItem), {
+
+export default createFragmentContainer(TvShowItem, {
   data: graphql`
     fragment TvShowItem_data on TvShow {
       id
