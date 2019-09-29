@@ -31,17 +31,19 @@ class FavoritesItem extends React.Component<Props> {
 
     return (
       <Touchable onPress={this.onPress} delayPressIn={70}>
-        <View style={styles.container}>
-          <View style={styles.imageWrapper}>
-            <Image source={{ uri: this.props.data?.image?.medium }} style={styles.image} />
+        <>
+          <View style={styles.container}>
+            <View style={styles.imageWrapper}>
+              <Image source={{ uri: this.props.data?.image?.medium }} style={styles.image} />
+            </View>
+            <View style={styles.content}>
+              <Text>{`${name} - ${status}`}</Text>
+              <EpisodeDateRow text="Next episode" date={data?.nextEpisode} />
+              <EpisodeDateRow text="Previous episode" date={data?.previousEpisode} />
+            </View>
           </View>
-          <View style={styles.content}>
-            <Text>{`${name} - ${status}`}</Text>
-            <EpisodeDateRow text="Next episode" date={data?.nextEpisode} />
-            <EpisodeDateRow text="Previous episode" date={data?.previousEpisode} />
-          </View>
-        </View>
-        <View style={styles.separator} />
+          <View style={styles.separator} />
+        </>
       </Touchable>
     );
   }

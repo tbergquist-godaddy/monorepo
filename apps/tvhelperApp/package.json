@@ -5,7 +5,8 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start"
+    "start": "react-native start",
+    "preandroid": "yarn monorepo-babel-node scripts/patchCli.js"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.2",

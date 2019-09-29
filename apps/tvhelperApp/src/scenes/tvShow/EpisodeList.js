@@ -60,10 +60,12 @@ class EpisodeList extends React.Component<Props, State> {
           onPress={this.toggleEpisodes}
           style={[styles.expandButton, this.state.showEpisodes && styles.expanded]}
         >
-          <Text>Episodes</Text>
-          <Animated.View style={{ transform: [{ rotate: transformation }] }}>
-            <MaterialIcons name={'expand-less'} size={20} color={Colors.primary} />
-          </Animated.View>
+          <>
+            <Text>Episodes</Text>
+            <Animated.View style={{ transform: [{ rotate: transformation }] }}>
+              <MaterialIcons name={'expand-less'} size={20} color={Colors.primary} />
+            </Animated.View>
+          </>
         </Touchable>
         {this.state.showEpisodes &&
           data.map(episode => {
