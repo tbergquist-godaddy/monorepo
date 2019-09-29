@@ -36,3 +36,9 @@ Apps can be run from the monorepo root like `yarn workspace @tbergq/tvhelper dev
 The monorepo will by default only lint the files you have changed. Run `yarn lint --all` if you want to lint all files. This is useful when you change an eslint rule, or upgrade eslint it self. 
 
 The tests will by default only test `dirty workspaces`, in other words, only workspaces affected by your changes. If you wish to run all tests, please do `yarn test --all`
+
+## Apps
+
+[Tvhelper](./apps/tvhelper/readme.md)
+[Tvhelper-app](./apps/tvhelperApp/readme.md)
+[graphql](https://github.com/tbergq/monorepo/tree/master/apps/graphql)
