@@ -7,3 +7,8 @@
 - From the monerpo root run `yarn workspaces @tbergq/select-list dev`
 - Navigate to `localhost:3000`;
  
+
+ ### Testing and linting
+
+ - From the monorepo root, do `yarn test apps/select-list`
+ - From the monorepo root, do `yarn lint apps/select-list --all`

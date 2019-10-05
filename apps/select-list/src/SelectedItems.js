@@ -12,7 +12,7 @@ export default function SelectedItems() {
   return (
     <div className="SelectedItems">
       <p>Selected Items</p>
-      {selectedItems.join(', ')}
+      <span data-testid="selectedItems">{selectedItems.join(', ')}</span>
     </div>
   );
 }
