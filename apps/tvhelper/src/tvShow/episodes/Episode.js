@@ -35,7 +35,9 @@ const unMarkAsWatched = (props: Props) => {
 
 const Episode = (props: Props) => {
   const name = props.episode?.name ?? '';
-  const date = format(props.episode?.airdate ?? '', 'Do MMM YYYY');
+  const airdate = props.episode?.airdate ?? null;
+  const rawDate = airdate != null ? new Date(airdate) : null;
+  const date = rawDate !== null ? format(rawDate, 'do MMM yyyy') : '';
   const seasonAndNumber = props.episode?.seasonAndNumber ?? '';
   const summary = props.episode?.summary ?? '';
   const watched = props.episode?.watched === true;
