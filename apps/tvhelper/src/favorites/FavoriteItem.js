@@ -11,13 +11,13 @@ type Props = {|
   +favorite: ?Favorite,
 |};
 
-const DATE_FORMAT = 'Do MMM YYYY';
+const DATE_FORMAT = 'do MMM yyyy';
 
 const getFormattedDate = (date: ?string) => {
   if (date == null) {
     return 'Unknown';
   }
-  return format(date, DATE_FORMAT);
+  return format(new Date(date), DATE_FORMAT);
 };
 
 const FavoriteItem = (props: Props) => {

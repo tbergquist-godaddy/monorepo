@@ -11,7 +11,7 @@ type Props = {|
 |};
 
 export default function EpisodeDateRow(props: Props) {
-  const date = props.date != null ? format(props.date, 'Do MMM YY') : 'Unkown';
+  const date = props.date != null ? format(new Date(props.date), 'do MMM yy') : 'Unkown';
   return (
     <View style={styles.row}>
       <Text>{props.text}</Text>
