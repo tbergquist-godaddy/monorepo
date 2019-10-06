@@ -43,15 +43,13 @@ export default class ReadMore extends React.Component<Props> {
 
   render() {
     return (
-      <>
-        <OriginalReadMore
-          numberOfLines={this.props.numberOfLines}
-          renderTruncatedFooter={this.renderTruncatedFooter}
-          renderRevealedFooter={this.renderRevealedFooter}
-        >
-          {this.props.children}
-        </OriginalReadMore>
-      </>
+      <OriginalReadMore
+        numberOfLines={this.props.numberOfLines}
+        renderTruncatedFooter={this.renderTruncatedFooter}
+        renderRevealedFooter={this.renderRevealedFooter}
+      >
+        {this.props.children}
+      </OriginalReadMore>
     );
   }
 }

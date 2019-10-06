@@ -67,10 +67,25 @@ it('renders', () => {
     }
 
     .c0:focus {
-      box-shadow: 0 0 1px 1px #FFFFFF,0 0 1px 3px rgba(1,114,203,0.6);
+      box-shadow: 0 0 0 3px rgba(1,114,203,0.5);
     }
 
     .c0:focus:active {
+      box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
+    }
+
+    .c0:focus:not(:focus-visible) {
+      box-shadow: none;
+      background: #0172CB;
+    }
+
+    .c0:-moz-focusring,
+    .c0:focus-visible {
+      box-shadow: 0 0 0 3px rgba(1,114,203,0.5);
+    }
+
+    .c0:-moz-focusring:active,
+    .c0:focus-visible:active {
       box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
     }
 

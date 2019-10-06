@@ -24,7 +24,6 @@ export default function LoginMutation(
   commitMutation(environment, {
     mutation,
     variables,
-    // $FlowFixMe
     onCompleted,
   });
 }
