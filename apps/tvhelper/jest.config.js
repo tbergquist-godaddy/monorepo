@@ -13,7 +13,5 @@ module.exports = {
     '<rootDir>/scripts/jest.js',
     path.join(__dirname, '..', '..', 'scripts', 'setupTest.js'),
   ],
-  transformIgnorePatterns: [
-    '/node_modules/(?!react-native|react-navigation|react-native-read-more-text)',
-  ],
+  transformIgnorePatterns: ['/node_modules/(?!react-navigation|react-native-read-more-text)'],
 };
