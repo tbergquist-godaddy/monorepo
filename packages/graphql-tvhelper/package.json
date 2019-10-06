@@ -19,6 +19,6 @@
   "devDependencies": {
     "mockdate": "^2.0.5",
     "mockingoose": "^2.13.2",
-    "mongodb-memory-server": "^5.2.5"
+    "mongodb-memory-server": "^5.2.6"
   }
 }
