@@ -16,7 +16,10 @@
 }
 
 .List__item.selected {
-  border: 4px solid rgb(34, 44, 190);
+  border: 2px solid rgb(34, 44, 190);
+  background-color: white;
+  color: black;
+  list-style-type: none;
 }
 
 /* Taken from https://clrs.cc/ */
