@@ -32,3 +32,9 @@ This command removes all unused suppress comments while keeping unused comments 
 Read this article for more details and justification of this approach: https://medium.com/flow-type/upgrading-flow-codebases-40ef8dd3ccd8
 
 Tip: great way how to migrate some large scale changes is to use `npx flow-upgrade`.
+
+
+### React types
+
+Prefer to use `React.Node` notation instead of `React$Node` notation. In theory, they are the same, but there are bugs with the latter version.
+See [this](https://github.com/facebook/flow/issues/8121) issue
