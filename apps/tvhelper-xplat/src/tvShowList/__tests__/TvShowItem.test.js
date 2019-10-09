@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { unwrapContainer, createMockEnvironment } from 'relay-test-utils';
-import { create } from 'react-test-renderer';
+import { render, fireEvent, act } from '@testing-library/react';
 
 import TvShowItemFragment from '../TvShowItem';
 
@@ -22,9 +22,12 @@ const props = {
 };
 it('calls onPress correctly', () => {
   const onPress = jest.fn();
-  const wrapper = create(<TvShowItem {...props} onPress={onPress} />);
-  const button = wrapper.root.findByProps({ testID: 'TouchableOpacity' });
-  button.props.onPress();
+  const { getByTestId } = render(<TvShowItem {...props} onPress={onPress} />);
+  const button = getByTestId('tvShowButton');
+
+  act(() => {
+    fireEvent.click(button);
+  });
 
   expect(onPress).toHaveBeenCalledWith({
     environment: props.relay.environment,

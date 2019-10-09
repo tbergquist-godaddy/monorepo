@@ -1,16 +1,17 @@
 // @flow
 
 import * as React from 'react';
-import { Text, Colors, Touchable } from '@tbergq/rn-components';
+import { Text, Colors } from '@tbergq/rn-components';
 import {
   graphql,
   createFragmentContainer,
   type RelayProp,
   type RelayEnvironmentType,
 } from '@tbergq/relay';
-import { Image, View, StyleSheet, Dimensions, Platform } from 'react-native';
+import { Image, View, StyleSheet, Platform } from 'react-native';
 
 import type { TvShowItem_data as TvShow } from './__generated__/TvShowItem_data.graphql';
+import TvShowButton from './TvShowButton';
 
 type NavigationOptions = {|
   +id: ?string,
@@ -22,45 +23,43 @@ type Props = {|
   +data: ?TvShow,
   +onPress: NavigationOptions => void,
   +relay: RelayProp,
+  +width: number,
 |};
 
-class TvShowItem extends React.Component<Props> {
-  onPress = () => {
-    this.props.onPress({
-      id: this.props.data?.id,
-      name: this.props.data?.name,
-      environment: this.props.relay.environment,
+function TvShowItem(props: Props) {
+  const status = props.data?.status ?? '';
+  const name = props.data?.name ?? '';
+  const rating = props.data?.rating ?? '';
+
+  const onPress = () => {
+    props.onPress({
+      id: props.data?.id,
+      name,
+      environment: props.relay.environment,
     });
   };
 
-  render() {
-    const status = this.props.data?.status ?? '';
-    const name = this.props.data?.name ?? '';
-    const rating = this.props.data?.rating ?? '';
-    return (
-      <Touchable onPress={this.onPress}>
-        <View style={styles.container}>
-          <Image
-            source={{ uri: this.props.data?.image?.medium }}
-            style={StyleSheet.absoluteFill}
-            resizeMode="cover"
-          />
-          <View style={styles.bottomSheet}>
-            <Text style={styles.text}>{`${name} - ${rating}`}</Text>
-            <Text style={[styles.text, styles[status.toLowerCase()]]}>{status}</Text>
-          </View>
+  return (
+    <TvShowButton onPress={onPress}>
+      <View style={[styles.container, { width: props.width }]}>
+        <Image
+          source={{ uri: props.data?.image?.medium }}
+          style={StyleSheet.absoluteFill}
+          resizeMode="cover"
+        />
+        <View style={styles.bottomSheet}>
+          <Text style={styles.text}>{`${name} - ${rating}`}</Text>
+          <Text style={[styles.text, styles[status.toLowerCase()]]}>{status}</Text>
         </View>
-      </Touchable>
-    );
-  }
+      </View>
+    </TvShowButton>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: Platform.OS === 'web' ? 300 : (Dimensions.get('window').width - 30) / 2,
     height: Platform.OS === 'web' ? 300 : 150,
-    marginEnd: 5,
-    marginBottom: 5,
+    marginBottom: 8,
     backgroundColor: Colors.gray,
   },
   bottomSheet: {
