@@ -27,15 +27,17 @@ export default class SearchScene extends React.Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <TextInput
-          placeholder="Search tv show"
-          value={this.state.input}
-          onChangeText={this.onChange}
-        />
-        <View style={styles.row}>
-          <View style={styles.item} />
-          <Button text="Search" onPress={this.search} />
+      <View style={styles.wrapper}>
+        <View style={styles.container}>
+          <TextInput
+            placeholder="Search tv show"
+            value={this.state.input}
+            onChangeText={this.onChange}
+          />
+          <View style={styles.row}>
+            <View style={styles.item} />
+            <Button text="Search" onPress={this.search} />
+          </View>
         </View>
         {this.state.query !== '' && <SearchContainer query={this.state.query} />}
       </View>
@@ -44,8 +46,10 @@ export default class SearchScene extends React.Component<Props, State> {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     flex: 1,
+  },
+  container: {
     paddingTop: 10,
     paddingHorizontal: 10,
   },

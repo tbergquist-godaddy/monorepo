@@ -13,4 +13,5 @@ module.exports = {
     path.join(__dirname, '..', '..', 'scripts', 'setupTest.js'),
   ],
   transformIgnorePatterns: ['/node_modules/(?!react-navigation|react-native-read-more-text)'],
+  moduleFileExtensions: ['web.js', 'js', 'json'],
 };

@@ -44,7 +44,7 @@ export default function QueryRenderer(props: Props) {
     if (data) {
       return props.render(data);
     }
-    return <Loader testID="queryRenderLoader" size="large" />;
+    return <Loader testID="queryRenderLoader" size={Platform.OS === 'web' ? 'large' : 'small'} />;
   }
 
   return (
