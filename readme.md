@@ -39,6 +39,6 @@ The tests will by default only test `dirty workspaces`, in other words, only wor
 
 ## Apps
 
-[Tvhelper](./apps/tvhelper/readme.md)
-[Tvhelper-app](./apps/tvhelperApp/readme.md)
-[graphql](https://github.com/tbergq/monorepo/tree/master/apps/graphql)
+- [Tvhelper](./apps/tvhelper/readme.md)
+- [Tvhelper-app](./apps/tvhelperApp/readme.md)
+- [graphql](https://github.com/tbergq/monorepo/tree/master/apps/graphql)
