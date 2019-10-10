@@ -165,6 +165,10 @@ it('renders', () => {
     }
 
     .c1 {
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -198,6 +202,24 @@ it('renders', () => {
       }
     }
 
+    @media (min-width:768px) {
+      .c1 {
+        width: 750px;
+      }
+    }
+
+    @media (min-width:992px) {
+      .c1 {
+        width: 970px;
+      }
+    }
+
+    @media (min-width:1200px) {
+      .c1 {
+        width: 1170px;
+      }
+    }
+
     @media only screen and (min-width:768px) {
       .c8 {
         display: none;
@@ -218,17 +240,6 @@ it('renders', () => {
     >
       <div
         className="c1"
-        style={
-          Object {
-            "boxSizing": "border-box",
-            "marginLeft": "auto",
-            "marginRight": "auto",
-            "maxWidth": "960px",
-            "paddingLeft": "15px",
-            "paddingRight": "15px",
-            "position": "relative",
-          }
-        }
       >
         <div
           className="c2"
@@ -297,14 +308,6 @@ it('renders', () => {
             </button>
           </div>
         </div>
-        <span
-          style={
-            Object {
-              "clear": "both",
-              "display": "table",
-            }
-          }
-        />
       </div>
     </nav>
   `);
