@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Row, Col } from '@tbergq/components';
+import { Stack } from '@tbergq/components';
 import Router, { useRouter } from 'next/router';
 
 import SearchForm from './SearchForm';
@@ -19,13 +19,13 @@ export default function SearchScene() {
   }
 
   return (
-    <Row>
-      <Col xs={12}>
+    <>
+      <Stack>
         <SearchForm onSubmit={onSubmit} />
-      </Col>
-      <Col xs={12}>
+      </Stack>
+      <Stack>
         <SearchQuery query={query} />
-      </Col>
-    </Row>
+      </Stack>
+    </>
   );
 }

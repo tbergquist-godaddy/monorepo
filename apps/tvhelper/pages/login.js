@@ -1,12 +1,27 @@
 // @flow
 
 import * as React from 'react';
-import { Row, Col, Link } from '@tbergq/components';
+import { Link } from '@tbergq/components';
 import { isLoggedIn } from '@tbergq/utils';
 import Router from 'next/router';
+import styled from 'styled-components';
+import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
 import Layout from '../src/components/Layout';
 import LoginForm from '../src/login/LoginForm';
+
+const FormGrid = styled.div({
+  display: 'grid',
+  gridTemplateColumns: '1fr 80% 1fr',
+  gridTemplateRows: '1fr 1fr',
+  [`@media (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
+    gridTemplateColumns: '1fr 50% 1fr',
+  },
+});
+
+const FormItem = styled.div({
+  gridColumnStart: 2,
+});
 
 export default function Login() {
   React.useEffect(() => {
@@ -16,16 +31,16 @@ export default function Login() {
   });
   return (
     <Layout isLoggedIn={false}>
-      <Row>
-        <Col offset={{ md: 3 }} md={6}>
+      <FormGrid>
+        <FormItem>
           <LoginForm />
-        </Col>
-        <Col offset={{ md: 3 }} md={6} align="end">
+        </FormItem>
+        <FormItem>
           <Link prefetch={true} href="/signup">
             Don&lsquo;t have an account? Signup
           </Link>
-        </Col>
-      </Row>
+        </FormItem>
+      </FormGrid>
     </Layout>
   );
 }

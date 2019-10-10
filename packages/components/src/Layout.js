@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { Row, Col } from 'react-grid-system';
 import styled from 'styled-components';
+import Stack from '@kiwicom/orbit-components/lib/Stack';
 
 import Container from './Container';
 
@@ -18,9 +18,7 @@ export default function Layout(props: Props) {
   return (
     <PageContainer>
       <Container>
-        <Row>
-          <Col xs={12}>{props.children}</Col>
-        </Row>
+        <Stack>{props.children}</Stack>
       </Container>
     </PageContainer>
   );

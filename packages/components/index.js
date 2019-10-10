@@ -9,9 +9,10 @@ export { default as NavLink } from './src/NavLink';
 export { default as LoginForm } from './src/loginForm/LoginForm';
 export { default as Link } from './src/Link';
 
-export { Row, Col } from 'react-grid-system';
 export { default as ListItem } from '@kiwicom/orbit-components/lib/ListChoice';
 export { default as Heading } from '@kiwicom/orbit-components/lib/Heading';
+export { default as Stack } from '@kiwicom/orbit-components/lib/Stack';
+export { default as Grid } from '@kiwicom/orbit-components/lib/utils/Grid';
 export {
   default as Table,
   TableHead,
