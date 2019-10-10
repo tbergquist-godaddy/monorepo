@@ -30,8 +30,12 @@ export default function Layout(props: Props) {
   );
   return (
     <>
-      <Navbar brand="Tvhelper" headerLeft={headerLeft} headerRight={headerRight} />
-      <PageLayout>{props.children}</PageLayout>
+      <header>
+        <Navbar brand="Tvhelper" headerLeft={headerLeft} headerRight={headerRight} />
+      </header>
+      <main>
+        <PageLayout>{props.children}</PageLayout>
+      </main>
     </>
   );
 }
