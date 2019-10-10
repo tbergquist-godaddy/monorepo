@@ -2,12 +2,12 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { Container } from 'react-grid-system';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 import { MdMenu } from 'react-icons/md';
 // eslint-disable-next-line no-restricted-imports
 import Link from 'next/link';
 
+import Container from './Container';
 import Button from './Button';
 
 const NAV_BACKGROUND = '#222';

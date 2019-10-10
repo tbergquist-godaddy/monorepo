@@ -1,8 +1,10 @@
 // @flow
 
 import * as React from 'react';
-import { Container, Row, Col } from 'react-grid-system';
+import { Row, Col } from 'react-grid-system';
 import styled from 'styled-components';
+
+import Container from './Container';
 
 type Props = {|
   +children: React.Node | React.ChildrenArray<React.Node>,

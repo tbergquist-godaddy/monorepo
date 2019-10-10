@@ -9,7 +9,7 @@ export { default as NavLink } from './src/NavLink';
 export { default as LoginForm } from './src/loginForm/LoginForm';
 export { default as Link } from './src/Link';
 
-export { Container, Row, Col } from 'react-grid-system';
+export { Row, Col } from 'react-grid-system';
 export { default as ListItem } from '@kiwicom/orbit-components/lib/ListChoice';
 export { default as Heading } from '@kiwicom/orbit-components/lib/Heading';
 export {
@@ -28,3 +28,4 @@ export {
   CardSectionHeader,
 } from '@kiwicom/orbit-components/lib/Card';
 export { default as Autocomplete } from './src/autocomplete/Autocomplete';
+export { default as Container } from './src/Container';
