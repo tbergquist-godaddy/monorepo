@@ -10,6 +10,14 @@ type Props = {|
   +tvShowId: ?string,
 |};
 
+export const tvShowQuery = graphql`
+  query TvShowQuery($id: ID!) {
+    tvShowDetail(id: $id) {
+      ...TvShowPage_tvShow
+    }
+  }
+`;
+
 function renderQuery(props: TvShowQueryResponse) {
   return <TvShowPage tvShow={props.tvShowDetail} />;
 }
@@ -19,16 +27,6 @@ export default function TvShowQuery(props: Props) {
     return null;
   }
   return (
-    <QueryRenderer
-      query={graphql`
-        query TvShowQuery($id: ID!) {
-          tvShowDetail(id: $id) {
-            ...TvShowPage_tvShow
-          }
-        }
-      `}
-      variables={{ id: props.tvShowId }}
-      render={renderQuery}
-    />
+    <QueryRenderer query={tvShowQuery} variables={{ id: props.tvShowId }} render={renderQuery} />
   );
 }
