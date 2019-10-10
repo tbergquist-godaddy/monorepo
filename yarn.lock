@@ -1949,6 +1949,13 @@
   dependencies:
     ramda "^0.26.1"
 
+"@kiwicom/orbit-design-tokens@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.8.0.tgz#7eaa0d90fb40701131e1dad1091591d1e77f8490"
+  integrity sha512-Vm6XLg0lnEM5aFYPPvsXQG9/o2G8iElgmz93q8r8XZ/wwRDjEhRonVqp7WdX7KbxAgpGCjH28bBz7+71PZLSJw==
+  dependencies:
+    ramda "^0.26.1"
+
 "@kiwicom/relay@^4.5.0":
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/relay/-/relay-4.5.0.tgz#8910b2d9754bfa5b402c937b3b686ac599ded997"
@@ -10285,13 +10292,6 @@ react-error-overlay@5.1.6:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha512-X1Y+0jR47ImDVr54Ab6V9eGk0Hnu7fVWGeHQSOXHf/C2pF9c6uy3gef8QUeuUiWlNb0i08InPSE5a/KJzNzw1Q==
-
-react-grid-system@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/react-grid-system/-/react-grid-system-5.0.2.tgz#ffe03ba57840271a6bfafc9856a9ca0633bf79b9"
-  integrity sha512-UJMPhI+/wsclsD+G6l0Z8hF1cq25SIW3VLmp+gLDaNs9hsMBvJHFKzTnf6KMZd++YpiB26aZr4ykhQDe/uPE7Q==
-  dependencies:
-    prop-types "^15.7.2"
 
 react-icons@^3.7.0:
   version "3.7.0"

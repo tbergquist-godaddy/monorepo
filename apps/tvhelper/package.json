@@ -5,6 +5,7 @@
   "dependencies": {
     "@kiwicom/fetch": "^2.5.1",
     "@kiwicom/monorepo-utils": "^0.24.0",
+    "@kiwicom/orbit-design-tokens": "^0.8.0",
     "@kiwicom/relay": "^4.5.0",
     "@tbergq/components": "^0",
     "@tbergq/relay": "^0",

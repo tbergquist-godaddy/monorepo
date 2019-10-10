@@ -1,12 +1,26 @@
 // @flow
 
 import * as React from 'react';
-import { Row, Col } from '@tbergq/components';
 import { isLoggedIn } from '@tbergq/utils';
 import Router from 'next/router';
+import { defaultTokens } from '@kiwicom/orbit-design-tokens';
+import styled from 'styled-components';
 
 import SignupForm from '../src/signup/SignupForm';
 import Layout from '../src/components/Layout';
+
+const GridContainer = styled.div({
+  display: 'grid',
+  gridTemplateColumns: '1fr 80% 1fr',
+  gridTemplateRows: '1fr 1fr',
+  [`@media (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
+    gridTemplateColumns: '1fr 50% 1fr',
+  },
+});
+
+const GridItem = styled.div({
+  gridColumnStart: 2,
+});
 
 export default function Signup() {
   React.useEffect(() => {
@@ -16,11 +30,11 @@ export default function Signup() {
   });
   return (
     <Layout isLoggedIn={false}>
-      <Row>
-        <Col offset={{ md: 3 }} md={6}>
+      <GridContainer>
+        <GridItem>
           <SignupForm />
-        </Col>
-      </Row>
+        </GridItem>
+      </GridContainer>
     </Layout>
   );
 }
