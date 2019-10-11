@@ -8,10 +8,10 @@
     "react-native-read-more-text": "^1.1.0"
   },
   "devDependencies": {
-    "react-native": "0.61.1"
+    "react-native": "0.61.2"
   },
   "peerDependencies": {
-    "react-native": "0.61.1",
+    "react-native": "0.61.2",
     "react-test-renderer": "*"
   }
 }
