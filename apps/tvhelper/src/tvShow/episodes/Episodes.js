@@ -12,7 +12,7 @@ type Props = {|
 
 const Episodes = (props: Props) => {
   const episodes = props.episodes?.episodes ?? [];
-  return episodes.map(episode => <Episode key={episode?.id} episode={episode} />);
+  return episodes.map<React.Node>(episode => <Episode key={episode?.id} episode={episode} />);
 };
 
 export default createFragmentContainer(Episodes, {

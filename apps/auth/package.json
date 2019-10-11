@@ -16,8 +16,8 @@
     "build": "monorepo-babel-node scripts/build.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.2",
-    "@kiwicom/js": "^0.16.0",
+    "@babel/runtime": "^7.6.3",
+    "@kiwicom/js": "^0.17.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
     "@tbergq/tvhelper-persistence": "*",
     "dotenv": "^8.1.0",

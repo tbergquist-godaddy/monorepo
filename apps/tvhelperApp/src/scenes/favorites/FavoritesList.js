@@ -25,7 +25,7 @@ class FavoritesList extends React.Component<Props, State> {
     isRefreshing: false,
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: Props, prevState: State) {
     if (prevState.isRefreshing) {
       this.setState({ isRefreshing: false }); // eslint-disable-line react/no-did-update-set-state
     }
@@ -45,8 +45,9 @@ class FavoritesList extends React.Component<Props, State> {
     );
   };
 
+  // $FlowFixMe
   keyExtractor = item => item.node?.id;
-
+  // $FlowFixMe
   renderItem = ({ item }) => {
     return <FavoritesItem data={item.node} />;
   };
