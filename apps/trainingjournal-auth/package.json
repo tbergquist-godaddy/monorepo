@@ -1,0 +1,15 @@
+{
+  "name": "@tbergq/trainingjournal-auth",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "dev": "yarn run nodemon --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn monorepo-babel-node src/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3",
+    "supertest": "^4.0.2"
+  }
+}
