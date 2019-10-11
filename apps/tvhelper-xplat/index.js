@@ -7,3 +7,4 @@ export { default as DeleteFavoriteMutation } from './src/favorite/DeleteFavorite
 
 // Components
 export { default as TvShowList } from './src/tvShowList/TvShowList';
+export { default as TvShowListItem } from './src/tvShowList/TvShowItem';

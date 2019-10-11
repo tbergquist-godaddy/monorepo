@@ -25,7 +25,7 @@ function TvShowList(props: Props) {
   const onLayout = e => {
     if (e.nativeEvent.layout.width > 500) {
       setLayout({
-        width: (e.nativeEvent.layout.width - 28) / 3,
+        width: (e.nativeEvent.layout.width - 36) / 3,
         imagesPrRow: 3,
       });
     } else {
