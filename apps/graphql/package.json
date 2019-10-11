@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@kiwicom/graphql-bc-checker": "^1.4.1",
-    "@kiwicom/js": "^0.16.0",
+    "@kiwicom/js": "^0.17.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
     "@tbergq/graphql-persistence": "*",
     "@tbergq/graphql-services": "*",
