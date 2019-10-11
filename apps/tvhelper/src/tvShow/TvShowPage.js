@@ -27,6 +27,10 @@ const EpisodeGridItem = styled.div({
   },
 });
 
+const ImageWrapper = styled.div({
+  position: 'relative',
+});
+
 type Props = {|
   +tvShow: ?TvShow,
 |};
@@ -37,7 +41,9 @@ const TvShowPage = (props: Props) => {
     <>
       <Heading>{name}</Heading>
       <GridContainer>
-        <TvShowImage tvShow={props.tvShow} />
+        <ImageWrapper>
+          <TvShowImage tvShow={props.tvShow} />
+        </ImageWrapper>
         <div dangerouslySetInnerHTML={{ __html: props.tvShow?.summary }} />
         <EpisodeGridItem>
           <Episodes episodes={props.tvShow} />
