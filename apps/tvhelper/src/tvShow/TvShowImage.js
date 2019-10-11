@@ -24,8 +24,8 @@ const Image = styled.img({
 
 const FavoriteButton = styled(Button)({
   position: 'absolute',
-  bottom: 5,
-  right: 15,
+  bottom: 10,
+  right: 5,
 });
 
 const TvShowImage = (props: Props) => {
@@ -60,6 +60,7 @@ const TvShowImage = (props: Props) => {
           type={isFavorite ? 'critical' : 'info'}
           onClick={onToggleFavorite}
           dataTest="toggleFavoriteButton"
+          title={isFavorite ? 'Delete favorite' : 'Add favorite'}
         >
           <MdFavorite />
         </FavoriteButton>
