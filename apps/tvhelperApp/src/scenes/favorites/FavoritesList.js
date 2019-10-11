@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import * as React from 'react';
 import { FlatList, StyleSheet, View, RefreshControl } from 'react-native';
@@ -18,6 +18,13 @@ type Props = {|
 
 type State = {|
   isRefreshing: boolean,
+|};
+
+type Edge = {|
+  +node: ?{|
+    +id: string,
+    +$fragmentRefs: any,
+  |},
 |};
 
 class FavoritesList extends React.Component<Props, State> {
@@ -45,10 +52,9 @@ class FavoritesList extends React.Component<Props, State> {
     );
   };
 
-  // $FlowFixMe
-  keyExtractor = item => item.node?.id;
-  // $FlowFixMe
-  renderItem = ({ item }) => {
+  keyExtractor = (item: Edge) => item.node?.id;
+
+  renderItem = ({ item }: {| +item: Edge |}) => {
     return <FavoritesItem data={item.node} />;
   };
 

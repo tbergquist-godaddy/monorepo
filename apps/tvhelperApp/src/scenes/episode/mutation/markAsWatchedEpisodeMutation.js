@@ -17,7 +17,7 @@ const mutation = graphql`
 `;
 
 type Args = {|
-  +onCompleted?: (response: markAsWatchedEpisodeMutation, error: Error) => void,
+  +onCompleted?: (response: markAsWatchedEpisodeMutation, errors: ?$ReadOnlyArray<Error>) => void,
   +onError?: () => void,
   +episodeId: string,
 |};
@@ -29,7 +29,6 @@ const markAsWatched = (
   commitMutation(environment, {
     mutation,
     variables: { episodeId },
-    // $FlowFixMe
     onCompleted,
     onError,
     optimisticResponse: {

@@ -21,7 +21,10 @@ const mutation = graphql`
 
 type Args = {|
   ...unmarkAsWatchedEpisodeMutationVariables,
-  +onCompleted?: (response: unmarkAsWatchedEpisodeMutationResponse, error: Error) => void,
+  +onCompleted?: (
+    response: unmarkAsWatchedEpisodeMutationResponse,
+    errors: ?$ReadOnlyArray<Error>,
+  ) => void,
   +onError?: () => void,
 |};
 
@@ -29,7 +32,6 @@ const deleteAsWatched = (
   environment: RelayEnvironmentType,
   { onCompleted, onError, episodeId }: Args,
 ) => {
-  // $FlowFixMe
   commitMutation(environment, {
     mutation,
     variables: { episodeId },
