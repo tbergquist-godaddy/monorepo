@@ -9,12 +9,12 @@ import app from './app';
 import connection from './db/connection';
 
 config();
-const { PORT, DB_URL } = process.env;
+const { PORT, TJA_DB_URL } = process.env;
 
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-invariant(DB_URL != null, 'Expected to have DB_URL environment varible, but it was undefined');
+invariant(TJA_DB_URL != null, 'Expected to have DB_URL environment varible, but it was undefined');
 
-connection.openUri(DB_URL, {
+connection.openUri(TJA_DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
