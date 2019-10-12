@@ -2,7 +2,7 @@
   "version": 2,
   "name": "trainingjournal-auth",
   "builds": [
-    { "src": "apps/trainingjournal-auth/src/index.js", "use": "@now/node-server", "config": { "maxLambdaSize": "50mb" } }
+    { "src": "apps/trainingjournal-auth/src/index.js", "use": "@now/node", "config": { "maxLambdaSize": "50mb" } }
   ],
   "env": {
     "NODE_ENV": "production",
