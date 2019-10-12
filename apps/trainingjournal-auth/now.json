@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "trainingjournal-auth",
+  "builds": [
+    { "src": "apps/trainingjournal-auth/src/index.js", "use": "@now/node-server", "config": { "maxLambdaSize": "50mb" } }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "TJA_DB_URL":"@tja_db_url"
+  },
+  "alias": "trainingjournal-auth.now.sh",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/apps/trainingjournal-auth/src"
+    }
+  ]
+}

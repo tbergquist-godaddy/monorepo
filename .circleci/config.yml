@@ -67,6 +67,13 @@ jobs:
           at: ~/tbergq-monorepo
       - run: yarn workspace @tbergq/graphql deploy
 
+  deploy-trainingjournal-auth:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/tbergq-monorepo
+      - run: yarn workspace @tbergq/trainingjournal-auth deploy
+
   deploy-tvhelper:
     <<: *defaults
     steps:
@@ -98,6 +105,14 @@ workflows:
             branches:
               only: master
       - deploy-tvhelper:
+          requires:
+            - flow
+            - lint
+            - jest
+          filters:
+            branches:
+              only: master
+      - deploy-trainingjournal-auth:
           requires:
             - flow
             - lint
