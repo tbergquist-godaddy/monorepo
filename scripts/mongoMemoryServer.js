@@ -6,7 +6,7 @@ import { graphqlConnection } from '@tbergq/graphql-persistence';
 
 let tvhelperServer;
 let graphqlMongoServer;
-const opts = { useNewUrlParser: true, useCreateIndex: true };
+const opts = { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true };
 
 beforeAll(async () => {
   tvhelperServer = new MongoMemoryServer();
