@@ -4,13 +4,22 @@ import type { $Request, $Response } from 'express';
 
 import UserRepository from '../../db/repositories/UserRepository';
 
+// TODO: Move to BE-utils workspace 🤔
+function validateBody(body: { [key: string]: any, ... }, requiredFields: $ReadOnlyArray<string>) {
+  for (const key of requiredFields) {
+    if (body[key] == null) {
+      throw new Error(`Missing required input field ${key}`);
+    }
+  }
+}
+
 export default async function createUser(req: $Request, res: $Response) {
-  // TODO: Verify input, handle error
-  const newUser = {
-    username: req.body.username,
-    password: req.body.password,
-    email: req.body.email,
-  };
-  const user = await UserRepository.createUser(newUser);
-  res.status(201).json({ user });
+  try {
+    validateBody(req.body, ['username', 'password', 'email']);
+  } catch (e) {
+    return res.status(422).json({ error: e.message });
+  }
+  const { username, password, email } = req.body;
+  const user = await UserRepository.createUser({ username, password, email });
+  return res.status(201).json({ user });
 }
