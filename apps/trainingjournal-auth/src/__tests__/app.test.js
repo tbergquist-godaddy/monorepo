@@ -55,4 +55,50 @@ describe('POST/users', () => {
       .expect('Content-Type', /json/)
       .expect(422, { error: 'Missing required input field email' }, done);
   });
+
+  it('fails when username exists', async done => {
+    await request(app)
+      .post('/api/users')
+      .send(
+        JSON.stringify({ username: 'don_tito', password: 'pa$$word', email: 'don@tito.bonito' }),
+      )
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
+
+    request(app)
+      .post('/api/users')
+      .send(
+        JSON.stringify({ username: 'don_tito', password: 'pa$$word', email: 'don@tito.bonito' }),
+      )
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(400, { error: 'E11000 duplicate key error dup key: { : "don_tito" }' }, done);
+  });
+
+  it('fails when email exists', async done => {
+    await request(app)
+      .post('/api/users')
+      .send(
+        JSON.stringify({ username: 'don_tito', password: 'pa$$word', email: 'don@tito.bonito' }),
+      )
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
+
+    request(app)
+      .post('/api/users')
+      .send(
+        JSON.stringify({ username: 'don_tito2', password: 'pa$$word', email: 'don@tito.bonito' }),
+      )
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(
+        400,
+        {
+          error: 'E11000 duplicate key error dup key: { : "don@tito.bonito" }',
+        },
+        done,
+      );
+  });
 });

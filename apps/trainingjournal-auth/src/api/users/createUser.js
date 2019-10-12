@@ -19,7 +19,11 @@ export default async function createUser(req: $Request, res: $Response) {
   } catch (e) {
     return res.status(422).json({ error: e.message });
   }
-  const { username, password, email } = req.body;
-  const user = await UserRepository.createUser({ username, password, email });
-  return res.status(201).json({ user });
+  try {
+    const { username, password, email } = req.body;
+    const user = await UserRepository.createUser({ username, password, email });
+    return res.status(201).json({ user });
+  } catch (e) {
+    return res.status(400).json({ error: e.message });
+  }
 }
