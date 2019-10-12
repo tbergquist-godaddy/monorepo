@@ -26,6 +26,10 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
   },
+  salt: {
+    type: String,
+    required: true,
+  },
 });
 
 const User = connection.model('users', UserSchema);
