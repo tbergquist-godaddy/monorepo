@@ -1,4 +1,4 @@
-# @generated SignedSource<<73c67fbf969b8be84702788f6e0da61d>>
+# @generated SignedSource<<dcc54595478c9546bbe997a2ebee6929>>
 
 # <BREAKING-CHANGES-LOG>
 # </BREAKING-CHANGES-LOG>
@@ -27,6 +27,18 @@ type Cast {
 
 type CreateStoredOperation {
   createdOperations: [StoredOperation]
+}
+
+type CreateTrainingJournalUser {
+  email: String
+
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  username: String
 }
 
 type CreateUserMutation {
@@ -102,6 +114,9 @@ type RootMutation {
   """Add tv show to favorite list"""
   addFavorite(serieId: ID!): AddFavorite
   createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
+
+  """Create a user for trainingjournal application"""
+  createTrainingjournalUser(email: String!, password: String!, username: String!): CreateTrainingJournalUser
   createUser(email: String!, password: String!, username: String!): CreateUserMutation
 
   """Remove tv show from favorite list"""
