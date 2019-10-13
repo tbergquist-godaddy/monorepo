@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`trainingjournal account mutations matches expected output: createTrainingJournalUser.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+mutation {
+  createTrainingjournalUser(username:"test", email:"test@test.no", password:"pass") {
+    id
+    username
+    email
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "createTrainingjournalUser": {
+      "id": "Q3JlYXRlVHJhaW5pbmdKb3VybmFsVXNlcjpzb21lX2lk",
+      "username": "test",
+      "email": "test@test.no"
+    }
+  }
+}
+`;
