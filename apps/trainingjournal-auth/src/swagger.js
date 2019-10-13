@@ -19,7 +19,7 @@ export default {
       description: 'API for users in the system',
     },
   ],
-  schemes: ['http'],
+  schemes: __DEV__ ? ['http'] : ['https'],
   consumes: ['application/json'],
   produces: ['application/json'],
   paths: {
