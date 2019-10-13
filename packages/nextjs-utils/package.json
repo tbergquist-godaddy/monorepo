@@ -1,0 +1,11 @@
+{
+  "name": "@tbergq/nextjs-utils",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "react": "16.9.0",
+    "next": "^9.1.1",
+    "nprogress": "^0.2.0"
+  }
+}
