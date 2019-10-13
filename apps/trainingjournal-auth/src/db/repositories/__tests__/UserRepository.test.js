@@ -21,6 +21,7 @@ describe('UserRepository', () => {
   });
 
   it('does not return the password', async () => {
+    // $FlowExpectedError: Intentionally checking value not specified by object
     const user = await UserRepository.createUser({
       username: 'løken',
       password: 'I_am_naive',
@@ -29,6 +30,6 @@ describe('UserRepository', () => {
 
     expect(user.username).toEqual('løken');
     expect(user.email).toEqual('lol@lol.no');
-    expect(user.password).toBeNull();
+    expect(user.password).toBeUndefined();
   });
 });

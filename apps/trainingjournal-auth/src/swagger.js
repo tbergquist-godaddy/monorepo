@@ -42,7 +42,7 @@ export default {
           '201': {
             description: 'New user is created',
             schema: {
-              $ref: '#/definitions/User',
+              $ref: '#/definitions/UserOutput',
             },
           },
         },
@@ -62,6 +62,21 @@ export default {
           uniqueItems: true,
         },
         password: {
+          type: 'string',
+        },
+      },
+    },
+    UserOutput: {
+      properties: {
+        email: {
+          type: 'string',
+          uniqueItems: true,
+        },
+        username: {
+          type: 'string',
+          uniqueItems: true,
+        },
+        id: {
           type: 'string',
         },
       },
