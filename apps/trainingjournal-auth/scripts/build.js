@@ -7,10 +7,12 @@ import fs from 'fs';
 import rimraf from 'rimraf';
 import util from 'util';
 import os from 'os';
+import ncp from 'ncp';
 
 import packageJson from '../package.json';
 
 const rimrafPromise = util.promisify(rimraf);
+const ncpPromise = util.promisify(ncp);
 
 const buildDir = path.join(os.tmpdir(), 'trainingjournal-auth');
 
@@ -48,6 +50,10 @@ if (ZEIT_TOKEN == null) {
     fs.writeFileSync(
       path.join(buildDir, 'apps', 'trainingjournal-auth', 'package.json'),
       JSON.stringify(packageJson, null, 2),
+    );
+    await ncpPromise(
+      path.join(buildDir, 'node_modules', 'swagger-ui-dist'),
+      path.join(buildDir, 'apps', 'trainingjournal-auth', 'src', 'swagger-ui-dist'),
     );
     log('built to', buildDir);
     new ShellCommand(buildDir, 'now', '--prod', `--token=${ZEIT_TOKEN}`)
