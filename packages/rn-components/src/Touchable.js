@@ -51,8 +51,7 @@ export default function Touchable(props: Props) {
       </TouchableNativeFeedback>
     );
   }
-  // most convinient way of passing through the props
-  // eslint-disable-next-line no-unused-vars
+
   const { borderless, pressColor, children, ...rest } = props;
   return (
     <TouchableOpacity activeOpacity={0.5} {...rest} testID="TouchableOpacity">

@@ -4,7 +4,7 @@
   "main": "index.js",
   "version": "0.0.1",
   "dependencies": {
-    "@kiwicom/orbit-components": "^0.63.0",
+    "@kiwicom/orbit-components": "^0.64.2",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
     "react-icons": "^3.7.0"
   },
