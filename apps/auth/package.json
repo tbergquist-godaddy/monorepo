@@ -8,7 +8,7 @@
     "google-protobuf": "^3.10.0",
     "grpc-tools": "^1.8.0",
     "mockingoose": "^2.13.2",
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.4"
   },
   "scripts": {
     "protoc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:src/__generated__ --grpc_out=src/__generated__ --proto_path=src auth.proto",
@@ -20,7 +20,7 @@
     "@kiwicom/js": "^0.17.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
     "@tbergq/tvhelper-persistence": "*",
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "grpc": "^1.24.0",
     "jsonwebtoken": "^8.5.1",
     "password-hash": "^1.2.2",
