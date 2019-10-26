@@ -1,7 +1,7 @@
 // @flow strict
 
 import { GraphQLNonNull, GraphQLString } from 'graphql';
-import { fetch } from '@tbergq/graphql-services';
+import { UserRepository } from '@tbergq/trainingjournal-persistence';
 
 import CreateTrainingJournalUser from '../types/output/CreateTrainingjournalUser';
 
@@ -27,14 +27,7 @@ export default {
     },
   },
   resolve: async (_: mixed, { username, password, email }: Args) => {
-    const user = await fetch('https://trainingjournal-auth.now.sh/api/users', {
-      method: 'POST',
-      body: JSON.stringify({
-        username,
-        password,
-        email,
-      }),
-    });
+    const user = await UserRepository.createUser({ username, password, email });
 
     return user;
   },

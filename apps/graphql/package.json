@@ -11,6 +11,7 @@
     "@tbergq/graphql-persistence": "*",
     "@tbergq/graphql-services": "*",
     "@tbergq/tvhelper-persistence": "*",
+    "@tbergq/trainingjournal-persistence": "*",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",

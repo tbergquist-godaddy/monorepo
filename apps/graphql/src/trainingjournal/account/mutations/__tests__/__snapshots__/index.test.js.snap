@@ -14,7 +14,7 @@ mutation {
 {
   "data": {
     "createTrainingjournalUser": {
-      "id": "Q3JlYXRlVHJhaW5pbmdKb3VybmFsVXNlcjpzb21lX2lk",
+      "id": "Q3JlYXRlVHJhaW5pbmdKb3VybmFsVXNlcjox",
       "username": "test",
       "email": "test@test.no"
     }

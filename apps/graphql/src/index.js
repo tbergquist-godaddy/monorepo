@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import passport from 'passport';
 import { tvHelperConnection } from '@tbergq/tvhelper-persistence';
 import { graphqlConnection } from '@tbergq/graphql-persistence';
+import { trainingJournalConnection } from '@tbergq/trainingjournal-persistence';
 import { invariant } from '@kiwicom/js';
 import { config } from 'dotenv';
 import passportJwt from 'passport-jwt';
@@ -19,7 +20,7 @@ import getPersistedQuery from './middleware/getPersistedQuery';
 
 config();
 
-const { PORT, DB_URL: TVHELPER_DB_URL, JWT_SECRET, GRAPHQL_DB_URL } = process.env;
+const { PORT, DB_URL: TVHELPER_DB_URL, JWT_SECRET, GRAPHQL_DB_URL, TJA_DB_URL } = process.env;
 
 passport.use(
   new passportJwt.Strategy(
@@ -51,6 +52,7 @@ app.use('/', attachUserToRequest, getPersistedQuery(), (request: $Request, respo
 
 invariant(TVHELPER_DB_URL != null, 'Expected to have db url for tvhelper, but did not');
 invariant(GRAPHQL_DB_URL != null, 'Expected to have db url for graphql, but did not');
+invariant(TJA_DB_URL != null, 'Expected to have db url for trainingjournal, but did not');
 
 tvHelperConnection.openUri(TVHELPER_DB_URL, {
   useCreateIndex: true,
@@ -58,6 +60,11 @@ tvHelperConnection.openUri(TVHELPER_DB_URL, {
 });
 
 graphqlConnection.openUri(GRAPHQL_DB_URL, {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+});
+
+trainingJournalConnection.openUri(TJA_DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,
 });

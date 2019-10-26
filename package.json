@@ -42,6 +42,7 @@
   },
   "peerDependencies": {
     "@tbergq/graphql-persistence": "*",
-    "@tbergq/tvhelper-persistence": "*"
+    "@tbergq/tvhelper-persistence": "*",
+    "@tbergq/trainingjournal-persistence": "*"
   }
 }
