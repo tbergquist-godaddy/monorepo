@@ -36,4 +36,12 @@ export default class UserRepository {
 
     return new User(user);
   }
+
+  static async verifyPassword(username: string, password: string) {
+    const user = await Model.findOne({ username });
+    if (user == null) {
+      return null;
+    }
+    return encryptPassword(password, user.salt) === user.password ? new User(user) : null;
+  }
 }

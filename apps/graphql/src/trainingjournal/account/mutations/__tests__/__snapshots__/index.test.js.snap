@@ -21,3 +21,41 @@ mutation {
   }
 }
 `;
+
+exports[`trainingjournal account mutations matches expected output: trainingJouranLoginFail.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+mutation fail {
+  trainingJournalLogin(username: "tito", password: "fail") {
+    success
+    token
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "trainingJournalLogin": {
+      "success": false,
+      "token": null
+    }
+  }
+}
+`;
+
+exports[`trainingjournal account mutations matches expected output: trainingJournalLogin.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+mutation success {
+  trainingJournalLogin(username: "tito", password: "123456") {
+    success
+    token
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "trainingJournalLogin": {
+      "success": true,
+      "token": "signedToken"
+    }
+  }
+}
+`;

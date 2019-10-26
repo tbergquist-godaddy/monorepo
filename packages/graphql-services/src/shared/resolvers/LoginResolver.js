@@ -25,7 +25,7 @@ config();
 
 const { JWT_SECRET } = process.env;
 
-const signToken = (user: LoggedInUser) => {
+export const signToken = (user: LoggedInUser) => {
   return jwt.sign(user, JWT_SECRET, {
     expiresIn: '1y',
     issuer: 'tbergq-graphql.now.sh',
