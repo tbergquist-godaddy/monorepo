@@ -7,7 +7,7 @@
     "@kiwicom/monorepo-utils": "^0.24.0",
     "dotenv": "^8.2.0",
     "mongodb": "^3.3.3",
-    "mongoose": "^5.7.5",
+    "mongoose": "^5.7.7",
     "password-hash": "^1.2.2"
   },
   "peerDependencies": {
@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "mockingoose": "^2.13.2",
-    "mongodb-memory-server": "^5.2.8"
+    "mongodb-memory-server": "^6.0.1"
   }
 }
