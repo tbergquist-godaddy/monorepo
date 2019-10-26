@@ -29,6 +29,7 @@
     "@kiwicom/eslint-config": "^8.4.0",
     "@kiwicom/flow-bin": "^0.5.0",
     "@testing-library/jest-dom": "^4.2.0",
+    "@testing-library/react": "^9.3.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
     "flow-bin": "^0.110.1",
@@ -42,7 +43,7 @@
   },
   "peerDependencies": {
     "@tbergq/graphql-persistence": "*",
-    "@tbergq/tvhelper-persistence": "*",
-    "@tbergq/trainingjournal-persistence": "*"
+    "@tbergq/trainingjournal-persistence": "*",
+    "@tbergq/tvhelper-persistence": "*"
   }
 }
