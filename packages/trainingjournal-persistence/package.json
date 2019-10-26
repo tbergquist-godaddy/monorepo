@@ -1,0 +1,12 @@
+{
+  "name": "@tbergq/trainingjournal-persistence",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "mongoose": "^5.7.7"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^6.0.1"
+  }
+}
