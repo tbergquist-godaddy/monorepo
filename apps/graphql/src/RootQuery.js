@@ -1,8 +1,8 @@
 // @flow
 
 import { GraphQLObjectType } from 'graphql';
-import { TvhelperQueries } from '@tbergq/graphql-tvhelper';
 
+import TvhelperQueries from './tvhelper/TvhelperQueries';
 import ensureUniqueFields from './services/ensureUniqueFields';
 
 const queryObjects = [TvhelperQueries];
