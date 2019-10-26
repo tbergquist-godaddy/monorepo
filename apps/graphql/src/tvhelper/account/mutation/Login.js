@@ -1,7 +1,9 @@
 // @flow
 
 import { GraphQLString, GraphQLNonNull } from 'graphql';
-import { LoginType, type GraphqlContextType, LoginResolver } from '@tbergq/graphql-services';
+import { LoginType, LoginResolver } from '@tbergq/graphql-services';
+
+import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 
 type Args = {|
   +username: string,

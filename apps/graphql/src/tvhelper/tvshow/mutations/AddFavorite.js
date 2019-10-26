@@ -2,9 +2,9 @@
 
 import { GraphQLID, GraphQLNonNull } from 'graphql';
 import { fromGlobalId } from '@kiwicom/graphql-global-id';
-import type { GraphqlContextType } from '@tbergq/graphql-services';
 import { FavoritesRepository } from '@tbergq/tvhelper-persistence';
 
+import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import AddFavorite from '../types/output/AddFavorite';
 
 type Args = {|

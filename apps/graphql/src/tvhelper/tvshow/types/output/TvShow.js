@@ -8,14 +8,15 @@ import {
   GraphQLBoolean,
 } from 'graphql';
 import { GraphQLDate } from 'graphql-iso-date';
-import type { TvShow, GraphqlContextType } from '@tbergq/graphql-services';
 import GlobalID from '@kiwicom/graphql-global-id';
 
+import type { TvShow } from '../../TvShow';
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
 import Summary from '../../../common/types/output/Summary';
 import Cast from '../../../common/types/output/Cast';
 import Episode from '../../../episode/types/output/Episode';
 import { resolvePreviousEpisode, resolveNextEpisode } from '../../resolvers/episodeResolvers';
+import type { GraphqlContextType } from '../../../../services/createGraphqlContext';
 
 export default new GraphQLObjectType({
   name: 'TvShow',

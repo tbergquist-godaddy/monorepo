@@ -2,7 +2,8 @@
 
 import Dataloader from 'dataloader';
 import { UserRepository } from '@tbergq/tvhelper-persistence';
-import type { User as UserType } from '@tbergq/graphql-services';
+
+import type { User as UserType } from '../Account';
 
 const fetchUser = async (usernames: $ReadOnlyArray<string>) => {
   const users = await UserRepository.findUsers(usernames);

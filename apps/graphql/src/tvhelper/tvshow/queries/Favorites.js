@@ -2,10 +2,11 @@
 
 import { connectionFromArray, connectionArgs, type ConnectionArguments } from 'graphql-relay';
 import * as R from 'ramda';
-import type { GraphqlContextType, TvShow as TvShowType } from '@tbergq/graphql-services';
 
+import type { TvShow as TvShowType } from '../TvShow';
 import TvShowConnection from '../types/output/TvShowConnection';
 import SortOptions from '../types/input/SortOptions';
+import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 
 type SortBy =
   | 'name'
@@ -19,6 +20,7 @@ type Args = {|
   |},
   ...$Exact<ConnectionArguments>,
 |};
+
 export default {
   name: 'Favorites',
   type: TvShowConnection,

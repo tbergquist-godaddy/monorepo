@@ -3,8 +3,8 @@
 import { GraphQLID, GraphQLNonNull } from 'graphql';
 import { fromGlobalId } from 'graphql-relay';
 import { WatchedEpisodeRepository } from '@tbergq/tvhelper-persistence';
-import type { GraphqlContextType } from '@tbergq/graphql-services';
 
+import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import EpisodeWatched from '../types/output/EpisodeWatched';
 
 type Args = {|

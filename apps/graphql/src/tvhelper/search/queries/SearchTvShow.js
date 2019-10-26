@@ -2,8 +2,9 @@
 
 import { GraphQLString, GraphQLNonNull } from 'graphql';
 import { connectionFromArray, connectionArgs, type ConnectionArguments } from 'graphql-relay';
-import type { GraphqlContextType, TvShow as TvShowType } from '@tbergq/graphql-services';
 
+import type { GraphqlContextType } from '../../../services/createGraphqlContext';
+import type { TvShow as TvShowType } from '../../tvshow/TvShow';
 import TvShowConnection from '../../tvshow/types/output/TvShowConnection';
 
 type Args = {|
