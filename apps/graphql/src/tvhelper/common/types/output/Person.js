@@ -2,8 +2,8 @@
 
 import { GraphQLObjectType, GraphQLID, GraphQLString } from 'graphql';
 import { toGlobalId } from 'graphql-relay';
-import type { Person } from '@tbergq/graphql-services';
 
+import type { Person } from '../../../tvshow/TvShow';
 import TvHelperImage from './TvHelperImage';
 
 type Ancestor = {|

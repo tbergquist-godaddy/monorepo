@@ -2,7 +2,9 @@
 
 import Dataloader from 'dataloader';
 import { WatchedEpisodeRepository } from '@tbergq/tvhelper-persistence';
-import type { LoggedInUser, EpisodeWatched } from '@tbergq/graphql-services';
+import type { LoggedInUser } from '@tbergq/graphql-services';
+
+import type { EpisodeWatched } from '../Episode';
 
 const loadWatchedEpisode = async (args: $ReadOnlyArray<number>, user: ?LoggedInUser) => {
   const watchedEpisodes = await WatchedEpisodeRepository.findEpisodes(user?.id, args);

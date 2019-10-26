@@ -2,8 +2,10 @@
 
 import { GraphQLID, GraphQLNonNull } from 'graphql';
 import { fromGlobalId } from '@kiwicom/graphql-global-id';
-import { type GraphqlContextType, RangeDelete } from '@tbergq/graphql-services';
 import { FavoritesRepository } from '@tbergq/tvhelper-persistence';
+import { RangeDelete } from '@tbergq/graphql-services';
+
+import { type GraphqlContextType } from '../../../services/createGraphqlContext';
 
 type Args = {|
   +serieId: string,

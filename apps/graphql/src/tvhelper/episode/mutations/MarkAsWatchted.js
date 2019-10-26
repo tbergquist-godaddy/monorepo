@@ -2,9 +2,9 @@
 
 import { GraphQLID, GraphQLNonNull } from 'graphql';
 import { fromGlobalId } from '@kiwicom/graphql-global-id';
-import type { GraphqlContextType } from '@tbergq/graphql-services';
 import { WatchedEpisodeRepository } from '@tbergq/tvhelper-persistence';
 
+import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import EpisodeWatched from '../types/output/EpisodeWatched';
 
 type Args = {|

@@ -1,5 +1,7 @@
 // @flow strict
 
+import type { Episode } from '../episode/Episode';
+
 export type Person = {|
   +id: string,
   +name: string,
@@ -9,17 +11,6 @@ export type Person = {|
 export type Cast = {|
   +person: Person,
   +character: Person,
-|};
-
-export type Episode = {|
-  +id: number,
-  +name: string,
-  +season: number,
-  +number: number,
-  +airdate: Date,
-  +image: {| +medium: string, +original: string |},
-  +summary: string,
-  +isWatched?: boolean,
 |};
 
 export type TvShow = {|

@@ -1,7 +1,9 @@
 // @flow
 
 import Dataloader from 'dataloader';
-import { fetch, type Episode } from '@tbergq/graphql-services';
+import { fetch } from '@tbergq/graphql-services';
+
+import { type Episode } from '../Episode';
 
 const fetchEpisodes = async (serieIds: $ReadOnlyArray<string>) => {
   const responses: $ReadOnlyArray<Episode[]> = await Promise.all(

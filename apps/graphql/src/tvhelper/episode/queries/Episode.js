@@ -2,8 +2,8 @@
 
 import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { fromGlobalId } from '@kiwicom/graphql-global-id';
-import type { GraphqlContextType } from '@tbergq/graphql-services';
 
+import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import Episode from '../types/output/Episode';
 
 type Args = {|

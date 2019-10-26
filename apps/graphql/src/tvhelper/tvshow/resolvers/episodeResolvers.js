@@ -1,7 +1,8 @@
 // @flow
 
-import type { GraphqlContextType } from '@tbergq/graphql-services';
 import { invariant } from '@kiwicom/js';
+
+import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 
 type DataLoader = $PropertyType<GraphqlContextType, 'dataLoader'>;
 

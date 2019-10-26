@@ -2,8 +2,8 @@
 
 import { GraphQLObjectType } from 'graphql';
 import GlobalID from '@kiwicom/graphql-global-id';
-import type { Cast } from '@tbergq/graphql-services';
 
+import type { Cast } from '../../../tvshow/TvShow';
 import Person from './Person';
 
 export default new GraphQLObjectType({

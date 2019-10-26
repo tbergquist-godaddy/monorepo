@@ -3,10 +3,11 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql';
 import GlobalID from '@kiwicom/graphql-global-id';
 import { GraphQLDate } from 'graphql-iso-date';
-import type { Episode, GraphqlContextType } from '@tbergq/graphql-services';
 
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
 import Summary from '../../../common/types/output/Summary';
+import type { GraphqlContextType } from '../../../../services/createGraphqlContext';
+import type { Episode } from '../../Episode';
 
 export default new GraphQLObjectType({
   name: 'Episode',

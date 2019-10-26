@@ -1,7 +1,9 @@
 // @flow
 
 import Dataloader from 'dataloader';
-import { fetch, type Episode } from '@tbergq/graphql-services';
+import { fetch } from '@tbergq/graphql-services';
+
+import { type Episode } from '../Episode';
 
 const fetchEpisode = (ids: $ReadOnlyArray<string>) =>
   Promise.all(ids.map(id => fetch(`http://api.tvmaze.com/episodes/${id}`)));
