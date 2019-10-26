@@ -3,15 +3,15 @@
 import { GraphQLObjectType } from 'graphql';
 
 import TvhelperMutations from './tvhelper/TvHelperMutations';
+import TrainingJournalMutations from './trainingjournal/trainingJournalMutations';
 import ensureUniqueFields from './services/ensureUniqueFields';
 import createdStoredOperations from './mutations/StoredOperation';
-import createTrainingjournalUser from './trainingjournal/account/mutations/CreateTrainingjournalUser';
 
 const mutationObjects = [
   TvhelperMutations,
+  TrainingJournalMutations,
   {
     createdStoredOperations,
-    createTrainingjournalUser,
   },
 ];
 

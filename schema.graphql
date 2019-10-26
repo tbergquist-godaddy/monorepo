@@ -1,4 +1,4 @@
-# @generated SignedSource<<dcc54595478c9546bbe997a2ebee6929>>
+# @generated SignedSource<<359590211a4c891ec22b03fe01121db1>>
 
 # <BREAKING-CHANGES-LOG>
 # </BREAKING-CHANGES-LOG>
@@ -127,6 +127,9 @@ type RootMutation {
 
   """Mark an episode as watched"""
   markAsWatched(episodeId: ID!): EpisodeWatched
+
+  """Login to trainingjournal application"""
+  trainingJournalLogin(password: String!, username: String!): LoginType
   tvHelperLogin(password: String!, username: String!): LoginType
 }
 
