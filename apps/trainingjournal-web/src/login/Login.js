@@ -9,9 +9,7 @@ export default function Login() {
   return (
     <CenterForm>
       <LoginForm />
-      <Link prefetch={true} href="/signup">
-        Don&lsquo;t have an account? Signup
-      </Link>
+      <Link href="/signup">Don&lsquo;t have an account? Signup</Link>
     </CenterForm>
   );
 }

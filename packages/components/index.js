@@ -31,3 +31,4 @@ export {
 export { default as Autocomplete } from './src/autocomplete/Autocomplete';
 export { default as Container } from './src/Container';
 export { default as CenterForm } from './src/CenterForm';
+export { default as SignupForm } from './src/signupForm/SignupForm';
