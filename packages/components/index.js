@@ -30,3 +30,4 @@ export {
 } from '@kiwicom/orbit-components/lib/Card';
 export { default as Autocomplete } from './src/autocomplete/Autocomplete';
 export { default as Container } from './src/Container';
+export { default as CenterForm } from './src/CenterForm';
