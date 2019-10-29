@@ -14,7 +14,7 @@ const PageContainer = styled.div({
   marginTop: '60px',
 });
 
-export default function Layout(props: Props) {
+export default function Layout(props: Props): React.Node {
   return (
     <PageContainer>
       <Container>

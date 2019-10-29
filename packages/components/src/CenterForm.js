@@ -20,7 +20,7 @@ const FormItem = styled.div({
 type Props = {|
   +children: React.Node,
 |};
-export default function CenterForm(props: Props) {
+export default function CenterForm(props: Props): React.Element<any> {
   return (
     <FormGrid>
       {React.Children.map(props.children, child => (

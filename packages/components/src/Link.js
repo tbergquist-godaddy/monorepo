@@ -10,7 +10,7 @@ type Props = {|
   +prefetch?: boolean,
 |};
 
-export default function Link({ href, children, ...rest }: Props) {
+export default function Link({ href, children, ...rest }: Props): React.Node {
   return (
     <NextLink href={href} {...rest}>
       <a href={href}>{children}</a>

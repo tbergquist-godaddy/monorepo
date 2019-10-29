@@ -1909,12 +1909,13 @@
     "@kiwicom/js" "^0.16.0"
     cross-fetch "^3.0.4"
 
-"@kiwicom/flow-bin@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/flow-bin/-/flow-bin-0.5.0.tgz#0db70704f9cadf2760753f4a08efa5faa8391506"
-  integrity sha512-l6Ji5kUBWKrS02Slb/sUgBYWlBBVACL2erqMbqZgECJre7eyQ8YZXfaYr/qt3idbrCHWy0JjzgR23bW6SiqHIQ==
+"@kiwicom/flow-bin@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/flow-bin/-/flow-bin-0.6.0.tgz#a3ac8f0723f9e156577ee8d50fa36c8e462350a3"
+  integrity sha512-n1l/D53lm4wXiqsN65y6whunOL13Pb16vjE7WPerPDKANqkwcXkmnyq0bhjaw8krrb0iU8NhIr+sgwmRn1ABKw==
   dependencies:
     "@babel/register" "^7.6.0"
+    "@kiwicom/js" "^0.17.0"
     "@kiwicom/logger" "^0.3.0"
     "@kiwicom/monorepo-utils" "^0.24.0"
     chalk "^2.4.2"

@@ -30,7 +30,7 @@ type Props = {|
   +label?: string,
 |};
 
-export default function Autocomplete({ values, onSelect, ...rest }: Props) {
+export default function Autocomplete({ values, onSelect, ...rest }: Props): React.Element<any> {
   const [input, setInput] = React.useState('');
   const [isFocused, setIsFocused] = React.useState(false);
   const matchedItems = values.filter(value =>

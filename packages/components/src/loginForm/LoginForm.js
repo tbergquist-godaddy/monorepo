@@ -17,7 +17,7 @@ type Props = {|
   +loading: boolean,
 |};
 
-export default function LoginForm(props: Props) {
+export default function LoginForm(props: Props): React.Element<'form'> {
   const [username, changeUsername] = React.useState('');
   const [password, changePassword] = React.useState('');
 
