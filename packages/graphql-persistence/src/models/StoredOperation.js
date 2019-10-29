@@ -22,7 +22,10 @@ const StoredOperationSchema = new Schema({
   },
 });
 
-const StoredOperation = graphqlConnection.model('persistedquery', StoredOperationSchema);
+const StoredOperation: Class<any> = graphqlConnection.model(
+  'persistedquery',
+  StoredOperationSchema,
+);
 
 StoredOperationSchema.indexes();
 
