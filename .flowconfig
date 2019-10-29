@@ -64,6 +64,7 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue:
 experimental.types_first=false
 experimental.well_formed_exports=true
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/components
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/graphql-persistence
 
 [strict]
 deprecated-type
