@@ -14,7 +14,7 @@ type Props = {|
   +name?: string,
 |};
 
-export default function Input({ onChange, ...rest }: Props) {
+export default function Input({ onChange, ...rest }: Props): React.Element<typeof InputField> {
   function change(e: SyntheticInputEvent<HTMLInputElement>) {
     onChange(e.target.value);
   }

@@ -1,9 +1,9 @@
-// @flow strict
+// @flow
 
 import styled from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
-export default styled.div`
+export default (styled.div`
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -17,4 +17,4 @@ export default styled.div`
   @media (min-width: ${defaultTokens.widthBreakpointLargeDesktop}px) {
     width: 1170px;
   }
-`;
+`: any);

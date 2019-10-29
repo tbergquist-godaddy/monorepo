@@ -89,7 +89,7 @@ type Props = {|
   +headerRight?: React.Node,
 |};
 
-export default function Navbar(props: Props) {
+export default function Navbar(props: Props): React.Element<any> {
   const [expandMenu, setExpandMenu] = React.useState(false);
   function toggleExpand() {
     setExpandMenu(expand => !expand);

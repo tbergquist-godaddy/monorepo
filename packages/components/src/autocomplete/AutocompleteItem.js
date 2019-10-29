@@ -19,7 +19,7 @@ type Props = {|
   +onClick: Function,
 |};
 
-export default function AutoComplete({ onClick, id, name }: Props) {
+export default function AutoComplete({ onClick, id, name }: Props): React.Element<any> {
   const onSelect = React.useCallback(() => {
     onClick(id, name);
   }, [id, name, onClick]);

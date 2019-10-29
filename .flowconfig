@@ -61,6 +61,10 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: 
 
+experimental.types_first=false
+experimental.well_formed_exports=true
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/components
+
 [strict]
 deprecated-type
 ;nonstrict-import

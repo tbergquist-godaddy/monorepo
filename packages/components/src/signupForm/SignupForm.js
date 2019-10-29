@@ -23,7 +23,7 @@ type Props = {|
   +isLoading: boolean,
 |};
 
-export default React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((props, ref) => {
+export default (React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((props, ref) => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
@@ -78,4 +78,4 @@ export default React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((p
       <Toast ref={ref} />
     </form>
   );
-});
+}): React.AbstractComponent<Props, null | React.ElementRef<typeof Toast>>);

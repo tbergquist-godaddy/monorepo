@@ -8,7 +8,7 @@ type Props = {|
   +children: ?React.Node,
 |};
 
-export default function TableCell(props: Props) {
+export default function TableCell(props: Props): React.Node {
   return <Cell {...props} />;
 }
 

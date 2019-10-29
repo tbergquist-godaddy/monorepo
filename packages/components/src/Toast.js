@@ -35,7 +35,7 @@ type State = {|
   +message: string | null,
 |};
 
-export default class Toast extends React.Component<Props, State> {
+class Toast extends React.Component<Props, State> {
   static defaultProps = {
     timeout: 3000,
     top: false,
@@ -72,3 +72,5 @@ export default class Toast extends React.Component<Props, State> {
     );
   }
 }
+
+export default (Toast: any);
