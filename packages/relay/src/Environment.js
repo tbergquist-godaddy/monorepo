@@ -7,7 +7,7 @@ import {
   RecordSource,
   Store,
 } from 'relay-runtime';
-import fetch from '@kiwicom/fetch';
+import fetch from '@adeira/fetch';
 
 const cache = new QueryResponseCache({ size: 100, ttl: 1000 * 60 * 60 * 15 }); // 15 minutes
 

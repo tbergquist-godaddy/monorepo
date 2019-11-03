@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@kiwicom/fetch": "^2.5.1",
+    "@adeira/fetch": "^0.1.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
     "@kiwicom/relay": "^4.7.1",
