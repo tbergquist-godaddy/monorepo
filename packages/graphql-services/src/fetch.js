@@ -1,6 +1,6 @@
 // @flow
 
-import fetch from '@kiwicom/fetch';
+import fetch from '@adeira/fetch';
 
 type FetchOptions = {
   +method?: 'GET' | 'POST',

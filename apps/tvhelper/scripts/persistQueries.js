@@ -1,7 +1,7 @@
 // @flow
 
 import path from 'path';
-import fetch from '@kiwicom/fetch';
+import fetch from '@adeira/fetch';
 import { ShellCommand } from '@kiwicom/monorepo-utils';
 
 const query = `mutation create($storedOperations: [StoredOperationInput!]!) {

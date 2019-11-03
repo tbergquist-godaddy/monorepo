@@ -1,12 +1,12 @@
 // @flow
 
-import fetchWithRetries from '@kiwicom/fetch';
+import fetchWithRetries from '@adeira/fetch';
 
 import fetch from '../fetch';
 
 jest.unmock('../fetch.js');
 
-jest.mock('@kiwicom/fetch', () => {
+jest.mock('@adeira/fetch', () => {
   return jest.fn(() => {
     return Promise.resolve({
       json: () => Promise.resolve(),

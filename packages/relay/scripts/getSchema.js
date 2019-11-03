@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import fetch from '@kiwicom/fetch';
+import fetch from '@adeira/fetch';
 import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql/utilities';
 
 (async () => {
