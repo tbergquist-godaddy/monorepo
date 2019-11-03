@@ -9,7 +9,7 @@ import passport from 'passport';
 import { tvHelperConnection } from '@tbergq/tvhelper-persistence';
 import { graphqlConnection } from '@tbergq/graphql-persistence';
 import { trainingJournalConnection } from '@tbergq/trainingjournal-persistence';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 import { config } from 'dotenv';
 import passportJwt from 'passport-jwt';
 

@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 type SelectedItemsState = {|
   +selectedItems: $ReadOnlyArray<string>,
