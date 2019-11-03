@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "dependencies": {
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.1"
   },
   "peerDependencies": {
     "@tbergq/relay": "*",
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@tbergq/relay": "*",
-    "@testing-library/react": "^9.3.0",
+    "@testing-library/react": "^9.3.1",
     "react-test-renderer": "16.9.0",
     "relay-test-utils": "^6.0.0"
   }
