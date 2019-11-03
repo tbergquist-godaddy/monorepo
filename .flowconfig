@@ -4,7 +4,8 @@
 
 ; Ignore "BUCK" generated dirs
 <PROJECT_ROOT>/\.buckd/
-
+<PROJECT_ROOT>/\.git/.*
+.+/\.next/.+
 
 
 ; Ignore polyfills
