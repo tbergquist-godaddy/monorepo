@@ -2,7 +2,7 @@
 
 import { tvHelperConnection } from '@tbergq/tvhelper-persistence';
 import { config } from 'dotenv';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 import server from './server';
 
