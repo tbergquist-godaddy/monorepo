@@ -24,10 +24,12 @@ const Fetch = async (url: string, options: FetchOptions = {}) => {
     const defaultHeaders = {
       'Content-Type': 'application/json',
     };
+    // $FlowFixMe (>=<0.111.1)
     const response = await fetch(url, {
       ...options,
       headers: {
         ...defaultHeaders,
+        // $FlowFixMe (>=<0.111.1)
         ...options.headers,
       },
     });

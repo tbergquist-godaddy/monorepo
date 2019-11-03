@@ -32,7 +32,7 @@
     "@testing-library/react": "^9.3.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
-    "flow-bin": "^0.110.1",
+    "flow-bin": "^0.111.1",
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.3",
     "jetifier": "^1.6.4",

@@ -21,6 +21,10 @@ node_modules/warning/.*
 
 [include]
 
+[declarations]
+<PROJECT_ROOT>/node_modules/react-native/.+
+<PROJECT_ROOT>/node_modules/@kiwicom/relay/src/fetchers/createNetworkFetcher.js
+
 [libs]
 flow-typed/
 ./node_modules/react-native/Libraries/react-native/react-native-interface.js
@@ -62,6 +66,7 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: 
 
 experimental.types_first=false
+experimental.minimal_merge=true
 experimental.well_formed_exports=true
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/components
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/graphql-persistence

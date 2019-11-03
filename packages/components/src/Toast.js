@@ -6,6 +6,7 @@ import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
 const ToastContainer = styled.div(props => ({
   position: 'fixed',
+  // $FlowFixMe (>=<0.111.1)
   ...(props.top ? { top: 51 } : { bottom: 0 }),
   ...(props.left ? { left: 0 } : { right: 0 }),
   minWidth: '200px',

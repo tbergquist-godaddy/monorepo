@@ -11,6 +11,7 @@ export default function ensureUniqueFields(
     });
     return {
       ...acc,
+      // $FlowFixMe (>=<0.111.1)
       ...curr,
     };
   }, {});
