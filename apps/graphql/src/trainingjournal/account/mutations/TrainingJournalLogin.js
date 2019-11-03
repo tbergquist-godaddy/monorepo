@@ -22,6 +22,7 @@ export default {
     },
   },
   resolve: async (_: mixed, { username, password }: Args) => {
+    // $FlowFixMe (>=<0.111.1)
     const user = await UserRepository.verifyPassword(username, password);
 
     if (user === null) {
