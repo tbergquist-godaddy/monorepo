@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 1821dea920a746e17750ecda28938dfd
+ * @relayHash 59d7baea227c7e49c3f82b7e15d1c31f
  */
 
 /* eslint-disable */
@@ -26,6 +26,14 @@ query FavoriteQuery {
   ...FavoritesTable_favorites
 }
 
+fragment FavoriteItem_favorite on TvShow {
+  name
+  nextEpisode
+  previousEpisode
+  id
+  status
+}
+
 fragment FavoritesTable_favorites on RootQuery {
   favorites(options: {sortDirection: ASC, sortBy: NAME}) {
     edges {
@@ -35,14 +43,6 @@ fragment FavoritesTable_favorites on RootQuery {
       }
     }
   }
-}
-
-fragment FavoriteItem_favorite on TvShow {
-  name
-  nextEpisode
-  previousEpisode
-  id
-  status
 }
 */
 
@@ -150,7 +150,7 @@ const node/*: ConcreteRequest*/ = {
     "operationKind": "query",
     "name": "FavoriteQuery",
     "id": null,
-    "text": "query FavoriteQuery {\n  ...FavoritesTable_favorites\n}\n\nfragment FavoritesTable_favorites on RootQuery {\n  favorites(options: {sortDirection: ASC, sortBy: NAME}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n",
+    "text": "query FavoriteQuery {\n  ...FavoritesTable_favorites\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on RootQuery {\n  favorites(options: {sortDirection: ASC, sortBy: NAME}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

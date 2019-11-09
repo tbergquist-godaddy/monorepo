@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { QueryRenderer, graphql } from '@kiwicom/relay';
+import { QueryRenderer, graphql } from '@tbergq/relay';
 import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
 import '@testing-library/jest-dom/extend-expect';
 
@@ -74,8 +74,9 @@ const TestRenderer = () => (
         ...FavoritesTable_favorites
       }
     `}
-    onResponse={renderer}
+    render={renderer}
     environment={environment}
+    variables={{}}
   />
 );
 

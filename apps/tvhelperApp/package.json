@@ -29,7 +29,7 @@
     "@tbergq/rn-components": "*",
     "@tbergq/tvhelper-xplat": "*",
     "@tbergq/utils": "*",
-    "babel-plugin-relay": "^6.0.0",
+    "babel-plugin-relay": "^7.1.0",
     "metro-react-native-babel-preset": "^0.56.0",
     "react-test-renderer": "16.9.0"
   },

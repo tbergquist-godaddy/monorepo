@@ -1,24 +1,29 @@
 // @flow
 
 import * as React from 'react';
-import { QueryRenderer as KiwiQueryRenderer, type GraphQLTaggedNode } from '@kiwicom/relay';
+import {
+  QueryRenderer as KiwiQueryRenderer,
+  type GraphQLTaggedNode,
+  type Environment,
+} from '@adeira/relay';
 import { Loader, Text, View } from '@tbergq/rn-components';
 import { createOperationDescriptor, getRequest } from 'relay-runtime';
 import { Platform } from 'react-native';
 
-import Environment from './Environment';
+import EnvironmentFactory from './Environment';
 import { useQueryRenderer } from './QueryRendererContext';
 
 type Props = {|
   +query: GraphQLTaggedNode,
   +variables: { ... },
   +render: ({| +[key: string]: any |}) => React.Node,
+  +environment?: Environment,
 |};
 
 export default function QueryRenderer(props: Props) {
   const { ssrData, token } = useQueryRenderer();
 
-  const environment = Environment.getEnvironment(token, ssrData);
+  const environment = props.environment ?? EnvironmentFactory.getEnvironment(token, ssrData);
 
   const getSSRData = () => {
     if (Platform.OS === 'web' && typeof window === 'undefined') {
