@@ -1,7 +1,7 @@
 // @flow
 
 module.exports = {
-  presets: ['@kiwicom/babel-preset-kiwicom', 'next/babel'],
+  presets: ['@adeira/babel-preset-adeira', 'next/babel'],
   plugins: [
     ['styled-components', { ssr: true }],
     'relay',
