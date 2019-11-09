@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { Workspaces } = require('@kiwicom/monorepo-utils');
+const { Workspaces } = require('@adeira/monorepo-utils');
 
 const TESTS_GLOB = '__tests__/**/?(*.)+(spec|test).js';
 global.__DEV__ = true;

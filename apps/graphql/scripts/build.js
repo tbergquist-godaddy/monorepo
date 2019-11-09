@@ -2,7 +2,7 @@
 
 import path from 'path';
 import { monorepoBuilder } from '@tbergq/monorepo-builder';
-import { ShellCommand, getTouchedWorkspaces } from '@kiwicom/monorepo-utils';
+import { ShellCommand, getTouchedWorkspaces } from '@adeira/monorepo-utils';
 import fs from 'fs';
 import rimraf from 'rimraf';
 import util from 'util';

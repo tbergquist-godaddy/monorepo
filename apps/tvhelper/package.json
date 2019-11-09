@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@adeira/fetch": "^0.1.0",
-    "@kiwicom/monorepo-utils": "^0.24.0",
+    "@adeira/monorepo-utils": "^0.1.0",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
     "@kiwicom/relay": "^4.7.1",
     "@tbergq/components": "^0",
@@ -40,7 +40,6 @@
   "devDependencies": {
     "@babel/node": "^7.6.3",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@kiwicom/monorepo-utils": "^0.23.0",
     "@tbergq/tvhelper-xplat": "*",
     "@testing-library/jest-dom": "^4.2.3",
     "@testing-library/react": "^9.3.1",
