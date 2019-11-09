@@ -38,3 +38,40 @@ Tip: great way how to migrate some large scale changes is to use `npx flow-upgra
 
 Prefer to use `React.Node` notation instead of `React$Node` notation. In theory, they are the same, but there are bugs with the latter version.
 See [this](https://github.com/facebook/flow/issues/8121) issue
+
+### Object spread and read-only-ness
+
+When you spread objects, the properties looses `read-only-ness`
+
+```js
+type A = {| +readOnlyKey: string |}
+type B = {| ...A, +otherKey: string |}
+
+function test(x: B) {
+  x.readOnlyKey = 'overwrite'; // no error ?
+  x.otherKey = 'overwrite'; // no error ??
+}
+```
+
+To keep `read-only-ness`, you have to use `$ReadOnly<>` for the new object.
+```js
+type C = $ReadOnly<{| ...A, otherKey: string |}>
+
+function test2(x: C) {
+  x.readOnlyKey = 'overwrite'; // error 
+  x.otherKey = 'overwrite'; // error
+}
+```
+
+
+### Cannot use `val` as computed property
+
+```js
+const fn = (val: 'a' | 'b'): {| a?: number, b?: number |} => ({ [val]: 123 });  // Error
+const fn2 = (val: 'a' | 'b'): {| a?: number, b?: number |} => ({ [(val: string)]: 123 }); // this fixes the issue
+const res = fn('a');
+const res2 = fn2('a');
+// or just
+const x : {a?: number, b?: number} = {};
+x[('a': 'a' | 'b')] = 3
+```
