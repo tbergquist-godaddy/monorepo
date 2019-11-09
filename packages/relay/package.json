@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "dependencies": {
     "@adeira/fetch": "^0.1.0",
-    "@kiwicom/relay": "^4.7.1",
+    "@adeira/relay": "^0.2.0",
     "@tbergq/rn-components": "*",
     "graphql": "^14.5.8"
   },
@@ -15,6 +15,6 @@
     "relay-runtime": ""
   },
   "devDependencies": {
-    "relay-test-utils": "^6.0.0"
+    "relay-test-utils": "^7.1.0"
   }
 }

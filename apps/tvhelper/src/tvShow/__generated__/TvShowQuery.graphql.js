@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash d577134f5335f5a25979ff6b0ce49cee
+ * @relayHash a0b9e7acc3737ed4c016821820201e82
  */
 
 /* eslint-disable */
@@ -35,11 +35,20 @@ query TvShowQuery(
   }
 }
 
-fragment TvShowPage_tvShow on TvShow {
+fragment Episode_episode on Episode {
+  id
   name
-  summary(stripTags: false)
-  ...TvShowImage_tvShow
-  ...Episodes_episodes
+  seasonAndNumber
+  airdate
+  summary
+  watched
+}
+
+fragment Episodes_episodes on TvShow {
+  episodes {
+    id
+    ...Episode_episode
+  }
 }
 
 fragment TvShowImage_tvShow on TvShow {
@@ -51,20 +60,11 @@ fragment TvShowImage_tvShow on TvShow {
   isFavorite
 }
 
-fragment Episodes_episodes on TvShow {
-  episodes {
-    id
-    ...Episode_episode
-  }
-}
-
-fragment Episode_episode on Episode {
-  id
+fragment TvShowPage_tvShow on TvShow {
   name
-  seasonAndNumber
-  airdate
-  summary
-  watched
+  summary(stripTags: false)
+  ...TvShowImage_tvShow
+  ...Episodes_episodes
 }
 */
 
@@ -229,7 +229,7 @@ return {
     "operationKind": "query",
     "name": "TvShowQuery",
     "id": null,
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    ...Episode_episode\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n",
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    ...Episode_episode\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n",
     "metadata": {}
   }
 };

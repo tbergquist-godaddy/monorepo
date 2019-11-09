@@ -24,7 +24,6 @@ node_modules/warning/.*
 
 [declarations]
 <PROJECT_ROOT>/node_modules/react-native/.+
-<PROJECT_ROOT>/node_modules/@kiwicom/relay/src/fetchers/createNetworkFetcher.js
 
 [libs]
 flow-typed/

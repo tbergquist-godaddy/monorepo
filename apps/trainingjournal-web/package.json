@@ -22,6 +22,6 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.3.1",
-    "relay-test-utils": "^6.0.0"
+    "relay-test-utils": "^7.1.0"
   }
 }

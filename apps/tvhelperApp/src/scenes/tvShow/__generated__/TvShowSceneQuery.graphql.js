@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 87ea923ec503a9c1313bbc797528e327
+ * @relayHash 5909b3e2be2c381b5cf630ae29fe91db
  */
 
 /* eslint-disable */
@@ -35,35 +35,6 @@ query TvShowSceneQuery(
   }
 }
 
-fragment TvDetail_data on TvShow {
-  isFavorite
-  image {
-    original
-    id
-  }
-  ...Summary_data
-  ...EpisodeList_data
-  ...Cast_data
-}
-
-fragment Summary_data on TvShow {
-  summary
-}
-
-fragment EpisodeList_data on TvShow {
-  episodes {
-    id
-    ...EpisodeItem_data
-  }
-}
-
-fragment Cast_data on TvShow {
-  cast {
-    id
-    ...CastItem_data
-  }
-}
-
 fragment CastItem_data on Cast {
   person {
     name
@@ -83,12 +54,41 @@ fragment CastItem_data on Cast {
   }
 }
 
+fragment Cast_data on TvShow {
+  cast {
+    id
+    ...CastItem_data
+  }
+}
+
 fragment EpisodeItem_data on Episode {
   id
   seasonAndNumber
   name
   airdate
   watched
+}
+
+fragment EpisodeList_data on TvShow {
+  episodes {
+    id
+    ...EpisodeItem_data
+  }
+}
+
+fragment Summary_data on TvShow {
+  summary
+}
+
+fragment TvDetail_data on TvShow {
+  isFavorite
+  image {
+    original
+    id
+  }
+  ...Summary_data
+  ...EpisodeList_data
+  ...Cast_data
 }
 */
 
@@ -294,7 +294,7 @@ return {
     "operationKind": "query",
     "name": "TvShowSceneQuery",
     "id": null,
-    "text": "query TvShowSceneQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvDetail_data\n    id\n  }\n}\n\nfragment TvDetail_data on TvShow {\n  isFavorite\n  image {\n    original\n    id\n  }\n  ...Summary_data\n  ...EpisodeList_data\n  ...Cast_data\n}\n\nfragment Summary_data on TvShow {\n  summary\n}\n\nfragment EpisodeList_data on TvShow {\n  episodes {\n    id\n    ...EpisodeItem_data\n  }\n}\n\nfragment Cast_data on TvShow {\n  cast {\n    id\n    ...CastItem_data\n  }\n}\n\nfragment CastItem_data on Cast {\n  person {\n    name\n    image {\n      medium\n      id\n    }\n    id\n  }\n  character {\n    name\n    image {\n      medium\n      id\n    }\n    id\n  }\n}\n\nfragment EpisodeItem_data on Episode {\n  id\n  seasonAndNumber\n  name\n  airdate\n  watched\n}\n",
+    "text": "query TvShowSceneQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvDetail_data\n    id\n  }\n}\n\nfragment CastItem_data on Cast {\n  person {\n    name\n    image {\n      medium\n      id\n    }\n    id\n  }\n  character {\n    name\n    image {\n      medium\n      id\n    }\n    id\n  }\n}\n\nfragment Cast_data on TvShow {\n  cast {\n    id\n    ...CastItem_data\n  }\n}\n\nfragment EpisodeItem_data on Episode {\n  id\n  seasonAndNumber\n  name\n  airdate\n  watched\n}\n\nfragment EpisodeList_data on TvShow {\n  episodes {\n    id\n    ...EpisodeItem_data\n  }\n}\n\nfragment Summary_data on TvShow {\n  summary\n}\n\nfragment TvDetail_data on TvShow {\n  isFavorite\n  image {\n    original\n    id\n  }\n  ...Summary_data\n  ...EpisodeList_data\n  ...Cast_data\n}\n",
     "metadata": {}
   }
 };

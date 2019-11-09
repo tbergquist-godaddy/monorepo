@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 28021719d814d765b19c21d6718bc1c6
+ * @relayHash 57f077a50fb5c5db94dbc59c9d2bbe4d
  */
 
 /* eslint-disable */
@@ -45,14 +45,14 @@ fragment Episode_data on Episode {
   ...ToggleWatched_data
 }
 
-fragment TvHelperImage_data on TvHelperImage {
-  medium
-  original
-}
-
 fragment ToggleWatched_data on Episode {
   id
   watched
+}
+
+fragment TvHelperImage_data on TvHelperImage {
+  medium
+  original
 }
 */
 
@@ -176,7 +176,7 @@ return {
     "operationKind": "query",
     "name": "EpisodeSceneQuery",
     "id": null,
-    "text": "query EpisodeSceneQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    ...Episode_data\n    id\n  }\n}\n\nfragment Episode_data on Episode {\n  name\n  summary\n  image {\n    ...TvHelperImage_data\n    id\n  }\n  ...ToggleWatched_data\n}\n\nfragment TvHelperImage_data on TvHelperImage {\n  medium\n  original\n}\n\nfragment ToggleWatched_data on Episode {\n  id\n  watched\n}\n",
+    "text": "query EpisodeSceneQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    ...Episode_data\n    id\n  }\n}\n\nfragment Episode_data on Episode {\n  name\n  summary\n  image {\n    ...TvHelperImage_data\n    id\n  }\n  ...ToggleWatched_data\n}\n\nfragment ToggleWatched_data on Episode {\n  id\n  watched\n}\n\nfragment TvHelperImage_data on TvHelperImage {\n  medium\n  original\n}\n",
     "metadata": {}
   }
 };

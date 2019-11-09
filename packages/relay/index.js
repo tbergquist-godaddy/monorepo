@@ -6,7 +6,7 @@ import {
   type PaginationRelayProp as _PaginationRelayProp,
   type Environment as _RelayEnvironmentType,
   type DeclarativeMutationConfig,
-} from '@kiwicom/relay';
+} from '@adeira/relay';
 
 export { default as QueryRenderer } from './src/QueryRenderer';
 export { default as Environment } from './src/Environment';
@@ -20,7 +20,7 @@ export {
   fetchQuery,
   RelayEnvironmentProvider,
   useRelayEnvironment,
-} from '@kiwicom/relay';
+} from '@adeira/relay';
 
 export {
   QueryRendererProvider,
