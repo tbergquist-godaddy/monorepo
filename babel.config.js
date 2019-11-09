@@ -15,7 +15,7 @@ module.exports = function(api /*: ApiType */) {
   api.assertVersion(7);
   api.cache.forever();
 
-  const presets = ['@kiwicom/babel-preset-kiwicom'];
+  const presets = ['@adeira/babel-preset-adeira'];
   const extraPlugins = ['relay'];
 
   return {
