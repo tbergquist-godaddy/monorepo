@@ -1,6 +1,6 @@
 // @flow
 
-import { ShellCommand, globSync, findMonorepoRoot } from '@kiwicom/monorepo-utils';
+import { ShellCommand, globSync, findMonorepoRoot } from '@adeira/monorepo-utils';
 import path from 'path';
 import fs from 'fs';
 import { transformFileSync } from '@babel/core';
