@@ -34,6 +34,18 @@
     "@adeira/js" "^0.1.0"
     cross-fetch "^3.0.4"
 
+"@adeira/flow-bin@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/flow-bin/-/flow-bin-0.1.0.tgz#61c26db2faf3e39d1daa9bc391d426ceb86132f1"
+  integrity sha512-56w9vCMDPOMgF3sycfaM8opud7eo2HyAObYsrdipAUuKYCQifEr/3v4sU1lAqBVXaozBzyw3xzVy4sUwVOLaVA==
+  dependencies:
+    "@adeira/js" "^0.1.0"
+    "@adeira/logger" "^0.1.0"
+    "@adeira/monorepo-utils" "^0.1.0"
+    "@babel/register" "^7.6.0"
+    chalk "^2.4.2"
+    is-ci "^2.0.0"
+
 "@adeira/js@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@adeira/js/-/js-0.1.0.tgz#c30444da2000cf545be7d3d99c800c3f3b234c12"
@@ -2179,18 +2191,6 @@
     strip-ansi "^5.2.0"
     text-table "^0.2.0"
 
-"@kiwicom/flow-bin@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/flow-bin/-/flow-bin-0.6.0.tgz#a3ac8f0723f9e156577ee8d50fa36c8e462350a3"
-  integrity sha512-n1l/D53lm4wXiqsN65y6whunOL13Pb16vjE7WPerPDKANqkwcXkmnyq0bhjaw8krrb0iU8NhIr+sgwmRn1ABKw==
-  dependencies:
-    "@babel/register" "^7.6.0"
-    "@kiwicom/js" "^0.17.0"
-    "@kiwicom/logger" "^0.3.0"
-    "@kiwicom/monorepo-utils" "^0.24.0"
-    chalk "^2.4.2"
-    is-ci "^2.0.0"
-
 "@kiwicom/graphql-bc-checker@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@kiwicom/graphql-bc-checker/-/graphql-bc-checker-1.4.1.tgz#ce90507f4fa00b9249dc1a5acbe6c4e67d5f5faf"
@@ -2215,24 +2215,10 @@
   resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.16.0.tgz#1eaa1a99b8b7a5ee4c90ecbeac3d1bf4aa12919b"
   integrity sha512-N8z4Aa5vQAx//1ZxvVKUnTibw7uUj+6wDZxPpgr9KzaZof32CwEiup3sWXTiNzVfIk47FI5ZKWtauNpXHhx6TQ==
 
-"@kiwicom/js@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.17.0.tgz#f5760e5ee9a678edffc50bc2181234b784102823"
-  integrity sha512-5kQvvZMngMP1+HWoULvYlq+gbm10XzpOgjVUeS3IpalYp9l7wSMBnx9I0ZKOcs9BoNK0OJOmhAThblDaX/jp2w==
-
 "@kiwicom/js@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.9.0.tgz#67032574d8ee318cd747001a7b4c87013214327a"
   integrity sha512-CwDiWwLWE0iWzCrL08x7jdEySAIVdmcmF/rik8gjK5oW4jA5G9fOBxsSSVm2bLtq8HG9KIz4YHDbtWO1K7LIiQ==
-
-"@kiwicom/logger@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/logger/-/logger-0.3.0.tgz#7e4af412d11e0b31d55398b6c0df62d1cc87370b"
-  integrity sha512-ww0iE/nIZve4er4e4+E8Tqb7VGYliXwWy6ocx/GqTeB/SMGScD78IDAAEFJEfHiLAdFXjhRVxPJGV/0OAKQBwQ==
-  dependencies:
-    "@kiwicom/js" "^0.16.0"
-    triple-beam "^1.3.0"
-    winston "^3.2.1"
 
 "@kiwicom/monorepo-utils@^0.24.0":
   version "0.24.0"
@@ -6121,10 +6107,10 @@ flatten@^1.0.2:
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
   integrity sha1-2uRqnXj74lKSJYzB54CkHZXAN4I=
 
-flow-bin@^0.111.1:
-  version "0.111.1"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.111.1.tgz#bfc1ff91927d0500aa869b0b3a48dd4b060c15c0"
-  integrity sha512-fOFFy4rsvV4zYXUqpNY2bChpzEMYbmumO6DlbcpndbJIHY3W8+UzyiWb8+iRDf2ME1YJgTIvKSJCzHpQ40OBOQ==
+flow-bin@^0.111.3:
+  version "0.111.3"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.111.3.tgz#8653a413400ebc966097a47c81fb4e6b722a5921"
+  integrity sha512-Gn27aRTjSFicukZ/pq3raRERmSk9UWszhIK9eNtj6843L54YtK+jk2OkQWV70+VKi9LmWyfItCkhwoIVy7L2lA==
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
