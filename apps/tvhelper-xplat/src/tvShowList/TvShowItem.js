@@ -83,11 +83,9 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: borderRadius,
   },
-  // eslint-disable-next-line react-native/no-unused-styles
   running: {
     color: Colors.success,
   },
-  // eslint-disable-next-line react-native/no-unused-styles
   ended: {
     color: Colors.danger,
   },
