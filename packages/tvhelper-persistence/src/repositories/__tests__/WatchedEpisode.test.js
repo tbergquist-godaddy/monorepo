@@ -39,12 +39,12 @@ describe('WatchedEpisode', () => {
     expect(episodes[0].userId).toBe(user1Id);
   });
 
-  it('it does not return episodes for wrong user', async () => {
+  it('does not return episodes for wrong user', async () => {
     const episodes = await WatchedEpisode.findEpisodes(user2Id, [episodeId]);
     expect(episodes).toHaveLength(0);
   });
 
-  it('it deletes watched episode', async () => {
+  it('deletes watched episode', async () => {
     const success = await WatchedEpisode.deleteWatchedEpisode(user1Id, episodeId);
     expect(success).toEqual(true);
 
@@ -52,7 +52,7 @@ describe('WatchedEpisode', () => {
     expect(episodes).toHaveLength(0);
   });
 
-  it('it returns false if trying to delete non existing episode', async () => {
+  it('returns false if trying to delete non existing episode', async () => {
     const success = await WatchedEpisode.deleteWatchedEpisode(user1Id, 7);
     expect(success).toEqual(false);
   });

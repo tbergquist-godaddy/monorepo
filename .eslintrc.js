@@ -5,7 +5,7 @@ const ERROR = 2;
 module.exports = {
   root: true,
 
-  extends: ['@kiwicom/eslint-config'],
+  extends: ['@adeira/eslint-config/strict'],
 
   // adjust the rules as needed
   parser: 'babel-eslint',
