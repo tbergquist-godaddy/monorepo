@@ -6,7 +6,7 @@
   "scripts": {
     "test": "monorepo-run-tests",
     "lint": "yarn jest --config=.jest-eslint.config.js",
-    "typecheck": "kiwicom-flow-bin",
+    "typecheck": "adeira-flow-bin",
     "test-ci": "yarn lint && yarn typecheck && yarn test && yarn workspace @tbergq/graphql test-bc && yarn relay --validate",
     "postinstall": "jetify",
     "relay": "yarn relay-compiler"
@@ -27,12 +27,12 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@adeira/babel-preset-adeira": "^0.1.0",
     "@kiwicom/eslint-config": "^8.4.0",
-    "@kiwicom/flow-bin": "^0.6.0",
+    "@adeira/flow-bin": "^0.1.0",
     "@testing-library/jest-dom": "^4.2.3",
     "@testing-library/react": "^9.3.1",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
-    "flow-bin": "^0.111.1",
+    "flow-bin": "^0.111.3",
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.3",
     "jetifier": "^1.6.4",
