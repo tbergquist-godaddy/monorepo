@@ -94,6 +94,13 @@
   resolved "https://registry.yarnpkg.com/@adeira/signed-source/-/signed-source-0.1.0.tgz#133dcdc05e73544f0677c7ae6eb91a77e63bf105"
   integrity sha512-RxkGDN3q4aGENhBjUZRtj/ALwpOKuY3Y8pkZATYw6Tq1dBDyrrDf7IZDX7DNA7pZLIBMphT1bmM0vt+4enNH0A==
 
+"@adeira/test-utils@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.1.0.tgz#e0183470d29bc2799998e9a6e5df2476c49f73f2"
+  integrity sha512-mctDT9+t40+0PXk7nQq0xdTSvHS52J1bpmV36r/t6/0Rj7kQi2KB8UuFf68E8mVh2yQ9gYNUGByfYN69O3Bc9Q==
+  dependencies:
+    "@adeira/js" "^0.1.0"
+
 "@ampproject/toolbox-core@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@ampproject/toolbox-core/-/toolbox-core-1.1.1.tgz#540c8f3ab0f5d1faa1ba35282cd5f5f3f0e16a76"
@@ -2205,11 +2212,6 @@
   dependencies:
     "@kiwicom/js" "^0.16.0"
 
-"@kiwicom/js@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.14.0.tgz#6e37092eeed96097b4c13f853e935eda3428447f"
-  integrity sha512-AslOd+LLaxt/334EgwaXTJtTzbC7JzpRw8BNpNjGC8XwGaBDf5DyDeJUPZMh7FeSB1BYpzdoMEGNWJNnYfxMLw==
-
 "@kiwicom/js@^0.16.0":
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.16.0.tgz#1eaa1a99b8b7a5ee4c90ecbeac3d1bf4aa12919b"
@@ -2244,13 +2246,6 @@
   integrity sha512-Vm6XLg0lnEM5aFYPPvsXQG9/o2G8iElgmz93q8r8XZ/wwRDjEhRonVqp7WdX7KbxAgpGCjH28bBz7+71PZLSJw==
   dependencies:
     ramda "^0.26.1"
-
-"@kiwicom/test-utils@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/test-utils/-/test-utils-0.10.0.tgz#fdb6964bbfd0a8682de8d9f3cba3cb6f3586ec8b"
-  integrity sha512-oyjy49/6PeQUvwz9fO1VLKQ9PqRLw/6iEp9g3yk0ETVn9fLMksc9VQLIqeR+0vo9PQ+uKCp2Gi0GI+Cd7laG/w==
-  dependencies:
-    "@kiwicom/js" "^0.14.0"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

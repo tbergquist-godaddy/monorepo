@@ -1,7 +1,7 @@
 // @flow
 
 import { tvHelperConnection, UserRepository } from '@tbergq/tvhelper-persistence';
-import { generateTestsFromFixtures } from '@kiwicom/test-utils';
+import { generateTestsFromFixtures } from '@adeira/test-utils';
 
 import executeTestQuery from '../../../../services/executeTestQuery';
 

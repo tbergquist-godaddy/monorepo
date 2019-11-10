@@ -1,6 +1,6 @@
 // @flow
 
-import { generateTestsFromFixtures } from '@kiwicom/test-utils';
+import { generateTestsFromFixtures } from '@adeira/test-utils';
 import mockingoose from 'mockingoose';
 import { UserModel } from '@tbergq/tvhelper-persistence';
 

@@ -36,7 +36,7 @@
     "test-bc": "yarn monorepo-babel-node scripts/test-bc.js"
   },
   "devDependencies": {
-    "@kiwicom/test-utils": "^0.10.0",
+    "@adeira/test-utils": "^0.1.0",
     "@tbergq/monorepo-builder": "*",
     "mockdate": "^2.0.5",
     "mockingoose": "^2.13.2",
