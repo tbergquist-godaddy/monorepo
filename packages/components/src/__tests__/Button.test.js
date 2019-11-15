@@ -41,6 +41,7 @@ it('renders', () => {
       font-family: "Roboto",-apple-system,".SFNSText-Regular","San Francisco","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
       font-weight: 700!important;
       font-size: 14px;
+      line-height: 1.4;
       cursor: pointer;
       -webkit-transition: all 0.15s ease-in-out !important;
       transition: all 0.15s ease-in-out !important;

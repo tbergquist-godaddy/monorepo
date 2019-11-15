@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "@adeira/fetch": "^0.1.0",
+    "@adeira/fetch": "^1.0.0",
     "@kiwicom/graphql-global-id": "^0.13.0",
     "dataloader": "^1.4.0",
     "dotenv": "^8.2.0",
