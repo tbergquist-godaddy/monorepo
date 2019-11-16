@@ -1,7 +1,7 @@
 // @flow strict
 
 import { GraphQLObjectType, GraphQLString } from 'graphql';
-import GlobalID from '@kiwicom/graphql-global-id';
+import GlobalID from '@adeira/graphql-global-id';
 
 export default new GraphQLObjectType({
   name: 'CreateTrainingJournalUser',

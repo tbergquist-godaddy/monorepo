@@ -1,7 +1,7 @@
 // @flow
 
 import { GraphQLNonNull, GraphQLID } from 'graphql';
-import { fromGlobalId } from '@kiwicom/graphql-global-id';
+import { fromGlobalId } from '@adeira/graphql-global-id';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import Episode from '../types/output/Episode';

@@ -1,7 +1,7 @@
 // @flow
 
 import { GraphQLObjectType } from 'graphql';
-import GlobalID from '@kiwicom/graphql-global-id';
+import GlobalID from '@adeira/graphql-global-id';
 
 import type { Cast } from '../../../tvshow/TvShow';
 import Person from './Person';

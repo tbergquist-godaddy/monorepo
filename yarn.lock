@@ -76,6 +76,13 @@
     "@adeira/signed-source" "^0.1.0"
     chalk "^3.0.0"
 
+"@adeira/graphql-global-id@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/graphql-global-id/-/graphql-global-id-0.1.0.tgz#85c6a93de16d3cff07ad898d2994604c8fbb836a"
+  integrity sha512-fHmx5ac6T9fo87gnMfexvHbFzKGVlY38atMdg4tc726T+bRsotu7P87Fys6o3JMUCA99lj3+PKb3wDFs9U3ckg==
+  dependencies:
+    "@adeira/js" "^0.1.0"
+
 "@adeira/js@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@adeira/js/-/js-0.1.0.tgz#c30444da2000cf545be7d3d99c800c3f3b234c12"
@@ -1365,18 +1372,6 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
-
-"@kiwicom/graphql-global-id@^0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/graphql-global-id/-/graphql-global-id-0.13.0.tgz#d2985bd65ae6a38b5a9a4815e0e7e05eae33fb1e"
-  integrity sha512-ziIdu6fIIX9Ww3qTWIuW4oxDMIM+3WGL6caSOrztXbDfSWpgW7mf97m5pnLcaMx5s7NGjN4zQdTGqzGjtCSEbg==
-  dependencies:
-    "@kiwicom/js" "^0.16.0"
-
-"@kiwicom/js@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.16.0.tgz#1eaa1a99b8b7a5ee4c90ecbeac3d1bf4aa12919b"
-  integrity sha512-N8z4Aa5vQAx//1ZxvVKUnTibw7uUj+6wDZxPpgr9KzaZof32CwEiup3sWXTiNzVfIk47FI5ZKWtauNpXHhx6TQ==
 
 "@kiwicom/js@^0.9.0":
   version "0.9.0"
