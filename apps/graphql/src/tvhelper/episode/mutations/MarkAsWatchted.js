@@ -1,7 +1,7 @@
 // @flow
 
 import { GraphQLID, GraphQLNonNull } from 'graphql';
-import { fromGlobalId } from '@kiwicom/graphql-global-id';
+import { fromGlobalId } from '@adeira/graphql-global-id';
 import { WatchedEpisodeRepository } from '@tbergq/tvhelper-persistence';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';

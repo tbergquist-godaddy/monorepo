@@ -1,7 +1,7 @@
 // @flow
 
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql';
-import GlobalID from '@kiwicom/graphql-global-id';
+import GlobalID from '@adeira/graphql-global-id';
 import { GraphQLDate } from 'graphql-iso-date';
 
 import TvHelperImage from '../../../common/types/output/TvHelperImage';

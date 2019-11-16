@@ -8,7 +8,7 @@ import {
   GraphQLBoolean,
 } from 'graphql';
 import { GraphQLDate } from 'graphql-iso-date';
-import GlobalID from '@kiwicom/graphql-global-id';
+import GlobalID from '@adeira/graphql-global-id';
 
 import type { TvShow } from '../../TvShow';
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
