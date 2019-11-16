@@ -7,10 +7,11 @@ import type { GraphqlContextType } from '../../../services/createGraphqlContext'
 import type { TvShow as TvShowType } from '../../tvshow/TvShow';
 import TvShowConnection from '../../tvshow/types/output/TvShowConnection';
 
-type Args = {|
+type Args = {
   +query: string,
   ...$Exact<ConnectionArguments>,
-|};
+  ...
+};
 
 export default {
   name: 'SearchTvShow',
@@ -20,6 +21,7 @@ export default {
     query: {
       type: GraphQLNonNull(GraphQLString),
     },
+    // $FlowFixMe
     ...connectionArgs,
   },
   resolve: async (_: mixed, args: Args, { dataLoader }: GraphqlContextType) => {

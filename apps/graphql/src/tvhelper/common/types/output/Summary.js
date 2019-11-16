@@ -16,7 +16,7 @@ export default {
       defaultValue: true,
     },
   },
-  resolve: ({ summary }: Ancestor, args: {| +stripTags: boolean |}) => {
+  resolve: ({ summary }: Ancestor, args: { +stripTags: boolean, ... }) => {
     if (args.stripTags) {
       return striptags(summary);
     }

@@ -94,21 +94,19 @@ describe('Favorites table', () => {
     const nextEpisodeHeader = getByText('Next episode');
     fireEvent.click(nextEpisodeHeader);
     const loader = getByTestId('tableLoader');
-    // $FlowFixMe
+
     expect(loader).toBeInTheDocument();
     const sortIcon = nextEpisodeHeader.querySelector('svg');
-    // $FlowFixMe
+
     expect(sortIcon).toBeInTheDocument();
 
     environment.mock.resolveMostRecentOperation(operation =>
       MockPayloadGenerator.generate(operation, refetchPayload),
     );
 
-    // $FlowFixMe
     expect(loader).not.toBeInTheDocument();
 
     const refetchedTvShow = getByText('Show 432');
-    // $FlowFixMe
     expect(refetchedTvShow).toBeInTheDocument();
   });
 });

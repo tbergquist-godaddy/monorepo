@@ -15,7 +15,7 @@ describe('ListItem', () => {
     );
 
     const li = getByText('List name');
-    // $FlowFixMe
+
     expect(li).toBeInTheDocument();
     expect(li.classList.contains('List__item--pink')).toBe(true);
   });

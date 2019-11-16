@@ -8,7 +8,6 @@ import {
 } from '@adeira/relay';
 import { Loading } from '@tbergq/components';
 import { createOperationDescriptor, getRequest } from 'relay-runtime';
-import { Platform } from 'react-native';
 
 import EnvironmentFactory from './Environment';
 import { useQueryRenderer } from './QueryRendererContext';
@@ -26,7 +25,8 @@ export default function QueryRenderer(props: Props) {
   const environment = props.environment ?? EnvironmentFactory.getEnvironment(token, ssrData);
 
   const getSSRData = () => {
-    if (Platform.OS === 'web' && typeof window === 'undefined') {
+    // TODO: This is probably not necessary because of our fetch-policy
+    if (typeof window === 'undefined') {
       const store = environment.getStore();
 
       const operation = createOperationDescriptor(getRequest(props.query), props.variables);

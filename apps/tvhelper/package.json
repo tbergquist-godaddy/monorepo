@@ -20,13 +20,11 @@
     "node-fetch": "^2.6.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-native-web": "^0.11.7",
     "styled-components": "^4.4.1"
   },
   "peerDependencies": {
     "@tbergq/monorepo-builder": "*",
-    "react-icons": "",
-    "react-native": "*"
+    "react-icons": ""
   },
   "scripts": {
     "dev": "next",
@@ -36,10 +34,8 @@
     "prenow-build": "yarn monorepo-babel-node scripts/persistQueries.js"
   },
   "devDependencies": {
-    "@tbergq/tvhelper-xplat": "*",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
-    "babel-plugin-react-native-web": "^0.11.7",
     "relay-compiler": "^7.1.0",
     "relay-test-utils": "^7.1.0",
     "rimraf": "^3.0.0"

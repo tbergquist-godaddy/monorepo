@@ -10,7 +10,7 @@ describe('App', () => {
     const { container, getByTestId } = render(<App />);
 
     const firstLi = container.querySelectorAll('.List__item')[0];
-    // $FlowFixMe
+
     expect(firstLi).toBeInTheDocument();
 
     act(() => {
@@ -25,7 +25,7 @@ describe('App', () => {
     act(() => {
       fireEvent.click(firstLi);
     });
-    // $FlowFixMe
+
     expect(selectedItems).not.toBeInTheDocument();
   });
 });

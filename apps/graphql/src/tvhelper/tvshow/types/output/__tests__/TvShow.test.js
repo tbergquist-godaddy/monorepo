@@ -13,6 +13,7 @@ const args = null;
 
 describe('tvShow', () => {
   it('returns null when not logged in', async () => {
+    // $FlowExpectedError: Ok for test purpose
     expect(await resolve(ancestor, args, { user: null, dataLoader: {} })).toBeNull();
   });
 
@@ -28,6 +29,7 @@ describe('tvShow', () => {
       },
     };
     const context = { user, dataLoader };
+    // $FlowExpectedError: Ok for test purpose
     expect(await resolve(ancestor, args, context)).toBe(true);
   });
 
@@ -43,6 +45,7 @@ describe('tvShow', () => {
       },
     };
     const context = { user, dataLoader };
+    // $FlowExpectedError: Ok for test purpose
     expect(await resolve(ancestor, args, context)).toBe(false);
   });
 });

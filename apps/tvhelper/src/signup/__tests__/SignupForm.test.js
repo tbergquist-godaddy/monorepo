@@ -58,7 +58,6 @@ describe('SignupForm', () => {
     fireEvent.change(confirmPassword, { target: { value: '12345' } });
     fireEvent.click(submit, { preventDefault });
 
-    // $FlowFixMe
     expect(getByText('password and confirm password does not match')).toBeInTheDocument();
     expect(spy).not.toHaveBeenCalled();
   });
@@ -96,7 +95,7 @@ describe('SignupForm', () => {
       { email: 'tito@bonito.com', password: '123456', username: 'tito' },
       expect.anything(), // Should be any function 🤔
     );
-    // $FlowFixMe
+
     expect(getByText('Failed to create user')).toBeInTheDocument();
   });
 
@@ -134,7 +133,7 @@ describe('SignupForm', () => {
       { email: 'tito@bonito.com', password: '123456', username: 'tito' },
       expect.anything(), // Should be any function 🤔
     );
-    // $FlowFixMe
+
     expect(getByText('User was successfully created')).toBeInTheDocument();
     expect(router).toHaveBeenLastCalledWith('/login');
   });
