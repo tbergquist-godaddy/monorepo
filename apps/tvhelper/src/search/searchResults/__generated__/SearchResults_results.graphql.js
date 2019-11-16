@@ -8,7 +8,7 @@
 
 /*::
 import type { ReaderFragment } from 'relay-runtime';
-type TvShowItem_data$ref = any;
+type TvShowListItem_data$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type SearchResults_results$ref: FragmentReference;
 declare export opaque type SearchResults_results$fragmentType: SearchResults_results$ref;
@@ -16,7 +16,7 @@ export type SearchResults_results = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
       +id: string,
-      +$fragmentRefs: TvShowItem_data$ref,
+      +$fragmentRefs: TvShowListItem_data$ref,
     |}
   |}>,
   +$refType: SearchResults_results$ref,
@@ -63,7 +63,7 @@ const node/*: ReaderFragment*/ = {
             },
             {
               "kind": "FragmentSpread",
-              "name": "TvShowItem_data",
+              "name": "TvShowListItem_data",
               "args": null
             }
           ]
@@ -73,5 +73,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '9aee5d06eb1ab58eb0f62bebf6310da4';
+(node/*: any*/).hash = '551ef5468ff2f5ee7af497265c38cc9e';
 module.exports = node;

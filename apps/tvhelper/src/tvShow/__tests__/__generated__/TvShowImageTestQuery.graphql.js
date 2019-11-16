@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 7bbf9b96e2f3cc78e52cb756e8e47533
+ * @relayHash 3655f11b81d59d9de14ffefe262d94b2
  */
 
 /* eslint-disable */
@@ -37,6 +37,7 @@ query TvShowImageTestQuery(
 
 fragment TvShowImage_tvShow on TvShow {
   id
+  name
   image {
     original
     id
@@ -67,6 +68,12 @@ v2 = {
   "name": "id",
   "args": null,
   "storageKey": null
+},
+v3 = {
+  "type": "String",
+  "enumValues": null,
+  "plural": false,
+  "nullable": true
 };
 return {
   "kind": "Request",
@@ -111,6 +118,13 @@ return {
         "selections": [
           (v2/*: any*/),
           {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "name",
+            "args": null,
+            "storageKey": null
+          },
+          {
             "kind": "LinkedField",
             "alias": null,
             "name": "image",
@@ -144,7 +158,7 @@ return {
     "operationKind": "query",
     "name": "TvShowImageTestQuery",
     "id": null,
-    "text": "query TvShowImageTestQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowImage_tvShow\n    id\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n",
+    "text": "query TvShowImageTestQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowImage_tvShow\n    id\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "tvShowDetail": {
@@ -159,6 +173,7 @@ return {
           "plural": false,
           "nullable": false
         },
+        "tvShowDetail.name": (v3/*: any*/),
         "tvShowDetail.image": {
           "type": "TvHelperImage",
           "enumValues": null,
@@ -171,12 +186,7 @@ return {
           "plural": false,
           "nullable": true
         },
-        "tvShowDetail.image.original": {
-          "type": "String",
-          "enumValues": null,
-          "plural": false,
-          "nullable": true
-        },
+        "tvShowDetail.image.original": (v3/*: any*/),
         "tvShowDetail.image.id": {
           "type": "ID",
           "enumValues": null,

@@ -9,28 +9,29 @@
 /*::
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type TvShowImage_tvShow$ref: FragmentReference;
-declare export opaque type TvShowImage_tvShow$fragmentType: TvShowImage_tvShow$ref;
-export type TvShowImage_tvShow = {|
+declare export opaque type TvShowListItem_data$ref: FragmentReference;
+declare export opaque type TvShowListItem_data$fragmentType: TvShowListItem_data$ref;
+export type TvShowListItem_data = {|
   +id: string,
   +name: ?string,
+  +status: ?string,
+  +rating: ?number,
   +image: ?{|
-    +original: ?string
+    +medium: ?string
   |},
-  +isFavorite: ?boolean,
-  +$refType: TvShowImage_tvShow$ref,
+  +$refType: TvShowListItem_data$ref,
 |};
-export type TvShowImage_tvShow$data = TvShowImage_tvShow;
-export type TvShowImage_tvShow$key = {
-  +$data?: TvShowImage_tvShow$data,
-  +$fragmentRefs: TvShowImage_tvShow$ref,
+export type TvShowListItem_data$data = TvShowListItem_data;
+export type TvShowListItem_data$key = {
+  +$data?: TvShowListItem_data$data,
+  +$fragmentRefs: TvShowListItem_data$ref,
 };
 */
 
 
 const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
-  "name": "TvShowImage_tvShow",
+  "name": "TvShowListItem_data",
   "type": "TvShow",
   "metadata": null,
   "argumentDefinitions": [],
@@ -50,6 +51,20 @@ const node/*: ReaderFragment*/ = {
       "storageKey": null
     },
     {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "status",
+      "args": null,
+      "storageKey": null
+    },
+    {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "rating",
+      "args": null,
+      "storageKey": null
+    },
+    {
       "kind": "LinkedField",
       "alias": null,
       "name": "image",
@@ -61,21 +76,14 @@ const node/*: ReaderFragment*/ = {
         {
           "kind": "ScalarField",
           "alias": null,
-          "name": "original",
+          "name": "medium",
           "args": null,
           "storageKey": null
         }
       ]
-    },
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "isFavorite",
-      "args": null,
-      "storageKey": null
     }
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '6ac05d6d7a57a0b1503b0bd297fdb7e3';
+(node/*: any*/).hash = '41497783a7b76833b7b7d4de4e4a335f';
 module.exports = node;

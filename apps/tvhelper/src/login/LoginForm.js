@@ -5,7 +5,8 @@ import { LoginForm as CommonLoginForm, Toast } from '@tbergq/components';
 import { TOKEN_KEY } from '@tbergq/utils';
 import Router from 'next/router';
 import cookie from 'js-cookie';
-import { LoginMutation as loginMutation } from '@tbergq/tvhelper-xplat';
+
+import loginMutation from './mutation/loginMutation';
 
 export default function LoginForm() {
   const [loading, setLoading] = React.useState(false);
