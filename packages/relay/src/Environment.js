@@ -37,7 +37,7 @@ export const createRelayEnvironment = (token: ?string, initialData: ?{ ... }) =>
     const res = await fetch('https://tbergq-graphql.now.sh/graphql/', {
       method: 'POST',
       headers: {
-        Authorization: token,
+        Authorization: token ?? '',
         'content-type': 'application/json',
       },
       body: JSON.stringify(getBody(operation, variables)),

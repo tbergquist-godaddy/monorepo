@@ -29,7 +29,6 @@ describe('LoginForm', () => {
       );
     });
 
-    // $FlowFixMe
     expect(getByText('Login failed')).toBeInTheDocument();
   });
 

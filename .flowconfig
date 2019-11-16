@@ -1,34 +1,15 @@
 [ignore]
-; We fork some components by platform
-.*/*[.]android.js
 
-; Ignore "BUCK" generated dirs
-<PROJECT_ROOT>/\.buckd/
 <PROJECT_ROOT>/\.git/.*
 .+/\.next/.+
-
-
-; Ignore polyfills
-node_modules/react-native/Libraries/polyfills/.*
-
-; These should not be required directly
-; require from fbjs/lib instead: require('fbjs/lib/warning')
-node_modules/warning/.*
-
-; Flow doesn't support platforms
-.*/Libraries/Utilities/LoadingView.js
-
-<PROJECT_ROOT>/node_modules/graphql-iso-date/dist/time/index.js.flow
 
 [include]
 
 [declarations]
-<PROJECT_ROOT>/node_modules/react-native/.+
+.+/node_modules/.+
 
 [libs]
 flow-typed/
-./node_modules/react-native/Libraries/react-native/react-native-interface.js
-./node_modules/react-native/flow/
 
 [lints]
 unnecessary-optional-chain=error
@@ -41,18 +22,8 @@ esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
 server.max_workers=4
-module.file_ext=.js
-module.file_ext=.json
-module.file_ext=.ios.js
-module.file_ext=.native.js
-module.file_ext=.android.js
-module.file_ext=.web.js
 
 munge_underscores=true
-
-module.name_mapper='^react-native$' -> '<PROJECT_ROOT>/Libraries/react-native/react-native-implementation'
-module.name_mapper='^react-native/\(.*\)$' -> '<PROJECT_ROOT>/\1'
-module.name_mapper='^[./a-zA-Z0-9$_-]+\.\(bmp\|gif\|jpg\|jpeg\|png\|psd\|svg\|webp\|m4v\|mov\|mp4\|mpeg\|mpg\|webm\|aac\|aiff\|caf\|m4a\|mp3\|wav\|html\|pdf\)$' -> '<PROJECT_ROOT>/Libraries/Image/RelativeImageStub'
 
 suppress_type=$FlowIssue
 suppress_type=$FlowFixMe
@@ -79,8 +50,3 @@ unclear-type
 unsafe-getters-setters
 ;untyped-import
 untyped-type-import
-
-[untyped]
-<PROJECT_ROOT>/node_modules/graphql/.*
-<PROJECT_ROOT>/node_modules/express-graphql/.*
-.+/node_modules/react-native/Libraries/Lists/VirtualizedList.js

@@ -3,7 +3,6 @@
 import * as React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
-import { AppRegistry } from 'react-native';
 
 const GlobalStyle = createGlobalStyle({
   html: {
@@ -22,14 +21,12 @@ const GlobalStyle = createGlobalStyle({
   },
 });
 
-export default function withDocument(appName: string) {
+export default function withDocument() {
   return class MyDocument extends Document {
     static async getInitialProps(ctx: any) {
       const sheet = new ServerStyleSheet();
       const originalRenderPage = ctx.renderPage;
-      AppRegistry.registerComponent(appName, () => Main);
-      // $FlowExpectedError: This is react-native-web specific
-      const { getStyleElement } = AppRegistry.getApplication(appName);
+
       try {
         ctx.renderPage = () =>
           originalRenderPage({
@@ -43,7 +40,6 @@ export default function withDocument(appName: string) {
             <>
               {initialProps.styles}
               {sheet.getStyleElement()}
-              {getStyleElement()}
               <GlobalStyle />
             </>
           ),

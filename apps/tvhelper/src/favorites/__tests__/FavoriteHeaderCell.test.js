@@ -15,7 +15,7 @@ describe('FavoriteHeaderCell', () => {
     );
 
     const svg = container.querySelector('svg');
-    // $FlowFixMe
+
     expect(svg).not.toBeInTheDocument();
   });
 
@@ -28,7 +28,7 @@ describe('FavoriteHeaderCell', () => {
     );
 
     const svg = container.querySelector('svg');
-    // $FlowFixMe
+
     expect(svg).toBeInTheDocument();
     expect(svg.getAttribute('deg')).toBe('-90');
   });
@@ -42,7 +42,7 @@ describe('FavoriteHeaderCell', () => {
     );
 
     const svg = container.querySelector('svg');
-    // $FlowFixMe
+
     expect(svg).toBeInTheDocument();
     expect(svg.getAttribute('deg')).toBe('90');
   });

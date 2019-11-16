@@ -47,6 +47,7 @@ function createGraphqlServer(request: $Request) {
 }
 
 app.use('/', attachUserToRequest, getPersistedQuery(), (request: $Request, response: $Response) => {
+  // $FlowFixMe
   return createGraphqlServer(request)(request, response);
 });
 
