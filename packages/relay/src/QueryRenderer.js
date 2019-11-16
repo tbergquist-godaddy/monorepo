@@ -6,7 +6,7 @@ import {
   type GraphQLTaggedNode,
   type Environment,
 } from '@adeira/relay';
-import { Loader, Text, View } from '@tbergq/rn-components';
+import { Loading } from '@tbergq/components';
 import { createOperationDescriptor, getRequest } from 'relay-runtime';
 import { Platform } from 'react-native';
 
@@ -40,16 +40,12 @@ export default function QueryRenderer(props: Props) {
   function render({ props: rendererProps, error }) {
     const data = rendererProps ?? contextData?.data;
     if (error) {
-      return (
-        <View>
-          <Text>Failed to load data from the server</Text>
-        </View>
-      );
+      return <div>Failed to load data from the server</div>;
     }
     if (data) {
       return props.render(data);
     }
-    return <Loader testID="queryRenderLoader" size={Platform.OS === 'web' ? 'large' : 'small'} />;
+    return <Loading dataTest="queryRenderLoader" />;
   }
 
   return (
