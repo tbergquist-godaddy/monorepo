@@ -1,7 +1,7 @@
 // @flow
 
 import path from 'path';
-import testBC from '@kiwicom/graphql-bc-checker';
+import testBC from '@adeira/graphql-bc-checker';
 
 import Schema from '../src/Schema';
 
