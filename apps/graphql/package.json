@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "@kiwicom/graphql-bc-checker": "^1.4.1",
+    "@adeira/graphql-bc-checker": "^0.1.0",
     "@kiwicom/graphql-global-id": "^0.13.0",
     "@adeira/js": "^0.1.0",
     "@adeira/monorepo-utils": "^0.1.0",
