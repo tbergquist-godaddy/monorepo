@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer, type RelayEnvironmentType } from '@tbergq/relay';
-import { TvShowListItem } from '@tbergq/tvhelper-xplat';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 import type { SearchResults_results as ResultsType } from './__generated__/SearchResults_results.graphql';
+import TvShowListItem from './TvShowListItem';
 
 type NavigationOptions = {|
   +id: ?string,
@@ -49,7 +49,7 @@ export default createFragmentContainer(SearchResults, {
       edges {
         node {
           id
-          ...TvShowItem_data
+          ...TvShowListItem_data
         }
       }
     }

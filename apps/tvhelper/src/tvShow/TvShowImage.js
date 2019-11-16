@@ -5,12 +5,10 @@ import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay'
 import { Button } from '@tbergq/components';
 import styled from 'styled-components';
 import { MdFavorite } from 'react-icons/md';
-import {
-  AddFavoriteMutation as addFavorite,
-  DeleteFavoriteMutation as deleteFavorite,
-} from '@tbergq/tvhelper-xplat';
 
 import type { TvShowImage_tvShow as TvShow } from './__generated__/TvShowImage_tvShow.graphql';
+import addFavorite from './mutations/addFavorite';
+import deleteFavorite from './mutations/deleteFavorite';
 
 type Props = {|
   +tvShow: ?TvShow,
@@ -52,7 +50,7 @@ const TvShowImage = (props: Props) => {
   }
   return (
     <>
-      <Image src={src} alt="tvshow image" />
+      <Image src={src} alt={props.tvShow?.name} />
       {notLoggedIn === false && (
         <FavoriteButton
           loading={isLoading}
@@ -73,6 +71,7 @@ export default createFragmentContainer(TvShowImage, {
   tvShow: graphql`
     fragment TvShowImage_tvShow on TvShow {
       id
+      name
       image {
         original
       }

@@ -4,11 +4,9 @@ import * as React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import { MockPayloadGenerator } from 'relay-test-utils';
 import { QueryRenderer, graphql, Environment } from '@tbergq/relay';
-// eslint-disable-next-line monorepo/no-internal-import
-import * as addFavorite from '@tbergq/tvhelper-xplat/src/favorite/AddFavorite';
-// eslint-disable-next-line monorepo/no-internal-import
-import * as deleteFavorite from '@tbergq/tvhelper-xplat/src/favorite/DeleteFavorite';
 
+import * as deleteFavorite from '../mutations/deleteFavorite';
+import * as addFavorite from '../mutations/addFavorite';
 import TvShowImage from '../TvShowImage';
 
 const renderer = props => <TvShowImage tvShow={props.tvShowDetail} />;

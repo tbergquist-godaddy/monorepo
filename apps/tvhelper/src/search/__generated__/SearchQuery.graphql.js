@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 11aecc7ea8dd4be636fd457b5381b616
+ * @relayHash c3933d48c53939870e203e0d034ada66
  */
 
 /* eslint-disable */
@@ -38,12 +38,12 @@ fragment SearchResults_results on TvShowConnection {
   edges {
     node {
       id
-      ...TvShowItem_data
+      ...TvShowListItem_data
     }
   }
 }
 
-fragment TvShowItem_data on TvShow {
+fragment TvShowListItem_data on TvShow {
   id
   name
   status
@@ -190,7 +190,7 @@ return {
     "operationKind": "query",
     "name": "SearchQuery",
     "id": null,
-    "text": "query SearchQuery(\n  $query: String!\n) {\n  searchTvShow(query: $query) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowItem_data\n    }\n  }\n}\n\nfragment TvShowItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n",
+    "text": "query SearchQuery(\n  $query: String!\n) {\n  searchTvShow(query: $query) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowListItem_data\n    }\n  }\n}\n\nfragment TvShowListItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
