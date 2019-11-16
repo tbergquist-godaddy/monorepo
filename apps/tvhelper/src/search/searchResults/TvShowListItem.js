@@ -26,7 +26,8 @@ const Container = styled.div`
   background-color: #cccccc;
   border-radius: ${borderRadius}px;
   position: relative;
-  background-image: url(${props => props.url});
+  background: url(${props => props.url}) no-repeat;
+  background-size: 100%;
 `;
 
 const BottomSheet = styled.div({
