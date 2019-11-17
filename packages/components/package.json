@@ -15,5 +15,8 @@
     "react": "",
     "react-test-renderer": "",
     "styled-components": ""
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.3.2"
   }
 }

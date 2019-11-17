@@ -25,53 +25,45 @@ const TextContainer = styled.div(props => ({
 }));
 
 type Props = {|
-  +timeout: number,
-  +top: boolean,
-  +left: boolean,
+  +timeout?: number,
+  +top?: boolean,
+  +left?: boolean,
   +onHide?: () => void,
 |};
 
-type State = {|
-  +isVisible: boolean,
-  +message: string | null,
-|};
-
-class Toast extends React.Component<Props, State> {
-  static defaultProps = {
-    timeout: 3000,
-    top: false,
-    left: false,
-  };
-
-  state = {
+export default (React.forwardRef<Props, any>(function Toast(
+  { timeout = 3000, top = false, left = false, onHide }: Props,
+  ref,
+) {
+  const [state, setState] = React.useState({
     isVisible: false,
     message: null,
+  });
+
+  const hide = () => {
+    setState(state => ({ ...state, isVisible: false }));
+    if (onHide != null) {
+      onHide();
+    }
+    setTimeout(() => {
+      setState(state => ({ ...state, message: null }));
+    }, 300);
   };
 
-  show = (message: string) => {
-    this.setState({ isVisible: true, message }, () => {
-      setTimeout(() => {
-        this.hide();
-      }, this.props.timeout);
-    });
+  const show = (message: string) => {
+    setState({ isVisible: true, message });
+    setTimeout(() => {
+      hide();
+    }, timeout);
   };
 
-  hide = () => {
-    this.setState({ isVisible: false }, () => {
-      if (this.props.onHide) {
-        this.props.onHide();
-      }
-      this.setState({ message: null });
-    });
-  };
+  React.useImperativeHandle(ref, () => ({
+    show,
+  }));
 
-  render() {
-    return (
-      <ToastContainer show={this.state.isVisible} top={this.props.top} left={this.props.left}>
-        <TextContainer show={this.state.isVisible}>{this.state.message}</TextContainer>
-      </ToastContainer>
-    );
-  }
-}
-
-export default (Toast: any);
+  return (
+    <ToastContainer show={state.isVisible} top={top} left={left}>
+      <TextContainer show={state.isVisible}>{state.message}</TextContainer>
+    </ToastContainer>
+  );
+}): any);
