@@ -28,6 +28,7 @@ I have a set of aliases that makes this easier:
     bra = branch
     brar = branch -r
     ignored = !git ls-files -v | grep "^[[:lower:]]"
+    fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
 ```
 
 Most of these are so I don't have to type so much. Others because they make working with git better.
@@ -44,3 +45,7 @@ Because I don't like to stash my changes when switching branches. I rather do a 
 ### git undo
 
 Removes the latest commit, without throwing away the changes. 
+
+### git fixup
+
+When you want to ammend some changes to a commit other than head on you branch, you can use it like `git fixup <commit_hash>` and it will commit your changes to that commit
