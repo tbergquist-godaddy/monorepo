@@ -1,4 +1,4 @@
-# @generated SignedSource<<8899dc91d038f6d4a13d0ce4ccb31936>>
+# @generated SignedSource<<b4b38c8688285e07905fc4577b968e58>>
 
 # <BREAKING-CHANGES-LOG>
 # </BREAKING-CHANGES-LOG>
@@ -242,4 +242,8 @@ type TvShowNode {
   node: TvShow
 }
 
-union Viewer = TraningJournalViewer
+type Unauthorized {
+  message: String
+}
+
+union Viewer = TraningJournalViewer | Unauthorized

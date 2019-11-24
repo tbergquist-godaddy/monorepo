@@ -8,6 +8,6 @@ export default {
   type: ViewerType,
   description: 'User context',
   resolve: (_: mixed, __: mixed, { user }: GraphqlContextType) => {
-    return user?.app;
+    return user?.app ?? 'Unauthorized';
   },
 };
