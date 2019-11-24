@@ -1,3 +1,5 @@
+// @flow
+
 // flow-typed signature: 7d0da7d41860b91769189ed541e2ba17
 // flow-typed version: c6154227d1/express_v4.x.x/flow_>=v0.104.x
 
@@ -12,15 +14,15 @@ declare class express$RequestResponseBase {
   app: express$Application;
   get(field: string): string | void;
   user: ?{|
-    +id ?: string,
+    +id?: string,
     +username: string,
-    +email ?: string,
-    +token ?: string,
+    +email?: string,
+    +token?: string,
     +app: Apps,
   |};
 }
 
-declare type express$RequestParams = { [param: string]: string, ... }
+declare type express$RequestParams = { [param: string]: string, ... };
 
 declare class express$Request extends http$IncomingMessage mixins express$RequestResponseBase {
   baseUrl: string;
@@ -87,32 +89,45 @@ declare class express$Response extends http$ServerResponse mixins express$Reques
   clearCookie(name: string, options?: express$CookieOptions): this;
   download(path: string, filename?: string, callback?: (err?: ?Error) => void): this;
   format(typesObject: { [type: string]: Function, ... }): this;
-  json(body ?: mixed): this;
-  jsonp(body ?: mixed): this;
-links(links: { [name: string]: string, ... }): this;
-location(path: string): this;
-redirect(url: string, ...args: Array<void>): this;
-redirect(status: number, url: string, ...args: Array<void>): this;
-render(view: string, locals ?: { [name: string]: mixed, ... }, callback ?: express$RenderCallback): this;
-send(body ?: mixed): this;
-sendFile(path: string, options ?: express$SendFileOptions, callback ?: (err?: ?Error) => mixed): this;
-sendStatus(statusCode: number): this;
-header(field: string, value ?: string): this;
-header(headers: { [name: string]: string, ... }): this;
-set(field: string, value ?: string | string[]): this;
-set(headers: { [name: string]: string, ... }): this;
-status(statusCode: number): this;
-type(type: string): this;
-vary(field: string): this;
-req: express$Request;
+  json(body?: mixed): this;
+  jsonp(body?: mixed): this;
+  links(links: { [name: string]: string, ... }): this;
+  location(path: string): this;
+  redirect(url: string, ...args: Array<void>): this;
+  redirect(status: number, url: string, ...args: Array<void>): this;
+  render(
+    view: string,
+    locals?: { [name: string]: mixed, ... },
+    callback?: express$RenderCallback,
+  ): this;
+  send(body?: mixed): this;
+  sendFile(
+    path: string,
+    options?: express$SendFileOptions,
+    callback?: (err?: ?Error) => mixed,
+  ): this;
+  sendStatus(statusCode: number): this;
+  header(field: string, value?: string): this;
+  header(headers: { [name: string]: string, ... }): this;
+  set(field: string, value?: string | string[]): this;
+  set(headers: { [name: string]: string, ... }): this;
+  status(statusCode: number): this;
+  type(type: string): this;
+  vary(field: string): this;
+  req: express$Request;
 }
 
 declare type express$NextFunction = (err?: ?Error | 'route') => mixed;
 declare type express$Middleware =
   // $FlowFixMe
-  ((req: $Subtype<express$Request>, res: express$Response, next: express$NextFunction) => mixed) |
-  // $FlowFixMe
-  ((error: Error, req: $Subtype<express$Request>, res: express$Response, next: express$NextFunction) => mixed);
+  | ((req: $Subtype<express$Request>, res: express$Response, next: express$NextFunction) => mixed)
+    | ((
+        error: Error,
+        // $FlowFixMe
+        req: $Subtype<express$Request>,
+        res: express$Response,
+        next: express$NextFunction,
+      ) => mixed);
 declare interface express$RouteMethodType<T> {
   (middleware: express$Middleware): T;
   (...middleware: Array<express$Middleware>): T;
@@ -153,7 +168,7 @@ declare class express$Route {
 declare class express$Router extends express$Route {
   constructor(options?: express$RouterOptions): void;
   route(path: string): express$Route;
-  static(options?: express$RouterOptions): express$Router;
+  static (options?: express$RouterOptions): express$Router;
   use(middleware: express$Middleware): this;
   use(...middleware: Array<express$Middleware>): this;
   use(path: express$Path | express$Path[], ...middleware: Array<express$Middleware>): this;
@@ -166,8 +181,8 @@ declare class express$Router extends express$Route {
       req: $Subtype<express$Request>,
       res: express$Response,
       next: express$NextFunction,
-      id: string
-    ) => mixed
+      id: string,
+    ) => mixed,
   ): void;
   (req: http$IncomingMessage<>, res: http$ServerResponse, next?: ?express$NextFunction): void;
 }
@@ -176,7 +191,12 @@ declare class express$Application extends express$Router mixins events$EventEmit
   constructor(): void;
   locals: { [name: string]: mixed, ... };
   mountpath: string;
-  listen(port: number, hostname?: string, backlog?: number, callback?: (err?: ?Error) => mixed): ?http$Server;
+  listen(
+    port: number,
+    hostname?: string,
+    backlog?: number,
+    callback?: (err?: ?Error) => mixed,
+  ): ?http$Server;
   listen(port: number, hostname?: string, callback?: (err?: ?Error) => mixed): ?http$Server;
   listen(port: number, callback?: (err?: ?Error) => mixed): ?http$Server;
   listen(path: string, callback?: (err?: ?Error) => mixed): ?http$Server;
@@ -191,10 +211,14 @@ declare class express$Application extends express$Router mixins events$EventEmit
    */
   //   get(name: string): mixed;
   set(name: string, value: mixed): mixed;
-  render(name: string, optionsOrFunction: { [name: string]: mixed, ... }, callback: express$RenderCallback): void;
-handle(req: http$IncomingMessage <>, res: http$ServerResponse, next ?: ? express$NextFunction): void;
-// callable signature is not inherited
-(req: http$IncomingMessage<>, res: http$ServerResponse, next?: ?express$NextFunction): void;
+  render(
+    name: string,
+    optionsOrFunction: { [name: string]: mixed, ... },
+    callback: express$RenderCallback,
+  ): void;
+  handle(req: http$IncomingMessage<>, res: http$ServerResponse, next?: ?express$NextFunction): void;
+  // callable signature is not inherited
+  (req: http$IncomingMessage<>, res: http$ServerResponse, next?: ?express$NextFunction): void;
 }
 
 declare module 'express' {
@@ -210,10 +234,10 @@ declare module 'express' {
   declare module.exports: {
     // If you try to call like a function, it will use this signature
     (): express$Application,
-      // `static` property on the function
-      static: (root: string, options?: Object) => express$Middleware,
-        // `Router` property on the function
-        Router: typeof express$Router,
+    // `static` property on the function
+    static: (root: string, options?: Object) => express$Middleware,
+    // `Router` property on the function
+    Router: typeof express$Router,
     ...
   };
 }

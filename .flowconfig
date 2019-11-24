@@ -36,6 +36,10 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: 
 
+; This option is always ON in the strict mode. We are enabling it even for the classic mode.
+; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
+experimental.const_params=true
+
 experimental.types_first=false
 experimental.minimal_merge=true
 experimental.well_formed_exports=true
