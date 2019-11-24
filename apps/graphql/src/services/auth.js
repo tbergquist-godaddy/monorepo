@@ -3,6 +3,7 @@
 import { type $Request, type $Response } from 'express';
 import passport from 'passport';
 import { UserRepository } from '@tbergq/tvhelper-persistence';
+import { UserRepository as TJUserRepository } from '@tbergq/trainingjournal-persistence';
 import type { Apps } from '@tbergq/graphql-services';
 
 type JwtPayload = {|
@@ -20,6 +21,8 @@ const getFindUserFunction = (app: ?Apps) => {
   switch (app) {
     case 'tvhelper':
       return UserRepository.findUser;
+    case 'trainingjournal':
+      return TJUserRepository.findUser;
     default:
       throw new Error('Unkown app type.');
   }
