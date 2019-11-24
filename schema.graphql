@@ -1,4 +1,4 @@
-# @generated SignedSource<<0f07f17dea5d55bdae9eeb75734e549f>>
+# @generated SignedSource<<bb84dbcafaa5e5ddb82c72e93b017fca>>
 
 # <BREAKING-CHANGES-LOG>
 # </BREAKING-CHANGES-LOG>
@@ -23,6 +23,13 @@ type Cast {
   """
   id(opaque: Boolean = true): ID!
   person: Person
+}
+
+input CreateExerciseInput {
+  description: String
+  muscleGroups: String
+  name: String!
+  videoUrl: String
 }
 
 type CreateStoredOperation {
@@ -146,6 +153,9 @@ type RootMutation {
   """Add tv show to favorite list"""
   addFavorite(serieId: ID!): AddFavorite
   createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
+
+  """Create a new Exercise"""
+  createExercise(exercise: CreateExerciseInput!): ExericseEdge
 
   """Create a user for trainingjournal application"""
   createTrainingjournalUser(email: String!, password: String!, username: String!): CreateTrainingJournalUser

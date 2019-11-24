@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates an exercise 1`] = `
+Object {
+  "data": Object {
+    "createExercise": Object {
+      "node": Object {
+        "muscleGroups": "TestLår",
+        "name": "Knebøy",
+      },
+    },
+  },
+}
+`;
