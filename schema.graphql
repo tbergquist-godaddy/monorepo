@@ -1,4 +1,4 @@
-# @generated SignedSource<<b4b38c8688285e07905fc4577b968e58>>
+# @generated SignedSource<<0f07f17dea5d55bdae9eeb75734e549f>>
 
 # <BREAKING-CHANGES-LOG>
 # </BREAKING-CHANGES-LOG>
@@ -76,6 +76,38 @@ type Episode {
 type EpisodeWatched {
   episode: Episode
   success: Boolean
+}
+
+type Exericse {
+  description: String
+
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  muscleGroups: String
+  name: String
+  videoUrl: String
+}
+
+"""A connection to a list of items."""
+type ExericseConnection {
+  """A list of edges."""
+  edges: [ExericseEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+"""An edge in a connection."""
+type ExericseEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: Exericse
 }
 
 type LoginType {
@@ -179,6 +211,8 @@ input StoredOperationInput {
 }
 
 type TraningJournalViewer {
+  exercises(after: String, before: String, first: Int, last: Int): ExericseConnection
+
   """
   The globally unique ID of an object. You can unmask this ID to get original
   value but please note that this unmasked ID is not globally unique anymore and
