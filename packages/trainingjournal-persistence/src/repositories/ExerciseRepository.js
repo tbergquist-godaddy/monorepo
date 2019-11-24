@@ -15,4 +15,9 @@ export default class ExerciseRepository {
     const exercise = await Model.findById(id);
     return new Exercise(exercise);
   }
+
+  static async getExercises(userId: string) {
+    const exercises = await Model.find({ user: userId });
+    return exercises.map(exercise => new Exercise(exercise));
+  }
 }

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`works 1`] = `
+Object {
+  "data": Object {
+    "viewer": Object {
+      "exercises": Object {
+        "edges": Array [
+          Object {
+            "node": Object {
+              "description": null,
+              "muscleGroups": "Bryst",
+              "name": "Benkpress",
+              "videoUrl": null,
+            },
+          },
+          Object {
+            "node": Object {
+              "description": null,
+              "muscleGroups": "Lår",
+              "name": "Knebøy",
+              "videoUrl": null,
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;
