@@ -2,3 +2,4 @@
 
 export { default as withNProgress } from './src/withNProgress';
 export { default as withDocument } from './src/withDocument';
+export { default as useIsLoggedIn } from './src/useIsLoggedIn';

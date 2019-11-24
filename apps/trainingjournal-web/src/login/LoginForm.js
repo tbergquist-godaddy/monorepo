@@ -23,7 +23,7 @@ export default function LoginForm() {
         const token = response.trainingJournalLogin?.token;
         if (success && token) {
           cookie.set(TOKEN_KEY, token, { expires: 365 });
-          Router.push({ pathname: '/' });
+          Router.push({ pathname: '/home' });
         } else if (toastRef.current != null) {
           toastRef.current.show('Login failed');
         }
