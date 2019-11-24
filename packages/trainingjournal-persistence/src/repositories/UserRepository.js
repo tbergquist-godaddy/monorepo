@@ -44,4 +44,12 @@ export default class UserRepository {
     }
     return encryptPassword(password, user.salt) === user.password ? new User(user) : null;
   }
+
+  static async findUser(username: string) {
+    const user = await Model.findOne({ username });
+    if (user == null) {
+      return null;
+    }
+    return new User(user);
+  }
 }

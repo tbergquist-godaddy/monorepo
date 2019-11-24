@@ -1,4 +1,4 @@
-# @generated SignedSource<<359590211a4c891ec22b03fe01121db1>>
+# @generated SignedSource<<8899dc91d038f6d4a13d0ce4ccb31936>>
 
 # <BREAKING-CHANGES-LOG>
 # </BREAKING-CHANGES-LOG>
@@ -146,6 +146,9 @@ type RootQuery {
 
   """Tv show lookup by id"""
   tvShowDetail(id: ID!): TvShow
+
+  """User context"""
+  viewer: Viewer
 }
 
 enum SortBy {
@@ -173,6 +176,16 @@ type StoredOperation {
 input StoredOperationInput {
   operationId: String!
   text: String!
+}
+
+type TraningJournalViewer {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  username: String
 }
 
 type TvHelperImage {
@@ -228,3 +241,5 @@ type TvShowEdge {
 type TvShowNode {
   node: TvShow
 }
+
+union Viewer = TraningJournalViewer
