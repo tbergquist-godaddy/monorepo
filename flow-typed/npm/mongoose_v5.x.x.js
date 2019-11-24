@@ -417,8 +417,6 @@ declare class Mongoose$Query<Result, Doc> extends Promise<Result> {
   selected(): boolean;
   selectedExclusively(): boolean;
   selectedInclusively(): boolean;
-  // eslint-disable-next-line eslint-comments/no-duplicate-disable
-  // eslint-disable-next-line flowtype/no-dupe-keys
   setOptions(options: Object): Mongoose$Query<Result, Doc>;
   slice(path: string, val: number | [number, number]): Mongoose$Query<Result, Doc>;
   snapshot(bool: boolean): Mongoose$Query<Result, Doc>;

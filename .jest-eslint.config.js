@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/apps/**/*.js',
     '<rootDir>/packages/**/*.js',
     '<rootDir>/scripts/**/*.js',
+    '<rootDir>/flow-typed/**/*.js',
   ],
 };
