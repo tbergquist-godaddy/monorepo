@@ -3,10 +3,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type FavoriteItem_favorite$ref: FragmentReference;
@@ -24,10 +22,9 @@ export type FavoriteItem_favorite$key = {
   +$data?: FavoriteItem_favorite$data,
   +$fragmentRefs: FavoriteItem_favorite$ref,
 };
-*/
 
 
-const node/*: ReaderFragment*/ = {
+const node: ReaderFragment = {
   "kind": "Fragment",
   "name": "FavoriteItem_favorite",
   "type": "TvShow",
@@ -72,5 +69,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '059bc1b25e5f8b3b8ed3f9ff7b53375b';
-module.exports = node;
+(node: any).hash = '059bc1b25e5f8b3b8ed3f9ff7b53375b';
+export default node;

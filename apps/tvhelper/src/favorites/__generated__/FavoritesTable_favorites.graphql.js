@@ -3,10 +3,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ReaderFragment } from 'relay-runtime';
 type FavoriteItem_favorite$ref = any;
 import type { FragmentReference } from "relay-runtime";
@@ -28,10 +26,9 @@ export type FavoritesTable_favorites$key = {
   +$data?: FavoritesTable_favorites$data,
   +$fragmentRefs: FavoritesTable_favorites$ref,
 };
-*/
 
 
-const node/*: ReaderFragment*/ = {
+const node: ReaderFragment = {
   "kind": "Fragment",
   "name": "FavoritesTable_favorites",
   "type": "RootQuery",
@@ -102,5 +99,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'bb168013290e775a1ea506c61a6ff9ad';
-module.exports = node;
+(node: any).hash = 'bb168013290e775a1ea506c61a6ff9ad';
+export default node;

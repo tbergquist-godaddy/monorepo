@@ -23,7 +23,7 @@ function renderQuery(props: TvShowQueryResponse) {
 }
 
 export default function TvShowQuery(props: Props) {
-  if (!props.tvShowId) {
+  if (props.tvShowId == null) {
     return null;
   }
   return (

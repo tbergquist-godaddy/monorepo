@@ -33,7 +33,7 @@ export default function deleteFavorite(
       const payload = store.getRootField('deleteFavorite') ?? {};
       const success = payload.getValue('success') ?? false;
 
-      if (success) {
+      if (success === true) {
         const serie = store.get(variables.serieId) ?? {};
         serie.setValue(false, 'isFavorite');
       }

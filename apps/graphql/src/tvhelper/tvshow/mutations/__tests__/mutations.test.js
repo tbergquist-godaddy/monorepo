@@ -20,7 +20,9 @@ describe('AddFavorite', () => {
   afterEach(async () => {
     await tvHelperConnection.collection('users').drop();
   });
-  generateTestsFromFixtures(`${__dirname}/__fixtures__`, input =>
-    executeTestQuery(input, null, { user: { id: userId } }),
+  generateTestsFromFixtures(
+    `${__dirname}/__fixtures__`,
+    // eslint-disable-next-line no-return-await
+    async input => await executeTestQuery(input, null, { user: { id: userId } }),
   );
 });

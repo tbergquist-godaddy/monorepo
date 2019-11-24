@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import { GraphQLUnionType } from 'graphql';
 

@@ -3,10 +3,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ReaderFragment } from 'relay-runtime';
 type Episodes_episodes$ref = any;
 type TvShowImage_tvShow$ref = any;
@@ -24,10 +22,9 @@ export type TvShowPage_tvShow$key = {
   +$data?: TvShowPage_tvShow$data,
   +$fragmentRefs: TvShowPage_tvShow$ref,
 };
-*/
 
 
-const node/*: ReaderFragment*/ = {
+const node: ReaderFragment = {
   "kind": "Fragment",
   "name": "TvShowPage_tvShow",
   "type": "TvShow",
@@ -67,5 +64,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'e344a4c30160f9a67ac3145e608236a2';
-module.exports = node;
+(node: any).hash = 'e344a4c30160f9a67ac3145e608236a2';
+export default node;

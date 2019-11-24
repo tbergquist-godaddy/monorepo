@@ -15,6 +15,9 @@ jest.mock('@adeira/fetch', () => {
 });
 
 const url = 'test.url';
+beforeEach(() => {
+  jest.spyOn(console, 'log').mockImplementation(jest.fn());
+});
 it('assigns content-type as default header', async () => {
   await fetch(url);
   expect(fetchWithRetries).toHaveBeenCalledWith(url, {

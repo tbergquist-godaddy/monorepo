@@ -22,7 +22,7 @@ export default function LoginForm() {
       response => {
         const success = response?.tvHelperLogin?.success;
         const token = response?.tvHelperLogin?.token;
-        if (success && token) {
+        if (success === true && token != null) {
           cookie.set(TOKEN_KEY, token, { expires: 365 });
           Router.push({ pathname: '/favorites' });
         } else if (toastRef.current != null) {

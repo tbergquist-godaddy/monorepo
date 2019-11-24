@@ -96,8 +96,7 @@ describe('TvShowImage', () => {
         }),
       );
     });
-
-    expect(toggleButton).toHaveStyle('background-color: rgb(1, 114, 203)');
+    expect(toggleButton).toHaveStyle('background-color: rgb(210, 28, 28)');
     expect(spy).toHaveBeenCalledWith(environment, { serieId: '234' }, expect.any(Function));
   });
 });

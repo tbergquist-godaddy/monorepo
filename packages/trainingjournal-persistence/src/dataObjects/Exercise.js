@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import type { ExerciseType } from '../models/ExerciseModel';
 
