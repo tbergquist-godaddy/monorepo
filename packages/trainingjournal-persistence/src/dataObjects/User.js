@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import type { UserType } from '../models/UserModel';
 

@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import { GraphQLNonNull, GraphQLString } from 'graphql';
 import { UserRepository } from '@tbergq/trainingjournal-persistence';

@@ -4,10 +4,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type CreateTjUserMutationVariables = {|
   username: string,
@@ -23,8 +21,6 @@ export type CreateTjUserMutation = {|
   variables: CreateTjUserMutationVariables,
   response: CreateTjUserMutationResponse,
 |};
-*/
-
 
 /*
 mutation CreateTjUserMutation(
@@ -38,7 +34,7 @@ mutation CreateTjUserMutation(
 }
 */
 
-const node/*: ConcreteRequest*/ = (function(){
+const node: ConcreteRequest = (function(){
 var v0 = [
   {
     "kind": "LocalArgument",
@@ -121,5 +117,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'df1ddacd1af7470500b7bda81bac73f9';
-module.exports = node;
+(node: any).hash = 'df1ddacd1af7470500b7bda81bac73f9';
+export default node;

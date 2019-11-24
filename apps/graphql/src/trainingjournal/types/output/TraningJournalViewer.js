@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';

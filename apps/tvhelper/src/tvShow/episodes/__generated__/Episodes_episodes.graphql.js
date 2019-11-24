@@ -3,10 +3,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ReaderFragment } from 'relay-runtime';
 type Episode_episode$ref = any;
 import type { FragmentReference } from "relay-runtime";
@@ -24,10 +22,9 @@ export type Episodes_episodes$key = {
   +$data?: Episodes_episodes$data,
   +$fragmentRefs: Episodes_episodes$ref,
 };
-*/
 
 
-const node/*: ReaderFragment*/ = {
+const node: ReaderFragment = {
   "kind": "Fragment",
   "name": "Episodes_episodes",
   "type": "TvShow",
@@ -60,5 +57,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'a22bde3b2493ef5400f453d751c9b9aa';
-module.exports = node;
+(node: any).hash = 'a22bde3b2493ef5400f453d751c9b9aa';
+export default node;

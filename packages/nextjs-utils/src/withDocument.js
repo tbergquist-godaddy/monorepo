@@ -1,7 +1,7 @@
-// @flow
+// @flow strict
 
 import * as React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main, NextScript, type DocumentContext } from 'next/document';
 import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle({
@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle({
 
 export default function withDocument() {
   return class MyDocument extends Document {
-    static async getInitialProps(ctx: any) {
+    static async getInitialProps(ctx: DocumentContext) {
       const sheet = new ServerStyleSheet();
       const originalRenderPage = ctx.renderPage;
 

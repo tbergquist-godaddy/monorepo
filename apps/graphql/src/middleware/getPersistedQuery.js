@@ -13,7 +13,7 @@ export default function matchQueryMiddleware() {
       if (typeof queryId === 'string') {
         const query = await StoredOperationRepository.getOperationText(queryId);
 
-        if (query) {
+        if (query != null) {
           // eslint-disable-next-line require-atomic-updates
           req.body.query = query;
         } else {

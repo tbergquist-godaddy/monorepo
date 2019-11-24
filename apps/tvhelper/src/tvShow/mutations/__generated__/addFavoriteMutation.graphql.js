@@ -4,10 +4,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type addFavoriteMutationVariables = {|
   serieId: string
@@ -27,8 +25,6 @@ export type addFavoriteMutation = {|
   variables: addFavoriteMutationVariables,
   response: addFavoriteMutationResponse,
 |};
-*/
-
 
 /*
 mutation addFavoriteMutation(
@@ -46,7 +42,7 @@ mutation addFavoriteMutation(
 }
 */
 
-const node/*: ConcreteRequest*/ = (function(){
+const node: ConcreteRequest = (function(){
 var v0 = [
   {
     "kind": "LocalArgument",
@@ -143,5 +139,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '92bffb315e32ac8306063e91a6fe1a33';
-module.exports = node;
+(node: any).hash = '92bffb315e32ac8306063e91a6fe1a33';
+export default node;

@@ -4,10 +4,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type MarkAsWatchedMutationVariables = {|
   episodeId: string
@@ -25,8 +23,6 @@ export type MarkAsWatchedMutation = {|
   variables: MarkAsWatchedMutationVariables,
   response: MarkAsWatchedMutationResponse,
 |};
-*/
-
 
 /*
 mutation MarkAsWatchedMutation(
@@ -42,7 +38,7 @@ mutation MarkAsWatchedMutation(
 }
 */
 
-const node/*: ConcreteRequest*/ = (function(){
+const node: ConcreteRequest = (function(){
 var v0 = [
   {
     "kind": "LocalArgument",
@@ -128,5 +124,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'dad9374747b0d6ac8e3e7d23b5cf41fe';
-module.exports = node;
+(node: any).hash = 'dad9374747b0d6ac8e3e7d23b5cf41fe';
+export default node;

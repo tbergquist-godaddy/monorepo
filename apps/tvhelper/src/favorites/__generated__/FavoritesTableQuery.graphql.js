@@ -4,10 +4,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type FavoritesTable_favorites$ref = any;
 export type SortBy = "NAME" | "NEXT_EPISODE" | "PREVIOUS_EPISODE" | "STATUS" | "%future added value";
@@ -26,8 +24,6 @@ export type FavoritesTableQuery = {|
   variables: FavoritesTableQueryVariables,
   response: FavoritesTableQueryResponse,
 |};
-*/
-
 
 /*
 query FavoritesTableQuery(
@@ -56,7 +52,7 @@ fragment FavoritesTable_favorites_2Rby0E on RootQuery {
 }
 */
 
-const node/*: ConcreteRequest*/ = (function(){
+const node: ConcreteRequest = (function(){
 var v0 = [
   {
     "kind": "LocalArgument",
@@ -173,5 +169,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '46fb2dbb88c1044f1be74408843022b3';
-module.exports = node;
+(node: any).hash = '46fb2dbb88c1044f1be74408843022b3';
+export default node;

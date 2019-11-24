@@ -4,10 +4,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type FavoritesTable_favorites$ref = any;
 export type FavoritesTableTestQueryVariables = {||};
@@ -18,8 +16,6 @@ export type FavoritesTableTestQuery = {|
   variables: FavoritesTableTestQueryVariables,
   response: FavoritesTableTestQueryResponse,
 |};
-*/
-
 
 /*
 query FavoritesTableTestQuery {
@@ -46,7 +42,7 @@ fragment FavoritesTable_favorites on RootQuery {
 }
 */
 
-const node/*: ConcreteRequest*/ = (function(){
+const node: ConcreteRequest = (function(){
 var v0 = {
   "type": "String",
   "enumValues": null,
@@ -200,5 +196,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '1c60e8ef4c4b49ab3506044db3757695';
-module.exports = node;
+(node: any).hash = '1c60e8ef4c4b49ab3506044db3757695';
+export default node;

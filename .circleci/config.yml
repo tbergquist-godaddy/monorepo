@@ -58,7 +58,7 @@ jobs:
           at: ~/tbergq-monorepo
       - run: yarn test --max-workers=1 --silent
       - run: yarn workspace @tbergq/graphql test-bc
-      - run: yarn relay --validate --watchman false 
+      - run: yarn relay --validate
 
   deploy-graphql:
     <<: *defaults

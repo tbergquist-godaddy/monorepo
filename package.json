@@ -9,7 +9,7 @@
     "typecheck": "adeira-flow-bin",
     "test-ci": "yarn lint && yarn typecheck && yarn test && yarn workspace @tbergq/graphql test-bc && yarn relay --validate",
     "postinstall": "jetify",
-    "relay": "yarn relay-compiler"
+    "relay": "yarn adeira-relay-compiler"
   },
   "workspaces": [
     "packages/*",

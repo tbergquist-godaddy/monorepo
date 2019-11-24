@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import type { LoggedInUser } from '@tbergq/graphql-services';
 import type { $Request } from 'express';

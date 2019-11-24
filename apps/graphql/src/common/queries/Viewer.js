@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import ViewerType from '../types/output/Viewer';
 import type { GraphqlContextType } from '../../services/createGraphqlContext';

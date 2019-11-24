@@ -12,8 +12,9 @@
 flow-typed/
 
 [lints]
-unnecessary-optional-chain=error
-
+all=error
+untyped-import=off
+unclear-type=off
 
 [options]
 sharedmemory.hash_table_pow=21
@@ -21,7 +22,6 @@ emoji=true
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
-server.max_workers=4
 
 munge_underscores=true
 

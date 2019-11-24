@@ -17,7 +17,7 @@ type Props = {|
 
 const markAsWatched = (props: Props) => {
   const episodeId = props.episode?.id;
-  if (episodeId) {
+  if (episodeId != null) {
     markAsWatchedMutation(props.relay.environment, {
       episodeId,
     });
@@ -26,7 +26,7 @@ const markAsWatched = (props: Props) => {
 
 const unMarkAsWatched = (props: Props) => {
   const episodeId = props.episode?.id;
-  if (episodeId) {
+  if (episodeId != null) {
     deleteAsWatchedMutation(props.relay.environment, {
       episodeId,
     });

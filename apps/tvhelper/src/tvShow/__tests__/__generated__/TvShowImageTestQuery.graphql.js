@@ -4,10 +4,8 @@
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
-'use strict';
-
-/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type TvShowImage_tvShow$ref = any;
 export type TvShowImageTestQueryVariables = {|
@@ -22,8 +20,6 @@ export type TvShowImageTestQuery = {|
   variables: TvShowImageTestQueryVariables,
   response: TvShowImageTestQueryResponse,
 |};
-*/
-
 
 /*
 query TvShowImageTestQuery(
@@ -46,7 +42,7 @@ fragment TvShowImage_tvShow on TvShow {
 }
 */
 
-const node/*: ConcreteRequest*/ = (function(){
+const node: ConcreteRequest = (function(){
 var v0 = [
   {
     "kind": "LocalArgument",
@@ -199,5 +195,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '905bcdabf2e5d05d18640f94de3afc9c';
-module.exports = node;
+(node: any).hash = '905bcdabf2e5d05d18640f94de3afc9c';
+export default node;

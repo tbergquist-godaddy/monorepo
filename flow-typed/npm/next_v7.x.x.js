@@ -173,6 +173,10 @@ declare module 'next/router' {
 declare module 'next/document' {
   import type { Context } from 'next';
 
+  declare export type DocumentContext = {|
+    ...$Exact<Context>,
+    renderPage: Function,
+    |};
   declare export var Head: Class<React$Component<any, any>>;
   declare export var Main: Class<React$Component<any, any>>;
   declare export var NextScript: Class<React$Component<any, any>>;
