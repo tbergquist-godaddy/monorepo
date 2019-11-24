@@ -36,5 +36,5 @@ it('handles login', () => {
       }),
     );
   });
-  expect(Router.push).toHaveBeenCalledWith({ pathname: '/' });
+  expect(Router.push).toHaveBeenCalledWith({ pathname: '/home' });
 });

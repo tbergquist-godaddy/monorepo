@@ -7,7 +7,8 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 export default function withNProgress(Component: React.AbstractComponent<{ ... }>) {
-  return class WithNProgress extends App {
+  // $FlowFixMe: App is not a polymorphic type
+  class WithNProgress extends App {
     componentDidMount = () => {
       NProgress.configure({ showSpinner: false });
       Router.events.on('routeChangeStart', this.handleRouteChangeStart);
@@ -30,5 +31,10 @@ export default function withNProgress(Component: React.AbstractComponent<{ ... }
     render() {
       return <Component {...this.props} />;
     }
-  };
+  }
+  // $FlowExpectedError: Flow does not know about this method
+  if (Component.getInitialProps != null) {
+    WithNProgress.getInitialProps = Component.getInitialProps;
+  }
+  return WithNProgress;
 }

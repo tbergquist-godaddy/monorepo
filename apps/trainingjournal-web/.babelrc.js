@@ -5,5 +5,6 @@ module.exports = {
   plugins: [
     ['styled-components', { ssr: true }],
     'relay',
+    '@babel/plugin-proposal-class-properties',
   ],
 };
