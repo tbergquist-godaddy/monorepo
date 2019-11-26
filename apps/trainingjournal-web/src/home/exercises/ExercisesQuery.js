@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { graphql, QueryRenderer } from '@tbergq/relay';
 
+import ExerciseList from './exerciseList/ExerciseList';
 import type { ExercisesQueryResponse } from './__generated__/ExercisesQuery.graphql';
 
 type Props = {||};
@@ -10,23 +11,13 @@ type Props = {||};
 export const query = graphql`
   query ExercisesQuery {
     viewer {
-      ... on TraningJournalViewer {
-        exercises(first: 10) {
-          edges {
-            node {
-              id
-              name
-            }
-          }
-        }
-      }
+      ...ExerciseList_exercises
     }
   }
 `;
 
 const renderQuery = (props: ExercisesQueryResponse) => {
-  const edges = props.viewer?.exercises?.edges ?? [];
-  return edges.map(edge => <div key={edge?.node?.id}>{edge?.node?.name}</div>);
+  return <ExerciseList exercises={props.viewer} />;
 };
 
 export default (function ExercisesQuery() {
