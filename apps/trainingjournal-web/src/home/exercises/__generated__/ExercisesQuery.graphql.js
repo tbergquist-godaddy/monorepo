@@ -1,23 +1,17 @@
 /**
  * @flow
- * @relayHash 0d07845c742be79d3a44786ccfe97dc7
+ * @relayHash 373d432321194fe72e13f40c7cc10d9f
  */
 
 /* eslint-disable */
 // flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
+type ExerciseList_exercises$ref = any;
 export type ExercisesQueryVariables = {||};
 export type ExercisesQueryResponse = {|
   +viewer: ?{|
-    +exercises?: ?{|
-      +edges: ?$ReadOnlyArray<?{|
-        +node: ?{|
-          +id: string,
-          +name: ?string,
-        |}
-      |}>
-    |}
+    +$fragmentRefs: ExerciseList_exercises$ref
   |}
 |};
 export type ExercisesQuery = {|
@@ -29,81 +23,27 @@ export type ExercisesQuery = {|
 query ExercisesQuery {
   viewer {
     __typename
-    ... on TraningJournalViewer {
-      exercises(first: 10) {
-        edges {
-          node {
-            id
-            name
-          }
-        }
+    ...ExerciseList_exercises
+  }
+}
+
+fragment ExerciseListItem_exercise on Exericse {
+  name
+}
+
+fragment ExerciseList_exercises on TraningJournalViewer {
+  exercises(first: 10) {
+    edges {
+      node {
+        id
+        ...ExerciseListItem_exercise
       }
     }
   }
 }
 */
 
-const node: ConcreteRequest = (function(){
-var v0 = {
-  "kind": "InlineFragment",
-  "type": "TraningJournalViewer",
-  "selections": [
-    {
-      "kind": "LinkedField",
-      "alias": null,
-      "name": "exercises",
-      "storageKey": "exercises(first:10)",
-      "args": [
-        {
-          "kind": "Literal",
-          "name": "first",
-          "value": 10
-        }
-      ],
-      "concreteType": "ExericseConnection",
-      "plural": false,
-      "selections": [
-        {
-          "kind": "LinkedField",
-          "alias": null,
-          "name": "edges",
-          "storageKey": null,
-          "args": null,
-          "concreteType": "ExericseEdge",
-          "plural": true,
-          "selections": [
-            {
-              "kind": "LinkedField",
-              "alias": null,
-              "name": "node",
-              "storageKey": null,
-              "args": null,
-              "concreteType": "Exericse",
-              "plural": false,
-              "selections": [
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "id",
-                  "args": null,
-                  "storageKey": null
-                },
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "name",
-                  "args": null,
-                  "storageKey": null
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-};
-return {
+const node: ConcreteRequest = {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
@@ -121,7 +61,11 @@ return {
         "concreteType": null,
         "plural": false,
         "selections": [
-          (v0/*: any*/)
+          {
+            "kind": "FragmentSpread",
+            "name": "ExerciseList_exercises",
+            "args": null
+          }
         ]
       }
     ]
@@ -147,7 +91,65 @@ return {
             "args": null,
             "storageKey": null
           },
-          (v0/*: any*/)
+          {
+            "kind": "InlineFragment",
+            "type": "TraningJournalViewer",
+            "selections": [
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "name": "exercises",
+                "storageKey": "exercises(first:10)",
+                "args": [
+                  {
+                    "kind": "Literal",
+                    "name": "first",
+                    "value": 10
+                  }
+                ],
+                "concreteType": "ExericseConnection",
+                "plural": false,
+                "selections": [
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "edges",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "ExericseEdge",
+                    "plural": true,
+                    "selections": [
+                      {
+                        "kind": "LinkedField",
+                        "alias": null,
+                        "name": "node",
+                        "storageKey": null,
+                        "args": null,
+                        "concreteType": "Exericse",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "id",
+                            "args": null,
+                            "storageKey": null
+                          },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "name",
+                            "args": null,
+                            "storageKey": null
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
         ]
       }
     ]
@@ -156,11 +158,10 @@ return {
     "operationKind": "query",
     "name": "ExercisesQuery",
     "id": null,
-    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ... on TraningJournalViewer {\n      exercises(first: 10) {\n        edges {\n          node {\n            id\n            name\n          }\n        }\n      }\n    }\n  }\n}\n",
+    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment ExerciseListItem_exercise on Exericse {\n  name\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
-})();
 // prettier-ignore
-(node: any).hash = 'b6006b39a5e3bc85e56ebbb201fc0439';
+(node: any).hash = '3afd72b27f7a9c5d89597b1386ba791b';
 export default node;
