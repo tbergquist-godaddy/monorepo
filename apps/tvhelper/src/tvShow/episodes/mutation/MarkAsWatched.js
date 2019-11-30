@@ -2,7 +2,10 @@
 
 import { graphql, commitMutation } from '@tbergq/relay';
 
-import type { MarkAsWatchedMutationVariables } from './__generated__/MarkAsWatchedMutation.graphql';
+import type {
+  MarkAsWatchedMutationVariables,
+  MarkAsWatchedMutation as MutationType,
+} from './__generated__/MarkAsWatchedMutation.graphql';
 
 const mutation = graphql`
   mutation MarkAsWatchedMutation($episodeId: ID!) {
@@ -20,7 +23,7 @@ export default function markAsWatched(
   environment: Object,
   variables: MarkAsWatchedMutationVariables,
 ) {
-  commitMutation(environment, {
+  commitMutation<MutationType>(environment, {
     variables,
     mutation,
     optimisticResponse: {

@@ -2,7 +2,10 @@
 
 import { commitMutation, graphql, Environment } from '@tbergq/relay';
 
-import type { createUserMutationVariables } from './__generated__/createUserMutation.graphql';
+import type {
+  createUserMutationVariables,
+  createUserMutation as MutationType,
+} from './__generated__/createUserMutation.graphql';
 
 const mutation = graphql`
   mutation createUserMutation($username: String!, $password: String!, $email: String!) {
@@ -17,7 +20,7 @@ export default function createUserMuatation(
   onCompleted?: Function,
 ) {
   const environment = Environment.getEnvironment();
-  commitMutation(environment, {
+  commitMutation<MutationType>(environment, {
     mutation,
     variables,
     onCompleted,

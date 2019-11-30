@@ -5,6 +5,7 @@ import { commitMutation, Environment, graphql } from '@tbergq/relay';
 import type {
   CreateTjUserMutationResponse,
   CreateTjUserMutationVariables,
+  CreateTjUserMutation as MutationType,
 } from './__generated__/CreateTjUserMutation.graphql';
 
 const mutation = graphql`
@@ -20,7 +21,7 @@ export default function createTjUser(
   onCompleted: CreateTjUserMutationResponse => void,
 ) {
   const environment = Environment.getEnvironment('');
-  commitMutation(environment, {
+  commitMutation<MutationType>(environment, {
     mutation,
     variables,
     onCompleted,

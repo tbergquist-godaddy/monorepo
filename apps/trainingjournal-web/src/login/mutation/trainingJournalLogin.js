@@ -2,7 +2,10 @@
 
 import { commitMutation, graphql, Environment } from '@tbergq/relay';
 
-import type { trainingJournalLoginMutationResponse as MutationResponse } from './__generated__/trainingJournalLoginMutation.graphql';
+import type {
+  trainingJournalLoginMutationResponse as MutationResponse,
+  trainingJournalLoginMutation as MutationType,
+} from './__generated__/trainingJournalLoginMutation.graphql';
 
 const mutation = graphql`
   mutation trainingJournalLoginMutation($username: String!, $password: String!) {
@@ -19,7 +22,7 @@ export default function trainingJournalLoginMutation(
   onCompleted: MutationResponse => void,
 ) {
   const environment = Environment.getEnvironment();
-  commitMutation(environment, {
+  commitMutation<MutationType>(environment, {
     mutation,
     variables: { username, password },
     onCompleted,

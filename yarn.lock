@@ -18,18 +18,18 @@
     "@babel/preset-react" "^7.6.3"
     "@babel/runtime" "^7.7.2"
 
-"@adeira/eslint-config@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-0.3.0.tgz#5c05c3d8c50958cdd0662c0df26d47ff88f7880d"
-  integrity sha512-Ur+5w1EACeBIfIQIeflzmLGGaWP90+ah0IlLBgTdwaukLrt4z60O+vY0mQ3TWIE5BKzXj5eDe4LcV8JNxnHxpg==
+"@adeira/eslint-config@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-0.4.0.tgz#6e28164b8bf5b8a2ee51c5925075458afcc87fc2"
+  integrity sha512-5b3KY1HNv5AhjtrKMNrkYaFXQ47aH/mWskWpB7KGQ/BvQnN566g7U3qmxZCP3EkvvV6l04DAJyHlMmi9RO+LQQ==
   dependencies:
     "@adeira/monorepo-utils" "^0.1.0"
-    "@babel/register" "^7.6.0"
-    "@babel/runtime" "^7.7.2"
+    "@babel/register" "^7.7.4"
+    "@babel/runtime" "^7.7.4"
     chalk "^3.0.0"
     create-jest-runner "^0.5.3"
-    eslint-config-prettier "^6.4.0"
-    eslint-plugin-adeira "^0.2.0"
+    eslint-config-prettier "^6.7.0"
+    eslint-plugin-adeira "^0.3.0"
     eslint-plugin-babel "^5.3.0"
     eslint-plugin-eslint-comments "^3.1.2"
     eslint-plugin-flowtype "^4.4.1"
@@ -42,7 +42,7 @@
     eslint-plugin-prettier "^3.1.1"
     eslint-plugin-react "^7.16.0"
     eslint-plugin-react-hooks "^2.3.0"
-    eslint-plugin-relay "^1.3.12"
+    eslint-plugin-relay "^1.4.1"
     is-ci "^2.0.0"
     prettier "^1.19.1"
     strip-ansi "^6.0.0"
@@ -76,10 +76,10 @@
     "@adeira/signed-source" "^0.1.0"
     chalk "^3.0.0"
 
-"@adeira/graphql-global-id@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/graphql-global-id/-/graphql-global-id-0.1.0.tgz#85c6a93de16d3cff07ad898d2994604c8fbb836a"
-  integrity sha512-fHmx5ac6T9fo87gnMfexvHbFzKGVlY38atMdg4tc726T+bRsotu7P87Fys6o3JMUCA99lj3+PKb3wDFs9U3ckg==
+"@adeira/graphql-global-id@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/graphql-global-id/-/graphql-global-id-0.2.0.tgz#42a639c539999d5fc007f45934e7017021ffc759"
+  integrity sha512-x3X7/H6h4cduR+fz+d+D2b4ishrvsfU2FlXPiuLAigX9J1mcKAOBEJ6VIWVHFx2/pMMMPRiIxiJ49Ylz+GJB9w==
   dependencies:
     "@adeira/js" "^0.1.0"
 
@@ -107,22 +107,23 @@
     glob "^7.1.5"
     is-ci "^2.0.0"
 
-"@adeira/relay@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-0.3.0.tgz#f1e4935efd7d16f6728edf317f4b0f50170c23e8"
-  integrity sha512-rY2sMaNQTr4MGJksC2nf55oJOzMcf/r/Gf1SHO0zZ0HMhkpu8e5GkhQX6BsgzKfr8cShgCyGmxVbRYK7VwpeTg==
+"@adeira/relay@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-0.5.0.tgz#126a59710fed2d99fb2184e367b8e5624e822ade"
+  integrity sha512-wPnV84DbvR1EyZaqSyyAI1BCnuCsJbWhaxYwP3DtOkXFi38Ag2dKOkjBJpmS8rz2ejrGxalysFIqTIg1h62j2g==
   dependencies:
     "@adeira/fetch" "^1.0.0"
     "@adeira/js" "^0.1.0"
     "@adeira/logger" "^0.1.0"
     "@adeira/monorepo-utils" "^0.1.0"
     "@adeira/signed-source" "^0.1.0"
-    "@babel/register" "^7.6.0"
+    "@babel/register" "^7.7.4"
     babel-plugin-relay "^7.1.0"
     commander "^4.0.1"
     is-ci "^2.0.0"
     react-relay "^7.1.0"
     relay-compiler "^7.1.0"
+    relay-compiler-language-typescript "^10.1.1"
     relay-config "^7.1.0"
     relay-runtime "^7.1.0"
 
@@ -1146,6 +1147,17 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
+"@babel/register@^7.7.4":
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.7.4.tgz#45a4956471a9df3b012b747f5781cc084ee8f128"
+  integrity sha512-/fmONZqL6ZMl9KJUYajetCrID6m0xmL4odX7v+Xvoxcv0DdbP/oO0TWIeLUCHqczQ6L6njDMqmqHFy2cp3FFsA==
+  dependencies:
+    find-cache-dir "^2.0.0"
+    lodash "^4.17.13"
+    make-dir "^2.1.0"
+    pirates "^4.0.0"
+    source-map-support "^0.5.16"
+
 "@babel/runtime-corejs2@7.6.3":
   version "7.6.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.6.3.tgz#de3f446b3fb688b98cbd220474d1a7cad909bcb8"
@@ -1419,17 +1431,12 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@kiwicom/js@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.9.0.tgz#67032574d8ee318cd747001a7b4c87013214327a"
-  integrity sha512-CwDiWwLWE0iWzCrL08x7jdEySAIVdmcmF/rik8gjK5oW4jA5G9fOBxsSSVm2bLtq8HG9KIz4YHDbtWO1K7LIiQ==
-
-"@kiwicom/orbit-components@^0.67.1":
-  version "0.67.1"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.67.1.tgz#b0ab1a9cd28d9db9193d60ed97cf85a5292fc3c4"
-  integrity sha512-Tjs0kL7s3BjUpV9tG7yUkhL9V6zGC0KyIApqNXJbEi5oECW2eEUGCaodeW24RXMU5qMYPadR/IoSu94+VbF9YQ==
+"@kiwicom/orbit-components@^0.68.0":
+  version "0.68.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.68.0.tgz#cc8cab9415a9ec015de6e2851916bfecd797e61f"
+  integrity sha512-A9yndEJxmEuijcUVZx7/ufd2OfxGuSEvhSEnj+RyD8loD6lnugOWVpRinKDlTPhaYiNFsBueUlZ1LeEKmdPZdA==
   dependencies:
-    "@kiwicom/js" "^0.9.0"
+    "@adeira/js" "^0.1.0"
     "@kiwicom/orbit-design-tokens" "~0.8.0"
 
 "@kiwicom/orbit-design-tokens@^0.8.0", "@kiwicom/orbit-design-tokens@~0.8.0":
@@ -4041,10 +4048,10 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^6.4.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.5.0.tgz#aaf9a495e2a816865e541bfdbb73a65cc162b3eb"
-  integrity sha512-cjXp8SbO9VFGW/Z7mbTydqS9to8Z58E5aYhj3e1+Hx7lS9s6gL5ILKNpCqZAFOVYRcSkWPFYljHrEh8QFEK5EQ==
+eslint-config-prettier@^6.7.0:
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.7.0.tgz#9a876952e12df2b284adbd3440994bf1f39dfbb9"
+  integrity sha512-FamQVKM3jjUVwhG4hEMnbtsq7xOIDm+SY5iBPfR8gKsJoAB2IQnNF+bk1+8Fy44Nq7PPJaLvkRxILYdJWoguKQ==
   dependencies:
     get-stdin "^6.0.0"
 
@@ -4064,10 +4071,10 @@ eslint-module-utils@^2.1.1, eslint-module-utils@^2.4.0:
     debug "^2.6.8"
     pkg-dir "^2.0.0"
 
-eslint-plugin-adeira@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-adeira/-/eslint-plugin-adeira-0.2.0.tgz#2a381d1107f3a3db36935459340a7f90a14f2d29"
-  integrity sha512-eBIyyqpM9jP7vPcUtS2PxpECvnEgR77a8xRVIQuBGUyz+nj5aMmoSwG4rBNEvbnx0EoX+bvnK/+xIn6/wd1Nug==
+eslint-plugin-adeira@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-adeira/-/eslint-plugin-adeira-0.3.0.tgz#78291fb96a2a1e71d7ed10b9ca2cddfe47d0512b"
+  integrity sha512-+cyo4F1JBYuTRBTp+Ip7fKRuYmYcwaAbrFfioQQL6YU7G0qMy1R4y57kp4kOz7m98YqBtIZtByfAnovFjADatQ==
 
 eslint-plugin-babel@^5.3.0:
   version "5.3.0"
@@ -4195,10 +4202,10 @@ eslint-plugin-react@^7.16.0:
     prop-types "^15.7.2"
     resolve "^1.12.0"
 
-eslint-plugin-relay@^1.3.12:
-  version "1.3.12"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-relay/-/eslint-plugin-relay-1.3.12.tgz#1e7d936386650ccc7709c8f6eeb0210e0e226527"
-  integrity sha512-276RrlyF0112Mz8PbaDvYKmqBGYEm0WBCfMNunnm6jHQ0aClUbPUmNctJXpFjfurcZfNEOz22Nx3VUMVDIGIkw==
+eslint-plugin-relay@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-relay/-/eslint-plugin-relay-1.4.1.tgz#5af2ac13e24bd01ad17b6a4014204918d65021cd"
+  integrity sha512-yb+p+4AxZTi2gXN7cZRfXMBFlRa5j6TtiVeq3yHXyy+tlgYNpxi/dDrP1+tcUTNP9vdaJovnfGZ5jp6kMiH9eg==
   dependencies:
     graphql "^14.0.0"
 
@@ -4235,10 +4242,10 @@ eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz#e2a82cea84ff246ad6fb57f9bde5b46621459ec2"
   integrity sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
 
-eslint@^6.7.0:
-  version "6.7.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.7.0.tgz#766162e383b236e61d873697f82c3a3e41392020"
-  integrity sha512-dQpj+PaHKHfXHQ2Imcw5d853PTvkUGbHk/MR68KQUl98EgKDCdh4vLRH1ZxhqeQjQFJeg8fgN0UwmNhN3l8dDQ==
+eslint@^6.7.1:
+  version "6.7.1"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.7.1.tgz#269ccccec3ef60ab32358a44d147ac209154b919"
+  integrity sha512-UWzBS79pNcsDSxgxbdjkmzn/B6BhsXMfUaOHnNwyE8nD+Q6pyT96ow2MccVayUTV4yMid4qLhMiQaywctRkBLA==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     ajv "^6.10.0"
@@ -5019,10 +5026,10 @@ globby@^7.1.1:
     pify "^3.0.0"
     slash "^1.0.0"
 
-google-protobuf@^3.10.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.10.0.tgz#f36171128090615049f9b0e42252b1a10a4bc534"
-  integrity sha512-d0cMO8TJ6xtB/WrVHCv5U81L2ulX+aCD58IljyAN6mHwdHHJ2jbcauX5glvivi3s3hx7EYEo7eUA9WftzamMnw==
+google-protobuf@^3.11.0:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.11.0.tgz#9449d6029569aa4603fdaa154ec6a7681aea0787"
+  integrity sha512-Pni0ZGKZc/FpaRiz2n11+FfjzeuoUpnMdtuqoBUandjsEPsLDLh5C0yacl/bgNAFaZkyUgIGcGowW34u6mVWPw==
 
 got@^6.7.1:
   version "6.7.1"
@@ -5336,6 +5343,11 @@ ignore@^5.0.5, ignore@^5.1.1:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.4.tgz#84b7b3dbe64552b6ef0eca99f6743dbec6d97adf"
   integrity sha512-MzbUSahkTW1u7JpKKjY7LCARd1fU5W2rLdxlM4kdkayuCwZImjkpluF9CM1aLewYJguPDqewLam18Y6AU69A8A==
+
+immutable@^4.0.0-rc.12:
+  version "4.0.0-rc.12"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.0.0-rc.12.tgz#ca59a7e4c19ae8d9bf74a97bdf0f6e2f2a5d0217"
+  integrity sha512-0M2XxkZLx/mi3t8NVwIm1g8nHoEmM9p9UBl/G9k4+hm0kBgOVdMV/B3CY5dQ8qG8qc80NN4gDV4HQv6FTJ5q7A==
 
 immutable@~3.7.6:
   version "3.7.6"
@@ -6207,10 +6219,10 @@ jest@^24.9.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
-jetifier@^1.6.4:
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.4.tgz#6159db8e275d97980d26162897a0648b6d4a3222"
-  integrity sha512-+f/4OLeqY8RAmXnonI1ffeY1DR8kMNJPhv5WMFehchf7U71cjMQVKkOz1n6asz6kfVoAqKNWJz1A/18i18AcXA==
+jetifier@^1.6.5:
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.5.tgz#ea87324a4230bef20a9651178ecab978ee54a8cb"
+  integrity sha512-T7yzBSu9PR+DqjYt+I0KVO1XTb1QhAfHnXV5Nd3xpbXM6Xg4e3vP60Q4qkNU8Fh6PHC2PivPUNN3rY7G2MxcDQ==
 
 js-cookie@^2.2.1:
   version "2.2.1"
@@ -6993,7 +7005,18 @@ mongodb-memory-server@^6.0.1:
   dependencies:
     mongodb-memory-server-core "6.0.1"
 
-mongodb@3.3.4, mongodb@^3.2.7, mongodb@^3.3.4:
+mongodb@3.3.5, mongodb@^3.3.5:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.3.5.tgz#38d531013afede92b0dd282e3b9f3c08c9bdff3b"
+  integrity sha512-6NAv5gTFdwRyVfCz+O+KDszvjpyxmZw+VlmqmqKR2GmpkeKrKFRv/ZslgTtZba2dc9JYixIf99T5Gih7TIWv7Q==
+  dependencies:
+    bson "^1.1.1"
+    require_optional "^1.0.1"
+    safe-buffer "^5.1.2"
+  optionalDependencies:
+    saslprep "^1.0.0"
+
+mongodb@^3.2.7:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.3.4.tgz#f52eec4a04005101e63715d4d1f67bf784fa0aef"
   integrity sha512-6fmHu3FJTpeZxacJcfjUGIP3BSteG0l2cxLkSrf1nnnS1OrlnVGiP9P/wAC4aB6dM6H4vQ2io8YDjkuPkje7AA==
@@ -7009,14 +7032,14 @@ mongoose-legacy-pluralize@1.0.2:
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
 
-mongoose@^5.7.12:
-  version "5.7.12"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.7.12.tgz#ef22a0f741970b6ba504995fdbe0ac9d8289d615"
-  integrity sha512-TqRiJPUeHN1u7Xs/zQmiMHcrzEb1/uKjK3uGzZhyqw25RKQiMV2vSBeBTMt5HXoYlUuDEWXE75FMjpK9X9kD0w==
+mongoose@^5.7.13:
+  version "5.7.13"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.7.13.tgz#d8ebbc15cfb19d014cf1fbd4b7af413d75952d46"
+  integrity sha512-MoTCETTIfXU1PqIYc+YAkhSB3uzK5xseh6ysAUnoOowkqS66OjBJtsL/bcgAKi6XfMYkFU6M1abKyuL7k//xeg==
   dependencies:
     bson "~1.1.1"
     kareem "2.3.1"
-    mongodb "3.3.4"
+    mongodb "3.3.5"
     mongoose-legacy-pluralize "1.0.2"
     mpath "0.6.0"
     mquery "3.2.2"
@@ -7131,10 +7154,10 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-next-cookies@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/next-cookies/-/next-cookies-2.0.2.tgz#85c727402e1360e170c9f90b6e557264f2b2cde2"
-  integrity sha512-hkxhup5mIWvr6gFWlqeJJpDrp3KUgXsw4suxvU7P5cKoBKyk7wn7tiWeRiE5Bx2nDIIumfRObIzS/zQ/Mw0vAA==
+next-cookies@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/next-cookies/-/next-cookies-2.0.3.tgz#5a3eabcb6afa9b4d4ade69dfaaad749d16cd4a9a"
+  integrity sha512-YVCQzwZx+sz+KqLO4y9niHH9jjz6jajlEQbAKfsYVT6DOfngb/0k5l6vFK4rmpExVug96pGag8OBsdSRL9FZhQ==
   dependencies:
     universal-cookie "^4.0.2"
 
@@ -8993,6 +9016,14 @@ regjsparser@^0.6.0:
   integrity sha512-RQ7YyokLiQBomUJuUG8iGVvkgOLxwyZM8k6d3q5SAXpg4r5TZJZigKFvC6PpD+qQ98bCDC5YelPeA3EucDoNeQ==
   dependencies:
     jsesc "~0.5.0"
+
+relay-compiler-language-typescript@^10.1.1:
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/relay-compiler-language-typescript/-/relay-compiler-language-typescript-10.1.2.tgz#e054692384b69ab0a2a84dd4067109d419fa8990"
+  integrity sha512-9dpiyFaV6lyBy04RFYS7gzZ2IXU3MVMGhtz4o+ag8Sh3doaDJjANgTe2MMexB67iBh7sGW0Vxx1lS/8nPeFqQg==
+  dependencies:
+    immutable "^4.0.0-rc.12"
+    invariant "^2.2.4"
 
 relay-compiler@^7.1.0:
   version "7.1.0"

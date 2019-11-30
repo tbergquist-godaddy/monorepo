@@ -2,7 +2,10 @@
 
 import { graphql, commitMutation } from '@tbergq/relay';
 
-import type { DeleteAsWatchedMutationVariables } from './__generated__/DeleteAsWatchedMutation.graphql';
+import type {
+  DeleteAsWatchedMutationVariables,
+  DeleteAsWatchedMutation as MutationType,
+} from './__generated__/DeleteAsWatchedMutation.graphql';
 
 const mutation = graphql`
   mutation DeleteAsWatchedMutation($episodeId: ID!) {
@@ -20,7 +23,7 @@ export default function deleteAsWatched(
   environment: Object,
   variables: DeleteAsWatchedMutationVariables,
 ) {
-  commitMutation(environment, {
+  commitMutation<MutationType>(environment, {
     variables,
     mutation,
     optimisticResponse: {
