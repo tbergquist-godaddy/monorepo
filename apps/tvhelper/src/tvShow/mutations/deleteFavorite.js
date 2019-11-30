@@ -7,7 +7,10 @@ import {
   type MutationConfig,
 } from '@tbergq/relay';
 
-import type { deleteFavoriteMutationVariables } from './__generated__/deleteFavoriteMutation.graphql';
+import type {
+  deleteFavoriteMutationVariables,
+  deleteFavoriteMutation as MutationType,
+} from './__generated__/deleteFavoriteMutation.graphql';
 
 const mutation = graphql`
   mutation deleteFavoriteMutation($serieId: ID!) {
@@ -24,7 +27,7 @@ export default function deleteFavorite(
   onCompleted: Function,
   configs?: $ReadOnlyArray<MutationConfig>,
 ) {
-  commitMutation(environment, {
+  commitMutation<MutationType>(environment, {
     mutation,
     variables,
     onCompleted,

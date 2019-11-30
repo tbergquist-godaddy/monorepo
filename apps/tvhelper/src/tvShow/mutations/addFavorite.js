@@ -7,7 +7,10 @@ import {
   type MutationConfig,
 } from '@tbergq/relay';
 
-import type { addFavoriteMutationVariables } from './__generated__/addFavoriteMutation.graphql';
+import type {
+  addFavoriteMutationVariables,
+  addFavoriteMutation as MutationType,
+} from './__generated__/addFavoriteMutation.graphql';
 
 const mutation = graphql`
   mutation addFavoriteMutation($serieId: ID!) {
@@ -29,7 +32,7 @@ export default function addFavorite(
   onCompleted: Function,
   configs?: $ReadOnlyArray<MutationConfig>,
 ) {
-  commitMutation(environment, {
+  commitMutation<MutationType>(environment, {
     mutation,
     variables,
     onCompleted,
