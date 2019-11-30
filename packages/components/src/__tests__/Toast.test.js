@@ -8,11 +8,19 @@ import Toast from '../Toast';
 jest.useFakeTimers();
 
 const Wrapper = ({ onHide }) => {
-  const ref = React.useRef(null);
+  const ref = React.useRef<React.ElementRef<typeof Toast> | null>(null);
   return (
     <>
       <Toast ref={ref} onHide={onHide} />
-      <button type="button" onClick={() => ref.current?.show()} />
+      <button
+        type="button"
+        onClick={() => {
+          const show = ref.current?.show;
+          if (show != null) {
+            show('test');
+          }
+        }}
+      />
     </>
   );
 };
