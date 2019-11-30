@@ -31,7 +31,9 @@ type Props = {|
   +onHide?: () => void,
 |};
 
-export default (React.forwardRef<Props, any>(function Toast(
+type ToastRef = {| +show: string => void |};
+
+export default (React.forwardRef<Props, ToastRef>(function Toast(
   { timeout = 3000, top = false, left = false, onHide }: Props,
   ref,
 ) {
@@ -57,7 +59,7 @@ export default (React.forwardRef<Props, any>(function Toast(
     }, timeout);
   };
 
-  React.useImperativeHandle(ref, () => ({
+  React.useImperativeHandle<ToastRef>(ref, () => ({
     show,
   }));
 
@@ -66,4 +68,4 @@ export default (React.forwardRef<Props, any>(function Toast(
       <TextContainer show={state.isVisible}>{state.message}</TextContainer>
     </ToastContainer>
   );
-}): any);
+}): React.AbstractComponent<Props, ToastRef>);
