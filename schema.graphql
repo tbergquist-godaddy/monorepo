@@ -1,6 +1,11 @@
-# @generated SignedSource<<bb84dbcafaa5e5ddb82c72e93b017fca>>
+# @generated SignedSource<<fcdfe27ac9b4648b7b8faafdc932fca9>>
 
 # <BREAKING-CHANGES-LOG>
+#  TYPE_REMOVED: ExericseConnection was removed.
+#  TYPE_REMOVED: ExericseEdge was removed.
+#  TYPE_REMOVED: Exericse was removed.
+#  FIELD_CHANGED_KIND: TraningJournalViewer.exercises changed type from ExericseConnection to ExerciseConnection.
+#  FIELD_CHANGED_KIND: RootMutation.createExercise changed type from ExericseEdge to ExerciseEdge.
 # </BREAKING-CHANGES-LOG>
 
 schema {
@@ -85,7 +90,7 @@ type EpisodeWatched {
   success: Boolean
 }
 
-type Exericse {
+type Exercise {
   description: String
 
   """
@@ -100,21 +105,21 @@ type Exericse {
 }
 
 """A connection to a list of items."""
-type ExericseConnection {
+type ExerciseConnection {
   """A list of edges."""
-  edges: [ExericseEdge]
+  edges: [ExerciseEdge]
 
   """Information to aid in pagination."""
   pageInfo: PageInfo!
 }
 
 """An edge in a connection."""
-type ExericseEdge {
+type ExerciseEdge {
   """A cursor for use in pagination"""
   cursor: String!
 
   """The item at the end of the edge"""
-  node: Exericse
+  node: Exercise
 }
 
 type LoginType {
@@ -155,7 +160,7 @@ type RootMutation {
   createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
 
   """Create a new Exercise"""
-  createExercise(exercise: CreateExerciseInput!): ExericseEdge
+  createExercise(exercise: CreateExerciseInput!): ExerciseEdge
 
   """Create a user for trainingjournal application"""
   createTrainingjournalUser(email: String!, password: String!, username: String!): CreateTrainingJournalUser
@@ -221,7 +226,7 @@ input StoredOperationInput {
 }
 
 type TraningJournalViewer {
-  exercises(after: String, before: String, first: Int, last: Int): ExericseConnection
+  exercises(after: String, before: String, first: Int, last: Int): ExerciseConnection
 
   """
   The globally unique ID of an object. You can unmask this ID to get original

@@ -23,7 +23,7 @@ export type ExerciseListItem_exercise$key = {
 const node: ReaderFragment = {
   "kind": "Fragment",
   "name": "ExerciseListItem_exercise",
-  "type": "Exericse",
+  "type": "Exercise",
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
@@ -37,5 +37,5 @@ const node: ReaderFragment = {
   ]
 };
 // prettier-ignore
-(node: any).hash = 'e7856c64eb21e5e24ad3eb72ac276933';
+(node: any).hash = '6fd3309e05f89966d229460cb65d6d49';
 export default node;
