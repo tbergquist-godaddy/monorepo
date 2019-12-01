@@ -2,6 +2,7 @@
 
 export { default as Layout } from './src/Layout';
 export { default as Input } from './src/Input';
+export { default as InputField } from './src/InputField';
 export { default as Button } from './src/Button';
 export { default as Toast } from './src/Toast';
 export { default as Navbar } from './src/Navbar';
