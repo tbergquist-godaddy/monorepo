@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 11c3f93d5b526e9a00fd638f4f026d5b
+ * @relayHash ff4140a70dc96aae3fe8b85b2eb4410d
  */
 
 /* eslint-disable */
@@ -29,6 +29,7 @@ query ExercisesQuery {
 
 fragment ExerciseListItem_exercise on Exercise {
   name
+  muscleGroups
 }
 
 fragment ExerciseList_exercises on TraningJournalViewer {
@@ -141,6 +142,13 @@ const node: ConcreteRequest = {
                             "name": "name",
                             "args": null,
                             "storageKey": null
+                          },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "muscleGroups",
+                            "args": null,
+                            "storageKey": null
                           }
                         ]
                       }
@@ -158,7 +166,7 @@ const node: ConcreteRequest = {
     "operationKind": "query",
     "name": "ExercisesQuery",
     "id": null,
-    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  name\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n      }\n    }\n  }\n}\n",
+    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  name\n  muscleGroups\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
