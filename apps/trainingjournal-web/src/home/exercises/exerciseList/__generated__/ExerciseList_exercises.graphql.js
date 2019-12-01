@@ -47,7 +47,7 @@ const node: ReaderFragment = {
           "value": 10
         }
       ],
-      "concreteType": "ExericseConnection",
+      "concreteType": "ExerciseConnection",
       "plural": false,
       "selections": [
         {
@@ -56,7 +56,7 @@ const node: ReaderFragment = {
           "name": "edges",
           "storageKey": null,
           "args": null,
-          "concreteType": "ExericseEdge",
+          "concreteType": "ExerciseEdge",
           "plural": true,
           "selections": [
             {
@@ -65,7 +65,7 @@ const node: ReaderFragment = {
               "name": "node",
               "storageKey": null,
               "args": null,
-              "concreteType": "Exericse",
+              "concreteType": "Exercise",
               "plural": false,
               "selections": [
                 {

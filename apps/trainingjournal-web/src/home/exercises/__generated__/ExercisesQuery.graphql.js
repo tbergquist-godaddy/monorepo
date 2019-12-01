@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 373d432321194fe72e13f40c7cc10d9f
+ * @relayHash 11c3f93d5b526e9a00fd638f4f026d5b
  */
 
 /* eslint-disable */
@@ -27,7 +27,7 @@ query ExercisesQuery {
   }
 }
 
-fragment ExerciseListItem_exercise on Exericse {
+fragment ExerciseListItem_exercise on Exercise {
   name
 }
 
@@ -107,7 +107,7 @@ const node: ConcreteRequest = {
                     "value": 10
                   }
                 ],
-                "concreteType": "ExericseConnection",
+                "concreteType": "ExerciseConnection",
                 "plural": false,
                 "selections": [
                   {
@@ -116,7 +116,7 @@ const node: ConcreteRequest = {
                     "name": "edges",
                     "storageKey": null,
                     "args": null,
-                    "concreteType": "ExericseEdge",
+                    "concreteType": "ExerciseEdge",
                     "plural": true,
                     "selections": [
                       {
@@ -125,7 +125,7 @@ const node: ConcreteRequest = {
                         "name": "node",
                         "storageKey": null,
                         "args": null,
-                        "concreteType": "Exericse",
+                        "concreteType": "Exercise",
                         "plural": false,
                         "selections": [
                           {
@@ -158,7 +158,7 @@ const node: ConcreteRequest = {
     "operationKind": "query",
     "name": "ExercisesQuery",
     "id": null,
-    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment ExerciseListItem_exercise on Exericse {\n  name\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n      }\n    }\n  }\n}\n",
+    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  name\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

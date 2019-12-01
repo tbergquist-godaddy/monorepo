@@ -15,7 +15,7 @@ function ExerciseListItem(props: Props) {
 
 export default createFragmentContainer(ExerciseListItem, {
   exercise: graphql`
-    fragment ExerciseListItem_exercise on Exericse {
+    fragment ExerciseListItem_exercise on Exercise {
       name
     }
   `,
