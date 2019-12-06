@@ -5,6 +5,7 @@ import { graphql, QueryRenderer } from '@tbergq/relay';
 
 import ExerciseList from './exerciseList/ExerciseList';
 import type { ExercisesQueryResponse } from './__generated__/ExercisesQuery.graphql';
+import AddExerciseForm from './createExercise/AddExerciseForm';
 
 type Props = {||};
 
@@ -17,7 +18,12 @@ export const query = graphql`
 `;
 
 const renderQuery = (props: ExercisesQueryResponse) => {
-  return <ExerciseList exercises={props.viewer} />;
+  return (
+    <>
+      <AddExerciseForm />
+      <ExerciseList exercises={props.viewer} />
+    </>
+  );
 };
 
 export default (function ExercisesQuery() {
