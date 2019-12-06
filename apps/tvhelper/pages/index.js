@@ -24,16 +24,20 @@ export default function Index(props: Props) {
 }
 
 Index.getInitialProps = async ctx => {
-  const token = getNextToken(ctx);
-  const query = ctx.query?.query;
-  let json;
-  if (query) {
-    const environment = Environment.getEnvironment();
-    await fetchQuery(environment, searchQuery, { query });
-    json = environment
-      .getStore()
-      .getSource()
-      .toJSON();
+  try {
+    const token = getNextToken(ctx);
+    const query = ctx.query?.query;
+    let json;
+    if (query) {
+      const environment = Environment.getEnvironment();
+      await fetchQuery(environment, searchQuery, { query });
+      json = environment
+        .getStore()
+        .getSource()
+        .toJSON();
+    }
+    return { json, token };
+  } catch {
+    return {};
   }
-  return { json, token };
 };
