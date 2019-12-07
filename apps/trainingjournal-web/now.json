@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "apps/trainingjournal-web/next.config.js",
+      "use": "@now/next",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "alias": "trainingjournal.now.sh",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/apps/trainingjournal-web/$1"
+    }
+  ]
+}
