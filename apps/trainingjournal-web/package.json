@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@adeira/relay": "^0.7.0",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
     "@tbergq/components": "0.0.1",
     "@tbergq/nextjs-utils": "0.0.1",

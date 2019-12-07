@@ -47,7 +47,6 @@ export const createRelayEnvironment = (token: ?string, initialData: ?RecordMap) 
     return data;
   };
 
-  // const network = Network.create(fetchFn);
   const env = createEnvironment({
     fetchFn,
     records: initialData,

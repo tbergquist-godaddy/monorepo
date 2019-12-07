@@ -26,7 +26,7 @@ const TestRenderer = () => (
 
 describe('TvShowImage', () => {
   it('adds favorite on click', () => {
-    const environment = Environment.getEnvironment();
+    const environment: any = Environment.getEnvironment();
     const { getByTestId } = render(<TestRenderer />);
 
     environment.mock.resolveMostRecentOperation(operation =>
@@ -64,7 +64,7 @@ describe('TvShowImage', () => {
   });
 
   it('removes favorite on click', () => {
-    const environment = Environment.getEnvironment();
+    const environment: any = Environment.getEnvironment();
     const { getByTestId } = render(<TestRenderer />);
 
     environment.mock.resolveMostRecentOperation(operation =>

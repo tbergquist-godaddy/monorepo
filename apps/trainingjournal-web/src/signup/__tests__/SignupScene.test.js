@@ -18,7 +18,7 @@ const getMock = (fn: Function) => {
 };
 
 it('creates a new user', () => {
-  const environment = Environment.getEnvironment();
+  const environment: any = Environment.getEnvironment();
   const push = jest.fn();
   getMock(useRouter).mockImplementationOnce(() => {
     return {

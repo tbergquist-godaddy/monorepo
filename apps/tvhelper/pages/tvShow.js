@@ -3,13 +3,13 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
 import { getNextToken } from '@tbergq/utils';
-import { QueryRendererProvider, fetchQuery, Environment } from '@tbergq/relay';
+import { QueryRendererProvider, fetchQuery, Environment, type RecordMap } from '@tbergq/relay';
 
 import Layout from '../src/components/Layout';
 import TvShowQuery, { tvShowQuery } from '../src/tvShow/TvShowQuery';
 
 type Props = {|
-  +json: {| +[key: string]: mixed |},
+  +json: ?RecordMap,
   +token: ?string,
 |};
 

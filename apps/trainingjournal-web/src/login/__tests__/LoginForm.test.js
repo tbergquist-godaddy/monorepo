@@ -13,7 +13,7 @@ jest.mock('next/router', () => ({
 }));
 
 it('handles login', () => {
-  const environment = Environment.getEnvironment();
+  const environment: any = Environment.getEnvironment();
   const { getByTestId, container } = render(<LoginForm />);
 
   const username = container.querySelector('input[name="username"]');
@@ -29,7 +29,6 @@ it('handles login', () => {
   expect(password.value).toBe('pa$$word');
   act(() => {
     fireEvent.click(submit);
-
     environment.mock.resolveMostRecentOperation(operation =>
       MockPayloadGenerator.generate(operation, {
         LoginType: () => ({ success: true, token: 'tok' }),
