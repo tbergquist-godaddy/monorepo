@@ -1,13 +1,8 @@
 // @flow
 
-import {
-  QueryResponseCache,
-  Environment as RelayEnvironment,
-  Network,
-  RecordSource,
-  Store,
-} from 'relay-runtime';
+import { QueryResponseCache } from 'relay-runtime';
 import fetch from '@adeira/fetch';
+import { createEnvironment, type RecordMap } from '@adeira/relay';
 
 const cache = new QueryResponseCache({ size: 100, ttl: 1000 * 60 * 60 * 15 }); // 15 minutes
 
@@ -24,8 +19,7 @@ const getBody = (operation, variables) => {
   };
 };
 
-export const createRelayEnvironment = (token: ?string, initialData: ?{ ... }) => {
-  const store = new Store(new RecordSource(initialData));
+export const createRelayEnvironment = (token: ?string, initialData: ?RecordMap) => {
   const fetchFn = async (operation, variables) => {
     const queryId = operation.name;
 
@@ -53,10 +47,10 @@ export const createRelayEnvironment = (token: ?string, initialData: ?{ ... }) =>
     return data;
   };
 
-  const network = Network.create(fetchFn);
-  const env = new RelayEnvironment({
-    network,
-    store,
+  // const network = Network.create(fetchFn);
+  const env = createEnvironment({
+    fetchFn,
+    records: initialData,
   });
 
   return env;
@@ -66,7 +60,7 @@ class Environment {
   #environment;
   #token;
 
-  getEnvironment(token: ?string, initialData: ?{ ... }) {
+  getEnvironment(token: ?string, initialData: ?RecordMap) {
     if (this.#environment != null && this.#token === token) {
       return this.#environment;
     }

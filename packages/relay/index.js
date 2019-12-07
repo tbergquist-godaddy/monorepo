@@ -6,6 +6,7 @@ import {
   type PaginationRelayProp as _PaginationRelayProp,
   type Environment as _RelayEnvironmentType,
   type DeclarativeMutationConfig,
+  type RecordMap as _RecordMap,
 } from '@adeira/relay';
 
 export { default as QueryRenderer } from './src/QueryRenderer';
@@ -33,3 +34,4 @@ export type RefetchRelayProp = _RefetchRelayProp;
 export type PaginationRelayProp = _PaginationRelayProp;
 export type RelayEnvironmentType = _RelayEnvironmentType;
 export type MutationConfig = DeclarativeMutationConfig;
+export type RecordMap = _RecordMap;

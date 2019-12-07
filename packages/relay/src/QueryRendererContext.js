@@ -1,15 +1,16 @@
 // @flow
 
 import * as React from 'react';
+import type { RecordMap } from '@adeira/relay';
 
 type Props = {|
   +children: React.Node,
-  +initialValue: ?{ ... },
+  +initialValue: ?RecordMap,
   +token: ?string,
 |};
 
 type State = {|
-  +ssrData: ?{ ... },
+  +ssrData: ?RecordMap,
   +token: ?string,
 |};
 
@@ -40,7 +41,7 @@ function QueryRendererProvider(props: Props) {
 function useQueryRenderer(): State {
   const context = React.useContext(QueryRendererContext);
 
-  return context ?? { ssrData: {}, token: null };
+  return context ?? { ssrData: null, token: null };
 }
 
 function useQueryRendererAction(): Action {

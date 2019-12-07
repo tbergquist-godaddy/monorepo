@@ -1,15 +1,12 @@
 // @flow
 
 import * as React from 'react';
-import {
-  QueryRenderer as KiwiQueryRenderer,
-  type GraphQLTaggedNode,
-  type Environment,
-} from '@adeira/relay';
+import { type GraphQLTaggedNode, type Environment } from '@adeira/relay';
 import { Loading } from '@tbergq/components';
 
 import EnvironmentFactory from './Environment';
 import { useQueryRenderer } from './QueryRendererContext';
+import RelayQueryRenderer from './ReactRelayQueryRenderer';
 
 type Props = {|
   +query: GraphQLTaggedNode,
@@ -34,7 +31,7 @@ export default function QueryRenderer(props: Props) {
   }
 
   return (
-    <KiwiQueryRenderer
+    <RelayQueryRenderer
       query={props.query}
       variables={props.variables}
       environment={environment}
