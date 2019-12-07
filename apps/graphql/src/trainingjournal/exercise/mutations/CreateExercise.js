@@ -4,7 +4,7 @@ import { GraphQLNonNull } from 'graphql';
 import { ExerciseRepository } from '@tbergq/trainingjournal-persistence';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
-import { ExerciseEdge } from '../types/output/ExerciseConnection';
+import CreateExerciseOutput from '../types/output/CreateExercise';
 import CreateExerciseInput, {
   type CreateExerciseType as CreateExerciseInputArgs,
 } from '../types/input/CreateExerciseInput';
@@ -17,7 +17,7 @@ type Args = {
 export default {
   name: 'CreateExercise',
   description: 'Create a new Exercise',
-  type: ExerciseEdge,
+  type: CreateExerciseOutput,
   args: {
     exercise: {
       type: GraphQLNonNull(CreateExerciseInput),
@@ -30,10 +30,12 @@ export default {
     }
 
     return {
-      node: await ExerciseRepository.createExercise({
-        ...exercise,
-        user: userId,
-      }),
+      exerciseEdge: {
+        node: await ExerciseRepository.createExercise({
+          ...exercise,
+          user: userId,
+        }),
+      },
     };
   },
 };
