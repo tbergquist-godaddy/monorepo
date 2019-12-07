@@ -4,9 +4,11 @@ exports[`creates an exercise 1`] = `
 Object {
   "data": Object {
     "createExercise": Object {
-      "node": Object {
-        "muscleGroups": "TestLår",
-        "name": "Knebøy",
+      "exerciseEdge": Object {
+        "node": Object {
+          "muscleGroups": "TestLår",
+          "name": "Knebøy",
+        },
       },
     },
   },

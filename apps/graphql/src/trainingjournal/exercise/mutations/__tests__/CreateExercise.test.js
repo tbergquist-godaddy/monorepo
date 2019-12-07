@@ -23,9 +23,11 @@ it('creates an exercise', async () => {
     await executeTestQuery(
       `mutation exerciseMutation($exercise: CreateExerciseInput!) {
         createExercise(exercise: $exercise) {
-          node {
-            name
-            muscleGroups
+          exerciseEdge {
+            node {
+              name
+              muscleGroups
+            }
           }
         }
       }`,

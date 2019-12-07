@@ -1,4 +1,4 @@
-# @generated SignedSource<<fcdfe27ac9b4648b7b8faafdc932fca9>>
+# @generated SignedSource<<7b80b0bf66866bc85e929593914c735b>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -6,6 +6,7 @@
 #  TYPE_REMOVED: Exericse was removed.
 #  FIELD_CHANGED_KIND: TraningJournalViewer.exercises changed type from ExericseConnection to ExerciseConnection.
 #  FIELD_CHANGED_KIND: RootMutation.createExercise changed type from ExericseEdge to ExerciseEdge.
+#  FIELD_CHANGED_KIND: RootMutation.createExercise changed type from ExerciseEdge to CreateExercise.
 # </BREAKING-CHANGES-LOG>
 
 schema {
@@ -28,6 +29,10 @@ type Cast {
   """
   id(opaque: Boolean = true): ID!
   person: Person
+}
+
+type CreateExercise {
+  exerciseEdge: ExerciseEdge
 }
 
 input CreateExerciseInput {
@@ -160,7 +165,7 @@ type RootMutation {
   createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
 
   """Create a new Exercise"""
-  createExercise(exercise: CreateExerciseInput!): ExerciseEdge
+  createExercise(exercise: CreateExerciseInput!): CreateExercise
 
   """Create a user for trainingjournal application"""
   createTrainingjournalUser(email: String!, password: String!, username: String!): CreateTrainingJournalUser
