@@ -28,7 +28,7 @@ export {
   CardSectionContent,
   CardHeader,
   CardSectionHeader,
-} from '@kiwicom/orbit-components/lib/Card';
+} from '@kiwicom/orbit-components/lib/deprecated/Card';
 export { default as Autocomplete } from './src/autocomplete/Autocomplete';
 export { default as Container } from './src/Container';
 export { default as CenterForm } from './src/CenterForm';
