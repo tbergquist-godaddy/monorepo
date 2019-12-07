@@ -1,12 +1,15 @@
 // @flow
 
 import * as React from 'react';
-import { withFormik, type InjectedFormikProps } from 'formik';
+import { withFormik, type InjectedFormikProps, type FormikBag } from 'formik';
 import styled, { keyframes, css } from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 import { AddIcon } from '@tbergq/components';
+import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
 
 import ExerciseForm from './ExerciseForm';
+import addExerciseMutation from './mutation/addExerciseMutation';
+import type { AddExerciseForm_user as User } from './__generated__/AddExerciseForm_user.graphql';
 
 const AddButton = styled.button({
   cursor: 'pointer',
@@ -21,23 +24,24 @@ const AddButton = styled.button({
     boxShadow: '0 0 3px #000',
   },
   outline: 'none',
+  zIndex: defaultTokens.zIndexSticky,
 });
 
 const rotateAnimation = keyframes`
-0% { 
-  transform: rotate(0deg); 
-} 
-100% { 
-  transform: rotate(45deg); 
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(45deg);
 }
 `;
 
 const reverseRotate = keyframes`
-0% { 
-  transform: rotate(45deg); 
-} 
-100% { 
-  transform: rotate(0deg); 
+0% {
+  transform: rotate(45deg);
+}
+100% {
+  transform: rotate(0deg);
 }
 `;
 
@@ -60,15 +64,24 @@ type ExerciseValues = {|
   +description: string,
 |};
 
-type Props = {||};
+type Props = {|
+  +user: ?User,
+  +relay: RelayProp,
+|};
 
 function AddExerciseForm(props: InjectedFormikProps<Props, ExerciseValues>) {
   const [showForm, setShowForm] = React.useState(false);
-
+  const lastIsSubmitting = React.useRef(false);
+  React.useEffect(() => {
+    if (props.isSubmitting === false && lastIsSubmitting.current === true) {
+      setShowForm(false);
+    }
+    lastIsSubmitting.current = props.isSubmitting;
+  }, [props.isSubmitting]);
   return (
     <>
       <form onSubmit={props.handleSubmit}>
-        <ExerciseForm isVisible={showForm} />
+        <ExerciseForm isSubmitting={props.isSubmitting} isVisible={showForm} />
       </form>
 
       <AddButton
@@ -84,7 +97,7 @@ function AddExerciseForm(props: InjectedFormikProps<Props, ExerciseValues>) {
   );
 }
 
-export default withFormik<Props, ExerciseValues>({
+const WithFormik = withFormik<Props, ExerciseValues>({
   mapPropsToValues: () => ({
     name: '',
     muscleGroups: '',
@@ -98,8 +111,27 @@ export default withFormik<Props, ExerciseValues>({
     }
     return errors;
   },
-  handleSubmit: (values: ExerciseValues) => {
-    // eslint-disable-next-line no-console
-    console.log('handleSubmit', values);
+  handleSubmit: (
+    values: ExerciseValues,
+    { props, setSubmitting, resetForm }: FormikBag<Props, ExerciseValues>,
+  ) => {
+    const userId = props.user?.id;
+    if (userId != null) {
+      setSubmitting(true);
+      addExerciseMutation(props.relay.environment, { input: { ...values } }, userId, () => {
+        setSubmitting(false);
+        resetForm();
+      });
+    }
   },
 })(AddExerciseForm);
+
+export default createFragmentContainer(WithFormik, {
+  user: graphql`
+    fragment AddExerciseForm_user on Viewer {
+      ... on TraningJournalViewer {
+        id
+      }
+    }
+  `,
+});

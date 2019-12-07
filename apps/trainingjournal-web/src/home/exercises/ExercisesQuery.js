@@ -12,6 +12,7 @@ type Props = {||};
 export const query = graphql`
   query ExercisesQuery {
     viewer {
+      ...AddExerciseForm_user
       ...ExerciseList_exercises
     }
   }
@@ -20,7 +21,7 @@ export const query = graphql`
 const renderQuery = (props: ExercisesQueryResponse) => {
   return (
     <>
-      <AddExerciseForm />
+      <AddExerciseForm user={props.viewer} />
       <ExerciseList exercises={props.viewer} />
     </>
   );

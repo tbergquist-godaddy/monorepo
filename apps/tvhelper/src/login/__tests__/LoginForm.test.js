@@ -11,7 +11,7 @@ import LoginForm from '../LoginForm';
 
 describe('LoginForm', () => {
   it('show login failed message on login error', () => {
-    const environment = Environment.getEnvironment();
+    const environment: any = Environment.getEnvironment();
     const { getByTestId, getByText } = render(<LoginForm />);
 
     const button = getByTestId('LoginFormSubmit');
@@ -33,7 +33,7 @@ describe('LoginForm', () => {
   });
 
   it('handles successfull login', () => {
-    const environment = Environment.getEnvironment();
+    const environment: any = Environment.getEnvironment();
     const { getByTestId } = render(<LoginForm />);
 
     const button = getByTestId('LoginFormSubmit');

@@ -5,13 +5,14 @@ import styled from 'styled-components';
 import { InputField, Stack, Button } from '@tbergq/components';
 
 const Wrapper = styled.div`
-  max-height: ${props => (props.isExpanded ? '600px' : 0)};
+  max-height: ${props => (props.isExpanded ? '300px' : 0)};
   overflow-y: hidden;
-  transition: max-height 0.3s linear;
+  transition: max-height 0.3s ease-in-out;
 `;
 
 type Props = {|
   +isVisible: boolean,
+  +isSubmitting: boolean,
 |};
 /**
  * To animate in, component must be in the dom, with isExpanded false, then isExpanded must change to true
@@ -60,7 +61,9 @@ export default function ExerciseForm(props: Props) {
           <InputField name="videoUrl" label="Video url" />
         </Stack>
         <Stack flex={true} justify="end">
-          <Button submit={true}>Save</Button>
+          <Button loading={props.isSubmitting} submit={true}>
+            Save
+          </Button>
         </Stack>
       </Stack>
     </Wrapper>

@@ -2,13 +2,13 @@
 
 import * as React from 'react';
 import { getNextToken } from '@tbergq/utils';
-import { QueryRendererProvider, fetchQuery, Environment } from '@tbergq/relay';
+import { QueryRendererProvider, fetchQuery, Environment, type RecordMap } from '@tbergq/relay';
 
 import Layout from '../src/components/Layout';
 import FavoriteQuery, { favoritesQuery } from '../src/favorites/FavoriteQuery';
 
 type Props = {|
-  +json: {| +[key: string]: mixed |},
+  +json: ?RecordMap,
   +token: ?string,
 |};
 

@@ -71,7 +71,7 @@ describe('SignupForm', () => {
     const submit = getByTestId('submitButton');
     const preventDefault = jest.fn();
     const spy = jest.spyOn(mutation, 'default');
-    const environment = Environment.getEnvironment();
+    const environment: any = Environment.getEnvironment();
 
     fireEvent.change(password, { target: { value: '123456' } });
     fireEvent.change(confirmPassword, { target: { value: '123456' } });
@@ -108,7 +108,7 @@ describe('SignupForm', () => {
     const submit = getByTestId('submitButton');
     const preventDefault = jest.fn();
     const spy = jest.spyOn(mutation, 'default');
-    const environment = Environment.getEnvironment();
+    const environment: any = Environment.getEnvironment();
     const router = jest.spyOn(Router, 'push').mockImplementationOnce(jest.fn());
 
     fireEvent.change(password, { target: { value: '123456' } });
