@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@adeira/monorepo-utils": "^0.1.0",
-    "@babel/core": "^7.7.4",
+    "@babel/core": "^7.7.5",
     "rimraf": "^3.0.0"
   }
 }

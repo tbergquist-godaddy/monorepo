@@ -6,5 +6,6 @@ module.exports = {
     ['styled-components', { ssr: true }],
     'relay',
     '@babel/plugin-proposal-class-properties',
+    '@kiwicom/babel-plugin-orbit-components'
   ],
 };

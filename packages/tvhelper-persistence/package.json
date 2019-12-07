@@ -7,7 +7,7 @@
     "@adeira/monorepo-utils": "^0.1.0",
     "dotenv": "^8.2.0",
     "mongodb": "^3.3.5",
-    "mongoose": "^5.7.13",
+    "mongoose": "^5.7.14",
     "password-hash": "^1.2.2"
   },
   "peerDependencies": {
@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "mockingoose": "^2.13.2",
-    "mongodb-memory-server": "^6.0.1"
+    "mongodb-memory-server": "^6.0.2"
   }
 }

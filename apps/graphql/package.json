@@ -6,7 +6,7 @@
   "dependencies": {
     "@adeira/graphql-bc-checker": "^0.1.0",
     "@adeira/graphql-global-id": "^0.2.0",
-    "@adeira/js": "^0.1.0",
+    "@adeira/js": "^0.2.0",
     "@adeira/monorepo-utils": "^0.1.0",
     "@tbergq/graphql-persistence": "*",
     "@tbergq/graphql-services": "*",
