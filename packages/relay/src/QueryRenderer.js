@@ -7,7 +7,6 @@ import {
   type Environment,
 } from '@adeira/relay';
 import { Loading } from '@tbergq/components';
-import { createOperationDescriptor, getRequest } from 'relay-runtime';
 
 import EnvironmentFactory from './Environment';
 import { useQueryRenderer } from './QueryRendererContext';
@@ -24,26 +23,12 @@ export default function QueryRenderer(props: Props) {
 
   const environment = props.environment ?? EnvironmentFactory.getEnvironment(token, ssrData);
 
-  const getSSRData = () => {
-    // TODO: This is probably not necessary because of our fetch-policy
-    if (typeof window === 'undefined') {
-      const store = environment.getStore();
-
-      const operation = createOperationDescriptor(getRequest(props.query), props.variables);
-      return store.lookup(operation.root);
-    }
-    return null;
-  };
-
-  const contextData = getSSRData();
-
   function render({ props: rendererProps, error }) {
-    const data = rendererProps ?? contextData?.data;
     if (error) {
       return <div>Failed to load data from the server</div>;
     }
-    if (data) {
-      return props.render(data);
+    if (rendererProps) {
+      return props.render(rendererProps);
     }
     return <Loading dataTest="queryRenderLoader" />;
   }
