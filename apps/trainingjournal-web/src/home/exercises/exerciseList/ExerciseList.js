@@ -31,7 +31,7 @@ function ExerciseList(props: Props) {
 export default createFragmentContainer(ExerciseList, {
   exercises: graphql`
     fragment ExerciseList_exercises on TraningJournalViewer {
-      exercises(first: 10) {
+      exercises(first: 10) @connection(key: "ExerciseList_exercises") {
         edges {
           node {
             id

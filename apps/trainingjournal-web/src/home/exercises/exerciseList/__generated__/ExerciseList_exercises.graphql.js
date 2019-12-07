@@ -32,21 +32,26 @@ const node: ReaderFragment = {
   "kind": "Fragment",
   "name": "ExerciseList_exercises",
   "type": "TraningJournalViewer",
-  "metadata": null,
+  "metadata": {
+    "connection": [
+      {
+        "count": null,
+        "cursor": null,
+        "direction": "forward",
+        "path": [
+          "exercises"
+        ]
+      }
+    ]
+  },
   "argumentDefinitions": [],
   "selections": [
     {
       "kind": "LinkedField",
-      "alias": null,
-      "name": "exercises",
-      "storageKey": "exercises(first:10)",
-      "args": [
-        {
-          "kind": "Literal",
-          "name": "first",
-          "value": 10
-        }
-      ],
+      "alias": "exercises",
+      "name": "__ExerciseList_exercises_connection",
+      "storageKey": null,
+      "args": null,
       "concreteType": "ExerciseConnection",
       "plural": false,
       "selections": [
@@ -76,11 +81,50 @@ const node: ReaderFragment = {
                   "storageKey": null
                 },
                 {
+                  "kind": "ScalarField",
+                  "alias": null,
+                  "name": "__typename",
+                  "args": null,
+                  "storageKey": null
+                },
+                {
                   "kind": "FragmentSpread",
                   "name": "ExerciseListItem_exercise",
                   "args": null
                 }
               ]
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "cursor",
+              "args": null,
+              "storageKey": null
+            }
+          ]
+        },
+        {
+          "kind": "LinkedField",
+          "alias": null,
+          "name": "pageInfo",
+          "storageKey": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "endCursor",
+              "args": null,
+              "storageKey": null
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "hasNextPage",
+              "args": null,
+              "storageKey": null
             }
           ]
         }
@@ -89,5 +133,5 @@ const node: ReaderFragment = {
   ]
 };
 // prettier-ignore
-(node: any).hash = '33f4c684ada811b9fadf7c9e46a742d0';
+(node: any).hash = '21fef23dffeceb2bc41b4e1da0c0bfab';
 export default node;
