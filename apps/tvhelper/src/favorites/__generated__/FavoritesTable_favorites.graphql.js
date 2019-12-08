@@ -39,8 +39,8 @@ const node: ReaderFragment = {
       "name": "options",
       "type": "SortOptions",
       "defaultValue": {
-        "sortDirection": "ASC",
-        "sortBy": "NAME"
+        "sortDirection": "DESC",
+        "sortBy": "PREVIOUS_EPISODE"
       }
     }
   ],
@@ -99,5 +99,5 @@ const node: ReaderFragment = {
   ]
 };
 // prettier-ignore
-(node: any).hash = 'bb168013290e775a1ea506c61a6ff9ad';
+(node: any).hash = '5a7170df7d9997424e16ea2d602ee428';
 export default node;

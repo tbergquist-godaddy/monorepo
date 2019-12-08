@@ -26,8 +26,8 @@ const Loader = styled.div({
 const FavoritesTable = (props: Props) => {
   const edges = props.favorites?.favorites?.edges ?? [];
   const [options, setOptions] = React.useState({
-    sortBy: 'NAME',
-    ascending: true,
+    sortBy: 'PREVIOUS_EPISODE',
+    ascending: false,
   });
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -95,7 +95,10 @@ export default createRefetchContainer(
     favorites: graphql`
       fragment FavoritesTable_favorites on RootQuery
         @argumentDefinitions(
-          options: { type: "SortOptions", defaultValue: { sortDirection: "ASC", sortBy: "NAME" } }
+          options: {
+            type: "SortOptions"
+            defaultValue: { sortDirection: "DESC", sortBy: "PREVIOUS_EPISODE" }
+          }
         ) {
         favorites(options: $options) {
           edges {
