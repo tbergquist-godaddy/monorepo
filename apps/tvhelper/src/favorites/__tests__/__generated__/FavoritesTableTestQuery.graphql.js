@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 10ffc65105c9699752e6b338203c15f6
+ * @relayHash bdd0ad4e4287ed74bc367c7ad1ba9467
  */
 
 /* eslint-disable */
@@ -31,7 +31,7 @@ fragment FavoriteItem_favorite on TvShow {
 }
 
 fragment FavoritesTable_favorites on RootQuery {
-  favorites(options: {sortDirection: ASC, sortBy: NAME}) {
+  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {
     edges {
       node {
         id
@@ -80,14 +80,14 @@ return {
         "kind": "LinkedField",
         "alias": null,
         "name": "favorites",
-        "storageKey": "favorites(options:{\"sortBy\":\"NAME\",\"sortDirection\":\"ASC\"})",
+        "storageKey": "favorites(options:{\"sortBy\":\"PREVIOUS_EPISODE\",\"sortDirection\":\"DESC\"})",
         "args": [
           {
             "kind": "Literal",
             "name": "options",
             "value": {
-              "sortBy": "NAME",
-              "sortDirection": "ASC"
+              "sortBy": "PREVIOUS_EPISODE",
+              "sortDirection": "DESC"
             }
           }
         ],
@@ -159,7 +159,7 @@ return {
     "operationKind": "query",
     "name": "FavoritesTableTestQuery",
     "id": null,
-    "text": "query FavoritesTableTestQuery {\n  ...FavoritesTable_favorites\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on RootQuery {\n  favorites(options: {sortDirection: ASC, sortBy: NAME}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
+    "text": "query FavoritesTableTestQuery {\n  ...FavoritesTable_favorites\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on RootQuery {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "favorites": {
