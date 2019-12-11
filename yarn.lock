@@ -112,10 +112,10 @@
     glob "^7.1.5"
     is-ci "^2.0.0"
 
-"@adeira/relay@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-0.7.0.tgz#340a4adbd5a0f948ac49756d10642184b6cb43a7"
-  integrity sha512-hGTElGPb8mU8Sm2XUWjZnzOQW4789OQyR6fw5DfZ0QZc8BPgnLOLQvvAbBdn8vPPASvUaXxWdzTno+sd4zhUAA==
+"@adeira/relay@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-0.8.0.tgz#e741f85b96014d47704e6ecc4b4bb28b755ab9f4"
+  integrity sha512-R0kyBF3DnpuRv4ynYB1yWhuvhk+heTTMRnWQTMlxf+y2EUiUD8dCaW9b2UEXVnS0oxGIoJu5yeJQTtYgsunlZA==
   dependencies:
     "@adeira/fetch" "^1.0.0"
     "@adeira/js" "^0.2.0"
@@ -128,7 +128,7 @@
     is-ci "^2.0.0"
     react-relay "^7.1.0"
     relay-compiler "^7.1.0"
-    relay-compiler-language-typescript "^10.1.2"
+    relay-compiler-language-typescript "^10.1.3"
     relay-config "^7.1.0"
     relay-runtime "^7.1.0"
 
@@ -1112,18 +1112,7 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-transform-typescript" "^7.7.2"
 
-"@babel/register@^7.6.0":
-  version "7.7.0"
-  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.7.0.tgz#4e23ecf840296ef79c605baaa5c89e1a2426314b"
-  integrity sha512-HV3GJzTvSoyOMWGYn2TAh6uL6g+gqKTgEZ99Q3+X9UURT1VPT/WcU46R61XftIc5rXytcOHZ4Z0doDlsjPomIg==
-  dependencies:
-    find-cache-dir "^2.0.0"
-    lodash "^4.17.13"
-    make-dir "^2.1.0"
-    pirates "^4.0.0"
-    source-map-support "^0.5.16"
-
-"@babel/register@^7.7.4":
+"@babel/register@^7.6.0", "@babel/register@^7.7.4":
   version "7.7.4"
   resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.7.4.tgz#45a4956471a9df3b012b747f5781cc084ee8f128"
   integrity sha512-/fmONZqL6ZMl9KJUYajetCrID6m0xmL4odX7v+Xvoxcv0DdbP/oO0TWIeLUCHqczQ6L6njDMqmqHFy2cp3FFsA==
@@ -9047,7 +9036,7 @@ regjsparser@^0.6.0:
   dependencies:
     jsesc "~0.5.0"
 
-relay-compiler-language-typescript@^10.1.2:
+relay-compiler-language-typescript@^10.1.3:
   version "10.1.3"
   resolved "https://registry.yarnpkg.com/relay-compiler-language-typescript/-/relay-compiler-language-typescript-10.1.3.tgz#5a61b9b518b18d98215f2da0198f344d3b1d7c8d"
   integrity sha512-kyt+yD26Dk9lvCCAtR2JBgrr5JtxdYEGiOZf5T6CXGaUVr43FEKh94cdGMwGYX1e+vHZg3gBH4EFi/VHC4Qs4Q==
