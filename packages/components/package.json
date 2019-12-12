@@ -6,7 +6,7 @@
   "dependencies": {
     "@kiwicom/orbit-components": "^0.69.0",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
-    "formik": "^2.0.6",
+    "formik": "^2.0.7",
     "react-icons": "^3.8.0"
   },
   "peerDependencies": {
