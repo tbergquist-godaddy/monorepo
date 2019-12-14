@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "main": "index.js",
+  "sideEffects": false,
   "dependencies": {
     "@tbergq/utils": "0.0.1",
     "@tbergq/relay": "0.0.1",

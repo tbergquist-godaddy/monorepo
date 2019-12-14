@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "main": "index.js",
+  "sideEffects": false,
   "devDependencies": {
     "@tbergq/monorepo-builder": "*",
     "google-protobuf": "^3.11.2",

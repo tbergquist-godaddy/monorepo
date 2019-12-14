@@ -3,6 +3,7 @@
   "private": true,
   "main": "index.js",
   "version": "0.0.1",
+  "sideEffects": false,
   "dependencies": {
     "js-cookie": "^2.2.1",
     "next-cookies": "^2.0.3"
