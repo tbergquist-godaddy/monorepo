@@ -1,19 +1,13 @@
 // @flow
 
 import * as React from 'react';
-import { isLoggedIn } from '@tbergq/utils';
-import Router from 'next/router';
+import { getNextToken } from '@tbergq/utils';
 import { CenterForm } from '@tbergq/components';
 
 import SignupForm from '../src/signup/SignupForm';
 import Layout from '../src/components/Layout';
 
 export default function Signup() {
-  React.useEffect(() => {
-    if (isLoggedIn()) {
-      Router.push('/favorites');
-    }
-  });
   return (
     <Layout isLoggedIn={false}>
       <CenterForm>
@@ -23,6 +17,13 @@ export default function Signup() {
   );
 }
 
-Signup.getInitialProps = () => {
+Signup.getInitialProps = ctx => {
+  const token = getNextToken(ctx);
+
+  if (token != null) {
+    ctx.res.writeHead(302, { Location: '/favorites' });
+    ctx.res.end();
+  }
+
   return {};
 };

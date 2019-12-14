@@ -2,18 +2,12 @@
 
 import * as React from 'react';
 import { Link, CenterForm } from '@tbergq/components';
-import { isLoggedIn } from '@tbergq/utils';
-import Router from 'next/router';
+import { getNextToken } from '@tbergq/utils';
 
 import Layout from '../src/components/Layout';
 import LoginForm from '../src/login/LoginForm';
 
 export default function Login() {
-  React.useEffect(() => {
-    if (isLoggedIn()) {
-      Router.push('/favorites');
-    }
-  });
   return (
     <Layout isLoggedIn={false}>
       <CenterForm>
@@ -26,6 +20,13 @@ export default function Login() {
   );
 }
 
-Login.getInitialProps = () => {
+Login.getInitialProps = ctx => {
+  const token = getNextToken(ctx);
+
+  if (token != null) {
+    ctx.res.writeHead(302, { Location: '/favorites' });
+    ctx.res.end();
+  }
+
   return {};
 };
