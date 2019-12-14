@@ -36,6 +36,7 @@ describe('resolvePreviousEpisode', () => {
       { airdate: '2019-02-10' },
       { airdate: '2019-02-20' },
     ]);
+    // $FlowExpectedError: Just passing what is needed to test resolver
     const previousEpisode = await resolvePreviousEpisode(dataloader, 1);
     expect(previousEpisode).toBeNull();
   });
@@ -54,6 +55,7 @@ describe('resolveNextEpisode', () => {
       { airdate: '2018-02-10' },
       { airdate: '2018-02-20' },
     ]);
+    // $FlowExpectedError: Just passing what is needed to test resolver
     const nextEpisode = await resolveNextEpisode(dataloader, 1);
     expect(nextEpisode).toBeNull();
   });
