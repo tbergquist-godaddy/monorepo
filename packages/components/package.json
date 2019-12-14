@@ -3,6 +3,7 @@
   "private": true,
   "main": "index.js",
   "version": "0.0.1",
+  "sideEffects": false,
   "dependencies": {
     "@kiwicom/orbit-components": "^0.69.0",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
