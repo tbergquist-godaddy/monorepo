@@ -2,16 +2,23 @@
 
 import * as React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
-import { MockPayloadGenerator } from 'relay-test-utils';
-import { QueryRenderer, graphql, Environment } from '@tbergq/relay';
+import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
+import { QueryRenderer, graphql } from '@tbergq/relay';
 
 import * as deleteFavorite from '../mutations/deleteFavorite';
 import * as addFavorite from '../mutations/addFavorite';
 import TvShowImage from '../TvShowImage';
 
+let environment;
+
+beforeEach(() => {
+  environment = createMockEnvironment();
+});
+
 const renderer = props => <TvShowImage tvShow={props.tvShowDetail} />;
 const TestRenderer = () => (
   <QueryRenderer
+    environment={environment}
     query={graphql`
       query TvShowImageTestQuery($id: ID!) @relay_test_operation {
         tvShowDetail(id: $id) {
@@ -26,7 +33,6 @@ const TestRenderer = () => (
 
 describe('TvShowImage', () => {
   it('adds favorite on click', () => {
-    const environment: any = Environment.getEnvironment();
     const { getByTestId } = render(<TestRenderer />);
 
     environment.mock.resolveMostRecentOperation(operation =>
@@ -64,7 +70,6 @@ describe('TvShowImage', () => {
   });
 
   it('removes favorite on click', () => {
-    const environment: any = Environment.getEnvironment();
     const { getByTestId } = render(<TestRenderer />);
 
     environment.mock.resolveMostRecentOperation(operation =>

@@ -49,7 +49,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/tbergq-monorepo
-      - run: yarn lint
+      - run: yarn lint --max-workers=2
 
   jest:
     <<: *defaults

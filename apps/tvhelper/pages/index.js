@@ -1,43 +1,32 @@
 // @flow
 
 import * as React from 'react';
-import { QueryRendererProvider, fetchQuery, Environment } from '@tbergq/relay';
-import { getNextToken } from '@tbergq/utils';
 
 import Layout from '../src/components/Layout';
 import SearchScene from '../src/search/SearchScene';
 import { searchQuery } from '../src/search/SearchQuery';
 
 type Props = {|
-  +json: {| +[key: string]: any |},
-  +token: ?string,
+  +isLoggedIn: boolean,
 |};
 
 export default function Index(props: Props) {
   return (
-    <QueryRendererProvider initialValue={props.json} token={props.token}>
-      <Layout isLoggedIn={props.token != null}>
-        <SearchScene />
-      </Layout>
-    </QueryRendererProvider>
+    <Layout isLoggedIn={props.isLoggedIn}>
+      <SearchScene />
+    </Layout>
   );
 }
 
-Index.getInitialProps = async ctx => {
-  try {
-    const token = getNextToken(ctx);
-    const query = ctx.query?.query;
-    let json;
-    if (query) {
-      const environment = Environment.getEnvironment();
-      await fetchQuery(environment, searchQuery, { query });
-      json = environment
-        .getStore()
-        .getSource()
-        .toJSON();
-    }
-    return { json, token };
-  } catch {
-    return {};
+Index.getInitialProps = ctx => {
+  const query = ctx.query?.query;
+  if (query) {
+    return {
+      query: searchQuery,
+      variables: {
+        query,
+      },
+    };
   }
+  return {};
 };

@@ -2,14 +2,14 @@
 
 import * as React from 'react';
 import App from 'next/app';
-import { withNProgress } from '@tbergq/nextjs-utils';
+import { withApp } from '@tbergq/nextjs-utils';
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, isLoggedIn } = this.props;
 
-    return <Component {...pageProps} />;
+    return <Component {...pageProps} isLoggedIn={isLoggedIn} />;
   }
 }
 
-export default withNProgress(MyApp);
+export default withApp(MyApp);

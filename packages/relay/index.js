@@ -23,12 +23,6 @@ export {
   useRelayEnvironment,
 } from '@adeira/relay';
 
-export {
-  QueryRendererProvider,
-  useQueryRenderer,
-  useQueryRendererAction,
-} from './src/QueryRendererContext';
-
 export type RelayProp = _RelayProp;
 export type RefetchRelayProp = _RefetchRelayProp;
 export type PaginationRelayProp = _PaginationRelayProp;

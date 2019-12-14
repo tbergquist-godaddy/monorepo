@@ -1,12 +1,15 @@
 // @flow
 
 import * as React from 'react';
-import { type GraphQLTaggedNode, type Environment } from '@adeira/relay';
+import {
+  type GraphQLTaggedNode,
+  useRelayEnvironment,
+  QueryRenderer as AdeiraQueryRenderer,
+  type Environment,
+} from '@adeira/relay';
 import { Loading } from '@tbergq/components';
-
-import EnvironmentFactory from './Environment';
-import { useQueryRenderer } from './QueryRendererContext';
-import RelayQueryRenderer from './ReactRelayQueryRenderer';
+import { isBrowser } from '@adeira/js';
+import { getRequest, createOperationDescriptor } from 'relay-runtime';
 
 type Props = {|
   +query: GraphQLTaggedNode,
@@ -16,9 +19,16 @@ type Props = {|
 |};
 
 export default function QueryRenderer(props: Props) {
-  const { ssrData, token } = useQueryRenderer();
+  const environment = props.environment ?? useRelayEnvironment();
 
-  const environment = props.environment ?? EnvironmentFactory.getEnvironment(token, ssrData);
+  if (!isBrowser()) {
+    const request = getRequest(props.query);
+    const operation = createOperationDescriptor(request, props.variables);
+
+    const res = environment.lookup(operation.fragment);
+    const data = res.data;
+    return data == null ? <Loading dataTest="queryRenderLoader" /> : props.render(data);
+  }
 
   function render({ props: rendererProps, error }) {
     if (error) {
@@ -31,7 +41,7 @@ export default function QueryRenderer(props: Props) {
   }
 
   return (
-    <RelayQueryRenderer
+    <AdeiraQueryRenderer
       query={props.query}
       variables={props.variables}
       environment={environment}
