@@ -1,5 +1,7 @@
 // @flow strict
 
+import { Types } from 'mongoose';
+
 import Model, { type ExerciseType } from '../models/ExerciseModel';
 import Exercise from '../dataObjects/Exercise';
 
@@ -19,5 +21,12 @@ export default class ExerciseRepository {
   static async getExercises(userId: string) {
     const exercises = await Model.find({ user: userId });
     return exercises.map(exercise => new Exercise(exercise));
+  }
+
+  static async deleteExercise(userId: string, exerciseId: string) {
+    // $FlowFixMe: Cannot call Types.ObjectId because a call signature declaring the expected parameter / return type is missing in statics of bson$ObjectId
+    const response = await Model.deleteOne({ user: userId, _id: Types.ObjectId(exerciseId) });
+
+    return response.deletedCount === 1;
   }
 }

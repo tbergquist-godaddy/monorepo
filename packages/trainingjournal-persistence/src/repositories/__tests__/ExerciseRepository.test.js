@@ -31,4 +31,14 @@ describe('ExerciseRepository', () => {
     expect(muscleGroups).toBe('Bryst');
     expect(userId).toBe(user.id);
   });
+
+  it('deletes an excercise', async () => {
+    const exercise = await ExerciseRepository.createExercise({
+      name: 'Benkpress',
+      muscleGroups: 'Bryst',
+      user: user.id,
+    });
+
+    expect(await ExerciseRepository.deleteExercise(user.id, exercise.id)).toBe(true);
+  });
 });
