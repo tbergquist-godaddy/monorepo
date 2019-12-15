@@ -22,7 +22,7 @@ function ExerciseList(props: Props) {
       rowGap="16px"
     >
       {edges.map<React.Node>(edge => (
-        <ExerciseListItem key={edge?.node?.id} exercise={edge?.node} />
+        <ExerciseListItem key={edge?.node?.id} exercise={edge?.node} userId={props.exercises?.id} />
       ))}
     </Grid>
   );
@@ -31,6 +31,7 @@ function ExerciseList(props: Props) {
 export default createFragmentContainer(ExerciseList, {
   exercises: graphql`
     fragment ExerciseList_exercises on TraningJournalViewer {
+      id
       exercises(first: 10) @connection(key: "ExerciseList_exercises") {
         edges {
           node {

@@ -10,6 +10,7 @@ import type { FragmentReference } from "relay-runtime";
 declare export opaque type ExerciseListItem_exercise$ref: FragmentReference;
 declare export opaque type ExerciseListItem_exercise$fragmentType: ExerciseListItem_exercise$ref;
 export type ExerciseListItem_exercise = {|
+  +id: string,
   +name: ?string,
   +muscleGroups: ?string,
   +$refType: ExerciseListItem_exercise$ref,
@@ -31,6 +32,13 @@ const node: ReaderFragment = {
     {
       "kind": "ScalarField",
       "alias": null,
+      "name": "id",
+      "args": null,
+      "storageKey": null
+    },
+    {
+      "kind": "ScalarField",
+      "alias": null,
       "name": "name",
       "args": null,
       "storageKey": null
@@ -45,5 +53,5 @@ const node: ReaderFragment = {
   ]
 };
 // prettier-ignore
-(node: any).hash = '128e572da951bf0e387434cc4b8a7dad';
+(node: any).hash = '19c58bcdefff98596d0f1384b070e3a0';
 export default node;
