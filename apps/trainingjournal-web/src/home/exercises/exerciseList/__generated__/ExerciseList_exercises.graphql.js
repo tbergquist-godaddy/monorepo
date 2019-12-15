@@ -11,6 +11,7 @@ import type { FragmentReference } from "relay-runtime";
 declare export opaque type ExerciseList_exercises$ref: FragmentReference;
 declare export opaque type ExerciseList_exercises$fragmentType: ExerciseList_exercises$ref;
 export type ExerciseList_exercises = {|
+  +id: string,
   +exercises: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
@@ -28,7 +29,15 @@ export type ExerciseList_exercises$key = {
 };
 
 
-const node: ReaderFragment = {
+const node: ReaderFragment = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Fragment",
   "name": "ExerciseList_exercises",
   "type": "TraningJournalViewer",
@@ -46,6 +55,7 @@ const node: ReaderFragment = {
   },
   "argumentDefinitions": [],
   "selections": [
+    (v0/*: any*/),
     {
       "kind": "LinkedField",
       "alias": "exercises",
@@ -73,13 +83,7 @@ const node: ReaderFragment = {
               "concreteType": "Exercise",
               "plural": false,
               "selections": [
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "id",
-                  "args": null,
-                  "storageKey": null
-                },
+                (v0/*: any*/),
                 {
                   "kind": "ScalarField",
                   "alias": null,
@@ -132,6 +136,7 @@ const node: ReaderFragment = {
     }
   ]
 };
+})();
 // prettier-ignore
-(node: any).hash = '21fef23dffeceb2bc41b4e1da0c0bfab';
+(node: any).hash = '3de0af89a1e783fac89ac979a988dbc8';
 export default node;
