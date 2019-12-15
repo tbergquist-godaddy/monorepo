@@ -1,4 +1,4 @@
-# @generated SignedSource<<7b80b0bf66866bc85e929593914c735b>>
+# @generated SignedSource<<af489d6da319765be1f02b21b43f29d3>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -68,6 +68,11 @@ outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
 representation of dates and times using the Gregorian calendar.
 """
 scalar Date
+
+type DeletedEpisode {
+  exerciseId: ID
+  success: Boolean
+}
 
 """Episodes of the tv show"""
 type Episode {
@@ -170,6 +175,9 @@ type RootMutation {
   """Create a user for trainingjournal application"""
   createTrainingjournalUser(email: String!, password: String!, username: String!): CreateTrainingJournalUser
   createUser(email: String!, password: String!, username: String!): CreateUserMutation
+
+  """Delete an Exercise"""
+  deleteExercise(id: ID!): DeletedEpisode
 
   """Remove tv show from favorite list"""
   deleteFavorite(serieId: ID!): RangeDelete
