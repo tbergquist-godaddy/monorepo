@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 2ffbb60738c151e18cd29bdca9b1e810
+ * @relayHash 56d68ab5e2b6df2b18fcee374b9b2f34
  */
 
 /* eslint-disable */
@@ -35,10 +35,14 @@ fragment AddExerciseForm_user on Viewer {
   }
 }
 
-fragment ExerciseListItem_exercise on Exercise {
+fragment ExerciseDetailCard_exercise on Exercise {
   id
   name
   muscleGroups
+}
+
+fragment ExerciseListItem_exercise on Exercise {
+  ...ExerciseDetailCard_exercise
 }
 
 fragment ExerciseList_exercises on TraningJournalViewer {
@@ -234,7 +238,7 @@ return {
     "operationKind": "query",
     "name": "ExercisesQuery",
     "id": null,
-    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ...ExerciseList_exercises\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ...ExerciseList_exercises\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

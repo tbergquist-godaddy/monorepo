@@ -1,70 +1,43 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
-import { Card, CardSection, ButtonLink, TrashIcon, Stack, Pencil } from '@tbergq/components';
-import styled from 'styled-components';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
 
 import type { ExerciseListItem_exercise as Exercise } from './__generated__/ExerciseListItem_exercise.graphql';
-import deleteExercise from './mutation/deleteExercise';
+import ExerciseDetailCard from './ExerciseDetailCard';
+import EditExercise from './EditExercise';
 
 type Props = {|
   +exercise: ?Exercise,
   +userId: ?string,
-  +relay: RelayProp,
 |};
 
-const HeaderItem = styled.div({
-  width: '100%',
-});
-
+// TODO: Some animation
 function ExerciseListItem(props: Props) {
-  const onClick = () => {
-    const exerciseId = props.exercise?.id;
-    if (exerciseId != null && props.userId != null) {
-      deleteExercise(props.relay.environment, exerciseId, props.userId);
-    }
+  const [edit, setEdit] = React.useState(false);
+  const onEdit = () => {
+    setEdit(true);
   };
-  const name = props.exercise?.name ?? '';
+
+  const onClose = () => {
+    setEdit(false);
+  };
+
   return (
-    <Card
-      title="Title"
-      header={
-        <HeaderItem>
-          <Stack flex={true} justify="between" align="center">
-            <div>{name}</div>
-            <div>
-              <ButtonLink
-                icon={<Pencil color="primary" />}
-                dataTest={`editButton${props.exercise?.id ?? ''}`}
-                onClick={() => {}}
-                title={`Edit ${name}`}
-              />
-              <ButtonLink
-                icon={<TrashIcon color="critical" />}
-                dataTest={`deleteButton${props.exercise?.id ?? ''}`}
-                onClick={onClick}
-                title={`Delete ${name}`}
-              />
-            </div>
-          </Stack>
-        </HeaderItem>
-      }
-      dataTest={props.exercise?.id}
-    >
-      <CardSection header={<>Muscle groups</>}>
-        {props.exercise?.muscleGroups || 'None registered'}
-      </CardSection>
-    </Card>
+    <>
+      {edit && <EditExercise onClose={onClose} />}
+
+      {!edit && (
+        <ExerciseDetailCard onEdit={onEdit} exercise={props.exercise} userId={props.userId} />
+      )}
+    </>
   );
 }
 
 export default createFragmentContainer(ExerciseListItem, {
   exercise: graphql`
     fragment ExerciseListItem_exercise on Exercise {
-      id
-      name
-      muscleGroups
+      ...ExerciseDetailCard_exercise
     }
   `,
 });

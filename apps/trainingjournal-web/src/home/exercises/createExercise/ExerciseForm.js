@@ -5,6 +5,7 @@ import { InputField, Stack, Button } from '@tbergq/components';
 
 type Props = {|
   +isSubmitting: boolean,
+  +onCancel?: () => void,
 |};
 
 export default function ExerciseForm(props: Props) {
@@ -19,6 +20,11 @@ export default function ExerciseForm(props: Props) {
         <InputField name="videoUrl" label="Video url" />
       </Stack>
       <Stack flex={true} justify="end">
+        {props.onCancel != null && (
+          <Button type="secondary" onClick={props.onCancel}>
+            Cancel
+          </Button>
+        )}
         <Button loading={props.isSubmitting} submit={true}>
           Save
         </Button>
