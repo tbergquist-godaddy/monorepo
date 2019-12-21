@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 9f8f80f6f2f18df3e811666be33a8dae
+ * @relayHash 04390c80fa0a8683b6d256e52cfed9b0
  */
 
 /* eslint-disable */
@@ -27,10 +27,14 @@ query ExerciseListQuery {
   }
 }
 
-fragment ExerciseListItem_exercise on Exercise {
+fragment ExerciseDetailCard_exercise on Exercise {
   id
   name
   muscleGroups
+}
+
+fragment ExerciseListItem_exercise on Exercise {
+  ...ExerciseDetailCard_exercise
 }
 
 fragment ExerciseList_exercises on TraningJournalViewer {
@@ -75,12 +79,18 @@ v2 = [
   }
 ],
 v3 = {
-  "type": "String",
+  "type": "ID",
   "enumValues": null,
   "plural": false,
   "nullable": false
 },
 v4 = {
+  "type": "String",
+  "enumValues": null,
+  "plural": false,
+  "nullable": false
+},
+v5 = {
   "type": "String",
   "enumValues": null,
   "plural": false,
@@ -233,7 +243,7 @@ return {
     "operationKind": "query",
     "name": "ExerciseListQuery",
     "id": null,
-    "text": "query ExerciseListQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+    "text": "query ExerciseListQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -242,12 +252,7 @@ return {
           "plural": false,
           "nullable": true
         },
-        "viewer.id": {
-          "type": "ID",
-          "enumValues": null,
-          "plural": false,
-          "nullable": false
-        },
+        "viewer.id": (v3/*: any*/),
         "viewer.exercises": {
           "type": "ExerciseConnection",
           "enumValues": null,
@@ -272,23 +277,18 @@ return {
           "plural": false,
           "nullable": true
         },
-        "viewer.exercises.edges.node.id": {
-          "type": "ID",
-          "enumValues": null,
-          "plural": false,
-          "nullable": true
-        },
-        "viewer.exercises.edges.cursor": (v3/*: any*/),
-        "viewer.exercises.pageInfo.endCursor": (v4/*: any*/),
+        "viewer.exercises.edges.node.id": (v3/*: any*/),
+        "viewer.exercises.edges.cursor": (v4/*: any*/),
+        "viewer.exercises.pageInfo.endCursor": (v5/*: any*/),
         "viewer.exercises.pageInfo.hasNextPage": {
           "type": "Boolean",
           "enumValues": null,
           "plural": false,
           "nullable": false
         },
-        "viewer.exercises.edges.node.name": (v4/*: any*/),
-        "viewer.exercises.edges.node.muscleGroups": (v4/*: any*/),
-        "viewer.exercises.edges.node.__typename": (v3/*: any*/)
+        "viewer.exercises.edges.node.__typename": (v4/*: any*/),
+        "viewer.exercises.edges.node.name": (v5/*: any*/),
+        "viewer.exercises.edges.node.muscleGroups": (v5/*: any*/)
       }
     }
   }

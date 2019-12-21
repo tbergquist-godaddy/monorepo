@@ -6,13 +6,12 @@
 // flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
+type ExerciseDetailCard_exercise$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type ExerciseListItem_exercise$ref: FragmentReference;
 declare export opaque type ExerciseListItem_exercise$fragmentType: ExerciseListItem_exercise$ref;
 export type ExerciseListItem_exercise = {|
-  +id: string,
-  +name: ?string,
-  +muscleGroups: ?string,
+  +$fragmentRefs: ExerciseDetailCard_exercise$ref,
   +$refType: ExerciseListItem_exercise$ref,
 |};
 export type ExerciseListItem_exercise$data = ExerciseListItem_exercise;
@@ -31,28 +30,12 @@ const node: ReaderFragment = {
   "argumentDefinitions": [],
   "selections": [
     {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "id",
-      "args": null,
-      "storageKey": null
-    },
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "name",
-      "args": null,
-      "storageKey": null
-    },
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "muscleGroups",
-      "args": null,
-      "storageKey": null
+      "kind": "FragmentSpread",
+      "name": "ExerciseDetailCard_exercise",
+      "args": null
     }
   ]
 };
 // prettier-ignore
-(node: any).hash = '19c58bcdefff98596d0f1384b070e3a0';
+(node: any).hash = '24178d4e48769b9ade45f80552c28e2c';
 export default node;
