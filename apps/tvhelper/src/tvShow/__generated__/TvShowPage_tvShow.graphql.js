@@ -21,6 +21,7 @@ export type TvShowPage_tvShow$data = TvShowPage_tvShow;
 export type TvShowPage_tvShow$key = {
   +$data?: TvShowPage_tvShow$data,
   +$fragmentRefs: TvShowPage_tvShow$ref,
+  ...
 };
 
 

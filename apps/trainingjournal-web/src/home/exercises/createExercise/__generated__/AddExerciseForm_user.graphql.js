@@ -17,6 +17,7 @@ export type AddExerciseForm_user$data = AddExerciseForm_user;
 export type AddExerciseForm_user$key = {
   +$data?: AddExerciseForm_user$data,
   +$fragmentRefs: AddExerciseForm_user$ref,
+  ...
 };
 
 

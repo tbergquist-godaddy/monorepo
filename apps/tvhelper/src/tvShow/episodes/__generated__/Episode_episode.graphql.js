@@ -22,6 +22,7 @@ export type Episode_episode$data = Episode_episode;
 export type Episode_episode$key = {
   +$data?: Episode_episode$data,
   +$fragmentRefs: Episode_episode$ref,
+  ...
 };
 
 

@@ -22,6 +22,7 @@ export type TvShowImage_tvShow$data = TvShowImage_tvShow;
 export type TvShowImage_tvShow$key = {
   +$data?: TvShowImage_tvShow$data,
   +$fragmentRefs: TvShowImage_tvShow$ref,
+  ...
 };
 
 

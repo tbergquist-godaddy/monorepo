@@ -25,6 +25,7 @@ export type FavoritesTable_favorites$data = FavoritesTable_favorites;
 export type FavoritesTable_favorites$key = {
   +$data?: FavoritesTable_favorites$data,
   +$fragmentRefs: FavoritesTable_favorites$ref,
+  ...
 };
 
 

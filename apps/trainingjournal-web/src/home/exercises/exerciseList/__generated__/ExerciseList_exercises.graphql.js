@@ -26,6 +26,7 @@ export type ExerciseList_exercises$data = ExerciseList_exercises;
 export type ExerciseList_exercises$key = {
   +$data?: ExerciseList_exercises$data,
   +$fragmentRefs: ExerciseList_exercises$ref,
+  ...
 };
 
 
