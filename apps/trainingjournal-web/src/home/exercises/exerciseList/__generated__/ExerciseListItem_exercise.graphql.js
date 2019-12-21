@@ -19,6 +19,7 @@ export type ExerciseListItem_exercise$data = ExerciseListItem_exercise;
 export type ExerciseListItem_exercise$key = {
   +$data?: ExerciseListItem_exercise$data,
   +$fragmentRefs: ExerciseListItem_exercise$ref,
+  ...
 };
 
 

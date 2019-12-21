@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@adeira/js": "^0.2.0",
-    "@adeira/monorepo-utils": "^0.1.0",
+    "@adeira/monorepo-utils": "^0.2.0",
     "@babel/runtime": "^7.7.7",
     "@tbergq/tvhelper-persistence": "*",
     "dotenv": "^8.2.0",

@@ -21,6 +21,7 @@ export type FavoriteItem_favorite$data = FavoriteItem_favorite;
 export type FavoriteItem_favorite$key = {
   +$data?: FavoriteItem_favorite$data,
   +$fragmentRefs: FavoriteItem_favorite$ref,
+  ...
 };
 
 

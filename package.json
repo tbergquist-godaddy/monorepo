@@ -20,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@adeira/monorepo-utils": "^0.1.0"
+    "@adeira/monorepo-utils": "^0.2.0"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^0.2.0",
@@ -30,7 +30,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "flow-bin": "^0.114.0",
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.4",

@@ -23,6 +23,7 @@ export type TvShowListItem_data$data = TvShowListItem_data;
 export type TvShowListItem_data$key = {
   +$data?: TvShowListItem_data$data,
   +$fragmentRefs: TvShowListItem_data$ref,
+  ...
 };
 
 

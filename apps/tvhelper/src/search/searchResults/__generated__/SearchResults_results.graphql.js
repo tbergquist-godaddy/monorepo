@@ -23,6 +23,7 @@ export type SearchResults_results$data = SearchResults_results;
 export type SearchResults_results$key = {
   +$data?: SearchResults_results$data,
   +$fragmentRefs: SearchResults_results$ref,
+  ...
 };
 
 
