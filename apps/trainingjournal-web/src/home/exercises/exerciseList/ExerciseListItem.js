@@ -2,13 +2,8 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
-import {
-  Card,
-  CardHeader,
-  CardSection,
-  CardSectionHeader,
-  CardSectionContent,
-} from '@tbergq/components';
+import { Card, CardSection, ButtonLink, TrashIcon, Stack } from '@tbergq/components';
+import styled from 'styled-components';
 
 import type { ExerciseListItem_exercise as Exercise } from './__generated__/ExerciseListItem_exercise.graphql';
 import deleteExercise from './mutation/deleteExercise';
@@ -19,6 +14,10 @@ type Props = {|
   +relay: RelayProp,
 |};
 
+const HeaderItem = styled.div({
+  width: '100%',
+});
+
 function ExerciseListItem(props: Props) {
   const onClick = () => {
     const exerciseId = props.exercise?.id;
@@ -27,16 +26,22 @@ function ExerciseListItem(props: Props) {
     }
   };
   return (
-    <Card>
-      <CardHeader title={props.exercise?.name ?? ''} />
-      <CardSection>
-        <CardSectionHeader>
-          <button type="button" onClick={onClick}>
-            delete
-          </button>
-          Muscle groups
-        </CardSectionHeader>
-        <CardSectionContent>{props.exercise?.muscleGroups ?? 'None registered'}</CardSectionContent>
+    <Card
+      title="Title"
+      header={
+        <HeaderItem>
+          <Stack flex={true} justify="between" align="center">
+            <div>{props.exercise?.name ?? ''}</div>
+            <ButtonLink dataTest={`deleteButton${props.exercise?.id ?? ''}`} onClick={onClick}>
+              <TrashIcon color="critical" />
+            </ButtonLink>
+          </Stack>
+        </HeaderItem>
+      }
+      dataTest={props.exercise?.id}
+    >
+      <CardSection header={<>Muscle groups</>}>
+        {props.exercise?.muscleGroups || 'None registered'}
       </CardSection>
     </Card>
   );
