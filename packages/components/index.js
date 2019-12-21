@@ -10,32 +10,29 @@ export { default as NavLink } from './src/NavLink';
 export { default as LoginForm } from './src/loginForm/LoginForm';
 export { default as Link } from './src/Link';
 
-export { default as ListItem } from '@kiwicom/orbit-components/lib/ListChoice';
-export { default as Heading } from '@kiwicom/orbit-components/lib/Heading';
-export { default as Stack } from '@kiwicom/orbit-components/lib/Stack';
-export { default as Grid } from '@kiwicom/orbit-components/lib/utils/Grid';
 export {
-  default as Table,
+  ListChoice as ListItem,
+  Heading,
+  Stack,
+  Grid,
+  ButtonLink,
+  Table,
   TableHead,
   TableBody,
   TableRow,
-} from '@kiwicom/orbit-components/lib/Table';
-export { default as TableCell } from './src/table/TableCell';
-export { default as Loading } from '@kiwicom/orbit-components/lib/Loading';
-export {
-  default as Card,
+  Loading,
+  Card,
   CardSection,
-  CardSectionContent,
-  CardHeader,
-  CardSectionHeader,
-} from '@kiwicom/orbit-components/lib/deprecated/Card';
+} from '@kiwicom/orbit-components';
+
+export { default as TableCell } from './src/table/TableCell';
 export { default as Autocomplete } from './src/autocomplete/Autocomplete';
 export { default as Container } from './src/Container';
 export { default as CenterForm } from './src/CenterForm';
 export { default as SignupForm } from './src/signupForm/SignupForm';
 
 // Icons
-export { default as AddIcon } from '@kiwicom/orbit-components/lib/icons/Plus';
+export { Plus as AddIcon, Remove as TrashIcon } from '@kiwicom/orbit-components/lib/icons';
 
 // Animations
 export { default as SlideIn } from './src/animations/SlideIn';
