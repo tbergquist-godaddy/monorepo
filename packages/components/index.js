@@ -36,3 +36,6 @@ export { default as SignupForm } from './src/signupForm/SignupForm';
 
 // Icons
 export { default as AddIcon } from '@kiwicom/orbit-components/lib/icons/Plus';
+
+// Animations
+export { default as SlideIn } from './src/animations/SlideIn';

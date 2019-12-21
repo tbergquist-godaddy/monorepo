@@ -4,7 +4,7 @@ import * as React from 'react';
 import { withFormik, type InjectedFormikProps, type FormikBag } from 'formik';
 import styled, { keyframes, css } from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
-import { AddIcon } from '@tbergq/components';
+import { AddIcon, SlideIn } from '@tbergq/components';
 import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
 
 import ExerciseForm from './ExerciseForm';
@@ -80,10 +80,11 @@ function AddExerciseForm(props: InjectedFormikProps<Props, ExerciseValues>) {
   }, [props.isSubmitting]);
   return (
     <>
-      <form onSubmit={props.handleSubmit}>
-        <ExerciseForm isSubmitting={props.isSubmitting} isVisible={showForm} />
-      </form>
-
+      <SlideIn isExpanded={showForm}>
+        <form onSubmit={props.handleSubmit}>
+          <ExerciseForm isSubmitting={props.isSubmitting} />
+        </form>
+      </SlideIn>
       <AddButton
         type="button"
         onClick={() => {

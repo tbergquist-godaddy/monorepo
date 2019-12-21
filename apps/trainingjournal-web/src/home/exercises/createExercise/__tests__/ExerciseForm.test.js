@@ -15,7 +15,7 @@ const Wrapper = () => (
       description: '',
     }}
   >
-    <ExerciseForm isSubmitting={false} isVisible={true} />
+    <ExerciseForm isSubmitting={false} />
   </Formik>
 );
 
