@@ -32,7 +32,11 @@ export { default as CenterForm } from './src/CenterForm';
 export { default as SignupForm } from './src/signupForm/SignupForm';
 
 // Icons
-export { Plus as AddIcon, Remove as TrashIcon } from '@kiwicom/orbit-components/lib/icons';
+export {
+  Plus as AddIcon,
+  Remove as TrashIcon,
+  Edit as Pencil,
+} from '@kiwicom/orbit-components/lib/icons';
 
 // Animations
 export { default as SlideIn } from './src/animations/SlideIn';
