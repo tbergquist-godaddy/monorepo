@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
-import { Card, CardSection, ButtonLink, TrashIcon, Stack } from '@tbergq/components';
+import { Card, CardSection, ButtonLink, TrashIcon, Stack, Pencil } from '@tbergq/components';
 import styled from 'styled-components';
 
 import type { ExerciseListItem_exercise as Exercise } from './__generated__/ExerciseListItem_exercise.graphql';
@@ -25,16 +25,28 @@ function ExerciseListItem(props: Props) {
       deleteExercise(props.relay.environment, exerciseId, props.userId);
     }
   };
+  const name = props.exercise?.name ?? '';
   return (
     <Card
       title="Title"
       header={
         <HeaderItem>
           <Stack flex={true} justify="between" align="center">
-            <div>{props.exercise?.name ?? ''}</div>
-            <ButtonLink dataTest={`deleteButton${props.exercise?.id ?? ''}`} onClick={onClick}>
-              <TrashIcon color="critical" />
-            </ButtonLink>
+            <div>{name}</div>
+            <div>
+              <ButtonLink
+                icon={<Pencil color="primary" />}
+                dataTest={`editButton${props.exercise?.id ?? ''}`}
+                onClick={() => {}}
+                title={`Edit ${name}`}
+              />
+              <ButtonLink
+                icon={<TrashIcon color="critical" />}
+                dataTest={`deleteButton${props.exercise?.id ?? ''}`}
+                onClick={onClick}
+                title={`Delete ${name}`}
+              />
+            </div>
           </Stack>
         </HeaderItem>
       }
