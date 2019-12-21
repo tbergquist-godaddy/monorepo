@@ -38,7 +38,6 @@
     "@kiwicom/babel-plugin-orbit-components": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
-    "relay-compiler": "^7.1.0",
     "relay-test-utils": "^7.1.0",
     "rimraf": "^3.0.0"
   }
