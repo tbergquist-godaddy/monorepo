@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { FadeInOut } from '@tbergq/components';
 
 import type { ExerciseListItem_exercise as Exercise } from './__generated__/ExerciseListItem_exercise.graphql';
 import ExerciseDetailCard from './ExerciseDetailCard';
@@ -15,6 +16,7 @@ type Props = {|
 // TODO: Some animation
 function ExerciseListItem(props: Props) {
   const [edit, setEdit] = React.useState(false);
+  const [slide, setSlide] = React.useState(false);
   const onEdit = () => {
     setEdit(true);
   };
@@ -23,13 +25,19 @@ function ExerciseListItem(props: Props) {
     setEdit(false);
   };
 
+  React.useEffect(() => {
+    // Don't slide in on mount
+    setSlide(true);
+  }, []);
+
   return (
     <>
-      {edit && <EditExercise onClose={onClose} />}
-
-      {!edit && (
+      <FadeInOut left={slide} by={300} activate={edit}>
+        <EditExercise onClose={onClose} />
+      </FadeInOut>
+      <FadeInOut left={slide} by={300} activate={!edit}>
         <ExerciseDetailCard onEdit={onEdit} exercise={props.exercise} userId={props.userId} />
-      )}
+      </FadeInOut>
     </>
   );
 }
