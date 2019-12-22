@@ -40,3 +40,4 @@ export {
 
 // Animations
 export { default as SlideIn } from './src/animations/SlideIn';
+export { default as FadeInOut } from './src/animations/FadeInOut';
