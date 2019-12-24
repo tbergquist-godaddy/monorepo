@@ -5,7 +5,7 @@
   "main": "index.js",
   "sideEffects": false,
   "dependencies": {
-    "mongoose": "^5.8.2"
+    "mongoose": "^5.8.3"
   },
   "devDependencies": {
     "mongodb-memory-server": "^6.1.1"
