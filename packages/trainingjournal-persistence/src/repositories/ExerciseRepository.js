@@ -7,6 +7,10 @@ import Exercise from '../dataObjects/Exercise';
 
 type CreateExerciseInput = $ReadOnly<$Diff<ExerciseType, {| +_id: string |}>>;
 
+const toObjectId = (id: string) => {
+  // $FlowFixMe: Cannot call Types.ObjectId because a call signature declaring the expected parameter / return type is missing in statics of bson$ObjectId
+  return Types.ObjectId(id);
+};
 export default class ExerciseRepository {
   static async createExercise(input: CreateExerciseInput) {
     const exercise = await Model.create(input);
@@ -24,9 +28,20 @@ export default class ExerciseRepository {
   }
 
   static async deleteExercise(userId: string, exerciseId: string) {
-    // $FlowFixMe: Cannot call Types.ObjectId because a call signature declaring the expected parameter / return type is missing in statics of bson$ObjectId
-    const response = await Model.deleteOne({ user: userId, _id: Types.ObjectId(exerciseId) });
+    const response = await Model.deleteOne({ user: userId, _id: toObjectId(exerciseId) });
 
     return response.deletedCount === 1;
+  }
+
+  static async editExercise(userId: string, exerciseId: string, exercise: $Shape<ExerciseType>) {
+    const doc = await Model.updateOne(
+      { user: toObjectId(userId), _id: toObjectId(exerciseId) },
+      exercise,
+    );
+
+    if (doc.nModified === 1) {
+      return new Exercise(await Model.findById(toObjectId(exerciseId)));
+    }
+    return null;
   }
 }

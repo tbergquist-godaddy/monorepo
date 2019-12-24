@@ -1,4 +1,4 @@
-# @generated SignedSource<<af489d6da319765be1f02b21b43f29d3>>
+# @generated SignedSource<<f889960ba2b57266f2dddb576cc1193e>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -184,6 +184,9 @@ type RootMutation {
 
   """Delete an episode as watched"""
   deleteWatchedEpisode(episodeId: ID!): EpisodeWatched
+
+  """Edits an Exercise"""
+  editExercise(exercise: CreateExerciseInput!, exerciseId: ID!): CreateExercise
 
   """Mark an episode as watched"""
   markAsWatched(episodeId: ID!): EpisodeWatched
