@@ -41,4 +41,38 @@ describe('ExerciseRepository', () => {
 
     expect(await ExerciseRepository.deleteExercise(user.id, exercise.id)).toBe(true);
   });
+
+  it('deletes updates excercise', async () => {
+    const exercise = await ExerciseRepository.createExercise({
+      name: 'Benkpress',
+      muscleGroups: 'Bryst',
+      user: user.id,
+    });
+
+    const updated = await ExerciseRepository.editExercise(user.id, exercise.id, {
+      name: 'Benkpress edited',
+    });
+
+    expect(updated?.name).toEqual('Benkpress edited');
+    expect(updated?.muscleGroups).toEqual('Bryst');
+  });
+
+  it('returns null if user does not own exercise', async () => {
+    const exercise = await ExerciseRepository.createExercise({
+      name: 'Benkpress',
+      muscleGroups: 'Bryst',
+      user: user.id,
+    });
+    const fakeUser = await UserRepository.createUser({
+      username: 'fake',
+      password: 'I_am_naive',
+      email: 'lol2@lol.no',
+    });
+
+    const updated = await ExerciseRepository.editExercise(fakeUser.id, exercise.id, {
+      name: 'Benkpress edited',
+    });
+
+    expect(updated).toBeNull();
+  });
 });
