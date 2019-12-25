@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { TableCell as Cell } from '@kiwicom/orbit-components/lib/Table';
+import { TableCell as Cell } from '@kiwicom/orbit-components';
 
 type Props = {|
   +align?: 'left' | 'center' | 'right',

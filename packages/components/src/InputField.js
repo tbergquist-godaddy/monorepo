@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import InputField from '@kiwicom/orbit-components/lib/InputField';
+import { InputField } from '@kiwicom/orbit-components';
 import { useField, ErrorMessage } from 'formik';
 
 type Props = {|

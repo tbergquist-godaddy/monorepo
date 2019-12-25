@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import Stack from '@kiwicom/orbit-components/lib/Stack';
+import { Stack } from '@kiwicom/orbit-components';
 
 import Container from './Container';
 

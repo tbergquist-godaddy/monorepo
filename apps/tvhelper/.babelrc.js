@@ -4,7 +4,6 @@ const plugins = [
   ['styled-components', { ssr: true }],
   'relay',
   '@babel/plugin-proposal-class-properties',
-  '@kiwicom/orbit-components'
 ];
 
 const prodAndDev = {

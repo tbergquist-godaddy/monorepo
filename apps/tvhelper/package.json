@@ -7,6 +7,7 @@
     "@adeira/fetch": "^1.0.0",
     "@adeira/monorepo-utils": "^0.2.0",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
+    "@next/bundle-analyzer": "^9.1.6",
     "@tbergq/components": "^0",
     "@tbergq/nextjs-utils": "0.0.1",
     "@tbergq/relay": "^0",
@@ -32,10 +33,10 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "deploy": "yarn monorepo-babel-node scripts/deploy.js",
-    "prenow-build": "yarn monorepo-babel-node scripts/persistQueries.js"
+    "prenow-build": "yarn monorepo-babel-node scripts/persistQueries.js",
+    "analyze": "export ANALYZE=TRUE && next build"
   },
   "devDependencies": {
-    "@kiwicom/babel-plugin-orbit-components": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "relay-test-utils": "^8.0.0",
