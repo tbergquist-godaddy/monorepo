@@ -5,6 +5,7 @@ import {
   trainingJournalConnection,
   ExerciseRepository,
 } from '@tbergq/trainingjournal-persistence';
+import { toGlobalId } from '@adeira/graphql-global-id';
 
 import executeTestQuery from '../../../../services/executeTestQuery';
 
@@ -43,7 +44,7 @@ it('edits an exercise', async () => {
       }`,
       {
         exercise: { name: 'Knebøy edited', muscleGroups: 'TestLår edited' },
-        exerciseId: exercise.id,
+        exerciseId: toGlobalId('Exercise', exercise.id),
       },
       { user: { app: 'trainingjournal', id: user.id } },
     ),
