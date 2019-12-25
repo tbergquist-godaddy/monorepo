@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 56d68ab5e2b6df2b18fcee374b9b2f34
+ * @relayHash 0e9ff61c856690f4e1ee45a12cf5407e
  */
 
 /* eslint-disable */
@@ -35,6 +35,14 @@ fragment AddExerciseForm_user on Viewer {
   }
 }
 
+fragment EditExercise_exercise on Exercise {
+  id
+  name
+  muscleGroups
+  videoUrl
+  description
+}
+
 fragment ExerciseDetailCard_exercise on Exercise {
   id
   name
@@ -43,6 +51,7 @@ fragment ExerciseDetailCard_exercise on Exercise {
 
 fragment ExerciseListItem_exercise on Exercise {
   ...ExerciseDetailCard_exercise
+  ...EditExercise_exercise
 }
 
 fragment ExerciseList_exercises on TraningJournalViewer {
@@ -180,6 +189,20 @@ return {
                             "args": null,
                             "storageKey": null
                           },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "videoUrl",
+                            "args": null,
+                            "storageKey": null
+                          },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "description",
+                            "args": null,
+                            "storageKey": null
+                          },
                           (v0/*: any*/)
                         ]
                       },
@@ -238,7 +261,7 @@ return {
     "operationKind": "query",
     "name": "ExercisesQuery",
     "id": null,
-    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ...ExerciseList_exercises\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ...ExerciseList_exercises\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

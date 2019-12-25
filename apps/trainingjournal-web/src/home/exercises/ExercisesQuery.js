@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { graphql, QueryRenderer } from '@tbergq/relay';
+import { Heading } from '@tbergq/components';
 
 import ExerciseList from './exerciseList/ExerciseList';
 import type { ExercisesQueryResponse } from './__generated__/ExercisesQuery.graphql';
@@ -21,6 +22,7 @@ export const query = graphql`
 const renderQuery = (props: ExercisesQueryResponse) => {
   return (
     <>
+      <Heading>My exercises</Heading>
       <AddExerciseForm user={props.viewer} />
       <ExerciseList exercises={props.viewer} />
     </>
