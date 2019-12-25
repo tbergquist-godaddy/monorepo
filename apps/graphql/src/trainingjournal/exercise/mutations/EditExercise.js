@@ -2,6 +2,7 @@
 
 import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { ExerciseRepository } from '@tbergq/trainingjournal-persistence';
+import { fromGlobalId } from '@adeira/graphql-global-id';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import CreateExerciseOutput from '../types/output/CreateExercise';
@@ -35,7 +36,7 @@ export default {
 
     return {
       exerciseEdge: {
-        node: await ExerciseRepository.editExercise(userId, exerciseId, {
+        node: await ExerciseRepository.editExercise(userId, fromGlobalId(exerciseId), {
           ...exercise,
           user: userId,
         }),
