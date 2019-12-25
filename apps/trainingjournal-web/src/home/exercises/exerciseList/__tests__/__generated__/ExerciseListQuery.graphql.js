@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 04390c80fa0a8683b6d256e52cfed9b0
+ * @relayHash 8151d7e5855af27ed0f3e233e44a4e29
  */
 
 /* eslint-disable */
@@ -27,6 +27,14 @@ query ExerciseListQuery {
   }
 }
 
+fragment EditExercise_exercise on Exercise {
+  id
+  name
+  muscleGroups
+  videoUrl
+  description
+}
+
 fragment ExerciseDetailCard_exercise on Exercise {
   id
   name
@@ -35,6 +43,7 @@ fragment ExerciseDetailCard_exercise on Exercise {
 
 fragment ExerciseListItem_exercise on Exercise {
   ...ExerciseDetailCard_exercise
+  ...EditExercise_exercise
 }
 
 fragment ExerciseList_exercises on TraningJournalViewer {
@@ -185,6 +194,20 @@ return {
                             "args": null,
                             "storageKey": null
                           },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "videoUrl",
+                            "args": null,
+                            "storageKey": null
+                          },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "description",
+                            "args": null,
+                            "storageKey": null
+                          },
                           (v0/*: any*/)
                         ]
                       },
@@ -243,7 +266,7 @@ return {
     "operationKind": "query",
     "name": "ExerciseListQuery",
     "id": null,
-    "text": "query ExerciseListQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+    "text": "query ExerciseListQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -288,7 +311,9 @@ return {
         },
         "viewer.exercises.edges.node.__typename": (v4/*: any*/),
         "viewer.exercises.edges.node.name": (v5/*: any*/),
-        "viewer.exercises.edges.node.muscleGroups": (v5/*: any*/)
+        "viewer.exercises.edges.node.muscleGroups": (v5/*: any*/),
+        "viewer.exercises.edges.node.videoUrl": (v5/*: any*/),
+        "viewer.exercises.edges.node.description": (v5/*: any*/)
       }
     }
   }

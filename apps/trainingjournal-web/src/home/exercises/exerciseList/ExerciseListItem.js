@@ -33,7 +33,7 @@ function ExerciseListItem(props: Props) {
   return (
     <>
       <FadeInOut left={slide} by={300} activate={edit}>
-        <EditExercise onClose={onClose} />
+        <EditExercise exercise={props.exercise} onClose={onClose} />
       </FadeInOut>
       <FadeInOut left={slide} by={300} activate={!edit}>
         <ExerciseDetailCard onEdit={onEdit} exercise={props.exercise} userId={props.userId} />
@@ -46,6 +46,7 @@ export default createFragmentContainer(ExerciseListItem, {
   exercise: graphql`
     fragment ExerciseListItem_exercise on Exercise {
       ...ExerciseDetailCard_exercise
+      ...EditExercise_exercise
     }
   `,
 });
