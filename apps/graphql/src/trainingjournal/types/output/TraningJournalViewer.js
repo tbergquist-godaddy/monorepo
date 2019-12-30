@@ -2,10 +2,11 @@
 
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';
-import { connectionFromArray, connectionArgs, type ConnectionArguments } from 'graphql-relay';
+import { connectionArgs, type ConnectionArguments, cursorToOffset } from 'graphql-relay';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import ExerciseConnection from '../../exercise/types/output/ExerciseConnection';
+import toConnection from '../../../services/toConnection';
 
 export default new GraphQLObjectType({
   name: 'TraningJournalViewer',
@@ -31,9 +32,17 @@ export default new GraphQLObjectType({
         if (userId == null) {
           return null;
         }
+        const offset = args.after != null ? cursorToOffset(args.after) + 1 : 0;
+        const { exercises, count } = await dataLoader.trainingjournal.exercises.load({
+          userId,
+          limit: args.first ?? 20,
+          skip: offset,
+        });
 
-        const exercises = await dataLoader.trainingjournal.exercises.load(userId);
-        return connectionFromArray(exercises, args);
+        return toConnection(exercises, {
+          offset,
+          count,
+        });
       },
     },
   },

@@ -27,6 +27,47 @@ export default class ExerciseRepository {
     return exercises.map(exercise => new Exercise(exercise));
   }
 
+  static async paginateExercises({
+    userId,
+    skip,
+    limit,
+  }: {|
+    +userId: string,
+    skip: number,
+    limit: number,
+  |}) {
+    const aggregate = await Model.aggregate([
+      {
+        $match: { user: toObjectId(userId) },
+      },
+      {
+        $sort: { name: 1 },
+      },
+      {
+        $facet: {
+          exercises: [{ $skip: skip }, { $limit: limit }],
+          count: [{ $count: 'total' }],
+        },
+      },
+      {
+        $unwind: '$count',
+      },
+      {
+        $project: {
+          count: '$count.total',
+          exercises: '$exercises',
+        },
+      },
+    ]).exec();
+
+    const { count, exercises } = aggregate[0];
+
+    return {
+      count,
+      exercises: exercises.map(exercise => new Exercise(exercise)),
+    };
+  }
+
   static async deleteExercise(userId: string, exerciseId: string) {
     const response = await Model.deleteOne({ user: userId, _id: toObjectId(exerciseId) });
 
