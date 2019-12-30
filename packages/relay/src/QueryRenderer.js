@@ -9,7 +9,7 @@ import {
 } from '@adeira/relay';
 import { Loading } from '@tbergq/components';
 import { isBrowser } from '@adeira/js';
-import { getRequest, createOperationDescriptor } from 'relay-runtime';
+import { getDataFromRequest } from '@adeira/relay-utils';
 
 type Props = {|
   +query: GraphQLTaggedNode,
@@ -22,11 +22,13 @@ export default function QueryRenderer(props: Props) {
   const environment = props.environment ?? useRelayEnvironment();
 
   if (!isBrowser()) {
-    const request = getRequest(props.query);
-    const operation = createOperationDescriptor(request, props.variables);
-
-    const res = environment.lookup(operation.fragment);
-    const data = res.data;
+    const data = getDataFromRequest(
+      {
+        query: props.query,
+        variables: props.variables,
+      },
+      environment,
+    );
     return data == null ? <Loading dataTest="queryRenderLoader" /> : props.render(data);
   }
 

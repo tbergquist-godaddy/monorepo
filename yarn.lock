@@ -122,7 +122,14 @@
     glob "^7.1.6"
     is-ci "^2.0.0"
 
-"@adeira/relay@^0.11.0":
+"@adeira/relay-utils@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/relay-utils/-/relay-utils-0.2.0.tgz#19d33fac47a05298b4af6a2ff14a466e93cadb83"
+  integrity sha512-zz1ooyAbr3bWl6rCdnD63la8+o/UItOpeKED3kRb8oeTS+qabTHCVsIXhgylGBPKlguI8N8fGcKd5EwesIiIhg==
+  dependencies:
+    "@adeira/relay" "0.11.0"
+
+"@adeira/relay@0.11.0", "@adeira/relay@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-0.11.0.tgz#d3c1196847f0068279688f4559fefdfd4ec68f26"
   integrity sha512-Gg9POBLhOu8bQD3tejoNwYBkV2MCFfCcsol733OFBpQhOWhAwE+f6lGIZ1ixioBD8nIMvhRws3lxkv6KInCbfw==
