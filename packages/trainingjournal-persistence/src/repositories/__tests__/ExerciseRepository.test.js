@@ -75,4 +75,38 @@ describe('ExerciseRepository', () => {
 
     expect(updated).toBeNull();
   });
+
+  it('returns paginated exercises', async () => {
+    await ExerciseRepository.createExercise({
+      name: 'Benkpress',
+      muscleGroups: 'Bryst',
+      user: user.id,
+    });
+    await ExerciseRepository.createExercise({
+      name: 'Hangups',
+      muscleGroups: 'Bryst',
+      user: user.id,
+    });
+
+    const paginated = await ExerciseRepository.paginateExercises({
+      userId: user.id,
+      skip: 1,
+      limit: 1,
+    });
+    delete paginated.exercises[0].id;
+    delete paginated.exercises[0].userId;
+    expect(paginated).toMatchInlineSnapshot(`
+      Object {
+        "count": 2,
+        "exercises": Array [
+          Exercise {
+            "description": undefined,
+            "muscleGroups": "Bryst",
+            "name": "Hangups",
+            "videoUrl": undefined,
+          },
+        ],
+      }
+    `);
+  });
 });

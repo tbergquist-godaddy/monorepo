@@ -1,12 +1,14 @@
 // @flow
 
 import Dataloader from 'dataloader';
-import { type ExerciseType } from '@tbergq/trainingjournal-persistence';
 
-import createExercisesLoader from './exercise/dataloader/ExercisesLoader';
+import createExercisesLoader, {
+  type ExercisesArgs,
+  type ExercisesLoader,
+} from './exercise/dataloader/ExercisesLoader';
 
 export type TrainingJournalDataLoaders = {|
-  +exercises: Dataloader<string, ExerciseType[]>,
+  +exercises: Dataloader<ExercisesArgs, ExercisesLoader>,
 |};
 
 export default function getDataloaders() {
