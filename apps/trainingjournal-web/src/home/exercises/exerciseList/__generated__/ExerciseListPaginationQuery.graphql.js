@@ -1,37 +1,35 @@
 /**
  * @flow
- * @relayHash 2ec52874e5e4910681afa0719ef519c9
+ * @relayHash f6599cb067e234b57119b8f4f8e70cb1
  */
 
 /* eslint-disable */
 // flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
-type AddExerciseForm_user$ref = any;
 type ExerciseList_exercises$ref = any;
-export type ExercisesQueryVariables = {||};
-export type ExercisesQueryResponse = {|
+export type ExerciseListPaginationQueryVariables = {|
+  count?: ?number,
+  cursor?: ?string,
+|};
+export type ExerciseListPaginationQueryResponse = {|
   +viewer: ?{|
-    +$fragmentRefs: AddExerciseForm_user$ref & ExerciseList_exercises$ref
+    +$fragmentRefs: ExerciseList_exercises$ref
   |}
 |};
-export type ExercisesQuery = {|
-  variables: ExercisesQueryVariables,
-  response: ExercisesQueryResponse,
+export type ExerciseListPaginationQuery = {|
+  variables: ExerciseListPaginationQueryVariables,
+  response: ExerciseListPaginationQueryResponse,
 |};
 
 /*
-query ExercisesQuery {
+query ExerciseListPaginationQuery(
+  $count: Int
+  $cursor: String
+) {
   viewer {
     __typename
-    ...AddExerciseForm_user
-    ...ExerciseList_exercises
-  }
-}
-
-fragment AddExerciseForm_user on Viewer {
-  ... on TraningJournalViewer {
-    id
+    ...ExerciseList_exercises_kPtUz
   }
 }
 
@@ -54,9 +52,9 @@ fragment ExerciseListItem_exercise on Exercise {
   ...EditExercise_exercise
 }
 
-fragment ExerciseList_exercises on TraningJournalViewer {
+fragment ExerciseList_exercises_kPtUz on TraningJournalViewer {
   id
-  exercises(first: 10) {
+  exercises(first: $count, after: $cursor) {
     pageInfo {
       hasNextPage
       endCursor
@@ -74,35 +72,55 @@ fragment ExerciseList_exercises on TraningJournalViewer {
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = {
+var v0 = [
+  {
+    "kind": "LocalArgument",
+    "name": "count",
+    "type": "Int",
+    "defaultValue": null
+  },
+  {
+    "kind": "LocalArgument",
+    "name": "cursor",
+    "type": "String",
+    "defaultValue": null
+  }
+],
+v1 = {
+  "kind": "Variable",
+  "name": "after",
+  "variableName": "cursor"
+},
+v2 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "__typename",
   "args": null,
   "storageKey": null
 },
-v1 = {
+v3 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "id",
   "args": null,
   "storageKey": null
 },
-v2 = [
+v4 = [
+  (v1/*: any*/),
   {
-    "kind": "Literal",
+    "kind": "Variable",
     "name": "first",
-    "value": 10
+    "variableName": "count"
   }
 ];
 return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "ExercisesQuery",
+    "name": "ExerciseListPaginationQuery",
     "type": "RootQuery",
     "metadata": null,
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -115,13 +133,15 @@ return {
         "selections": [
           {
             "kind": "FragmentSpread",
-            "name": "AddExerciseForm_user",
-            "args": null
-          },
-          {
-            "kind": "FragmentSpread",
             "name": "ExerciseList_exercises",
-            "args": null
+            "args": [
+              (v1/*: any*/),
+              {
+                "kind": "Variable",
+                "name": "count",
+                "variableName": "count"
+              }
+            ]
           }
         ]
       }
@@ -129,8 +149,8 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "ExercisesQuery",
-    "argumentDefinitions": [],
+    "name": "ExerciseListPaginationQuery",
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -141,18 +161,18 @@ return {
         "concreteType": null,
         "plural": false,
         "selections": [
-          (v0/*: any*/),
+          (v2/*: any*/),
           {
             "kind": "InlineFragment",
             "type": "TraningJournalViewer",
             "selections": [
-              (v1/*: any*/),
+              (v3/*: any*/),
               {
                 "kind": "LinkedField",
                 "alias": null,
                 "name": "exercises",
-                "storageKey": "exercises(first:10)",
-                "args": (v2/*: any*/),
+                "storageKey": null,
+                "args": (v4/*: any*/),
                 "concreteType": "ExerciseConnection",
                 "plural": false,
                 "selections": [
@@ -199,7 +219,7 @@ return {
                         "concreteType": "Exercise",
                         "plural": false,
                         "selections": [
-                          (v1/*: any*/),
+                          (v3/*: any*/),
                           {
                             "kind": "ScalarField",
                             "alias": null,
@@ -228,7 +248,7 @@ return {
                             "args": null,
                             "storageKey": null
                           },
-                          (v0/*: any*/)
+                          (v2/*: any*/)
                         ]
                       },
                       {
@@ -246,7 +266,7 @@ return {
                 "kind": "LinkedHandle",
                 "alias": null,
                 "name": "exercises",
-                "args": (v2/*: any*/),
+                "args": (v4/*: any*/),
                 "handle": "connection",
                 "key": "ExerciseList_exercises",
                 "filters": null
@@ -259,13 +279,13 @@ return {
   },
   "params": {
     "operationKind": "query",
-    "name": "ExercisesQuery",
+    "name": "ExerciseListPaginationQuery",
     "id": null,
-    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ...ExerciseList_exercises\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
+    "text": "query ExerciseListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  viewer {\n    __typename\n    ...ExerciseList_exercises_kPtUz\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises_kPtUz on TraningJournalViewer {\n  id\n  exercises(first: $count, after: $cursor) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '83a0e31a276fb45627cfa020abcf5b7c';
+(node: any).hash = '8e5e90e29a0dfecdc8be8cbf9ffae9d5';
 export default node;
