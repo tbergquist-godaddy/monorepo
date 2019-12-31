@@ -13,12 +13,15 @@ declare export opaque type ExerciseList_exercises$fragmentType: ExerciseList_exe
 export type ExerciseList_exercises = {|
   +id: string,
   +exercises: ?{|
+    +pageInfo: {|
+      +hasNextPage: boolean
+    |},
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
         +id: string,
         +$fragmentRefs: ExerciseListItem_exercise$ref,
       |}
-    |}>
+    |}>,
   |},
   +$refType: ExerciseList_exercises$ref,
 |};
@@ -45,8 +48,8 @@ return {
   "metadata": {
     "connection": [
       {
-        "count": null,
-        "cursor": null,
+        "count": "count",
+        "cursor": "after",
         "direction": "forward",
         "path": [
           "exercises"
@@ -54,7 +57,20 @@ return {
       }
     ]
   },
-  "argumentDefinitions": [],
+  "argumentDefinitions": [
+    {
+      "kind": "LocalArgument",
+      "name": "count",
+      "type": "Int",
+      "defaultValue": 10
+    },
+    {
+      "kind": "LocalArgument",
+      "name": "after",
+      "type": "String",
+      "defaultValue": null
+    }
+  ],
   "selections": [
     (v0/*: any*/),
     {
@@ -66,6 +82,31 @@ return {
       "concreteType": "ExerciseConnection",
       "plural": false,
       "selections": [
+        {
+          "kind": "LinkedField",
+          "alias": null,
+          "name": "pageInfo",
+          "storageKey": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "hasNextPage",
+              "args": null,
+              "storageKey": null
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "endCursor",
+              "args": null,
+              "storageKey": null
+            }
+          ]
+        },
         {
           "kind": "LinkedField",
           "alias": null,
@@ -107,31 +148,6 @@ return {
               "storageKey": null
             }
           ]
-        },
-        {
-          "kind": "LinkedField",
-          "alias": null,
-          "name": "pageInfo",
-          "storageKey": null,
-          "args": null,
-          "concreteType": "PageInfo",
-          "plural": false,
-          "selections": [
-            {
-              "kind": "ScalarField",
-              "alias": null,
-              "name": "endCursor",
-              "args": null,
-              "storageKey": null
-            },
-            {
-              "kind": "ScalarField",
-              "alias": null,
-              "name": "hasNextPage",
-              "args": null,
-              "storageKey": null
-            }
-          ]
         }
       ]
     }
@@ -139,5 +155,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = '3de0af89a1e783fac89ac979a988dbc8';
+(node: any).hash = '83327c2f6cce1326ec445dd4b8f66de0';
 export default node;
