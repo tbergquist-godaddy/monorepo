@@ -8,6 +8,7 @@
     "mongoose": "^5.8.4"
   },
   "devDependencies": {
+    "mockdate": "^2.0.5",
     "mongodb-memory-server": "^6.2.1"
   }
 }
