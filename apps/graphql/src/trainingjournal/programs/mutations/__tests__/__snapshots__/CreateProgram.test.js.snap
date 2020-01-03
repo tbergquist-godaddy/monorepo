@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates a program 1`] = `
+Object {
+  "data": Object {
+    "createProgram": Object {
+      "programEdge": Object {
+        "node": Object {
+          "name": "Oppkjøring",
+        },
+      },
+    },
+  },
+}
+`;

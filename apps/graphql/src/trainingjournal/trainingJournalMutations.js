@@ -5,11 +5,13 @@ import createTrainingjournalUser from './account/mutations/CreateTrainingjournal
 import createExercise from './exercise/mutations/CreateExercise';
 import deleteExercise from './exercise/mutations/DeleteExercise';
 import editExercise from './exercise/mutations/EditExercise';
+import createProgram from './programs/mutations/CreateProgram';
 
 export default {
-  trainingJournalLogin,
-  createTrainingjournalUser,
   createExercise,
+  createProgram,
+  createTrainingjournalUser,
   deleteExercise,
   editExercise,
+  trainingJournalLogin,
 };
