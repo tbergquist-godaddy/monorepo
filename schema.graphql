@@ -1,4 +1,4 @@
-# @generated SignedSource<<f889960ba2b57266f2dddb576cc1193e>>
+# @generated SignedSource<<904f7444413d1171e75531a509a86870>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -40,6 +40,14 @@ input CreateExerciseInput {
   muscleGroups: String
   name: String!
   videoUrl: String
+}
+
+type CreateProgram {
+  programEdge: ProgramEdge
+}
+
+input CreateProgramInput {
+  name: String!
 }
 
 type CreateStoredOperation {
@@ -158,6 +166,27 @@ type Person {
   name: String
 }
 
+type Program {
+  date: Date
+
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+}
+
+"""An edge in a connection."""
+type ProgramEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: Program
+}
+
 type RangeDelete {
   id: ID
   success: Boolean
@@ -171,6 +200,9 @@ type RootMutation {
 
   """Create a new Exercise"""
   createExercise(exercise: CreateExerciseInput!): CreateExercise
+
+  """Create a new program"""
+  createProgram(program: CreateProgramInput!): CreateProgram
 
   """Create a user for trainingjournal application"""
   createTrainingjournalUser(email: String!, password: String!, username: String!): CreateTrainingJournalUser
