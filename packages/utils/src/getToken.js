@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import cookie from 'js-cookie';
 import nextCookie from 'next-cookies';
