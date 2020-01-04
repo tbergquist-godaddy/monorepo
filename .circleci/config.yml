@@ -38,7 +38,7 @@ jobs:
           keys:
           - dependency-cache-flow
           - v1-dependencies-{{ checksum "yarn.lock" }}
-      - run: yarn typecheck restart --all
+      - run: yarn typecheck
       - save_cache:
           paths:
             - .flow.saved_state
