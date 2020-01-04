@@ -5,7 +5,7 @@
   "main": "index.js",
   "sideEffects": false,
   "scripts": {
-    "test": "monorepo-run-tests",
+    "test": "monorepo-run-tests --runInBand",
     "lint": "yarn jest --config=.jest-eslint.config.js",
     "typecheck": "adeira-flow-bin",
     "test-ci": "yarn lint && yarn typecheck && yarn test && yarn workspace @tbergq/graphql test-bc && yarn relay --validate",
