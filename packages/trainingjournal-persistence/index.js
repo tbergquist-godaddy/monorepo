@@ -13,3 +13,4 @@ export { default as trainingJournalConnection } from './src/connection';
 // dataObject
 
 export type ExerciseType = typeof Exercise;
+export { default as Program } from './src/dataObjects/Program';
