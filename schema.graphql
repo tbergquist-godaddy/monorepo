@@ -1,4 +1,4 @@
-# @generated SignedSource<<904f7444413d1171e75531a509a86870>>
+# @generated SignedSource<<36cfefccbcb34fc07c4da1390c34c7e3>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -178,6 +178,15 @@ type Program {
   name: String
 }
 
+"""A connection to a list of items."""
+type ProgramConnection {
+  """A list of edges."""
+  edges: [ProgramEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
 """An edge in a connection."""
 type ProgramEdge {
   """A cursor for use in pagination"""
@@ -282,6 +291,7 @@ type TraningJournalViewer {
   therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
+  programs(after: String, before: String, first: Int, last: Int): ProgramConnection
   username: String
 }
 
