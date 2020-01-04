@@ -1,16 +1,11 @@
 // @flow strict
 
-import { Types } from 'mongoose';
-
 import Model, { type ExerciseType } from '../models/ExerciseModel';
 import Exercise from '../dataObjects/Exercise';
+import { toObjectId } from './utils';
 
 type CreateExerciseInput = $ReadOnly<$Diff<ExerciseType, {| +_id: string |}>>;
 
-const toObjectId = (id: string) => {
-  // $FlowFixMe: Cannot call Types.ObjectId because a call signature declaring the expected parameter / return type is missing in statics of bson$ObjectId
-  return Types.ObjectId(id);
-};
 export default class ExerciseRepository {
   static async createExercise(input: CreateExerciseInput) {
     const exercise = await Model.create(input);
