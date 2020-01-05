@@ -2,60 +2,12 @@
 
 import * as React from 'react';
 import { withFormik, type InjectedFormikProps, type FormikBag } from 'formik';
-import styled, { keyframes, css } from 'styled-components';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
-import { AddIcon, SlideIn } from '@tbergq/components';
+import { SlideIn, FloatingAddButton } from '@tbergq/components';
 import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
 
 import ExerciseForm from './ExerciseForm';
 import addExerciseMutation from './mutation/addExerciseMutation';
 import type { AddExerciseForm_user as User } from './__generated__/AddExerciseForm_user.graphql';
-
-const AddButton = styled.button({
-  cursor: 'pointer',
-  position: 'fixed',
-  bottom: '16px',
-  right: '16px',
-  borderRadius: '50%',
-  padding: '16px',
-  backgroundColor: defaultTokens.backgroundButtonInfo,
-  color: defaultTokens.paletteWhite,
-  ':focus': {
-    boxShadow: '0 0 3px #000',
-  },
-  outline: 'none',
-  zIndex: defaultTokens.zIndexSticky,
-});
-
-const rotateAnimation = keyframes`
-0% {
-  transform: rotate(0deg);
-}
-100% {
-  transform: rotate(45deg);
-}
-`;
-
-const reverseRotate = keyframes`
-0% {
-  transform: rotate(45deg);
-}
-100% {
-  transform: rotate(0deg);
-}
-`;
-
-const Icon = styled(AddIcon)`
-  transform: rotate(${props => (props.rotate ? 45 : 0)}deg);
-  animation: ${props =>
-    props.rotate
-      ? css`
-          ${rotateAnimation} .1s linear
-        `
-      : css`
-          ${reverseRotate} .1s linear
-        `};
-`;
 
 type ExerciseValues = {|
   +name: string,
@@ -85,15 +37,13 @@ function AddExerciseForm(props: InjectedFormikProps<Props, ExerciseValues>) {
           <ExerciseForm isSubmitting={props.isSubmitting} />
         </form>
       </SlideIn>
-      <AddButton
-        type="button"
+      <FloatingAddButton
         onClick={() => {
           setShowForm(show => !show);
         }}
-        aria-label="Add exercise"
-      >
-        <Icon rotate={showForm} />
-      </AddButton>
+        rotate={showForm}
+        ariaLabel="Add exercise"
+      />
     </>
   );
 }

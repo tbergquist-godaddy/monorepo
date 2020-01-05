@@ -11,6 +11,7 @@ export { default as Navbar } from './src/Navbar';
 export { default as NavLink } from './src/NavLink';
 export { default as LoginForm } from './src/loginForm/LoginForm';
 export { default as Link } from './src/Link';
+export { default as FloatingAddButton } from './src/FloatingAddButton';
 
 export {
   ListChoice as ListItem,
