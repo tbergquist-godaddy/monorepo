@@ -20,7 +20,8 @@ function ProgramList(props: Props) {
 export default createFragmentContainer(ProgramList, {
   viewer: graphql`
     fragment ProgramList_viewer on TraningJournalViewer {
-      programs {
+      id
+      programs(first: 10) @connection(key: "ProgramList_programs") {
         edges {
           node {
             id

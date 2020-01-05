@@ -1,17 +1,18 @@
 /**
  * @flow
- * @relayHash 501341419f7b093220106e4df751b42b
+ * @relayHash fef1579b6abfeb5fd982bbc2e08af3ca
  */
 
 /* eslint-disable */
 // flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
+type AddProgramForm_user$ref = any;
 type ProgramList_viewer$ref = any;
 export type ProgramsQueryVariables = {||};
 export type ProgramsQueryResponse = {|
   +viewer: ?{|
-    +$fragmentRefs: ProgramList_viewer$ref
+    +$fragmentRefs: ProgramList_viewer$ref & AddProgramForm_user$ref
   |}
 |};
 export type ProgramsQuery = {|
@@ -24,7 +25,12 @@ query ProgramsQuery {
   viewer {
     __typename
     ...ProgramList_viewer
+    ...AddProgramForm_user
   }
+}
+
+fragment AddProgramForm_user on TraningJournalViewer {
+  id
 }
 
 fragment ProgramListItem_program on Program {
@@ -33,18 +39,47 @@ fragment ProgramListItem_program on Program {
 }
 
 fragment ProgramList_viewer on TraningJournalViewer {
-  programs {
+  id
+  programs(first: 10) {
     edges {
       node {
         id
         ...ProgramListItem_program
+        __typename
       }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
     }
   }
 }
 */
 
-const node: ConcreteRequest = {
+const node: ConcreteRequest = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "__typename",
+  "args": null,
+  "storageKey": null
+},
+v1 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v2 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 10
+  }
+];
+return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
@@ -66,6 +101,11 @@ const node: ConcreteRequest = {
             "kind": "FragmentSpread",
             "name": "ProgramList_viewer",
             "args": null
+          },
+          {
+            "kind": "FragmentSpread",
+            "name": "AddProgramForm_user",
+            "args": null
           }
         ]
       }
@@ -85,23 +125,18 @@ const node: ConcreteRequest = {
         "concreteType": null,
         "plural": false,
         "selections": [
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "__typename",
-            "args": null,
-            "storageKey": null
-          },
+          (v0/*: any*/),
           {
             "kind": "InlineFragment",
             "type": "TraningJournalViewer",
             "selections": [
+              (v1/*: any*/),
               {
                 "kind": "LinkedField",
                 "alias": null,
                 "name": "programs",
-                "storageKey": null,
-                "args": null,
+                "storageKey": "programs(first:10)",
+                "args": (v2/*: any*/),
                 "concreteType": "ProgramConnection",
                 "plural": false,
                 "selections": [
@@ -123,13 +158,7 @@ const node: ConcreteRequest = {
                         "concreteType": "Program",
                         "plural": false,
                         "selections": [
-                          {
-                            "kind": "ScalarField",
-                            "alias": null,
-                            "name": "id",
-                            "args": null,
-                            "storageKey": null
-                          },
+                          (v1/*: any*/),
                           {
                             "kind": "ScalarField",
                             "alias": null,
@@ -143,12 +172,54 @@ const node: ConcreteRequest = {
                             "name": "date",
                             "args": null,
                             "storageKey": null
-                          }
+                          },
+                          (v0/*: any*/)
                         ]
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "cursor",
+                        "args": null,
+                        "storageKey": null
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "pageInfo",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "PageInfo",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "endCursor",
+                        "args": null,
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "hasNextPage",
+                        "args": null,
+                        "storageKey": null
                       }
                     ]
                   }
                 ]
+              },
+              {
+                "kind": "LinkedHandle",
+                "alias": null,
+                "name": "programs",
+                "args": (v2/*: any*/),
+                "handle": "connection",
+                "key": "ProgramList_programs",
+                "filters": null
               }
             ]
           }
@@ -160,10 +231,11 @@ const node: ConcreteRequest = {
     "operationKind": "query",
     "name": "ProgramsQuery",
     "id": null,
-    "text": "query ProgramsQuery {\n  viewer {\n    __typename\n    ...ProgramList_viewer\n  }\n}\n\nfragment ProgramListItem_program on Program {\n  name\n  date\n}\n\nfragment ProgramList_viewer on TraningJournalViewer {\n  programs {\n    edges {\n      node {\n        id\n        ...ProgramListItem_program\n      }\n    }\n  }\n}\n",
+    "text": "query ProgramsQuery {\n  viewer {\n    __typename\n    ...ProgramList_viewer\n    ...AddProgramForm_user\n  }\n}\n\nfragment AddProgramForm_user on TraningJournalViewer {\n  id\n}\n\nfragment ProgramListItem_program on Program {\n  name\n  date\n}\n\nfragment ProgramList_viewer on TraningJournalViewer {\n  id\n  programs(first: 10) {\n    edges {\n      node {\n        id\n        ...ProgramListItem_program\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
+})();
 // prettier-ignore
-(node: any).hash = '05c8e22a3cafb47d8e5b8a81715b2258';
+(node: any).hash = 'a08fce00b0b48ffd81621526b487abeb';
 export default node;
