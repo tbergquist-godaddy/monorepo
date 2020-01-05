@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
 import { ListItem } from '@tbergq/components';
-import format from 'date-fns/format';
+import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
 
 import type { Episode_episode as EpisodeType } from './__generated__/Episode_episode.graphql';

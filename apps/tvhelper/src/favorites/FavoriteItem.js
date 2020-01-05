@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { graphql, createFragmentContainer } from '@tbergq/relay';
 import { TableRow, TableCell, Link } from '@tbergq/components';
-import format from 'date-fns/format';
+import { format } from 'date-fns';
 
 import type { FavoriteItem_favorite as Favorite } from './__generated__/FavoriteItem_favorite.graphql';
 
