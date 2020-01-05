@@ -2,29 +2,26 @@
 
 import * as React from 'react';
 import { QueryRenderer, graphql } from '@tbergq/relay';
+import { Heading } from '@tbergq/components';
 
 import type { ProgramsQueryResponse } from './__generated__/ProgramsQuery.graphql';
+import ProgramList from './programList/ProgramList';
 
 export const query = graphql`
   query ProgramsQuery {
     viewer {
-      ... on TraningJournalViewer {
-        programs {
-          edges {
-            node {
-              id
-              name
-            }
-          }
-        }
-      }
+      ...ProgramList_viewer
     }
   }
 `;
 
 const render = (props: ProgramsQueryResponse) => {
-  const edges = props.viewer?.programs?.edges ?? [];
-  return edges.map(edge => <div key={edge?.node?.id}>{edge?.node?.name}</div>);
+  return (
+    <>
+      <Heading>My programs</Heading>
+      <ProgramList viewer={props.viewer} />
+    </>
+  );
 };
 
 export default (function ProgramsQuery() {
