@@ -11,6 +11,7 @@ import type { FragmentReference } from "relay-runtime";
 declare export opaque type ProgramList_viewer$ref: FragmentReference;
 declare export opaque type ProgramList_viewer$fragmentType: ProgramList_viewer$ref;
 export type ProgramList_viewer = {|
+  +id: string,
   +programs: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
@@ -29,17 +30,37 @@ export type ProgramList_viewer$key = {
 };
 
 
-const node: ReaderFragment = {
+const node: ReaderFragment = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Fragment",
   "name": "ProgramList_viewer",
   "type": "TraningJournalViewer",
-  "metadata": null,
+  "metadata": {
+    "connection": [
+      {
+        "count": null,
+        "cursor": null,
+        "direction": "forward",
+        "path": [
+          "programs"
+        ]
+      }
+    ]
+  },
   "argumentDefinitions": [],
   "selections": [
+    (v0/*: any*/),
     {
       "kind": "LinkedField",
-      "alias": null,
-      "name": "programs",
+      "alias": "programs",
+      "name": "__ProgramList_programs_connection",
       "storageKey": null,
       "args": null,
       "concreteType": "ProgramConnection",
@@ -63,10 +84,11 @@ const node: ReaderFragment = {
               "concreteType": "Program",
               "plural": false,
               "selections": [
+                (v0/*: any*/),
                 {
                   "kind": "ScalarField",
                   "alias": null,
-                  "name": "id",
+                  "name": "__typename",
                   "args": null,
                   "storageKey": null
                 },
@@ -76,6 +98,38 @@ const node: ReaderFragment = {
                   "args": null
                 }
               ]
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "cursor",
+              "args": null,
+              "storageKey": null
+            }
+          ]
+        },
+        {
+          "kind": "LinkedField",
+          "alias": null,
+          "name": "pageInfo",
+          "storageKey": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "endCursor",
+              "args": null,
+              "storageKey": null
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "hasNextPage",
+              "args": null,
+              "storageKey": null
             }
           ]
         }
@@ -83,6 +137,7 @@ const node: ReaderFragment = {
     }
   ]
 };
+})();
 // prettier-ignore
-(node: any).hash = '96aa9c0c3f8642bbb827f4f952dbe025';
+(node: any).hash = '090e5470ce8060fce34dbca6f19a2239';
 export default node;

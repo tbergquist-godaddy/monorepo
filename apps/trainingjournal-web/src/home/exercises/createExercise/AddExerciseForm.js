@@ -32,11 +32,6 @@ function AddExerciseForm(props: InjectedFormikProps<Props, ExerciseValues>) {
   }, [props.isSubmitting]);
   return (
     <>
-      <SlideIn isExpanded={showForm}>
-        <form onSubmit={props.handleSubmit}>
-          <ExerciseForm isSubmitting={props.isSubmitting} />
-        </form>
-      </SlideIn>
       <FloatingAddButton
         onClick={() => {
           setShowForm(show => !show);
@@ -44,6 +39,11 @@ function AddExerciseForm(props: InjectedFormikProps<Props, ExerciseValues>) {
         rotate={showForm}
         ariaLabel="Add exercise"
       />
+      <SlideIn isExpanded={showForm}>
+        <form onSubmit={props.handleSubmit}>
+          <ExerciseForm isSubmitting={props.isSubmitting} />
+        </form>
+      </SlideIn>
     </>
   );
 }
