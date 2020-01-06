@@ -7,7 +7,7 @@
     "@adeira/fetch": "^1.0.0",
     "@adeira/monorepo-utils": "^0.2.0",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
-    "@next/bundle-analyzer": "^9.1.6",
+    "@next/bundle-analyzer": "^9.1.7",
     "@tbergq/components": "^0",
     "@tbergq/nextjs-utils": "0.0.1",
     "@tbergq/relay": "^0",
