@@ -13,7 +13,6 @@ type Args = {
 };
 
 export default {
-  name: 'CreateProgram',
   description: 'Create a new program',
   type: CreateProgramOutput,
   args: {

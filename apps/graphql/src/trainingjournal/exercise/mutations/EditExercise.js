@@ -17,7 +17,6 @@ type Args = {
 };
 
 export default {
-  name: 'EditExercise',
   description: 'Edits an Exercise',
   type: CreateExerciseOutput,
   args: {
