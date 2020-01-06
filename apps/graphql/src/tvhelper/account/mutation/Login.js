@@ -5,10 +5,11 @@ import { LoginType, LoginResolver } from '@tbergq/graphql-services';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 
-type Args = {|
+type Args = {
   +username: string,
   +password: string,
-|};
+  ...
+};
 
 export default {
   type: LoginType,

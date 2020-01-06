@@ -6,12 +6,12 @@ import { fromGlobalId } from '@adeira/graphql-global-id';
 import { type GraphqlContextType } from '../../../services/createGraphqlContext';
 import TvShow from '../types/output/TvShow';
 
-type Args = {|
+type Args = {
   +id: string,
-|};
+  ...
+};
 
 export default {
-  name: 'tvShowDetail',
   description: 'Tv show lookup by id',
   type: TvShow,
   args: {

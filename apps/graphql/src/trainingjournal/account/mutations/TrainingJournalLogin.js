@@ -4,13 +4,13 @@ import { GraphQLNonNull, GraphQLString } from 'graphql';
 import { UserRepository } from '@tbergq/trainingjournal-persistence';
 import { LoginType, signToken } from '@tbergq/graphql-services';
 
-type Args = {|
+type Args = {
   +username: string,
   +password: string,
-|};
+  ...
+};
 
 export default {
-  name: 'TrainingJournalLogin',
   type: LoginType,
   description: 'Login to trainingjournal application',
   args: {

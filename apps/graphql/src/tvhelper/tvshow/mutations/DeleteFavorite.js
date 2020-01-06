@@ -7,14 +7,14 @@ import { RangeDelete } from '@tbergq/graphql-services';
 
 import { type GraphqlContextType } from '../../../services/createGraphqlContext';
 
-type Args = {|
+type Args = {
   +serieId: string,
-|};
+  ...
+};
 
 const failObject = { success: false, id: null };
 
 export default {
-  name: 'DeleteFavorite',
   type: RangeDelete,
   description: 'Remove tv show from favorite list',
   args: {

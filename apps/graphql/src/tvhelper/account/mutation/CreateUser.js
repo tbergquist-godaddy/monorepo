@@ -5,11 +5,12 @@ import { UserRepository } from '@tbergq/tvhelper-persistence';
 
 import CreateUserType from '../types/output/CreateUserType';
 
-type Args = {|
+type Args = {
   +username: string,
   +password: string,
   +email: string,
-|};
+  ...
+};
 
 export default {
   type: CreateUserType,

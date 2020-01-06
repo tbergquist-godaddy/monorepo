@@ -5,14 +5,14 @@ import { UserRepository } from '@tbergq/trainingjournal-persistence';
 
 import CreateTrainingJournalUser from '../types/output/CreateTrainingjournalUser';
 
-type Args = {|
+type Args = {
   +username: string,
   +password: string,
   +email: string,
-|};
+  ...
+};
 
 export default {
-  name: 'CreateTraningJournalUser',
   type: CreateTrainingJournalUser,
   description: 'Create a user for trainingjournal application',
   args: {
