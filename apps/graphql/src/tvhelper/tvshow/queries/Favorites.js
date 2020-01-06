@@ -13,16 +13,16 @@ type SortBy =
   | '_embedded.nextepisode.airdate'
   | '_embedded.previousepisode.airdate'
   | 'status';
-type Args = {|
+type Args = {
   +options: {|
     +sortDirection: 'ascending' | 'descending',
     +sortBy: SortBy,
   |},
   ...$Exact<ConnectionArguments>,
-|};
+  ...
+};
 
 export default {
-  name: 'Favorites',
   type: TvShowConnection,
   description: 'Get your favorites',
   args: {

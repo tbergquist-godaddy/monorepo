@@ -7,12 +7,12 @@ import { FavoritesRepository } from '@tbergq/tvhelper-persistence';
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import AddFavorite from '../types/output/AddFavorite';
 
-type Args = {|
+type Args = {
   +serieId: string,
-|};
+  ...
+};
 
 export default {
-  name: 'AddFavorite',
   type: AddFavorite,
   description: 'Add tv show to favorite list',
   args: {

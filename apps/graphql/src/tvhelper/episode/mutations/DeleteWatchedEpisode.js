@@ -7,12 +7,12 @@ import { WatchedEpisodeRepository } from '@tbergq/tvhelper-persistence';
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import EpisodeWatched from '../types/output/EpisodeWatched';
 
-type Args = {|
+type Args = {
   +episodeId: string,
-|};
+  ...
+};
 
 export default {
-  name: 'DeleteWatchedEpisode',
   type: EpisodeWatched,
   description: 'Delete an episode as watched',
   args: {

@@ -13,7 +13,6 @@ type Args = {
 };
 
 export default {
-  name: 'DeleteExercise',
   description: 'Delete an Exercise',
   type: DeletedExercise,
   args: {

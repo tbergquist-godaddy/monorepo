@@ -14,7 +14,6 @@ type Args = {
 };
 
 export default {
-  name: 'SearchTvShow',
   description: 'Search for tv shows by name',
   type: TvShowConnection,
   args: {
