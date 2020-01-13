@@ -19,7 +19,7 @@
   "dependencies": {
     "@adeira/js": "^0.2.0",
     "@adeira/monorepo-utils": "^0.2.0",
-    "@babel/runtime": "^7.7.7",
+    "@babel/runtime": "^7.8.0",
     "@tbergq/tvhelper-persistence": "*",
     "dotenv": "^8.2.0",
     "grpc": "^1.24.2",
