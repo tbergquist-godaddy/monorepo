@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^0.3.0",
-    "@adeira/eslint-config": "^1.0.0",
+    "@adeira/eslint-config": "^1.1.0",
     "@adeira/flow-bin": "^0.1.0",
     "@babel/core": "^7.8.3",
     "@testing-library/jest-dom": "^4.2.4",
@@ -33,7 +33,7 @@
     "eslint": "^6.8.0",
     "flow-bin": "^0.116.0",
     "jest": "^24.9.0",
-    "jest-styled-components": "^7.0.0",
+    "jest-styled-components": "6.3.4",
     "jetifier": "^1.6.5",
     "mongodb-memory-server": "^6.2.2",
     "now": "^16.7.3",
