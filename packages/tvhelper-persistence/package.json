@@ -7,7 +7,7 @@
   "dependencies": {
     "@adeira/monorepo-utils": "^0.2.0",
     "dotenv": "^8.2.0",
-    "mongodb": "^3.4.1",
+    "mongodb": "^3.5.0",
     "mongoose": "^5.8.7",
     "password-hash": "^1.2.2"
   },
