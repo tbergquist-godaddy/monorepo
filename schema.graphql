@@ -1,4 +1,4 @@
-# @generated SignedSource<<36cfefccbcb34fc07c4da1390c34c7e3>>
+# @generated SignedSource<<546f89e2423f9f2209805f9e478bb20d>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -143,6 +143,16 @@ type ExerciseEdge {
 type LoginType {
   success: Boolean
   token: String
+}
+
+type Network {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
 }
 
 """Information about pagination in a connection."""
@@ -319,6 +329,7 @@ type TvShow {
   image: TvHelperImage
   isFavorite: Boolean
   name: String
+  network: Network
   nextEpisode: Date
   premiered: Date
   previousEpisode: Date
