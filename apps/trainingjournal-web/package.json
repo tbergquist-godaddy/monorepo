@@ -30,7 +30,7 @@
     "deploy": "yarn monorepo-babel-node scripts/deploy.js --isBabelNode"
   },
   "devDependencies": {
-    "@kiwicom/babel-plugin-orbit-components": "^1.4.0",
+    "@kiwicom/babel-plugin-orbit-components": "^1.5.0",
     "@tbergq/monorepo-builder": "*",
     "@testing-library/react": "^9.4.0",
     "relay-test-utils": "^8.0.0",
