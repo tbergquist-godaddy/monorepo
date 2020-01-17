@@ -9,7 +9,6 @@
     "lint": "yarn jest --config=.jest-eslint.config.js",
     "typecheck": "adeira-flow-bin",
     "test-ci": "yarn lint && yarn typecheck && yarn test && yarn workspace @tbergq/graphql test-bc && yarn relay --validate",
-    "postinstall": "jetify",
     "relay": "yarn adeira-relay-compiler"
   },
   "workspaces": [
@@ -34,7 +33,6 @@
     "flow-bin": "^0.116.0",
     "jest": "^24.9.0",
     "jest-styled-components": "6.3.4",
-    "jetifier": "^1.6.5",
     "mongodb-memory-server": "^6.2.2",
     "now": "^16.7.3",
     "react-test-renderer": "16.12.0",
