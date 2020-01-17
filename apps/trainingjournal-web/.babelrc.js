@@ -6,10 +6,13 @@ const plugins = [
   '@babel/plugin-proposal-class-properties',
 ];
 
+const isMonorepoBabelNode = process.argv.includes('--isBabelNode');
+
 const prodAndDev = {
-  presets:  ['next/babel', ['@adeira/babel-preset-adeira', { target: 'js-esm' }]],
+  presets:  ['next/babel', ['@adeira/babel-preset-adeira', { target:  isMonorepoBabelNode ? 'js' : 'js-esm' }]],
   plugins,
 };
+
 module.exports = {
   env: {
     production: prodAndDev,
