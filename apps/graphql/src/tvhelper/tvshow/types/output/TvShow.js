@@ -17,6 +17,7 @@ import Cast from '../../../common/types/output/Cast';
 import Episode from '../../../episode/types/output/Episode';
 import { resolvePreviousEpisode, resolveNextEpisode } from '../../resolvers/episodeResolvers';
 import type { GraphqlContextType } from '../../../../services/createGraphqlContext';
+import Network from './Network';
 
 export default new GraphQLObjectType({
   name: 'TvShow',
@@ -76,6 +77,9 @@ export default new GraphQLObjectType({
 
         return favorites.find(favorite => favorite.serieId === serieId) != null;
       },
+    },
+    network: {
+      type: Network,
     },
   },
 });
