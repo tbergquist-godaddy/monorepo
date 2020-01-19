@@ -13,6 +13,7 @@ declare export opaque type Episodes_episodes$fragmentType: Episodes_episodes$ref
 export type Episodes_episodes = {|
   +episodes: ?$ReadOnlyArray<?{|
     +id: string,
+    +seasonAndNumber: ?string,
     +$fragmentRefs: Episode_episode$ref,
   |}>,
   +$refType: Episodes_episodes$ref,
@@ -49,6 +50,13 @@ const node: ReaderFragment = {
           "storageKey": null
         },
         {
+          "kind": "ScalarField",
+          "alias": null,
+          "name": "seasonAndNumber",
+          "args": null,
+          "storageKey": null
+        },
+        {
           "kind": "FragmentSpread",
           "name": "Episode_episode",
           "args": null
@@ -58,5 +66,5 @@ const node: ReaderFragment = {
   ]
 };
 // prettier-ignore
-(node: any).hash = 'a22bde3b2493ef5400f453d751c9b9aa';
+(node: any).hash = 'c31dfb8b38dfcd39b29d480557854c1a';
 export default node;
