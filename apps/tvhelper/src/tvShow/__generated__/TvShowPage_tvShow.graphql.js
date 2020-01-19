@@ -13,6 +13,9 @@ declare export opaque type TvShowPage_tvShow$ref: FragmentReference;
 declare export opaque type TvShowPage_tvShow$fragmentType: TvShowPage_tvShow$ref;
 export type TvShowPage_tvShow = {|
   +name: ?string,
+  +network: ?{|
+    +name: ?string
+  |},
   +summary: ?string,
   +$fragmentRefs: TvShowImage_tvShow$ref & Episodes_episodes$ref,
   +$refType: TvShowPage_tvShow$ref,
@@ -25,19 +28,33 @@ export type TvShowPage_tvShow$key = {
 };
 
 
-const node: ReaderFragment = {
+const node: ReaderFragment = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "name",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Fragment",
   "name": "TvShowPage_tvShow",
   "type": "TvShow",
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
+    (v0/*: any*/),
     {
-      "kind": "ScalarField",
+      "kind": "LinkedField",
       "alias": null,
-      "name": "name",
+      "name": "network",
+      "storageKey": null,
       "args": null,
-      "storageKey": null
+      "concreteType": "Network",
+      "plural": false,
+      "selections": [
+        (v0/*: any*/)
+      ]
     },
     {
       "kind": "ScalarField",
@@ -64,6 +81,7 @@ const node: ReaderFragment = {
     }
   ]
 };
+})();
 // prettier-ignore
-(node: any).hash = 'e344a4c30160f9a67ac3145e608236a2';
+(node: any).hash = 'ee9fd474fa23f7051d10d661ca217950';
 export default node;

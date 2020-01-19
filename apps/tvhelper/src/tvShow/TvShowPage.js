@@ -21,10 +21,14 @@ const GridContainer = styled.div({
   },
 });
 
-const EpisodeGridItem = styled.div({
+const FullWidthGridItem = styled.div({
   [`@media (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
     gridColumn: 'span 2',
   },
+});
+
+const NetworkWrapper = styled(FullWidthGridItem)({
+  marginLeft: '16px',
 });
 
 const ImageWrapper = styled.div({
@@ -39,15 +43,19 @@ const TvShowPage = (props: Props) => {
   const name = props.tvShow?.name ?? '';
   return (
     <>
-      <Heading>{name}</Heading>
+      <Heading element="h1">{name}</Heading>
       <GridContainer>
         <ImageWrapper>
           <TvShowImage tvShow={props.tvShow} />
         </ImageWrapper>
         <div dangerouslySetInnerHTML={{ __html: props.tvShow?.summary }} />
-        <EpisodeGridItem>
+        <NetworkWrapper>
+          <strong>Network: </strong>
+          {props.tvShow?.network?.name}
+        </NetworkWrapper>
+        <FullWidthGridItem>
           <Episodes episodes={props.tvShow} />
-        </EpisodeGridItem>
+        </FullWidthGridItem>
       </GridContainer>
     </>
   );
@@ -57,6 +65,9 @@ export default createFragmentContainer(TvShowPage, {
   tvShow: graphql`
     fragment TvShowPage_tvShow on TvShow {
       name
+      network {
+        name
+      }
       summary(stripTags: false)
       ...TvShowImage_tvShow
       ...Episodes_episodes
