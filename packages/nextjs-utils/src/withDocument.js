@@ -2,24 +2,7 @@
 
 import * as React from 'react';
 import Document, { Head, Main, NextScript, type DocumentContext } from 'next/document';
-import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle({
-  html: {
-    height: '100%',
-  },
-  body: {
-    fontFamily: 'Roboto, sans-serif',
-  },
-  '#nprogress .bar': {
-    height: '4px',
-  },
-  '#__next': {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-  },
-});
+import { ServerStyleSheet } from 'styled-components';
 
 export default function withDocument() {
   return class MyDocument extends Document {
@@ -40,7 +23,6 @@ export default function withDocument() {
             <>
               {initialProps.styles}
               {sheet.getStyleElement()}
-              <GlobalStyle />
             </>
           ),
         };
@@ -61,7 +43,6 @@ export default function withDocument() {
               href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700"
               rel="stylesheet"
             />
-            <GlobalStyle />
           </Head>
           <body>
             <Main />

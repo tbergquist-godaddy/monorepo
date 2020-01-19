@@ -29,7 +29,7 @@
     "react-icons": ""
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 3020",
     "build": "next build",
     "start": "next start -p $PORT",
     "deploy": "yarn monorepo-babel-node scripts/deploy.js --isBabelNode",
