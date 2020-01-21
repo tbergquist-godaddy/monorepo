@@ -9,6 +9,6 @@
   },
   "devDependencies": {
     "mockdate": "^2.0.5",
-    "mongodb-memory-server": "^6.2.2"
+    "mongodb-memory-server": "^6.2.3"
   }
 }
