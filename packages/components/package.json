@@ -16,7 +16,7 @@
     "next": "",
     "react": "",
     "react-test-renderer": "",
-    "styled-components": ""
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
     "@testing-library/react": "^9.4.0"

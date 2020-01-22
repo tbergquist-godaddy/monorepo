@@ -32,7 +32,7 @@
     "eslint": "^6.8.0",
     "flow-bin": "^0.116.1",
     "jest": "^25.1.0",
-    "jest-styled-components": "6.3.4",
+    "jest-styled-components": "^7.0.0",
     "mongodb-memory-server": "^6.2.3",
     "now": "^16.7.3",
     "react-test-renderer": "16.12.0",
