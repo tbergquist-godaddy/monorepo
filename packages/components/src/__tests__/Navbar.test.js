@@ -55,7 +55,7 @@ it('renders', () => {
       color: #FFFFFF!important;
     }
 
-    .c7:hover .c12 {
+    .c7:hover .Button__IconContainer-sc-1brqp3f-0 {
       color: #FFFFFF;
     }
 
@@ -65,7 +65,7 @@ it('renders', () => {
       box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
     }
 
-    .c7:active .c12 {
+    .c7:active .Button__IconContainer-sc-1brqp3f-0 {
       color: #FFFFFF;
     }
 
@@ -92,7 +92,7 @@ it('renders', () => {
       box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
     }
 
-    .c7 .c11 {
+    .c7 .Loading__StyledSpinner-sc-1psg3na-2 {
       width: 16px;
       height: 16px;
     }
@@ -203,6 +203,10 @@ it('renders', () => {
       }
     }
 
+    @media only screen and (min-width:768px) {
+
+    }
+
     @media (min-width:768px) {
       .c1 {
         width: 750px;
@@ -240,7 +244,7 @@ it('renders', () => {
       className="c0"
     >
       <div
-        className="c1"
+        className="sc-AykKC c1"
       >
         <div
           className="c2"
@@ -252,7 +256,7 @@ it('renders', () => {
               className="c4"
             >
               <a
-                className="c5"
+                className="sc-AykKE c5"
                 href="/"
                 onClick={[Function]}
                 onMouseEnter={[Function]}

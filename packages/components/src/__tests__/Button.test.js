@@ -53,7 +53,7 @@ it('renders', () => {
       color: #FFFFFF!important;
     }
 
-    .c0:hover .c4 {
+    .c0:hover .Button__IconContainer-sc-1brqp3f-0 {
       color: #FFFFFF;
     }
 
@@ -63,7 +63,7 @@ it('renders', () => {
       box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
     }
 
-    .c0:active .c4 {
+    .c0:active .Button__IconContainer-sc-1brqp3f-0 {
       color: #FFFFFF;
     }
 
@@ -90,7 +90,7 @@ it('renders', () => {
       box-shadow: inset 0 0 6px 3px rgba(37,42,49,0.15);
     }
 
-    .c0 .c3 {
+    .c0 .Loading__StyledSpinner-sc-1psg3na-2 {
       width: 24px;
       height: 24px;
     }
