@@ -11,10 +11,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer(
   withCSS(
     withCustomBabelConfigFile(
-      withTM({
+      withTM(['@tbergq'])({
         babelConfigFile: path.join(__dirname, '.babelrc.js'),
         target: 'serverless',
-        transpileModules: ['@tbergq'],
       }),
     ),
   ),
