@@ -7,10 +7,9 @@ const withCSS = require('@zeit/next-css');
 
 module.exports = withCSS(
   withCustomBabelConfigFile(
-    withTM({
+    withTM(['@tbergq'])({
       babelConfigFile: path.join(__dirname, '.babelrc.js'),
       target: 'serverless',
-      transpileModules: ['@tbergq'],
     }),
   ),
 );
