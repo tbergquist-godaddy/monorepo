@@ -3,6 +3,7 @@
 import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { ExerciseRepository } from '@tbergq/trainingjournal-persistence';
 import { fromGlobalId } from '@adeira/graphql-global-id';
+import { type OpaqueIDString } from '@adeira/graphql-global-id/src/Encoder';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import CreateExerciseOutput from '../types/output/CreateExercise';
@@ -12,7 +13,7 @@ import CreateExerciseInput, {
 
 type Args = {
   +exercise: CreateExerciseInputArgs,
-  +exerciseId: string,
+  +exerciseId: OpaqueIDString,
   ...
 };
 

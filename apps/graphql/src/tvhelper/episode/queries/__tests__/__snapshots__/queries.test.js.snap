@@ -12,7 +12,7 @@ query episode {
 {
   "data": {
     "episode": {
-      "id": "RXBpc29kZToxMjM=",
+      "id": "RXBpc29kZToxMjM",
       "name": "Trust But Verify"
     }
   }

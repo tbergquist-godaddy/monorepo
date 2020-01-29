@@ -19,7 +19,7 @@ query favorites {
       "edges": [
         {
           "node": {
-            "id": "VHZTaG93OjY=",
+            "id": "VHZTaG93OjY",
             "name": "The 100"
           }
         }
@@ -65,7 +65,7 @@ query detail {
 {
   "data": {
     "tvShowDetail": {
-      "id": "VHZTaG93OjY=",
+      "id": "VHZTaG93OjY",
       "name": "The 100",
       "status": "Running",
       "premiered": "2014-03-19",
@@ -215,232 +215,232 @@ query detail {
       ],
       "episodes": [
         {
-          "id": "RXBpc29kZToxNzU=",
+          "id": "RXBpc29kZToxNzU",
           "seasonAndNumber": "S01E01",
           "airdate": "2014-03-19"
         },
         {
-          "id": "RXBpc29kZToxNzY=",
+          "id": "RXBpc29kZToxNzY",
           "seasonAndNumber": "S01E02",
           "airdate": "2014-03-26"
         },
         {
-          "id": "RXBpc29kZToxNzc=",
+          "id": "RXBpc29kZToxNzc",
           "seasonAndNumber": "S01E03",
           "airdate": "2014-04-02"
         },
         {
-          "id": "RXBpc29kZToxNzg=",
+          "id": "RXBpc29kZToxNzg",
           "seasonAndNumber": "S01E04",
           "airdate": "2014-04-09"
         },
         {
-          "id": "RXBpc29kZToxNzk=",
+          "id": "RXBpc29kZToxNzk",
           "seasonAndNumber": "S01E05",
           "airdate": "2014-04-16"
         },
         {
-          "id": "RXBpc29kZToxODA=",
+          "id": "RXBpc29kZToxODA",
           "seasonAndNumber": "S01E06",
           "airdate": "2014-04-23"
         },
         {
-          "id": "RXBpc29kZToxODE=",
+          "id": "RXBpc29kZToxODE",
           "seasonAndNumber": "S01E07",
           "airdate": "2014-04-30"
         },
         {
-          "id": "RXBpc29kZToxODI=",
+          "id": "RXBpc29kZToxODI",
           "seasonAndNumber": "S01E08",
           "airdate": "2014-05-07"
         },
         {
-          "id": "RXBpc29kZToxODM=",
+          "id": "RXBpc29kZToxODM",
           "seasonAndNumber": "S01E09",
           "airdate": "2014-05-14"
         },
         {
-          "id": "RXBpc29kZToxODQ=",
+          "id": "RXBpc29kZToxODQ",
           "seasonAndNumber": "S01E10",
           "airdate": "2014-05-21"
         },
         {
-          "id": "RXBpc29kZToxODU=",
+          "id": "RXBpc29kZToxODU",
           "seasonAndNumber": "S01E11",
           "airdate": "2014-05-28"
         },
         {
-          "id": "RXBpc29kZToxODY=",
+          "id": "RXBpc29kZToxODY",
           "seasonAndNumber": "S01E12",
           "airdate": "2014-06-04"
         },
         {
-          "id": "RXBpc29kZToxODc=",
+          "id": "RXBpc29kZToxODc",
           "seasonAndNumber": "S01E13",
           "airdate": "2014-06-11"
         },
         {
-          "id": "RXBpc29kZToxODg=",
+          "id": "RXBpc29kZToxODg",
           "seasonAndNumber": "S02E01",
           "airdate": "2014-10-22"
         },
         {
-          "id": "RXBpc29kZToxNTgzOQ==",
+          "id": "RXBpc29kZToxNTgzOQ",
           "seasonAndNumber": "S02E02",
           "airdate": "2014-10-29"
         },
         {
-          "id": "RXBpc29kZToxNTg0MA==",
+          "id": "RXBpc29kZToxNTg0MA",
           "seasonAndNumber": "S02E03",
           "airdate": "2014-11-05"
         },
         {
-          "id": "RXBpc29kZTozMjI1Mg==",
+          "id": "RXBpc29kZTozMjI1Mg",
           "seasonAndNumber": "S02E04",
           "airdate": "2014-11-12"
         },
         {
-          "id": "RXBpc29kZTozOTYyMw==",
+          "id": "RXBpc29kZTozOTYyMw",
           "seasonAndNumber": "S02E05",
           "airdate": "2014-11-19"
         },
         {
-          "id": "RXBpc29kZTo0NTc2NA==",
+          "id": "RXBpc29kZTo0NTc2NA",
           "seasonAndNumber": "S02E06",
           "airdate": "2014-12-03"
         },
         {
-          "id": "RXBpc29kZTo0NTc5Mw==",
+          "id": "RXBpc29kZTo0NTc5Mw",
           "seasonAndNumber": "S02E07",
           "airdate": "2014-12-10"
         },
         {
-          "id": "RXBpc29kZTo0NTc5NA==",
+          "id": "RXBpc29kZTo0NTc5NA",
           "seasonAndNumber": "S02E08",
           "airdate": "2014-12-17"
         },
         {
-          "id": "RXBpc29kZTo0NTc5NQ==",
+          "id": "RXBpc29kZTo0NTc5NQ",
           "seasonAndNumber": "S02E09",
           "airdate": "2015-01-21"
         },
         {
-          "id": "RXBpc29kZToxMDk1NDM=",
+          "id": "RXBpc29kZToxMDk1NDM",
           "seasonAndNumber": "S02E10",
           "airdate": "2015-01-28"
         },
         {
-          "id": "RXBpc29kZToxMDk1NDQ=",
+          "id": "RXBpc29kZToxMDk1NDQ",
           "seasonAndNumber": "S02E11",
           "airdate": "2015-02-04"
         },
         {
-          "id": "RXBpc29kZToxMTc1MjU=",
+          "id": "RXBpc29kZToxMTc1MjU",
           "seasonAndNumber": "S02E12",
           "airdate": "2015-02-11"
         },
         {
-          "id": "RXBpc29kZToxMTc1MjY=",
+          "id": "RXBpc29kZToxMTc1MjY",
           "seasonAndNumber": "S02E13",
           "airdate": "2015-02-18"
         },
         {
-          "id": "RXBpc29kZToxMTc1Mjc=",
+          "id": "RXBpc29kZToxMTc1Mjc",
           "seasonAndNumber": "S02E14",
           "airdate": "2015-02-25"
         },
         {
-          "id": "RXBpc29kZToxMTc1OTE=",
+          "id": "RXBpc29kZToxMTc1OTE",
           "seasonAndNumber": "S02E15",
           "airdate": "2015-03-04"
         },
         {
-          "id": "RXBpc29kZToxMTc1OTI=",
+          "id": "RXBpc29kZToxMTc1OTI",
           "seasonAndNumber": "S02E16",
           "airdate": "2015-03-11"
         },
         {
-          "id": "RXBpc29kZTo0ODY4Mzk=",
+          "id": "RXBpc29kZTo0ODY4Mzk",
           "seasonAndNumber": "S03E01",
           "airdate": "2016-01-21"
         },
         {
-          "id": "RXBpc29kZTo0ODczNzg=",
+          "id": "RXBpc29kZTo0ODczNzg",
           "seasonAndNumber": "S03E02",
           "airdate": "2016-01-28"
         },
         {
-          "id": "RXBpc29kZTo1MjcyMTY=",
+          "id": "RXBpc29kZTo1MjcyMTY",
           "seasonAndNumber": "S03E03",
           "airdate": "2016-02-04"
         },
         {
-          "id": "RXBpc29kZTo1MjcyMTc=",
+          "id": "RXBpc29kZTo1MjcyMTc",
           "seasonAndNumber": "S03E04",
           "airdate": "2016-02-11"
         },
         {
-          "id": "RXBpc29kZTo1NzA0MzE=",
+          "id": "RXBpc29kZTo1NzA0MzE",
           "seasonAndNumber": "S03E05",
           "airdate": "2016-02-18"
         },
         {
-          "id": "RXBpc29kZTo2MDA2Mzk=",
+          "id": "RXBpc29kZTo2MDA2Mzk",
           "seasonAndNumber": "S03E06",
           "airdate": "2016-02-25"
         },
         {
-          "id": "RXBpc29kZTo2MTE1Njc=",
+          "id": "RXBpc29kZTo2MTE1Njc",
           "seasonAndNumber": "S03E07",
           "airdate": "2016-03-03"
         },
         {
-          "id": "RXBpc29kZTo2MjE5MDk=",
+          "id": "RXBpc29kZTo2MjE5MDk",
           "seasonAndNumber": "S03E08",
           "airdate": "2016-03-10"
         },
         {
-          "id": "RXBpc29kZTo2NDY5MDY=",
+          "id": "RXBpc29kZTo2NDY5MDY",
           "seasonAndNumber": "S03E09",
           "airdate": "2016-03-31"
         },
         {
-          "id": "RXBpc29kZTo2NDczNzQ=",
+          "id": "RXBpc29kZTo2NDczNzQ",
           "seasonAndNumber": "S03E10",
           "airdate": "2016-04-07"
         },
         {
-          "id": "RXBpc29kZTo2NDczNzU=",
+          "id": "RXBpc29kZTo2NDczNzU",
           "seasonAndNumber": "S03E11",
           "airdate": "2016-04-14"
         },
         {
-          "id": "RXBpc29kZTo2NDczNzY=",
+          "id": "RXBpc29kZTo2NDczNzY",
           "seasonAndNumber": "S03E12",
           "airdate": "2016-04-21"
         },
         {
-          "id": "RXBpc29kZTo2NDczNzc=",
+          "id": "RXBpc29kZTo2NDczNzc",
           "seasonAndNumber": "S03E13",
           "airdate": "2016-04-28"
         },
         {
-          "id": "RXBpc29kZTo2NDczNzg=",
+          "id": "RXBpc29kZTo2NDczNzg",
           "seasonAndNumber": "S03E14",
           "airdate": "2016-05-05"
         },
         {
-          "id": "RXBpc29kZTo2NDczNzk=",
+          "id": "RXBpc29kZTo2NDczNzk",
           "seasonAndNumber": "S03E15",
           "airdate": "2016-05-12"
         },
         {
-          "id": "RXBpc29kZTo2NDczODA=",
+          "id": "RXBpc29kZTo2NDczODA",
           "seasonAndNumber": "S03E16",
           "airdate": "2016-05-19"
         },
         {
-          "id": "RXBpc29kZTo5MjE3MDk=",
+          "id": "RXBpc29kZTo5MjE3MDk",
           "seasonAndNumber": "S04E01",
           "airdate": "2017-02-01"
         },
