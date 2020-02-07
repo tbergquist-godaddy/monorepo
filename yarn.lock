@@ -91,6 +91,11 @@
   resolved "https://registry.yarnpkg.com/@adeira/js/-/js-0.2.0.tgz#cc1459af8c114af1536b7622a55dc3b905035d13"
   integrity sha512-IoE5ScsGkabL3jrQ2mNdYwUYkwjUCHsfoV9/hOvOROwh4Y5CeoNlsNoFDKBBm5b5me8ttqwHY0lAT2LCqAP1tA==
 
+"@adeira/js@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/js/-/js-1.0.0.tgz#ec99b1e135fe0bac60dc6088635211da8d62bd22"
+  integrity sha512-Xjm+Vi9rpm66+/57ye8DKRown+vCewQ9NfQLLPUcvxdkxBT9y2bfOraDEN0d5AWuQOX92zJIAqhBWhW/wXf+Bg==
+
 "@adeira/logger@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@adeira/logger/-/logger-0.1.0.tgz#8c1cce053c1eaf878ef358a09a2c750e2233542c"
@@ -117,6 +122,16 @@
   dependencies:
     "@adeira/js" "^0.2.0"
     "@babel/register" "^7.7.4"
+    glob "^7.1.6"
+    is-ci "^2.0.0"
+
+"@adeira/monorepo-utils@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@adeira/monorepo-utils/-/monorepo-utils-0.3.0.tgz#e6d67d4260a6667d10a5e378da6760e2771f1e5b"
+  integrity sha512-xo/0OXRFsq7wuN1Y+AHuDP9VhOLpepRpPu+wLgkKFJnZS8opnuJFXXIP2wiGxZ56XKgGTKNi2NDd87ZbYkYNZA==
+  dependencies:
+    "@adeira/js" "^1.0.0"
+    "@babel/register" "^7.8.3"
     glob "^7.1.6"
     is-ci "^2.0.0"
 
