@@ -244,7 +244,7 @@ it('renders', () => {
       className="c0"
     >
       <div
-        className="sc-AykKC c1"
+        className="sc-AxjAm c1"
       >
         <div
           className="c2"
@@ -256,7 +256,7 @@ it('renders', () => {
               className="c4"
             >
               <a
-                className="sc-AykKE c5"
+                className="sc-AxiKw c5"
                 href="/"
                 onClick={[Function]}
                 onMouseEnter={[Function]}

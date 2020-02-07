@@ -1,6 +1,5 @@
 // @flow
 
-/* eslint-disable flowtype/no-existential-type */
 /* eslint-disable flowtype/no-dupe-keys */
 
 // flow-typed signature: bfbca1ace2b4e13f815c3a7783e9add2

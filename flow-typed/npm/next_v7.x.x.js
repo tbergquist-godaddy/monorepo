@@ -1,7 +1,5 @@
 // @flow
 
-/* eslint-disable adeira/no-internal-flow-type */
-/* eslint-disable flowtype/no-existential-type */
 // flow-typed signature: c2cb4bca6254c6d79d860fa177024cf6
 // flow-typed version: 67a3fa05b3/next_v7.x.x/flow_>=v0.93.x
 

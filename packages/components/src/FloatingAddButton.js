@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes, css, type StyledComponent } from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 import AddIcon from '@kiwicom/orbit-components/lib/icons/Plus';
 
@@ -39,10 +39,14 @@ const reverseRotate = keyframes`
 }
 `;
 
-const IconWrapper = styled.div`
+const IconWrapper: StyledComponent<
+  {| +children: React.Node, +rotateIcon: boolean |},
+  void,
+  HTMLDivElement,
+> = styled.div`
   transform: rotate(${props => (props.rotateIcon ? 45 : 0)}deg);
   animation: ${props =>
-    props.rotate
+    props.rotateIcon
       ? css`
           ${rotateAnimation} .1s linear
         `
