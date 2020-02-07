@@ -7,13 +7,17 @@ import {
   type RelayProp,
   type RelayEnvironmentType,
 } from '@tbergq/relay';
-import styled from 'styled-components';
+import styled, { type StyledComponent } from 'styled-components';
 
 import type { TvShowListItem_data as TvShow } from './__generated__/TvShowListItem_data.graphql';
 
 const borderRadius = 4;
 
-const TvShowButton = styled.button({
+const TvShowButton: StyledComponent<
+  {| +children: React.Node, +onClick: () => void |},
+  void,
+  HTMLButtonElement,
+> = styled.button({
   background: 'none',
   border: 'none',
   padding: 0,

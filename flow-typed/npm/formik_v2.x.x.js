@@ -1,6 +1,5 @@
 // @flow
 
-/* eslint-disable adeira/no-internal-flow-type */
 /* eslint-disable import/order */
 // flow-typed signature: 6f29933b3ab5a0d396b124bdf34ef768
 // flow-typed version: 5c17533077/formik_v2.x.x/flow_>=v0.104.x
