@@ -1,7 +1,8 @@
 // @flow
 
-import { connectionFromArray, connectionArgs, type ConnectionArguments } from 'graphql-relay';
+import { connectionArgs, type ConnectionArguments } from 'graphql-relay';
 import * as R from 'ramda';
+import { connectionFromArray } from '@tbergq/graphql-services';
 
 import type { TvShow as TvShowType } from '../TvShow';
 import TvShowConnection from '../types/output/TvShowConnection';

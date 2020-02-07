@@ -2,7 +2,8 @@
 
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';
-import { connectionArgs, type ConnectionArguments, cursorToOffset } from 'graphql-relay';
+import { connectionArgs, cursorToOffset } from 'graphql-relay';
+import { type ConnectionArguments } from '@tbergq/graphql-services';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import ExerciseConnection from '../../exercise/types/output/ExerciseConnection';
