@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import Dataloader from 'dataloader';
 import { type Program, ProgramRepository } from '@tbergq/trainingjournal-persistence';

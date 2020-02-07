@@ -47,10 +47,5 @@ experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/components
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/graphql-persistence
 
 [strict]
-deprecated-type
-;nonstrict-import
-sketchy-null
+untyped-import
 unclear-type
-unsafe-getters-setters
-;untyped-import
-untyped-type-import
