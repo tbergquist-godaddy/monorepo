@@ -17,7 +17,7 @@
     "build": "monorepo-babel-node scripts/build.js"
   },
   "dependencies": {
-    "@adeira/js": "^0.2.0",
+    "@adeira/js": "^1.0.0",
     "@adeira/monorepo-utils": "^0.3.0",
     "@babel/runtime": "^7.8.4",
     "@tbergq/tvhelper-persistence": "*",
