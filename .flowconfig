@@ -22,7 +22,7 @@ emoji=true
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
-
+exact_by_default=true
 munge_underscores=true
 
 suppress_type=$FlowIssue

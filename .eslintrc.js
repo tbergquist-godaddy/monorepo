@@ -16,6 +16,7 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'flowtype/require-inexact-type': OFF,
     'no-restricted-imports': [
       ERROR,
       {

@@ -11,3 +11,7 @@ export { default as LoginResolver, signToken } from './src/shared/resolvers/Logi
 
 export type { LoggedInUser } from './src/shared/resolvers/LoginResolver';
 export type { Apps } from './src/shared/resolvers/LoginResolver';
+
+// others
+export { default as connectionFromArray } from './src/connectionFromArray';
+export type { ConnectionArguments } from './src/connectionFromArray';

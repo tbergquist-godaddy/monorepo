@@ -1,7 +1,8 @@
 // @flow
 
 import { GraphQLString, GraphQLNonNull } from 'graphql';
-import { connectionFromArray, connectionArgs, type ConnectionArguments } from 'graphql-relay';
+import { connectionArgs, type ConnectionArguments } from 'graphql-relay';
+import { connectionFromArray } from '@tbergq/graphql-services';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import type { TvShow as TvShowType } from '../../tvshow/TvShow';
