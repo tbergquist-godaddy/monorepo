@@ -43,6 +43,6 @@
     "mockdate": "^2.0.5",
     "mockingoose": "^2.13.2",
     "nodemon": "^2.0.2",
-    "rimraf": "^3.0.1"
+    "rimraf": "^3.0.2"
   }
 }
