@@ -7,6 +7,6 @@
   "dependencies": {
     "@adeira/monorepo-utils": "^0.3.0",
     "@babel/core": "^7.8.4",
-    "rimraf": "^3.0.1"
+    "rimraf": "^3.0.2"
   }
 }
