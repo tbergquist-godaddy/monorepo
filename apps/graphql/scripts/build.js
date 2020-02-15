@@ -43,7 +43,7 @@ if (ZEIT_TOKEN == null) {
       JSON.stringify(packageJson, null, 2),
     );
     log('built to', buildDir);
-    new ShellCommand(buildDir, 'now', '--prod', `--token=${ZEIT_TOKEN}`)
+    new ShellCommand(buildDir, 'now', '--prod', '--confirm', `--token=${ZEIT_TOKEN}`)
       .setOutputToScreen()
       .runSynchronously();
   } catch (e) {
