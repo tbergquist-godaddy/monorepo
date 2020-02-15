@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
+    paddingBottom: '64px',
   },
 });
 
