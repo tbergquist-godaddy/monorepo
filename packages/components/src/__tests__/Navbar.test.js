@@ -262,7 +262,7 @@ it('renders', () => {
                 Brand
               </a>
               <div
-                className="fresnel-container fresnel-at-tablet "
+                className="fresnel-container fresnel-greaterThanOrEqual-tablet "
                 suppressHydrationWarning={false}
               >
                 <div
@@ -276,7 +276,7 @@ it('renders', () => {
             </div>
             <div>
               <div
-                className="fresnel-container fresnel-at-tablet "
+                className="fresnel-container fresnel-greaterThanOrEqual-tablet "
                 suppressHydrationWarning={false}
               >
                 <div
