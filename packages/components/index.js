@@ -40,3 +40,6 @@ export { default as Pencil } from '@kiwicom/orbit-components/lib/icons/Edit';
 // Animations
 export { default as SlideIn } from './src/animations/SlideIn';
 export { default as FadeInOut } from './src/animations/FadeInOut';
+
+// Layout
+export { MediaContextProvider, Media } from './src/Media';

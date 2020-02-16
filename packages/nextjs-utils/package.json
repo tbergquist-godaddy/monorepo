@@ -5,6 +5,7 @@
   "main": "index.js",
   "sideEffects": false,
   "dependencies": {
+    "@tbergq/components": "0.0.1",
     "@tbergq/utils": "0.0.1",
     "@tbergq/relay": "0.0.1",
     "next": "^9.2.1",

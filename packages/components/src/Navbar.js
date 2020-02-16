@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 import Container from './Container';
 import Button from './Button';
+import { Media } from './Media';
 
 const NAV_BACKGROUND = '#222';
 const Nav = styled.nav({
@@ -66,10 +67,7 @@ const BurgerButton = styled(Button)({
 });
 
 const HeaderContainer = styled.div({
-  display: 'none',
-  [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
-    display: 'flex',
-  },
+  display: 'flex',
 });
 
 const HeaderLeftContainer = styled.div({
@@ -107,23 +105,33 @@ export default function Navbar(props: Props): React.Element<any> {
               <Link href="/">
                 <Brand href="/">{props.brand}</Brand>
               </Link>
-              <HeaderContainer>{props.headerLeft}</HeaderContainer>
+              <Media at="tablet">
+                <HeaderContainer>{props.headerLeft}</HeaderContainer>
+              </Media>
             </HeaderLeftContainer>
-            <HeaderContainer>{props.headerRight}</HeaderContainer>
-            <BurgerButton size="small" onClick={toggleExpand}>
-              <MdMenu />
-            </BurgerButton>
+            <div>
+              <Media at="tablet">
+                <HeaderContainer>{props.headerRight}</HeaderContainer>
+              </Media>
+              <Media lessThan="tablet">
+                <BurgerButton size="small" onClick={toggleExpand}>
+                  <MdMenu />
+                </BurgerButton>
+              </Media>
+            </div>
           </FlexContainer>
-          {expandMenu && (
-            <ExpandedHeader>
-              {React.Children.map(props.headerLeft, child => (
-                <Separator>{child}</Separator>
-              ))}
-              {React.Children.map(props.headerRight, child => (
-                <Separator>{child}</Separator>
-              ))}
-            </ExpandedHeader>
-          )}
+          <Media lessThan="tablet">
+            {expandMenu && (
+              <ExpandedHeader>
+                {React.Children.map(props.headerLeft, child => (
+                  <Separator>{child}</Separator>
+                ))}
+                {React.Children.map(props.headerRight, child => (
+                  <Separator>{child}</Separator>
+                ))}
+              </ExpandedHeader>
+            )}
+          </Media>
         </ContentPadding>
       </NavContainer>
     </Nav>

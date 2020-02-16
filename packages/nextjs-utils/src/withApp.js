@@ -9,6 +9,7 @@ import cookie from 'next-cookies';
 import { TOKEN_KEY } from '@tbergq/utils';
 import { fetchQuery, Environment, RelayEnvironmentProvider } from '@tbergq/relay';
 import { createGlobalStyle } from 'styled-components';
+import { MediaContextProvider } from '@tbergq/components';
 
 const GlobalStyle = createGlobalStyle({
   html: {
@@ -76,12 +77,14 @@ export default function withNProgress(Component: React.AbstractComponent<{ ... }
       const { token, ssrData, ...rest } = this.props;
       const environment = Environment.getEnvironment(token, ssrData);
       return (
-        <RelayEnvironmentProvider environment={environment}>
-          <>
-            <GlobalStyle />
-            <Component {...rest} />
-          </>
-        </RelayEnvironmentProvider>
+        <MediaContextProvider>
+          <RelayEnvironmentProvider environment={environment}>
+            <>
+              <GlobalStyle />
+              <Component {...rest} />
+            </>
+          </RelayEnvironmentProvider>
+        </MediaContextProvider>
       );
     }
   }

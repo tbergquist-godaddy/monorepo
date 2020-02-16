@@ -186,7 +186,10 @@ it('renders', () => {
     }
 
     .c6 {
-      display: none;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
     }
 
     .c4 {
@@ -235,15 +238,6 @@ it('renders', () => {
       }
     }
 
-    @media only screen and (min-width:768px) {
-      .c6 {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-      }
-    }
-
     <nav
       className="c0"
     >
@@ -268,54 +262,75 @@ it('renders', () => {
                 Brand
               </a>
               <div
-                className="c6"
-              >
-                <div>
-                  left
-                </div>
-              </div>
-            </div>
-            <div
-              className="c6"
-            >
-              <div>
-                right
-              </div>
-            </div>
-            <button
-              className="c7 c8"
-              onClick={[Function]}
-              size="small"
-              type="button"
-            >
-              <div
-                className="c9"
+                className="fresnel-container fresnel-at-tablet "
+                suppressHydrationWarning={false}
               >
                 <div
-                  className="c10"
+                  className="c6"
                 >
-                  <svg
-                    fill="currentColor"
-                    height="1em"
-                    stroke="currentColor"
-                    strokeWidth="0"
-                    style={
-                      Object {
-                        "color": undefined,
-                      }
-                    }
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                    />
-                  </svg>
+                  <div>
+                    left
+                  </div>
                 </div>
               </div>
-            </button>
+            </div>
+            <div>
+              <div
+                className="fresnel-container fresnel-at-tablet "
+                suppressHydrationWarning={false}
+              >
+                <div
+                  className="c6"
+                >
+                  <div>
+                    right
+                  </div>
+                </div>
+              </div>
+              <div
+                className="fresnel-container fresnel-lessThan-tablet "
+                suppressHydrationWarning={false}
+              >
+                <button
+                  className="c7 c8"
+                  onClick={[Function]}
+                  size="small"
+                  type="button"
+                >
+                  <div
+                    className="c9"
+                  >
+                    <div
+                      className="c10"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
           </div>
+          <div
+            className="fresnel-container fresnel-lessThan-tablet "
+            suppressHydrationWarning={false}
+          />
         </div>
       </div>
     </nav>
