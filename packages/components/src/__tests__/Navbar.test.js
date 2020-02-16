@@ -129,6 +129,9 @@ it('renders', () => {
       left: 0;
       min-height: 50px;
       z-index: 900;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      max-height: 50px;
     }
 
     .c5 {
@@ -229,12 +232,6 @@ it('renders', () => {
     @media (min-width:1200px) {
       .c1 {
         width: 1170px;
-      }
-    }
-
-    @media only screen and (min-width:768px) {
-      .c8 {
-        display: none;
       }
     }
 
