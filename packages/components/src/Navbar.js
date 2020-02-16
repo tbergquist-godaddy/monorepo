@@ -105,12 +105,12 @@ export default function Navbar(props: Props): React.Element<any> {
               <Link href="/">
                 <Brand href="/">{props.brand}</Brand>
               </Link>
-              <Media at="tablet">
+              <Media greaterThanOrEqual="tablet">
                 <HeaderContainer>{props.headerLeft}</HeaderContainer>
               </Media>
             </HeaderLeftContainer>
             <div>
-              <Media at="tablet">
+              <Media greaterThanOrEqual="tablet">
                 <HeaderContainer>{props.headerRight}</HeaderContainer>
               </Media>
               <Media lessThan="tablet">
