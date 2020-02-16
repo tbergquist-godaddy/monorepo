@@ -12,7 +12,7 @@ import Button from './Button';
 import { Media } from './Media';
 
 const NAV_BACKGROUND = '#222';
-const Nav = styled.nav({
+const Nav = styled.nav(props => ({
   backgroundColor: NAV_BACKGROUND,
   borderColor: '#090909',
   position: 'fixed',
@@ -21,7 +21,9 @@ const Nav = styled.nav({
   left: 0,
   minHeight: '50px',
   zIndex: defaultTokens.zIndexOnTheTop,
-});
+  transition: 'all 0.3s ease',
+  maxHeight: props.isExpanded ? '200px' : '50px',
+}));
 
 const NavLink = styled.a(({ marginLeft }) => ({
   color: '#e2e2e2',
@@ -61,9 +63,6 @@ const BurgerButton = styled(Button)({
   ':hover': {
     backgroundColor: NAV_BACKGROUND,
   },
-  [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
-    display: 'none',
-  },
 });
 
 const HeaderContainer = styled.div({
@@ -75,11 +74,7 @@ const HeaderLeftContainer = styled.div({
   alignItems: 'center',
 });
 
-const ExpandedHeader = styled.div({
-  [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
-    display: 'none',
-  },
-});
+const ExpandedHeader = styled.div({});
 
 const Separator = styled.div({
   paddingTop: '12px',
@@ -97,7 +92,7 @@ export default function Navbar(props: Props): React.Element<any> {
     setExpandMenu(expand => !expand);
   }
   return (
-    <Nav>
+    <Nav isExpanded={expandMenu}>
       <NavContainer>
         <ContentPadding>
           <FlexContainer>
