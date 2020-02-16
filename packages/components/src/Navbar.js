@@ -74,13 +74,17 @@ const HeaderContainer = styled.div({
 
 const HeaderLeftContainer = styled.div({
   display: 'flex',
+  alignItems: 'center',
 });
 
 const ExpandedHeader = styled.div({
-  paddingTop: '8px',
   [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
     display: 'none',
   },
+});
+
+const Separator = styled.div({
+  paddingTop: '12px',
 });
 
 type Props = {|
@@ -112,8 +116,12 @@ export default function Navbar(props: Props): React.Element<any> {
           </FlexContainer>
           {expandMenu && (
             <ExpandedHeader>
-              <div>{props.headerLeft}</div>
-              <div>{props.headerRight}</div>
+              {React.Children.map(props.headerLeft, child => (
+                <Separator>{child}</Separator>
+              ))}
+              {React.Children.map(props.headerRight, child => (
+                <Separator>{child}</Separator>
+              ))}
             </ExpandedHeader>
           )}
         </ContentPadding>

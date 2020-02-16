@@ -194,6 +194,10 @@ it('renders', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
     }
 
     @media all and (-ms-high-contrast:none),(-ms-high-contrast:active) {
