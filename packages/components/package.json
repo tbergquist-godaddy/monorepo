@@ -6,7 +6,7 @@
   "sideEffects": false,
   "dependencies": {
     "@artsy/fresnel": "^1.1.0",
-    "@kiwicom/orbit-components": "^0.73.1",
+    "@kiwicom/orbit-components": "^0.74.0",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
     "formik": "^2.1.4",
     "react-icons": "^3.9.0"
