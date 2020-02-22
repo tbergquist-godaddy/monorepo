@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash c8bfd426749a9258498ec31e1d7aba7e
+ * @relayHash fc4d704db9c981b3f451c9fcd211d595
  */
 
 /* eslint-disable */
@@ -8,19 +8,19 @@
 
 import type { ConcreteRequest } from 'relay-runtime';
 type ExerciseList_exercises$ref = any;
-export type ExerciseListQueryVariables = {||};
-export type ExerciseListQueryResponse = {|
+export type ExerciseListTestQueryVariables = {||};
+export type ExerciseListTestQueryResponse = {|
   +viewer: ?{|
     +$fragmentRefs: ExerciseList_exercises$ref
   |}
 |};
-export type ExerciseListQuery = {|
-  variables: ExerciseListQueryVariables,
-  response: ExerciseListQueryResponse,
+export type ExerciseListTestQuery = {|
+  variables: ExerciseListTestQueryVariables,
+  response: ExerciseListTestQueryResponse,
 |};
 
 /*
-query ExerciseListQuery {
+query ExerciseListTestQuery {
   viewer {
     __typename
     ...ExerciseList_exercises
@@ -109,7 +109,7 @@ return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "ExerciseListQuery",
+    "name": "ExerciseListTestQuery",
     "type": "RootQuery",
     "metadata": null,
     "argumentDefinitions": [],
@@ -134,7 +134,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "ExerciseListQuery",
+    "name": "ExerciseListTestQuery",
     "argumentDefinitions": [],
     "selections": [
       {
@@ -264,9 +264,9 @@ return {
   },
   "params": {
     "operationKind": "query",
-    "name": "ExerciseListQuery",
+    "name": "ExerciseListTestQuery",
     "id": null,
-    "text": "query ExerciseListQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
+    "text": "query ExerciseListTestQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -320,5 +320,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = '3919a535e3288e9bb74e6a9305cb4f94';
+(node: any).hash = 'ca22ccec42dea525269c2192d7f99da6';
 export default node;
