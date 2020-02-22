@@ -43,5 +43,8 @@
     "@tbergq/graphql-persistence": "*",
     "@tbergq/trainingjournal-persistence": "*",
     "@tbergq/tvhelper-persistence": "*"
+  },
+  "resolutions": {
+    "@adeira/relay": "^1.0.0"
   }
 }

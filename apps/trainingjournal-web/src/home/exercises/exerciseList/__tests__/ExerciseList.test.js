@@ -18,7 +18,7 @@ const TestRenderer = () => {
     <QueryRenderer
       environment={environment}
       query={graphql`
-        query ExerciseListQuery @relay_test_operation {
+        query ExerciseListTestQuery @relay_test_operation {
           viewer {
             ...ExerciseList_exercises
           }
