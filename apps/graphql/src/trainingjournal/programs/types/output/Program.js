@@ -6,6 +6,7 @@ import { GraphQLDate } from 'graphql-iso-date';
 
 export default new GraphQLObjectType({
   name: 'Program',
+  description: 'A trainingjournal program',
   fields: {
     id: GlobalID(({ id }) => id),
     name: {

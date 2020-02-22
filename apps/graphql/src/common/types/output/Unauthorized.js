@@ -4,6 +4,7 @@ import { GraphQLObjectType, GraphQLString } from 'graphql';
 
 export default new GraphQLObjectType({
   name: 'Unauthorized',
+  description: 'User is not authorized to view content',
   isTypeOf: value => value === 'Unauthorized',
   fields: {
     message: {

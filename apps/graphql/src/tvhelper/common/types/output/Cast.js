@@ -8,6 +8,7 @@ import Person from './Person';
 
 export default new GraphQLObjectType({
   name: 'Cast',
+  description: 'A character appearing in a tvshow, and the actor/actress',
   fields: {
     id: GlobalID(({ person, character }) => `${person.id}:${character.id}`),
     person: {

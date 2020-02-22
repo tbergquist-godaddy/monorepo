@@ -10,6 +10,7 @@ type Ancestor = {|
 
 export default new GraphQLObjectType({
   name: 'TvHelperImage',
+  description: 'The image of a person or tvshow or episode',
   fields: {
     id: GlobalID(({ original }: Ancestor) => original),
     original: {

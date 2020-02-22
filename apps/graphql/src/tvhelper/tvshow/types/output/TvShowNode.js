@@ -6,6 +6,7 @@ import TvShow from './TvShow';
 
 export default new GraphQLObjectType({
   name: 'TvShowNode',
+  description: 'A tv show node',
   fields: {
     node: {
       type: TvShow,
