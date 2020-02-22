@@ -1,4 +1,4 @@
-# @generated SignedSource<<546f89e2423f9f2209805f9e478bb20d>>
+# @generated SignedSource<<e05683b2c36c807ea51cb2c914d5eb25>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -14,11 +14,13 @@ schema {
   mutation: RootMutation
 }
 
+"""The return type for the add favorite mutation"""
 type AddFavorite {
   success: Boolean
   tvShow: TvShowNode
 }
 
+"""A character appearing in a tvshow, and the actor/actress"""
 type Cast {
   character: Person
 
@@ -31,6 +33,7 @@ type Cast {
   person: Person
 }
 
+"""The return type for create exercise mutation"""
 type CreateExercise {
   exerciseEdge: ExerciseEdge
 }
@@ -42,6 +45,7 @@ input CreateExerciseInput {
   videoUrl: String
 }
 
+"""A newly created program"""
 type CreateProgram {
   programEdge: ProgramEdge
 }
@@ -50,10 +54,12 @@ input CreateProgramInput {
   name: String!
 }
 
+"""A stored operation, a has with a corresponding graphql operation"""
 type CreateStoredOperation {
   createdOperations: [StoredOperation]
 }
 
+"""Return type for the create user mutation"""
 type CreateTrainingJournalUser {
   email: String
 
@@ -66,6 +72,7 @@ type CreateTrainingJournalUser {
   username: String
 }
 
+"""The reply for a newly created user"""
 type CreateUserMutation {
   success: Boolean
 }
@@ -77,6 +84,7 @@ representation of dates and times using the Gregorian calendar.
 """
 scalar Date
 
+"""Response type for delete episode mutation"""
 type DeletedEpisode {
   exerciseId: ID
   success: Boolean
@@ -103,11 +111,13 @@ type Episode {
   watched: Boolean
 }
 
+"""Mutation response type for episode watched mutation"""
 type EpisodeWatched {
   episode: Episode
   success: Boolean
 }
 
+"""An exercise in the trainingjournal app"""
 type Exercise {
   description: String
 
@@ -140,11 +150,13 @@ type ExerciseEdge {
   node: Exercise
 }
 
+"""Login response, indicates success and gives the token"""
 type LoginType {
   success: Boolean
   token: String
 }
 
+"""The network hosting a tv show"""
 type Network {
   """
   The globally unique ID of an object. You can unmask this ID to get original
@@ -170,12 +182,14 @@ type PageInfo {
   startCursor: String
 }
 
+"""An actor or a character in a tv show"""
 type Person {
   id: ID
   image: TvHelperImage
   name: String
 }
 
+"""A trainingjournal program"""
 type Program {
   date: Date
 
@@ -206,6 +220,7 @@ type ProgramEdge {
   node: Program
 }
 
+"""Return type used for range delete mutations"""
 type RangeDelete {
   id: ID
   success: Boolean
@@ -282,6 +297,7 @@ input SortOptions {
   sortDirection: SortDirection = ASC
 }
 
+"""A stored operation, a has with a corresponding graphql operation"""
 type StoredOperation {
   operationId: String
   text: String
@@ -292,6 +308,9 @@ input StoredOperationInput {
   text: String!
 }
 
+"""
+The viewer object for the current logged in user in TrainingJournal app
+"""
 type TraningJournalViewer {
   exercises(after: String, before: String, first: Int, last: Int): ExerciseConnection
 
@@ -305,6 +324,7 @@ type TraningJournalViewer {
   username: String
 }
 
+"""The image of a person or tvshow or episode"""
 type TvHelperImage {
   """
   The globally unique ID of an object. You can unmask this ID to get original
@@ -316,6 +336,7 @@ type TvHelperImage {
   original: String
 }
 
+"""Information about a tv show"""
 type TvShow {
   cast: [Cast]
   episodes: [Episode]
@@ -356,10 +377,12 @@ type TvShowEdge {
   node: TvShow
 }
 
+"""A tv show node"""
 type TvShowNode {
   node: TvShow
 }
 
+"""User is not authorized to view content"""
 type Unauthorized {
   message: String
 }

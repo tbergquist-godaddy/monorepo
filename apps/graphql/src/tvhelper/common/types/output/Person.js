@@ -13,6 +13,7 @@ type Ancestor = {|
 
 export default new GraphQLObjectType({
   name: 'Person',
+  description: 'An actor or a character in a tv show',
   fields: {
     id: {
       type: GraphQLID,

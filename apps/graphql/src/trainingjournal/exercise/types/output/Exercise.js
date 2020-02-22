@@ -5,6 +5,7 @@ import GlobalID from '@adeira/graphql-global-id';
 
 export default new GraphQLObjectType({
   name: 'Exercise',
+  description: 'An exercise in the trainingjournal app',
   fields: {
     id: GlobalID(({ id }) => id),
     name: {

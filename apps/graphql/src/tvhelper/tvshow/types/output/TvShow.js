@@ -21,6 +21,7 @@ import Network from './Network';
 
 export default new GraphQLObjectType({
   name: 'TvShow',
+  description: 'Information about a tv show',
   fields: {
     id: GlobalID(({ id }) => id),
     name: {
