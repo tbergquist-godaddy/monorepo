@@ -1,7 +1,12 @@
 // @flow
 
 const plugins = [
-  ['styled-components', { ssr: true }],
+  [
+    "babel-plugin-styled-components",
+    {
+      "ssr": false
+    }
+  ],
   'relay',
   '@babel/plugin-proposal-class-properties',
 ];
