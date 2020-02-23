@@ -1,8 +1,9 @@
-// @flow strict
+// @flow strict-local
 
 import * as React from 'react';
 import Document, { Head, Main, NextScript, type DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { createMediaStyle } from '@tbergq/components';
 
 export default function withDocument() {
   return class MyDocument extends Document {
@@ -23,6 +24,7 @@ export default function withDocument() {
             <>
               {initialProps.styles}
               {sheet.getStyleElement()}
+              <style>{createMediaStyle()}</style>
             </>
           ),
         };

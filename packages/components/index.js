@@ -42,4 +42,4 @@ export { default as SlideIn } from './src/animations/SlideIn';
 export { default as FadeInOut } from './src/animations/FadeInOut';
 
 // Layout
-export { MediaContextProvider, Media } from './src/Media';
+export { MediaContextProvider, Media, createMediaStyle } from './src/Media';
