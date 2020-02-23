@@ -1,28 +1,13 @@
-// @flow
+// @flow strict-local
 
 import * as React from 'react';
-import {
-  graphql,
-  createFragmentContainer,
-  type RelayProp,
-  type RelayEnvironmentType,
-} from '@tbergq/relay';
-import styled, { type StyledComponent } from 'styled-components';
+import { graphql, createFragmentContainer } from '@tbergq/relay';
+import styled from 'styled-components';
+import { Link } from '@tbergq/components';
 
 import type { TvShowListItem_data as TvShow } from './__generated__/TvShowListItem_data.graphql';
 
 const borderRadius = 4;
-
-const TvShowButton: StyledComponent<
-  {| +children: React.Node, +onClick: () => void |},
-  void,
-  HTMLButtonElement,
-> = styled.button({
-  background: 'none',
-  border: 'none',
-  padding: 0,
-  cursor: 'pointer',
-});
 
 const Container = styled.div`
   height: 100%;
@@ -44,6 +29,9 @@ const BottomSheet = styled.div({
   minHeight: '50px',
   borderBottomLeftRadius: `${borderRadius}px`,
   borderBottomRightRadius: `${borderRadius}px`,
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
 });
 
 const StyledText = styled.div({
@@ -52,16 +40,8 @@ const StyledText = styled.div({
   fontSize: '16px',
 });
 
-type NavigationOptions = {|
-  +id: ?string,
-  +name: ?string,
-  +environment: RelayEnvironmentType,
-|};
-
 type Props = {|
   +data: ?TvShow,
-  +onPress: NavigationOptions => void,
-  +relay: RelayProp,
   +width?: number,
 |};
 
@@ -69,24 +49,20 @@ function TvShowListItem(props: Props) {
   const status = props.data?.status ?? '';
   const name = props.data?.name ?? '';
   const rating = props.data?.rating ?? '';
+  const tvShowId = props.data?.id;
 
-  const onClick = () => {
-    props.onPress({
-      id: props.data?.id,
-      name,
-      environment: props.relay.environment,
-    });
-  };
-
+  if (tvShowId == null) {
+    return null;
+  }
   return (
-    <TvShowButton onClick={onClick}>
+    <Link href={`/tvShow?id=${tvShowId}`}>
       <Container url={props.data?.image?.medium}>
         <BottomSheet>
           <StyledText>{`${name} - ${rating}`}</StyledText>
           <StyledText>{status}</StyledText>
         </BottomSheet>
       </Container>
-    </TvShowButton>
+    </Link>
   );
 }
 
