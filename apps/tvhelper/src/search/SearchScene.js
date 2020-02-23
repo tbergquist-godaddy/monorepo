@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Stack } from '@tbergq/components';
+import { Stack, Heading } from '@tbergq/components';
 import Router, { useRouter } from 'next/router';
 
 import SearchForm from './SearchForm';
@@ -20,6 +20,7 @@ export default function SearchScene() {
 
   return (
     <>
+      <Heading element="h1">Search tv show</Heading>
       <Stack>
         <SearchForm onSubmit={onSubmit} />
       </Stack>
