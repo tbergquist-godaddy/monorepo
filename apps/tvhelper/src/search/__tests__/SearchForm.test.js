@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 
 import SearchForm from '../SearchForm';
 
@@ -10,18 +10,14 @@ jest.mock('next/router', () => ({
 }));
 
 describe('SearchForm', () => {
-  it('handles on submit when button is clicked', () => {
+  it('handles on submit when button is clicked', async () => {
     const onSubmit = jest.fn();
     const { getByTestId } = render(<SearchForm onSubmit={onSubmit} />);
 
     const button = getByTestId('SearchFormButton');
-    fireEvent(
-      button,
-      new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true,
-      }),
-    );
+    await act(async () => {
+      await fireEvent.click(button);
+    });
     expect(onSubmit).toHaveBeenCalledWith('myQuery');
   });
 
@@ -30,11 +26,13 @@ describe('SearchForm', () => {
     expect(getByDisplayValue('myQuery')).not.toBeNull();
   });
 
-  it('updates input value', () => {
+  it('updates input value', async () => {
     const { getByTestId } = render(<SearchForm onSubmit={jest.fn()} />);
     const input = getByTestId('SearchFormInput');
 
-    fireEvent.change(input, { target: { value: 'test' } });
+    await act(async () => {
+      await fireEvent.change(input, { target: { value: 'test' } });
+    });
     expect(input.value).toEqual('test');
   });
 });

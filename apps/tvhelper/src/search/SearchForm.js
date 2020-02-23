@@ -1,9 +1,10 @@
-// @flow
+// @flow strict-local
 
 import * as React from 'react';
-import { Input, Button } from '@tbergq/components';
+import { InputField, Button } from '@tbergq/components';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { Formik, Form } from 'formik';
 
 type Props = {|
   +onSubmit: string => void,
@@ -17,27 +18,21 @@ const ButtonWrapper = styled('div')({
 
 export default function SearchForm(props: Props) {
   const router = useRouter();
-  const [query, onQueryChange] = React.useState(router.query?.query ?? '');
 
-  function onSubmit(e: SyntheticEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function onSubmit({ query }) {
     props.onSubmit(query);
   }
 
   return (
-    <form onSubmit={onSubmit} action="/api/search" method="post">
-      <Input
-        name="query"
-        dataTest="SearchFormInput"
-        value={query}
-        onChange={onQueryChange}
-        label="Search"
-      />
-      <ButtonWrapper>
-        <Button dataTest="SearchFormButton" submit={true}>
-          Search
-        </Button>
-      </ButtonWrapper>
-    </form>
+    <Formik onSubmit={onSubmit} initialValues={{ query: router.query?.query ?? '' }}>
+      <Form action="/" method="get">
+        <InputField name="query" dataTest="SearchFormInput" label="Search" />
+        <ButtonWrapper>
+          <Button dataTest="SearchFormButton" submit={true}>
+            Search
+          </Button>
+        </ButtonWrapper>
+      </Form>
+    </Formik>
   );
 }
