@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { InputField } from '@kiwicom/orbit-components';
+import { warning } from '@adeira/js';
 
 type Props = {|
   +value: string,
@@ -15,10 +16,7 @@ type Props = {|
 |};
 
 export default function Input({ onChange, ...rest }: Props): React.Element<typeof InputField> {
-  if (__DEV__) {
-    // eslint-disable-next-line no-console
-    console.warn('This input field is deprecated. Please use InputField instead');
-  }
+  warning(!__DEV__, 'This input field is deprecated. Please use InputField instead');
   function change(e: SyntheticInputEvent<HTMLInputElement>) {
     onChange(e.target.value);
   }
