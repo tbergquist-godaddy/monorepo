@@ -4,7 +4,7 @@
   "private": true,
   "sideEffects": false,
   "dependencies": {
-    "@adeira/monorepo-utils": "^0.3.0",
+    "@adeira/monorepo-utils": "^0.4.0",
     "@adeira/relay": "^1.0.0",
     "@kiwicom/orbit-design-tokens": "^0.8.0",
     "@tbergq/components": "0.0.1",

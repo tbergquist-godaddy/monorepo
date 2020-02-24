@@ -19,7 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@adeira/monorepo-utils": "^0.3.0"
+    "@adeira/monorepo-utils": "^0.4.0"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^0.3.0",
