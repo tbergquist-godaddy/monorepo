@@ -12,7 +12,7 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^9.4.0"
+    "@testing-library/react": "^9.4.1"
   },
   "scripts": {
     "dev": "next"
