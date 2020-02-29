@@ -1,6 +1,6 @@
 // @flow
 
-import { graphql, commitMutation, Environment } from '@tbergq/relay';
+import { graphql, commitMutation, type RelayEnvironmentType } from '@tbergq/relay';
 
 import type {
   loginMutationVariables,
@@ -18,10 +18,10 @@ const mutation = graphql`
 `;
 
 export default function LoginMutation(
+  environment: RelayEnvironmentType,
   variables: loginMutationVariables,
   onCompleted: (response: ?loginMutationResponse, errors: ?$ReadOnlyArray<Error>) => void,
 ) {
-  const environment = Environment.getEnvironment();
   commitMutation<MutationType>(environment, {
     mutation,
     variables,
