@@ -41,7 +41,6 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue:
 experimental.const_params=true
 
 experimental.types_first=false
-experimental.minimal_merge=true
 experimental.well_formed_exports=true
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/components
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/graphql-persistence
