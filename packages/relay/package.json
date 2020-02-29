@@ -6,7 +6,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/fetch": "^1.0.1",
-    "@adeira/js": "^1.0.0",
+    "@adeira/js": "^1.1.0",
     "@adeira/relay": "^1.0.0",
     "@adeira/relay-utils": "^0.4.0",
     "@tbergq/components": "*",
