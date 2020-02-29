@@ -133,16 +133,6 @@
     glob "^7.1.6"
     is-ci "^2.0.0"
 
-"@adeira/monorepo-utils@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@adeira/monorepo-utils/-/monorepo-utils-0.3.0.tgz#e6d67d4260a6667d10a5e378da6760e2771f1e5b"
-  integrity sha512-xo/0OXRFsq7wuN1Y+AHuDP9VhOLpepRpPu+wLgkKFJnZS8opnuJFXXIP2wiGxZ56XKgGTKNi2NDd87ZbYkYNZA==
-  dependencies:
-    "@adeira/js" "^1.0.0"
-    "@babel/register" "^7.8.3"
-    glob "^7.1.6"
-    is-ci "^2.0.0"
-
 "@adeira/monorepo-utils@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@adeira/monorepo-utils/-/monorepo-utils-0.4.0.tgz#1c181ee143a07a682602f9adb61149a8cd7d760a"
@@ -169,15 +159,15 @@
     "@adeira/relay" "^0.13.0"
     "@adeira/relay-runtime" "^0.6.0"
 
-"@adeira/relay@^0.13.0", "@adeira/relay@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-1.0.0.tgz#eec0cdfcf5f55a1154febacde62b9277ca18a958"
-  integrity sha512-v/NgEVk83OfpPaUcwrP7CksVT5SGP3aj4YLzM9ymVKqZQUwH80S18FW9Cl6mUW26vg/7Dh+TE1Ktclbgtj2apg==
+"@adeira/relay@^0.13.0", "@adeira/relay@^1.0.0", "@adeira/relay@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-1.1.1.tgz#7d141a7506bfbd663ea2a2db575fd2e7801c33d5"
+  integrity sha512-57Xi8FInuh9OyJSBX2xRR2HKebyicvz/s0iO5nKYgOf0u/L9rbIhYKiUdmn5p+TtW0PNBfmyGfi5r7lZ875ZzQ==
   dependencies:
     "@adeira/fetch" "^1.0.1"
     "@adeira/js" "^1.0.0"
     "@adeira/logger" "^0.1.0"
-    "@adeira/monorepo-utils" "^0.3.0"
+    "@adeira/monorepo-utils" "^0.4.0"
     "@adeira/relay-runtime" "^0.6.0"
     "@adeira/signed-source" "^0.1.0"
     "@babel/register" "^7.8.3"
