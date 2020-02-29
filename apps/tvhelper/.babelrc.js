@@ -4,7 +4,7 @@ const plugins = [
   [
     "babel-plugin-styled-components",
     {
-      "ssr": false
+      "ssr": true
     }
   ],
   'relay',

@@ -2,24 +2,34 @@
 
 import * as React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
-import { Environment } from '@tbergq/relay';
-import { MockPayloadGenerator } from 'relay-test-utils';
+import { RelayEnvironmentProvider } from '@tbergq/relay';
+import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
 import Router from 'next/router';
 import cookie from 'js-cookie';
 
 import LoginForm from '../LoginForm';
 
+let environment;
+
+beforeEach(() => {
+  environment = createMockEnvironment();
+});
+
 describe('LoginForm', () => {
-  it('show login failed message on login error', () => {
-    const environment: any = Environment.getEnvironment();
-    const { getByTestId, getByText } = render(<LoginForm />);
+  it('show login failed message on login error', async () => {
+    const { getByTestId, getByText } = render(
+      <RelayEnvironmentProvider environment={environment}>
+        <LoginForm />
+      </RelayEnvironmentProvider>,
+    );
 
     const button = getByTestId('LoginFormSubmit');
+    await act(async () => {
+      await fireEvent.click(button);
+    });
+
     act(() => {
-      fireEvent.click(button);
-      const operation = environment.mock.getMostRecentOperation();
-      environment.mock.resolve(
-        operation,
+      environment.mock.resolveMostRecentOperation(operation =>
         MockPayloadGenerator.generate(operation, {
           LoginType: () => ({
             token: null,
@@ -32,19 +42,24 @@ describe('LoginForm', () => {
     expect(getByText('Login failed')).toBeInTheDocument();
   });
 
-  it('handles successfull login', () => {
-    const environment: any = Environment.getEnvironment();
-    const { getByTestId } = render(<LoginForm />);
+  it('handles successfull login', async () => {
+    const { getByTestId } = render(
+      <RelayEnvironmentProvider environment={environment}>
+        <LoginForm />
+      </RelayEnvironmentProvider>,
+    );
 
     const button = getByTestId('LoginFormSubmit');
     const spy = jest.spyOn(cookie, 'set').mockImplementationOnce(jest.fn());
     const push = jest.fn();
     jest.spyOn(Router, 'push').mockImplementationOnce(push);
+
+    await act(async () => {
+      await fireEvent.click(button);
+    });
+
     act(() => {
-      fireEvent.click(button);
-      const operation = environment.mock.getMostRecentOperation();
-      environment.mock.resolve(
-        operation,
+      environment.mock.resolveMostRecentOperation(operation =>
         MockPayloadGenerator.generate(operation, {
           LoginType: () => ({
             token: 'myValidToken',

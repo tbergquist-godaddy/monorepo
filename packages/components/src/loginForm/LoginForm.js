@@ -1,9 +1,10 @@
-// @flow
+// @flow strict-local
 
 import * as React from 'react';
 import styled from 'styled-components';
+import { Form, Formik, type FormikConfig } from 'formik';
 
-import Input from '../Input';
+import Input from '../InputField';
 import Button from '../Button';
 
 const ButtonWrapper = styled.div({
@@ -12,35 +13,26 @@ const ButtonWrapper = styled.div({
   marginTop: '8px',
 });
 
-type Props = {|
-  +onSubmit: (username: string, password: string) => void,
-  +loading: boolean,
-|};
+type FormType = FormikConfig<{ +username: string, +password: string }>;
 
-export default function LoginForm(props: Props): React.Element<'form'> {
-  const [username, changeUsername] = React.useState('');
-  const [password, changePassword] = React.useState('');
+type Props = {
+  +onSubmit: $PropertyType<FormType, 'onSubmit'>,
+};
 
-  function onSubmit(e: SyntheticEvent<HTMLFormElement>) {
-    e.preventDefault();
-    props.onSubmit(username, password);
-  }
-
+export default function LoginForm(props: Props): React.Element<typeof Formik> {
   return (
-    <form onSubmit={onSubmit}>
-      <Input name="username" label="Username" value={username} onChange={changeUsername} />
-      <Input
-        name="password"
-        type="password"
-        label="Password"
-        value={password}
-        onChange={changePassword}
-      />
-      <ButtonWrapper>
-        <Button loading={props.loading} submit={true} dataTest="LoginFormSubmit">
-          Login
-        </Button>
-      </ButtonWrapper>
-    </form>
+    <Formik initialValues={{ username: '', password: '' }} onSubmit={props.onSubmit}>
+      {({ isSubmitting }) => (
+        <Form>
+          <Input name="username" label="Username" />
+          <Input name="password" type="password" label="Password" />
+          <ButtonWrapper>
+            <Button loading={isSubmitting} submit={true} dataTest="LoginFormSubmit">
+              Login
+            </Button>
+          </ButtonWrapper>
+        </Form>
+      )}
+    </Formik>
   );
 }
