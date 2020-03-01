@@ -8,6 +8,9 @@ import rimraf from 'rimraf';
 import util from 'util';
 import os from 'os';
 
+import packageJson from '../package.json';
+import persistQueries from './persistQueries';
+
 const rimrafPromise = util.promisify(rimraf);
 
 const buildDir = path.join(os.tmpdir(), 'tvhelper');
@@ -17,7 +20,7 @@ const log = (...args: $ReadOnlyArray<string>) => {
   console.log(...args);
 };
 
-const thisWorkspace = '@tbergq/tvhelper';
+const thisWorkspace = packageJson.name;
 const { ZEIT_TOKEN } = process.env;
 
 if (ZEIT_TOKEN == null) {
@@ -52,12 +55,18 @@ if (ZEIT_TOKEN == null) {
     );
     // $FlowAllowDynamicImport
     const packageJson = require(path.join(buildDir, 'apps', 'tvhelper', 'package.json'));
-    packageJson.engines = { node: '10.x' };
+    packageJson.engines = { node: '12.x' };
     fs.writeFileSync(
       path.join(buildDir, 'apps', 'tvhelper', 'package.json'),
       JSON.stringify(packageJson, null, 2),
     );
     log('built to', buildDir);
+    new ShellCommand(buildDir, 'yarn', 'relay', '--persist-mode', 'fs')
+      .setOutputToScreen()
+      .runSynchronously();
+    // $FlowAllowDynamicImport
+    const persistedQueries = require(path.join(buildDir, 'persisted-queries.json'));
+    await persistQueries(persistedQueries);
     new ShellCommand(buildDir, 'now', '--prod', '--confirm', `--token=${ZEIT_TOKEN}`)
       .setOutputToScreen()
       .runSynchronously();
