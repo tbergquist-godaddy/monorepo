@@ -35,7 +35,7 @@ export default function LoginForm() {
 
   return (
     <>
-      <CommonLoginForm onSubmit={onSubmit} />
+      <CommonLoginForm action="/api/login" method="POST" onSubmit={onSubmit} />
       <Toast ref={toastRef} />
     </>
   );

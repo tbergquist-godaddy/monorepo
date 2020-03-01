@@ -24,6 +24,7 @@ export {
   Loading,
   Card,
   CardSection,
+  Alert,
 } from '@kiwicom/orbit-components';
 
 export { default as TableCell } from './src/table/TableCell';
