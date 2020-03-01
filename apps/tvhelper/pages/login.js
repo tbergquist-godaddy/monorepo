@@ -1,20 +1,35 @@
 // @flow
 
 import * as React from 'react';
-import { Link, CenterForm } from '@tbergq/components';
+import { Link, CenterForm, Alert } from '@tbergq/components';
 import { getNextToken } from '@tbergq/utils';
+import styled from 'styled-components';
 
 import Layout from '../src/components/Layout';
 import LoginForm from '../src/login/LoginForm';
 
-export default function Login() {
+const ErrorWrapper = styled.div({
+  margin: '16px 0',
+});
+
+type Props = {
+  +loginFailed: boolean,
+};
+export default function Login(props: Props) {
   return (
     <Layout isLoggedIn={false}>
       <CenterForm>
         <LoginForm />
-        <Link prefetch={true} href="/signup">
-          Don&lsquo;t have an account? Signup
-        </Link>
+        <>
+          {props.loginFailed ? (
+            <ErrorWrapper>
+              <Alert type="critical">Wrong username or password</Alert>
+            </ErrorWrapper>
+          ) : null}
+          <Link prefetch={true} href="/signup">
+            Don&lsquo;t have an account? Signup
+          </Link>
+        </>
       </CenterForm>
     </Layout>
   );
@@ -28,5 +43,7 @@ Login.getInitialProps = ctx => {
     ctx.res.end();
   }
 
-  return {};
+  return {
+    loginFailed: ctx.query.responseError != null,
+  };
 };

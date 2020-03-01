@@ -17,13 +17,15 @@ type FormType = FormikConfig<{ +username: string, +password: string }>;
 
 type Props = {
   +onSubmit: $PropertyType<FormType, 'onSubmit'>,
+  +action?: string,
+  +method?: 'GET' | 'POST',
 };
 
-export default function LoginForm(props: Props): React.Element<typeof Formik> {
+export default function LoginForm({ onSubmit, ...formProps }: Props): React.Element<typeof Formik> {
   return (
-    <Formik initialValues={{ username: '', password: '' }} onSubmit={props.onSubmit}>
+    <Formik initialValues={{ username: '', password: '' }} onSubmit={onSubmit}>
       {({ isSubmitting }) => (
-        <Form>
+        <Form {...formProps}>
           <Input name="username" label="Username" />
           <Input name="password" type="password" label="Password" />
           <ButtonWrapper>
