@@ -1,18 +1,12 @@
-// @flow
+// @flow strict-local
 
 import * as React from 'react';
 import { Layout as PageLayout, Navbar, NavLink } from '@tbergq/components';
-import { TOKEN_KEY } from '@tbergq/utils';
-import cookie from 'js-cookie';
 
 type Props = {|
   +children: React.Node,
   +isLoggedIn: boolean,
 |};
-
-const onLogout = () => {
-  cookie.remove(TOKEN_KEY);
-};
 
 export default function Layout(props: Props) {
   const loggedIn = props.isLoggedIn;
@@ -24,9 +18,7 @@ export default function Layout(props: Props) {
   const headerRight = !loggedIn ? (
     <NavLink href="/login">login</NavLink>
   ) : (
-    <NavLink href="/" onClick={onLogout}>
-      logout
-    </NavLink>
+    <NavLink href="/api/logout">logout</NavLink>
   );
   return (
     <>
