@@ -1,8 +1,6 @@
 // @flow
 
-import path from 'path';
 import fetch from '@adeira/fetch';
-import { ShellCommand } from '@adeira/monorepo-utils';
 
 const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
   createdStoredOperations(storedOperations: $storedOperations) {
@@ -13,16 +11,12 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
   }
 }`;
 
-(async () => {
-  const monorepoRoot = path.join(__dirname, '..', '..', '..');
+type PersistedQueries = {
+  +[key: string]: string,
+  ...,
+};
 
-  new ShellCommand(monorepoRoot, 'yarn', 'relay', '--persist-output', './persisted-queries.json')
-    .setOutputToScreen()
-    .runSynchronously();
-
-  // $FlowAllowDynamicImport
-  const persistedQueries = require(path.join(monorepoRoot, 'persisted-queries.json'));
-
+export default async function persistQueries(persistedQueries: PersistedQueries): Promise<void> {
   const response = await fetch('https://tbergq-graphql.now.sh/graphql/', {
     method: 'POST',
     headers: {
@@ -41,4 +35,4 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
   const json = await response.json();
   // eslint-disable-next-line no-console
   console.log(json);
-})();
+}
