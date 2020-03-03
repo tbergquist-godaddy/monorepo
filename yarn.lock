@@ -99,10 +99,10 @@
   resolved "https://registry.yarnpkg.com/@adeira/js/-/js-0.2.0.tgz#cc1459af8c114af1536b7622a55dc3b905035d13"
   integrity sha512-IoE5ScsGkabL3jrQ2mNdYwUYkwjUCHsfoV9/hOvOROwh4Y5CeoNlsNoFDKBBm5b5me8ttqwHY0lAT2LCqAP1tA==
 
-"@adeira/js@^1.0.0", "@adeira/js@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/js/-/js-1.1.0.tgz#ee2318846eb8061ca5c0f109461ac8d5bb43848b"
-  integrity sha512-QJKqA7Pea82n/Wn1wa2PK4JAfVztUhnYNZWrxt3DbvhQEqLySzAE2HZlmo5RSW+HCPdJ+ympCw/9nSL/OSEJPA==
+"@adeira/js@^1.0.0", "@adeira/js@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/js/-/js-1.2.0.tgz#f4ffb1dcd85211b7e72f869759794931b0362ffe"
+  integrity sha512-9vxQDYVLNmhLSlxivAXzhZSPQcTresrB1cQspOd2IVZx1g55tbv0ak7izvvwOPEUhe1EB3tqFKiF51l66hoRHw==
 
 "@adeira/logger@^0.1.0":
   version "0.1.0"
