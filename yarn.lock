@@ -184,12 +184,12 @@
   resolved "https://registry.yarnpkg.com/@adeira/signed-source/-/signed-source-0.1.0.tgz#133dcdc05e73544f0677c7ae6eb91a77e63bf105"
   integrity sha512-RxkGDN3q4aGENhBjUZRtj/ALwpOKuY3Y8pkZATYw6Tq1dBDyrrDf7IZDX7DNA7pZLIBMphT1bmM0vt+4enNH0A==
 
-"@adeira/test-utils@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.1.0.tgz#e0183470d29bc2799998e9a6e5df2476c49f73f2"
-  integrity sha512-mctDT9+t40+0PXk7nQq0xdTSvHS52J1bpmV36r/t6/0Rj7kQi2KB8UuFf68E8mVh2yQ9gYNUGByfYN69O3Bc9Q==
+"@adeira/test-utils@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.2.0.tgz#9e9feef7bb10968d161dcd4a568e760af25b7c50"
+  integrity sha512-RhnDtUQMNmhzQyGtjewXckGtBvn15qNOnNrIy5fnLTAY1vjowjglKpB+AXl2eq7xpkf+2k6R4J7v06NYU2HmQw==
   dependencies:
-    "@adeira/js" "^0.1.0"
+    "@adeira/js" "^1.2.0"
 
 "@ampproject/toolbox-core@^2.0.0":
   version "2.0.0"
