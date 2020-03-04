@@ -16,6 +16,6 @@
   },
   "devDependencies": {
     "mockingoose": "^2.13.2",
-    "mongodb-memory-server": "^6.2.4"
+    "mongodb-memory-server": "^6.3.2"
   }
 }
