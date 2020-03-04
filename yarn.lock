@@ -7540,10 +7540,10 @@ mockingoose@^2.13.2:
   resolved "https://registry.yarnpkg.com/mockingoose/-/mockingoose-2.13.2.tgz#32a23f4dd39542673ce7954583d89946be8abf7c"
   integrity sha512-KP+rweeXjP5P1SMoBQTS7NQG4xIZLbrlJ24dKDjuRRX3kzn+pCAg4w1e+Er6UQEoBtqjbXDM9PTbQkXUk4S7iw==
 
-mongodb-memory-server-core@6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-6.3.1.tgz#13b8404623eaab98f7b0738200cd5377a3ae1782"
-  integrity sha512-aRbRJJYAJOLbGmwOMb6ghbmGLBYrpJnEFSGhIlrAQJ+gjGLErbKsBG1CjLD9VEcjZ1/V1rPHnsrGlaGTNTmJxA==
+mongodb-memory-server-core@6.3.2:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-6.3.2.tgz#85d9abc6ecd0d58e5bacd9cdc313075d8ef91575"
+  integrity sha512-QMLYf6CIyBEjh9EyfDdISPwlmD3FEDpyQBwl0ecws4CHMcP8mrA1rw1KzhorhvfiGgSdmxnENxAO8pTzxw2EhQ==
   dependencies:
     "@types/cross-spawn" "^6.0.1"
     "@types/debug" "^4.1.5"
@@ -7574,12 +7574,12 @@ mongodb-memory-server-core@6.3.1:
   optionalDependencies:
     mongodb "^3.2.7"
 
-mongodb-memory-server@^6.2.4:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-6.3.1.tgz#505cecc6292ab56d2f9a48d4ab71e71eb072a5b3"
-  integrity sha512-S9ucLu4dLrSANqli3WOKzCQwAqj1RMia+oXoNcuSCTkbW7R1s1Ll0nH0n73Q5BPvTuLsKbMoVEgwxg+q5zGBYw==
+mongodb-memory-server@^6.3.2:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-6.3.2.tgz#486f480d7ba272f42c282e636d8834332b2836f0"
+  integrity sha512-iTwSAfmSooCkbmKoPU1iyT8RC+pCHIzk+9GCyCu7eHMst4k08+e3o4CYoFZbqOvmNLdbqsfjwWENZe7exkGd/Q==
   dependencies:
-    mongodb-memory-server-core "6.3.1"
+    mongodb-memory-server-core "6.3.2"
 
 mongodb@3.5.3:
   version "3.5.3"
