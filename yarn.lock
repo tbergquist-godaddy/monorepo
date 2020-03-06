@@ -82,12 +82,13 @@
     "@adeira/signed-source" "^0.1.0"
     chalk "^3.0.0"
 
-"@adeira/graphql-global-id@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@adeira/graphql-global-id/-/graphql-global-id-0.5.0.tgz#bca4ad2a83b87c31a6043022bdce7bc9723861db"
-  integrity sha512-MYzcSRHK0KosM3WZ/twrS8MJMtq/rGqGpJSXZeJB09YNiIlmP0Ns28vonHXAGLpqk1hPztIKlckkQG31Iauk+Q==
+"@adeira/graphql-global-id@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@adeira/graphql-global-id/-/graphql-global-id-0.6.0.tgz#6889d26f17e121556e82f1944c6b5280d7954708"
+  integrity sha512-sPXG4X3p0DqmtL2Xz5bZeLQqOeGMtqUQgYCtZPhCVef6foBUkkaa4I7nuLOhYoii1HQniKyjYDG6jzrFr5kiuQ==
   dependencies:
     "@adeira/js" "^1.2.0"
+    "@babel/runtime" "^7.8.7"
 
 "@adeira/js@^0.1.0":
   version "0.1.0"
@@ -1261,7 +1262,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.0", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.0", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.8.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.7.tgz#8fefce9802db54881ba59f90bb28719b4996324d"
   integrity sha512-+AATMUFppJDw6aiR5NVPHqIQBlV/Pj8wY/EZH+lmvRdUo9xBaz/rF3alAwFJQavvKfeOlPE7oaaDHVbcySbCsg==
