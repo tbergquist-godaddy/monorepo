@@ -5,7 +5,7 @@ import { getNextToken } from '@tbergq/utils';
 import { CenterForm } from '@tbergq/components';
 
 import SignupForm from '../src/signup/SignupForm';
-import Layout from '../src/components/Layout';
+import Layout from '../src/components/DeprecatedLayout';
 
 export default function Signup() {
   return (

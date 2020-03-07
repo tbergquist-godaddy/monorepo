@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
 
-import Layout from '../src/components/Layout';
+import Layout from '../src/components/DeprecatedLayout';
 import TvShowQuery, { tvShowQuery } from '../src/tvShow/TvShowQuery';
 
 type Props = {|

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { getNextToken } from '@tbergq/utils';
 
-import Layout from '../src/components/Layout';
+import Layout from '../src/components/DeprecatedLayout';
 import FavoriteQuery, { favoritesQuery } from '../src/favorites/FavoriteQuery';
 
 type Props = {|

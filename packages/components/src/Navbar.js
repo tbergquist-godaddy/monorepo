@@ -67,6 +67,12 @@ const BurgerButton = styled(Button)({
 
 const HeaderContainer = styled.div({
   display: 'flex',
+  '*': {
+    marginRight: '8px',
+    ':last-child': {
+      marginRight: 0,
+    },
+  },
 });
 
 const HeaderLeftContainer = styled.div({

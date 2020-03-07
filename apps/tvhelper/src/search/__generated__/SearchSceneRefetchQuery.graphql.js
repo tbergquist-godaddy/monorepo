@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 28a3d054b86ff245f0ddd77e69cee6ca
+ * @relayHash f5e43ef39a7ef42c6749c7713b63f744
  */
 
 /* eslint-disable */
@@ -8,38 +8,24 @@
 
 import type { ConcreteRequest } from 'relay-runtime';
 type SearchScene_search$ref = any;
-type SearchScene_viewer$ref = any;
-export type SearchQueryVariables = {|
+export type SearchSceneRefetchQueryVariables = {|
   query: string,
   includeResults: boolean,
 |};
-export type SearchQueryResponse = {|
-  +$fragmentRefs: SearchScene_search$ref & SearchScene_viewer$ref
+export type SearchSceneRefetchQueryResponse = {|
+  +$fragmentRefs: SearchScene_search$ref
 |};
-export type SearchQuery = {|
-  variables: SearchQueryVariables,
-  response: SearchQueryResponse,
+export type SearchSceneRefetchQuery = {|
+  variables: SearchSceneRefetchQueryVariables,
+  response: SearchSceneRefetchQueryResponse,
 |};
 
 /*
-query SearchQuery(
+query SearchSceneRefetchQuery(
   $query: String!
   $includeResults: Boolean!
 ) {
   ...SearchScene_search_1dc2Le
-  ...SearchScene_viewer
-}
-
-fragment Layout_viewer on Viewer {
-  __typename
-  ...NavbarRight_viewer
-}
-
-fragment NavbarRight_viewer on Viewer {
-  __typename
-  ... on TvHelperViewer {
-    username
-  }
 }
 
 fragment SearchResults_results on TvShowConnection {
@@ -54,13 +40,6 @@ fragment SearchResults_results on TvShowConnection {
 fragment SearchScene_search_1dc2Le on RootQuery {
   searchTvShow(query: $query) @include(if: $includeResults) {
     ...SearchResults_results
-  }
-}
-
-fragment SearchScene_viewer on RootQuery {
-  viewer {
-    __typename
-    ...Layout_viewer
   }
 }
 
@@ -107,7 +86,7 @@ return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "SearchQuery",
+    "name": "SearchSceneRefetchQuery",
     "type": "RootQuery",
     "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
@@ -123,50 +102,14 @@ return {
           },
           (v1/*: any*/)
         ]
-      },
-      {
-        "kind": "FragmentSpread",
-        "name": "SearchScene_viewer",
-        "args": null
       }
     ]
   },
   "operation": {
     "kind": "Operation",
-    "name": "SearchQuery",
+    "name": "SearchSceneRefetchQuery",
     "argumentDefinitions": (v0/*: any*/),
     "selections": [
-      {
-        "kind": "LinkedField",
-        "alias": null,
-        "name": "viewer",
-        "storageKey": null,
-        "args": null,
-        "concreteType": null,
-        "plural": false,
-        "selections": [
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "__typename",
-            "args": null,
-            "storageKey": null
-          },
-          {
-            "kind": "InlineFragment",
-            "type": "TvHelperViewer",
-            "selections": [
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "name": "username",
-                "args": null,
-                "storageKey": null
-              }
-            ]
-          }
-        ]
-      },
       {
         "kind": "Condition",
         "passingValue": true,
@@ -254,13 +197,13 @@ return {
   },
   "params": {
     "operationKind": "query",
-    "name": "SearchQuery",
+    "name": "SearchSceneRefetchQuery",
     "id": null,
-    "text": "query SearchQuery(\n  $query: String!\n  $includeResults: Boolean!\n) {\n  ...SearchScene_search_1dc2Le\n  ...SearchScene_viewer\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowListItem_data\n    }\n  }\n}\n\nfragment SearchScene_search_1dc2Le on RootQuery {\n  searchTvShow(query: $query) @include(if: $includeResults) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchScene_viewer on RootQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n  }\n}\n\nfragment TvShowListItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n",
+    "text": "query SearchSceneRefetchQuery(\n  $query: String!\n  $includeResults: Boolean!\n) {\n  ...SearchScene_search_1dc2Le\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowListItem_data\n    }\n  }\n}\n\nfragment SearchScene_search_1dc2Le on RootQuery {\n  searchTvShow(query: $query) @include(if: $includeResults) {\n    ...SearchResults_results\n  }\n}\n\nfragment TvShowListItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '38c4fb85307e97756f3cda7a4ab0fd3a';
+(node: any).hash = 'a77a4d177df5ce792299004b3916c280';
 export default node;
