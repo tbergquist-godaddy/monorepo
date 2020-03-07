@@ -10,6 +10,17 @@ Object {
 }
 `;
 
+exports[`renders TVHViewer type 1`] = `
+Object {
+  "data": Object {
+    "viewer": Object {
+      "__typename": "TvHelperViewer",
+      "username": "tito",
+    },
+  },
+}
+`;
+
 exports[`renders Unautorized type 1`] = `
 Object {
   "data": Object {
