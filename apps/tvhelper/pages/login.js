@@ -5,7 +5,7 @@ import { Link, CenterForm, Alert } from '@tbergq/components';
 import { getNextToken } from '@tbergq/utils';
 import styled from 'styled-components';
 
-import Layout from '../src/components/Layout';
+import Layout from '../src/components/DeprecatedLayout';
 import LoginForm from '../src/login/LoginForm';
 
 const ErrorWrapper = styled.div({

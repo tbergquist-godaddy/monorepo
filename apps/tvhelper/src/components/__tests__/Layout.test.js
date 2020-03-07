@@ -2,43 +2,77 @@
 
 import * as React from 'react';
 import { render } from '@testing-library/react';
+import { QueryRenderer, graphql } from '@tbergq/relay';
+import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
 
 import Layout from '../Layout';
 
-it('does not render favorites link when not logged in', () => {
-  const { queryByText } = render(
-    <Layout isLoggedIn={false}>
-      <div />
-    </Layout>,
+let environment;
+
+beforeEach(() => {
+  environment = createMockEnvironment();
+});
+
+const TestRenderer = () => {
+  return (
+    <QueryRenderer
+      environment={environment}
+      query={graphql`
+        query LayoutTestQuery @relay_test_operation {
+          viewer {
+            ...Layout_viewer
+          }
+        }
+      `}
+      variables={{}}
+      render={props => (
+        <Layout viewer={props.viewer}>
+          <div />
+        </Layout>
+      )}
+    />
   );
-  expect(queryByText('Favorites')).toBeNull();
+};
+
+it('does not render favorites link when not logged in', () => {
+  const { queryByText } = render(<TestRenderer />);
+  environment.mock.resolveMostRecentOperation(operation =>
+    MockPayloadGenerator.generate(operation, {
+      Viewer: () => ({ __typename: 'Unauthorized' }),
+    }),
+  );
+
+  expect(queryByText('Favorites')).not.toBeInTheDocument();
 });
 
 it('renders favorites link when logged in', () => {
-  const { getByText } = render(
-    <Layout isLoggedIn={true}>
-      <div />
-    </Layout>,
+  const { getByText } = render(<TestRenderer />);
+  environment.mock.resolveMostRecentOperation(operation =>
+    MockPayloadGenerator.generate(operation, {
+      Viewer: () => ({ __typename: 'TvHelperViewer' }),
+    }),
   );
-  expect(getByText('Favorites')).not.toBeNull();
+  expect(getByText('Favorites')).toBeInTheDocument();
 });
 
 it('renders login link when not logged in', () => {
-  const { getByText, queryByText } = render(
-    <Layout isLoggedIn={false}>
-      <div />
-    </Layout>,
+  const { getByText, queryByText } = render(<TestRenderer />);
+  environment.mock.resolveMostRecentOperation(operation =>
+    MockPayloadGenerator.generate(operation, {
+      Viewer: () => ({ __typename: 'Unauthorized' }),
+    }),
   );
-  expect(getByText('login')).not.toBeNull();
-  expect(queryByText('logout')).toBeNull();
+  expect(getByText('login')).toBeInTheDocument();
+  expect(queryByText('logout')).not.toBeInTheDocument();
 });
 
 it('renders logout link when logged in', () => {
-  const { queryByText, getByText } = render(
-    <Layout isLoggedIn={true}>
-      <div />
-    </Layout>,
+  const { queryByText, getByText } = render(<TestRenderer />);
+  environment.mock.resolveMostRecentOperation(operation =>
+    MockPayloadGenerator.generate(operation, {
+      Viewer: () => ({ __typename: 'TvHelperViewer' }),
+    }),
   );
-  expect(queryByText('login')).toBeNull();
-  expect(getByText('logout')).not.toBeNull();
+  expect(queryByText('login')).not.toBeInTheDocument();
+  expect(getByText('logout')).toBeInTheDocument();
 });
