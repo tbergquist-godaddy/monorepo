@@ -1,4 +1,4 @@
-# @generated SignedSource<<e05683b2c36c807ea51cb2c914d5eb25>>
+# @generated SignedSource<<8cd5aa9bb93b0dfe31845d7b9f9ee925>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -31,6 +31,19 @@ type Cast {
   """
   id(opaque: Boolean = true): ID!
   person: Person
+}
+
+"""Response type indicating an error"""
+type ChangePasswordError implements Error {
+  isInvalidPassword: Boolean
+  message: String
+}
+
+union ChangePasswordOrError = ChangePasswordError | ChangePasswordResponse
+
+"""Response indicating that the password was changed"""
+type ChangePasswordResponse {
+  success: Boolean
 }
 
 """The return type for create exercise mutation"""
@@ -115,6 +128,11 @@ type Episode {
 type EpisodeWatched {
   episode: Episode
   success: Boolean
+}
+
+"""Interface to describe an error"""
+interface Error {
+  message: String
 }
 
 """An exercise in the trainingjournal app"""
@@ -260,6 +278,7 @@ type RootMutation {
   """Login to trainingjournal application"""
   trainingJournalLogin(password: String!, username: String!): LoginType
   tvHelperLogin(password: String!, username: String!): LoginType
+  tvhHelperChangePassword(newPassword: String!, password: String!, username: String!): ChangePasswordOrError
 }
 
 """Root Query"""
