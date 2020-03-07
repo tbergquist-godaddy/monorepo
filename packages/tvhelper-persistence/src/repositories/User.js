@@ -1,6 +1,6 @@
 // @flow
 
-import { generate } from 'password-hash';
+import { generate, verify } from 'password-hash';
 
 import UserModel from '../models/UserModel';
 import User from '../dataObjects/User';
@@ -29,5 +29,15 @@ export default class UserRepository {
       ...rest,
     });
     return new User(addedUser);
+  }
+
+  static async changePassword(username: string, password: string, newPassword: string) {
+    const user = await UserModel.findOne({ username });
+    if (verify(password, user.password)) {
+      user.password = generate(newPassword);
+      await user.save();
+      return new User(user);
+    }
+    throw new Error('Wrong password');
   }
 }
