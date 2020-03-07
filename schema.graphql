@@ -1,4 +1,4 @@
-# @generated SignedSource<<8cd5aa9bb93b0dfe31845d7b9f9ee925>>
+# @generated SignedSource<<2de2b7ff3e0df3b1e80f66f1031dad11>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -355,6 +355,17 @@ type TvHelperImage {
   original: String
 }
 
+"""The viewer object for the current logged in user in tvhelper app"""
+type TvHelperViewer {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  username: String
+}
+
 """Information about a tv show"""
 type TvShow {
   cast: [Cast]
@@ -406,4 +417,4 @@ type Unauthorized {
   message: String
 }
 
-union Viewer = TraningJournalViewer | Unauthorized
+union Viewer = TraningJournalViewer | TvHelperViewer | Unauthorized
