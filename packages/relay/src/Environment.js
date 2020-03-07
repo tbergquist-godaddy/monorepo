@@ -1,10 +1,7 @@
 // @flow
 
-import { QueryResponseCache } from 'relay-runtime';
 import fetch from '@adeira/fetch';
 import { createEnvironment, type RecordMap } from '@adeira/relay';
-
-const cache = new QueryResponseCache({ size: 100, ttl: 1000 * 60 * 60 * 15 }); // 15 minutes
 
 const getBody = (operation, variables) => {
   if (operation.id) {
@@ -21,13 +18,6 @@ const getBody = (operation, variables) => {
 
 export const createRelayEnvironment = (token: ?string, initialData: ?RecordMap) => {
   const fetchFn = async (operation, variables) => {
-    const queryId = operation.name;
-
-    const cachedData = cache.get(queryId, variables);
-    if (cachedData != null) {
-      return cachedData;
-    }
-
     const res = await fetch('https://tbergq-graphql.now.sh/graphql/', {
       method: 'POST',
       headers: {
@@ -38,18 +28,13 @@ export const createRelayEnvironment = (token: ?string, initialData: ?RecordMap) 
     });
     const data = await res.json();
 
-    cache.set(queryId, variables, data);
-
-    if (operation.operationKind === 'mutation') {
-      cache.clear();
-    }
-
     return data;
   };
 
   const env = createEnvironment({
     fetchFn,
     records: initialData,
+    gcReleaseBufferSize: 50,
   });
 
   return env;
@@ -66,7 +51,6 @@ class Environment {
 
     this.#environment = createRelayEnvironment(token, initialData);
     this.#token = token;
-    cache.clear();
     return this.#environment;
   }
 }
