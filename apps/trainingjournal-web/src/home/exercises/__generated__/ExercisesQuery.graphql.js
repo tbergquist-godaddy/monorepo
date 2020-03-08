@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 2ec52874e5e4910681afa0719ef519c9
+ * @relayHash 651b69483fd044aac608e2b094d5e66c
  */
 
 /* eslint-disable */
@@ -26,6 +26,12 @@ query ExercisesQuery {
     __typename
     ...AddExerciseForm_user
     ...ExerciseList_exercises
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -252,6 +258,13 @@ return {
                 "filters": null
               }
             ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
+            "selections": [
+              (v1/*: any*/)
+            ]
           }
         ]
       }
@@ -261,7 +274,7 @@ return {
     "operationKind": "query",
     "name": "ExercisesQuery",
     "id": null,
-    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ...ExerciseList_exercises\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
+    "text": "query ExercisesQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ...ExerciseList_exercises\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

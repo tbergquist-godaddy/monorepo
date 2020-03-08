@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 1b7e5ba9843f8f45e0653f7b16cca7b8
+ * @relayHash 5e3db58898d95c0e69c91bef545e0c29
  */
 
 /* eslint-disable */
@@ -24,6 +24,12 @@ query LayoutTestQuery {
   viewer {
     __typename
     ...Layout_viewer
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -40,7 +46,15 @@ fragment NavbarRight_viewer on Viewer {
 }
 */
 
-const node: ConcreteRequest = {
+const node: ConcreteRequest = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
@@ -98,7 +112,15 @@ const node: ConcreteRequest = {
                 "name": "username",
                 "args": null,
                 "storageKey": null
-              }
+              },
+              (v0/*: any*/)
+            ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TraningJournalViewer",
+            "selections": [
+              (v0/*: any*/)
             ]
           }
         ]
@@ -109,7 +131,7 @@ const node: ConcreteRequest = {
     "operationKind": "query",
     "name": "LayoutTestQuery",
     "id": null,
-    "text": "query LayoutTestQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
+    "text": "query LayoutTestQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -124,6 +146,12 @@ const node: ConcreteRequest = {
           "plural": false,
           "nullable": false
         },
+        "viewer.id": {
+          "type": "ID",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
         "viewer.username": {
           "type": "String",
           "enumValues": null,
@@ -134,6 +162,7 @@ const node: ConcreteRequest = {
     }
   }
 };
+})();
 // prettier-ignore
 (node: any).hash = 'e152ead61ed188bfaea72c3f5b9d15a5';
 export default node;

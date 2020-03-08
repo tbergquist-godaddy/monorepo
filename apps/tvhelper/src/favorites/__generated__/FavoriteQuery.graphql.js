@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 0b31c6df69b60636a67e405d6b1571d9
+ * @relayHash 3a4f6a205f4b298a5de7dfd3a02a4d2e
  */
 
 /* eslint-disable */
@@ -26,6 +26,12 @@ query FavoriteQuery {
     __typename
     ...Layout_viewer
     ...FavoritesTable_favorites
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -61,7 +67,15 @@ fragment NavbarRight_viewer on Viewer {
 }
 */
 
-const node: ConcreteRequest = {
+const node: ConcreteRequest = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
@@ -161,13 +175,7 @@ const node: ConcreteRequest = {
                         "concreteType": "TvShow",
                         "plural": false,
                         "selections": [
-                          {
-                            "kind": "ScalarField",
-                            "alias": null,
-                            "name": "id",
-                            "args": null,
-                            "storageKey": null
-                          },
+                          (v0/*: any*/),
                           {
                             "kind": "ScalarField",
                             "alias": null,
@@ -201,7 +209,15 @@ const node: ConcreteRequest = {
                     ]
                   }
                 ]
-              }
+              },
+              (v0/*: any*/)
+            ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TraningJournalViewer",
+            "selections": [
+              (v0/*: any*/)
             ]
           }
         ]
@@ -212,10 +228,11 @@ const node: ConcreteRequest = {
     "operationKind": "query",
     "name": "FavoriteQuery",
     "id": null,
-    "text": "query FavoriteQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...FavoritesTable_favorites\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
+    "text": "query FavoriteQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...FavoritesTable_favorites\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
     "metadata": {}
   }
 };
+})();
 // prettier-ignore
 (node: any).hash = 'ae33effafe556bdb4e13d1553ab9afb6';
 export default node;

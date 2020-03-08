@@ -4,6 +4,7 @@ import { GraphQLObjectType } from 'graphql';
 
 import TvhelperQueries from './tvhelper/TvhelperQueries';
 import viewer from './common/queries/Viewer';
+import { nodeField } from './node/node';
 
 export default new GraphQLObjectType({
   name: 'RootQuery',
@@ -11,5 +12,6 @@ export default new GraphQLObjectType({
   fields: {
     ...TvhelperQueries,
     viewer,
+    node: nodeField,
   },
 });

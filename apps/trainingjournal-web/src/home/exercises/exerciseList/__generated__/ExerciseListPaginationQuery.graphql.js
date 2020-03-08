@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash f6599cb067e234b57119b8f4f8e70cb1
+ * @relayHash 733036dac38b2581d553f78fa643d228
  */
 
 /* eslint-disable */
@@ -30,6 +30,12 @@ query ExerciseListPaginationQuery(
   viewer {
     __typename
     ...ExerciseList_exercises_kPtUz
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -272,6 +278,13 @@ return {
                 "filters": null
               }
             ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
+            "selections": [
+              (v3/*: any*/)
+            ]
           }
         ]
       }
@@ -281,7 +294,7 @@ return {
     "operationKind": "query",
     "name": "ExerciseListPaginationQuery",
     "id": null,
-    "text": "query ExerciseListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  viewer {\n    __typename\n    ...ExerciseList_exercises_kPtUz\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises_kPtUz on TraningJournalViewer {\n  id\n  exercises(first: $count, after: $cursor) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
+    "text": "query ExerciseListPaginationQuery(\n  $count: Int\n  $cursor: String\n) {\n  viewer {\n    __typename\n    ...ExerciseList_exercises_kPtUz\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises_kPtUz on TraningJournalViewer {\n  id\n  exercises(first: $count, after: $cursor) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

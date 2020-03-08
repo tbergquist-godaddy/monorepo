@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash af0530aa762b7d08a84b1ffdc8bf2445
+ * @relayHash f5b2e73867fecd32c88947128d5b20aa
  */
 
 /* eslint-disable */
@@ -24,6 +24,12 @@ query AddProgramFormTestQuery {
   viewer {
     __typename
     ...AddProgramForm_user
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -32,7 +38,17 @@ fragment AddProgramForm_user on TraningJournalViewer {
 }
 */
 
-const node: ConcreteRequest = {
+const node: ConcreteRequest = (function(){
+var v0 = [
+  {
+    "kind": "ScalarField",
+    "alias": null,
+    "name": "id",
+    "args": null,
+    "storageKey": null
+  }
+];
+return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
@@ -83,15 +99,12 @@ const node: ConcreteRequest = {
           {
             "kind": "InlineFragment",
             "type": "TraningJournalViewer",
-            "selections": [
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "name": "id",
-                "args": null,
-                "storageKey": null
-              }
-            ]
+            "selections": (v0/*: any*/)
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
+            "selections": (v0/*: any*/)
           }
         ]
       }
@@ -101,7 +114,7 @@ const node: ConcreteRequest = {
     "operationKind": "query",
     "name": "AddProgramFormTestQuery",
     "id": null,
-    "text": "query AddProgramFormTestQuery {\n  viewer {\n    __typename\n    ...AddProgramForm_user\n  }\n}\n\nfragment AddProgramForm_user on TraningJournalViewer {\n  id\n}\n",
+    "text": "query AddProgramFormTestQuery {\n  viewer {\n    __typename\n    ...AddProgramForm_user\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddProgramForm_user on TraningJournalViewer {\n  id\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -114,12 +127,13 @@ const node: ConcreteRequest = {
           "type": "ID",
           "enumValues": null,
           "plural": false,
-          "nullable": false
+          "nullable": true
         }
       }
     }
   }
 };
+})();
 // prettier-ignore
 (node: any).hash = '17306662c4cc95cfaae904f3a564d629';
 export default node;

@@ -18,10 +18,13 @@ import Episode from '../../../episode/types/output/Episode';
 import { resolvePreviousEpisode, resolveNextEpisode } from '../../resolvers/episodeResolvers';
 import type { GraphqlContextType } from '../../../../services/createGraphqlContext';
 import Network from './Network';
+import { nodeInterface } from '../../../../node/node';
+import { register } from '../../../../node/typeStore';
 
-export default new GraphQLObjectType({
+const TvShowEntity = new GraphQLObjectType({
   name: 'TvShow',
   description: 'Information about a tv show',
+  interfaces: [nodeInterface],
   fields: {
     id: GlobalID(({ id }) => id),
     name: {
@@ -84,3 +87,9 @@ export default new GraphQLObjectType({
     },
   },
 });
+
+register('TvShow', TvShowEntity, (id, context) => {
+  return context.dataLoader.tvhelper.tvDetail.load(id);
+});
+
+export default TvShowEntity;

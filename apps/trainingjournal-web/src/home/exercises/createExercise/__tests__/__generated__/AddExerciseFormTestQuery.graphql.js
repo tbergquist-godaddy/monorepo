@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 90985bdf1016b1031ef4c502cc801be6
+ * @relayHash f68ad7a5e6ec2da3910ace76bd844dcb
  */
 
 /* eslint-disable */
@@ -45,6 +45,10 @@ query AddExerciseFormTestQuery {
           hasNextPage
         }
       }
+      id
+    }
+    ... on TvHelperViewer {
+      id
     }
   }
 }
@@ -225,6 +229,13 @@ return {
                 "filters": null
               }
             ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
+            "selections": [
+              (v0/*: any*/)
+            ]
           }
         ]
       }
@@ -234,7 +245,7 @@ return {
     "operationKind": "query",
     "name": "AddExerciseFormTestQuery",
     "id": null,
-    "text": "query AddExerciseFormTestQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ... on TraningJournalViewer {\n      exercises(first: 1) {\n        edges {\n          node {\n            id\n            __typename\n          }\n          cursor\n        }\n        pageInfo {\n          endCursor\n          hasNextPage\n        }\n      }\n    }\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n",
+    "text": "query AddExerciseFormTestQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ... on TraningJournalViewer {\n      exercises(first: 1) {\n        edges {\n          node {\n            id\n            __typename\n          }\n          cursor\n        }\n        pageInfo {\n          endCursor\n          hasNextPage\n        }\n      }\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n",
     "metadata": {
       "connection": [
         {
