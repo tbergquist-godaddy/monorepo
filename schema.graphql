@@ -1,4 +1,4 @@
-# @generated SignedSource<<a9e98815ee6add373f51afbbbfd361f0>>
+# @generated SignedSource<<80775684049f4f68649b0f827e8589b7>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -8,6 +8,7 @@
 #  FIELD_CHANGED_KIND: RootMutation.createExercise changed type from ExericseEdge to ExerciseEdge.
 #  FIELD_CHANGED_KIND: RootMutation.createExercise changed type from ExerciseEdge to CreateExercise.
 #  FIELD_REMOVED: RootQuery.favorites was removed.
+#  FIELD_REMOVED: RootQuery.tvShowDetail was removed.
 # </BREAKING-CHANGES-LOG>
 
 schema {
@@ -301,9 +302,6 @@ type RootQuery {
 
   """Search for tv shows by name"""
   searchTvShow(after: String, before: String, first: Int, last: Int, query: String!): TvShowConnection
-
-  """Tv show lookup by id"""
-  tvShowDetail(id: ID!): TvShow @deprecated(reason: "Use node query instead")
 
   """User context"""
   viewer: Viewer

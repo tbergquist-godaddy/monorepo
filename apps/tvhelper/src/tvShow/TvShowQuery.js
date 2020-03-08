@@ -16,7 +16,7 @@ export const tvShowQuery = graphql`
     viewer {
       ...Layout_viewer
     }
-    tvShowDetail(id: $id) {
+    node(id: $id) {
       ...TvShowPage_tvShow
     }
   }
@@ -25,7 +25,7 @@ export const tvShowQuery = graphql`
 function renderQuery(props: TvShowQueryResponse) {
   return (
     <Layout viewer={props.viewer}>
-      <TvShowPage tvShow={props.tvShowDetail} />
+      <TvShowPage tvShow={props.node} />
     </Layout>
   );
 }

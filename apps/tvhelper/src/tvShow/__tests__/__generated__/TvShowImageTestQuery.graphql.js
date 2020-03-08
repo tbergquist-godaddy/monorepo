@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 3655f11b81d59d9de14ffefe262d94b2
+ * @relayHash 1536d83f82bd8db35e1cf9052112ceae
  */
 
 /* eslint-disable */
@@ -12,7 +12,7 @@ export type TvShowImageTestQueryVariables = {|
   id: string
 |};
 export type TvShowImageTestQueryResponse = {|
-  +tvShowDetail: ?{|
+  +node: ?{|
     +$fragmentRefs: TvShowImage_tvShow$ref
   |}
 |};
@@ -25,7 +25,8 @@ export type TvShowImageTestQuery = {|
 query TvShowImageTestQuery(
   $id: ID!
 ) {
-  tvShowDetail(id: $id) {
+  node(id: $id) {
+    __typename
     ...TvShowImage_tvShow
     id
   }
@@ -83,10 +84,10 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "tvShowDetail",
+        "name": "node",
         "storageKey": null,
         "args": (v1/*: any*/),
-        "concreteType": "TvShow",
+        "concreteType": null,
         "plural": false,
         "selections": [
           {
@@ -106,45 +107,58 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "tvShowDetail",
+        "name": "node",
         "storageKey": null,
         "args": (v1/*: any*/),
-        "concreteType": "TvShow",
+        "concreteType": null,
         "plural": false,
         "selections": [
-          (v2/*: any*/),
           {
             "kind": "ScalarField",
             "alias": null,
-            "name": "name",
+            "name": "__typename",
             "args": null,
             "storageKey": null
           },
+          (v2/*: any*/),
           {
-            "kind": "LinkedField",
-            "alias": null,
-            "name": "image",
-            "storageKey": null,
-            "args": null,
-            "concreteType": "TvHelperImage",
-            "plural": false,
+            "kind": "InlineFragment",
+            "type": "TvShow",
             "selections": [
               {
                 "kind": "ScalarField",
                 "alias": null,
-                "name": "original",
+                "name": "name",
                 "args": null,
                 "storageKey": null
               },
-              (v2/*: any*/)
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "name": "image",
+                "storageKey": null,
+                "args": null,
+                "concreteType": "TvHelperImage",
+                "plural": false,
+                "selections": [
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "original",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  (v2/*: any*/)
+                ]
+              },
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "isFavorite",
+                "args": null,
+                "storageKey": null
+              }
             ]
-          },
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "isFavorite",
-            "args": null,
-            "storageKey": null
           }
         ]
       }
@@ -154,36 +168,36 @@ return {
     "operationKind": "query",
     "name": "TvShowImageTestQuery",
     "id": null,
-    "text": "query TvShowImageTestQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowImage_tvShow\n    id\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n",
+    "text": "query TvShowImageTestQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...TvShowImage_tvShow\n    id\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
-        "tvShowDetail": {
-          "type": "TvShow",
+        "node": {
+          "type": "Node",
           "enumValues": null,
           "plural": false,
           "nullable": true
         },
-        "tvShowDetail.id": {
+        "node.id": {
           "type": "ID",
           "enumValues": null,
           "plural": false,
           "nullable": false
         },
-        "tvShowDetail.name": (v3/*: any*/),
-        "tvShowDetail.image": {
+        "node.name": (v3/*: any*/),
+        "node.image": {
           "type": "TvHelperImage",
           "enumValues": null,
           "plural": false,
           "nullable": true
         },
-        "tvShowDetail.isFavorite": {
+        "node.isFavorite": {
           "type": "Boolean",
           "enumValues": null,
           "plural": false,
           "nullable": true
         },
-        "tvShowDetail.image.original": (v3/*: any*/),
-        "tvShowDetail.image.id": {
+        "node.image.original": (v3/*: any*/),
+        "node.image.id": {
           "type": "ID",
           "enumValues": null,
           "plural": false,
@@ -195,5 +209,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = '905bcdabf2e5d05d18640f94de3afc9c';
+(node: any).hash = '2f1b739e930c96736592386597507480';
 export default node;
