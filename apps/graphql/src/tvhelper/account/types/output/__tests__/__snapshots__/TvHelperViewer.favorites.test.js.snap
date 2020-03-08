@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders TJViewer type 1`] = `
+Object {
+  "data": Object {
+    "viewer": Object {
+      "favorites": Object {
+        "edges": Array [
+          Object {
+            "node": Object {
+              "id": "VHZTaG93OjY",
+              "name": "The 100",
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;

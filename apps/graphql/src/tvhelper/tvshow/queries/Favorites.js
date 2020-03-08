@@ -26,6 +26,7 @@ type Args = {
 export default {
   type: TvShowConnection,
   description: 'Get your favorites',
+  deprecationReason: 'Use favorites on viewer instead',
   args: {
     ...connectionArgs,
     options: {
