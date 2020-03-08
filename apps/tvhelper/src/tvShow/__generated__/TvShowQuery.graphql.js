@@ -1,20 +1,24 @@
 /**
  * @flow
- * @relayHash 56693012412a3952451c50897d48e86b
+ * @relayHash b5c7a7fe2eaad6f3ec2260c41cd7684e
  */
 
 /* eslint-disable */
 // flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
+type Layout_viewer$ref = any;
 type TvShowPage_tvShow$ref = any;
 export type TvShowQueryVariables = {|
   id: string
 |};
 export type TvShowQueryResponse = {|
+  +viewer: ?{|
+    +$fragmentRefs: Layout_viewer$ref
+  |},
   +tvShowDetail: ?{|
     +$fragmentRefs: TvShowPage_tvShow$ref
-  |}
+  |},
 |};
 export type TvShowQuery = {|
   variables: TvShowQueryVariables,
@@ -25,6 +29,10 @@ export type TvShowQuery = {|
 query TvShowQuery(
   $id: ID!
 ) {
+  viewer {
+    __typename
+    ...Layout_viewer
+  }
   tvShowDetail(id: $id) {
     ...TvShowPage_tvShow
     id
@@ -45,6 +53,18 @@ fragment Episodes_episodes on TvShow {
     id
     seasonAndNumber
     ...Episode_episode
+  }
+}
+
+fragment Layout_viewer on Viewer {
+  __typename
+  ...NavbarRight_viewer
+}
+
+fragment NavbarRight_viewer on Viewer {
+  __typename
+  ... on TvHelperViewer {
+    username
   }
 }
 
@@ -112,6 +132,22 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
+        "name": "viewer",
+        "storageKey": null,
+        "args": null,
+        "concreteType": null,
+        "plural": false,
+        "selections": [
+          {
+            "kind": "FragmentSpread",
+            "name": "Layout_viewer",
+            "args": null
+          }
+        ]
+      },
+      {
+        "kind": "LinkedField",
+        "alias": null,
         "name": "tvShowDetail",
         "storageKey": null,
         "args": (v1/*: any*/),
@@ -132,6 +168,37 @@ return {
     "name": "TvShowQuery",
     "argumentDefinitions": (v0/*: any*/),
     "selections": [
+      {
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "viewer",
+        "storageKey": null,
+        "args": null,
+        "concreteType": null,
+        "plural": false,
+        "selections": [
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "__typename",
+            "args": null,
+            "storageKey": null
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
+            "selections": [
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "username",
+                "args": null,
+                "storageKey": null
+              }
+            ]
+          }
+        ]
+      },
       {
         "kind": "LinkedField",
         "alias": null,
@@ -244,11 +311,11 @@ return {
     "operationKind": "query",
     "name": "TvShowQuery",
     "id": null,
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n",
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n  }\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '604e2e93c43e675377ac6f78630ecaac';
+(node: any).hash = '670ad60534944fbb367afe6c2aab3a2c';
 export default node;
