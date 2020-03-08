@@ -14,7 +14,7 @@ function NavbarRight(props: Props) {
   if (props.viewer?.__typename === 'TvHelperViewer') {
     return (
       <>
-        <NavLink href="/favorites">Hello {props.viewer.username}</NavLink>
+        <NavLink href="/account">Hello {props.viewer.username}</NavLink>
         <NavLink href="/api/logout">logout</NavLink>
       </>
     );
