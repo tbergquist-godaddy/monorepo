@@ -1,4 +1,4 @@
-# @generated SignedSource<<3536bd673cf2428b6e1efbc71a0ba964>>
+# @generated SignedSource<<158ea7afa748a78c70ab9dc832424b77>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -7,6 +7,7 @@
 #  FIELD_CHANGED_KIND: TraningJournalViewer.exercises changed type from ExericseConnection to ExerciseConnection.
 #  FIELD_CHANGED_KIND: RootMutation.createExercise changed type from ExericseEdge to ExerciseEdge.
 #  FIELD_CHANGED_KIND: RootMutation.createExercise changed type from ExerciseEdge to CreateExercise.
+#  FIELD_REMOVED: RootQuery.favorites was removed.
 # </BREAKING-CHANGES-LOG>
 
 schema {
@@ -285,9 +286,6 @@ type RootMutation {
 type RootQuery {
   """Load episode by id"""
   episode(id: ID!): Episode
-
-  """Get your favorites"""
-  favorites(after: String, before: String, first: Int, last: Int, options: SortOptions = {sortBy: NAME, sortDirection: ASC}): TvShowConnection @deprecated(reason: "Use favorites on viewer instead")
 
   """Search for tv shows by name"""
   searchTvShow(after: String, before: String, first: Int, last: Int, query: String!): TvShowConnection
