@@ -63,7 +63,7 @@ const refetchPayload = {
 };
 
 const renderer = props => {
-  return <FavoritesTable favorites={props} />;
+  return <FavoritesTable favorites={props.viewer} />;
 };
 let environment;
 
@@ -71,7 +71,9 @@ const TestRenderer = () => (
   <QueryRenderer
     query={graphql`
       query FavoritesTableTestQuery @relay_test_operation {
-        ...FavoritesTable_favorites
+        viewer {
+          ...FavoritesTable_favorites
+        }
       }
     `}
     render={renderer}

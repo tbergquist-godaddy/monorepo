@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash bdd0ad4e4287ed74bc367c7ad1ba9467
+ * @relayHash a7067fa0e51febc06a07a4a253ff7828
  */
 
 /* eslint-disable */
@@ -10,7 +10,9 @@ import type { ConcreteRequest } from 'relay-runtime';
 type FavoritesTable_favorites$ref = any;
 export type FavoritesTableTestQueryVariables = {||};
 export type FavoritesTableTestQueryResponse = {|
-  +$fragmentRefs: FavoritesTable_favorites$ref
+  +viewer: ?{|
+    +$fragmentRefs: FavoritesTable_favorites$ref
+  |}
 |};
 export type FavoritesTableTestQuery = {|
   variables: FavoritesTableTestQueryVariables,
@@ -19,7 +21,10 @@ export type FavoritesTableTestQuery = {|
 
 /*
 query FavoritesTableTestQuery {
-  ...FavoritesTable_favorites
+  viewer {
+    __typename
+    ...FavoritesTable_favorites
+  }
 }
 
 fragment FavoriteItem_favorite on TvShow {
@@ -30,7 +35,7 @@ fragment FavoriteItem_favorite on TvShow {
   status
 }
 
-fragment FavoritesTable_favorites on RootQuery {
+fragment FavoritesTable_favorites on TvHelperViewer {
   favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {
     edges {
       node {
@@ -65,9 +70,20 @@ return {
     "argumentDefinitions": [],
     "selections": [
       {
-        "kind": "FragmentSpread",
-        "name": "FavoritesTable_favorites",
-        "args": null
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "viewer",
+        "storageKey": null,
+        "args": null,
+        "concreteType": null,
+        "plural": false,
+        "selections": [
+          {
+            "kind": "FragmentSpread",
+            "name": "FavoritesTable_favorites",
+            "args": null
+          }
+        ]
       }
     ]
   },
@@ -79,73 +95,97 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "favorites",
-        "storageKey": "favorites(options:{\"sortBy\":\"PREVIOUS_EPISODE\",\"sortDirection\":\"DESC\"})",
-        "args": [
-          {
-            "kind": "Literal",
-            "name": "options",
-            "value": {
-              "sortBy": "PREVIOUS_EPISODE",
-              "sortDirection": "DESC"
-            }
-          }
-        ],
-        "concreteType": "TvShowConnection",
+        "name": "viewer",
+        "storageKey": null,
+        "args": null,
+        "concreteType": null,
         "plural": false,
         "selections": [
           {
-            "kind": "LinkedField",
+            "kind": "ScalarField",
             "alias": null,
-            "name": "edges",
-            "storageKey": null,
+            "name": "__typename",
             "args": null,
-            "concreteType": "TvShowEdge",
-            "plural": true,
+            "storageKey": null
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
             "selections": [
               {
                 "kind": "LinkedField",
                 "alias": null,
-                "name": "node",
-                "storageKey": null,
-                "args": null,
-                "concreteType": "TvShow",
+                "name": "favorites",
+                "storageKey": "favorites(options:{\"sortBy\":\"PREVIOUS_EPISODE\",\"sortDirection\":\"DESC\"})",
+                "args": [
+                  {
+                    "kind": "Literal",
+                    "name": "options",
+                    "value": {
+                      "sortBy": "PREVIOUS_EPISODE",
+                      "sortDirection": "DESC"
+                    }
+                  }
+                ],
+                "concreteType": "TvShowConnection",
                 "plural": false,
                 "selections": [
                   {
-                    "kind": "ScalarField",
+                    "kind": "LinkedField",
                     "alias": null,
-                    "name": "id",
+                    "name": "edges",
+                    "storageKey": null,
                     "args": null,
-                    "storageKey": null
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "name",
-                    "args": null,
-                    "storageKey": null
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "nextEpisode",
-                    "args": null,
-                    "storageKey": null
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "previousEpisode",
-                    "args": null,
-                    "storageKey": null
-                  },
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "status",
-                    "args": null,
-                    "storageKey": null
+                    "concreteType": "TvShowEdge",
+                    "plural": true,
+                    "selections": [
+                      {
+                        "kind": "LinkedField",
+                        "alias": null,
+                        "name": "node",
+                        "storageKey": null,
+                        "args": null,
+                        "concreteType": "TvShow",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "id",
+                            "args": null,
+                            "storageKey": null
+                          },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "name",
+                            "args": null,
+                            "storageKey": null
+                          },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "nextEpisode",
+                            "args": null,
+                            "storageKey": null
+                          },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "previousEpisode",
+                            "args": null,
+                            "storageKey": null
+                          },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "status",
+                            "args": null,
+                            "storageKey": null
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ]
               }
@@ -159,42 +199,48 @@ return {
     "operationKind": "query",
     "name": "FavoritesTableTestQuery",
     "id": null,
-    "text": "query FavoritesTableTestQuery {\n  ...FavoritesTable_favorites\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on RootQuery {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
+    "text": "query FavoritesTableTestQuery {\n  viewer {\n    __typename\n    ...FavoritesTable_favorites\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
-        "favorites": {
+        "viewer": {
+          "type": "Viewer",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
+        "viewer.favorites": {
           "type": "TvShowConnection",
           "enumValues": null,
           "plural": false,
           "nullable": true
         },
-        "favorites.edges": {
+        "viewer.favorites.edges": {
           "type": "TvShowEdge",
           "enumValues": null,
           "plural": true,
           "nullable": true
         },
-        "favorites.edges.node": {
+        "viewer.favorites.edges.node": {
           "type": "TvShow",
           "enumValues": null,
           "plural": false,
           "nullable": true
         },
-        "favorites.edges.node.id": {
+        "viewer.favorites.edges.node.id": {
           "type": "ID",
           "enumValues": null,
           "plural": false,
           "nullable": false
         },
-        "favorites.edges.node.name": (v0/*: any*/),
-        "favorites.edges.node.nextEpisode": (v1/*: any*/),
-        "favorites.edges.node.previousEpisode": (v1/*: any*/),
-        "favorites.edges.node.status": (v0/*: any*/)
+        "viewer.favorites.edges.node.name": (v0/*: any*/),
+        "viewer.favorites.edges.node.nextEpisode": (v1/*: any*/),
+        "viewer.favorites.edges.node.previousEpisode": (v1/*: any*/),
+        "viewer.favorites.edges.node.status": (v0/*: any*/)
       }
     }
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '1c60e8ef4c4b49ab3506044db3757695';
+(node: any).hash = 'ff6e3b9d9e8f5accfa6266b256d94f44';
 export default node;

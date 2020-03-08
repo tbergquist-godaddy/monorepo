@@ -49,6 +49,7 @@ const FavoritesTable = (props: Props) => {
         () => {
           setIsLoading(false);
         },
+        { fetchPolicy: 'store-or-network' },
       );
       return newOptions;
     });
@@ -93,7 +94,7 @@ export default createRefetchContainer(
   FavoritesTable,
   {
     favorites: graphql`
-      fragment FavoritesTable_favorites on RootQuery
+      fragment FavoritesTable_favorites on TvHelperViewer
         @argumentDefinitions(
           options: {
             type: "SortOptions"
@@ -113,7 +114,9 @@ export default createRefetchContainer(
   },
   graphql`
     query FavoritesTableQuery($options: SortOptions) {
-      ...FavoritesTable_favorites @arguments(options: $options)
+      viewer {
+        ...FavoritesTable_favorites @arguments(options: $options)
+      }
     }
   `,
 );
