@@ -2,19 +2,11 @@
 
 import * as React from 'react';
 import { getNextToken } from '@tbergq/utils';
-import { CenterForm } from '@tbergq/components';
 
-import SignupForm from '../src/signup/SignupForm';
-import Layout from '../src/components/DeprecatedLayout';
+import SignupQuery, { query } from '../src/signup/SignupQuery';
 
 export default function Signup() {
-  return (
-    <Layout isLoggedIn={false}>
-      <CenterForm>
-        <SignupForm />
-      </CenterForm>
-    </Layout>
-  );
+  return <SignupQuery />;
 }
 
 Signup.getInitialProps = ctx => {
@@ -25,5 +17,5 @@ Signup.getInitialProps = ctx => {
     ctx.res.end();
   }
 
-  return {};
+  return { query };
 };

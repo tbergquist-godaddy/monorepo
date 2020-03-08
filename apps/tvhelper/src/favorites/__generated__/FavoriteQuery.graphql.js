@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash d5c3bed2074728d4bccbbd3249fc9153
+ * @relayHash 5fa58821e176f96197e7e46f08cfa495
  */
 
 /* eslint-disable */
@@ -8,9 +8,13 @@
 
 import type { ConcreteRequest } from 'relay-runtime';
 type FavoritesTable_favorites$ref = any;
+type Layout_viewer$ref = any;
 export type FavoriteQueryVariables = {||};
 export type FavoriteQueryResponse = {|
-  +$fragmentRefs: FavoritesTable_favorites$ref
+  +viewer: ?{|
+    +$fragmentRefs: Layout_viewer$ref
+  |},
+  +$fragmentRefs: FavoritesTable_favorites$ref,
 |};
 export type FavoriteQuery = {|
   variables: FavoriteQueryVariables,
@@ -19,6 +23,10 @@ export type FavoriteQuery = {|
 
 /*
 query FavoriteQuery {
+  viewer {
+    __typename
+    ...Layout_viewer
+  }
   ...FavoritesTable_favorites
 }
 
@@ -40,6 +48,18 @@ fragment FavoritesTable_favorites on RootQuery {
     }
   }
 }
+
+fragment Layout_viewer on Viewer {
+  __typename
+  ...NavbarRight_viewer
+}
+
+fragment NavbarRight_viewer on Viewer {
+  __typename
+  ... on TvHelperViewer {
+    username
+  }
+}
 */
 
 const node: ConcreteRequest = {
@@ -52,6 +72,22 @@ const node: ConcreteRequest = {
     "argumentDefinitions": [],
     "selections": [
       {
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "viewer",
+        "storageKey": null,
+        "args": null,
+        "concreteType": null,
+        "plural": false,
+        "selections": [
+          {
+            "kind": "FragmentSpread",
+            "name": "Layout_viewer",
+            "args": null
+          }
+        ]
+      },
+      {
         "kind": "FragmentSpread",
         "name": "FavoritesTable_favorites",
         "args": null
@@ -63,6 +99,37 @@ const node: ConcreteRequest = {
     "name": "FavoriteQuery",
     "argumentDefinitions": [],
     "selections": [
+      {
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "viewer",
+        "storageKey": null,
+        "args": null,
+        "concreteType": null,
+        "plural": false,
+        "selections": [
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "__typename",
+            "args": null,
+            "storageKey": null
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
+            "selections": [
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "username",
+                "args": null,
+                "storageKey": null
+              }
+            ]
+          }
+        ]
+      },
       {
         "kind": "LinkedField",
         "alias": null,
@@ -146,10 +213,10 @@ const node: ConcreteRequest = {
     "operationKind": "query",
     "name": "FavoriteQuery",
     "id": null,
-    "text": "query FavoriteQuery {\n  ...FavoritesTable_favorites\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on RootQuery {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
+    "text": "query FavoriteQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n  }\n  ...FavoritesTable_favorites\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on RootQuery {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
     "metadata": {}
   }
 };
 // prettier-ignore
-(node: any).hash = '554ac8e999e1efdbb7aa32f9736f1593';
+(node: any).hash = 'feab9ba518f080faa463e891af99767c';
 export default node;

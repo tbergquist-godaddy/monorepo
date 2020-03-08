@@ -3,19 +3,10 @@
 import * as React from 'react';
 import { getNextToken } from '@tbergq/utils';
 
-import Layout from '../src/components/DeprecatedLayout';
 import FavoriteQuery, { favoritesQuery } from '../src/favorites/FavoriteQuery';
 
-type Props = {|
-  isLoggedIn: boolean,
-|};
-
-export default function Favorites(props: Props) {
-  return (
-    <Layout isLoggedIn={props.isLoggedIn}>
-      <FavoriteQuery />
-    </Layout>
-  );
+export default function Favorites() {
+  return <FavoriteQuery />;
 }
 
 Favorites.getInitialProps = ctx => {

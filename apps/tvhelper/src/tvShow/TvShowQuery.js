@@ -5,6 +5,7 @@ import { graphql, QueryRenderer } from '@tbergq/relay';
 
 import type { TvShowQueryResponse } from './__generated__/TvShowQuery.graphql';
 import TvShowPage from './TvShowPage';
+import Layout from '../components/Layout';
 
 type Props = {|
   +tvShowId: ?string,
@@ -12,6 +13,9 @@ type Props = {|
 
 export const tvShowQuery = graphql`
   query TvShowQuery($id: ID!) {
+    viewer {
+      ...Layout_viewer
+    }
     tvShowDetail(id: $id) {
       ...TvShowPage_tvShow
     }
@@ -19,7 +23,11 @@ export const tvShowQuery = graphql`
 `;
 
 function renderQuery(props: TvShowQueryResponse) {
-  return <TvShowPage tvShow={props.tvShowDetail} />;
+  return (
+    <Layout viewer={props.viewer}>
+      <TvShowPage tvShow={props.tvShowDetail} />
+    </Layout>
+  );
 }
 
 export default function TvShowQuery(props: Props) {
