@@ -32,7 +32,7 @@ export type FavoritesTable_favorites$key = {
 const node: ReaderFragment = {
   "kind": "Fragment",
   "name": "FavoritesTable_favorites",
-  "type": "RootQuery",
+  "type": "TvHelperViewer",
   "metadata": null,
   "argumentDefinitions": [
     {
@@ -100,5 +100,5 @@ const node: ReaderFragment = {
   ]
 };
 // prettier-ignore
-(node: any).hash = '5a7170df7d9997424e16ea2d602ee428';
+(node: any).hash = '83bd15cedb7e2d7e927f6bf3049b97ea';
 export default node;

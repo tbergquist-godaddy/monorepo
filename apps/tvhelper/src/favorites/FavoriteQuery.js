@@ -11,14 +11,14 @@ export const favoritesQuery = graphql`
   query FavoriteQuery {
     viewer {
       ...Layout_viewer
+      ...FavoritesTable_favorites
     }
-    ...FavoritesTable_favorites
   }
 `;
 
 const renderQuery = (props: FavoriteQueryResponse) => (
   <Layout viewer={props.viewer}>
-    <FavoritesTable favorites={props} />
+    <FavoritesTable favorites={props.viewer} />
   </Layout>
 );
 
