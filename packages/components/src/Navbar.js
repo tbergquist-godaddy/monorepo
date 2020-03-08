@@ -83,7 +83,10 @@ const HeaderLeftContainer = styled.div({
 const ExpandedHeader = styled.div({});
 
 const Separator = styled.div({
-  paddingTop: '12px',
+  '*': {
+    display: 'block',
+    paddingTop: '12px',
+  },
 });
 
 type Props = {|
