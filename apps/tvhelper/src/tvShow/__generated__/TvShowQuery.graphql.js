@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 3a13d4956027b65100e223b0d00a41d2
+ * @relayHash 49cb3884f448c3d976a70148438ed052
  */
 
 /* eslint-disable */
@@ -16,7 +16,7 @@ export type TvShowQueryResponse = {|
   +viewer: ?{|
     +$fragmentRefs: Layout_viewer$ref
   |},
-  +tvShowDetail: ?{|
+  +node: ?{|
     +$fragmentRefs: TvShowPage_tvShow$ref
   |},
 |};
@@ -39,7 +39,8 @@ query TvShowQuery(
       id
     }
   }
-  tvShowDetail(id: $id) {
+  node(id: $id) {
+    __typename
     ...TvShowPage_tvShow
     id
   }
@@ -115,11 +116,18 @@ v1 = [
 v2 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "id",
+  "name": "__typename",
   "args": null,
   "storageKey": null
 },
 v3 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v4 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "name",
@@ -154,10 +162,10 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "tvShowDetail",
+        "name": "node",
         "storageKey": null,
         "args": (v1/*: any*/),
-        "concreteType": "TvShow",
+        "concreteType": null,
         "plural": false,
         "selections": [
           {
@@ -183,13 +191,7 @@ return {
         "concreteType": null,
         "plural": false,
         "selections": [
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "__typename",
-            "args": null,
-            "storageKey": null
-          },
+          (v2/*: any*/),
           {
             "kind": "InlineFragment",
             "type": "TvHelperViewer",
@@ -201,14 +203,14 @@ return {
                 "args": null,
                 "storageKey": null
               },
-              (v2/*: any*/)
+              (v3/*: any*/)
             ]
           },
           {
             "kind": "InlineFragment",
             "type": "TraningJournalViewer",
             "selections": [
-              (v2/*: any*/)
+              (v3/*: any*/)
             ]
           }
         ]
@@ -216,104 +218,111 @@ return {
       {
         "kind": "LinkedField",
         "alias": null,
-        "name": "tvShowDetail",
+        "name": "node",
         "storageKey": null,
         "args": (v1/*: any*/),
-        "concreteType": "TvShow",
+        "concreteType": null,
         "plural": false,
         "selections": [
+          (v2/*: any*/),
           (v3/*: any*/),
           {
-            "kind": "LinkedField",
-            "alias": null,
-            "name": "network",
-            "storageKey": null,
-            "args": null,
-            "concreteType": "Network",
-            "plural": false,
+            "kind": "InlineFragment",
+            "type": "TvShow",
             "selections": [
-              (v3/*: any*/),
-              (v2/*: any*/)
-            ]
-          },
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "summary",
-            "args": [
+              (v4/*: any*/),
               {
-                "kind": "Literal",
-                "name": "stripTags",
-                "value": false
-              }
-            ],
-            "storageKey": "summary(stripTags:false)"
-          },
-          (v2/*: any*/),
-          {
-            "kind": "LinkedField",
-            "alias": null,
-            "name": "image",
-            "storageKey": null,
-            "args": null,
-            "concreteType": "TvHelperImage",
-            "plural": false,
-            "selections": [
-              {
-                "kind": "ScalarField",
+                "kind": "LinkedField",
                 "alias": null,
-                "name": "original",
+                "name": "network",
+                "storageKey": null,
                 "args": null,
-                "storageKey": null
-              },
-              (v2/*: any*/)
-            ]
-          },
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "isFavorite",
-            "args": null,
-            "storageKey": null
-          },
-          {
-            "kind": "LinkedField",
-            "alias": null,
-            "name": "episodes",
-            "storageKey": null,
-            "args": null,
-            "concreteType": "Episode",
-            "plural": true,
-            "selections": [
-              (v2/*: any*/),
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "name": "seasonAndNumber",
-                "args": null,
-                "storageKey": null
-              },
-              (v3/*: any*/),
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "name": "airdate",
-                "args": null,
-                "storageKey": null
+                "concreteType": "Network",
+                "plural": false,
+                "selections": [
+                  (v4/*: any*/),
+                  (v3/*: any*/)
+                ]
               },
               {
                 "kind": "ScalarField",
                 "alias": null,
                 "name": "summary",
+                "args": [
+                  {
+                    "kind": "Literal",
+                    "name": "stripTags",
+                    "value": false
+                  }
+                ],
+                "storageKey": "summary(stripTags:false)"
+              },
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "name": "image",
+                "storageKey": null,
                 "args": null,
-                "storageKey": null
+                "concreteType": "TvHelperImage",
+                "plural": false,
+                "selections": [
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "original",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  (v3/*: any*/)
+                ]
               },
               {
                 "kind": "ScalarField",
                 "alias": null,
-                "name": "watched",
+                "name": "isFavorite",
                 "args": null,
                 "storageKey": null
+              },
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "name": "episodes",
+                "storageKey": null,
+                "args": null,
+                "concreteType": "Episode",
+                "plural": true,
+                "selections": [
+                  (v3/*: any*/),
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "seasonAndNumber",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  (v4/*: any*/),
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "airdate",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "summary",
+                    "args": null,
+                    "storageKey": null
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "watched",
+                    "args": null,
+                    "storageKey": null
+                  }
+                ]
               }
             ]
           }
@@ -325,11 +334,11 @@ return {
     "operationKind": "query",
     "name": "TvShowQuery",
     "id": null,
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n",
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n  node(id: $id) {\n    __typename\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '670ad60534944fbb367afe6c2aab3a2c';
+(node: any).hash = 'e7a3bc2bf2118dd2c4d00400aadfc5b6';
 export default node;

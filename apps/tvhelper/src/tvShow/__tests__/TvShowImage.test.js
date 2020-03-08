@@ -15,13 +15,13 @@ beforeEach(() => {
   environment = createMockEnvironment();
 });
 
-const renderer = props => <TvShowImage tvShow={props.tvShowDetail} />;
+const renderer = props => <TvShowImage tvShow={props.node} />;
 const TestRenderer = () => (
   <QueryRenderer
     environment={environment}
     query={graphql`
       query TvShowImageTestQuery($id: ID!) @relay_test_operation {
-        tvShowDetail(id: $id) {
+        node(id: $id) {
           ...TvShowImage_tvShow
         }
       }
