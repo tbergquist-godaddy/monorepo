@@ -14,6 +14,7 @@ type Args = {
 
 export default {
   description: 'Tv show lookup by id',
+  deprecationReason: 'Use node query instead',
   type: TvShow,
   args: {
     id: {

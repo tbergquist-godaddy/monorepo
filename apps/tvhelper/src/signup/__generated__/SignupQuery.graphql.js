@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash f3423cfdec67342778bb95e5b378e4af
+ * @relayHash 1dbe165252375050c3ef83a58209b746
  */
 
 /* eslint-disable */
@@ -24,6 +24,12 @@ query SignupQuery {
   viewer {
     __typename
     ...Layout_viewer
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -40,7 +46,15 @@ fragment NavbarRight_viewer on Viewer {
 }
 */
 
-const node: ConcreteRequest = {
+const node: ConcreteRequest = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
@@ -98,7 +112,15 @@ const node: ConcreteRequest = {
                 "name": "username",
                 "args": null,
                 "storageKey": null
-              }
+              },
+              (v0/*: any*/)
+            ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TraningJournalViewer",
+            "selections": [
+              (v0/*: any*/)
             ]
           }
         ]
@@ -109,10 +131,11 @@ const node: ConcreteRequest = {
     "operationKind": "query",
     "name": "SignupQuery",
     "id": null,
-    "text": "query SignupQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
+    "text": "query SignupQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
     "metadata": {}
   }
 };
+})();
 // prettier-ignore
 (node: any).hash = 'de726865833b5fe068a7a5893346aef1';
 export default node;

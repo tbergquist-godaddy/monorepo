@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 480619853db9adb4e5b25b301c0aa83e
+ * @relayHash 2e3cb29fc82f95dd398f36bca2725f3c
  */
 
 /* eslint-disable */
@@ -38,6 +38,10 @@ query EditExerciseTestQuery {
           }
         }
       }
+      id
+    }
+    ... on TvHelperViewer {
+      id
     }
   }
 }
@@ -60,6 +64,13 @@ var v0 = [
   }
 ],
 v1 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v2 = {
   "type": "String",
   "enumValues": null,
   "plural": false,
@@ -183,13 +194,7 @@ return {
                         "concreteType": "Exercise",
                         "plural": false,
                         "selections": [
-                          {
-                            "kind": "ScalarField",
-                            "alias": null,
-                            "name": "id",
-                            "args": null,
-                            "storageKey": null
-                          },
+                          (v1/*: any*/),
                           {
                             "kind": "ScalarField",
                             "alias": null,
@@ -223,7 +228,15 @@ return {
                     ]
                   }
                 ]
-              }
+              },
+              (v1/*: any*/)
+            ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
+            "selections": [
+              (v1/*: any*/)
             ]
           }
         ]
@@ -234,7 +247,7 @@ return {
     "operationKind": "query",
     "name": "EditExerciseTestQuery",
     "id": null,
-    "text": "query EditExerciseTestQuery {\n  viewer {\n    __typename\n    ... on TraningJournalViewer {\n      exercises(first: 1) {\n        edges {\n          node {\n            ...EditExercise_exercise\n            id\n          }\n        }\n      }\n    }\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n",
+    "text": "query EditExerciseTestQuery {\n  viewer {\n    __typename\n    ... on TraningJournalViewer {\n      exercises(first: 1) {\n        edges {\n          node {\n            ...EditExercise_exercise\n            id\n          }\n        }\n      }\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -245,6 +258,12 @@ return {
         },
         "viewer.exercises": {
           "type": "ExerciseConnection",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
+        "viewer.id": {
+          "type": "ID",
           "enumValues": null,
           "plural": false,
           "nullable": true
@@ -267,10 +286,10 @@ return {
           "plural": false,
           "nullable": false
         },
-        "viewer.exercises.edges.node.name": (v1/*: any*/),
-        "viewer.exercises.edges.node.muscleGroups": (v1/*: any*/),
-        "viewer.exercises.edges.node.videoUrl": (v1/*: any*/),
-        "viewer.exercises.edges.node.description": (v1/*: any*/)
+        "viewer.exercises.edges.node.name": (v2/*: any*/),
+        "viewer.exercises.edges.node.muscleGroups": (v2/*: any*/),
+        "viewer.exercises.edges.node.videoUrl": (v2/*: any*/),
+        "viewer.exercises.edges.node.description": (v2/*: any*/)
       }
     }
   }

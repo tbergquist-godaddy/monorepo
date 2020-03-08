@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash b5c7a7fe2eaad6f3ec2260c41cd7684e
+ * @relayHash 3a13d4956027b65100e223b0d00a41d2
  */
 
 /* eslint-disable */
@@ -32,6 +32,12 @@ query TvShowQuery(
   viewer {
     __typename
     ...Layout_viewer
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
   tvShowDetail(id: $id) {
     ...TvShowPage_tvShow
@@ -109,14 +115,14 @@ v1 = [
 v2 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "name",
+  "name": "id",
   "args": null,
   "storageKey": null
 },
 v3 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "id",
+  "name": "name",
   "args": null,
   "storageKey": null
 };
@@ -194,7 +200,15 @@ return {
                 "name": "username",
                 "args": null,
                 "storageKey": null
-              }
+              },
+              (v2/*: any*/)
+            ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TraningJournalViewer",
+            "selections": [
+              (v2/*: any*/)
             ]
           }
         ]
@@ -208,7 +222,7 @@ return {
         "concreteType": "TvShow",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
+          (v3/*: any*/),
           {
             "kind": "LinkedField",
             "alias": null,
@@ -218,8 +232,8 @@ return {
             "concreteType": "Network",
             "plural": false,
             "selections": [
-              (v2/*: any*/),
-              (v3/*: any*/)
+              (v3/*: any*/),
+              (v2/*: any*/)
             ]
           },
           {
@@ -235,7 +249,7 @@ return {
             ],
             "storageKey": "summary(stripTags:false)"
           },
-          (v3/*: any*/),
+          (v2/*: any*/),
           {
             "kind": "LinkedField",
             "alias": null,
@@ -252,7 +266,7 @@ return {
                 "args": null,
                 "storageKey": null
               },
-              (v3/*: any*/)
+              (v2/*: any*/)
             ]
           },
           {
@@ -271,7 +285,7 @@ return {
             "concreteType": "Episode",
             "plural": true,
             "selections": [
-              (v3/*: any*/),
+              (v2/*: any*/),
               {
                 "kind": "ScalarField",
                 "alias": null,
@@ -279,7 +293,7 @@ return {
                 "args": null,
                 "storageKey": null
               },
-              (v2/*: any*/),
+              (v3/*: any*/),
               {
                 "kind": "ScalarField",
                 "alias": null,
@@ -311,7 +325,7 @@ return {
     "operationKind": "query",
     "name": "TvShowQuery",
     "id": null,
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n  }\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n",
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n  tvShowDetail(id: $id) {\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n",
     "metadata": {}
   }
 };

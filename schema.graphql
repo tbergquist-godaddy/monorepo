@@ -1,4 +1,4 @@
-# @generated SignedSource<<158ea7afa748a78c70ab9dc832424b77>>
+# @generated SignedSource<<a9e98815ee6add373f51afbbbfd361f0>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -186,6 +186,12 @@ type Network {
   name: String
 }
 
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
 """Information about pagination in a connection."""
 type PageInfo {
   """When paginating forwards, the cursor to continue."""
@@ -287,11 +293,17 @@ type RootQuery {
   """Load episode by id"""
   episode(id: ID!): Episode
 
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+
   """Search for tv shows by name"""
   searchTvShow(after: String, before: String, first: Int, last: Int, query: String!): TvShowConnection
 
   """Tv show lookup by id"""
-  tvShowDetail(id: ID!): TvShow
+  tvShowDetail(id: ID!): TvShow @deprecated(reason: "Use node query instead")
 
   """User context"""
   viewer: Viewer
@@ -368,7 +380,7 @@ type TvHelperViewer {
 }
 
 """Information about a tv show"""
-type TvShow {
+type TvShow implements Node {
   cast: [Cast]
   episodes: [Episode]
 

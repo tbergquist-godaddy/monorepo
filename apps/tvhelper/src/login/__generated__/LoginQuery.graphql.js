@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash bc20f501201520145031ada07596e77b
+ * @relayHash ca9dbb4ac4bf3eb6ad9451d3edae40e1
  */
 
 /* eslint-disable */
@@ -24,6 +24,12 @@ query LoginQuery {
   viewer {
     __typename
     ...Layout_viewer
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -40,7 +46,15 @@ fragment NavbarRight_viewer on Viewer {
 }
 */
 
-const node: ConcreteRequest = {
+const node: ConcreteRequest = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
@@ -98,7 +112,15 @@ const node: ConcreteRequest = {
                 "name": "username",
                 "args": null,
                 "storageKey": null
-              }
+              },
+              (v0/*: any*/)
+            ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TraningJournalViewer",
+            "selections": [
+              (v0/*: any*/)
             ]
           }
         ]
@@ -109,10 +131,11 @@ const node: ConcreteRequest = {
     "operationKind": "query",
     "name": "LoginQuery",
     "id": null,
-    "text": "query LoginQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
+    "text": "query LoginQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
     "metadata": {}
   }
 };
+})();
 // prettier-ignore
 (node: any).hash = '098c7e7d347f40cf63997faa32e8163a';
 export default node;

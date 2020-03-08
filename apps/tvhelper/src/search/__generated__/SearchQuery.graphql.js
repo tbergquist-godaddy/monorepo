@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 28a3d054b86ff245f0ddd77e69cee6ca
+ * @relayHash ca5ef723f022c3d7af04f829a61a388c
  */
 
 /* eslint-disable */
@@ -61,6 +61,12 @@ fragment SearchScene_viewer on RootQuery {
   viewer {
     __typename
     ...Layout_viewer
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -162,7 +168,15 @@ return {
                 "name": "username",
                 "args": null,
                 "storageKey": null
-              }
+              },
+              (v2/*: any*/)
+            ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TraningJournalViewer",
+            "selections": [
+              (v2/*: any*/)
             ]
           }
         ]
@@ -256,7 +270,7 @@ return {
     "operationKind": "query",
     "name": "SearchQuery",
     "id": null,
-    "text": "query SearchQuery(\n  $query: String!\n  $includeResults: Boolean!\n) {\n  ...SearchScene_search_1dc2Le\n  ...SearchScene_viewer\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowListItem_data\n    }\n  }\n}\n\nfragment SearchScene_search_1dc2Le on RootQuery {\n  searchTvShow(query: $query) @include(if: $includeResults) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchScene_viewer on RootQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n  }\n}\n\nfragment TvShowListItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n",
+    "text": "query SearchQuery(\n  $query: String!\n  $includeResults: Boolean!\n) {\n  ...SearchScene_search_1dc2Le\n  ...SearchScene_viewer\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowListItem_data\n    }\n  }\n}\n\nfragment SearchScene_search_1dc2Le on RootQuery {\n  searchTvShow(query: $query) @include(if: $includeResults) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchScene_viewer on RootQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment TvShowListItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n",
     "metadata": {}
   }
 };

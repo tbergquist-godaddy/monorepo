@@ -3,39 +3,41 @@
 exports[`queries matches expected output: tvDetail.graphql 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 query detail {
-  tvShowDetail(id:"dHZTaG93OjY=") {
-    id
-    name
-    status
-    premiered
-    rating
-    image {
-      original
-    }
-    summary
-    withoutTags: summary(stripTags: false)
-    cast {
-      person {
-        name
-      }
-      character {
-        name
-      }
-    }
-    episodes {
+  node(id:"VHZTaG93OjY=") {
+    ... on TvShow {
       id
-      seasonAndNumber
-      airdate
+      name
+      status
+      premiered
+      rating
+      image {
+        original
+      }
+      summary
+      withoutTags: summary(stripTags: false)
+      cast {
+        person {
+          name
+        }
+        character {
+          name
+        }
+      }
+      episodes {
+        id
+        seasonAndNumber
+        airdate
+      }
+      nextEpisode
+      previousEpisode
     }
-    nextEpisode
-    previousEpisode
   }
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 {
   "data": {
-    "tvShowDetail": {
+    "node": {
       "id": "VHZTaG93OjY",
       "name": "The 100",
       "status": "Running",

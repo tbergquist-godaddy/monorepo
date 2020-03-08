@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a7067fa0e51febc06a07a4a253ff7828
+ * @relayHash 4c16c537205704081182baebaadc8f0b
  */
 
 /* eslint-disable */
@@ -24,6 +24,12 @@ query FavoritesTableTestQuery {
   viewer {
     __typename
     ...FavoritesTable_favorites
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -49,12 +55,19 @@ fragment FavoritesTable_favorites on TvHelperViewer {
 
 const node: ConcreteRequest = (function(){
 var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v1 = {
   "type": "String",
   "enumValues": null,
   "plural": false,
   "nullable": true
 },
-v1 = {
+v2 = {
   "type": "Date",
   "enumValues": null,
   "plural": false,
@@ -148,13 +161,7 @@ return {
                         "concreteType": "TvShow",
                         "plural": false,
                         "selections": [
-                          {
-                            "kind": "ScalarField",
-                            "alias": null,
-                            "name": "id",
-                            "args": null,
-                            "storageKey": null
-                          },
+                          (v0/*: any*/),
                           {
                             "kind": "ScalarField",
                             "alias": null,
@@ -188,7 +195,15 @@ return {
                     ]
                   }
                 ]
-              }
+              },
+              (v0/*: any*/)
+            ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TraningJournalViewer",
+            "selections": [
+              (v0/*: any*/)
             ]
           }
         ]
@@ -199,7 +214,7 @@ return {
     "operationKind": "query",
     "name": "FavoritesTableTestQuery",
     "id": null,
-    "text": "query FavoritesTableTestQuery {\n  viewer {\n    __typename\n    ...FavoritesTable_favorites\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
+    "text": "query FavoritesTableTestQuery {\n  viewer {\n    __typename\n    ...FavoritesTable_favorites\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -210,6 +225,12 @@ return {
         },
         "viewer.favorites": {
           "type": "TvShowConnection",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
+        "viewer.id": {
+          "type": "ID",
           "enumValues": null,
           "plural": false,
           "nullable": true
@@ -232,10 +253,10 @@ return {
           "plural": false,
           "nullable": false
         },
-        "viewer.favorites.edges.node.name": (v0/*: any*/),
-        "viewer.favorites.edges.node.nextEpisode": (v1/*: any*/),
-        "viewer.favorites.edges.node.previousEpisode": (v1/*: any*/),
-        "viewer.favorites.edges.node.status": (v0/*: any*/)
+        "viewer.favorites.edges.node.name": (v1/*: any*/),
+        "viewer.favorites.edges.node.nextEpisode": (v2/*: any*/),
+        "viewer.favorites.edges.node.previousEpisode": (v2/*: any*/),
+        "viewer.favorites.edges.node.status": (v1/*: any*/)
       }
     }
   }

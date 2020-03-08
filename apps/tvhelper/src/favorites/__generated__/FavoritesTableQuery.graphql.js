@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 0827cc03b124ffae28708966b80823ba
+ * @relayHash 79e54d1c3f54c4ec3e72f531b138b229
  */
 
 /* eslint-disable */
@@ -34,6 +34,12 @@ query FavoritesTableQuery(
   viewer {
     __typename
     ...FavoritesTable_favorites_2Rby0E
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -72,7 +78,14 @@ v1 = [
     "name": "options",
     "variableName": "options"
   }
-];
+],
+v2 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
 return {
   "kind": "Request",
   "fragment": {
@@ -152,13 +165,7 @@ return {
                         "concreteType": "TvShow",
                         "plural": false,
                         "selections": [
-                          {
-                            "kind": "ScalarField",
-                            "alias": null,
-                            "name": "id",
-                            "args": null,
-                            "storageKey": null
-                          },
+                          (v2/*: any*/),
                           {
                             "kind": "ScalarField",
                             "alias": null,
@@ -192,7 +199,15 @@ return {
                     ]
                   }
                 ]
-              }
+              },
+              (v2/*: any*/)
+            ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TraningJournalViewer",
+            "selections": [
+              (v2/*: any*/)
             ]
           }
         ]
@@ -203,7 +218,7 @@ return {
     "operationKind": "query",
     "name": "FavoritesTableQuery",
     "id": null,
-    "text": "query FavoritesTableQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...FavoritesTable_favorites_2Rby0E\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
+    "text": "query FavoritesTableQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...FavoritesTable_favorites_2Rby0E\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

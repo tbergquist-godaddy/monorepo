@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash fc4d704db9c981b3f451c9fcd211d595
+ * @relayHash 89d35bc88471cdf4e0341366f5e14a75
  */
 
 /* eslint-disable */
@@ -24,6 +24,12 @@ query ExerciseListTestQuery {
   viewer {
     __typename
     ...ExerciseList_exercises
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -88,18 +94,12 @@ v2 = [
   }
 ],
 v3 = {
-  "type": "ID",
-  "enumValues": null,
-  "plural": false,
-  "nullable": false
-},
-v4 = {
   "type": "String",
   "enumValues": null,
   "plural": false,
   "nullable": true
 },
-v5 = {
+v4 = {
   "type": "String",
   "enumValues": null,
   "plural": false,
@@ -257,6 +257,13 @@ return {
                 "filters": null
               }
             ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
+            "selections": [
+              (v1/*: any*/)
+            ]
           }
         ]
       }
@@ -266,7 +273,7 @@ return {
     "operationKind": "query",
     "name": "ExerciseListTestQuery",
     "id": null,
-    "text": "query ExerciseListTestQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
+    "text": "query ExerciseListTestQuery {\n  viewer {\n    __typename\n    ...ExerciseList_exercises\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n\nfragment ExerciseDetailCard_exercise on Exercise {\n  id\n  name\n  muscleGroups\n}\n\nfragment ExerciseListItem_exercise on Exercise {\n  ...ExerciseDetailCard_exercise\n  ...EditExercise_exercise\n}\n\nfragment ExerciseList_exercises on TraningJournalViewer {\n  id\n  exercises(first: 10) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...ExerciseListItem_exercise\n        __typename\n      }\n      cursor\n    }\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -275,7 +282,12 @@ return {
           "plural": false,
           "nullable": true
         },
-        "viewer.id": (v3/*: any*/),
+        "viewer.id": {
+          "type": "ID",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
         "viewer.exercises": {
           "type": "ExerciseConnection",
           "enumValues": null,
@@ -306,14 +318,19 @@ return {
           "plural": false,
           "nullable": true
         },
-        "viewer.exercises.pageInfo.endCursor": (v4/*: any*/),
-        "viewer.exercises.edges.node.id": (v3/*: any*/),
-        "viewer.exercises.edges.cursor": (v5/*: any*/),
-        "viewer.exercises.edges.node.__typename": (v5/*: any*/),
-        "viewer.exercises.edges.node.name": (v4/*: any*/),
-        "viewer.exercises.edges.node.muscleGroups": (v4/*: any*/),
-        "viewer.exercises.edges.node.videoUrl": (v4/*: any*/),
-        "viewer.exercises.edges.node.description": (v4/*: any*/)
+        "viewer.exercises.pageInfo.endCursor": (v3/*: any*/),
+        "viewer.exercises.edges.node.id": {
+          "type": "ID",
+          "enumValues": null,
+          "plural": false,
+          "nullable": false
+        },
+        "viewer.exercises.edges.cursor": (v4/*: any*/),
+        "viewer.exercises.edges.node.__typename": (v4/*: any*/),
+        "viewer.exercises.edges.node.name": (v3/*: any*/),
+        "viewer.exercises.edges.node.muscleGroups": (v3/*: any*/),
+        "viewer.exercises.edges.node.videoUrl": (v3/*: any*/),
+        "viewer.exercises.edges.node.description": (v3/*: any*/)
       }
     }
   }

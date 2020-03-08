@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash fef1579b6abfeb5fd982bbc2e08af3ca
+ * @relayHash d28eefb34486930fd0ce0a85b6737c50
  */
 
 /* eslint-disable */
@@ -26,6 +26,12 @@ query ProgramsQuery {
     __typename
     ...ProgramList_viewer
     ...AddProgramForm_user
+    ... on TraningJournalViewer {
+      id
+    }
+    ... on TvHelperViewer {
+      id
+    }
   }
 }
 
@@ -222,6 +228,13 @@ return {
                 "filters": null
               }
             ]
+          },
+          {
+            "kind": "InlineFragment",
+            "type": "TvHelperViewer",
+            "selections": [
+              (v1/*: any*/)
+            ]
           }
         ]
       }
@@ -231,7 +244,7 @@ return {
     "operationKind": "query",
     "name": "ProgramsQuery",
     "id": null,
-    "text": "query ProgramsQuery {\n  viewer {\n    __typename\n    ...ProgramList_viewer\n    ...AddProgramForm_user\n  }\n}\n\nfragment AddProgramForm_user on TraningJournalViewer {\n  id\n}\n\nfragment ProgramListItem_program on Program {\n  name\n  date\n}\n\nfragment ProgramList_viewer on TraningJournalViewer {\n  id\n  programs(first: 10) {\n    edges {\n      node {\n        id\n        ...ProgramListItem_program\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
+    "text": "query ProgramsQuery {\n  viewer {\n    __typename\n    ...ProgramList_viewer\n    ...AddProgramForm_user\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddProgramForm_user on TraningJournalViewer {\n  id\n}\n\nfragment ProgramListItem_program on Program {\n  name\n  date\n}\n\nfragment ProgramList_viewer on TraningJournalViewer {\n  id\n  programs(first: 10) {\n    edges {\n      node {\n        id\n        ...ProgramListItem_program\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
