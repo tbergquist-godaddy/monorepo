@@ -21,6 +21,7 @@ export {
   fetchQuery,
   RelayEnvironmentProvider,
   useRelayEnvironment,
+  useMutation,
 } from '@adeira/relay';
 
 export type RelayProp = _RelayProp;
