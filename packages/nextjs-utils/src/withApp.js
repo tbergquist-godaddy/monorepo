@@ -10,6 +10,7 @@ import { TOKEN_KEY } from '@tbergq/utils';
 import { fetchQuery, Environment, RelayEnvironmentProvider } from '@tbergq/relay';
 import { createGlobalStyle } from 'styled-components';
 import { MediaContextProvider } from '@tbergq/components';
+import { isBrowser } from '@adeira/js';
 
 const GlobalStyle = createGlobalStyle({
   html: {
@@ -38,7 +39,7 @@ export default function withNProgress(Component: React.AbstractComponent<{ ... }
       const token = cookies[TOKEN_KEY];
       let ssrData;
 
-      if (props.pageProps.query != null) {
+      if (props.pageProps.query != null && !isBrowser()) {
         const environment = Environment.getEnvironment(token);
         await fetchQuery(environment, props.pageProps.query, props.pageProps.variables ?? {});
         ssrData = environment
