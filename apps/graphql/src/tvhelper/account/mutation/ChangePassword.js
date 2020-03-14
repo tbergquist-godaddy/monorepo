@@ -4,9 +4,9 @@ import { GraphQLString, GraphQLNonNull } from 'graphql';
 import { UserRepository } from '@tbergq/tvhelper-persistence';
 
 import ChangePasswordOrError, { PasswordError } from '../types/output/ChangePasswordOrError';
+import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 
 type Args = {
-  +username: string,
   +password: string,
   +newPassword: string,
   ...
@@ -15,9 +15,6 @@ type Args = {
 export default {
   type: ChangePasswordOrError,
   args: {
-    username: {
-      type: GraphQLNonNull(GraphQLString),
-    },
     password: {
       type: GraphQLNonNull(GraphQLString),
     },
@@ -25,9 +22,13 @@ export default {
       type: GraphQLNonNull(GraphQLString),
     },
   },
-  resolve: async (_: mixed, { username, password, newPassword }: Args) => {
+  resolve: async (_: mixed, { password, newPassword }: Args, { user }: GraphqlContextType) => {
     try {
-      await UserRepository.changePassword(username, password, newPassword);
+      const userId = user?.id;
+      if (userId == null) {
+        return new PasswordError('You must be logged in to change password', false);
+      }
+      await UserRepository.changePassword(userId, password, newPassword);
       return { success: true };
     } catch (e) {
       return new PasswordError(e.message, true);

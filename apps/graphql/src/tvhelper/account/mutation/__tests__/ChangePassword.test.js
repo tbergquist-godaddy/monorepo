@@ -4,12 +4,15 @@ import { UserRepository, tvHelperConnection } from '@tbergq/tvhelper-persistence
 
 import executeTestQuery from '../../../../services/executeTestQuery';
 
+let userId;
+
 beforeEach(async () => {
-  await UserRepository.createUser({
+  const user = await UserRepository.createUser({
     username: 'tito',
     password: 'bonito',
     email: 'tito@bonito.es',
   });
+  userId = user.id;
 });
 
 afterEach(async () => {
@@ -17,8 +20,8 @@ afterEach(async () => {
 });
 
 const query = `
-mutation mut($username: String!, $password: String!, $newPassword: String!) {
-tvhHelperChangePassword(username: $username, password:$password, newPassword:$newPassword) {
+mutation mut($password: String!, $newPassword: String!) {
+  tvHelperChangePassword(password:$password, newPassword:$newPassword) {
   __typename
   ... on ChangePasswordError {
     message
@@ -33,16 +36,23 @@ tvhHelperChangePassword(username: $username, password:$password, newPassword:$ne
 
 it('changes password', async () => {
   expect(
-    await executeTestQuery(query, { username: 'tito', password: 'bonito', newPassword: 'lolita' }),
+    await executeTestQuery(
+      query,
+      { password: 'bonito', newPassword: 'lolita' },
+      { user: { id: userId } },
+    ),
   ).toMatchSnapshot();
 });
 
 it('returns error type for wrong password', async () => {
   expect(
-    await executeTestQuery(query, {
-      username: 'tito',
-      password: 'bonitost',
-      newPassword: 'lolita',
-    }),
+    await executeTestQuery(
+      query,
+      {
+        password: 'bonitost',
+        newPassword: 'lolita',
+      },
+      { user: { id: userId } },
+    ),
   ).toMatchSnapshot();
 });

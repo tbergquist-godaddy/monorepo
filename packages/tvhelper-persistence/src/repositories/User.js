@@ -31,8 +31,8 @@ export default class UserRepository {
     return new User(addedUser);
   }
 
-  static async changePassword(username: string, password: string, newPassword: string) {
-    const user = await UserModel.findOne({ username });
+  static async changePassword(userId: string, password: string, newPassword: string) {
+    const user = await UserModel.findById(userId);
     if (verify(password, user.password)) {
       user.password = generate(newPassword);
       await user.save();
