@@ -8,11 +8,7 @@ function Account() {
   return <AccountQuery />;
 }
 
-Account.getInitialProps = ctx => {
-  if (!__DEV__) {
-    ctx.res.writeHead(302, { Location: '/favorites' });
-    ctx.res.end();
-  }
+Account.getInitialProps = () => {
   return { query };
 };
 
