@@ -1,4 +1,4 @@
-# @generated SignedSource<<80775684049f4f68649b0f827e8589b7>>
+# @generated SignedSource<<f0c18de88fb8387a181876d6266ebff6>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -9,6 +9,7 @@
 #  FIELD_CHANGED_KIND: RootMutation.createExercise changed type from ExerciseEdge to CreateExercise.
 #  FIELD_REMOVED: RootQuery.favorites was removed.
 #  FIELD_REMOVED: RootQuery.tvShowDetail was removed.
+#  FIELD_REMOVED: RootMutation.tvhHelperChangePassword was removed.
 # </BREAKING-CHANGES-LOG>
 
 schema {
@@ -285,8 +286,8 @@ type RootMutation {
 
   """Login to trainingjournal application"""
   trainingJournalLogin(password: String!, username: String!): LoginType
+  tvHelperChangePassword(newPassword: String!, password: String!): ChangePasswordOrError
   tvHelperLogin(password: String!, username: String!): LoginType
-  tvhHelperChangePassword(newPassword: String!, password: String!, username: String!): ChangePasswordOrError
 }
 
 """Root Query"""

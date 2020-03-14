@@ -15,5 +15,5 @@ export default {
   deleteWatchedEpisode: DeleteWatchedEpisode,
   markAsWatched: MarkAsWatched,
   tvHelperLogin: Login,
-  tvhHelperChangePassword: ChangePassword,
+  tvHelperChangePassword: ChangePassword,
 };

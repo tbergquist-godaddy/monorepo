@@ -31,13 +31,13 @@ it('should change password', async () => {
   const dbuser = await UserRepository.findUser(user1.username);
   const hashedPassword = dbuser?.password;
 
-  await UserRepository.changePassword(user1.username, user1.password, 'omg');
+  await UserRepository.changePassword(user1Id, user1.password, 'omg');
   const withNewPassword = await UserRepository.findUser(user1.username);
   expect(withNewPassword?.password).not.toEqual(hashedPassword);
 });
 
 it('should throw an error if you have wrong password', async () => {
   await expect(
-    UserRepository.changePassword(user1.username, `${user1.password} wrong`, 'omg'),
+    UserRepository.changePassword(user1Id, `${user1.password} wrong`, 'omg'),
   ).rejects.toThrow('Wrong password');
 });
