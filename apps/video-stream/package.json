@@ -4,6 +4,8 @@
   "sideEffects": false,
   "main": "src/Main.js",
   "dependencies": {
+    "@tbergq/components": "0.0.1",
+    "chromecast-api": "^0.3.1",
     "copy-webpack-plugin": "^5.1.1",
     "electron": "^8.1.1",
     "react": "^16.13.0",
@@ -13,12 +15,10 @@
   "scripts": {
     "build": "yarn webpack --mode production",
     "dev-server": "yarn webpack-dev-server",
-    "dev-electron": "yarn electron .",
-    "dev": "concurrently --kill-others \"yarn dev-electron\" \"yarn dev-server\""
+    "dev-electron": "yarn electron ."
   },
   "devDependencies": {
     "babel-loader": "^8.0.6",
-    "concurrently": "^5.1.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   }
