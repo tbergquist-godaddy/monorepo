@@ -6,8 +6,12 @@
   "dependencies": {
     "@tbergq/components": "0.0.1",
     "chromecast-api": "^0.3.1",
+    "compression": "^1.7.4",
     "copy-webpack-plugin": "^5.1.1",
+    "cors": "^2.8.5",
     "electron": "^8.1.1",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "webpack": "^4.42.0"
