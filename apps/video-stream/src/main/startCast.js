@@ -1,8 +1,8 @@
 // @flow
 
-const ChromecastAPI = require('chromecast-api');
+import ChromecastAPI from 'chromecast-api';
 
-module.exports = () => {
+const startCast = () => {
   const client = new ChromecastAPI();
 
   client.on('device', function(device) {
@@ -17,3 +17,5 @@ module.exports = () => {
     });
   });
 };
+
+export default startCast;
