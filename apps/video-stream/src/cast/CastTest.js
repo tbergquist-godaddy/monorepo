@@ -3,9 +3,10 @@
 import * as React from 'react';
 import { Button } from '@tbergq/components';
 
+const startCast = electron.remote.require('./startCast').default;
+
 export default function CastTest() {
   const test = () => {
-    const startCast = electron.remote.require('./main/startCast');
     startCast();
   };
   return <Button onClick={test}>Cast test</Button>;
