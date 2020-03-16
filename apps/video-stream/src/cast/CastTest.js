@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Button } from '@tbergq/components';
 
 const startCast = electron.remote.require('./startCast').default;
-
+const castPath = '/Users/trondbergquist/Movies/SampleVideo_1280x720_5mb.mp4';
 export default function CastTest() {
   const [server, setServer] = React.useState('');
   React.useEffect(() => {
@@ -15,7 +15,7 @@ export default function CastTest() {
       });
   }, []);
   const test = () => {
-    startCast();
+    startCast(encodeURIComponent(castPath));
   };
   return (
     <>
