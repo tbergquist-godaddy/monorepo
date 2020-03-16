@@ -1,13 +1,25 @@
 // @flow
 
 import ChromecastAPI from 'chromecast-api';
+import network from 'network';
 
-const startCast = () => {
+const getPrivateIp = () =>
+  new Promise<string>((resolve, reject) => {
+    network.get_private_ip((err, ip) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(ip);
+      }
+    });
+  });
+
+const startCast = async (filePath: string) => {
+  const privateIP = await getPrivateIp();
   const client = new ChromecastAPI();
-
   client.on('device', function(device) {
-    const mediaURL =
-      'http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4';
+    // get local ip address
+    const mediaURL = `http://${privateIP}:5005/stream?path=${filePath}`;
 
     device.play(mediaURL, function(err) {
       if (!err) {
