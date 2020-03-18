@@ -2,25 +2,51 @@
 
 import * as React from 'react';
 import { Button } from '@tbergq/components';
+import path from 'path';
 
 const startCast = electron.remote.require('./startCast').default;
-const castPath = '/Users/trondbergquist/Movies/SampleVideo_1280x720_5mb.mp4';
+const dialog = electron.remote.dialog;
+
 export default function CastTest() {
-  const [server, setServer] = React.useState('');
-  React.useEffect(() => {
-    fetch('http://localhost:5005')
-      .then(res => res.json())
-      .then(json => {
-        setServer(JSON.stringify(json));
-      });
-  }, []);
-  const test = () => {
-    startCast(encodeURIComponent(castPath));
+  const [movie, setMovie] = React.useState(null);
+  const [subtitle, setSubtitle] = React.useState(null);
+
+  const onSelectMovie = () => {
+    const files: $ReadOnlyArray<string> | void = dialog.showOpenDialogSync({
+      properties: ['openFile'],
+      filters: [{ name: 'Movie', extensions: ['mp4', 'mkv'] }],
+    });
+    if (Array.isArray(files)) {
+      setMovie(files[0]);
+    }
+  };
+  const onSelectSubtitle = () => {
+    const files: $ReadOnlyArray<string> | void = dialog.showOpenDialogSync({
+      properties: ['openFile'],
+      filters: [{ name: 'Subs', extensions: ['vtt', 'srt'] }],
+    });
+    if (Array.isArray(files)) {
+      setSubtitle(files[0]);
+    }
+  };
+  const onStartCast = () => {
+    startCast({ movie, subtitle });
   };
   return (
     <>
-      <div>electron server says: {server}</div>
-      <Button onClick={test}>Cast test</Button>
+      {movie == null ? (
+        <div>No movie selcted</div>
+      ) : (
+        <div>Movie selcted: {path.basename(movie)}</div>
+      )}
+      <Button onClick={onSelectMovie}>Select movie</Button>
+      {subtitle == null ? (
+        <div>No subtitle selctec</div>
+      ) : (
+        <div>Subtitle selcted: {path.basename(subtitle)}</div>
+      )}
+      <Button onClick={onSelectSubtitle}>Select subtitle</Button>
+      <Button onClick={onStartCast}>Start cast</Button>
     </>
   );
 }

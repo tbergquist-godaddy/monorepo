@@ -14,14 +14,29 @@ const getPrivateIp = () =>
     });
   });
 
-const startCast = async (filePath: string) => {
+type Args = {
+  +movie: string,
+  +subtitle: ?string,
+};
+const startCast = async ({ movie, subtitle }: Args) => {
   const privateIP = await getPrivateIp();
   const client = new ChromecastAPI();
+  const subtitles = [];
+  if (subtitle != null) {
+    subtitles.push({
+      language: 'en-US',
+      url: `http://${privateIP}:5005/stream?path=${encodeURIComponent(subtitle)}`,
+      name: 'English',
+    });
+  }
   client.on('device', function(device) {
     // get local ip address
-    const mediaURL = `http://${privateIP}:5005/stream?path=${filePath}`;
+    const media = {
+      url: `http://${privateIP}:5005/stream?path=${encodeURIComponent(movie)}`,
+      subtitles,
+    };
 
-    device.play(mediaURL, function(err) {
+    device.play(media, function(err) {
       if (!err) {
         // eslint-disable-next-line no-console
         console.log('Playing in your chromecast');
