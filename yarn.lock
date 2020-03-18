@@ -1563,27 +1563,20 @@
   resolved "https://registry.yarnpkg.com/@kiwicom/babel-plugin-orbit-components/-/babel-plugin-orbit-components-1.6.0.tgz#af8f31793c98b957e4068c30b0369b5f7660cb6e"
   integrity sha512-joQg+5ON5pdPyoeAByr7VT1phx/cRI0S4YYjL5A4SiF8UB1LgJBeVew1WGXXFRCq3vTn+nChfsz4AEG1dZ9SHg==
 
-"@kiwicom/orbit-components@^0.78.0":
-  version "0.78.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.78.0.tgz#ff653bd78b23cf3c741d3572f41194743b5ec5a7"
-  integrity sha512-u+9yIzU140Knb1dR4rUBBe2cEMQOwSMRk/YOASNKPKpJpVw713hFwES8G7FgsK3hPCbHf4YSVaPVEXYnivegBw==
+"@kiwicom/orbit-components@^0.79.0":
+  version "0.79.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.79.0.tgz#1a4f3ca2aa4abd1e3dedb663fe80f56fac04461d"
+  integrity sha512-whtRsRrmBuWOs+wbh2TaF7R4kWNksNG9SBvkkg+xqAgmSIOKsxV9DFlw22zD+FOlfs4Wct00OlSx4yNIKthNkg==
   dependencies:
     "@adeira/js" "^1.2.1"
-    "@kiwicom/orbit-design-tokens" "~0.8.0"
+    "@kiwicom/orbit-design-tokens" "~0.9.0"
 
-"@kiwicom/orbit-design-tokens@^0.9.0":
+"@kiwicom/orbit-design-tokens@^0.9.0", "@kiwicom/orbit-design-tokens@~0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.9.0.tgz#c031af02f46d8b67ebda16e10937a36db9377a62"
   integrity sha512-5kaZfJBUvhFqqxwDoPTKuM7VzHdWmGcTNhWvBYDveoi4th1dUNEkKewk6bL5oMLEfW63DjYiqT6bUXDhO4QQdQ==
   dependencies:
     ramda "^0.27.0"
-
-"@kiwicom/orbit-design-tokens@~0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.8.0.tgz#7eaa0d90fb40701131e1dad1091591d1e77f8490"
-  integrity sha512-Vm6XLg0lnEM5aFYPPvsXQG9/o2G8iElgmz93q8r8XZ/wwRDjEhRonVqp7WdX7KbxAgpGCjH28bBz7+71PZLSJw==
-  dependencies:
-    ramda "^0.26.1"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -10265,11 +10258,6 @@ querystringify@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
-
-ramda@^0.26.1:
-  version "0.26.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
-  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
 
 ramda@^0.27.0:
   version "0.27.0"
