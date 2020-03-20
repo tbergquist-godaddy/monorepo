@@ -3,10 +3,17 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const modeIndex = process.argv.findIndex(i => i === '--mode');
+const isProduction = process.argv[modeIndex + 1] === 'production';
+
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/renderer/index.js',
+  output: {
+    path: path.join(__dirname, '.build'),
+    filename: 'bundle.js',
+  },
   target: 'electron-renderer',
-  watch: true,
+  watch: !isProduction,
   externals: {
     electron: 'electron',
   },
@@ -18,8 +25,8 @@ module.exports = {
   plugins: [
     new CopyPlugin([
       {
-        from: path.join(__dirname, 'src', 'index.html'),
-        to: path.join(__dirname, 'dist', 'index.html'),
+        from: path.join(__dirname, 'src', 'renderer', 'index.html'),
+        to: path.join(__dirname, '.build', 'index.html'),
       },
     ]),
   ],

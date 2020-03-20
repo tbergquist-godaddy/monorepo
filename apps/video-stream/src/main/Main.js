@@ -15,8 +15,11 @@ function createWindow() {
   });
 
   // and load the index.html of the app.
-  // win.loadFile('dist/index.html');
-  win.loadURL('http://127.0.0.1:9000');
+  if (__DEV__) {
+    win.loadURL('http://127.0.0.1:9000');
+  } else {
+    win.loadFile('dist/index.html');
+  }
 }
 app.on('ready', createWindow);
 

@@ -2,7 +2,7 @@
   "name": "@tbergq/videostream",
   "version": "0.0.1",
   "sideEffects": false,
-  "main": "dist/main/Main.js",
+  "main": ".build/main/Main.js",
   "dependencies": {
     "@tbergq/components": "0.0.1",
     "chromecast-api": "^0.3.1",
@@ -19,9 +19,9 @@
   },
   "scripts": {
     "build": "yarn webpack --mode production",
-    "build:main": "yarn babel src/main/ --out-dir dist/main --root-mode upward -w",
+    "build:main": "yarn babel src/main/ --out-dir .build/main --root-mode upward",
     "dev-server": "yarn webpack-dev-server",
-    "dev": "yarn concurrently \"yarn build:main\" \"yarn dev-server\"",
+    "dev": "yarn concurrently \"yarn build:main -w\" \"yarn dev-server\"",
     "dev-electron": "yarn electron ."
   },
   "devDependencies": {
