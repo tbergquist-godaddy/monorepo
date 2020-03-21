@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/js": "^1.2.1",
+    "@adeira/js": "^1.2.2",
     "@artsy/fresnel": "^1.1.0",
     "@kiwicom/orbit-components": "^0.78.0",
     "@kiwicom/orbit-design-tokens": "^0.9.0",
