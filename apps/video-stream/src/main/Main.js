@@ -15,9 +15,17 @@ function createWindow() {
   });
 
   // and load the index.html of the app.
-  // win.loadFile('dist/index.html');
-  win.loadURL('http://127.0.0.1:9000');
+
+  if (app.isPackaged) {
+    win.loadFile('.build/index.html');
+  } else {
+    win.loadURL('http://127.0.0.1:9000');
+  }
 }
 app.on('ready', createWindow);
 
-fork(path.join(__dirname, 'server', 'index.js'));
+const child = fork(path.join(__dirname, 'server', 'index.js'));
+
+app.on('before-quit', () => {
+  child.kill();
+});

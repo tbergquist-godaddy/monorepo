@@ -2,9 +2,9 @@
   "name": "@tbergq/videostream",
   "version": "0.0.1",
   "sideEffects": false,
-  "main": "dist/main/Main.js",
+  "main": ".build/main/Main.js",
   "dependencies": {
-    "@tbergq/components": "0.0.1",
+    "@adeira/monorepo-utils": "^0.6.0",
     "chromecast-api": "^0.3.1",
     "compression": "^1.7.4",
     "copy-webpack-plugin": "^5.1.1",
@@ -18,16 +18,20 @@
     "webpack": "^4.42.0"
   },
   "scripts": {
-    "build": "yarn webpack --mode production",
-    "build:main": "yarn babel src/main/ --out-dir dist/main --root-mode upward -w",
+    "build": "yarn monorepo-babel-node scripts/build.js",
+    "build:renderer": "yarn webpack --mode production",
+    "build:main": "yarn babel src/main/ --out-dir .build/main --root-mode upward",
+    "build:electron": "yarn electron-builder --dir",
     "dev-server": "yarn webpack-dev-server",
-    "dev": "yarn concurrently \"yarn build:main\" \"yarn dev-server\"",
+    "dev": "yarn concurrently \"yarn build:main -w\" \"yarn dev-server\"",
     "dev-electron": "yarn electron ."
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "babel-loader": "^8.0.6",
     "concurrently": "^5.1.0",
+    "electron-builder": "^22.4.1",
+    "rimraf": "^3.0.2",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   }
