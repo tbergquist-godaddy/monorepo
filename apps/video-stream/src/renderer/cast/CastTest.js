@@ -1,18 +1,11 @@
 // @flow
 
 import * as React from 'react';
+import { Button } from '@tbergq/components';
 import path from 'path';
 
 const startCast = electron.remote.require('./startCast').default;
 const dialog = electron.remote.dialog;
-
-const Button = ({ onClick, children }: { +onClick: () => void, +children: React.Node }) => {
-  return (
-    <button type="button" onClick={onClick}>
-      {children}
-    </button>
-  );
-};
 
 export default function CastTest() {
   const [movie, setMovie] = React.useState(null);
