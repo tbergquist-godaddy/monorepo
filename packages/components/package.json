@@ -1,7 +1,7 @@
 {
   "name": "@tbergq/components",
-  "private": true,
-  "main": "index.js",
+  "private": false,
+  "main": "index",
   "version": "0.0.1",
   "sideEffects": false,
   "dependencies": {
@@ -13,8 +13,6 @@
     "react-icons": "^3.9.0"
   },
   "peerDependencies": {
-    "@tbergq/relay": "",
-    "@tbergq/utils": "",
     "next": "",
     "react": "",
     "react-test-renderer": "",
