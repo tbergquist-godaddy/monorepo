@@ -41,14 +41,14 @@ export default function FileSelector({ extensions, name, buttonText, onSelect }:
       });
       if (Array.isArray(files)) {
         setValue(files[0]);
+        onSelect(files[0]);
       }
     } else {
       setValue(null);
+      onSelect(null);
     }
   };
-  React.useEffect(() => {
-    onSelect(value);
-  }, [value, onSelect]);
+
   return (
     <Stack flex={true} align="center">
       {value !== null && <Label>{`${name}: ${path.basename(value)}`}</Label>}

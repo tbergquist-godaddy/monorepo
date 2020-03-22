@@ -2,9 +2,11 @@
 
 import * as React from 'react';
 
+type CastStates = 'idle' | 'readyToCast' | 'loading' | 'casting' | 'paused' | 'error';
 type State = {
   +movie: string | null,
   +subtitle: string | null,
+  +castState: CastStates,
 };
 
 type ActionState = {
@@ -18,28 +20,39 @@ type ContextProps = {
   +children: React.Node,
 };
 
-type Action = {
-  +type: 'setMovie' | 'setSubtitle',
-  +payload: string | null,
-};
+type Action =
+  | {
+      +type: 'setMovie' | 'setSubtitle',
+      +payload: string | null,
+    }
+  | {
+      +type: 'setCastState',
+      +payload: CastStates,
+    };
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case 'setMovie':
       return {
         ...state,
         movie: action.payload,
+        castState: action.payload == null ? 'idle' : 'readyToCast',
       };
     case 'setSubtitle':
       return {
         ...state,
         subtitle: action.payload,
       };
+    case 'setCastState':
+      return {
+        ...state,
+        castState: action.payload,
+      };
     default:
       return state;
   }
 }
 
-const intialStatate = { movie: null, subtitle: null };
+const intialStatate = { movie: null, subtitle: null, castState: 'idle' };
 function CastContextProvider(props: ContextProps) {
   const [state, dispatch] = React.useReducer(reducer, intialStatate);
 

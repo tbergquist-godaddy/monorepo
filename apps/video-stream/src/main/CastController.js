@@ -35,6 +35,7 @@ type Device = {
   +resume: Callback => void,
   +seek: (seconds: number, Callback) => void,
   +stop: Callback => void,
+  +player: { +[key: string]: mixed, ... },
 };
 
 class CastController {
@@ -72,7 +73,8 @@ class CastController {
       this.device.play(media, err => {
         if (!err) {
           // eslint-disable-next-line no-console
-          console.log('Playing in your chromecast');
+          console.log('Playing in your chromecast', this.device.player);
+
           resolve();
         } else {
           reject(err);

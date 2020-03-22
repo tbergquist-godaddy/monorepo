@@ -16,8 +16,9 @@
     "network": "^0.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "webpack": "^4.42.0",
-    "styled-components": "^5.0.1"
+    "react-icons": "^3.9.0",
+    "styled-components": "^5.0.1",
+    "webpack": "^4.42.0"
   },
   "scripts": {
     "build": "yarn monorepo-babel-node scripts/build.js",
@@ -33,6 +34,7 @@
     "babel-loader": "^8.0.6",
     "concurrently": "^5.1.0",
     "electron-builder": "^22.4.1",
+    "file-loader": "^6.0.0",
     "rimraf": "^3.0.2",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
