@@ -29,18 +29,40 @@ type Media = {
   +url: string,
   +subtitles: ?Array<Subtitle>,
 };
+
+type PlayerMedia = {
+  +currentSession: {
+    +currentTime: number,
+    +media: ?{
+      +duration: number,
+    },
+  },
+  +[key: string]: mixed,
+  ...
+};
+type Player = {
+  +[key: string]: mixed,
+  +media: PlayerMedia,
+  ...
+};
+type Status = {
+  +currentTime: number,
+};
 type Device = {
   +play: (media: Media, cb: Callback) => void,
   +pause: Callback => void,
   +resume: Callback => void,
   +seek: (seconds: number, Callback) => void,
   +stop: Callback => void,
-  +player: { +[key: string]: mixed, ... },
+  +player: Player,
+  +getStatus: ((?Error, ?Status) => void) => void,
 };
 
 class CastController {
   #privateIP: string;
   device: Device;
+  media: PlayerMedia;
+  totalPlayTime: number;
 
   constructor() {
     this.getPrivateIp();
@@ -73,14 +95,29 @@ class CastController {
       this.device.play(media, err => {
         if (!err) {
           // eslint-disable-next-line no-console
-          console.log('Playing in your chromecast', this.device.player);
-
+          console.log('Playing in your chromecast');
           resolve();
         } else {
           reject(err);
         }
       });
     });
+  };
+
+  getCurrentTime = () => {
+    return new Promise<number>((resolve, reject) => {
+      this.device.getStatus((err, status) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(status?.currentTime ?? 0);
+        }
+      });
+    });
+  };
+
+  getTotalPlayTime = () => {
+    return this.device.player.media.currentSession.media?.duration;
   };
 
   stopCast = () => {
