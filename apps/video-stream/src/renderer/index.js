@@ -2,14 +2,18 @@
 
 import * as React from 'react';
 import { render } from 'react-dom';
+import { Heading, Stack } from '@tbergq/components';
 
-import CastTest from './cast/CastTest';
+import MediaContainer from './cast/MediaContainer';
+import { CastContextProvider } from './cast/CastContext';
 
 const App = () => (
-  <>
-    <div>my electron app</div>
-    <CastTest />
-  </>
+  <CastContextProvider>
+    <Stack>
+      <Heading element="h1">Select media</Heading>
+      <MediaContainer />
+    </Stack>
+  </CastContextProvider>
 );
 
 const root = document.getElementById('root');

@@ -16,7 +16,8 @@
     "network": "^0.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "webpack": "^4.42.0"
+    "webpack": "^4.42.0",
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "build": "yarn monorepo-babel-node scripts/build.js",
