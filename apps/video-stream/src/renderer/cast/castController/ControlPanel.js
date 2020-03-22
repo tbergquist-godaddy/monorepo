@@ -6,6 +6,7 @@ import { MdPlayArrow, MdPause, MdStop, MdFastRewind, MdFastForward } from 'react
 import styled from 'styled-components';
 
 import { useCastState, useCastAction } from '../CastContext';
+import Timer from './Timer';
 
 const IconContainer = styled.span({
   svg: {
@@ -41,30 +42,34 @@ export default function ControlPanel() {
   };
   const stop = () => {
     castController.stopCast();
+    dispatch({ type: 'setCastState', payload: 'readyToCast' });
   };
   return (
-    <Stack flex={true} spacing="condensed">
-      <Button onClick={playPause}>
-        <IconContainer>
-          {castState === 'casting' && <MdPause />}
-          {castState === 'paused' && <MdPlayArrow />}
-        </IconContainer>
-      </Button>
-      <Button onClick={fastRewind}>
-        <IconContainer>
-          <MdFastRewind />
-        </IconContainer>
-      </Button>
-      <Button onClick={fastForward}>
-        <IconContainer>
-          <MdFastForward />
-        </IconContainer>
-      </Button>
-      <Button onClick={stop}>
-        <IconContainer>
-          <MdStop />
-        </IconContainer>
-      </Button>
-    </Stack>
+    <>
+      <Timer />
+      <Stack flex={true} spacing="condensed">
+        <Button onClick={playPause}>
+          <IconContainer>
+            {castState === 'casting' && <MdPause />}
+            {castState === 'paused' && <MdPlayArrow />}
+          </IconContainer>
+        </Button>
+        <Button onClick={fastRewind}>
+          <IconContainer>
+            <MdFastRewind />
+          </IconContainer>
+        </Button>
+        <Button onClick={fastForward}>
+          <IconContainer>
+            <MdFastForward />
+          </IconContainer>
+        </Button>
+        <Button onClick={stop}>
+          <IconContainer>
+            <MdStop />
+          </IconContainer>
+        </Button>
+      </Stack>
+    </>
   );
 }
