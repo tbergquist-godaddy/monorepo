@@ -1,11 +1,25 @@
 // @flow
 
 import * as React from 'react';
+import Slider from 'rc-slider';
+import styled from 'styled-components';
 
 import { useCastState } from '../CastContext';
 
 const castController = electron.remote.require('./CastController').default;
 
+const SliderContainer = styled.div({
+  marginBottom: '8px',
+  '.rc-slider-track': {
+    backgroundColor: 'deeppink',
+  },
+  '.rc-slider-dot-active': {
+    borderColor: 'deeppink',
+  },
+  '.rc-slider-handle': {
+    border: 'solid 2px deeppink',
+  },
+});
 const formatTime = (input: number) => {
   const hours = Math.floor(input / 3600);
   const minutes = Math.floor((input - hours * 3600) / 60);
@@ -14,7 +28,7 @@ const formatTime = (input: number) => {
 };
 export default function Timer() {
   const [currentTime, setCurrentTime] = React.useState(0);
-  const [totalPlayTime, setTotalPlaytime] = React.useState('calculating....');
+  const [totalPlayTime, setTotalPlaytime] = React.useState(0);
   const intervalRef = React.useRef(null);
   const { castState } = useCastState();
 
@@ -38,14 +52,20 @@ export default function Timer() {
   }, [castState, fetchTime]);
 
   React.useEffect(() => {
-    setTotalPlaytime(formatTime(castController.getTotalPlayTime()));
+    setTotalPlaytime(castController.getTotalPlayTime());
   }, []);
 
+  const onSliderChange = (value: number) => {
+    castController.seek(value);
+  };
   return (
     <div>
+      <SliderContainer>
+        <Slider max={totalPlayTime} dots value={currentTime} onChange={onSliderChange} />
+      </SliderContainer>
       {formatTime(currentTime)}
       {' / '}
-      {totalPlayTime}
+      {formatTime(totalPlayTime)}
     </div>
   );
 }
