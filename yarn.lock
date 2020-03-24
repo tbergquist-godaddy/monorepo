@@ -119,6 +119,15 @@
     triple-beam "^1.3.0"
     winston "^3.2.1"
 
+"@adeira/logger@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/logger/-/logger-0.2.0.tgz#5128c090e9020176d41026204d24eb65b9919a52"
+  integrity sha512-wpPv+m6PGsm/O1tW+5QxaP5YvPj2SMcokMZABReA9E5kvJRCHMoLs0DMUyRbHWuH+BR/y+b9jzLHVE/3CEgWDw==
+  dependencies:
+    "@adeira/js" "^1.2.0"
+    triple-beam "^1.3.0"
+    winston "^3.2.1"
+
 "@adeira/monorepo-npm-publisher@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@adeira/monorepo-npm-publisher/-/monorepo-npm-publisher-0.3.0.tgz#ee7181189f17cc8988aacb15a435b49a440066ae"
@@ -174,6 +183,15 @@
     "@adeira/js" "^1.0.0"
     relay-runtime "^9.0.0"
 
+"@adeira/relay-runtime@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@adeira/relay-runtime/-/relay-runtime-0.9.0.tgz#712ee228a70f424a69fc2d1b183ba496a14bdcaf"
+  integrity sha512-JrWjyaN7HX2l2fj5B3r0FNrwkd5Te2Q+w7vXbMhlk+rpsrGgjAHDxu3Oxls0AyNkbATo9ZECtKc7FSlX2mFBZw==
+  dependencies:
+    "@adeira/js" "^1.2.0"
+    "@babel/runtime" "^7.9.2"
+    relay-runtime "^9.0.0"
+
 "@adeira/relay-utils@^0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@adeira/relay-utils/-/relay-utils-0.6.0.tgz#a2cb54e4f644b1f0a790357f8709cd52468a729e"
@@ -182,20 +200,21 @@
     "@adeira/relay" "^1.1.0"
     "@adeira/relay-runtime" "^0.6.0"
 
-"@adeira/relay@^1.0.0", "@adeira/relay@^1.1.0", "@adeira/relay@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-1.1.3.tgz#8f784abcabd20aeb35212a6bbce3f010b08b3de8"
-  integrity sha512-4ljHBX8vV5/gpjE6qIDX/jVxOkj9Y03HeI/EqJkl7MOeJBjYNG8LPY9KCVyBB0OaUN/KNHXBZebJH85KXA0/Qw==
+"@adeira/relay@^1.0.0", "@adeira/relay@^1.1.0", "@adeira/relay@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-1.2.0.tgz#326f7039105fb1bd4034531e39a3727cfc12064a"
+  integrity sha512-8r6kqLOHwVi8r9cSAmnSe7Ya20lstSM2/V12hNEvXummWHZEs12PFiKUKfu5Ds14Ct9rY7BaSmfI7XE72H/SIg==
   dependencies:
     "@adeira/fetch" "^1.0.1"
     "@adeira/js" "^1.2.0"
-    "@adeira/logger" "^0.1.0"
+    "@adeira/logger" "^0.2.0"
     "@adeira/monorepo-utils" "^0.6.0"
-    "@adeira/relay-runtime" "^0.6.0"
+    "@adeira/relay-runtime" "^0.9.0"
     "@adeira/signed-source" "^0.1.0"
-    "@babel/register" "^7.8.6"
+    "@babel/register" "^7.9.0"
+    "@babel/runtime" "^7.9.2"
     babel-plugin-relay "^9.0.0"
-    commander "^4.1.1"
+    commander "^5.0.0"
     is-ci "^2.0.0"
     react-relay "^9.0.0"
     relay-compiler "^9.0.0"
@@ -1273,10 +1292,10 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-transform-typescript" "^7.7.2"
 
-"@babel/register@^7.7.4", "@babel/register@^7.8.3", "@babel/register@^7.8.6":
-  version "7.8.6"
-  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.8.6.tgz#a1066aa6168a73a70c35ef28cc5865ccc087ea69"
-  integrity sha512-7IDO93fuRsbyml7bAafBQb3RcBGlCpU4hh5wADA2LJEEcYk92WkwFZ0pHyIi2fb5Auoz1714abETdZKCOxN0CQ==
+"@babel/register@^7.7.4", "@babel/register@^7.8.3", "@babel/register@^7.8.6", "@babel/register@^7.9.0":
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.9.0.tgz#02464ede57548bddbb5e9f705d263b7c3f43d48b"
+  integrity sha512-Tv8Zyi2J2VRR8g7pC5gTeIN8Ihultbmk0ocyNz8H2nEZbmhp1N6q0A1UGsQbDvGP/sNinQKUHf3SqXwqjtFv4Q==
   dependencies:
     find-cache-dir "^2.0.0"
     lodash "^4.17.13"
@@ -3799,10 +3818,15 @@ commander@^2.11.0, commander@^2.18.0, commander@^2.20.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-commander@^4.0.1, commander@^4.1.1:
+commander@^4.0.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
+
+commander@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-5.0.0.tgz#dbf1909b49e5044f8fdaf0adc809f0c0722bdfd0"
+  integrity sha512-JrDGPAKjMGSP1G0DUoaceEJ3DZgAfr/q6X7FVk4+U5KxUSKviYGM2k6zWkfyyBHy5rAtzgYJFa1ro2O9PtoxwQ==
 
 commondir@^1.0.1:
   version "1.0.1"
