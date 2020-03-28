@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { Heading } from '@tbergq/components';
 import styled from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
@@ -61,7 +61,7 @@ const TvShowPage = (props: Props) => {
   );
 };
 
-export default createFragmentContainer(TvShowPage, {
+export default (createFragmentContainer(TvShowPage, {
   tvShow: graphql`
     fragment TvShowPage_tvShow on TvShow {
       name
@@ -73,4 +73,4 @@ export default createFragmentContainer(TvShowPage, {
       ...Episodes_episodes
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

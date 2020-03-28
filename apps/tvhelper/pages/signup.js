@@ -5,7 +5,7 @@ import { getNextToken } from '@tbergq/utils';
 
 import SignupQuery, { query } from '../src/signup/SignupQuery';
 
-export default function Signup() {
+export default function Signup(): React.Node {
   return <SignupQuery />;
 }
 

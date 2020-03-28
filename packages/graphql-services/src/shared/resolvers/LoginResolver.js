@@ -25,7 +25,7 @@ config();
 
 const { JWT_SECRET } = process.env;
 
-export const signToken = (user: LoggedInUser) => {
+export const signToken = (user: LoggedInUser): string => {
   return jwt.sign(user, JWT_SECRET, {
     expiresIn: '1y',
     issuer: 'tbergq-graphql.now.sh',
@@ -37,7 +37,11 @@ const loginFailed = () => ({
   success: false,
 });
 
-const LoginResolver = (user: ?User, password: string, app: Apps) => {
+const LoginResolver = (
+  user: ?User,
+  password: string,
+  app: Apps,
+): { +token: ?string, +success: boolean } => {
   if (user == null) {
     return loginFailed();
   }

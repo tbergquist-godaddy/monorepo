@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Layout as PageLayout, Navbar, NavLink } from '@tbergq/components';
-import { createFragmentContainer, graphql } from '@tbergq/relay';
+import { createFragmentContainer, graphql, type FragmentContainerType } from '@tbergq/relay';
 
 import type { Layout_viewer as Viewer } from './__generated__/Layout_viewer.graphql';
 import NavbarRight from './NavbarRight';
@@ -36,11 +36,11 @@ function Layout(props: Props) {
   );
 }
 
-export default createFragmentContainer(Layout, {
+export default (createFragmentContainer(Layout, {
   viewer: graphql`
     fragment Layout_viewer on Viewer {
       __typename
       ...NavbarRight_viewer
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

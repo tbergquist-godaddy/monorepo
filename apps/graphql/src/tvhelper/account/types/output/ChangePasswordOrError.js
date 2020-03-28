@@ -13,7 +13,7 @@ export class PasswordError {
     this.isInvalidPassword = isInvalidPassword;
   }
 
-  toJSON() {
+  toJSON(): { isInvalidPassword: boolean, message: string } {
     return {
       message: this.message,
       isInvalidPassword: this.isInvalidPassword,
@@ -21,7 +21,7 @@ export class PasswordError {
   }
 }
 
-export default new GraphQLUnionType({
+export default (new GraphQLUnionType({
   name: 'ChangePasswordOrError',
   types: [ChangePasswordError, ChangePasswordResponse],
   resolveType: value => {
@@ -30,4 +30,4 @@ export default new GraphQLUnionType({
     }
     return ChangePasswordResponse;
   },
-});
+}): GraphQLUnionType);

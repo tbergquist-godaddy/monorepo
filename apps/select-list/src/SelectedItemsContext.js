@@ -12,7 +12,7 @@ type SelectedItemsActions = {|
   +payload: string,
 |};
 type Dispatch = (action: SelectedItemsActions) => void;
-const SelectedItemsContext = React.createContext<?SelectedItemsState>();
+const SelectedItemsContext: React.Context<?SelectedItemsState> = React.createContext<?SelectedItemsState>();
 const SelectedItemsDispatchContext = React.createContext<?Dispatch>();
 
 function selectedItemsReducer(state, action) {
@@ -32,7 +32,9 @@ type ProviderProps = {|
   +children: React.Node,
 |};
 
-function SelectedItemsProvider({ children }: ProviderProps) {
+function SelectedItemsProvider({
+  children,
+}: ProviderProps): React.Element<typeof SelectedItemsContext.Provider> {
   const [state, dispatch] = React.useReducer(selectedItemsReducer, { selectedItems: [] });
   return (
     <SelectedItemsContext.Provider value={state}>

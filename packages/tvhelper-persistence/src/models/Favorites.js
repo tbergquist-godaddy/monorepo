@@ -22,6 +22,6 @@ const FavoritesSchema = new Schema({
 
 FavoritesSchema.index({ userId: 1, serieId: -1 }, { unique: true });
 
-const Favorites = connection.model('favorites', FavoritesSchema);
+const Favorites: $FlowFixMe = connection.model('favorites', FavoritesSchema);
 
 export default Favorites;

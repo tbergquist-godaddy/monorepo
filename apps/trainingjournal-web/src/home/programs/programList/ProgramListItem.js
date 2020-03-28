@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { createFragmentContainer, graphql } from '@tbergq/relay';
+import { createFragmentContainer, graphql, type FragmentContainerType } from '@tbergq/relay';
 import { ListItem } from '@tbergq/components';
 import { format, isValid } from 'date-fns';
 import { nb } from 'date-fns/locale';
@@ -28,11 +28,11 @@ function ProgramListItem(props: Props) {
   return <ListItem icon={null} title={name} description={`Created ${formattedDate}`} />;
 }
 
-export default createFragmentContainer(ProgramListItem, {
+export default (createFragmentContainer(ProgramListItem, {
   program: graphql`
     fragment ProgramListItem_program on Program {
       name
       date
     }
   `,
-});
+}): FragmentContainerType<Props, React.Element<typeof ListItem>>);

@@ -28,6 +28,6 @@ const UserSchema = new Schema({
   },
 });
 
-const User = connection.model('users', UserSchema);
+const User: $FlowFixMe = connection.model('users', UserSchema);
 
 export default User;

@@ -1,6 +1,6 @@
 // @flow
 
-import Dataloader from 'dataloader';
+import DataLoader from 'dataloader';
 import { fetch } from '@tbergq/graphql-services';
 
 import { type Episode } from '../Episode';
@@ -12,6 +12,7 @@ const fetchEpisodes = async (serieIds: $ReadOnlyArray<string>) => {
   return responses;
 };
 
-const TvShowEpisodeLoader = () => new Dataloader<string, Episode[]>(fetchEpisodes);
+const TvShowEpisodeLoader = (): DataLoader<string, Array<Episode>, string> =>
+  new DataLoader<string, Episode[]>(fetchEpisodes);
 
 export default TvShowEpisodeLoader;

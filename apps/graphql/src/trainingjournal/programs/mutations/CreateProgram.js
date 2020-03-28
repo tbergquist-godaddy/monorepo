@@ -1,7 +1,7 @@
 // @flow
 
-import { GraphQLNonNull } from 'graphql';
-import { ProgramRepository } from '@tbergq/trainingjournal-persistence';
+import { GraphQLNonNull, GraphQLInputObjectType } from 'graphql';
+import { ProgramRepository, type Program } from '@tbergq/trainingjournal-persistence';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import CreateProgramInput, { type CreateProgramInputType } from '../types/input/CreateProgramInput';
@@ -12,15 +12,25 @@ type Args = {
   ...
 };
 
+type Resolver = {
+  +programEdge: {
+    +node: Program,
+  },
+};
+
 export default {
   description: 'Create a new program',
   type: CreateProgramOutput,
   args: {
     program: {
-      type: GraphQLNonNull(CreateProgramInput),
+      type: (GraphQLNonNull(CreateProgramInput): GraphQLNonNull<GraphQLInputObjectType>),
     },
   },
-  resolve: async (_: mixed, { program }: Args, { user }: GraphqlContextType) => {
+  resolve: async (
+    _: mixed,
+    { program }: Args,
+    { user }: GraphqlContextType,
+  ): Promise<null | Resolver> => {
     const userId = user?.id;
     if (userId == null) {
       return null;

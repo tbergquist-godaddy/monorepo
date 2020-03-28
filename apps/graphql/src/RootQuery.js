@@ -6,12 +6,15 @@ import TvhelperQueries from './tvhelper/TvhelperQueries';
 import viewer from './common/queries/Viewer';
 import { nodeField } from './node/node';
 
-export default new GraphQLObjectType({
+const RootQuery: GraphQLObjectType = new GraphQLObjectType({
   name: 'RootQuery',
   description: 'Root Query',
+  // $FlowFixMe
   fields: {
     ...TvhelperQueries,
     viewer,
     node: nodeField,
   },
 });
+
+export default RootQuery;

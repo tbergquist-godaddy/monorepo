@@ -8,7 +8,7 @@ type Props = {|
   +onCancel?: () => void,
 |};
 
-export default function ExerciseForm(props: Props) {
+export default function ExerciseForm(props: Props): React.Element<typeof Stack> {
   return (
     <Stack>
       <Stack flex={true}>

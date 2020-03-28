@@ -3,7 +3,9 @@
 import SearchTvShow from './search/queries/SearchTvShow';
 import Episode from './episode/queries/Episode';
 
-export default {
+const TvHelperQueries = {
   searchTvShow: SearchTvShow,
   episode: Episode,
 };
+
+export default TvHelperQueries;

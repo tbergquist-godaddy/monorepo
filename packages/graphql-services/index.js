@@ -14,4 +14,5 @@ export type { Apps } from './src/shared/resolvers/LoginResolver';
 
 // others
 export { default as connectionFromArray } from './src/connectionFromArray';
-export type { ConnectionArguments } from './src/connectionFromArray';
+export type { ConnectionArguments, Connection } from './src/connectionFromArray';
+export type { GraphQLConnectionDefinitions } from './src/types';

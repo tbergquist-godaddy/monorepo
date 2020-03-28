@@ -25,7 +25,7 @@ export type TvHelperDataLoaders = {|
   +episodeWatched: Dataloader<number, EpisodeWatched>,
 |};
 
-export default function getDataloaders(user: ?LoggedInUser) {
+export default function getDataloaders(user: ?LoggedInUser): TvHelperDataLoaders {
   const favoritesRepository = new FavoritesRepository();
   return {
     searchTvShow: SearchTvShowLoader(),

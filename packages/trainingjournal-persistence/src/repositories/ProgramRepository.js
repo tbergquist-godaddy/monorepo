@@ -10,7 +10,7 @@ type CreateProgramType = $ReadOnly<{|
 |}>;
 
 export default class ProgramRepository {
-  static async createProgram(program: CreateProgramType) {
+  static async createProgram(program: CreateProgramType): Promise<Program> {
     const newProgram = await Model.create(program);
     return new Program(newProgram);
   }
@@ -23,7 +23,7 @@ export default class ProgramRepository {
     +userId: string,
     +skip: number,
     +limit: number,
-  |}) {
+  |}): Promise<{ +count: number, +programs: Program[] }> {
     const aggregate = await Model.aggregate([
       {
         $match: { user: toObjectId(userId) },

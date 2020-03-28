@@ -8,7 +8,7 @@ type Ancestor = {|
   +original: string,
 |};
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'TvHelperImage',
   description: 'The image of a person or tvshow or episode',
   fields: {
@@ -20,4 +20,4 @@ export default new GraphQLObjectType({
       type: GraphQLString,
     },
   },
-});
+}): GraphQLObjectType);

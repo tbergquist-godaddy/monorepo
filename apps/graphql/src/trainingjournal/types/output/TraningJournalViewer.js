@@ -20,7 +20,7 @@ const getUserAndOffset = (
   };
 };
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'TraningJournalViewer',
   description: 'The viewer object for the current logged in user in TrainingJournal app',
   isTypeOf: value => value === 'trainingjournal',
@@ -81,4 +81,4 @@ export default new GraphQLObjectType({
       },
     },
   },
-});
+}): GraphQLObjectType);

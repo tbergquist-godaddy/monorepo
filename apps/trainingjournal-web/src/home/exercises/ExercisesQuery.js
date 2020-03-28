@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, QueryRenderer } from '@tbergq/relay';
+import { graphql, QueryRenderer, type GraphQLTaggedNode } from '@tbergq/relay';
 import { Heading } from '@tbergq/components';
 
 import ExerciseList from './exerciseList/ExerciseList';
@@ -10,7 +10,7 @@ import AddExerciseForm from './createExercise/AddExerciseForm';
 
 type Props = {||};
 
-export const query = graphql`
+export const query: GraphQLTaggedNode = graphql`
   query ExercisesQuery {
     viewer {
       ...AddExerciseForm_user

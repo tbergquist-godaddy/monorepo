@@ -9,7 +9,7 @@ type Props = {|
   +isLoggedIn: boolean,
 |};
 
-export default function Index({ isLoggedIn }: Props) {
+export default function Index({ isLoggedIn }: Props): React.Element<'div'> {
   const router = useRouter();
   React.useEffect(() => {
     if (isLoggedIn) {

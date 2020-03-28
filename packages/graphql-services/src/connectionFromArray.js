@@ -25,7 +25,7 @@ type PageInfo = {
 /**
  * A flow type designed to be exposed as a `Connection` over GraphQL.
  */
-type Connection<T> = {
+export type Connection<T> = {
   edges: Array<Edge<T>>,
   pageInfo: PageInfo,
 };

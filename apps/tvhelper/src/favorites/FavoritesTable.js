@@ -1,7 +1,12 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createRefetchContainer, type RefetchRelayProp } from '@tbergq/relay';
+import {
+  graphql,
+  createRefetchContainer,
+  type RefetchRelayProp,
+  type RefetchContainerType,
+} from '@tbergq/relay';
 import { Table, TableHead, TableRow, TableBody, Heading, Loading } from '@tbergq/components';
 import styled from 'styled-components';
 
@@ -90,7 +95,7 @@ const FavoritesTable = (props: Props) => {
   );
 };
 
-export default createRefetchContainer(
+export default (createRefetchContainer(
   FavoritesTable,
   {
     favorites: graphql`
@@ -119,4 +124,4 @@ export default createRefetchContainer(
       }
     }
   `,
-);
+): RefetchContainerType<Props, React.Node>);

@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { FadeInOut } from '@tbergq/components';
 
 import type { ExerciseListItem_exercise as Exercise } from './__generated__/ExerciseListItem_exercise.graphql';
@@ -42,11 +42,11 @@ function ExerciseListItem(props: Props) {
   );
 }
 
-export default createFragmentContainer(ExerciseListItem, {
+export default (createFragmentContainer(ExerciseListItem, {
   exercise: graphql`
     fragment ExerciseListItem_exercise on Exercise {
       ...ExerciseDetailCard_exercise
       ...EditExercise_exercise
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

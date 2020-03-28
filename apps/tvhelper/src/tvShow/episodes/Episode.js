@@ -1,7 +1,12 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
+import {
+  graphql,
+  createFragmentContainer,
+  type RelayProp,
+  type FragmentContainerType,
+} from '@tbergq/relay';
 import { ListItem } from '@tbergq/components';
 import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
@@ -62,7 +67,7 @@ const Episode = (props: Props) => {
   return <ListItem {...listProps} />;
 };
 
-export default createFragmentContainer(Episode, {
+export default (createFragmentContainer(Episode, {
   episode: graphql`
     fragment Episode_episode on Episode {
       id
@@ -73,4 +78,4 @@ export default createFragmentContainer(Episode, {
       watched
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

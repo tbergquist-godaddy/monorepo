@@ -1,7 +1,7 @@
 // @flow
 
 import fetch from '@adeira/fetch';
-import { createEnvironment, type RecordMap } from '@adeira/relay';
+import { createEnvironment, type RecordMap, type Environment as RelayEnv } from '@adeira/relay';
 
 const getBody = (operation, variables) => {
   if (operation.id) {
@@ -16,7 +16,7 @@ const getBody = (operation, variables) => {
   };
 };
 
-export const createRelayEnvironment = (token: ?string, initialData: ?RecordMap) => {
+export const createRelayEnvironment = (token: ?string, initialData: ?RecordMap): RelayEnv => {
   const fetchFn = async (operation, variables) => {
     const res = await fetch('https://tbergq-graphql.now.sh/graphql/', {
       method: 'POST',
@@ -41,10 +41,10 @@ export const createRelayEnvironment = (token: ?string, initialData: ?RecordMap) 
 };
 
 class Environment {
-  #environment;
-  #token;
+  #environment: RelayEnv;
+  #token: ?string;
 
-  getEnvironment(token: ?string, initialData: ?RecordMap) {
+  getEnvironment(token: ?string, initialData: ?RecordMap): RelayEnv {
     if (this.#environment != null && this.#token === token) {
       return this.#environment;
     }
@@ -55,6 +55,6 @@ class Environment {
   }
 }
 
-const environment = new Environment();
+const environment: Environment = new Environment();
 
 export default environment;

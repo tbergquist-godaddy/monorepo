@@ -5,11 +5,11 @@ const withCustomBabelConfigFile = require('next-plugin-custom-babel-config');
 const path = require('path');
 const withCSS = require('@zeit/next-css');
 
-module.exports = withCSS(
+module.exports = (withCSS(
   withCustomBabelConfigFile(
     withTM(['@tbergq'])({
       babelConfigFile: path.join(__dirname, '.babelrc.js'),
       target: 'serverless',
     }),
   ),
-);
+) /*: Object */);

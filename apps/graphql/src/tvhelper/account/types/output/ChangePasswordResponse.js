@@ -2,7 +2,7 @@
 
 import { GraphQLObjectType, GraphQLBoolean } from 'graphql';
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'ChangePasswordResponse',
   description: 'Response indicating that the password was changed',
   fields: {
@@ -11,4 +11,4 @@ export default new GraphQLObjectType({
       resolve: () => true,
     },
   },
-});
+}): GraphQLObjectType);

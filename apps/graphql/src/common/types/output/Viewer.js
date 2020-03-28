@@ -6,7 +6,7 @@ import TJViewer from '../../../trainingjournal/types/output/TraningJournalViewer
 import TVHViewer from '../../../tvhelper/account/types/output/TvHelperViewer';
 import Unauthorized from './Unauthorized';
 
-export default new GraphQLUnionType({
+export default (new GraphQLUnionType({
   name: 'Viewer',
   types: [TJViewer, TVHViewer, Unauthorized],
   resolveType: value => {
@@ -17,4 +17,4 @@ export default new GraphQLUnionType({
     }
     return Unauthorized;
   },
-});
+}): GraphQLUnionType);

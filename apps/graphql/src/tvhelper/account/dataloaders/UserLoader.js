@@ -1,6 +1,6 @@
 // @flow
 
-import Dataloader from 'dataloader';
+import DataLoader from 'dataloader';
 import { UserRepository } from '@tbergq/tvhelper-persistence';
 
 import type { User as UserType } from '../Account';
@@ -19,7 +19,7 @@ const fetchUser = async (usernames: $ReadOnlyArray<string>) => {
   });
 };
 
-const UserLoader = () =>
-  new Dataloader<string, ?UserType>((usernames: $ReadOnlyArray<string>) => fetchUser(usernames));
+const UserLoader = (): DataLoader<string, ?UserType, string> =>
+  new DataLoader<string, ?UserType>((usernames: $ReadOnlyArray<string>) => fetchUser(usernames));
 
 export default UserLoader;

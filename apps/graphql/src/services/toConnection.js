@@ -6,7 +6,18 @@ type Config = {|
   +offset: number,
   +count: number,
 |};
-export default function toConnection<T>(items: $ReadOnlyArray<T>, config: Config) {
+export default function toConnection<T>(
+  items: $ReadOnlyArray<T>,
+  config: Config,
+): {
+  edges: $ReadOnlyArray<{ +cursor: string, +node: T }>,
+  pageInfo: {
+    endCursor: null | string,
+    hasNextPage: boolean,
+    hasPreviousPage: boolean,
+    startCursor: null | string,
+  },
+} {
   const edges = items.map<{|
     +cursor: string,
     +node: T,

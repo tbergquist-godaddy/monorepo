@@ -2,7 +2,7 @@
 
 import { GraphQLObjectType, GraphQLString, GraphQLBoolean } from 'graphql';
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'LoginType',
   description: 'Login response, indicates success and gives the token',
   fields: {
@@ -13,4 +13,4 @@ export default new GraphQLObjectType({
       type: GraphQLBoolean,
     },
   },
-});
+}): GraphQLObjectType);

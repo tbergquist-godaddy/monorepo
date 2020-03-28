@@ -40,10 +40,9 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue:
 ; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
 experimental.const_params=true
 
-experimental.types_first=false
+experimental.types_first=true
 experimental.well_formed_exports=true
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/components
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/packages/graphql-persistence
+
 
 [strict]
 untyped-import

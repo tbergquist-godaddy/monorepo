@@ -5,7 +5,7 @@ import * as React from 'react';
 import FileSelector from '../components/FileSelector';
 import { useCastAction } from './CastContext';
 
-export default function FileSelectors() {
+export default function FileSelectors(): React.Node {
   const { dispatch } = useCastAction();
   const onMovieChange = React.useCallback(
     movie => {

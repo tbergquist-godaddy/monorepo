@@ -7,6 +7,7 @@ import {
   type Environment as _RelayEnvironmentType,
   type DeclarativeMutationConfig,
   type RecordMap as _RecordMap,
+  type GraphQLTaggedNode as _GraphQLTaggedNode,
 } from '@adeira/relay';
 
 export { default as QueryRenderer } from './src/QueryRenderer';
@@ -30,3 +31,10 @@ export type PaginationRelayProp = _PaginationRelayProp;
 export type RelayEnvironmentType = _RelayEnvironmentType;
 export type MutationConfig = DeclarativeMutationConfig;
 export type RecordMap = _RecordMap;
+export type GraphQLTaggedNode = _GraphQLTaggedNode;
+
+export type {
+  FragmentContainerType,
+  RefetchContainerType,
+  PaginationContainerType,
+} from './src/types';

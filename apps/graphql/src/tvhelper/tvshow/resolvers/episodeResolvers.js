@@ -6,7 +6,10 @@ import type { GraphqlContextType } from '../../../services/createGraphqlContext'
 
 type DataLoader = $PropertyType<GraphqlContextType, 'dataLoader'>;
 
-export const resolvePreviousEpisode = async (dataLoader: DataLoader, id: number) => {
+export const resolvePreviousEpisode = async (
+  dataLoader: DataLoader,
+  id: number,
+): Promise<null | Date> => {
   const episodes = await await dataLoader.tvhelper.episodes.load(id.toString());
   invariant(Array.isArray(episodes), 'Expected episodes to be of type array.');
 
@@ -27,7 +30,10 @@ export const resolvePreviousEpisode = async (dataLoader: DataLoader, id: number)
   return date;
 };
 
-export const resolveNextEpisode = async (dataLoader: DataLoader, id: number) => {
+export const resolveNextEpisode = async (
+  dataLoader: DataLoader,
+  id: number,
+): Promise<null | Date> => {
   const episodes = await await dataLoader.tvhelper.episodes.load(id.toString());
 
   const today = new Date();

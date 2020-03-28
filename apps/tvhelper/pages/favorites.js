@@ -5,14 +5,14 @@ import { getNextToken } from '@tbergq/utils';
 
 import FavoriteQuery, { favoritesQuery } from '../src/favorites/FavoriteQuery';
 
-export default function Favorites() {
+function Favorites() {
   return <FavoriteQuery />;
 }
 
 Favorites.getInitialProps = ctx => {
-  const token = getNextToken(ctx);
+  const token = getNextToken(ctx) ?? '';
 
-  if (token) {
+  if (token !== '') {
     return {
       query: favoritesQuery,
     };
@@ -22,3 +22,5 @@ Favorites.getInitialProps = ctx => {
 
   return {};
 };
+
+export default (Favorites: React.ComponentType<{}>);

@@ -15,7 +15,7 @@ const log = (...args: $ReadOnlyArray<string>) => {
   // eslint-disable-next-line no-console
   console.log(...args);
 };
-const Fetch = async (url: string, options: FetchOptions = {}) => {
+const Fetch = async <T>(url: string, options: FetchOptions = {}): Promise<T> => {
   if (__DEV__) {
     log(url);
   }

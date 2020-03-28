@@ -1,14 +1,9 @@
 // @flow
 
 export default {
-  // $FlowFixMe
-  get: jest.fn(() => null),
-  // $FlowFixMe
-  mget: jest.fn(input => input.map(() => null)),
-  // $FlowFixMe
-  set: jest.fn(),
-  // $FlowFixMe
-  mset: jest.fn(),
-  // $FlowFixMe
-  expire: jest.fn(),
+  get: (jest.fn(() => null): JestMockFn<any, any>),
+  mget: (jest.fn(input => input.map(() => null)): JestMockFn<any, any>),
+  set: (jest.fn(): JestMockFn<any, any>),
+  mset: (jest.fn(): JestMockFn<any, any>),
+  expire: (jest.fn(): JestMockFn<any, any>),
 };

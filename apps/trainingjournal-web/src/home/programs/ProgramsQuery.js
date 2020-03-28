@@ -1,14 +1,14 @@
 // @flow
 
 import * as React from 'react';
-import { QueryRenderer, graphql } from '@tbergq/relay';
+import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';
 import { Heading } from '@tbergq/components';
 
 import type { ProgramsQueryResponse } from './__generated__/ProgramsQuery.graphql';
 import ProgramList from './programList/ProgramList';
 import AddProgramForm from './AddProgramForm';
 
-export const query = graphql`
+export const query: GraphQLTaggedNode = graphql`
   query ProgramsQuery {
     viewer {
       ...ProgramList_viewer

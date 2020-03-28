@@ -1,16 +1,22 @@
 // @flow
 
-import { GraphQLID, GraphQLNonNull } from 'graphql';
+import { GraphQLID, GraphQLNonNull, GraphQLScalarType } from 'graphql';
 import { fromGlobalId } from '@adeira/graphql-global-id';
 import { FavoritesRepository } from '@tbergq/tvhelper-persistence';
 import { type OpaqueIDString } from '@adeira/graphql-global-id/src/Encoder';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import AddFavorite from '../types/output/AddFavorite';
+import type { TvShow } from '../TvShow';
 
 type Args = {
   +serieId: OpaqueIDString,
   ...
+};
+
+type Resolver = {
+  +success: boolean,
+  +tvShow: TvShow | null,
 };
 
 export default {
@@ -18,10 +24,14 @@ export default {
   description: 'Add tv show to favorite list',
   args: {
     serieId: {
-      type: GraphQLNonNull(GraphQLID),
+      type: (GraphQLNonNull(GraphQLID): GraphQLNonNull<GraphQLScalarType>),
     },
   },
-  resolve: async (_: mixed, args: Args, { user, dataLoader }: GraphqlContextType) => {
+  resolve: async (
+    _: mixed,
+    args: Args,
+    { user, dataLoader }: GraphqlContextType,
+  ): Promise<Resolver> => {
     const serieId = fromGlobalId(args.serieId);
     const userId = user?.id;
     if (userId == null) {

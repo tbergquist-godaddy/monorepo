@@ -8,7 +8,7 @@ type Props = {|
   +isLoggedIn: boolean,
 |};
 
-export default function Home(props: Props) {
+export default function Home(props: Props): React.Node {
   useIsLoggedIn(props);
   return (
     <>

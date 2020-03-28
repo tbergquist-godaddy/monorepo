@@ -4,7 +4,7 @@ import * as React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 
 export default class MyDocument extends Document {
-  render() {
+  render(): React.Node {
     return (
       <html lang="en">
         <Head>

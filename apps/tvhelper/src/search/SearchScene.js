@@ -4,7 +4,12 @@ import * as React from 'react';
 import { Stack, Heading } from '@tbergq/components';
 import Router, { useRouter } from 'next/router';
 import { Formik } from 'formik';
-import { createRefetchContainer, graphql, type RefetchRelayProp } from '@tbergq/relay';
+import {
+  createRefetchContainer,
+  graphql,
+  type RefetchRelayProp,
+  type RefetchContainerType,
+} from '@tbergq/relay';
 
 import SearchForm from './SearchForm';
 import SearchResults from './searchResults/SearchResults';
@@ -46,7 +51,7 @@ function SearchScene(props: Props) {
   );
 }
 
-export default createRefetchContainer(
+export default (createRefetchContainer(
   SearchScene,
   {
     search: graphql`
@@ -70,4 +75,4 @@ export default createRefetchContainer(
       ...SearchScene_search @arguments(includeResults: $includeResults, query: $query)
     }
   `,
-);
+): RefetchContainerType<Props, React.Node>);

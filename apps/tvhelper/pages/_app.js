@@ -20,4 +20,4 @@ class MyApp extends App {
   }
 }
 
-export default withApp(MyApp);
+export default (withApp(MyApp): React.AbstractComponent<{ ... }>);

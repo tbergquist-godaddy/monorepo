@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { useSelectedItems } from './SelectedItemsContext';
 
-export default function SelectedItems() {
+export default function SelectedItems(): null | React.Element<'div'> {
   const { selectedItems } = useSelectedItems();
   if (selectedItems.length === 0) {
     return null;

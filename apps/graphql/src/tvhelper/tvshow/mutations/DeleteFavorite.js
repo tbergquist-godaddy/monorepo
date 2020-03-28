@@ -1,6 +1,6 @@
 // @flow
 
-import { GraphQLID, GraphQLNonNull } from 'graphql';
+import { GraphQLID, GraphQLNonNull, GraphQLScalarType } from 'graphql';
 import { fromGlobalId } from '@adeira/graphql-global-id';
 import { FavoritesRepository } from '@tbergq/tvhelper-persistence';
 import { RangeDelete } from '@tbergq/graphql-services';
@@ -15,15 +15,20 @@ type Args = {
 
 const failObject = { success: false, id: null };
 
+type Resolver = {
+  +success: boolean,
+  +id: string | null,
+};
+
 export default {
   type: RangeDelete,
   description: 'Remove tv show from favorite list',
   args: {
     serieId: {
-      type: GraphQLNonNull(GraphQLID),
+      type: (GraphQLNonNull(GraphQLID): GraphQLNonNull<GraphQLScalarType>),
     },
   },
-  resolve: async (_: mixed, args: Args, { user }: GraphqlContextType) => {
+  resolve: async (_: mixed, args: Args, { user }: GraphqlContextType): Promise<Resolver> => {
     const userId = user?.id;
     if (userId == null) {
       return failObject;

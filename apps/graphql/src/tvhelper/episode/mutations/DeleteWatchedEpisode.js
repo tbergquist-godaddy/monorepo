@@ -12,15 +12,23 @@ type Args = {
   ...
 };
 
+type WatchedEpisodeResolve = {
+  +success: boolean,
+  +episode: { +id: string, +isWatched: boolean },
+};
 export default {
   type: EpisodeWatched,
   description: 'Delete an episode as watched',
   args: {
     episodeId: {
-      type: GraphQLNonNull(GraphQLID),
+      type: (GraphQLNonNull(GraphQLID): GraphQLNonNull<typeof GraphQLID>),
     },
   },
-  resolve: async (_: mixed, args: Args, { user }: GraphqlContextType) => {
+  resolve: async (
+    _: mixed,
+    args: Args,
+    { user }: GraphqlContextType,
+  ): Promise<WatchedEpisodeResolve> => {
     const { id: episodeId } = fromGlobalId(args.episodeId);
 
     const success = await WatchedEpisodeRepository.deleteWatchedEpisode(

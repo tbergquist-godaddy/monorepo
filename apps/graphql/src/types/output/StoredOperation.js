@@ -2,7 +2,7 @@
 
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'StoredOperation',
   description: 'A stored operation, a has with a corresponding graphql operation',
   fields: {
@@ -13,4 +13,4 @@ export default new GraphQLObjectType({
       type: GraphQLString,
     },
   },
-});
+}): GraphQLObjectType);

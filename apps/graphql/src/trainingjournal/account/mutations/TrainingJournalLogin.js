@@ -1,6 +1,6 @@
 // @flow
 
-import { GraphQLNonNull, GraphQLString } from 'graphql';
+import { GraphQLNonNull, GraphQLString, GraphQLScalarType } from 'graphql';
 import { UserRepository } from '@tbergq/trainingjournal-persistence';
 import { LoginType, signToken } from '@tbergq/graphql-services';
 
@@ -15,13 +15,16 @@ export default {
   description: 'Login to trainingjournal application',
   args: {
     username: {
-      type: GraphQLNonNull(GraphQLString),
+      type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<GraphQLScalarType>),
     },
     password: {
-      type: GraphQLNonNull(GraphQLString),
+      type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<GraphQLScalarType>),
     },
   },
-  resolve: async (_: mixed, { username, password }: Args) => {
+  resolve: async (
+    _: mixed,
+    { username, password }: Args,
+  ): Promise<{ +success: boolean, +token: ?string }> => {
     // $FlowFixMe (>=<0.111.1)
     const user = await UserRepository.verifyPassword(username, password);
 

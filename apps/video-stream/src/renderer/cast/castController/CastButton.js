@@ -8,7 +8,7 @@ import CastImage from './cast.png';
 
 const castController = electron.remote.require('./CastController').default;
 
-export default function CastController() {
+export default function CastController(): React.Node {
   const { dispatch } = useCastAction();
   const { castState, movie, subtitle } = useCastState();
   const startCast = async () => {

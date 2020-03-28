@@ -76,4 +76,4 @@ var AuthService = exports.AuthService = {
   },
 };
 
-exports.AuthClient = grpc.makeGenericClientConstructor(AuthService);
+exports.AuthClient = (grpc.makeGenericClientConstructor(AuthService): any);

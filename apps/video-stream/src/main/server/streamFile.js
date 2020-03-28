@@ -6,7 +6,7 @@ import path from 'path';
 
 const getStream = (path: string, options?: { ... }) => fs.createReadStream(path, options ?? {});
 
-export default function streamMovie(req: $Request, res: $Response) {
+export default function streamMovie(req: $Request, res: $Response): $Response {
   const filePath = req.query.path;
   if (Array.isArray(filePath)) {
     return res.sendStatus(400).send({ message: 'Expected path to be a string' });

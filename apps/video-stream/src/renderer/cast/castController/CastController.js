@@ -8,7 +8,7 @@ import ControlPanel from './ControlPanel';
 
 const showControlPanelState = ['casting', 'paused'];
 const showCastButtonState = ['readyToCast', 'loading'];
-export default function CastController() {
+export default function CastController(): React.Node {
   const { castState } = useCastState();
 
   if (showCastButtonState.includes(castState)) {

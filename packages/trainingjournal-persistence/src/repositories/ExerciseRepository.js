@@ -7,17 +7,17 @@ import { toObjectId } from './utils';
 type CreateExerciseInput = $ReadOnly<$Diff<ExerciseType, {| +_id: string |}>>;
 
 export default class ExerciseRepository {
-  static async createExercise(input: CreateExerciseInput) {
+  static async createExercise(input: CreateExerciseInput): Promise<Exercise> {
     const exercise = await Model.create(input);
     return new Exercise(exercise);
   }
 
-  static async getExercise(id: string) {
+  static async getExercise(id: string): Promise<Exercise> {
     const exercise = await Model.findById(id);
     return new Exercise(exercise);
   }
 
-  static async getExercises(userId: string) {
+  static async getExercises(userId: string): Promise<Exercise[]> {
     const exercises = await Model.find({ user: userId });
     return exercises.map(exercise => new Exercise(exercise));
   }
@@ -30,7 +30,7 @@ export default class ExerciseRepository {
     +userId: string,
     skip: number,
     limit: number,
-  |}) {
+  |}): Promise<{ +count: number, +exercises: Exercise[] }> {
     const aggregate = await Model.aggregate([
       {
         $match: { user: toObjectId(userId) },
@@ -63,13 +63,17 @@ export default class ExerciseRepository {
     };
   }
 
-  static async deleteExercise(userId: string, exerciseId: string) {
+  static async deleteExercise(userId: string, exerciseId: string): Promise<boolean> {
     const response = await Model.deleteOne({ user: userId, _id: toObjectId(exerciseId) });
 
     return response.deletedCount === 1;
   }
 
-  static async editExercise(userId: string, exerciseId: string, exercise: $Shape<ExerciseType>) {
+  static async editExercise(
+    userId: string,
+    exerciseId: string,
+    exercise: $Shape<ExerciseType>,
+  ): Promise<Exercise | null> {
     const doc = await Model.updateOne(
       { user: toObjectId(userId), _id: toObjectId(exerciseId) },
       exercise,

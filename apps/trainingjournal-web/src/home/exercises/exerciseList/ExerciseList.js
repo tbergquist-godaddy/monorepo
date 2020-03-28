@@ -1,7 +1,12 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createPaginationContainer, type PaginationRelayProp } from '@tbergq/relay';
+import {
+  graphql,
+  createPaginationContainer,
+  type PaginationRelayProp,
+  type PaginationContainerType,
+} from '@tbergq/relay';
 import { Grid, Button, Stack } from '@tbergq/components';
 
 import ExerciseListItem from './ExerciseListItem';
@@ -51,7 +56,7 @@ function ExerciseList(props: Props) {
   );
 }
 
-export default createPaginationContainer(
+export default (createPaginationContainer(
   ExerciseList,
   {
     exercises: graphql`
@@ -82,4 +87,4 @@ export default createPaginationContainer(
       }
     `,
   },
-);
+): PaginationContainerType<Props, React.Node>);

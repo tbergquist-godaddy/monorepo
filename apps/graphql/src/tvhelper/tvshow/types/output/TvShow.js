@@ -21,7 +21,7 @@ import Network from './Network';
 import { nodeInterface } from '../../../../node/node';
 import { register } from '../../../../node/typeStore';
 
-const TvShowEntity = new GraphQLObjectType({
+const TvShowEntity: GraphQLObjectType = new GraphQLObjectType({
   name: 'TvShow',
   description: 'Information about a tv show',
   interfaces: [nodeInterface],

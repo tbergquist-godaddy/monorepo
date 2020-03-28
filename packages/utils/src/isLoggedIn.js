@@ -2,7 +2,7 @@
 
 import { getToken } from './getToken';
 
-export default function isLoggedIn() {
+export default function isLoggedIn(): boolean {
   try {
     const token = getToken();
     return token != null;

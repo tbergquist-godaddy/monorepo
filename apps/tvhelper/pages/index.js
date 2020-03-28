@@ -7,7 +7,7 @@ import SearchQuery, { searchQuery } from '../src/search/SearchQuery';
 type Props = {
   queryParam: string,
 };
-export default function Index({ queryParam }: Props) {
+export default function Index({ queryParam }: Props): React.Node {
   return <SearchQuery query={queryParam} />;
 }
 

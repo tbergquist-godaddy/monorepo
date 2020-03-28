@@ -28,7 +28,7 @@ export default function FavoriteHeaderCell({
   sortBy,
   ascending,
   ...rest
-}: Props) {
+}: Props): React.Element<typeof TableCell> {
   const buttonRef = React.useRef(null);
   const handleClick = React.useCallback(() => {
     onClick(sortKey);

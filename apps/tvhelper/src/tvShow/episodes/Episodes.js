@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { Card, CardSection } from '@tbergq/components';
 
 import type { Episodes_episodes as EpisodeType } from './__generated__/Episodes_episodes.graphql';
@@ -45,7 +45,7 @@ const Episodes = (props: Props) => {
   ));
 };
 
-export default createFragmentContainer(Episodes, {
+export default (createFragmentContainer(Episodes, {
   episodes: graphql`
     fragment Episodes_episodes on TvShow {
       episodes {
@@ -55,4 +55,4 @@ export default createFragmentContainer(Episodes, {
       }
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

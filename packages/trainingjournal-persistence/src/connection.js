@@ -1,8 +1,8 @@
 // @flow strict
 
-import mongoose from 'mongoose';
+import mongoose, { type MongooseConnection } from 'mongoose';
 
-const connection = mongoose.createConnection();
+const connection: MongooseConnection = mongoose.createConnection();
 
 mongoose.set('debug', __DEV__);
 

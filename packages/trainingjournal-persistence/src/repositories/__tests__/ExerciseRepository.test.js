@@ -88,6 +88,7 @@ describe('ExerciseRepository', () => {
       user: user.id,
     });
 
+    // $FlowFixMe
     const paginated = await ExerciseRepository.paginateExercises({
       userId: user.id,
       skip: 1,

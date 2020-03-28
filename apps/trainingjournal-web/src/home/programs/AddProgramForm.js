@@ -3,7 +3,12 @@
 import * as React from 'react';
 import { FloatingAddButton, SlideIn } from '@tbergq/components';
 import { Formik } from 'formik';
-import { createFragmentContainer, graphql, type RelayProp } from '@tbergq/relay';
+import {
+  createFragmentContainer,
+  graphql,
+  type RelayProp,
+  type FragmentContainerType,
+} from '@tbergq/relay';
 
 import ProgramForm from './ProgramForm';
 import type { AddProgramForm_user as User } from './__generated__/AddProgramForm_user.graphql';
@@ -60,10 +65,10 @@ function AddProgramForm(props: Props) {
   );
 }
 
-export default createFragmentContainer(AddProgramForm, {
+export default (createFragmentContainer(AddProgramForm, {
   user: graphql`
     fragment AddProgramForm_user on TraningJournalViewer {
       id
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

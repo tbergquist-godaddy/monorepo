@@ -77,7 +77,7 @@ const WithFormik = withFormik<Props, ExerciseValues>({
   },
 })(AddExerciseForm);
 
-export default createFragmentContainer(WithFormik, {
+export default (createFragmentContainer(WithFormik, {
   user: graphql`
     fragment AddExerciseForm_user on Viewer {
       ... on TraningJournalViewer {
@@ -85,4 +85,4 @@ export default createFragmentContainer(WithFormik, {
       }
     }
   `,
-});
+}): $FlowFixMe);

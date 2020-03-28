@@ -13,7 +13,7 @@ const ErrorWrapper = styled.div({
 type Props = {
   +loginFailed: boolean,
 };
-export default function Login(props: Props) {
+export default function Login(props: Props): React.Element<typeof CenterForm> {
   return (
     <CenterForm>
       <LoginForm />

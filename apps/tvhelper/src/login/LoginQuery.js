@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { QueryRenderer, graphql } from '@tbergq/relay';
+import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';
 
 import Layout from '../components/Layout';
 import LoginScene from './LoginScene';
@@ -11,7 +11,7 @@ type Props = {
   +loginFailed: boolean,
 };
 
-export const query = graphql`
+export const query: GraphQLTaggedNode = graphql`
   query LoginQuery {
     viewer {
       ...Layout_viewer
@@ -19,7 +19,7 @@ export const query = graphql`
   }
 `;
 
-export default function LoginQuery(props: Props) {
+export default function LoginQuery(props: Props): React.Element<typeof QueryRenderer> {
   return (
     <QueryRenderer
       query={query}

@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { createFragmentContainer, graphql } from '@tbergq/relay';
+import { createFragmentContainer, graphql, type FragmentContainerType } from '@tbergq/relay';
 
 import type { ProgramList_viewer as Viewer } from './__generated__/ProgramList_viewer.graphql';
 import ProgramListItem from './ProgramListItem';
@@ -17,7 +17,7 @@ function ProgramList(props: Props) {
   ));
 }
 
-export default createFragmentContainer(ProgramList, {
+export default (createFragmentContainer(ProgramList, {
   viewer: graphql`
     fragment ProgramList_viewer on TraningJournalViewer {
       id
@@ -31,4 +31,4 @@ export default createFragmentContainer(ProgramList, {
       }
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

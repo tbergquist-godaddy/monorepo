@@ -2,7 +2,7 @@
 
 import { GraphQLObjectType, GraphQLBoolean, GraphQLID } from 'graphql';
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'DeletedEpisode',
   description: 'Response type for delete episode mutation',
   fields: {
@@ -13,4 +13,4 @@ export default new GraphQLObjectType({
       type: GraphQLID,
     },
   },
-});
+}): GraphQLObjectType);

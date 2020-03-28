@@ -24,6 +24,6 @@ const WatchedEpisodesSchema = new Schema({
 
 WatchedEpisodesSchema.index({ userId: 1, episodeId: -1 }, { unique: true });
 
-const WatchedEpisode = connection.model('watchedEpisodes', WatchedEpisodesSchema);
+const WatchedEpisode: $FlowFixMe = connection.model('watchedEpisodes', WatchedEpisodesSchema);
 
 export default WatchedEpisode;

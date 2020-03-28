@@ -15,13 +15,17 @@ export default {
   type: LoginType,
   args: {
     username: {
-      type: GraphQLNonNull(GraphQLString),
+      type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<typeof GraphQLString>),
     },
     password: {
-      type: GraphQLNonNull(GraphQLString),
+      type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<typeof GraphQLString>),
     },
   },
-  resolve: async (_: mixed, { username, password }: Args, { dataLoader }: GraphqlContextType) => {
+  resolve: async (
+    _: mixed,
+    { username, password }: Args,
+    { dataLoader }: GraphqlContextType,
+  ): Promise<{ +success: boolean, +token: ?string }> => {
     const user = await dataLoader.tvhelper.user.load(username);
 
     return LoginResolver(user, password, 'tvhelper');

@@ -6,7 +6,7 @@ import type { GraphqlContextType } from '../../services/createGraphqlContext';
 export default {
   type: ViewerType,
   description: 'User context',
-  resolve: (_: mixed, __: mixed, { user }: GraphqlContextType) => {
+  resolve: (_: mixed, __: mixed, { user }: GraphqlContextType): string => {
     return user?.app ?? 'Unauthorized';
   },
 };

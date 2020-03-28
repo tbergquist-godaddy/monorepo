@@ -2,8 +2,9 @@
 
 import { GraphQLInputObjectType, GraphQLNonNull, GraphQLString } from 'graphql';
 
-export default new GraphQLInputObjectType({
+export default (new GraphQLInputObjectType({
   name: 'StoredOperationInput',
+  description: 'Input type to create a stored operation',
   fields: {
     operationId: {
       type: GraphQLNonNull(GraphQLString),
@@ -12,4 +13,4 @@ export default new GraphQLInputObjectType({
       type: GraphQLNonNull(GraphQLString),
     },
   },
-});
+}): GraphQLInputObjectType);

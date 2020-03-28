@@ -30,7 +30,9 @@ const GlobalStyle = createGlobalStyle({
   },
 });
 
-export default function withNProgress(Component: React.AbstractComponent<{ ... }>) {
+export default function withNProgress(
+  Component: React.AbstractComponent<{ ... }>,
+): React.ComponentType<{ ... }> {
   class WithNProgress extends App {
     static async getInitialProps(ctx: any) {
       const props = await App.getInitialProps(ctx);

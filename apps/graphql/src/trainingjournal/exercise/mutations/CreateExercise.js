@@ -1,7 +1,7 @@
 // @flow
 
-import { GraphQLNonNull } from 'graphql';
-import { ExerciseRepository } from '@tbergq/trainingjournal-persistence';
+import { GraphQLNonNull, GraphQLInputObjectType } from 'graphql';
+import { ExerciseRepository, Exercise } from '@tbergq/trainingjournal-persistence';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import CreateExerciseOutput from '../types/output/CreateExercise';
@@ -19,10 +19,14 @@ export default {
   type: CreateExerciseOutput,
   args: {
     exercise: {
-      type: GraphQLNonNull(CreateExerciseInput),
+      type: (GraphQLNonNull(CreateExerciseInput): GraphQLNonNull<GraphQLInputObjectType>),
     },
   },
-  resolve: async (_: mixed, { exercise }: Args, { user }: GraphqlContextType) => {
+  resolve: async (
+    _: mixed,
+    { exercise }: Args,
+    { user }: GraphqlContextType,
+  ): Promise<null | { exerciseEdge: { node: Exercise } }> => {
     const userId = user?.id;
     if (userId == null) {
       return null;

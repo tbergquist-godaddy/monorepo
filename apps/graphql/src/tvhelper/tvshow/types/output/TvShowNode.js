@@ -4,7 +4,7 @@ import { GraphQLObjectType } from 'graphql';
 
 import TvShow from './TvShow';
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'TvShowNode',
   description: 'A tv show node',
   fields: {
@@ -13,4 +13,4 @@ export default new GraphQLObjectType({
       resolve: ancestor => ancestor,
     },
   },
-});
+}): GraphQLObjectType);
