@@ -1,0 +1,10 @@
+{
+  "name": "@tbergq/redis",
+  "private": false,
+  "main": "index",
+  "version": "0.0.1",
+  "sideEffects": false,
+  "dependencies": {
+    "redis": "^3.0.2"
+  }
+}

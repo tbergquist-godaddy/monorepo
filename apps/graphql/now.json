@@ -11,7 +11,8 @@
     "TV_HELPER_PASS": "@tv_helper_pass",
     "GRAPHQL_DB_URL": "@graphql_db_url",
     "TRAININGJOURNAL_DB_URL": "@trainingjournal_db_url",
-    "TJA_DB_URL":"@tja_db_url"
+    "TJA_DB_URL":"@tja_db_url",
+    "REDIS_URL": "@redis_url"
   },
   "alias": "tbergq-graphql.now.sh",
   "routes": [
