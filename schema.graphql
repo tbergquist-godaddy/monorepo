@@ -1,4 +1,4 @@
-# @generated SignedSource<<f0c18de88fb8387a181876d6266ebff6>>
+# @generated SignedSource<<b46eb1d19f39620e045faec6530b73dd>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -54,6 +54,7 @@ type CreateExercise {
   exerciseEdge: ExerciseEdge
 }
 
+"""Input type to create a new exercise"""
 input CreateExerciseInput {
   description: String
   muscleGroups: String
@@ -66,6 +67,7 @@ type CreateProgram {
   programEdge: ProgramEdge
 }
 
+"""Input type for creating a new progrem"""
 input CreateProgramInput {
   name: String!
 }
@@ -320,6 +322,7 @@ enum SortDirection {
   DESC
 }
 
+"""Options of how to sort series by"""
 input SortOptions {
   sortBy: SortBy = NAME
   sortDirection: SortDirection = ASC
@@ -331,6 +334,7 @@ type StoredOperation {
   text: String
 }
 
+"""Input type to create a stored operation"""
 input StoredOperationInput {
   operationId: String!
   text: String!

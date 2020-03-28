@@ -5,7 +5,7 @@ import Document, { Head, Main, NextScript, type DocumentContext } from 'next/doc
 import { ServerStyleSheet } from 'styled-components';
 import { createMediaStyle } from '@tbergq/components';
 
-export default function withDocument() {
+export default function withDocument(): React.AbstractComponent<{ ... }> {
   return class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
       const sheet = new ServerStyleSheet();

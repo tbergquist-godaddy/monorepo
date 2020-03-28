@@ -18,7 +18,7 @@ type Props = {|
   +environment?: Environment,
 |};
 
-export default function QueryRenderer(props: Props) {
+export default function QueryRenderer(props: Props): React.Node {
   const environment = props.environment ?? useRelayEnvironment();
 
   if (!isBrowser()) {

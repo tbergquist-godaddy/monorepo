@@ -9,7 +9,7 @@ import Summary from '../../../common/types/output/Summary';
 import type { GraphqlContextType } from '../../../../services/createGraphqlContext';
 import type { Episode } from '../../Episode';
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'Episode',
   description: 'Episodes of the tv show',
   fields: {
@@ -59,4 +59,4 @@ export default new GraphQLObjectType({
       },
     },
   },
-});
+}): GraphQLObjectType);

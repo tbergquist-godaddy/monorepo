@@ -1,6 +1,6 @@
 // @flow
 
-import { GraphQLNonNull, GraphQLID } from 'graphql';
+import { GraphQLNonNull, GraphQLID, GraphQLScalarType } from 'graphql';
 import { fromGlobalId } from '@adeira/graphql-global-id';
 import { type OpaqueIDString } from '@adeira/graphql-global-id/src/Encoder';
 
@@ -17,10 +17,23 @@ export default {
   type: Episode,
   args: {
     id: {
-      type: GraphQLNonNull(GraphQLID),
+      type: (GraphQLNonNull(GraphQLID): GraphQLNonNull<GraphQLScalarType>),
     },
   },
-  resolve: async (_: mixed, args: Args, { dataLoader }: GraphqlContextType) => {
+  resolve: async (
+    _: mixed,
+    args: Args,
+    { dataLoader }: GraphqlContextType,
+  ): Promise<{
+    +airdate: Date,
+    +id: number,
+    +image: { +medium: string, +original: string },
+    +isWatched?: boolean,
+    +name: string,
+    +number: number,
+    +season: number,
+    +summary: string,
+  }> => {
     const id = fromGlobalId(args.id);
     const episode = await dataLoader.tvhelper.episode.load(id);
     return episode;

@@ -16,7 +16,7 @@ const IconContainer = styled.span({
 
 const castController = electron.remote.require('./CastController').default;
 
-export default function ControlPanel() {
+export default function ControlPanel(): React.Node {
   const { castState } = useCastState();
   const { dispatch } = useCastAction();
   const pause = () => {

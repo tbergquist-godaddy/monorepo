@@ -1,6 +1,6 @@
 // @flow
 
-import Dataloader from 'dataloader';
+import DataLoader from 'dataloader';
 import { fetch } from '@tbergq/graphql-services';
 
 import redisClient from '../../../services/redisClient';
@@ -51,6 +51,7 @@ const fetchTvDetail = async (ids: $ReadOnlyArray<string>) => {
   });
 };
 
-const TvDetailLoader = () => new Dataloader<string, TvShow>(fetchTvDetail);
+const TvDetailLoader = (): DataLoader<string, TvShow, string> =>
+  new DataLoader<string, TvShow>(fetchTvDetail);
 
 export default TvDetailLoader;

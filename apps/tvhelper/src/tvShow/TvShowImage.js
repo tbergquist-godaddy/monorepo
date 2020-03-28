@@ -1,7 +1,12 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
+import {
+  graphql,
+  createFragmentContainer,
+  type RelayProp,
+  type FragmentContainerType,
+} from '@tbergq/relay';
 import { Button } from '@tbergq/components';
 import styled from 'styled-components';
 import { MdFavorite } from 'react-icons/md';
@@ -67,7 +72,7 @@ const TvShowImage = (props: Props) => {
   );
 };
 
-export default createFragmentContainer(TvShowImage, {
+export default (createFragmentContainer(TvShowImage, {
   tvShow: graphql`
     fragment TvShowImage_tvShow on TvShow {
       id
@@ -78,4 +83,4 @@ export default createFragmentContainer(TvShowImage, {
       isFavorite
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

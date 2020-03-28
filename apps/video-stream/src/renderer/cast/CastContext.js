@@ -13,7 +13,7 @@ type ActionState = {
   +dispatch: Action => void,
 };
 
-const CastContext = React.createContext<State | void>(undefined);
+const CastContext: React.Context<State | void> = React.createContext<State | void>(undefined);
 const CastContextAction = React.createContext<ActionState | void>(undefined);
 
 type ContextProps = {
@@ -53,7 +53,7 @@ function reducer(state: State, action: Action): State {
 }
 
 const intialStatate = { movie: null, subtitle: null, castState: 'idle' };
-function CastContextProvider(props: ContextProps) {
+function CastContextProvider(props: ContextProps): React.Element<typeof CastContext.Provider> {
   const [state, dispatch] = React.useReducer(reducer, intialStatate);
 
   const action = React.useMemo(

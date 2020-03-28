@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { QueryRenderer, graphql } from '@tbergq/relay';
+import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';
 
 import type { SearchQueryResponse } from './__generated__/SearchQuery.graphql';
 import SearchScene from './SearchScene';
@@ -10,7 +10,7 @@ type Props = {|
   +query: string,
 |};
 
-export const searchQuery = graphql`
+export const searchQuery: GraphQLTaggedNode = graphql`
   query SearchQuery($query: String!, $includeResults: Boolean!) {
     ...SearchScene_search @arguments(includeResults: $includeResults, query: $query)
     ...SearchScene_viewer
@@ -31,4 +31,4 @@ function SearchQuery(props: Props) {
   );
 }
 
-export default React.memo<Props>(SearchQuery);
+export default (React.memo<Props>(SearchQuery): React.AbstractComponent<Props>);

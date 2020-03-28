@@ -9,7 +9,7 @@ type Props = {|
   +isLoggedIn: boolean,
 |};
 
-export default function NavbarRight({ isLoggedIn }: Props) {
+export default function NavbarRight({ isLoggedIn }: Props): React.Node {
   if (!isLoggedIn) {
     return <NavLink href="/login">Login</NavLink>;
   }

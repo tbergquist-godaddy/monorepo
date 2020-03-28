@@ -9,7 +9,7 @@ const dialog = electron.remote.dialog;
 
 type CastState = 'idle' | 'loading' | 'casting' | 'error' | 'paused';
 
-export default function CastTest() {
+export default function CastTest(): React.Node {
   const [movie, setMovie] = React.useState(null);
   const [subtitle, setSubtitle] = React.useState(null);
   const [castState, setCastState] = React.useState<CastState>('idle');

@@ -9,8 +9,9 @@ export type CreateExerciseType = {|
   +description?: string,
 |};
 
-export default new GraphQLInputObjectType({
+export default (new GraphQLInputObjectType({
   name: 'CreateExerciseInput',
+  description: 'Input type to create a new exercise',
   fields: {
     name: {
       type: GraphQLNonNull(GraphQLString),
@@ -25,4 +26,4 @@ export default new GraphQLInputObjectType({
       type: GraphQLString,
     },
   },
-});
+}): GraphQLInputObjectType);

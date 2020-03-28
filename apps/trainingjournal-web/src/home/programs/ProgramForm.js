@@ -8,7 +8,7 @@ type Props = {|
   +isSubmitting: boolean,
 |};
 
-export default function ProgramForm(props: Props) {
+export default function ProgramForm(props: Props): React.Element<typeof Stack> {
   return (
     <Stack spaceAfter="normal">
       <InputField name="name" label="Name" />

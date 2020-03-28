@@ -33,7 +33,7 @@ describe('WatchedEpisode', () => {
   });
 
   it('finds added episode', async () => {
-    const episodes = await WatchedEpisode.findEpisodes(user1Id, [episodeId]);
+    const episodes = await await WatchedEpisode.findEpisodes(user1Id, [episodeId]);
     expect(episodes).toHaveLength(1);
     expect(episodes[0].episodeId).toBe(episodeId);
     expect(episodes[0].userId).toBe(user1Id);

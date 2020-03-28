@@ -32,6 +32,7 @@ const UserSchema = new Schema({
   },
 });
 
-const User = connection.model('users', UserSchema);
+// See: https://github.com/flow-typed/flow-typed/blob/master/definitions/npm/mongoose_v5.x.x/flow_v0.104.x-/test_mongoose-v5.js
+const User: Class<$FlowFixMe> = connection.model('users', UserSchema);
 
 export default User;

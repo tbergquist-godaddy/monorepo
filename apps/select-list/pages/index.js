@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 
 import './index.css';
 import List from '../src/List';
@@ -62,7 +62,7 @@ const items = sizes.reduce(
   [],
 );
 
-export default function Index() {
+export default function Index(): React.Element<typeof SelectedItemsProvider> {
   return (
     <SelectedItemsProvider>
       <SelectedItems />

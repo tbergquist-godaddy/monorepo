@@ -1,10 +1,17 @@
 // @flow
 
+import { GraphQLInterfaceType, type GraphQLFieldConfig } from 'graphql';
 import { nodeDefinitions } from 'graphql-relay';
 import { decode } from '@adeira/graphql-global-id/src/Encoder';
 
 import type { GraphqlContextType } from '../services/createGraphqlContext';
 import { getType } from './typeStore';
+
+type GraphQLNodeDefinitions<TContext> = {
+  nodeInterface: GraphQLInterfaceType,
+  nodeField: GraphQLFieldConfig<any, TContext>,
+  nodesField: GraphQLFieldConfig<any, TContext>,
+};
 
 async function loadType(relayId, context) {
   // $FlowExpectedError: Cannot call fromGlobalId with relayId bound to opaqueID because string [1] is incompatible with OpaqueIDString
@@ -26,7 +33,7 @@ function detectType(value) {
   return value.__type;
 }
 
-export const { nodeInterface, nodeField } = nodeDefinitions<GraphqlContextType>(
+export const { nodeInterface, nodeField } = (nodeDefinitions<GraphqlContextType>(
   loadType,
   detectType,
-);
+): GraphQLNodeDefinitions<GraphqlContextType>);

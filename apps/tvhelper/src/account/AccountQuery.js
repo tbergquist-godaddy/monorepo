@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { QueryRenderer, graphql } from '@tbergq/relay';
+import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';
 
 import Layout from '../components/Layout';
 import AccountScene from './AccountScene';
@@ -9,7 +9,7 @@ import type { AccountQueryResponse } from './__generated__/AccountQuery.graphql'
 
 type Props = {};
 
-export const query = graphql`
+export const query: GraphQLTaggedNode = graphql`
   query AccountQuery {
     viewer {
       ...Layout_viewer

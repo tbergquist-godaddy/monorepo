@@ -20,8 +20,9 @@ const SortBy = new GraphQLEnumType({
   },
 });
 
-export default new GraphQLInputObjectType({
+export default (new GraphQLInputObjectType({
   name: 'SortOptions',
+  description: 'Options of how to sort series by',
   fields: {
     sortDirection: {
       type: SortDirection,
@@ -32,4 +33,4 @@ export default new GraphQLInputObjectType({
       defaultValue: 'name',
     },
   },
-});
+}): GraphQLInputObjectType);

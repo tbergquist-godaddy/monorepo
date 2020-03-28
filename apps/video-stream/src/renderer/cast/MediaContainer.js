@@ -6,7 +6,7 @@ import { Stack } from '@tbergq/components';
 import CastController from './castController/CastController';
 import FileSelectors from './FileSelectors';
 
-export default function MediaContainer() {
+export default function MediaContainer(): React.Element<typeof Stack> {
   return (
     <Stack>
       <FileSelectors />

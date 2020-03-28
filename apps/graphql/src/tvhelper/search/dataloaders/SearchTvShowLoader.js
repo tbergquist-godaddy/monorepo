@@ -1,6 +1,6 @@
 // @flow
 
-import Dataloader from 'dataloader';
+import DataLoader from 'dataloader';
 import { fetch } from '@tbergq/graphql-services';
 
 import type { SearchTvShowType } from '../Search';
@@ -18,6 +18,7 @@ const fetchTvShows = async (queries: $ReadOnlyArray<string>) => {
   return responses.map(response => response.map(item => item.show));
 };
 
-const SearchTvShowLoader = () => new Dataloader<string, Array<TvShow>>(fetchTvShows);
+const SearchTvShowLoader = (): DataLoader<string, Array<TvShow>, string> =>
+  new DataLoader<string, Array<TvShow>>(fetchTvShows);
 
 export default SearchTvShowLoader;

@@ -12,7 +12,7 @@ type User = {|
   password: string,
 |};
 
-export default function SignupScene() {
+export default function SignupScene(): React.Node {
   const [isLoading, setIsLoading] = React.useState(false);
   const ref = React.useRef(null);
   const router = useRouter();

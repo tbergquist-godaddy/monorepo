@@ -9,7 +9,7 @@ type Props = {|
   +name: string,
 |};
 
-const ListItem = ({ color, name }: Props) => {
+const ListItem = ({ color, name }: Props): React.Element<'li'> => {
   const [isSelected, setIsSelected] = React.useState(false);
   const dispatch = useSelectedItemsDispatch();
 

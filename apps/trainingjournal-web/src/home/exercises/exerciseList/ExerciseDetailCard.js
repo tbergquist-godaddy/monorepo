@@ -1,7 +1,12 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
+import {
+  graphql,
+  createFragmentContainer,
+  type RelayProp,
+  type FragmentContainerType,
+} from '@tbergq/relay';
 import { Card, CardSection, ButtonLink, TrashIcon, Stack, Pencil } from '@tbergq/components';
 import styled from 'styled-components';
 
@@ -60,7 +65,7 @@ function ExerciseDetailCard(props: Props) {
   );
 }
 
-export default createFragmentContainer(ExerciseDetailCard, {
+export default (createFragmentContainer(ExerciseDetailCard, {
   exercise: graphql`
     fragment ExerciseDetailCard_exercise on Exercise {
       id
@@ -68,4 +73,4 @@ export default createFragmentContainer(ExerciseDetailCard, {
       muscleGroups
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

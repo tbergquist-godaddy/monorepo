@@ -1,7 +1,7 @@
 // @flow
 
 import DataLoader from 'dataloader';
-import { ExerciseRepository, type ExerciseType } from '@tbergq/trainingjournal-persistence';
+import { ExerciseRepository, Exercise as ExerciseType } from '@tbergq/trainingjournal-persistence';
 import stringify from 'json-stable-stringify';
 
 export type ExercisesArgs = {|
@@ -27,7 +27,11 @@ const batchFunction = (ids: $ReadOnlyArray<ExercisesArgs>) => {
   return Promise.all(ids.map(fetchFunction));
 };
 
-export default function createDataLoader() {
+export default function createDataLoader(): DataLoader<
+  ExercisesArgs,
+  ExercisesLoader,
+  ExercisesArgs,
+> {
   return new DataLoader<ExercisesArgs, ExercisesLoader>(batchFunction, {
     cacheKeyFn: stringify,
   });

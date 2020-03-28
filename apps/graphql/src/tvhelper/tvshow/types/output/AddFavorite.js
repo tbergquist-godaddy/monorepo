@@ -4,7 +4,7 @@ import { GraphQLObjectType, GraphQLBoolean } from 'graphql';
 
 import TvShowNode from './TvShowNode';
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'AddFavorite',
   description: 'The return type for the add favorite mutation',
   fields: {
@@ -15,4 +15,4 @@ export default new GraphQLObjectType({
       type: TvShowNode, // TODO: Refactor to use edge from connection,
     },
   },
-});
+}): GraphQLObjectType);

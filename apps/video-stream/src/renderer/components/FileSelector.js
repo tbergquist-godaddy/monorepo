@@ -31,7 +31,12 @@ const Label = ({ children }: { +children: React.Node }) => {
   return <LabelWrapper hasRendererd={hasRendererd}>{children}</LabelWrapper>;
 };
 
-export default function FileSelector({ extensions, name, buttonText, onSelect }: Props) {
+export default function FileSelector({
+  extensions,
+  name,
+  buttonText,
+  onSelect,
+}: Props): React.Node {
   const [value, setValue] = React.useState(null);
   const onClick = () => {
     if (value === null) {

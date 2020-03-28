@@ -3,7 +3,12 @@
 import * as React from 'react';
 import { Card, CardSection } from '@tbergq/components';
 import { Formik } from 'formik';
-import { graphql, createFragmentContainer, type RelayProp } from '@tbergq/relay';
+import {
+  graphql,
+  createFragmentContainer,
+  type RelayProp,
+  type FragmentContainerType,
+} from '@tbergq/relay';
 
 import ExerciseForm from '../createExercise/ExerciseForm';
 import type { EditExercise_exercise as Exercise } from './__generated__/EditExercise_exercise.graphql';
@@ -57,7 +62,7 @@ function EditExercise(props: Props) {
   );
 }
 
-export default createFragmentContainer(EditExercise, {
+export default (createFragmentContainer(EditExercise, {
   exercise: graphql`
     fragment EditExercise_exercise on Exercise {
       id
@@ -67,4 +72,4 @@ export default createFragmentContainer(EditExercise, {
       description
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

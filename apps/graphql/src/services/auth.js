@@ -13,7 +13,7 @@ type JwtPayload = {|
   +app?: Apps,
 |};
 
-export const jwtFromRequest = (request: $Request) => {
+export const jwtFromRequest = (request: $Request): void | string => {
   return request.get('Authorization');
 };
 

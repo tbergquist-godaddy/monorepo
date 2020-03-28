@@ -77,7 +77,7 @@ class CastController {
     this.#privateIP = privateIP;
   }
 
-  startCast = ({ movie, subtitle }: Args) => {
+  startCast: Args => Promise<void> = ({ movie, subtitle }: Args) => {
     return new Promise<void>((resolve, reject) => {
       let subtitles = null;
       if (subtitle != null) {
@@ -104,7 +104,7 @@ class CastController {
     });
   };
 
-  getCurrentTime = () => {
+  getCurrentTime: () => Promise<number> = () => {
     return new Promise<number>((resolve, reject) => {
       this.device.getStatus((err, status) => {
         if (err) {
@@ -116,11 +116,11 @@ class CastController {
     });
   };
 
-  getTotalPlayTime = () => {
+  getTotalPlayTime: () => void | number = () => {
     return this.device.player.media.currentSession.media?.duration;
   };
 
-  stopCast = () => {
+  stopCast: () => Promise<void> = () => {
     return new Promise<void>((resolve, reject) => {
       this.device.stop(error => {
         if (error) {
@@ -132,7 +132,7 @@ class CastController {
     });
   };
 
-  seek = (seconds: number) =>
+  seek: (seconds: number) => Promise<void> = (seconds: number) =>
     new Promise<void>((resolve, reject) => {
       this.device.seek(seconds, error => {
         if (error) {
@@ -143,11 +143,11 @@ class CastController {
       });
     });
 
-  fastForward = () => this.seek(10);
+  fastForward: () => Promise<void> = () => this.seek(10);
 
-  fastRewind = () => this.seek(-10);
+  fastRewind: () => Promise<void> = () => this.seek(-10);
 
-  pause = () =>
+  pause: () => Promise<void> = () =>
     new Promise<void>((resolve, reject) => {
       this.device.pause(err => {
         if (err) {
@@ -158,7 +158,7 @@ class CastController {
       });
     });
 
-  resume = () =>
+  resume: () => Promise<void> = () =>
     new Promise<void>((resolve, reject) => {
       this.device.resume(err => {
         if (err) {
@@ -170,6 +170,6 @@ class CastController {
     });
 }
 
-const castController = new CastController();
+const castController: CastController = new CastController();
 
 export default castController;

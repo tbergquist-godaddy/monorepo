@@ -9,7 +9,7 @@ import { useRelayEnvironment } from '@tbergq/relay';
 
 import loginMutation from './mutation/loginMutation';
 
-export default function LoginForm() {
+export default function LoginForm(): React.Element<typeof React.Fragment> {
   const toastRef = React.useRef<React.ElementRef<typeof Toast> | null>(null);
   const environment = useRelayEnvironment();
   const onSubmit = ({ username, password }, { setSubmitting }) => {

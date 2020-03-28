@@ -16,7 +16,7 @@ export type TrainingJournalDataLoaders = {|
   +programs: Dataloader<ProgramArgs, ProgramLoader>,
 |};
 
-export default function getDataloaders() {
+export default function getDataloaders(): TrainingJournalDataLoaders {
   return {
     exercises: createExercisesLoader(),
     programs: createProgramsLoader(),

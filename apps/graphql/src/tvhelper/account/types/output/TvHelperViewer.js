@@ -25,7 +25,7 @@ type Args = {
   ...
 };
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'TvHelperViewer',
   description: 'The viewer object for the current logged in user in tvhelper app',
   isTypeOf: value => value === 'tvhelper',
@@ -67,4 +67,4 @@ export default new GraphQLObjectType({
       },
     },
   },
-});
+}): GraphQLObjectType);

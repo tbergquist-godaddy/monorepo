@@ -11,7 +11,7 @@ type Ancestor = {|
   type: 'person' | 'character',
 |};
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'Person',
   description: 'An actor or a character in a tv show',
   fields: {
@@ -26,4 +26,4 @@ export default new GraphQLObjectType({
       type: TvHelperImage,
     },
   },
-});
+}): GraphQLObjectType);

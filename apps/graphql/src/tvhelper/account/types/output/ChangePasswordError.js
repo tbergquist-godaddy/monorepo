@@ -4,7 +4,7 @@ import { GraphQLObjectType, GraphQLString, GraphQLBoolean } from 'graphql';
 
 import ErrorInterface from '../../../../common/types/interface/Error';
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'ChangePasswordError',
   description: 'Response type indicating an error',
   interfaces: [ErrorInterface],
@@ -18,4 +18,4 @@ export default new GraphQLObjectType({
       resolve: parent => parent.toJSON().isInvalidPassword,
     },
   },
-});
+}): GraphQLObjectType);

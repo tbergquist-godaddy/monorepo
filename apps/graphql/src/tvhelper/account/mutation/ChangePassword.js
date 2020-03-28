@@ -12,17 +12,22 @@ type Args = {
   ...
 };
 
-export default {
+type Resolve = PasswordError | { +success: boolean };
+const ChangePassword = {
   type: ChangePasswordOrError,
   args: {
     password: {
-      type: GraphQLNonNull(GraphQLString),
+      type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<typeof GraphQLString>),
     },
     newPassword: {
-      type: GraphQLNonNull(GraphQLString),
+      type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<typeof GraphQLString>),
     },
   },
-  resolve: async (_: mixed, { password, newPassword }: Args, { user }: GraphqlContextType) => {
+  resolve: async (
+    _: mixed,
+    { password, newPassword }: Args,
+    { user }: GraphqlContextType,
+  ): Promise<Resolve> => {
     try {
       const userId = user?.id;
       if (userId == null) {
@@ -35,3 +40,5 @@ export default {
     }
   },
 };
+
+export default ChangePassword;

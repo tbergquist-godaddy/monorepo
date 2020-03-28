@@ -1,6 +1,6 @@
 // @flow
 
-import { GraphQLNonNull, GraphQLID } from 'graphql';
+import { GraphQLNonNull, GraphQLID, GraphQLScalarType } from 'graphql';
 import { ExerciseRepository } from '@tbergq/trainingjournal-persistence';
 import { fromGlobalId } from '@adeira/graphql-global-id';
 import { type OpaqueIDString } from '@adeira/graphql-global-id/src/Encoder';
@@ -18,10 +18,14 @@ export default {
   type: DeletedExercise,
   args: {
     id: {
-      type: GraphQLNonNull(GraphQLID),
+      type: (GraphQLNonNull(GraphQLID): GraphQLNonNull<GraphQLScalarType>),
     },
   },
-  resolve: async (_: mixed, { id }: Args, { user }: GraphqlContextType) => {
+  resolve: async (
+    _: mixed,
+    { id }: Args,
+    { user }: GraphqlContextType,
+  ): Promise<null | { +success: boolean, exerciseId: ?string }> => {
     const userId = user?.id;
     if (userId == null) {
       return null;

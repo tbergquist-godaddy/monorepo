@@ -26,7 +26,7 @@ const formatTime = (input: number) => {
   const seconds = Math.floor(input - hours * 3600 - minutes * 60);
   return [hours, minutes, seconds].map(i => i.toString().padStart(2, '0')).join(':');
 };
-export default function Timer() {
+export default function Timer(): React.Node {
   const [currentTime, setCurrentTime] = React.useState(0);
   const [totalPlayTime, setTotalPlaytime] = React.useState(0);
   const intervalRef = React.useRef(null);

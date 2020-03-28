@@ -12,4 +12,4 @@ Account.getInitialProps = () => {
   return { query };
 };
 
-export default Account;
+export default (Account: React.ComponentType<{}>);

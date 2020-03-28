@@ -27,6 +27,6 @@ const ProgramSchema = new Schema({
   },
 });
 
-const Program = connection.model('programs', ProgramSchema);
+const Program: Class<$FlowFixMe> = connection.model('programs', ProgramSchema);
 
 export default Program;

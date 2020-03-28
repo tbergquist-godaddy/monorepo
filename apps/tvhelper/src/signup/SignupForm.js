@@ -7,7 +7,7 @@ import Router from 'next/router';
 import createUserMutation from './mutation/createUserMutation';
 import type { createUserMutationResponse } from './mutation/__generated__/createUserMutation.graphql';
 
-export default function SignupForm() {
+export default function SignupForm(): React.Element<typeof React.Fragment> {
   const [isLoading, setIsLoading] = React.useState(false);
   const toastRef = React.useRef<React.ElementRef<typeof Toast> | null>(null);
 

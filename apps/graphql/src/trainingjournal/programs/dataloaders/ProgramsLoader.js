@@ -21,7 +21,11 @@ const batchFunction = (args: $ReadOnlyArray<ProgramArgs>) => {
   return Promise.all(args.map(fetchFunction));
 };
 
-export default function createProgramsLoader() {
+export default function createProgramsLoader(): Dataloader<
+  ProgramArgs,
+  ProgramLoader,
+  ProgramArgs,
+> {
   return new Dataloader<ProgramArgs, ProgramLoader>(batchFunction, {
     cacheKeyFn: stringify,
   });

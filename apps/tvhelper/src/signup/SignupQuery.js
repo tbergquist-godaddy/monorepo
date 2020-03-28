@@ -1,13 +1,13 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { QueryRenderer, graphql } from '@tbergq/relay';
+import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';
 
 import Layout from '../components/Layout';
 import SignupScene from './SignupScene';
 import type { SignupQueryResponse } from './__generated__/SignupQuery.graphql';
 
-export const query = graphql`
+export const query: GraphQLTaggedNode = graphql`
   query SignupQuery {
     viewer {
       ...Layout_viewer
@@ -15,7 +15,7 @@ export const query = graphql`
   }
 `;
 
-export default function SignupQuery() {
+export default function SignupQuery(): React.Element<typeof QueryRenderer> {
   return (
     <QueryRenderer
       query={query}

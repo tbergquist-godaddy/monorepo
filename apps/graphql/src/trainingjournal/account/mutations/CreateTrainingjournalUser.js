@@ -1,7 +1,7 @@
 // @flow
 
-import { GraphQLNonNull, GraphQLString } from 'graphql';
-import { UserRepository } from '@tbergq/trainingjournal-persistence';
+import { GraphQLNonNull, GraphQLString, GraphQLScalarType } from 'graphql';
+import { UserRepository, User } from '@tbergq/trainingjournal-persistence';
 
 import CreateTrainingJournalUser from '../types/output/CreateTrainingjournalUser';
 
@@ -17,16 +17,16 @@ export default {
   description: 'Create a user for trainingjournal application',
   args: {
     username: {
-      type: GraphQLNonNull(GraphQLString),
+      type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<GraphQLScalarType>),
     },
     password: {
-      type: GraphQLNonNull(GraphQLString),
+      type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<GraphQLScalarType>),
     },
     email: {
-      type: GraphQLNonNull(GraphQLString),
+      type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<GraphQLScalarType>),
     },
   },
-  resolve: async (_: mixed, { username, password, email }: Args) => {
+  resolve: async (_: mixed, { username, password, email }: Args): Promise<User> => {
     const user = await UserRepository.createUser({ username, password, email });
 
     return user;

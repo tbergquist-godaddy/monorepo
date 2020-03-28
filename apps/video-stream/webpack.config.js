@@ -9,7 +9,7 @@ const isProduction = process.argv[modeIndex + 1] === 'production';
 module.exports = {
   entry: './src/renderer/index.js',
   output: {
-    path: path.join(__dirname, '.build'),
+    path: (path.join(__dirname, '.build') /*: string */),
     filename: 'bundle.js',
   },
   target: 'electron-renderer',
@@ -18,23 +18,23 @@ module.exports = {
     electron: 'electron',
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: (path.join(__dirname, 'dist') /*: string */),
     compress: true,
     port: 9000,
   },
   plugins: [
-    new CopyPlugin([
+    (new CopyPlugin([
       {
         from: path.join(__dirname, 'src', 'renderer', 'index.html'),
         to: path.join(__dirname, '.build', 'index.html'),
       },
-    ]),
+    ]) /*: CopyPlugin */),
   ],
   module: {
     rules: [
       {
-        test: /\.(?:js|jsx)$/,
-        exclude: /node_modules/,
+        test: (/\.(?:js|jsx)$/ /*: RegExp */),
+        exclude: (/node_modules/ /*: RegExp */),
         use: {
           loader: 'babel-loader',
           options: {
@@ -43,7 +43,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(?:png|jpe?g|gif)$/i,
+        test: (/\.(?:png|jpe?g|gif)$/i /*: RegExp */),
         use: [
           {
             loader: 'file-loader',
@@ -51,7 +51,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/,
+        test: (/\.css$/ /*: RegExp */),
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
     ],

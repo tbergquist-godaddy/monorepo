@@ -8,7 +8,7 @@ import LoginQuery, { query } from '../src/login/LoginQuery';
 type Props = {
   +loginFailed: boolean,
 };
-export default function Login(props: Props) {
+export default function Login(props: Props): React.Node {
   return <LoginQuery loginFailed={props.loginFailed} />;
 }
 

@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import styled from 'styled-components';
 import { Link } from '@tbergq/components';
 
@@ -66,7 +66,7 @@ function TvShowListItem(props: Props) {
   );
 }
 
-export default createFragmentContainer(TvShowListItem, {
+export default (createFragmentContainer(TvShowListItem, {
   data: graphql`
     fragment TvShowListItem_data on TvShow {
       id
@@ -78,4 +78,4 @@ export default createFragmentContainer(TvShowListItem, {
       }
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

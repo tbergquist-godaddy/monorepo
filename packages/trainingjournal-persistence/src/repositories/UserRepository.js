@@ -25,7 +25,7 @@ const encryptPassword = (password: string, salt: string) => {
 };
 
 export default class UserRepository {
-  static async createUser(input: CreateUserInput) {
+  static async createUser(input: CreateUserInput): Promise<User> {
     const salt = genRandomString(16);
     const password = encryptPassword(input.password, salt);
     const user = await Model.create({
@@ -37,7 +37,7 @@ export default class UserRepository {
     return new User(user);
   }
 
-  static async verifyPassword(username: string, password: string) {
+  static async verifyPassword(username: string, password: string): Promise<null | User> {
     const user = await Model.findOne({ username });
     if (user == null) {
       return null;
@@ -45,7 +45,7 @@ export default class UserRepository {
     return encryptPassword(password, user.salt) === user.password ? new User(user) : null;
   }
 
-  static async findUser(username: string) {
+  static async findUser(username: string): Promise<null | User> {
     const user = await Model.findOne({ username });
     if (user == null) {
       return null;

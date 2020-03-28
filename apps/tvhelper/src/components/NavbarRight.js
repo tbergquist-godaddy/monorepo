@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { createFragmentContainer, graphql } from '@tbergq/relay';
+import { createFragmentContainer, graphql, type FragmentContainerType } from '@tbergq/relay';
 import { NavLink } from '@tbergq/components';
 
 import type { NavbarRight_viewer as Viewer } from './__generated__/NavbarRight_viewer.graphql';
@@ -22,7 +22,7 @@ function NavbarRight(props: Props) {
   return <NavLink href="/login">login</NavLink>;
 }
 
-export default createFragmentContainer(NavbarRight, {
+export default (createFragmentContainer(NavbarRight, {
   viewer: graphql`
     fragment NavbarRight_viewer on Viewer {
       __typename
@@ -31,4 +31,4 @@ export default createFragmentContainer(NavbarRight, {
       }
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

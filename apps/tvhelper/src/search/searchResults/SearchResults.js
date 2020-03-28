@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import styled, { type StyledComponent } from 'styled-components';
 
 import type { SearchResults_results as ResultsType } from './__generated__/SearchResults_results.graphql';
@@ -33,7 +33,7 @@ const SearchResults = (props: Props) => {
   );
 };
 
-export default createFragmentContainer(SearchResults, {
+export default (createFragmentContainer(SearchResults, {
   results: graphql`
     fragment SearchResults_results on TvShowConnection {
       edges {
@@ -44,4 +44,4 @@ export default createFragmentContainer(SearchResults, {
       }
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);

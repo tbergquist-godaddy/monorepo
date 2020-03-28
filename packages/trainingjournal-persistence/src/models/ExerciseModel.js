@@ -34,6 +34,6 @@ const ExerciseSchema = new Schema({
   },
 });
 
-const Exercise = connection.model('exercises', ExerciseSchema);
+const Exercise: Class<$FlowFixMe> = connection.model('exercises', ExerciseSchema);
 
 export default Exercise;

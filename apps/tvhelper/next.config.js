@@ -8,7 +8,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'TRUE',
 });
 
-module.exports = withBundleAnalyzer(
+module.exports = (withBundleAnalyzer(
   withCSS(
     withCustomBabelConfigFile(
       withTM(['@tbergq'])({
@@ -17,4 +17,4 @@ module.exports = withBundleAnalyzer(
       }),
     ),
   ),
-);
+) /*: Object */);

@@ -4,7 +4,7 @@ import { GraphQLObjectType, GraphQLString } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';
 import { GraphQLDate } from 'graphql-iso-date';
 
-export default new GraphQLObjectType({
+export default (new GraphQLObjectType({
   name: 'Program',
   description: 'A trainingjournal program',
   fields: {
@@ -16,4 +16,4 @@ export default new GraphQLObjectType({
       type: GraphQLDate,
     },
   },
-});
+}): GraphQLObjectType);

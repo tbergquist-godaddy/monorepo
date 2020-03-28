@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { graphql, createFragmentContainer } from '@tbergq/relay';
+import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { TableRow, TableCell, Link } from '@tbergq/components';
 import { format } from 'date-fns';
 
@@ -34,7 +34,7 @@ const FavoriteItem = (props: Props) => {
   );
 };
 
-export default createFragmentContainer(FavoriteItem, {
+export default (createFragmentContainer(FavoriteItem, {
   favorite: graphql`
     fragment FavoriteItem_favorite on TvShow {
       name
@@ -44,4 +44,4 @@ export default createFragmentContainer(FavoriteItem, {
       status
     }
   `,
-});
+}): FragmentContainerType<Props, React.Node>);
