@@ -87,10 +87,10 @@
     "@adeira/signed-source" "^0.1.0"
     chalk "^3.0.0"
 
-"@adeira/graphql-global-id@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@adeira/graphql-global-id/-/graphql-global-id-0.7.0.tgz#df97704d55dc53f0a4016c3fbc3263d7e8e13fc5"
-  integrity sha512-y8cxZ1fwwiXKNwDNH/Q9dZv2JQJqaL3OO6EZKFiRfZrIHiSfDq+3IphHhehjQjuj0sbgzUO3+glipTsuSjV75Q==
+"@adeira/graphql-global-id@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@adeira/graphql-global-id/-/graphql-global-id-0.8.0.tgz#4b6d8ac9d342259b89c667d0e0755e1ea1878ea4"
+  integrity sha512-z7ZJRefpvfppMgLgiYmIMMjcnrWLwpTgG3ucg5P2hj7issMxrc+OKxbKzQmJcSd2QlNrBgaARk/1aM39hXL90w==
   dependencies:
     "@adeira/js" "^1.2.2"
     "@babel/runtime" "^7.9.2"
