@@ -1715,10 +1715,10 @@
   resolved "https://registry.yarnpkg.com/@kiwicom/babel-plugin-orbit-components/-/babel-plugin-orbit-components-1.6.0.tgz#af8f31793c98b957e4068c30b0369b5f7660cb6e"
   integrity sha512-joQg+5ON5pdPyoeAByr7VT1phx/cRI0S4YYjL5A4SiF8UB1LgJBeVew1WGXXFRCq3vTn+nChfsz4AEG1dZ9SHg==
 
-"@kiwicom/orbit-components@^0.82.0":
-  version "0.82.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.82.0.tgz#a8577ac64902f58f1da456cf8f542db4f77ff3c7"
-  integrity sha512-YQ1m+GFFS9XzaKZ7eI0g7K7KUU8Bj+7894NErka76pYJVsVsySEvNGKs2w7fPghNqhWb4a5VfG8QwC9zV4FoPQ==
+"@kiwicom/orbit-components@^0.82.1":
+  version "0.82.1"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.82.1.tgz#61b0376ff6378e23afd897d4a56df52495c60cb9"
+  integrity sha512-8uZLZ92IGBW7KTDL+P281phOziVmOEwandNHnH97WAd2xpBSAnZ9WVEO75EHJzArQYk70+6k4MWirt1c+QivKQ==
   dependencies:
     "@adeira/js" "^1.2.2"
     "@kiwicom/orbit-design-tokens" "~0.9.0"
