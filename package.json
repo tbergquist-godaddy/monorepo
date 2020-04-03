@@ -36,7 +36,7 @@
     "flow-bin": "^0.121.0",
     "jest": "^25.2.6",
     "jest-styled-components": "^7.0.0",
-    "mongodb-memory-server": "^6.5.0",
+    "mongodb-memory-server": "^6.5.1",
     "now": "^17.1.1",
     "react-test-renderer": "16.13.1",
     "rimraf": "^3.0.2"
