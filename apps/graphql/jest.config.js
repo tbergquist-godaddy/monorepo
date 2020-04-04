@@ -7,6 +7,5 @@ module.exports = {
   setupFilesAfterEnv: [
     (path.join(__dirname, '..', '..', 'scripts', 'setupTest.js') /*: string */),
     (path.join(__dirname, '..', '..', 'scripts', 'mongoMemoryServer.js') /*: string */),
-    (path.join(__dirname, 'scripts', 'setupTests.js') /*: string */),
   ],
 };
