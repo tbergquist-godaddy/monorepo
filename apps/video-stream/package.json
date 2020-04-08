@@ -10,7 +10,7 @@
     "compression": "^1.7.4",
     "copy-webpack-plugin": "^5.1.1",
     "cors": "^2.8.5",
-    "electron": "^8.2.0",
+    "electron": "^8.2.1",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "network": "^0.5.0",
