@@ -38,7 +38,7 @@
     "test-bc": "yarn monorepo-babel-node scripts/test-bc.js"
   },
   "devDependencies": {
-    "@adeira/test-utils": "^0.3.0",
+    "@adeira/test-utils": "^0.4.0",
     "@tbergq/monorepo-builder": "*",
     "mockdate": "^2.0.5",
     "mockingoose": "^2.13.2",

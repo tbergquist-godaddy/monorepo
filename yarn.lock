@@ -201,9 +201,9 @@
     "@adeira/relay-runtime" "^0.6.0"
 
 "@adeira/relay@^1.0.0", "@adeira/relay@^1.1.0", "@adeira/relay@^1.1.3":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-1.2.0.tgz#326f7039105fb1bd4034531e39a3727cfc12064a"
-  integrity sha512-8r6kqLOHwVi8r9cSAmnSe7Ya20lstSM2/V12hNEvXummWHZEs12PFiKUKfu5Ds14Ct9rY7BaSmfI7XE72H/SIg==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-1.2.1.tgz#b183031186a3ca929ee85d0d052c72c4aa684df4"
+  integrity sha512-EfRWEe/0U7RCPAye2VO1YS6nv00CyBlJdJpYKreu4YY/g+wYkn1l7/zRh2zAzFQsW/OoLUCe3lSaePz6VIAj2A==
   dependencies:
     "@adeira/fetch" "^1.0.1"
     "@adeira/js" "^1.2.0"
@@ -233,10 +233,10 @@
   dependencies:
     "@adeira/js" "^0.1.0"
 
-"@adeira/test-utils@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.3.0.tgz#c1f525753ade705e213d6d45dc7996808a7bc16f"
-  integrity sha512-VLLxXX7PQ94J5+hH/1zdsivoDf7Umo6XTKg+bPB/QJl9MEz2GQFOHHYY2gVqCby9DZJUIKS7+UtXyek1dcAddg==
+"@adeira/test-utils@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.4.0.tgz#3a7a6b5c471d29975644f4a654b216e0a172f4f9"
+  integrity sha512-ooNkX9HnpBK42AKGCkDXbKrkzlRUjkphgMqcRvYXpUH80jOsJSxm47+dLq8W1gZ8wXE4VSB6MUOrEcFtWtnH8Q==
   dependencies:
     "@adeira/js" "^1.2.0"
     "@babel/runtime" "^7.9.2"
