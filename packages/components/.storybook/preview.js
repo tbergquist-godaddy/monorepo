@@ -9,9 +9,8 @@ import defaultTheme from '../src/defaultTheme';
 const theme = {
   orbit: {
     ...getTokens(),
-    fontFamily:
-      "'Circular Pro', -apple-system, '.SFNSText-Regular', 'San Francisco', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif",
+    fontFamily: defaultTheme.fontFamily,
   },
-  tbergq: defaultTheme,
+  ...defaultTheme,
 }
 addDecorator(storyFn => <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>);

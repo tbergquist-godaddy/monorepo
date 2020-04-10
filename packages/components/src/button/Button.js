@@ -54,9 +54,9 @@ type SCProps = {
 
 const StyledButton: StyledComponent<SCProps, DefaultTheme, HTMLButtonElement> = styled.button(
   ({ colorScheme, theme, buttonSize, disabled }) => ({
-    ...getColors(colorScheme, theme.tbergq),
-    ...getFontSize(buttonSize, theme.tbergq),
-    fontFamily: theme.tbergq.fontFamily,
+    ...getColors(colorScheme, theme),
+    ...getFontSize(buttonSize, theme),
+    fontFamily: theme.fontFamily,
     fontWeight: 500,
     outline: 'none',
     borderRadius: '3px',
