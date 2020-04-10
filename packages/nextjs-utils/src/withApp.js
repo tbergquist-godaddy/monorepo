@@ -36,7 +36,7 @@ const theme = {
     ...getTokens(),
     fontFamily: defaultTheme.fontFamily,
   },
-  tbergq: defaultTheme,
+  ...defaultTheme,
 };
 
 export default function withNProgress(

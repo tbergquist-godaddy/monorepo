@@ -41,7 +41,7 @@ const getButtonSize = (size: Sizes) => {
 
 const StyledButton: StyledComponent<SCProps, DefaultTheme, HTMLButtonElement> = styled.button(
   ({ theme, colorScheme, disabled, buttonSize }) => ({
-    ...getColors(colorScheme, theme.tbergq),
+    ...getColors(colorScheme, theme),
     ...getButtonSize(buttonSize),
     cursor: disabled ? 'not-allowed' : 'pointer',
     backgroundPosition: 'center',

@@ -13,10 +13,9 @@ import { getTokens } from '@kiwicom/orbit-components';
 const theme = {
   orbit: {
     ...getTokens(),
-    fontFamily:
-      "'Circular Pro', -apple-system, '.SFNSText-Regular', 'San Francisco', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif",
+    fontFamily: defaultTheme.fontFamily,
   },
-  tbergq: defaultTheme,
+  ...defaultTheme,
 };
 
 function testRenderer(
