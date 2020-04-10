@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Form, Formik, type FormikConfig } from 'formik';
 
 import Input from '../InputField';
-import Button from '../Button';
+import Button from '../button/Button';
 
 const ButtonWrapper = styled.div({
   display: 'flex',
