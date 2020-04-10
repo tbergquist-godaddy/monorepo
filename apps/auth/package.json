@@ -9,7 +9,7 @@
     "google-protobuf": "^3.11.3",
     "grpc-tools": "^1.8.1",
     "mockingoose": "^2.13.2",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.3"
   },
   "scripts": {
     "protoc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:src/__generated__ --grpc_out=src/__generated__ --proto_path=src auth.proto",
