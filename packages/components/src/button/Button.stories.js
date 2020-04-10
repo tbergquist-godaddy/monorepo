@@ -34,6 +34,12 @@ export const loading = (): React.Node => (
   </Button>
 );
 
+export const loadingSmall = (): React.Node => (
+  <Button size="small" loading={true} onClick={action('click')}>
+    primary
+  </Button>
+);
+
 export default {
   component: Button,
   title: 'Button',
