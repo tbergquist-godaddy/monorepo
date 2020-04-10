@@ -38,6 +38,7 @@ it('show required error if name is not inputed', async () => {
   const required = await screen.queryByText('Required');
   expect(required).not.toBeInTheDocument();
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(container.querySelector('button[type="submit"]'));
   });
 

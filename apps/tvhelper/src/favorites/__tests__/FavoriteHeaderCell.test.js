@@ -30,6 +30,7 @@ describe('FavoriteHeaderCell', () => {
     const svg = container.querySelector('svg');
 
     expect(svg).toBeInTheDocument();
+    // $FlowFixMe: (add testing-library flow types)
     expect(svg.getAttribute('deg')).toBe('-90');
   });
 
@@ -44,6 +45,7 @@ describe('FavoriteHeaderCell', () => {
     const svg = container.querySelector('svg');
 
     expect(svg).toBeInTheDocument();
+    // $FlowFixMe: (add testing-library flow types)
     expect(svg.getAttribute('deg')).toBe('90');
   });
 

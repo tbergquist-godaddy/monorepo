@@ -53,11 +53,13 @@ it('show required error', async () => {
   const button = container.querySelector('button');
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(button);
   });
   const submitButton = container.querySelector('button[type="submit"]');
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(submitButton);
   });
   expect(getByText('Required')).toBeInTheDocument();
@@ -77,6 +79,7 @@ it('add an exercise', async () => {
   const addButton = container.querySelector('button');
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(addButton);
   });
 
@@ -86,11 +89,15 @@ it('add an exercise', async () => {
   const description = container.querySelector('input[name="description"]');
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(name, { target: { name: 'name', value: 'Knebøy' } });
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(muscleGroup, { target: { name: 'muscleGroups', value: 'Lår' } });
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(videoUrl, {
       target: { name: 'videoUrl', value: 'https://www.mock.no' },
     });
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(description, {
       target: { name: 'description', value: 'Rolig ned, lår parallell med underlag' },
     });
@@ -99,6 +106,7 @@ it('add an exercise', async () => {
   const submitButton = container.querySelector('button[type="submit"]');
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(submitButton);
   });
 

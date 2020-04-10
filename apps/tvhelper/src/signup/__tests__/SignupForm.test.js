@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act } from '@tbergq/test-utils';
 import { Environment } from '@tbergq/relay';
 import { MockPayloadGenerator } from 'relay-test-utils';
 import Router from 'next/router';
@@ -11,39 +11,39 @@ import * as mutation from '../mutation/createUserMutation';
 
 describe('SignupForm', () => {
   it('handles username change', () => {
-    const { getByTestId } = render(<SignupForm />);
+    const { getByDisplayValue, getByTestId } = render(<SignupForm />);
 
     const input = getByTestId('usernameInput');
     fireEvent.change(input, { target: { value: 'don_tito' } });
 
-    expect(input.value).toBe('don_tito');
+    expect(getByDisplayValue('don_tito')).toBeInTheDocument();
   });
 
   it('handles emailInput change', () => {
-    const { getByTestId } = render(<SignupForm />);
+    const { getByTestId, getByDisplayValue } = render(<SignupForm />);
     const email = 'tito@bonito.com';
     const input = getByTestId('emailInput');
     fireEvent.change(input, { target: { value: email } });
 
-    expect(input.value).toBe(email);
+    expect(getByDisplayValue(email)).toBeInTheDocument();
   });
 
   it('handles password change', () => {
-    const { getByTestId } = render(<SignupForm />);
+    const { getByTestId, getByDisplayValue } = render(<SignupForm />);
     const password = '123456'; // 😍
     const input = getByTestId('passwordInput');
     fireEvent.change(input, { target: { value: password } });
 
-    expect(input.value).toBe(password);
+    expect(getByDisplayValue(password)).toBeInTheDocument();
   });
 
   it('handles confirmPassword change', () => {
-    const { getByTestId } = render(<SignupForm />);
+    const { getByTestId, getByDisplayValue } = render(<SignupForm />);
     const password = '123456'; // 😍
     const input = getByTestId('confirmPasswordInput');
     fireEvent.change(input, { target: { value: password } });
 
-    expect(input.value).toBe(password);
+    expect(getByDisplayValue(password)).toBeInTheDocument();
   });
 
   it('show a toast when password and confirmPassword does not match', () => {
