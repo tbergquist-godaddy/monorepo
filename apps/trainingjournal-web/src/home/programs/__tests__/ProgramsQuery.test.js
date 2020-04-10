@@ -30,11 +30,13 @@ it('add new items to the connection', async () => {
   const nameInput = container.querySelector('input[name="name"]');
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(nameInput, { target: { name: 'name', value: 'My new program' } });
   });
   const submitButton = container.querySelector('button[type="submit"]');
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(submitButton);
   });
 

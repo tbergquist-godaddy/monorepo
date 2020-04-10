@@ -48,13 +48,16 @@ it('updates an exercise', async () => {
 
   const input = container.querySelector('input[name="name"]');
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(input, { target: { name: 'name', value: 'My exercise' } });
   });
 
+  // $FlowFixMe: (add testing-library flow types)
   expect(input.value).toBe('My exercise');
   const submit = container.querySelector('button[type="submit"]');
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(submit);
   });
 

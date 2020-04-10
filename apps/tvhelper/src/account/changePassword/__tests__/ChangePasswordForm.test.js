@@ -36,6 +36,7 @@ it('show required warnings', async () => {
 
   const button = container.querySelector('button[type="submit"]');
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(button);
   });
 
@@ -49,12 +50,16 @@ it('show error if confirm password does not match new password', async () => {
 
   const button = container.querySelector('button[type="submit"]');
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(password, { target: { name: 'password', value: '123' } });
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(confirmPassword, { target: { name: 'confirmPassword', value: '1235' } });
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(newPassword, { target: { name: 'newPassword', value: '1234' } });
   });
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(button);
   });
 
