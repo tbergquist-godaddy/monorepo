@@ -5,6 +5,21 @@ const active = {
   backgroundSize: '100%',
   transition: 'background 0s',
 };
+
+export type ThemeColors = $ReadOnly<{
+  backgroundColor: string,
+  borderColor: string,
+  color: string,
+  ':focus': {
+    boxShadow: string,
+  },
+  ':active': {
+    backgroundSize: string,
+    transition: string,
+    backgroundColor: string,
+  },
+}>;
+
 export default {
   small: {
     fontSize: '12px',
