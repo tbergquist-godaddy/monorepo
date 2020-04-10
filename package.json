@@ -23,11 +23,11 @@
     "@adeira/monorepo-utils": "^0.6.0"
   },
   "devDependencies": {
-    "@adeira/monorepo-npm-publisher": "^0.3.0",
     "@adeira/babel-preset-adeira": "^0.3.0",
     "@adeira/eslint-config": "^1.2.1",
     "@adeira/eslint-runner": "^0.1.0",
     "@adeira/flow-bin": "^0.2.0",
+    "@adeira/monorepo-npm-publisher": "^0.3.0",
     "@babel/core": "^7.9.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",
