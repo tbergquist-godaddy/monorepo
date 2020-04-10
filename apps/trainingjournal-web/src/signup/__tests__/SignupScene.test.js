@@ -38,9 +38,13 @@ it('creates a new user', () => {
   fireEvent.change(password, { target: { value: 'password' } });
   fireEvent.change(confirmPassword, { target: { value: 'password' } });
 
+  // $FlowFixMe: (add testing-library flow types)
   expect(username.value).toBe('uname');
+  // $FlowFixMe: (add testing-library flow types)
   expect(email.value).toBe('email');
+  // $FlowFixMe: (add testing-library flow types)
   expect(password.value).toBe('password');
+  // $FlowFixMe: (add testing-library flow types)
   expect(confirmPassword.value).toBe('password');
 
   act(() => {

@@ -26,11 +26,15 @@ it('handles login', async () => {
   const submit = getByTestId('LoginFormSubmit');
 
   await act(async () => {
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(username, { target: { value: 'uname' } });
+    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(password, { target: { value: 'pa$$word' } });
   });
 
+  // $FlowFixMe: (add testing-library flow types)
   expect(username.value).toBe('uname');
+  // $FlowFixMe: (add testing-library flow types)
   expect(password.value).toBe('pa$$word');
 
   await act(async () => {

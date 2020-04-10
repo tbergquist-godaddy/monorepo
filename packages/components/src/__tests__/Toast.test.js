@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, act, fireEvent } from '@testing-library/react';
+import { render, act, fireEvent, screen } from '@tbergq/test-utils';
 
 import Toast from '../Toast';
 
@@ -20,14 +20,16 @@ const Wrapper = ({ onHide }) => {
             show('test');
           }
         }}
-      />
+      >
+        Show Toast
+      </button>
     </>
   );
 };
 it('calls onHide', () => {
   const onHide = jest.fn();
-  const { container } = render(<Wrapper onHide={onHide} />);
-  const button = container.querySelector('button');
+  render(<Wrapper onHide={onHide} />);
+  const button = screen.getByText('Show Toast');
 
   act(() => {
     fireEvent.click(button);
