@@ -7,7 +7,7 @@ import {
   type RelayProp,
   type FragmentContainerType,
 } from '@tbergq/relay';
-import { Button } from '@tbergq/components';
+import { IconButton } from '@tbergq/components';
 import styled from 'styled-components';
 import { MdFavorite } from 'react-icons/md';
 
@@ -25,7 +25,7 @@ const Image = styled.img({
   maxHeight: '300px',
 });
 
-const FavoriteButton = styled(Button)({
+const FavoriteButton = styled(IconButton)({
   position: 'absolute',
   bottom: 10,
   right: 5,

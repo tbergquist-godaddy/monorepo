@@ -3,10 +3,11 @@
 import * as React from 'react';
 import styled, { type StyledComponent } from 'styled-components';
 
+import { type ThemeColors } from './theme';
 import { type DefaultTheme } from '../types';
 
-type ColorScheme = 'primary' | 'secondary' | 'success' | 'danger';
-type Sizes = 'small' | 'normal' | 'large';
+export type ColorScheme = 'primary' | 'secondary' | 'success' | 'danger';
+export type Sizes = 'small' | 'normal' | 'large';
 type Props = {
   +onClick?: () => void,
   +type?: 'button' | 'submit',
@@ -15,11 +16,10 @@ type Props = {
   +children: React.Node,
   +loading?: boolean,
   +dataTest?: string,
-  +circled?: boolean,
   +ariaLabel?: string,
 };
 
-const getColors = (colorScheme: ColorScheme, theme: DefaultTheme) => {
+export const getColors = (colorScheme: ColorScheme, theme: DefaultTheme): ThemeColors => {
   switch (colorScheme) {
     case 'secondary':
       return theme.button.secondary;
@@ -49,18 +49,17 @@ type SCProps = {
   +children: React.Node,
   +disabled: boolean,
   +'data-test': ?string,
-  +isRound: boolean,
   +'aria-label'?: string,
 };
 
 const StyledButton: StyledComponent<SCProps, DefaultTheme, HTMLButtonElement> = styled.button(
-  ({ colorScheme, theme, buttonSize, disabled, isRound }) => ({
+  ({ colorScheme, theme, buttonSize, disabled }) => ({
     ...getColors(colorScheme, theme.tbergq),
     ...getFontSize(buttonSize, theme.tbergq),
     fontFamily: theme.tbergq.fontFamily,
     fontWeight: 500,
     outline: 'none',
-    borderRadius: isRound ? '50%' : '3px',
+    borderRadius: '3px',
     cursor: disabled ? 'not-allowed' : 'pointer',
     backgroundPosition: 'center',
     transition: 'background 0.8s',
@@ -75,14 +74,12 @@ export default function Button({
   loading,
   children,
   dataTest,
-  circled,
   ariaLabel,
   ...rest
 }: Props): React.Element<typeof StyledButton> {
   return (
     <StyledButton
       aria-label={ariaLabel}
-      isRound={circled ?? false}
       data-test={dataTest}
       disabled={loading === true}
       {...rest}
