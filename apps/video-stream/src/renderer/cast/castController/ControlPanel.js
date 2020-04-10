@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { Button, Stack } from '@tbergq/components';
+import { Button, Stack } from '@kiwicom/orbit-components';
 import { MdPlayArrow, MdPause, MdStop, MdFastRewind, MdFastForward } from 'react-icons/md';
 import styled from 'styled-components';
 

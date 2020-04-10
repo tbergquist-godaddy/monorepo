@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, configure } from '@testing-library/react';
+import { render } from '@tbergq/test-utils';
 import { createMockEnvironment } from 'relay-test-utils';
 import { RelayEnvironmentProvider } from '@tbergq/relay';
 
@@ -14,8 +14,6 @@ beforeEach(() => {
 });
 
 describe('SearchQuery', () => {
-  configure({ testIdAttribute: 'data-test' });
-
   it('renders queryRenderer loader when query is defined', () => {
     const { getByTestId } = render(
       <RelayEnvironmentProvider environment={environment}>

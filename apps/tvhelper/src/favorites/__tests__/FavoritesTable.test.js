@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@tbergq/test-utils';
 import { QueryRenderer, graphql } from '@tbergq/relay';
 import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
 import '@testing-library/jest-dom/extend-expect';

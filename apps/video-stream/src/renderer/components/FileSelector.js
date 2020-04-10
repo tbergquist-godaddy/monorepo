@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { Button, Stack } from '@tbergq/components';
+import { Button, Stack } from '@kiwicom/orbit-components';
 import path from 'path';
 import styled from 'styled-components';
 

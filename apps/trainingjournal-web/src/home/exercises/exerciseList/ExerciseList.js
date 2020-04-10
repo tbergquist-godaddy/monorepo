@@ -47,7 +47,7 @@ function ExerciseList(props: Props) {
       </Grid>
       {props.exercises?.exercises?.pageInfo.hasNextPage === true && (
         <Stack flex={true} justify="center">
-          <Button dataTest="loadMore" loading={isLoading} type="secondary" onClick={loadMore}>
+          <Button dataTest="loadMore" loading={isLoading} color="secondary" onClick={loadMore}>
             Load more
           </Button>
         </Stack>

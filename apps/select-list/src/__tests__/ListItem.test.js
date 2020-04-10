@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@tbergq/test-utils';
 
 import { SelectedItemsProvider } from '../SelectedItemsContext';
 import ListItem from '../ListItem';

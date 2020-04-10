@@ -21,11 +21,11 @@ export default function ExerciseForm(props: Props): React.Element<typeof Stack> 
       </Stack>
       <Stack flex={true} justify="end">
         {props.onCancel != null && (
-          <Button type="secondary" onClick={props.onCancel}>
+          <Button color="secondary" onClick={props.onCancel}>
             Cancel
           </Button>
         )}
-        <Button loading={props.isSubmitting} submit={true}>
+        <Button loading={props.isSubmitting} type="submit">
           Save
         </Button>
       </Stack>

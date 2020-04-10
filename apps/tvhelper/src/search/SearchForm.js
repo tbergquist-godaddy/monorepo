@@ -18,7 +18,7 @@ export default (function SearchForm() {
     <Form action="/" method="get">
       <InputField name="query" dataTest="SearchFormInput" label="Search" />
       <ButtonWrapper>
-        <Button dataTest="SearchFormButton" submit={true}>
+        <Button dataTest="SearchFormButton" type="submit">
           Search
         </Button>
       </ButtonWrapper>

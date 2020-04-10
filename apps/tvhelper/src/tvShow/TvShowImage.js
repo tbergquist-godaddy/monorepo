@@ -60,10 +60,10 @@ const TvShowImage = (props: Props) => {
         <FavoriteButton
           loading={isLoading}
           circled={true}
-          type={isFavorite ? 'critical' : 'info'}
+          color={isFavorite ? 'danger' : 'primary'}
           onClick={onToggleFavorite}
           dataTest="toggleFavoriteButton"
-          title={isFavorite ? 'Delete favorite' : 'Add favorite'}
+          ariaLabel={isFavorite ? 'Delete favorite' : 'Add favorite'}
         >
           <MdFavorite />
         </FavoriteButton>

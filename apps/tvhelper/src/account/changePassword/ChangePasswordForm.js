@@ -71,7 +71,7 @@ export default (function ChangePasswordForm() {
             <InputField type="password" name="newPassword" label="New password" />
             <InputField type="password" name="confirmPassword" label="Confirm password" />
             <ButtonWrapper>
-              <Button loading={isLoading} submit={true}>
+              <Button loading={isLoading} type="submit">
                 Change password
               </Button>
             </ButtonWrapper>

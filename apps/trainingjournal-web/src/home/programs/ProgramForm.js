@@ -13,10 +13,10 @@ export default function ProgramForm(props: Props): React.Element<typeof Stack> {
     <Stack spaceAfter="normal">
       <InputField name="name" label="Name" />
       <Stack justify="end">
-        <Button type="secondary" onClick={props.onCancel}>
+        <Button color="secondary" onClick={props.onCancel}>
           Cancel
         </Button>
-        <Button submit={true} loading={props.isSubmitting}>
+        <Button type="submit" loading={props.isSubmitting}>
           Save
         </Button>
       </Stack>
