@@ -8,7 +8,7 @@ import { MdMenu } from 'react-icons/md';
 import Link from 'next/link';
 
 import Container from './Container';
-import Button from './Button';
+import Button from './button/Button';
 import { Media } from './Media';
 
 const NAV_BACKGROUND = '#222';

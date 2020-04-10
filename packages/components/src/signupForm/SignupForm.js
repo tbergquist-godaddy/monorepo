@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import Input from '../Input';
-import Button from '../Button';
+import Button from '../button/Button';
 import Toast from '../Toast';
 
 const SubmitButton = styled(Button)({
