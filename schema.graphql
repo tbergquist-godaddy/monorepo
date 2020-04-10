@@ -1,4 +1,4 @@
-# @generated SignedSource<<b46eb1d19f39620e045faec6530b73dd>>
+# @generated SignedSource<<64b1f0d44d06dad64f2794e19bed9167>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -28,9 +28,7 @@ type Cast {
   character: Person
 
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   person: Person
@@ -82,9 +80,7 @@ type CreateTrainingJournalUser {
   email: String
 
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   username: String
@@ -96,9 +92,7 @@ type CreateUserMutation {
 }
 
 """
-A date string, such as 2007-12-03, compliant with the `full-date` format
-outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
-representation of dates and times using the Gregorian calendar.
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
 """
 scalar Date
 
@@ -113,9 +107,7 @@ type Episode {
   airdate: Date
 
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   image: TvHelperImage
@@ -145,9 +137,7 @@ type Exercise {
   description: String
 
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   muscleGroups: String
@@ -182,9 +172,7 @@ type LoginType {
 """The network hosting a tv show"""
 type Network {
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   name: String
@@ -223,9 +211,7 @@ type Program {
   date: Date
 
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   name: String
@@ -347,9 +333,7 @@ type TraningJournalViewer {
   exercises(after: String, before: String, first: Int, last: Int): ExerciseConnection
 
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   programs(after: String, before: String, first: Int, last: Int): ProgramConnection
@@ -359,9 +343,7 @@ type TraningJournalViewer {
 """The image of a person or tvshow or episode"""
 type TvHelperImage {
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   medium: String
@@ -374,9 +356,7 @@ type TvHelperViewer {
   favorites(after: String, before: String, first: Int, last: Int, options: SortOptions = {sortBy: NAME, sortDirection: ASC}): TvShowConnection
 
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   username: String
@@ -388,9 +368,7 @@ type TvShow implements Node {
   episodes: [Episode]
 
   """
-  The globally unique ID of an object. You can unmask this ID to get original
-  value but please note that this unmasked ID is not globally unique anymore and
-  therefore it cannot be used as a cache key.
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
   image: TvHelperImage
