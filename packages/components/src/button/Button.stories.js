@@ -5,30 +5,32 @@ import { action } from '@storybook/addon-actions';
 
 import Button from './Button';
 
-export const info = (): React.Node => <Button onClick={action('click')}>info</Button>;
-export const primary = (): React.Node => (
-  <Button type="primary" onClick={action('click')}>
-    primary
-  </Button>
-);
-export const critical = (): React.Node => (
-  <Button type="critical" onClick={action('click')}>
-    critical
-  </Button>
-);
+export const primary = (): React.Node => <Button onClick={action('click')}>primary</Button>;
 export const secondary = (): React.Node => (
-  <Button type="secondary" onClick={action('click')}>
+  <Button color="secondary" onClick={action('click')}>
     secondary
   </Button>
 );
-export const warning = (): React.Node => (
-  <Button type="warning" onClick={action('click')}>
-    warning
+export const danger = (): React.Node => (
+  <Button color="danger" onClick={action('click')}>
+    danger
   </Button>
 );
+export const small = (): React.Node => (
+  <Button size="small" onClick={action('click')}>
+    small
+  </Button>
+);
+
+export const large = (): React.Node => (
+  <Button size="large" onClick={action('click')}>
+    large
+  </Button>
+);
+
 export const loading = (): React.Node => (
   <Button loading={true} onClick={action('click')}>
-    warning
+    primary
   </Button>
 );
 

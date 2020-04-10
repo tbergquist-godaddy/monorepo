@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, act, fireEvent, screen } from '@testing-library/react';
+import { render, act, fireEvent, screen } from '@tbergq/test-utils';
 import { RelayEnvironmentProvider } from '@tbergq/relay';
 import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
 

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { render } from 'react-dom';
-import { Heading, Stack } from '@tbergq/components';
+import { Heading, Stack } from '@kiwicom/orbit-components';
 import 'rc-slider/assets/index.css';
 
 import MediaContainer from './cast/MediaContainer';

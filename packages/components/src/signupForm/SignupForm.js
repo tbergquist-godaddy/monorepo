@@ -72,7 +72,7 @@ export default (React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((
         type="password"
         dataTest="confirmPasswordInput"
       />
-      <SubmitButton submit={true} loading={props.isLoading} dataTest="submitButton">
+      <SubmitButton type="submit" loading={props.isLoading} dataTest="submitButton">
         Confirm
       </SubmitButton>
       <Toast ref={ref} />

@@ -10,6 +10,7 @@ export { default as NavLink } from './src/NavLink';
 export { default as LoginForm } from './src/loginForm/LoginForm';
 export { default as Link } from './src/Link';
 export { default as FloatingAddButton } from './src/FloatingAddButton';
+export { default as defaultTheme } from './src/defaultTheme';
 
 export {
   ListChoice as ListItem,

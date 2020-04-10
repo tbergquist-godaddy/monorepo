@@ -29,7 +29,7 @@ export default function LoginForm({ onSubmit, ...formProps }: Props): React.Elem
           <Input name="username" label="Username" />
           <Input name="password" type="password" label="Password" />
           <ButtonWrapper>
-            <Button loading={isSubmitting} submit={true} dataTest="LoginFormSubmit">
+            <Button loading={isSubmitting} type="submit" dataTest="LoginFormSubmit">
               Login
             </Button>
           </ButtonWrapper>

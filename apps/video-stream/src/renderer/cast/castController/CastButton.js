@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { Button } from '@tbergq/components';
+import { Button } from '@kiwicom/orbit-components';
 
 import { useCastAction, useCastState } from '../CastContext';
 import CastImage from './cast.png';

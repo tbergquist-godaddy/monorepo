@@ -8,7 +8,7 @@
     "test": "monorepo-run-tests --runInBand",
     "lint": "yarn jest --config=.jest-eslint.config.js",
     "typecheck": "adeira-flow-bin",
-    "test-ci": "yarn lint && yarn typecheck && yarn test && yarn workspace @tbergq/graphql test-bc && yarn relay --validate",
+    "test-ci": "yarn typecheck && yarn lint && yarn test && yarn workspace @tbergq/graphql test-bc && yarn relay --validate",
     "relay": "yarn adeira-relay-compiler",
     "migrate": "yarn adeira-flow-migrate types-first node_modules/.bin/flow"
   },

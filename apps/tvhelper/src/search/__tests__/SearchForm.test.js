@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act } from '@tbergq/test-utils';
 import { Formik } from 'formik';
 
 import SearchForm from '../SearchForm';

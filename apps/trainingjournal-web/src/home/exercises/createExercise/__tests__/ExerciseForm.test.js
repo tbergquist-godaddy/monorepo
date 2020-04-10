@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Formik } from 'formik';
-import { render, act, fireEvent } from '@testing-library/react';
+import { render, act, fireEvent } from '@tbergq/test-utils';
 
 import ExerciseForm from '../ExerciseForm';
 

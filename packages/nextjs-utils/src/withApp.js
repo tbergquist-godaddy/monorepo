@@ -8,9 +8,10 @@ import 'nprogress/nprogress.css';
 import cookie from 'next-cookies';
 import { TOKEN_KEY } from '@tbergq/utils';
 import { fetchQuery, Environment, RelayEnvironmentProvider } from '@tbergq/relay';
-import { createGlobalStyle } from 'styled-components';
-import { MediaContextProvider } from '@tbergq/components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { MediaContextProvider, defaultTheme } from '@tbergq/components';
 import { isBrowser } from '@adeira/js';
+import { getTokens } from '@kiwicom/orbit-components';
 
 const GlobalStyle = createGlobalStyle({
   html: {
@@ -29,6 +30,15 @@ const GlobalStyle = createGlobalStyle({
     paddingBottom: '64px',
   },
 });
+
+const theme = {
+  orbit: {
+    ...getTokens(),
+    fontFamily:
+      "'Circular Pro', -apple-system, '.SFNSText-Regular', 'San Francisco', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif",
+  },
+  tbergq: defaultTheme,
+};
 
 export default function withNProgress(
   Component: React.AbstractComponent<{ ... }>,
@@ -80,14 +90,16 @@ export default function withNProgress(
       const { token, ssrData, ...rest } = this.props;
       const environment = Environment.getEnvironment(token, ssrData);
       return (
-        <MediaContextProvider>
-          <RelayEnvironmentProvider environment={environment}>
-            <>
-              <GlobalStyle />
-              <Component {...rest} />
-            </>
-          </RelayEnvironmentProvider>
-        </MediaContextProvider>
+        <ThemeProvider theme={theme}>
+          <MediaContextProvider>
+            <RelayEnvironmentProvider environment={environment}>
+              <>
+                <GlobalStyle />
+                <Component {...rest} />
+              </>
+            </RelayEnvironmentProvider>
+          </MediaContextProvider>
+        </ThemeProvider>
       );
     }
   }

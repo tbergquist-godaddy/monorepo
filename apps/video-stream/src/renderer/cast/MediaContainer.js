@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { Stack } from '@tbergq/components';
+import { Stack } from '@kiwicom/orbit-components';
 
 import CastController from './castController/CastController';
 import FileSelectors from './FileSelectors';

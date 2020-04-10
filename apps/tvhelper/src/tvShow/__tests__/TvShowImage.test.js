@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act } from '@tbergq/test-utils';
 import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
 import { QueryRenderer, graphql } from '@tbergq/relay';
 
@@ -47,7 +47,7 @@ describe('TvShowImage', () => {
     const spy = jest.spyOn(addFavorite, 'default');
 
     const toggleButton = getByTestId('toggleFavoriteButton');
-    expect(toggleButton).toHaveStyle('background-color: rgb(1, 114, 203)');
+    expect(toggleButton).toHaveStyle('background-color: rgb(0, 123, 255)');
 
     act(() => {
       fireEvent.click(toggleButton);
@@ -65,7 +65,7 @@ describe('TvShowImage', () => {
       );
     });
 
-    expect(toggleButton).toHaveStyle('background-color: rgb(210, 28, 28)');
+    expect(toggleButton).toHaveStyle('background-color: rgb(220, 53, 69)');
     expect(spy).toHaveBeenCalledWith(environment, { serieId: '234' }, expect.any(Function));
   });
 
@@ -84,7 +84,7 @@ describe('TvShowImage', () => {
     const spy = jest.spyOn(deleteFavorite, 'default');
 
     const toggleButton = getByTestId('toggleFavoriteButton');
-    expect(toggleButton).toHaveStyle('background-color: rgb(210, 28, 28)');
+    expect(toggleButton).toHaveStyle('background-color: rgb(220, 53, 69)');
 
     act(() => {
       fireEvent.click(toggleButton);
@@ -101,7 +101,7 @@ describe('TvShowImage', () => {
         }),
       );
     });
-    expect(toggleButton).toHaveStyle('background-color: rgb(210, 28, 28)');
+    expect(toggleButton).toHaveStyle('background-color: rgb(220, 53, 69)');
     expect(spy).toHaveBeenCalledWith(environment, { serieId: '234' }, expect.any(Function));
   });
 });

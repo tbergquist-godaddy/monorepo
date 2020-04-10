@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { graphql, QueryRenderer } from '@tbergq/relay';
 import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
-import { render, act, fireEvent, screen } from '@testing-library/react';
+import { render, act, fireEvent, screen } from '@tbergq/test-utils';
 
 import ExerciseList from '../ExerciseList';
 

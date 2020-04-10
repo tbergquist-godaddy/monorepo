@@ -3,7 +3,7 @@
 import React from 'react';
 import { Environment } from '@tbergq/relay';
 import { MockPayloadGenerator } from 'relay-test-utils';
-import { render, act, fireEvent } from '@testing-library/react';
+import { render, act, fireEvent } from '@tbergq/test-utils';
 import { useRouter } from 'next/router';
 
 import SignupScene from '../SignupScene';

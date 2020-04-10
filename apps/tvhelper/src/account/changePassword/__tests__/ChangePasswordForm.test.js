@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { RelayEnvironmentProvider } from '@tbergq/relay';
 import { createMockEnvironment } from 'relay-test-utils';
-import { render, act, fireEvent } from '@testing-library/react';
+import { render, act, fireEvent } from '@tbergq/test-utils';
 
 import ChangePasswordForm from '../ChangePasswordForm';
 
