@@ -5,6 +5,7 @@ import styled, { type StyledComponent } from 'styled-components';
 
 import { type ThemeColors } from './theme';
 import { type DefaultTheme } from '../types';
+import Loading from '../loading/Loading';
 
 export type ColorScheme = 'primary' | 'secondary' | 'success' | 'danger';
 export type Sizes = 'small' | 'normal' | 'large';
@@ -86,7 +87,7 @@ export default function Button({
       colorScheme={color}
       buttonSize={size}
     >
-      {loading === true ? <div>...</div> : children}
+      {loading === true ? <Loading /> : children}
     </StyledButton>
   );
 }

@@ -24,6 +24,12 @@ export const large = (): React.Node => (
   </IconButton>
 );
 
+export const loading = (): React.Node => (
+  <IconButton loading={true} ariaLabel="favorite" onClick={action('click')}>
+    <MdFavorite />
+  </IconButton>
+);
+
 export default {
   component: IconButton,
   title: 'IconButton',

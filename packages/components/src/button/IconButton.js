@@ -5,6 +5,7 @@ import styled, { type StyledComponent } from 'styled-components';
 
 import { getColors, type ColorScheme, type Sizes } from './Button';
 import { type DefaultTheme } from '../types';
+import Loading from '../loading/Loading';
 
 type Props = {
   +onClick?: () => void,
@@ -77,7 +78,7 @@ export default function IconButton({
       aria-label={ariaLabel}
       data-test={dataTest}
     >
-      {loading ? <div>...</div> : children}
+      {loading ? <Loading /> : children}
     </StyledButton>
   );
 }
