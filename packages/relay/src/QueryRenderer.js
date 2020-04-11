@@ -7,7 +7,7 @@ import {
   QueryRenderer as AdeiraQueryRenderer,
   type Environment,
 } from '@adeira/relay';
-import { Loading } from '@tbergq/components';
+import { Spinner as Loading } from '@tbergq/components';
 import { isBrowser } from '@adeira/js';
 import { getDataFromRequest } from '@adeira/relay-utils';
 
