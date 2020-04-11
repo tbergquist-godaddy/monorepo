@@ -25,7 +25,7 @@ export default function LoginForm(): React.Node {
           cookie.set(TOKEN_KEY, token, { expires: 365 });
           Router.push({ pathname: '/home' });
         } else if (toastRef.current != null) {
-          toastRef.current.show('Login failed');
+          toastRef.current.show({ text: 'Login failed', type: 'danger' });
         }
         setSubmitting(false);
       },

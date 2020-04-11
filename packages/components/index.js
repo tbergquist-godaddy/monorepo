@@ -5,7 +5,7 @@ export { default as Input } from './src/Input';
 export { default as InputField } from './src/InputField';
 export { default as Button } from './src/button/Button';
 export { default as IconButton } from './src/button/IconButton';
-export { default as Toast } from './src/Toast';
+export { default as Toast } from './src/toast/Toast';
 export { default as Navbar } from './src/Navbar';
 export { default as NavLink } from './src/NavLink';
 export { default as LoginForm } from './src/loginForm/LoginForm';

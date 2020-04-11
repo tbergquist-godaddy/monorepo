@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import Input from '../Input';
 import Button from '../button/Button';
-import Toast from '../Toast';
+import Toast from '../toast/Toast';
 
 const SubmitButton = styled(Button)({
   float: 'right',
@@ -33,7 +33,7 @@ export default (React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((
     if (typeof ref === 'object') {
       const show = ref.current?.show;
       if (typeof show === 'function') {
-        show(message);
+        show({ text: message, type: 'danger' });
       }
     }
   };
