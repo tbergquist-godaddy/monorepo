@@ -15,7 +15,9 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare type IconProps = {||};
+declare type IconProps = {|
+  +'data-test'?: string,
+|};
 
 declare module 'react-icons' {
   declare module.exports: any;
