@@ -59,6 +59,7 @@ const NavContainer = styled(Container)({
 
 const BurgerButton = styled(Button)({
   maxHeight: '20px',
+  border: 'none',
   backgroundColor: NAV_BACKGROUND,
   ':hover': {
     backgroundColor: NAV_BACKGROUND,
