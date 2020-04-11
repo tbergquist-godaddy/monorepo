@@ -7,7 +7,7 @@ import {
   type RefetchRelayProp,
   type RefetchContainerType,
 } from '@tbergq/relay';
-import { Table, TableHead, TableRow, TableBody, Heading, Loading } from '@tbergq/components';
+import { Table, TableHead, TableRow, TableBody, Heading, Spinner } from '@tbergq/components';
 import styled from 'styled-components';
 
 import type { FavoritesTable_favorites as Favorites } from './__generated__/FavoritesTable_favorites.graphql';
@@ -24,8 +24,9 @@ const Loader = styled.div({
   top: '50%',
   right: '50%',
   zIndex: 100,
-  backgroundColor: 'rgba(0,0,0,0.5)',
+  backgroundColor: 'rgba(0,0,0,0.1)',
   borderRadius: '6px',
+  padding: '8px',
 });
 
 const FavoritesTable = (props: Props) => {
@@ -65,7 +66,7 @@ const FavoritesTable = (props: Props) => {
       <Heading>Favorites</Heading>
       {isLoading && (
         <Loader>
-          <Loading dataTest="tableLoader" />
+          <Spinner dataTest="tableLoader" />
         </Loader>
       )}
       <Table>

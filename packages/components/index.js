@@ -12,6 +12,8 @@ export { default as LoginForm } from './src/loginForm/LoginForm';
 export { default as Link } from './src/Link';
 export { default as FloatingAddButton } from './src/FloatingAddButton';
 export { default as defaultTheme } from './src/defaultTheme';
+export { default as Spinner } from './src/loading/Spinner';
+export { default as Loading } from './src/loading/Loading';
 
 export {
   ListChoice as ListItem,
@@ -23,7 +25,6 @@ export {
   TableHead,
   TableBody,
   TableRow,
-  Loading,
   Card,
   CardSection,
   Alert,
