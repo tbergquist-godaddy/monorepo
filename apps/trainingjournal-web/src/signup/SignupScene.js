@@ -16,9 +16,9 @@ export default function SignupScene(): React.Node {
   const [isLoading, setIsLoading] = React.useState(false);
   const ref = React.useRef(null);
   const router = useRouter();
-  const showToast = (message: string) => {
+  const showToast = (message: string, type: 'success' | 'danger') => {
     if (ref.current !== null) {
-      ref.current.show(message);
+      ref.current.show({ text: message, type });
     }
   };
   const onSubmit = (user: User) => {
@@ -26,9 +26,9 @@ export default function SignupScene(): React.Node {
     createUserMutation(user, data => {
       setIsLoading(false);
       if (data.createTrainingjournalUser?.id == null) {
-        showToast('Create user failed');
+        showToast('Create user failed', 'danger');
       } else {
-        showToast('User was successfully created');
+        showToast('User was successfully created', 'success');
         router.push('/login');
       }
     });
