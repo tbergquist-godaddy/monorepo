@@ -1,0 +1,10 @@
+version: '3'
+services:
+  tvhelper:
+    build:
+      context: .
+      args: 
+        - GRAPHQL_URL=https://tbergq-graphql.now.sh/graphql/
+    image: tbergq/tvhelper
+    ports:
+      - "8080:3020"

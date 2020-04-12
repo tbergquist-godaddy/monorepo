@@ -9,7 +9,6 @@ import util from 'util';
 import os from 'os';
 
 import packageJson from '../package.json';
-import persistQueries from './persistQueries';
 
 const rimrafPromise = util.promisify(rimraf);
 
@@ -21,11 +20,7 @@ const log = (...args: $ReadOnlyArray<string>) => {
 };
 
 const thisWorkspace = packageJson.name;
-const { ZEIT_TOKEN } = process.env;
 
-if (ZEIT_TOKEN == null) {
-  throw new Error('ZEIT_TOKEN cannot be undefined');
-}
 (async () => {
   try {
     const touchedWorkapaces = getTouchedWorkspaces();
@@ -40,7 +35,11 @@ if (ZEIT_TOKEN == null) {
       transpile: false,
       removeRootDependencies: false,
     });
-    fs.copyFileSync(path.join(__dirname, '..', 'now.json'), path.join(buildDir, 'now.json'));
+    fs.copyFileSync(path.join(__dirname, '..', 'Dockerfile'), path.join(buildDir, 'Dockerfile'));
+    fs.copyFileSync(
+      path.join(__dirname, '..', 'docker-compose.yml'),
+      path.join(buildDir, 'docker-compose.yml'),
+    );
     fs.copyFileSync(
       path.join(__dirname, '..', '.babelrc.js'),
       path.join(buildDir, 'apps', 'tvhelper', '.babelrc.js'),
@@ -53,20 +52,15 @@ if (ZEIT_TOKEN == null) {
       path.join(__dirname, '..', '..', '..', 'relay.config.js'),
       path.join(buildDir, 'relay.config.js'),
     );
-    // $FlowAllowDynamicImport
-    const packageJson = require(path.join(buildDir, 'apps', 'tvhelper', 'package.json'));
-    packageJson.engines = { node: '12.x' };
-    fs.writeFileSync(
-      path.join(buildDir, 'apps', 'tvhelper', 'package.json'),
-      JSON.stringify(packageJson, null, 2),
+    fs.copyFileSync(
+      path.join(__dirname, '..', '..', '..', '.dockerignore'),
+      path.join(buildDir, '.dockerignore'),
     );
-    log('built to', buildDir);
-    new ShellCommand(buildDir, 'yarn', 'relay', '--persist-mode', 'fs')
-      .setOutputToScreen()
-      .runSynchronously();
 
-    await persistQueries();
-    new ShellCommand(buildDir, 'now', '--prod', '--confirm', `--token=${ZEIT_TOKEN}`)
+    log('built to', buildDir);
+
+    new ShellCommand(buildDir, 'docker-compose', 'build').setOutputToScreen().runSynchronously();
+    new ShellCommand(buildDir, 'docker', 'push', 'tbergq/tvhelper:latest')
       .setOutputToScreen()
       .runSynchronously();
   } catch (e) {
