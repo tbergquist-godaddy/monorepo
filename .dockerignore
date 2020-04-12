@@ -1,0 +1,7 @@
+node_modules/
+**/dist/
+**/build/
+**/__flowtests__/
+**/__tests__/
+.git/
+**/*.env

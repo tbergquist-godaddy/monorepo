@@ -7,6 +7,11 @@ const withCSS = require('@zeit/next-css');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'TRUE',
 });
+const { config } = require('dotenv');
+
+config();
+
+const { GRAPHQL_URL } = process.env;
 
 module.exports = (withBundleAnalyzer(
   withCSS(
@@ -14,6 +19,9 @@ module.exports = (withBundleAnalyzer(
       withTM(['@tbergq'])({
         babelConfigFile: path.join(__dirname, '.babelrc.js'),
         target: 'serverless',
+        env: {
+          GRAPHQL_URL,
+        },
       }),
     ),
   ),
