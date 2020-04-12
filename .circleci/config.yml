@@ -96,27 +96,4 @@ workflows:
       - jest:
           requires:
             - install
-      - deploy-graphql:
-          requires:
-            - flow
-            - lint
-            - jest
-          filters:
-            branches:
-              only: master
-      - deploy-trainingjournal:
-          requires:
-            - flow
-            - lint
-            - jest
-          filters:
-            branches:
-              only: master
-      - deploy-tvhelper:
-          requires:
-            - flow
-            - lint
-            - jest
-          filters:
-            branches:
-              only: master             
+           
