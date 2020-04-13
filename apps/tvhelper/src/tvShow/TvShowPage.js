@@ -9,6 +9,7 @@ import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 import type { TvShowPage_tvShow as TvShow } from './__generated__/TvShowPage_tvShow.graphql';
 import Episodes from './episodes/Episodes';
 import TvShowImage from './TvShowImage';
+import TvShowLoader from './TvShowLoader';
 
 const GridContainer = styled.div({
   display: 'grid',
@@ -41,6 +42,9 @@ type Props = {|
 
 const TvShowPage = (props: Props) => {
   const name = props.tvShow?.name ?? '';
+  if (props.tvShow == null) {
+    return <TvShowLoader />;
+  }
   return (
     <>
       <Heading element="h1">{name}</Heading>
@@ -48,10 +52,10 @@ const TvShowPage = (props: Props) => {
         <ImageWrapper>
           <TvShowImage tvShow={props.tvShow} />
         </ImageWrapper>
-        <div dangerouslySetInnerHTML={{ __html: props.tvShow?.summary }} />
+        <div dangerouslySetInnerHTML={{ __html: props.tvShow.summary }} />
         <NetworkWrapper>
           <strong>Network: </strong>
-          {props.tvShow?.network?.name}
+          {props.tvShow.network?.name}
         </NetworkWrapper>
         <FullWidthGridItem>
           <Episodes episodes={props.tvShow} />
