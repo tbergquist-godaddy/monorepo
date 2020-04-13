@@ -22,8 +22,8 @@ export default (function AccountQuery() {
     <QueryRenderer
       query={query}
       variables={{}}
-      render={(renderProps: AccountQueryResponse) => (
-        <Layout viewer={renderProps.viewer}>
+      render={(renderProps: ?AccountQueryResponse) => (
+        <Layout viewer={renderProps?.viewer}>
           <AccountScene />
         </Layout>
       )}

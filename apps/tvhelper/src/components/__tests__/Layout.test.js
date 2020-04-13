@@ -26,7 +26,7 @@ const TestRenderer = () => {
       `}
       variables={{}}
       render={props => (
-        <Layout viewer={props.viewer}>
+        <Layout viewer={props?.viewer}>
           <div />
         </Layout>
       )}

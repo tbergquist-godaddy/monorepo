@@ -17,7 +17,7 @@ export const searchQuery: GraphQLTaggedNode = graphql`
   }
 `;
 
-const renderInner = (props: SearchQueryResponse) => {
+const renderInner = (props: ?SearchQueryResponse) => {
   return <SearchScene search={props} viewer={props} />;
 };
 

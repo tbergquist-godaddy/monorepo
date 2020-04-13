@@ -33,7 +33,7 @@ const TestRenderer = ({ onClose }) => (
     `}
     variables={{}}
     render={props => (
-      <EditExercise exercise={props.viewer.exercises.edges[0].node} onClose={onClose} />
+      <EditExercise exercise={props?.viewer.exercises.edges[0].node} onClose={onClose} />
     )}
   />
 );

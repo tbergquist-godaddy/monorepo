@@ -14,8 +14,9 @@ import { getDataFromRequest } from '@adeira/relay-utils';
 type Props = {|
   +query: GraphQLTaggedNode,
   +variables: { ... },
-  +render: ({| +[key: string]: any |}) => React.Node,
+  +render: ({| +[key: string]: any |} | null | void) => React.Node,
   +environment?: Environment,
+  +renderLoader?: boolean,
 |};
 
 export default function QueryRenderer(props: Props): React.Node {
@@ -36,7 +37,7 @@ export default function QueryRenderer(props: Props): React.Node {
     if (error) {
       return <div>Failed to load data from the server</div>;
     }
-    if (rendererProps) {
+    if (rendererProps || props.renderLoader === false) {
       return props.render(rendererProps);
     }
     return <Loading dataTest="queryRenderLoader" />;

@@ -16,12 +16,19 @@ export const favoritesQuery: GraphQLTaggedNode = graphql`
   }
 `;
 
-const renderQuery = (props: FavoriteQueryResponse) => (
-  <Layout viewer={props.viewer}>
-    <FavoritesTable favorites={props.viewer} />
+const renderQuery = (props: ?FavoriteQueryResponse) => (
+  <Layout viewer={props?.viewer}>
+    <FavoritesTable favorites={props?.viewer} />
   </Layout>
 );
 
 export default function FavoriteQuery(): React.Element<typeof QueryRenderer> {
-  return <QueryRenderer query={favoritesQuery} variables={{}} render={renderQuery} />;
+  return (
+    <QueryRenderer
+      query={favoritesQuery}
+      renderLoader={false}
+      variables={{}}
+      render={renderQuery}
+    />
+  );
 }

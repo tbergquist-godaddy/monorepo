@@ -35,8 +35,8 @@ const TestRenderer = () => (
     variables={{}}
     render={props => (
       <>
-        <AddExerciseForm user={props.viewer} />
-        {props.viewer.exercises.edges.map(e => (
+        <AddExerciseForm user={props?.viewer} />
+        {props?.viewer.exercises.edges.map(e => (
           <div key={e.node.id} data-test={e.node.id} />
         ))}
       </>

@@ -24,8 +24,8 @@ export default function LoginQuery(props: Props): React.Element<typeof QueryRend
     <QueryRenderer
       query={query}
       variables={{}}
-      render={(renderProps: LoginQueryResponse) => (
-        <Layout viewer={renderProps.viewer}>
+      render={(renderProps: ?LoginQueryResponse) => (
+        <Layout viewer={renderProps?.viewer}>
           <LoginScene loginFailed={props.loginFailed} />
         </Layout>
       )}
