@@ -35,6 +35,11 @@ export default function TvShowQuery(props: Props): React.Node {
     return null;
   }
   return (
-    <QueryRenderer query={tvShowQuery} variables={{ id: props.tvShowId }} render={renderQuery} />
+    <QueryRenderer
+      renderLoader={false}
+      query={tvShowQuery}
+      variables={{ id: props.tvShowId }}
+      render={renderQuery}
+    />
   );
 }
