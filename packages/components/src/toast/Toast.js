@@ -62,32 +62,8 @@ const ToastContentWrapper = styled.div(({ theme, toastType }) => ({
 }));
 
 function ToastContent(props: ToastContentProps) {
-  const toastRef = React.useRef(null);
-  const hasAnimatedIn = React.useRef(false);
-  const { setDisplay } = props;
-  const onTransitionEnd = React.useCallback(() => {
-    if (hasAnimatedIn.current) {
-      setDisplay(false);
-    } else {
-      hasAnimatedIn.current = true;
-    }
-  }, [setDisplay]);
-
-  React.useEffect(() => {
-    const current = toastRef.current;
-    if (current != null) {
-      current.addEventListener('transitionend', onTransitionEnd);
-    }
-    return () => {
-      if (current != null) {
-        current.removeEventListener('transitionend', onTransitionEnd);
-      }
-    };
-  }, [onTransitionEnd]);
-
   return (
     <ToastContainer
-      ref={toastRef}
       isVisible={props.isVisible}
       right={props.right}
       bottom={props.bottom}
@@ -142,6 +118,20 @@ export default (React.forwardRef<Props, ToastRef>(function Toast(
       setState(state => ({ ...state, isVisible: true }));
     }
   }, [display, setState]);
+
+  React.useEffect(() => {
+    let timeout;
+    if (state.isVisible === false) {
+      timeout = setTimeout(() => {
+        setDisplay(false);
+      }, 300);
+    }
+    return () => {
+      if (timeout != null) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [state.isVisible]);
 
   if (!display) {
     // We want to remove it from DOM when not visible, but still, it needs to be rendered
