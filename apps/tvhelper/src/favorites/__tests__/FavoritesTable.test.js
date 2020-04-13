@@ -63,7 +63,7 @@ const refetchPayload = {
 };
 
 const renderer = props => {
-  return <FavoritesTable favorites={props.viewer} />;
+  return <FavoritesTable favorites={props?.viewer} />;
 };
 let environment;
 

@@ -19,12 +19,12 @@ export const query: GraphQLTaggedNode = graphql`
   }
 `;
 
-const renderQuery = (props: ExercisesQueryResponse) => {
+const renderQuery = (props: ?ExercisesQueryResponse) => {
   return (
     <>
       <Heading>My exercises</Heading>
-      <AddExerciseForm user={props.viewer} />
-      <ExerciseList exercises={props.viewer} />
+      <AddExerciseForm user={props?.viewer} />
+      <ExerciseList exercises={props?.viewer} />
     </>
   );
 };

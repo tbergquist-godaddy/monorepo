@@ -17,12 +17,12 @@ export const query: GraphQLTaggedNode = graphql`
   }
 `;
 
-const render = (props: ProgramsQueryResponse) => {
+const render = (props: ?ProgramsQueryResponse) => {
   return (
     <>
       <Heading>My programs</Heading>
-      <AddProgramForm user={props.viewer} />
-      <ProgramList viewer={props.viewer} />
+      <AddProgramForm user={props?.viewer} />
+      <ProgramList viewer={props?.viewer} />
     </>
   );
 };

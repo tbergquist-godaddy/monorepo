@@ -15,7 +15,7 @@ beforeEach(() => {
   environment = createMockEnvironment();
 });
 
-const renderer = props => <TvShowImage tvShow={props.node} />;
+const renderer = props => <TvShowImage tvShow={props?.node} />;
 const TestRenderer = () => (
   <QueryRenderer
     environment={environment}

@@ -20,8 +20,8 @@ export default function SignupQuery(): React.Element<typeof QueryRenderer> {
     <QueryRenderer
       query={query}
       variables={{}}
-      render={(renderProps: SignupQueryResponse) => (
-        <Layout viewer={renderProps.viewer}>
+      render={(renderProps: ?SignupQueryResponse) => (
+        <Layout viewer={renderProps?.viewer}>
           <SignupScene />
         </Layout>
       )}

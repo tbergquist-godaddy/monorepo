@@ -22,10 +22,10 @@ export const tvShowQuery: GraphQLTaggedNode = graphql`
   }
 `;
 
-function renderQuery(props: TvShowQueryResponse) {
+function renderQuery(props: ?TvShowQueryResponse) {
   return (
-    <Layout viewer={props.viewer}>
-      <TvShowPage tvShow={props.node} />
+    <Layout viewer={props?.viewer}>
+      <TvShowPage tvShow={props?.node} />
     </Layout>
   );
 }

@@ -10,6 +10,7 @@ import {
 import { Table, TableHead, TableRow, TableBody, Heading, Spinner } from '@tbergq/components';
 import styled from 'styled-components';
 
+import FavoritesLoader from './FavoritesLoader';
 import type { FavoritesTable_favorites as Favorites } from './__generated__/FavoritesTable_favorites.graphql';
 import FavoriteItem from './FavoriteItem';
 import FavoriteHeaderCell from './FavoriteHeaderCell';
@@ -30,13 +31,15 @@ const Loader = styled.div({
 });
 
 const FavoritesTable = (props: Props) => {
-  const edges = props.favorites?.favorites?.edges ?? [];
   const [options, setOptions] = React.useState({
     sortBy: 'PREVIOUS_EPISODE',
     ascending: false,
   });
   const [isLoading, setIsLoading] = React.useState(false);
-
+  if (props.favorites == null) {
+    return <FavoritesLoader />;
+  }
+  const edges = props.favorites.favorites?.edges ?? [];
   function onClick(sortBy: string) {
     setIsLoading(true);
     setOptions(oldValue => {

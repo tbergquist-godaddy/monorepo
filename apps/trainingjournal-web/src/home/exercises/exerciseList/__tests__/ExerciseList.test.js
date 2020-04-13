@@ -25,7 +25,7 @@ const TestRenderer = () => {
         }
       `}
       variables={{}}
-      render={props => <ExerciseList exercises={props.viewer} />}
+      render={props => <ExerciseList exercises={props?.viewer} />}
     />
   );
 };

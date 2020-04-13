@@ -24,7 +24,7 @@ const TestRenderer = () => (
       }
     `}
     variables={{}}
-    render={props => <AddProgramForm user={props.viewer} />}
+    render={props => <AddProgramForm user={props?.viewer} />}
   />
 );
 
