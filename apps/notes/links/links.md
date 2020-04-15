@@ -33,3 +33,8 @@ Sara is an expert of accessability
 
 - https://www.sarasoueidan.com/blog/
 - https://www.sarasoueidan.com/blog/accessible-icon-buttons/
+
+
+### Other
+
+- [Reusing the `ref` from `forwardRef`](https://itnext.io/reusing-the-ref-from-forwardref-with-react-hooks-4ce9df693dd)
