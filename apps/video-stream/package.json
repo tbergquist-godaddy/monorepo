@@ -19,7 +19,7 @@
     "react-dom": "^16.13.1",
     "react-icons": "^3.9.0",
     "styled-components": "^5.1.0",
-    "webpack": "^4.42.1"
+    "webpack": "^4.43.0"
   },
   "scripts": {
     "build": "yarn monorepo-babel-node scripts/build.js",
