@@ -233,10 +233,10 @@
   dependencies:
     "@adeira/js" "^0.1.0"
 
-"@adeira/test-utils@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.4.1.tgz#c9f281ada8502851835d611120b07b7cb1575014"
-  integrity sha512-n+Q9lRktfMGXEJNbOqxsDEqsMDY+LvOEvoel3xf0T1kdeNbiwDWCZ7I6D6uXaJec1GVdMku25TJeYN7FyCpazg==
+"@adeira/test-utils@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.5.0.tgz#87d75e48082f60d41befbe8a320e3116fb3ebdf0"
+  integrity sha512-r/QvAU+o1LnnriCg7mSXgQwTcbYPRhWTa6HVoNGMp8akAy4sbvs1UPLu1oZgNV7mEyJc9lopCByxhtfDeIR0dA==
   dependencies:
     "@adeira/js" "^1.2.0"
     "@babel/runtime" "^7.9.2"
