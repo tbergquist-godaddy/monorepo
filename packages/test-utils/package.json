@@ -5,7 +5,7 @@
   "sideEffects": false,
   "main": "src/index",
   "dependencies": {
-    "@testing-library/react": "^10.0.2",
+    "@testing-library/react": "^10.0.3",
     "@tbergq/components": "0.0.1"
   },
   "peerDependencies": {
