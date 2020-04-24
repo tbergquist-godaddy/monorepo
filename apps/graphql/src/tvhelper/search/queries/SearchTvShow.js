@@ -18,11 +18,10 @@ export default {
   description: 'Search for tv shows by name',
   type: TvShowConnection,
   args: {
+    ...connectionArgs,
     query: {
       type: (GraphQLNonNull(GraphQLString): GraphQLNonNull<GraphQLScalarType>),
     },
-    // $FlowFixMe
-    ...connectionArgs,
   },
   resolve: async (
     _: mixed,
