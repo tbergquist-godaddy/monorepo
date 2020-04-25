@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { InputField, Button } from '@tbergq/components';
 import styled from 'styled-components';
-import { Form } from 'formik';
+import { Form, useFormikContext } from 'formik';
 
 type Props = {};
 
@@ -14,11 +14,12 @@ const ButtonWrapper = styled('div')({
 });
 
 export default (function SearchForm() {
+  const { isSubmitting } = useFormikContext();
   return (
     <Form action="/" method="get">
       <InputField name="query" dataTest="SearchFormInput" label="Search" />
       <ButtonWrapper>
-        <Button dataTest="SearchFormButton" type="submit">
+        <Button loading={isSubmitting} dataTest="SearchFormButton" type="submit">
           Search
         </Button>
       </ButtonWrapper>

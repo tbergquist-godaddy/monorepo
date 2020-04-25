@@ -26,14 +26,20 @@ type Props = {
 function SearchScene(props: Props) {
   const router = useRouter();
 
-  function onSubmit({ query }: { +query: string }) {
+  function onSubmit({ query }: { +query: string }, { setSubmitting }) {
     const href = `/?query=${query}`;
     const as = href;
     Router.push(href, as, { shallow: true });
-    props.relay.refetch({
-      query,
-      includeResults: !!query,
-    });
+    props.relay.refetch(
+      {
+        query,
+        includeResults: !!query,
+      },
+      null,
+      () => {
+        setSubmitting(false);
+      },
+    );
   }
 
   return (

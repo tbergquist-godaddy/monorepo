@@ -12,6 +12,5 @@ RUN yarn workspace @tbergq/tvhelper persist-queries
 RUN yarn workspace @tbergq/tvhelper next build
 
 EXPOSE 3020
-EXPOSE $PORT
 
-CMD ["yarn", "workspace", "@tbergq/tvhelper", "start"]
+CMD ["yarn", "workspace", "@tbergq/tvhelper", "next", "start", "-p", "3020"]
