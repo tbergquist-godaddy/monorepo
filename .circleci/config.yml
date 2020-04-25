@@ -72,7 +72,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/tbergq-monorepo
-      - run: yarn workspace @tbergq/tvhelper deploy
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run: docker login -u tbergq -p ${DOCKER_HUB_TOKEN}
+      - run: yarn workspace @tbergq/tvhelper docker:build
 
   deploy-trainingjournal:
     <<: *defaults
@@ -96,4 +99,11 @@ workflows:
       - jest:
           requires:
             - install
-           
+      - deploy-tvhelper:
+          requires:
+            - flow
+            - lint
+            - jest
+          filters:
+            branches:
+              only: master
