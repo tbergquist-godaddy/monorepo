@@ -5,7 +5,7 @@
 defaults: &defaults
   working_directory: ~/tbergq-monorepo
   docker:
-    - image: circleci/node:12
+    - image: circleci/node:14
 
 
 version: 2
