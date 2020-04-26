@@ -3,8 +3,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
+import { InputField as Input } from '@kiwicom/orbit-components';
 
-import Input from '../Input';
 import AutocompleteItem from './AutocompleteItem';
 
 const SelectWrapper = styled.div(props => ({
@@ -55,7 +55,13 @@ export default function Autocomplete({ values, onSelect, ...rest }: Props): Reac
 
   return (
     <Container>
-      <Input value={input} onChange={setInput} {...rest} onFocus={onFocus} onBlur={onBlur} />
+      <Input
+        value={input}
+        onChange={e => setInput(e.target.value)}
+        {...rest}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
 
       <SelectWrapper open={isFocused}>
         {matchedItems.map(item => (
