@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
+import { InputField as Input } from '@kiwicom/orbit-components';
 
-import Input from '../Input';
 import Button from '../button/Button';
 import Toast from '../toast/Toast';
 
@@ -29,6 +29,22 @@ export default (React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((
   const [confirmPassword, setConfirmPassword] = React.useState('');
   const [email, setEmail] = React.useState('');
 
+  const onUsernameChange = e => {
+    setUsername(e.target.value);
+  };
+
+  const onPasswordChange = e => {
+    setPassword(e.target.value);
+  };
+
+  const onEmailChange = e => {
+    setEmail(e.target.value);
+  };
+
+  const onConfirmPasswordChange = e => {
+    setConfirmPassword(e.target.value);
+  };
+
   const showToast = (message: string) => {
     if (typeof ref === 'object') {
       const show = ref.current?.show;
@@ -51,15 +67,21 @@ export default (React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((
       <Input
         name="username"
         value={username}
-        onChange={setUsername}
+        onChange={onUsernameChange}
         label="Username"
         dataTest="usernameInput"
       />
-      <Input name="email" value={email} onChange={setEmail} label="Email" dataTest="emailInput" />
+      <Input
+        name="email"
+        value={email}
+        onChange={onEmailChange}
+        label="Email"
+        dataTest="emailInput"
+      />
       <Input
         name="password"
         value={password}
-        onChange={setPassword}
+        onChange={onPasswordChange}
         label="Password"
         type="password"
         dataTest="passwordInput"
@@ -67,7 +89,7 @@ export default (React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((
       <Input
         name="confirmPassword"
         value={confirmPassword}
-        onChange={setConfirmPassword}
+        onChange={onConfirmPasswordChange}
         label="Confirm password"
         type="password"
         dataTest="confirmPasswordInput"

@@ -1,7 +1,6 @@
 // @flow
 
 export { default as Layout } from './src/Layout';
-export { default as Input } from './src/Input';
 export { default as InputField } from './src/input/InputField';
 export { default as Button } from './src/button/Button';
 export { default as IconButton } from './src/button/IconButton';
