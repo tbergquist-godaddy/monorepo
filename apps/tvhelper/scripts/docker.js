@@ -59,8 +59,11 @@ const thisWorkspace = packageJson.name;
 
     log('built to', buildDir);
 
-    new ShellCommand(buildDir, 'docker-compose', 'build').setOutputToScreen().runSynchronously();
-    new ShellCommand(buildDir, 'docker', 'push', 'tbergq/tvhelper:latest')
+    new ShellCommand(buildDir, 'heroku', 'container:login').setOutputToScreen().runSynchronously();
+    new ShellCommand(buildDir, 'heroku', 'container:push', 'web', '-a', 'tbergq-tvhelper')
+      .setOutputToScreen()
+      .runSynchronously();
+    new ShellCommand(buildDir, 'heroku', 'container:release', 'web', '-a', 'tbergq-tvhelper')
       .setOutputToScreen()
       .runSynchronously();
   } catch (e) {
