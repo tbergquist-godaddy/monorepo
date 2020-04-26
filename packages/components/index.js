@@ -2,7 +2,7 @@
 
 export { default as Layout } from './src/Layout';
 export { default as Input } from './src/Input';
-export { default as InputField } from './src/InputField';
+export { default as InputField } from './src/input/InputField';
 export { default as Button } from './src/button/Button';
 export { default as IconButton } from './src/button/IconButton';
 export { default as Toast } from './src/toast/Toast';
@@ -11,7 +11,6 @@ export { default as NavLink } from './src/NavLink';
 export { default as LoginForm } from './src/loginForm/LoginForm';
 export { default as Link } from './src/Link';
 export { default as FloatingAddButton } from './src/FloatingAddButton';
-export { default as defaultTheme } from './src/defaultTheme';
 export { default as Spinner } from './src/loading/Spinner';
 export { default as Loading } from './src/loading/Loading';
 

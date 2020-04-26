@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import styled, { type StyledComponent } from 'styled-components';
+import { type DefaultTheme } from '@tbergq/theme';
 
 import { getColors, type ColorScheme, type Sizes } from './Button';
-import { type DefaultTheme } from '../types';
 import Loading from '../loading/Loading';
 
 type Props = {

@@ -2,9 +2,8 @@
 
 import * as React from 'react';
 import styled, { type StyledComponent } from 'styled-components';
+import { type DefaultTheme, type ThemeColors } from '@tbergq/theme';
 
-import { type ThemeColors } from './theme';
-import { type DefaultTheme } from '../types';
 import Loading from '../loading/Loading';
 
 export type ColorScheme = 'primary' | 'secondary' | 'success' | 'danger';

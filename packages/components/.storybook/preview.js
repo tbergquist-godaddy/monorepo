@@ -4,7 +4,7 @@ import React from 'react';
 import { addDecorator } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 import { getTokens } from '@kiwicom/orbit-components';
-import defaultTheme from '../src/defaultTheme';
+import defaultTheme from '@tbergq/theme';
 
 const theme = {
   orbit: {

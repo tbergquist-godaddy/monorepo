@@ -7,7 +7,7 @@ import {
   type RenderResult,
 } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '@tbergq/components';
+import defaultTheme from '@tbergq/theme';
 import { getTokens } from '@kiwicom/orbit-components';
 
 const theme = {

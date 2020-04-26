@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Form, Formik, type FormikConfig } from 'formik';
 
-import Input from '../InputField';
+import Input from '../input/InputField';
 import Button from '../button/Button';
 
 const ButtonWrapper = styled.div({
