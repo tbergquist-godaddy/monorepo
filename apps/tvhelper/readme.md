@@ -2,7 +2,7 @@
 
 This is a web app for searhing of tv-shows and saving your favorite tv shows. 
 
-This app is still under heavy development, current version can be seen [here](https://tvhelper.azurewebsites.net/)
+This app is still under heavy development, current version can be seen [here](https://tbergq-tvhelper.herokuapp.com/)
 
 ## Installation and run
 

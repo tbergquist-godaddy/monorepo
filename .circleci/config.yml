@@ -75,6 +75,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: docker login -u tbergq -p ${DOCKER_HUB_TOKEN}
+      - run: yarn global add heroku
       - run: yarn workspace @tbergq/tvhelper docker:build
 
   deploy-trainingjournal:
