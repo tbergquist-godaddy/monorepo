@@ -3,10 +3,10 @@
 import * as React from 'react';
 import { fireEvent, screen } from '@testing-library/react';
 import { MdFavorite } from 'react-icons/md';
+import defaultTheme from '@tbergq/theme';
+import { render } from '@tbergq/test-utils';
 
-import render from '../../render';
 import IconButton from '../IconButton';
-import defaultTheme from '../../defaultTheme';
 
 it('calls onClick callback', () => {
   const onClick = jest.fn();

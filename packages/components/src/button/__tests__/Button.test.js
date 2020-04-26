@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import { fireEvent, screen } from '@testing-library/react';
+import { render } from '@tbergq/test-utils';
+import defaultTheme from '@tbergq/theme';
 
-import render from '../../render';
 import Button from '../Button';
-import defaultTheme from '../../defaultTheme';
 
 it('calls onClick callback', () => {
   const onClick = jest.fn();

@@ -9,7 +9,8 @@ import cookie from 'next-cookies';
 import { TOKEN_KEY } from '@tbergq/utils';
 import { fetchQuery, Environment, RelayEnvironmentProvider } from '@tbergq/relay';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { MediaContextProvider, defaultTheme } from '@tbergq/components';
+import { MediaContextProvider } from '@tbergq/components';
+import defaultTheme from '@tbergq/theme';
 import { isBrowser } from '@adeira/js';
 import { getTokens } from '@kiwicom/orbit-components';
 
@@ -28,6 +29,9 @@ const GlobalStyle = createGlobalStyle({
     flexDirection: 'column',
     height: '100%',
     paddingBottom: '64px',
+  },
+  '*': {
+    boxSizing: 'border-box',
   },
 });
 
