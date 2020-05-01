@@ -8,13 +8,13 @@
     "@adeira/js": "^1.2.1",
     "@tbergq/components": "0.0.1",
     "@tbergq/relay": "0.0.1",
+    "@tbergq/theme": "0.0.1",
     "@tbergq/utils": "0.0.1",
-    "next": "^9.3.5",
+    "next": "^9.3.6",
     "next-cookies": "^2.0.3",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
-    "styled-components": "^5.1.0",
-    "@tbergq/theme": "0.0.1"
+    "styled-components": "^5.1.0"
   },
   "peerDependencies": {
     "@kiwicom/orbit-components": "^0"
