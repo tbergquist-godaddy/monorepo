@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { createFragmentContainer, graphql, type FragmentContainerType } from '@tbergq/relay';
-import { ListItem } from '@tbergq/components';
+import { ListItem } from '@kiwicom/orbit-components';
 import { format, isValid } from 'date-fns';
 import { nb } from 'date-fns/locale';
 
@@ -25,7 +25,8 @@ function ProgramListItem(props: Props) {
   const name = props.program?.name ?? '';
   const date = props.program?.date ?? '';
   const formattedDate = formatDate(date);
-  return <ListItem icon={null} title={name} description={`Created ${formattedDate}`} />;
+
+  return <ListItem label={`Created ${formattedDate}`}>{name}</ListItem>;
 }
 
 export default (createFragmentContainer(ProgramListItem, {

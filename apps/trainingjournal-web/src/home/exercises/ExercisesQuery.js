@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { graphql, QueryRenderer, type GraphQLTaggedNode } from '@tbergq/relay';
-import { Heading } from '@tbergq/components';
+import { Heading } from '@kiwicom/orbit-components';
 
 import ExerciseList from './exerciseList/ExerciseList';
 import type { ExercisesQueryResponse } from './__generated__/ExercisesQuery.graphql';

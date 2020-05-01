@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
-import { Heading } from '@tbergq/components';
+import { Heading } from '@kiwicom/orbit-components';
 import styled from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 

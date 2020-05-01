@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { Heading } from '@tbergq/components';
+import { Heading } from '@kiwicom/orbit-components';
 
 import ChangePasswordForm from './changePassword/ChangePasswordForm';
 

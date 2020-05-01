@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
-import { TableRow, TableCell, Link } from '@tbergq/components';
+import { Link } from '@tbergq/components';
+import { TableRow, TableCell } from '@kiwicom/orbit-components';
 import { format } from 'date-fns';
 
 import type { FavoriteItem_favorite as Favorite } from './__generated__/FavoriteItem_favorite.graphql';
@@ -28,8 +29,8 @@ const FavoriteItem = (props: Props) => {
         <Link href={`/tvShow?id=${id}`}>{props.favorite?.name}</Link>
       </TableCell>
       <TableCell align="left">{getFormattedDate(props.favorite?.nextEpisode)}</TableCell>
-      <TableCell>{getFormattedDate(props.favorite?.previousEpisode)}</TableCell>
-      <TableCell>{props.favorite?.status}</TableCell>
+      <TableCell align="left">{getFormattedDate(props.favorite?.previousEpisode)}</TableCell>
+      <TableCell align="left">{props.favorite?.status}</TableCell>
     </TableRow>
   );
 };

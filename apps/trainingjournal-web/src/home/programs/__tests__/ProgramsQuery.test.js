@@ -20,23 +20,29 @@ const TestRenderer = () => (
 );
 
 it('add new items to the connection', async () => {
-  const { container } = render(<TestRenderer />);
+  render(<TestRenderer />);
 
-  environment.mock.resolveMostRecentOperation(MockPayloadGenerator.generate);
+  environment.mock.resolveMostRecentOperation(operation =>
+    MockPayloadGenerator.generate(operation, {
+      Viewer: () => ({
+        __typename: 'TraningJournalViewer',
+        id: '1',
+        programs: () => null,
+      }),
+    }),
+  );
 
   const addButton = screen.getByTestId('AddProgramButton');
 
   fireEvent.click(addButton);
-  const nameInput = container.querySelector('input[name="name"]');
+  const nameInput = screen.getByLabelText('Name');
 
   await act(async () => {
-    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.change(nameInput, { target: { name: 'name', value: 'My new program' } });
   });
-  const submitButton = container.querySelector('button[type="submit"]');
+  const submitButton = screen.getByText('Save');
 
   await act(async () => {
-    // $FlowFixMe: (add testing-library flow types)
     await fireEvent.click(submitButton);
   });
 
@@ -49,6 +55,5 @@ it('add new items to the connection', async () => {
       });
     });
   });
-
   expect(screen.getByText('My new program')).toBeInTheDocument();
 });

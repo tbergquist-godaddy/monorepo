@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Stack, Heading } from '@tbergq/components';
+import { Stack, Heading } from '@kiwicom/orbit-components';
 import Router, { useRouter } from 'next/router';
 import { Formik } from 'formik';
 import {

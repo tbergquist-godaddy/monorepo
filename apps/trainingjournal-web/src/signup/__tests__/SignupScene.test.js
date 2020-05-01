@@ -17,7 +17,7 @@ const getMock = (fn: Function) => {
   return mock;
 };
 
-it('creates a new user', () => {
+it('creates a new user', async () => {
   const environment: any = Environment.getEnvironment();
   const push = jest.fn();
   getMock(useRouter).mockImplementationOnce(() => {
@@ -33,22 +33,25 @@ it('creates a new user', () => {
   const confirmPassword = getByTestId('confirmPasswordInput');
   const submit = getByTestId('submitButton');
 
-  fireEvent.change(username, { target: { value: 'uname' } });
-  fireEvent.change(email, { target: { value: 'email' } });
-  fireEvent.change(password, { target: { value: 'password' } });
-  fireEvent.change(confirmPassword, { target: { value: 'password' } });
+  act(() => {
+    fireEvent.change(username, { target: { value: 'uname', name: 'username' } });
+    fireEvent.change(email, { target: { value: 'email', name: 'email' } });
+    fireEvent.change(password, { target: { value: 'password', name: 'password' } });
+    fireEvent.change(confirmPassword, {
+      target: { value: 'password', name: 'confirmPassword' },
+    });
+  });
 
-  // $FlowFixMe: (add testing-library flow types)
-  expect(username.value).toBe('uname');
-  // $FlowFixMe: (add testing-library flow types)
-  expect(email.value).toBe('email');
-  // $FlowFixMe: (add testing-library flow types)
-  expect(password.value).toBe('password');
-  // $FlowFixMe: (add testing-library flow types)
-  expect(confirmPassword.value).toBe('password');
+  expect(username.getAttribute('value')).toBe('uname');
+  expect(email.getAttribute('value')).toBe('email');
+  expect(password.getAttribute('value')).toBe('password');
+  expect(confirmPassword.getAttribute('value')).toBe('password');
+
+  await act(async () => {
+    await fireEvent.click(submit);
+  });
 
   act(() => {
-    fireEvent.click(submit);
     environment.mock.resolveMostRecentOperation(operation =>
       MockPayloadGenerator.generate(operation),
     );

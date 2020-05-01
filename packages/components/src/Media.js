@@ -2,9 +2,15 @@
 
 import * as React from 'react';
 import { createMedia } from '@artsy/fresnel';
-import { QUERIES } from '@kiwicom/orbit-components/lib/utils/mediaQuery/consts';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
+const QUERIES = {
+  LARGEDESKTOP: 'largeDesktop',
+  DESKTOP: 'desktop',
+  TABLET: 'tablet',
+  LARGEMOBILE: 'largeMobile',
+  MEDIUMMOBILE: 'mediumMobile',
+};
 type MediaValues =
   | 'smallMobile'
   | 'mediumMobile'

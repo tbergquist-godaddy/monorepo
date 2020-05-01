@@ -1,7 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { InputField, Stack, Button } from '@tbergq/components';
+import { InputField, Button } from '@tbergq/components';
+import { Stack } from '@kiwicom/orbit-components';
 
 type Props = {|
   +isSubmitting: boolean,

@@ -7,7 +7,8 @@ import {
   type PaginationRelayProp,
   type PaginationContainerType,
 } from '@tbergq/relay';
-import { Grid, Button, Stack } from '@tbergq/components';
+import { Button } from '@tbergq/components';
+import { Grid, Stack } from '@kiwicom/orbit-components';
 
 import ExerciseListItem from './ExerciseListItem';
 import type { ExerciseList_exercises as Exercises } from './__generated__/ExerciseList_exercises.graphql';

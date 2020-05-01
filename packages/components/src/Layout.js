@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { Stack } from '@kiwicom/orbit-components';
 
 import Container from './Container';
 
@@ -23,3 +22,7 @@ export default function Layout(props: Props): React.Node {
     </PageContainer>
   );
 }
+
+const Stack = styled.div({
+  width: '100%',
+});

@@ -147,6 +147,7 @@ declare module 'react-icons/md' {
   declare export function MdFastForward(props: IconProps): React$Node;
   declare export function MdFastRewind(props: IconProps): React$Node;
   declare export function MdAccessAlarm(props: IconProps): React$Node;
+  declare export function MdAdd(props: IconProps): React$Node;
 }
 
 declare module 'react-icons/plugin/defaultImportConverter' {
