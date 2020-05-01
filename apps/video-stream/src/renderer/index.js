@@ -11,7 +11,7 @@ import { CastContextProvider } from './cast/CastContext';
 const App = () => (
   <CastContextProvider>
     <Stack>
-      <Heading element="h1">Select media</Heading>
+      <Heading>Select media</Heading>
       <MediaContainer />
     </Stack>
   </CastContextProvider>

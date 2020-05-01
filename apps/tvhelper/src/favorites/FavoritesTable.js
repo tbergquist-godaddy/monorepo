@@ -7,8 +7,8 @@ import {
   type RefetchRelayProp,
   type RefetchContainerType,
 } from '@tbergq/relay';
-import { Spinner } from '@tbergq/components';
-import { Table, TableHead, TableRow, TableBody, Heading } from '@kiwicom/orbit-components';
+import { Spinner, Heading } from '@tbergq/components';
+import { Table, TableHead, TableRow, TableBody } from '@kiwicom/orbit-components';
 import styled from 'styled-components';
 
 import FavoritesLoader from './FavoritesLoader';

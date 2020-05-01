@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import { useIsLoggedIn } from '@tbergq/nextjs-utils';
-import { Link } from '@tbergq/components';
-import { Heading } from '@kiwicom/orbit-components';
+import { Link, Heading } from '@tbergq/components';
 
 type Props = {|
   +isLoggedIn: boolean,
