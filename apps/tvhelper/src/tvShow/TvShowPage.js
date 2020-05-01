@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
-import { Heading } from '@kiwicom/orbit-components';
+import { Heading } from '@tbergq/components';
 import styled from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
@@ -47,7 +47,7 @@ const TvShowPage = (props: Props) => {
   }
   return (
     <>
-      <Heading element="h1">{name}</Heading>
+      <Heading>{name}</Heading>
       <GridContainer>
         <ImageWrapper>
           <TvShowImage tvShow={props.tvShow} />

@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import { Formik, Form } from 'formik';
-import { InputField, Button, Toast } from '@tbergq/components';
-import { Heading, Stack } from '@kiwicom/orbit-components';
+import { Heading, InputField, Button, Toast } from '@tbergq/components';
+import { Stack } from '@kiwicom/orbit-components';
 import styled from 'styled-components';
 import { useMutation, graphql } from '@tbergq/relay';
 
@@ -65,9 +65,7 @@ export default (function ChangePasswordForm() {
       >
         <Form>
           <Stack spacing="natural">
-            <Heading type="title3" element="h3">
-              Change password
-            </Heading>
+            <Heading level="h3">Change password</Heading>
             <InputField type="password" name="password" label="Old password" />
             <InputField type="password" name="newPassword" label="New password" />
             <InputField type="password" name="confirmPassword" label="Confirm password" />
