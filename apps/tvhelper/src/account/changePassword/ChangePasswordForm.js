@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import { Formik, Form } from 'formik';
-import { InputField, Heading, Stack, Button, Toast } from '@tbergq/components';
+import { InputField, Button, Toast } from '@tbergq/components';
+import { Heading, Stack } from '@kiwicom/orbit-components';
 import styled from 'styled-components';
 import { useMutation, graphql } from '@tbergq/relay';
 

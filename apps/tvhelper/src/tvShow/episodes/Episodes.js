@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
-import { Card, CardSection } from '@tbergq/components';
+import { Card, CardSection } from '@kiwicom/orbit-components';
 
 import type { Episodes_episodes as EpisodeType } from './__generated__/Episodes_episodes.graphql';
 import Episode from './Episode';

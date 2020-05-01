@@ -3,7 +3,7 @@
 import * as React from 'react';
 import styled, { keyframes, css, type StyledComponent } from 'styled-components';
 import { defaultTokens } from '@kiwicom/orbit-design-tokens';
-import AddIcon from '@kiwicom/orbit-components/lib/icons/Plus';
+import { MdAdd } from 'react-icons/md';
 
 const AddButton = styled.button({
   cursor: 'pointer',
@@ -70,7 +70,7 @@ export default function FloatingAddButton({
   return (
     <AddButton data-test={dataTest} type="button" onClick={onClick} aria-label={ariaLabel}>
       <IconWrapper rotateIcon={rotate}>
-        <AddIcon />
+        <MdAdd />
       </IconWrapper>
     </AddButton>
   );

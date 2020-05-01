@@ -10,43 +10,51 @@ import SignupForm from '../SignupForm';
 import * as mutation from '../mutation/createUserMutation';
 
 describe('SignupForm', () => {
-  it('handles username change', () => {
+  it('handles username change', async () => {
     const { getByDisplayValue, getByTestId } = render(<SignupForm />);
 
     const input = getByTestId('usernameInput');
-    fireEvent.change(input, { target: { value: 'don_tito' } });
+    await act(async () => {
+      await fireEvent.change(input, { target: { value: 'don_tito' } });
+    });
 
     expect(getByDisplayValue('don_tito')).toBeInTheDocument();
   });
 
-  it('handles emailInput change', () => {
+  it('handles emailInput change', async () => {
     const { getByTestId, getByDisplayValue } = render(<SignupForm />);
     const email = 'tito@bonito.com';
     const input = getByTestId('emailInput');
-    fireEvent.change(input, { target: { value: email } });
+    await act(async () => {
+      await fireEvent.change(input, { target: { value: email } });
+    });
 
     expect(getByDisplayValue(email)).toBeInTheDocument();
   });
 
-  it('handles password change', () => {
+  it('handles password change', async () => {
     const { getByTestId, getByDisplayValue } = render(<SignupForm />);
     const password = '123456'; // 😍
     const input = getByTestId('passwordInput');
-    fireEvent.change(input, { target: { value: password } });
+    await act(async () => {
+      await fireEvent.change(input, { target: { value: password } });
+    });
 
     expect(getByDisplayValue(password)).toBeInTheDocument();
   });
 
-  it('handles confirmPassword change', () => {
+  it('handles confirmPassword change', async () => {
     const { getByTestId, getByDisplayValue } = render(<SignupForm />);
     const password = '123456'; // 😍
     const input = getByTestId('confirmPasswordInput');
-    fireEvent.change(input, { target: { value: password } });
+    await act(async () => {
+      await fireEvent.change(input, { target: { value: password } });
+    });
 
     expect(getByDisplayValue(password)).toBeInTheDocument();
   });
 
-  it('show a toast when password and confirmPassword does not match', () => {
+  it('show a toast when password and confirmPassword does not match', async () => {
     const { getByTestId, getByText } = render(<SignupForm />);
     const password = getByTestId('passwordInput');
     const confirmPassword = getByTestId('confirmPasswordInput');
@@ -54,15 +62,17 @@ describe('SignupForm', () => {
     const preventDefault = jest.fn();
     const spy = jest.spyOn(mutation, 'default');
 
-    fireEvent.change(password, { target: { value: '123456' } });
-    fireEvent.change(confirmPassword, { target: { value: '12345' } });
-    fireEvent.click(submit, { preventDefault });
+    await act(async () => {
+      fireEvent.change(password, { target: { value: '123456' } });
+      fireEvent.change(confirmPassword, { target: { value: '12345' } });
+      await fireEvent.click(submit, { preventDefault });
+    });
 
     expect(getByText('password and confirm password does not match')).toBeInTheDocument();
     expect(spy).not.toHaveBeenCalled();
   });
 
-  it('show a toast when it fails to create a user', () => {
+  it('show a toast when it fails to create a user', async () => {
     const { getByTestId, getByText } = render(<SignupForm />);
     const username = getByTestId('usernameInput');
     const email = getByTestId('emailInput');
@@ -73,13 +83,17 @@ describe('SignupForm', () => {
     const spy = jest.spyOn(mutation, 'default');
     const environment: any = Environment.getEnvironment();
 
-    fireEvent.change(password, { target: { value: '123456' } });
-    fireEvent.change(confirmPassword, { target: { value: '123456' } });
-    fireEvent.change(username, { target: { value: 'tito' } });
-    fireEvent.change(email, { target: { value: 'tito@bonito.com' } });
+    act(() => {
+      fireEvent.change(password, { target: { value: '123456' } });
+      fireEvent.change(confirmPassword, { target: { value: '123456' } });
+      fireEvent.change(username, { target: { value: 'tito' } });
+      fireEvent.change(email, { target: { value: 'tito@bonito.com' } });
+    });
+    await act(async () => {
+      await fireEvent.click(submit, { preventDefault });
+    });
 
     act(() => {
-      fireEvent.click(submit, { preventDefault });
       const operation = environment.mock.getMostRecentOperation();
       environment.mock.resolve(
         operation,
@@ -90,7 +104,6 @@ describe('SignupForm', () => {
         }),
       );
     });
-
     expect(spy).toHaveBeenCalledWith(
       { email: 'tito@bonito.com', password: '123456', username: 'tito' },
       expect.anything(), // Should be any function 🤔
@@ -99,7 +112,7 @@ describe('SignupForm', () => {
     expect(getByText('Failed to create user')).toBeInTheDocument();
   });
 
-  it('show a toast when it successfully creates a user', () => {
+  it('show a toast when it successfully creates a user', async () => {
     const { getByTestId, getByText } = render(<SignupForm />);
     const username = getByTestId('usernameInput');
     const email = getByTestId('emailInput');
@@ -111,13 +124,17 @@ describe('SignupForm', () => {
     const environment: any = Environment.getEnvironment();
     const router = jest.spyOn(Router, 'push').mockImplementationOnce(jest.fn());
 
-    fireEvent.change(password, { target: { value: '123456' } });
-    fireEvent.change(confirmPassword, { target: { value: '123456' } });
-    fireEvent.change(username, { target: { value: 'tito' } });
-    fireEvent.change(email, { target: { value: 'tito@bonito.com' } });
+    act(() => {
+      fireEvent.change(password, { target: { value: '123456', name: 'password' } });
+      fireEvent.change(confirmPassword, { target: { value: '123456', name: 'confirmPassword' } });
+      fireEvent.change(username, { target: { value: 'tito', name: 'username' } });
+      fireEvent.change(email, { target: { value: 'tito@bonito.com', name: 'email' } });
+    });
+    await act(async () => {
+      await fireEvent.click(submit, { preventDefault });
+    });
 
     act(() => {
-      fireEvent.click(submit, { preventDefault });
       const operation = environment.mock.getMostRecentOperation();
       environment.mock.resolve(
         operation,

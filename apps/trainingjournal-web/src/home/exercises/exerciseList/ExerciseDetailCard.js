@@ -7,7 +7,9 @@ import {
   type RelayProp,
   type FragmentContainerType,
 } from '@tbergq/relay';
-import { Card, CardSection, ButtonLink, TrashIcon, Stack, Pencil } from '@tbergq/components';
+import { Card, CardSection, ButtonLink, Stack } from '@kiwicom/orbit-components';
+import TrashIcon from '@kiwicom/orbit-components/lib/icons/Remove';
+import Pencil from '@kiwicom/orbit-components/lib/icons/Edit';
 import styled from 'styled-components';
 
 import type { ExerciseDetailCard_exercise as Exercise } from './__generated__/ExerciseDetailCard_exercise.graphql';

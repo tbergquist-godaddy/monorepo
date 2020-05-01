@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Card, CardSection } from '@tbergq/components';
+import { Card, CardSection } from '@kiwicom/orbit-components';
 import { Formik } from 'formik';
 import {
   graphql,

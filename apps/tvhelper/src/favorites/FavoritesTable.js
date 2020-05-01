@@ -7,7 +7,8 @@ import {
   type RefetchRelayProp,
   type RefetchContainerType,
 } from '@tbergq/relay';
-import { Table, TableHead, TableRow, TableBody, Heading, Spinner } from '@tbergq/components';
+import { Spinner } from '@tbergq/components';
+import { Table, TableHead, TableRow, TableBody, Heading } from '@kiwicom/orbit-components';
 import styled from 'styled-components';
 
 import FavoritesLoader from './FavoritesLoader';
@@ -81,10 +82,15 @@ const FavoritesTable = (props: Props) => {
             <FavoriteHeaderCell {...options} sortKey="NEXT_EPISODE" onClick={onClick} align="left">
               Next episode
             </FavoriteHeaderCell>
-            <FavoriteHeaderCell {...options} sortKey="PREVIOUS_EPISODE" onClick={onClick}>
+            <FavoriteHeaderCell
+              {...options}
+              sortKey="PREVIOUS_EPISODE"
+              onClick={onClick}
+              align="left"
+            >
               Previous episode
             </FavoriteHeaderCell>
-            <FavoriteHeaderCell {...options} sortKey="STATUS" onClick={onClick}>
+            <FavoriteHeaderCell {...options} sortKey="STATUS" onClick={onClick} align="left">
               Status
             </FavoriteHeaderCell>
           </TableRow>

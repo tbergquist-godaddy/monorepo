@@ -1,7 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { Link, CenterForm, Alert } from '@tbergq/components';
+import { Link, CenterForm } from '@tbergq/components';
+import { Alert } from '@kiwicom/orbit-components';
 import styled from 'styled-components';
 
 import LoginForm from './LoginForm';

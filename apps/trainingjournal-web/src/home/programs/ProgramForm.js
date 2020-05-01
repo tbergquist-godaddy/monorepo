@@ -1,7 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { InputField, Button, Stack } from '@tbergq/components';
+import { InputField, Button } from '@tbergq/components';
+import { Stack } from '@kiwicom/orbit-components';
 
 type Props = {|
   +onCancel: () => void,
