@@ -34,7 +34,7 @@
     "@kiwicom/babel-plugin-orbit-components": "^1.6.0",
     "@tbergq/monorepo-builder": "*",
     "@testing-library/react": "^10.0.3",
-    "relay-test-utils": "^9.0.0",
+    "relay-test-utils": "^9.1.0",
     "rimraf": "^3.0.2"
   }
 }
