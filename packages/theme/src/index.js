@@ -6,6 +6,14 @@ const active = {
   transition: 'background 0s',
 };
 
+const breakpoints = {
+  mediumMobile: 414,
+  largeMobile: 576,
+  tablet: 768,
+  desktop: 992,
+  largeDesktop: 1200,
+};
+
 const defaultTheme = {
   fontFamily: 'Roboto, sans-serif',
   primary: '#007bff',
@@ -13,6 +21,14 @@ const defaultTheme = {
   danger: '#dc3545',
   success: '#28a745',
   gray: '#e2e2e2',
+  breakpoints,
+  media: {
+    mediumMobile: `@media only screen and (min-width: ${breakpoints.mediumMobile}px)`,
+    largeMobile: `@media only screen and (min-width: ${breakpoints.largeMobile}px)`,
+    tablet: `@media only screen and (min-width: ${breakpoints.tablet}px)`,
+    desktop: `@media only screen and (min-width: ${breakpoints.desktop}px)`,
+    largeDesktop: `@media only screen and (min-width: ${breakpoints.largeDesktop}px)`,
+  },
   zIndex: {
     default: 1,
     sticky: 100,

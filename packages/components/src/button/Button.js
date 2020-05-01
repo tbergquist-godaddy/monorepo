@@ -52,6 +52,17 @@ type SCProps = {
   +'aria-label'?: string,
 };
 
+const getHeight = (size: Sizes) => {
+  switch (size) {
+    case 'small':
+      return '32px';
+    case 'large':
+      return '52px';
+    default:
+      return '46px';
+  }
+};
+
 const StyledButton: StyledComponent<SCProps, DefaultTheme, HTMLButtonElement> = styled.button(
   ({ colorScheme, theme, buttonSize, disabled }) => ({
     ...getColors(colorScheme, theme),
@@ -64,6 +75,7 @@ const StyledButton: StyledComponent<SCProps, DefaultTheme, HTMLButtonElement> = 
     backgroundPosition: 'center',
     transition: 'background 0.8s',
     opacity: disabled ? '0.65' : '1',
+    height: getHeight(buttonSize),
   }),
 );
 

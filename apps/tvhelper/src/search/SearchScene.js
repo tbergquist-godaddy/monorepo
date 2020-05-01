@@ -1,7 +1,7 @@
-// @flow
+// @flow strict-local
 
 import * as React from 'react';
-import { Stack, Heading } from '@kiwicom/orbit-components';
+import { Heading } from '@kiwicom/orbit-components';
 import Router, { useRouter } from 'next/router';
 import { Formik } from 'formik';
 import {
@@ -46,12 +46,8 @@ function SearchScene(props: Props) {
     <Formik onSubmit={onSubmit} initialValues={{ query: router.query?.query ?? '' }}>
       <Layout viewer={props.viewer?.viewer}>
         <Heading element="h1">Search tv show</Heading>
-        <Stack>
-          <SearchForm />
-        </Stack>
-        <Stack>
-          <SearchResults results={props.search?.searchTvShow ?? null} />
-        </Stack>
+        <SearchForm />
+        <SearchResults results={props.search?.searchTvShow ?? null} />
       </Layout>
     </Formik>
   );

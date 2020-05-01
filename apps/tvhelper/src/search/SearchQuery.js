@@ -1,4 +1,4 @@
-// @flow
+// @flow strict-local
 
 import * as React from 'react';
 import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';

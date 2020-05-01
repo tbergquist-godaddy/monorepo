@@ -15,12 +15,21 @@ const GridContainer: StyledComponent<
   {| +children: React.Node |},
   void,
   HTMLDivElement,
-> = styled.div({
+> = styled.div(({ theme }) => ({
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-  gridAutoRows: '260px',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+  gridAutoRows: '250px',
+  [theme.media.largeMobile]: {
+    gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
+    gridAutoRows: '250px',
+  },
+  [theme.media.tablet]: {
+    gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+    gridAutoRows: '280px',
+  },
+
   gridGap: '16px',
-});
+}));
 
 const SearchResults = (props: Props) => {
   const edges = props.results?.edges ?? [];
