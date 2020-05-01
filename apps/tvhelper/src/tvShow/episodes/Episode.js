@@ -7,7 +7,7 @@ import {
   type RelayProp,
   type FragmentContainerType,
 } from '@tbergq/relay';
-import { ListItem } from '@kiwicom/orbit-components';
+import { ListChoice as ListItem } from '@kiwicom/orbit-components';
 import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
 
@@ -63,7 +63,6 @@ const Episode = (props: Props) => {
     selected: watched,
     onClick: toggleWatched,
   };
-  // $FlowFixMe: Replace this with own implementation
   return <ListItem {...listProps} />;
 };
 
