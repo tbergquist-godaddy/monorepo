@@ -25,4 +25,10 @@ export default function Layout(props: Props): React.Node {
 
 const Stack = styled.div({
   width: '100%',
+  '& > *': {
+    marginBottom: '18px !important',
+    '&:last-child': {
+      margin: '0 !important',
+    },
+  },
 });
