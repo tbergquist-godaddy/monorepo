@@ -5,7 +5,7 @@
   "main": ".build/main/Main.js",
   "dependencies": {
     "@adeira/monorepo-utils": "^0.6.0",
-    "@kiwicom/orbit-components": "^0.83.0",
+    "@kiwicom/orbit-components": "^0.84.2",
     "chromecast-api": "^0.3.3",
     "compression": "^1.7.4",
     "copy-webpack-plugin": "^5.1.1",
