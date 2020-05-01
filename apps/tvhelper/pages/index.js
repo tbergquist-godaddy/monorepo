@@ -1,4 +1,4 @@
-// @flow
+// @flow strict-local
 
 import * as React from 'react';
 
@@ -18,7 +18,7 @@ Index.getInitialProps = ctx => {
     query: searchQuery,
     variables: {
       query,
-      includeResults: !!query,
+      includeResults: query !== '',
     },
   };
 };

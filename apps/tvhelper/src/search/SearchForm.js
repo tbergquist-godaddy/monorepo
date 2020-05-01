@@ -7,18 +7,34 @@ import { Form, useFormikContext } from 'formik';
 
 type Props = {};
 
-const ButtonWrapper = styled('div')({
+const ButtonWrapper = styled('div')(({ theme }) => ({
   marginTop: '8px',
-  justifyContent: 'flex-end',
+  '& > :first-child': {
+    marginBottom: '16px',
+  },
+  '& > :last-child': {
+    alignSelf: 'flex-end',
+  },
+  flexDirection: 'column',
   display: 'flex',
-});
+  [theme.media.largeMobile]: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+    '& > :first-child': {
+      flex: 1,
+      marginRight: '16px',
+      marginBottom: 0,
+    },
+  },
+}));
 
 export default (function SearchForm() {
   const { isSubmitting } = useFormikContext();
   return (
     <Form action="/" method="get">
-      <InputField name="query" dataTest="SearchFormInput" label="Search" />
       <ButtonWrapper>
+        <InputField name="query" dataTest="SearchFormInput" label="Search" />
         <Button loading={isSubmitting} dataTest="SearchFormButton" type="submit">
           Search
         </Button>
