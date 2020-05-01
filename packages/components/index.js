@@ -12,6 +12,7 @@ export { default as Link } from './src/Link';
 export { default as FloatingAddButton } from './src/FloatingAddButton';
 export { default as Spinner } from './src/loading/Spinner';
 export { default as Loading } from './src/loading/Loading';
+export { default as Heading } from './src/heading/Heading';
 
 export { default as Container } from './src/Container';
 export { default as CenterForm } from './src/CenterForm';

@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
     "@storybook/react": "^5.3.18",
     "@tbergq/test-utils": "0.0.1",
     "@testing-library/react": "^10.0.3"
