@@ -21,6 +21,18 @@ const defaultTheme = {
   danger: '#dc3545',
   success: '#28a745',
   gray: '#e2e2e2',
+  alert: {
+    danger: {
+      backgroundColor: '#f8d7da',
+      border: '1px solid #f5c6cb',
+      color: '#721c24',
+    },
+    success: {
+      color: '#155724',
+      backgroundColor: '#d4edda',
+      border: '1px solid #c3e6cb',
+    },
+  },
   breakpoints,
   media: {
     mediumMobile: `@media only screen and (min-width: ${breakpoints.mediumMobile}px)`,
@@ -42,6 +54,7 @@ const defaultTheme = {
     tiny: '4px',
     small: '8px',
     normal: '12px',
+    increased: '16px',
   },
   button: {
     small: {
