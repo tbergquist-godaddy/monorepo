@@ -56,9 +56,22 @@ const thisWorkspace = packageJson.name;
       path.join(__dirname, '..', '..', '..', '.dockerignore'),
       path.join(buildDir, '.dockerignore'),
     );
+    fs.copyFileSync(
+      path.join(__dirname, '..', '.env'),
+      path.join(buildDir, 'apps', 'tvhelper', '.env'),
+    );
 
     log('built to', buildDir);
 
+    new ShellCommand(buildDir, 'yarn', 'relay', '--persist-mode', 'fs')
+      .setOutputToScreen()
+      .runSynchronously();
+    new ShellCommand(buildDir, 'yarn', 'workspace', '@tbergq/tvhelper', 'persist-queries')
+      .setOutputToScreen()
+      .runSynchronously();
+    new ShellCommand(buildDir, 'yarn', 'workspace', '@tbergq/tvhelper', 'build')
+      .setOutputToScreen()
+      .runSynchronously();
     new ShellCommand(buildDir, 'heroku', 'container:login').setOutputToScreen().runSynchronously();
     new ShellCommand(buildDir, 'heroku', 'container:push', 'web', '-a', 'tbergq-tvhelper')
       .setOutputToScreen()

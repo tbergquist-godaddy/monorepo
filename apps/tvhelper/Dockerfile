@@ -4,11 +4,13 @@ WORKDIR /build
 COPY . .
 
 ENV GRAPHQL_URL https://tbergq-graphql.now.sh/graphql/
+ENV NODE_ENV production
 
-RUN yarn install --frozen-lockfile
-RUN yarn relay --persist-mode fs
-RUN yarn workspace @tbergq/tvhelper persist-queries
-RUN yarn workspace @tbergq/tvhelper next build
+RUN apk add --no-cache bash curl
+RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b /usr/local/bin
+
+RUN yarn install
+RUN node-prune
 
 EXPOSE 3020
 
