@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         name: '@kiwicom/orbit-components',
-        importNames: ['Heading', 'InputField', 'Alert'],
+        importNames: ['Heading', 'InputField', 'Alert', 'Stack'],
         message: "Please use '@tbergq/components' package instead.",
       },
     ],

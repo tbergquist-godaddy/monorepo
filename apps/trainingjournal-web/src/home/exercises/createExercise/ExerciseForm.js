@@ -1,8 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { InputField, Button } from '@tbergq/components';
-import { Stack } from '@kiwicom/orbit-components';
+import { InputField, Button, Stack } from '@tbergq/components';
 
 type Props = {|
   +isSubmitting: boolean,
@@ -20,7 +19,7 @@ export default function ExerciseForm(props: Props): React.Element<typeof Stack> 
         <InputField name="description" label="Description" />
         <InputField name="videoUrl" label="Video url" />
       </Stack>
-      <Stack flex={true} justify="end">
+      <Stack flex={true} justify="flex-end">
         {props.onCancel != null && (
           <Button color="secondary" onClick={props.onCancel}>
             Cancel

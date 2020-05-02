@@ -1,8 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { InputField, Button } from '@tbergq/components';
-import { Stack } from '@kiwicom/orbit-components';
+import { InputField, Button, Stack } from '@tbergq/components';
 
 type Props = {|
   +onCancel: () => void,
@@ -13,7 +12,7 @@ export default function ProgramForm(props: Props): React.Element<typeof Stack> {
   return (
     <Stack spaceAfter="normal">
       <InputField name="name" label="Name" />
-      <Stack justify="end">
+      <Stack justify="flex-end">
         <Button color="secondary" onClick={props.onCancel}>
           Cancel
         </Button>

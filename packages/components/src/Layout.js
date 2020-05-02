@@ -1,9 +1,10 @@
-// @flow
+// @flow strict-local
 
 import * as React from 'react';
 import styled from 'styled-components';
 
 import Container from './Container';
+import Stack from './stack/Stack';
 
 type Props = {|
   +children: React.Node | React.ChildrenArray<React.Node>,
@@ -22,13 +23,3 @@ export default function Layout(props: Props): React.Node {
     </PageContainer>
   );
 }
-
-const Stack = styled.div({
-  width: '100%',
-  '& > *': {
-    marginBottom: '18px !important',
-    '&:last-child': {
-      margin: '0 !important',
-    },
-  },
-});
