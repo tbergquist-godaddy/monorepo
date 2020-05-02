@@ -55,6 +55,7 @@ const defaultTheme = {
     small: '8px',
     normal: '12px',
     increased: '16px',
+    large: '18px',
   },
   button: {
     small: {

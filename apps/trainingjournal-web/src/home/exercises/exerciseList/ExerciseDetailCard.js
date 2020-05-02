@@ -7,7 +7,8 @@ import {
   type RelayProp,
   type FragmentContainerType,
 } from '@tbergq/relay';
-import { Card, CardSection, ButtonLink, Stack } from '@kiwicom/orbit-components';
+import { Card, CardSection, ButtonLink } from '@kiwicom/orbit-components';
+import { Stack } from '@tbergq/components';
 import TrashIcon from '@kiwicom/orbit-components/lib/icons/Remove';
 import Pencil from '@kiwicom/orbit-components/lib/icons/Edit';
 import styled from 'styled-components';
@@ -39,7 +40,7 @@ function ExerciseDetailCard(props: Props) {
       title="Title"
       header={
         <HeaderItem>
-          <Stack flex={true} justify="between" align="center">
+          <Stack flex={true} justify="space-between" align="center">
             <div>{name}</div>
             <div>
               <ButtonLink

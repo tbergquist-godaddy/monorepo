@@ -1,20 +1,27 @@
-// @flow
+// @flow strict
 
-import styled from 'styled-components';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
+import * as React from 'react';
+import styled, { type StyledComponent } from 'styled-components';
+import type { DefaultTheme } from '@tbergq/theme';
 
-export default (styled.div`
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  @media (min-width: ${defaultTokens.widthBreakpointTablet}px) {
-    width: 750px;
-  }
-  @media (min-width: ${defaultTokens.widthBreakpointDesktop}px) {
-    width: 970px;
-  }
-  @media (min-width: ${defaultTokens.widthBreakpointLargeDesktop}px) {
-    width: 1170px;
-  }
-`: any);
+const Container: StyledComponent<
+  { +children: React.Node },
+  DefaultTheme,
+  HTMLDivElement,
+> = styled.div(({ theme }) => ({
+  paddingRight: '15px',
+  paddingLeft: '15px',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  [theme.media.tablet]: {
+    width: '750px',
+  },
+  [theme.media.desktop]: {
+    width: '970px',
+  },
+  [theme.media.largeDesktop]: {
+    width: '1170px',
+  },
+}));
+
+export default Container;
