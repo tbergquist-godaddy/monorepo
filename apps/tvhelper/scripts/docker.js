@@ -56,10 +56,6 @@ const thisWorkspace = packageJson.name;
       path.join(__dirname, '..', '..', '..', '.dockerignore'),
       path.join(buildDir, '.dockerignore'),
     );
-    fs.copyFileSync(
-      path.join(__dirname, '..', '.env'),
-      path.join(buildDir, 'apps', 'tvhelper', '.env'),
-    );
 
     log('built to', buildDir);
 
