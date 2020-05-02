@@ -8,12 +8,15 @@ type Props = {|
   +children: ?React.ChildrenArray<?React.Node> | ?React.Node,
   +href: string,
   +prefetch?: boolean,
+  +className?: string,
 |};
 
-export default function Link({ href, children, ...rest }: Props): React.Node {
+export default function Link({ href, children, className, ...rest }: Props): React.Node {
   return (
     <NextLink href={href} {...rest}>
-      <a href={href}>{children}</a>
+      <a className={className} href={href}>
+        {children}
+      </a>
     </NextLink>
   );
 }

@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle({
   },
   '*': {
     boxSizing: 'border-box',
-    marign: 0,
+    margin: 0,
   },
 });
 

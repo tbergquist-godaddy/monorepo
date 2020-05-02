@@ -9,6 +9,14 @@ import type { TvShowListItem_data as TvShow } from './__generated__/TvShowListIt
 
 const borderRadius = 4;
 
+const StyledLink = styled(Link)({
+  outline: 'none',
+  ':focus, :hover': {
+    transform: ' scale(1.05)',
+    transition: 'all 0.2s ease-in',
+  },
+});
+
 const Container = styled.div`
   height: 100%;
   margin-bottom: 8px;
@@ -55,14 +63,14 @@ function TvShowListItem(props: Props) {
     return null;
   }
   return (
-    <Link href={`/tvShow?id=${tvShowId}`}>
+    <StyledLink href={`/tvShow?id=${tvShowId}`}>
       <Container url={props.data?.image?.medium}>
         <BottomSheet>
           <StyledText>{`${name} - ${rating}`}</StyledText>
           <StyledText>{status}</StyledText>
         </BottomSheet>
       </Container>
-    </Link>
+    </StyledLink>
   );
 }
 
