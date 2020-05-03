@@ -5,6 +5,9 @@ import styled from 'styled-components';
 import { useField, ErrorMessage } from 'formik';
 import { v4 } from 'uuid';
 
+import ErrorWrapper from '../form/ErrorWrapper';
+import LabelText from '../form/LabelText';
+
 type Props = {|
   +name: string,
   +label?: string,
@@ -34,15 +37,6 @@ const InputField = styled.input.attrs(({ hasError }) => ({
 const Label = styled.label({
   display: 'block',
 });
-const LabelText = styled.div(({ theme }) => ({
-  fontSize: theme.fontSize.large,
-  marginBottom: theme.spacing.tiny,
-}));
-const ErrorWrapper = styled.div(({ theme }) => ({
-  color: theme.danger,
-  fontSize: theme.fontSize.small,
-  marginTop: theme.spacing.tiny,
-}));
 
 export default function Input({ name, label, dataTest, ...rest }: Props): React.Node {
   const [id] = React.useState(v4());
