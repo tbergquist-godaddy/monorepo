@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 import { MdMenu } from 'react-icons/md';
 // eslint-disable-next-line no-restricted-imports
 import Link from 'next/link';
@@ -20,19 +19,19 @@ const Nav = styled.nav(props => ({
   right: 0,
   left: 0,
   minHeight: '50px',
-  zIndex: defaultTokens.zIndexOnTheTop,
+  zIndex: props.theme.zIndex.onTop,
   transition: 'all 0.3s ease',
   maxHeight: props.isExpanded ? '200px' : '50px',
 }));
 
-const NavLink = styled.a(({ marginLeft }) => ({
+const NavLink = styled.a(({ marginLeft, theme }) => ({
   color: '#e2e2e2',
   textDecoration: 'none',
   ':hover': {
     color: '#fff',
   },
   marginLeft: 0,
-  [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
+  [theme.media.tablet]: {
     marginLeft,
   },
 }));

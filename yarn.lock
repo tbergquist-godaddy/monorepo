@@ -2165,7 +2165,7 @@
     "@adeira/js" "^1.2.2"
     "@kiwicom/orbit-design-tokens" "~0.9.0"
 
-"@kiwicom/orbit-design-tokens@^0.9.0", "@kiwicom/orbit-design-tokens@~0.9.0":
+"@kiwicom/orbit-design-tokens@~0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.9.0.tgz#c031af02f46d8b67ebda16e10937a36db9377a62"
   integrity sha512-5kaZfJBUvhFqqxwDoPTKuM7VzHdWmGcTNhWvBYDveoi4th1dUNEkKewk6bL5oMLEfW63DjYiqT6bUXDhO4QQdQ==

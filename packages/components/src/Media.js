@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { createMedia } from '@artsy/fresnel';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
+import theme from '@tbergq/theme';
 
 const QUERIES = {
   LARGEDESKTOP: 'largeDesktop',
@@ -36,11 +36,11 @@ type AppMediaType = {|
 const AppMedia: AppMediaType = createMedia({
   breakpoints: {
     smallMobile: 0,
-    [QUERIES.MEDIUMMOBILE]: defaultTokens.widthBreakpointMediumMobile,
-    [QUERIES.LARGEMOBILE]: defaultTokens.widthBreakpointLargeMobile,
-    [QUERIES.TABLET]: defaultTokens.widthBreakpointTablet,
-    [QUERIES.DESKTOP]: defaultTokens.widthBreakpointDesktop,
-    [QUERIES.LARGEDESKTOP]: defaultTokens.widthBreakpointLargeDesktop,
+    [QUERIES.MEDIUMMOBILE]: theme.breakpoints.mediumMobile,
+    [QUERIES.LARGEMOBILE]: theme.breakpoints.largeMobile,
+    [QUERIES.TABLET]: theme.breakpoints.tablet,
+    [QUERIES.DESKTOP]: theme.breakpoints.desktop,
+    [QUERIES.LARGEDESKTOP]: theme.breakpoints.largeDesktop,
   },
 });
 

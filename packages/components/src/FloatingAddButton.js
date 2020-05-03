@@ -2,24 +2,23 @@
 
 import * as React from 'react';
 import styled, { keyframes, css, type StyledComponent } from 'styled-components';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 import { MdAdd } from 'react-icons/md';
 
-const AddButton = styled.button({
+const AddButton = styled.button(({ theme }) => ({
   cursor: 'pointer',
   position: 'fixed',
   bottom: '16px',
   right: '16px',
   borderRadius: '50%',
   padding: '16px',
-  backgroundColor: defaultTokens.backgroundButtonInfo,
-  color: defaultTokens.paletteWhite,
+  backgroundColor: theme.primary,
+  color: theme.white,
   ':focus': {
     boxShadow: '0 0 3px #000',
   },
   outline: 'none',
-  zIndex: defaultTokens.zIndexSticky,
-});
+  zIndex: theme.zIndex.sticky,
+}));
 
 const rotateAnimation = keyframes`
 0% {

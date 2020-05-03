@@ -5,14 +5,13 @@ import App from 'next/app';
 import { withApp } from '@tbergq/nextjs-utils';
 import { Layout as PageLayout, Navbar } from '@tbergq/components';
 import { createGlobalStyle } from 'styled-components';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
 import NavbarRight from '../NavbarRight';
 
 const GlobalStyle = createGlobalStyle`
 body {
-  background-color: ${defaultTokens.backgroundBody};
-  padding-bottom: ${defaultTokens.spaceXLarge}
+  background-color: #F5F7F9;
+  padding-bottom: 32px;
 }
 `;
 
