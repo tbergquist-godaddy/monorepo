@@ -7,27 +7,30 @@
 
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type FavoriteItem_favorite$ref: FragmentReference;
-declare export opaque type FavoriteItem_favorite$fragmentType: FavoriteItem_favorite$ref;
-export type FavoriteItem_favorite = {|
+declare export opaque type FavoriteListItem_favorite$ref: FragmentReference;
+declare export opaque type FavoriteListItem_favorite$fragmentType: FavoriteListItem_favorite$ref;
+export type FavoriteListItem_favorite = {|
   +name: ?string,
   +nextEpisode: ?any,
   +previousEpisode: ?any,
   +id: string,
   +status: ?string,
-  +$refType: FavoriteItem_favorite$ref,
+  +image: ?{|
+    +medium: ?string
+  |},
+  +$refType: FavoriteListItem_favorite$ref,
 |};
-export type FavoriteItem_favorite$data = FavoriteItem_favorite;
-export type FavoriteItem_favorite$key = {
-  +$data?: FavoriteItem_favorite$data,
-  +$fragmentRefs: FavoriteItem_favorite$ref,
+export type FavoriteListItem_favorite$data = FavoriteListItem_favorite;
+export type FavoriteListItem_favorite$key = {
+  +$data?: FavoriteListItem_favorite$data,
+  +$fragmentRefs: FavoriteListItem_favorite$ref,
   ...
 };
 
 
 const node: ReaderFragment = {
   "kind": "Fragment",
-  "name": "FavoriteItem_favorite",
+  "name": "FavoriteListItem_favorite",
   "type": "TvShow",
   "metadata": null,
   "argumentDefinitions": [],
@@ -66,9 +69,27 @@ const node: ReaderFragment = {
       "name": "status",
       "args": null,
       "storageKey": null
+    },
+    {
+      "kind": "LinkedField",
+      "alias": null,
+      "name": "image",
+      "storageKey": null,
+      "args": null,
+      "concreteType": "TvHelperImage",
+      "plural": false,
+      "selections": [
+        {
+          "kind": "ScalarField",
+          "alias": null,
+          "name": "medium",
+          "args": null,
+          "storageKey": null
+        }
+      ]
     }
   ]
 };
 // prettier-ignore
-(node: any).hash = '059bc1b25e5f8b3b8ed3f9ff7b53375b';
+(node: any).hash = 'f5be8c9bfed9dcea574147dbce5c98e3';
 export default node;

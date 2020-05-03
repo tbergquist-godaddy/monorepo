@@ -1,29 +1,39 @@
 /**
  * @flow
- * @relayHash 4c16c537205704081182baebaadc8f0b
+ * @relayHash 5baa4a05e172902bb572d2f4073772fa
  */
 
 /* eslint-disable */
 // flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
-type FavoritesTable_favorites$ref = any;
-export type FavoritesTableTestQueryVariables = {||};
-export type FavoritesTableTestQueryResponse = {|
+type Favorites_favorites$ref = any;
+export type SortBy = "NAME" | "NEXT_EPISODE" | "PREVIOUS_EPISODE" | "STATUS" | "%future added value";
+export type SortDirection = "ASC" | "DESC" | "%future added value";
+export type SortOptions = {|
+  sortBy?: ?SortBy,
+  sortDirection?: ?SortDirection,
+|};
+export type FavoritesQueryVariables = {|
+  options?: ?SortOptions
+|};
+export type FavoritesQueryResponse = {|
   +viewer: ?{|
-    +$fragmentRefs: FavoritesTable_favorites$ref
+    +$fragmentRefs: Favorites_favorites$ref
   |}
 |};
-export type FavoritesTableTestQuery = {|
-  variables: FavoritesTableTestQueryVariables,
-  response: FavoritesTableTestQueryResponse,
+export type FavoritesQuery = {|
+  variables: FavoritesQueryVariables,
+  response: FavoritesQueryResponse,
 |};
 
 /*
-query FavoritesTableTestQuery {
+query FavoritesQuery(
+  $options: SortOptions
+) {
   viewer {
     __typename
-    ...FavoritesTable_favorites
+    ...Favorites_favorites_2Rby0E
     ... on TraningJournalViewer {
       id
     }
@@ -33,20 +43,24 @@ query FavoritesTableTestQuery {
   }
 }
 
-fragment FavoriteItem_favorite on TvShow {
+fragment FavoriteListItem_favorite on TvShow {
   name
   nextEpisode
   previousEpisode
   id
   status
+  image {
+    medium
+    id
+  }
 }
 
-fragment FavoritesTable_favorites on TvHelperViewer {
-  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {
+fragment Favorites_favorites_2Rby0E on TvHelperViewer {
+  favorites(options: $options) {
     edges {
       node {
         id
-        ...FavoriteItem_favorite
+        ...FavoriteListItem_favorite
       }
     }
   }
@@ -54,33 +68,36 @@ fragment FavoritesTable_favorites on TvHelperViewer {
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = {
+var v0 = [
+  {
+    "kind": "LocalArgument",
+    "name": "options",
+    "type": "SortOptions",
+    "defaultValue": null
+  }
+],
+v1 = [
+  {
+    "kind": "Variable",
+    "name": "options",
+    "variableName": "options"
+  }
+],
+v2 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "id",
   "args": null,
   "storageKey": null
-},
-v1 = {
-  "type": "String",
-  "enumValues": null,
-  "plural": false,
-  "nullable": true
-},
-v2 = {
-  "type": "Date",
-  "enumValues": null,
-  "plural": false,
-  "nullable": true
 };
 return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "FavoritesTableTestQuery",
+    "name": "FavoritesQuery",
     "type": "RootQuery",
     "metadata": null,
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -93,8 +110,8 @@ return {
         "selections": [
           {
             "kind": "FragmentSpread",
-            "name": "FavoritesTable_favorites",
-            "args": null
+            "name": "Favorites_favorites",
+            "args": (v1/*: any*/)
           }
         ]
       }
@@ -102,8 +119,8 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "FavoritesTableTestQuery",
-    "argumentDefinitions": [],
+    "name": "FavoritesQuery",
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -129,17 +146,8 @@ return {
                 "kind": "LinkedField",
                 "alias": null,
                 "name": "favorites",
-                "storageKey": "favorites(options:{\"sortBy\":\"PREVIOUS_EPISODE\",\"sortDirection\":\"DESC\"})",
-                "args": [
-                  {
-                    "kind": "Literal",
-                    "name": "options",
-                    "value": {
-                      "sortBy": "PREVIOUS_EPISODE",
-                      "sortDirection": "DESC"
-                    }
-                  }
-                ],
+                "storageKey": null,
+                "args": (v1/*: any*/),
                 "concreteType": "TvShowConnection",
                 "plural": false,
                 "selections": [
@@ -161,7 +169,7 @@ return {
                         "concreteType": "TvShow",
                         "plural": false,
                         "selections": [
-                          (v0/*: any*/),
+                          (v2/*: any*/),
                           {
                             "kind": "ScalarField",
                             "alias": null,
@@ -189,6 +197,25 @@ return {
                             "name": "status",
                             "args": null,
                             "storageKey": null
+                          },
+                          {
+                            "kind": "LinkedField",
+                            "alias": null,
+                            "name": "image",
+                            "storageKey": null,
+                            "args": null,
+                            "concreteType": "TvHelperImage",
+                            "plural": false,
+                            "selections": [
+                              {
+                                "kind": "ScalarField",
+                                "alias": null,
+                                "name": "medium",
+                                "args": null,
+                                "storageKey": null
+                              },
+                              (v2/*: any*/)
+                            ]
                           }
                         ]
                       }
@@ -196,14 +223,14 @@ return {
                   }
                 ]
               },
-              (v0/*: any*/)
+              (v2/*: any*/)
             ]
           },
           {
             "kind": "InlineFragment",
             "type": "TraningJournalViewer",
             "selections": [
-              (v0/*: any*/)
+              (v2/*: any*/)
             ]
           }
         ]
@@ -212,56 +239,13 @@ return {
   },
   "params": {
     "operationKind": "query",
-    "name": "FavoritesTableTestQuery",
+    "name": "FavoritesQuery",
     "id": null,
-    "text": "query FavoritesTableTestQuery {\n  viewer {\n    __typename\n    ...FavoritesTable_favorites\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n",
-    "metadata": {
-      "relayTestingSelectionTypeInfo": {
-        "viewer": {
-          "type": "Viewer",
-          "enumValues": null,
-          "plural": false,
-          "nullable": true
-        },
-        "viewer.favorites": {
-          "type": "TvShowConnection",
-          "enumValues": null,
-          "plural": false,
-          "nullable": true
-        },
-        "viewer.id": {
-          "type": "ID",
-          "enumValues": null,
-          "plural": false,
-          "nullable": true
-        },
-        "viewer.favorites.edges": {
-          "type": "TvShowEdge",
-          "enumValues": null,
-          "plural": true,
-          "nullable": true
-        },
-        "viewer.favorites.edges.node": {
-          "type": "TvShow",
-          "enumValues": null,
-          "plural": false,
-          "nullable": true
-        },
-        "viewer.favorites.edges.node.id": {
-          "type": "ID",
-          "enumValues": null,
-          "plural": false,
-          "nullable": false
-        },
-        "viewer.favorites.edges.node.name": (v1/*: any*/),
-        "viewer.favorites.edges.node.nextEpisode": (v2/*: any*/),
-        "viewer.favorites.edges.node.previousEpisode": (v2/*: any*/),
-        "viewer.favorites.edges.node.status": (v1/*: any*/)
-      }
-    }
+    "text": "query FavoritesQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...Favorites_favorites_2Rby0E\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n",
+    "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'ff6e3b9d9e8f5accfa6266b256d94f44';
+(node: any).hash = '65ea3ca459fdcdc70524622ea58dad1c';
 export default node;

@@ -22,6 +22,7 @@ const defaultTheme = {
   success: '#28a745',
   gray: '#e2e2e2',
   white: '#fff',
+  black: '#000000',
   alert: {
     danger: {
       backgroundColor: '#f8d7da',
