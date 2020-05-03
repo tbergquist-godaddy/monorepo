@@ -6,32 +6,32 @@
 // flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
-type FavoriteItem_favorite$ref = any;
+type FavoriteListItem_favorite$ref = any;
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type FavoritesTable_favorites$ref: FragmentReference;
-declare export opaque type FavoritesTable_favorites$fragmentType: FavoritesTable_favorites$ref;
-export type FavoritesTable_favorites = {|
+declare export opaque type Favorites_favorites$ref: FragmentReference;
+declare export opaque type Favorites_favorites$fragmentType: Favorites_favorites$ref;
+export type Favorites_favorites = {|
   +favorites: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
         +id: string,
-        +$fragmentRefs: FavoriteItem_favorite$ref,
+        +$fragmentRefs: FavoriteListItem_favorite$ref,
       |}
     |}>
   |},
-  +$refType: FavoritesTable_favorites$ref,
+  +$refType: Favorites_favorites$ref,
 |};
-export type FavoritesTable_favorites$data = FavoritesTable_favorites;
-export type FavoritesTable_favorites$key = {
-  +$data?: FavoritesTable_favorites$data,
-  +$fragmentRefs: FavoritesTable_favorites$ref,
+export type Favorites_favorites$data = Favorites_favorites;
+export type Favorites_favorites$key = {
+  +$data?: Favorites_favorites$data,
+  +$fragmentRefs: Favorites_favorites$ref,
   ...
 };
 
 
 const node: ReaderFragment = {
   "kind": "Fragment",
-  "name": "FavoritesTable_favorites",
+  "name": "Favorites_favorites",
   "type": "TvHelperViewer",
   "metadata": null,
   "argumentDefinitions": [
@@ -88,7 +88,7 @@ const node: ReaderFragment = {
                 },
                 {
                   "kind": "FragmentSpread",
-                  "name": "FavoriteItem_favorite",
+                  "name": "FavoriteListItem_favorite",
                   "args": null
                 }
               ]
@@ -100,5 +100,5 @@ const node: ReaderFragment = {
   ]
 };
 // prettier-ignore
-(node: any).hash = '83bd15cedb7e2d7e927f6bf3049b97ea';
+(node: any).hash = 'f9ba1adf491e27909a01d3f28323f4af';
 export default node;

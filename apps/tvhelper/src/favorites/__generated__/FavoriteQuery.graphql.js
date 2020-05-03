@@ -1,18 +1,18 @@
 /**
  * @flow
- * @relayHash 3a4f6a205f4b298a5de7dfd3a02a4d2e
+ * @relayHash cdc77106e78430e70e9eb26eaa80da88
  */
 
 /* eslint-disable */
 // flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
-type FavoritesTable_favorites$ref = any;
+type Favorites_favorites$ref = any;
 type Layout_viewer$ref = any;
 export type FavoriteQueryVariables = {||};
 export type FavoriteQueryResponse = {|
   +viewer: ?{|
-    +$fragmentRefs: Layout_viewer$ref & FavoritesTable_favorites$ref
+    +$fragmentRefs: Layout_viewer$ref & Favorites_favorites$ref
   |}
 |};
 export type FavoriteQuery = {|
@@ -25,7 +25,7 @@ query FavoriteQuery {
   viewer {
     __typename
     ...Layout_viewer
-    ...FavoritesTable_favorites
+    ...Favorites_favorites
     ... on TraningJournalViewer {
       id
     }
@@ -35,20 +35,24 @@ query FavoriteQuery {
   }
 }
 
-fragment FavoriteItem_favorite on TvShow {
+fragment FavoriteListItem_favorite on TvShow {
   name
   nextEpisode
   previousEpisode
   id
   status
+  image {
+    medium
+    id
+  }
 }
 
-fragment FavoritesTable_favorites on TvHelperViewer {
+fragment Favorites_favorites on TvHelperViewer {
   favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {
     edges {
       node {
         id
-        ...FavoriteItem_favorite
+        ...FavoriteListItem_favorite
       }
     }
   }
@@ -100,7 +104,7 @@ return {
           },
           {
             "kind": "FragmentSpread",
-            "name": "FavoritesTable_favorites",
+            "name": "Favorites_favorites",
             "args": null
           }
         ]
@@ -203,6 +207,25 @@ return {
                             "name": "status",
                             "args": null,
                             "storageKey": null
+                          },
+                          {
+                            "kind": "LinkedField",
+                            "alias": null,
+                            "name": "image",
+                            "storageKey": null,
+                            "args": null,
+                            "concreteType": "TvHelperImage",
+                            "plural": false,
+                            "selections": [
+                              {
+                                "kind": "ScalarField",
+                                "alias": null,
+                                "name": "medium",
+                                "args": null,
+                                "storageKey": null
+                              },
+                              (v0/*: any*/)
+                            ]
                           }
                         ]
                       }
@@ -228,11 +251,11 @@ return {
     "operationKind": "query",
     "name": "FavoriteQuery",
     "id": null,
-    "text": "query FavoriteQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...FavoritesTable_favorites\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n}\n\nfragment FavoritesTable_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
+    "text": "query FavoriteQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...Favorites_favorites\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'ae33effafe556bdb4e13d1553ab9afb6';
+(node: any).hash = 'cb26d9a1eb720f84337cc72818bc7a90';
 export default node;
