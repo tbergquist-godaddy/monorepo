@@ -4,16 +4,15 @@ import * as React from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line no-restricted-imports
 import Link from 'next/link';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
-const NavLinkInner = styled.a(({ marginLeft }) => ({
+const NavLinkInner = styled.a(({ marginLeft, theme }) => ({
   color: '#e2e2e2',
   textDecoration: 'none',
   ':hover': {
     color: '#fff',
   },
   marginLeft: 0,
-  [`@media only screen and (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
+  [theme.media.tablet]: {
     marginLeft,
   },
 }));

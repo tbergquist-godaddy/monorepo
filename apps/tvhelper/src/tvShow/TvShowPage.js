@@ -4,29 +4,28 @@ import * as React from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { Heading } from '@tbergq/components';
 import styled from 'styled-components';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
 import type { TvShowPage_tvShow as TvShow } from './__generated__/TvShowPage_tvShow.graphql';
 import Episodes from './episodes/Episodes';
 import TvShowImage from './TvShowImage';
 import TvShowLoader from './TvShowLoader';
 
-const GridContainer = styled.div({
+const GridContainer = styled.div(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   gridTemplateRows: '1fr',
   gridColumnGap: '16px',
   gridRowGap: '16px',
-  [`@media (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
+  [theme.media.tablet]: {
     gridTemplateColumns: '1fr 1fr',
   },
-});
+}));
 
-const FullWidthGridItem = styled.div({
-  [`@media (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
+const FullWidthGridItem = styled.div(({ theme }) => ({
+  [theme.media.tablet]: {
     gridColumn: 'span 2',
   },
-});
+}));
 
 const NetworkWrapper = styled(FullWidthGridItem)({
   marginLeft: '16px',

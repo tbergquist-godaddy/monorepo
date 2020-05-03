@@ -21,6 +21,7 @@ const defaultTheme = {
   danger: '#dc3545',
   success: '#28a745',
   gray: '#e2e2e2',
+  white: '#fff',
   alert: {
     danger: {
       backgroundColor: '#f8d7da',
@@ -44,6 +45,7 @@ const defaultTheme = {
   zIndex: {
     default: 1,
     sticky: 100,
+    onTop: 900,
   },
   fontSize: {
     small: '12px',

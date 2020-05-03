@@ -7,7 +7,6 @@
   "dependencies": {
     "@adeira/js": "^1.2.1",
     "@artsy/fresnel": "^1.1.0",
-    "@kiwicom/orbit-design-tokens": "^0.9.0",
     "@storybook/react": "^6.0.0-beta.0",
     "@tbergq/theme": "0.0.1",
     "@testing-library/react": "^10.0.3",

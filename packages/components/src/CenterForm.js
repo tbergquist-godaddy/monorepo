@@ -2,16 +2,15 @@
 
 import * as React from 'react';
 import styled, { type StyledComponent } from 'styled-components';
-import { defaultTokens } from '@kiwicom/orbit-design-tokens';
 
-const FormGrid: StyledComponent<Props, void, HTMLDivElement> = styled.div({
+const FormGrid: StyledComponent<Props, void, HTMLDivElement> = styled.div(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr 80% 1fr',
   gridTemplateRows: '1fr 1fr',
-  [`@media (min-width: ${defaultTokens.widthBreakpointTablet}px)`]: {
+  [theme.media.tablet]: {
     gridTemplateColumns: '1fr 50% 1fr',
   },
-});
+}));
 
 const FormItem = styled.div({
   gridColumnStart: 2,
