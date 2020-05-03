@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable no-console */
+
 import fetch from '@adeira/fetch';
 import { config } from 'dotenv';
 import path from 'path';
@@ -42,6 +44,15 @@ export default async function persistQueries(): Promise<void> {
     }),
   });
   const json = await response.json();
-  // eslint-disable-next-line no-console
+
   console.log(json);
 }
+
+(async () => {
+  try {
+    await persistQueries();
+  } catch (e) {
+    console.log('Failed to store queries', e);
+    process.exit(-1);
+  }
+})();
