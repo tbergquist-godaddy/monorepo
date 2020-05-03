@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { graphql, QueryRenderer, type GraphQLTaggedNode } from '@tbergq/relay';
+import { Formik } from 'formik';
 
 import type { FavoriteQueryResponse } from './__generated__/FavoriteQuery.graphql';
 import Favorites from './Favorites';
@@ -18,7 +19,9 @@ export const favoritesQuery: GraphQLTaggedNode = graphql`
 
 const renderQuery = (props: ?FavoriteQueryResponse) => (
   <Layout viewer={props?.viewer}>
-    <Favorites favorites={props?.viewer} />
+    <Formik initialValues={{ sortBy: 'PREVIOUS_EPISODE', sortDirection: 'DESC' }}>
+      <Favorites favorites={props?.viewer} />
+    </Formik>
   </Layout>
 );
 

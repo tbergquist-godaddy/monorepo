@@ -12,6 +12,7 @@ export { default as Loading } from './src/loading/Loading';
 export { default as LoginForm } from './src/loginForm/LoginForm';
 export { default as Navbar } from './src/Navbar';
 export { default as NavLink } from './src/NavLink';
+export { default as Select } from './src/select/Select';
 export { default as Spinner } from './src/loading/Spinner';
 export { default as Stack } from './src/stack/Stack';
 export { default as Toast } from './src/toast/Toast';

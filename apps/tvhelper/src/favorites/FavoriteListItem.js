@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { Link, Media } from '@tbergq/components';
-import { format } from 'date-fns';
+import { format, isValid, parseISO } from 'date-fns';
 import styled from 'styled-components';
 
 import type { FavoriteListItem_favorite as Favorite } from './__generated__/FavoriteListItem_favorite.graphql';
@@ -15,7 +15,7 @@ type Props = {|
 const DATE_FORMAT = 'do MMM yyyy';
 
 const getFormattedDate = (date: ?string) => {
-  if (date == null) {
+  if (date == null || !isValid(parseISO(date))) {
     return 'Unknown';
   }
   return format(new Date(date), DATE_FORMAT);
