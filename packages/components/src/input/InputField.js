@@ -3,10 +3,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { useField, ErrorMessage } from 'formik';
-import { v4 } from 'uuid';
 
 import ErrorWrapper from '../form/ErrorWrapper';
 import LabelText from '../form/LabelText';
+import useId from '../useId';
 
 type Props = {|
   +name: string,
@@ -39,7 +39,7 @@ const Label = styled.label({
 });
 
 export default function Input({ name, label, dataTest, ...rest }: Props): React.Node {
-  const [id] = React.useState(v4());
+  const id = useId();
   const [{ onChange, onBlur, value }, { touched, error }] = useField({ name });
   return (
     <Label htmlFor={id}>
