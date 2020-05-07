@@ -2,12 +2,12 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { v4 } from 'uuid';
 import { MdExpandMore } from 'react-icons/md';
 import { useField, ErrorMessage } from 'formik';
 
 import ErrorWrapper from '../form/ErrorWrapper';
 import LabelText from '../form/LabelText';
+import useId from '../useId';
 
 const Label = styled.label({
   display: 'block',
@@ -57,7 +57,7 @@ type Props = {
 };
 
 export default function Select({ options, name, label, placeholder }: Props): React.Node {
-  const [id] = React.useState(v4());
+  const id = useId();
   const [{ onChange, onBlur, value }, { touched, error }] = useField({ name });
 
   return (
