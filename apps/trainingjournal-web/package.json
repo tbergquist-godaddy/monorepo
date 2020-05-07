@@ -13,7 +13,7 @@
     "@tbergq/test-utils": "0.0.1",
     "@tbergq/utils": "0.0.1",
     "@zeit/next-css": "^1.0.1",
-    "date-fns": "^2.12.0",
+    "date-fns": "^2.13.0",
     "formik": "^2.1.4",
     "js-cookie": "^2.2.1",
     "next": "^9.3.6",
