@@ -37,7 +37,7 @@
     "jest": "^26.0.1",
     "jest-styled-components": "^7.0.2",
     "mongodb-memory-server": "^6.5.2",
-    "now": "^18.0.0",
+    "now": "^19.0.0",
     "react-test-renderer": "16.13.1",
     "rimraf": "^3.0.2"
   },
