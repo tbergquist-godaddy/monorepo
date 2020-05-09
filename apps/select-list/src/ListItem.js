@@ -17,10 +17,12 @@ const ListItem = ({ color, name }: Props): React.Element<'li'> => {
     setIsSelected(isSelected => {
       const nextValue = !isSelected;
 
-      dispatch({ type: nextValue ? 'add' : 'remove', payload: name });
       return nextValue;
     });
   };
+  React.useEffect(() => {
+    dispatch({ type: isSelected ? 'add' : 'remove', payload: name });
+  }, [isSelected, dispatch, name]);
   const selectedClassName = isSelected ? ' selected' : '';
   return (
     <li onClick={onClick} className={`List__item List__item--${color}${selectedClassName}`}>

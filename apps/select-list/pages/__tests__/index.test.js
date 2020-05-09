@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, fireEvent, act } from '@tbergq/test-utils';
+import { render, fireEvent } from '@tbergq/test-utils';
 
 import App from '..';
 
@@ -13,18 +13,14 @@ describe('App', () => {
 
     expect(firstLi).toBeInTheDocument();
 
-    act(() => {
-      fireEvent.click(firstLi);
-    });
+    fireEvent.click(firstLi);
 
     expect(firstLi.classList.contains('selected')).toBe(true);
 
     const selectedItems = getByTestId('selectedItems');
     expect(selectedItems.textContent).toEqual(firstLi.textContent);
 
-    act(() => {
-      fireEvent.click(firstLi);
-    });
+    fireEvent.click(firstLi);
 
     expect(selectedItems).not.toBeInTheDocument();
   });
