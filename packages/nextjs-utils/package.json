@@ -15,8 +15,5 @@
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "styled-components": "^5.1.0"
-  },
-  "peerDependencies": {
-    "@kiwicom/orbit-components": "^0"
   }
 }
