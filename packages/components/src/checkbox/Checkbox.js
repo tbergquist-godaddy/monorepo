@@ -5,11 +5,6 @@ import styled from 'styled-components';
 
 import useId from '../useId';
 
-type Props = {
-  +label?: string,
-  +checked?: boolean,
-};
-
 const Label = styled.label({
   display: 'flex',
   alignItems: 'center',
@@ -55,17 +50,30 @@ const LabelWrapper = styled.span({
   lineHeight: '21px',
 });
 
-export default function Checkbox({ label, checked = false }: Props): React.Node {
+type Props = {
+  +label?: string,
+  +checked?: boolean,
+  +onChange?: (e: SyntheticEvent<HTMLInputElement>) => void,
+  +tabIndex?: string,
+};
+
+export default function Checkbox({ label, checked = false, onChange, ...rest }: Props): React.Node {
   const id = useId();
   const [isChecked, setIsChecked] = React.useState(checked);
+  const handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+    if (onChange != null) {
+      onChange(e);
+    } else {
+      // $FlowExpectedError: checked is a property on a checbox
+      setIsChecked(e.target.checked);
+    }
+  };
+  React.useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
   return (
     <Label htmlFor={id}>
-      <Input
-        checked={isChecked}
-        onChange={e => setIsChecked(e.target.checked)}
-        id={id}
-        type="checkbox"
-      />
+      <Input {...rest} checked={isChecked} onChange={handleChange} id={id} type="checkbox" />
       <StyledCheckbox />
       {label != null && <LabelWrapper>{label}</LabelWrapper>}
     </Label>

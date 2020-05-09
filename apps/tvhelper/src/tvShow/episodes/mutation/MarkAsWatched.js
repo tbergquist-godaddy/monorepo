@@ -22,10 +22,12 @@ const mutation = graphql`
 export default function markAsWatched(
   environment: Object,
   variables: MarkAsWatchedMutationVariables,
+  onCompleted: () => void,
 ) {
   commitMutation<MutationType>(environment, {
     variables,
     mutation,
+    onCompleted,
     optimisticResponse: {
       markAsWatched: {
         success: true,

@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { Card, CardSection } from '@kiwicom/orbit-components';
+import styled from 'styled-components';
 
 import type { Episodes_episodes as EpisodeType } from './__generated__/Episodes_episodes.graphql';
 import Episode from './Episode';
@@ -10,6 +11,10 @@ import Episode from './Episode';
 type Props = {|
   +episodes: ?EpisodeType,
 |};
+
+const ListWrapper = styled.div({
+  overflow: 'hidden',
+});
 
 const Episodes = (props: Props) => {
   const episodes = props.episodes?.episodes ?? [];
@@ -37,9 +42,11 @@ const Episodes = (props: Props) => {
   return Array.from(seasonMap).map<React.Node>(([key, episodes]) => (
     <Card key={key}>
       <CardSection title={`Season ${parseInt(key, 10).toString()}`} expandable={true}>
-        {episodes.map(episode => (
-          <Episode key={episode?.id} episode={episode} />
-        ))}
+        <ListWrapper>
+          {episodes.map(episode => (
+            <Episode key={episode?.id} episode={episode} />
+          ))}
+        </ListWrapper>
       </CardSection>
     </Card>
   ));

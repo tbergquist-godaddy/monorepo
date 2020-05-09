@@ -1,4 +1,4 @@
-// @flow
+// @flow strict-local
 
 import * as React from 'react';
 import {
@@ -7,9 +7,10 @@ import {
   type RelayProp,
   type FragmentContainerType,
 } from '@tbergq/relay';
-import { ListChoice as ListItem } from '@kiwicom/orbit-components';
 import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
+import styled from 'styled-components';
+import { Checkbox } from '@tbergq/components';
 
 import type { Episode_episode as EpisodeType } from './__generated__/Episode_episode.graphql';
 import markAsWatchedMutation from './mutation/MarkAsWatched';
@@ -20,25 +21,47 @@ type Props = {|
   +relay: RelayProp,
 |};
 
-const markAsWatched = (props: Props) => {
-  const episodeId = props.episode?.id;
-  if (episodeId != null) {
-    markAsWatchedMutation(props.relay.environment, {
-      episodeId,
-    });
-  }
-};
+const ListItem = styled.button(({ theme }) => ({
+  border: 'none',
+  background: 'none',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: '100%',
+  padding: theme.spacing.increased,
+  borderBottom: `1px solid ${theme.gray}`,
+  marginTop: '1px',
+  marginBottom: '-1px',
+  fontFamily: theme.fontFamily,
+  fontSize: theme.fontSize.normal,
+  cursor: 'pointer',
+  ':hover, :focus': {
+    backgroundColor: theme.gray,
+    outline: 'none',
+  },
+}));
 
-const unMarkAsWatched = (props: Props) => {
-  const episodeId = props.episode?.id;
-  if (episodeId != null) {
-    deleteAsWatchedMutation(props.relay.environment, {
-      episodeId,
-    });
-  }
-};
+const Description = styled.span(({ theme }) => ({
+  color: theme.secondary,
+  fontSize: theme.fontSize.small,
+  textAlign: 'left',
+}));
+
+const Title = styled.span(() => ({
+  fontWeight: '500',
+  textAlign: 'left',
+}));
+
+const TextWrapper = styled.span(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  flexDirection: 'column',
+  marginRight: theme.spacing.increased,
+}));
 
 const Episode = (props: Props) => {
+  const [isMutating, setIsMutating] = React.useState(false);
   const name = props.episode?.name ?? '';
   const airdate = props.episode?.airdate ?? null;
   const rawDate = airdate != null ? new Date(airdate) : null;
@@ -47,23 +70,61 @@ const Episode = (props: Props) => {
   const summary = props.episode?.summary ?? '';
   const watched = props.episode?.watched === true;
 
+  const markAsWatched = () => {
+    const episodeId = props.episode?.id;
+    if (episodeId != null) {
+      markAsWatchedMutation(
+        props.relay.environment,
+        {
+          episodeId,
+        },
+        () => {
+          setIsMutating(false);
+        },
+      );
+    }
+  };
+
+  const unMarkAsWatched = () => {
+    const episodeId = props.episode?.id;
+    if (episodeId != null) {
+      deleteAsWatchedMutation(
+        props.relay.environment,
+        {
+          episodeId,
+        },
+        () => {
+          setIsMutating(false);
+        },
+      );
+    }
+  };
   function toggleWatched() {
-    if (!watched) {
-      markAsWatched(props);
-    } else {
-      unMarkAsWatched(props);
+    if (!isMutating) {
+      setIsMutating(true);
+      if (!watched) {
+        markAsWatched();
+      } else {
+        unMarkAsWatched();
+      }
     }
   }
 
-  const listProps = {
-    title: `${seasonAndNumber} - ${name} - ${date}`,
-    description: summary,
-    icon: null,
-    selectable: isLoggedIn(),
-    selected: watched,
-    onClick: toggleWatched,
+  const onClick = e => {
+    e.stopPropagation();
+    if (isLoggedIn()) {
+      toggleWatched();
+    }
   };
-  return <ListItem {...listProps} />;
+  return (
+    <ListItem type="button" onClick={onClick} onChangeCapture={onClick}>
+      <TextWrapper>
+        <Title>{`${seasonAndNumber} - ${name} - ${date}`}</Title>
+        <Description>{summary}</Description>
+      </TextWrapper>
+      {isLoggedIn() && <Checkbox tabIndex="-1" checked={watched} />}
+    </ListItem>
+  );
 };
 
 export default (createFragmentContainer(Episode, {
