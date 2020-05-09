@@ -12,7 +12,6 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { MediaContextProvider } from '@tbergq/components';
 import defaultTheme from '@tbergq/theme';
 import { isBrowser } from '@adeira/js';
-import { getTokens } from '@kiwicom/orbit-components';
 
 const GlobalStyle = createGlobalStyle({
   html: {
@@ -35,14 +34,6 @@ const GlobalStyle = createGlobalStyle({
     margin: 0,
   },
 });
-
-const theme = {
-  orbit: {
-    ...getTokens(),
-    fontFamily: defaultTheme.fontFamily,
-  },
-  ...defaultTheme,
-};
 
 export default function withNProgress(
   Component: React.AbstractComponent<{ ... }>,
@@ -94,7 +85,7 @@ export default function withNProgress(
       const { token, ssrData, ...rest } = this.props;
       const environment = Environment.getEnvironment(token, ssrData);
       return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={defaultTheme}>
           <MediaContextProvider>
             <RelayEnvironmentProvider environment={environment}>
               <>
