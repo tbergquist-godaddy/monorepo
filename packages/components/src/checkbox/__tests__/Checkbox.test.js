@@ -14,3 +14,13 @@ it('changes from not checked to checked', () => {
 
   expect(checkbox).toBeChecked();
 });
+
+it('calls the onChange callback when passed', () => {
+  const onChange = jest.fn();
+  render(<Checkbox label="Check me" onChange={onChange} />);
+  const checkbox = screen.getByLabelText('Check me');
+
+  fireEvent.click(checkbox);
+
+  expect(onChange).toHaveBeenCalledWith(expect.any(Object));
+});

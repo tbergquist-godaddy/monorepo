@@ -2,6 +2,7 @@
 
 export { default as Alert } from './src/alert/Alert';
 export { default as Button } from './src/button/Button';
+export { default as Checkbox } from './src/checkbox/Checkbox';
 export { default as FloatingAddButton } from './src/FloatingAddButton';
 export { default as Heading } from './src/heading/Heading';
 export { default as IconButton } from './src/button/IconButton';

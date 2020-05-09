@@ -22,10 +22,12 @@ const mutation = graphql`
 export default function deleteAsWatched(
   environment: Object,
   variables: DeleteAsWatchedMutationVariables,
+  onCompleted: () => void,
 ) {
   commitMutation<MutationType>(environment, {
     variables,
     mutation,
+    onCompleted,
     optimisticResponse: {
       deleteWatchedEpisode: {
         success: true,
