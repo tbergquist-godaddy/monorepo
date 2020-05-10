@@ -53,6 +53,7 @@ type Device = {
   +pause: Callback => void,
   +resume: Callback => void,
   +seek: (seconds: number, Callback) => void,
+  +seekTo: (seconds: number, ?Callback) => void,
   +stop: Callback => void,
   +player: Player,
   +getStatus: ((?Error, ?Status) => void) => void,
@@ -135,6 +136,17 @@ class CastController {
   seek: (seconds: number) => Promise<void> = (seconds: number) =>
     new Promise<void>((resolve, reject) => {
       this.device.seek(seconds, error => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve();
+        }
+      });
+    });
+
+  seekTo: number => Promise<void> = (seconds: number) =>
+    new Promise((resolve, reject) => {
+      this.device.seekTo(seconds, error => {
         if (error) {
           reject(error);
         } else {
