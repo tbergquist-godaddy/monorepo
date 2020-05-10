@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash cdc77106e78430e70e9eb26eaa80da88
+ * @relayHash b804adf35a367fac6a31ad74f24b0fdd
  */
 
 /* eslint-disable */
@@ -9,7 +9,15 @@
 import type { ConcreteRequest } from 'relay-runtime';
 type Favorites_favorites$ref = any;
 type Layout_viewer$ref = any;
-export type FavoriteQueryVariables = {||};
+export type SortBy = "NAME" | "NEXT_EPISODE" | "PREVIOUS_EPISODE" | "STATUS" | "%future added value";
+export type SortDirection = "ASC" | "DESC" | "%future added value";
+export type SortOptions = {|
+  sortBy?: ?SortBy,
+  sortDirection?: ?SortDirection,
+|};
+export type FavoriteQueryVariables = {|
+  options?: ?SortOptions
+|};
 export type FavoriteQueryResponse = {|
   +viewer: ?{|
     +$fragmentRefs: Layout_viewer$ref & Favorites_favorites$ref
@@ -21,11 +29,13 @@ export type FavoriteQuery = {|
 |};
 
 /*
-query FavoriteQuery {
+query FavoriteQuery(
+  $options: SortOptions
+) {
   viewer {
     __typename
     ...Layout_viewer
-    ...Favorites_favorites
+    ...Favorites_favorites_2Rby0E
     ... on TraningJournalViewer {
       id
     }
@@ -47,8 +57,8 @@ fragment FavoriteListItem_favorite on TvShow {
   }
 }
 
-fragment Favorites_favorites on TvHelperViewer {
-  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {
+fragment Favorites_favorites_2Rby0E on TvHelperViewer {
+  favorites(options: $options) {
     edges {
       node {
         id
@@ -72,7 +82,22 @@ fragment NavbarRight_viewer on Viewer {
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = {
+var v0 = [
+  {
+    "kind": "LocalArgument",
+    "name": "options",
+    "type": "SortOptions",
+    "defaultValue": null
+  }
+],
+v1 = [
+  {
+    "kind": "Variable",
+    "name": "options",
+    "variableName": "options"
+  }
+],
+v2 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "id",
@@ -86,7 +111,7 @@ return {
     "name": "FavoriteQuery",
     "type": "RootQuery",
     "metadata": null,
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -105,7 +130,7 @@ return {
           {
             "kind": "FragmentSpread",
             "name": "Favorites_favorites",
-            "args": null
+            "args": (v1/*: any*/)
           }
         ]
       }
@@ -114,7 +139,7 @@ return {
   "operation": {
     "kind": "Operation",
     "name": "FavoriteQuery",
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
@@ -147,17 +172,8 @@ return {
                 "kind": "LinkedField",
                 "alias": null,
                 "name": "favorites",
-                "storageKey": "favorites(options:{\"sortBy\":\"PREVIOUS_EPISODE\",\"sortDirection\":\"DESC\"})",
-                "args": [
-                  {
-                    "kind": "Literal",
-                    "name": "options",
-                    "value": {
-                      "sortBy": "PREVIOUS_EPISODE",
-                      "sortDirection": "DESC"
-                    }
-                  }
-                ],
+                "storageKey": null,
+                "args": (v1/*: any*/),
                 "concreteType": "TvShowConnection",
                 "plural": false,
                 "selections": [
@@ -179,7 +195,7 @@ return {
                         "concreteType": "TvShow",
                         "plural": false,
                         "selections": [
-                          (v0/*: any*/),
+                          (v2/*: any*/),
                           {
                             "kind": "ScalarField",
                             "alias": null,
@@ -224,7 +240,7 @@ return {
                                 "args": null,
                                 "storageKey": null
                               },
-                              (v0/*: any*/)
+                              (v2/*: any*/)
                             ]
                           }
                         ]
@@ -233,14 +249,14 @@ return {
                   }
                 ]
               },
-              (v0/*: any*/)
+              (v2/*: any*/)
             ]
           },
           {
             "kind": "InlineFragment",
             "type": "TraningJournalViewer",
             "selections": [
-              (v0/*: any*/)
+              (v2/*: any*/)
             ]
           }
         ]
@@ -251,11 +267,11 @@ return {
     "operationKind": "query",
     "name": "FavoriteQuery",
     "id": null,
-    "text": "query FavoriteQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...Favorites_favorites\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
+    "text": "query FavoriteQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...Favorites_favorites_2Rby0E\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'cb26d9a1eb720f84337cc72818bc7a90';
+(node: any).hash = 'd2c82cb98665918f3ba515d51511e3de';
 export default node;
