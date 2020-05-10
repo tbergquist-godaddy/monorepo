@@ -3,18 +3,26 @@
 import fs from 'fs';
 import type { $Request, $Response } from 'express';
 import path from 'path';
+import util from 'util';
+import srt2vtt from 'srt2vtt';
 
 const getStream = (path: string, options?: { ... }) => fs.createReadStream(path, options ?? {});
+const convertToVtt = util.promisify(srt2vtt);
 
-export default function streamMovie(req: $Request, res: $Response): $Response {
+export default async function streamMovie(req: $Request, res: $Response): Promise<$Response> {
   const filePath = req.query.path;
   if (Array.isArray(filePath)) {
     return res.sendStatus(400).send({ message: 'Expected path to be a string' });
   }
   const fileType = path.extname(filePath);
-
   if (fileType === '.vtt') {
     return res.sendFile(filePath);
+  } else if (fileType === '.srt') {
+    const srt = fs.readFileSync(filePath);
+    const vttData = await convertToVtt(srt);
+    const vttPath = filePath.replace('.srt', '.vtt');
+    fs.writeFileSync(vttPath, vttData);
+    return res.sendFile(vttPath);
   }
 
   const stat = fs.statSync(filePath);
