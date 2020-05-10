@@ -20,6 +20,49 @@ const SliderContainer = styled.div({
     border: 'solid 2px deeppink',
   },
 });
+
+function MySlider({ totalPlayTime, currentTime }) {
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [sliderValue, setSliderValue] = React.useState(currentTime);
+  const ref = React.useRef();
+
+  React.useEffect(() => {
+    if (!isDragging) {
+      setSliderValue(currentTime);
+    }
+  }, [currentTime, isDragging]);
+
+  return (
+    <>
+      <SliderContainer>
+        <Slider
+          max={totalPlayTime}
+          dots
+          value={sliderValue}
+          onBeforeChange={() => {
+            setIsDragging(true);
+          }}
+          onAfterChange={async value => {
+            await castController.seekTo(value);
+            setIsDragging(false);
+            if (ref.current != null) {
+              // Weird things happen when the slider stays with focus
+              ref.current.blur();
+            }
+          }}
+          onChange={value => {
+            setSliderValue(value);
+          }}
+          ref={ref}
+        />
+      </SliderContainer>
+      {formatTime(sliderValue)}
+      {' / '}
+      {formatTime(totalPlayTime)}
+    </>
+  );
+}
+
 const formatTime = (input: number) => {
   const hours = Math.floor(input / 3600);
   const minutes = Math.floor((input - hours * 3600) / 60);
@@ -29,7 +72,7 @@ const formatTime = (input: number) => {
 export default function Timer(): React.Node {
   const [currentTime, setCurrentTime] = React.useState(0);
   const [totalPlayTime, setTotalPlaytime] = React.useState(0);
-  const intervalRef = React.useRef(null);
+  const ref = React.useRef(null);
   const { castState } = useCastState();
 
   const fetchTime = React.useCallback(async () => {
@@ -38,16 +81,14 @@ export default function Timer(): React.Node {
   }, []);
 
   React.useEffect(() => {
-    if (intervalRef.current == null && castState === 'casting') {
-      intervalRef.current = setInterval(() => {
-        fetchTime();
-      }, 1000);
-    } else if (intervalRef != null) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
+    if (castState === 'casting') {
+      ref.current = setInterval(fetchTime, 1000);
     }
     return () => {
-      clearInterval(intervalRef.current);
+      if (ref.current != null) {
+        clearInterval(ref.current);
+        ref.current = null;
+      }
     };
   }, [castState, fetchTime]);
 
@@ -55,17 +96,9 @@ export default function Timer(): React.Node {
     setTotalPlaytime(castController.getTotalPlayTime());
   }, []);
 
-  const onSliderChange = (value: number) => {
-    castController.seek(value);
-  };
   return (
     <div>
-      <SliderContainer>
-        <Slider max={totalPlayTime} dots value={currentTime} onChange={onSliderChange} />
-      </SliderContainer>
-      {formatTime(currentTime)}
-      {' / '}
-      {formatTime(totalPlayTime)}
+      <MySlider currentTime={currentTime} totalPlayTime={totalPlayTime} />
     </div>
   );
 }
