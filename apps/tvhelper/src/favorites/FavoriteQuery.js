@@ -9,10 +9,10 @@ import Favorites from './Favorites';
 import Layout from '../components/Layout';
 
 export const favoritesQuery: GraphQLTaggedNode = graphql`
-  query FavoriteQuery {
+  query FavoriteQuery($options: SortOptions) {
     viewer {
       ...Layout_viewer
-      ...Favorites_favorites
+      ...Favorites_favorites @arguments(options: $options)
     }
   }
 `;
@@ -30,7 +30,7 @@ export default function FavoriteQuery(): React.Element<typeof QueryRenderer> {
     <QueryRenderer
       query={favoritesQuery}
       renderLoader={false}
-      variables={{}}
+      variables={{ options: { sortDirection: 'DESC', sortBy: 'PREVIOUS_EPISODE' } }}
       render={renderQuery}
     />
   );

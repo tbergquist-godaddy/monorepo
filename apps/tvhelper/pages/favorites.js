@@ -15,6 +15,7 @@ Favorites.getInitialProps = ctx => {
   if (token !== '') {
     return {
       query: favoritesQuery,
+      variables: { options: { sortDirection: 'DESC', sortBy: 'PREVIOUS_EPISODE' } },
     };
   }
   ctx.res.writeHead(302, { Location: '/login' });
