@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { Button, Stack } from '@kiwicom/orbit-components';
+import { Button, Stack } from '@tbergq/components';
 import path from 'path';
 import styled from 'styled-components';
 
@@ -57,12 +57,7 @@ export default function FileSelector({
   return (
     <Stack flex={true} align="center">
       {value !== null && <Label>{`${name}: ${path.basename(value)}`}</Label>}
-      <Button
-        circled={value !== null}
-        type={value === null ? 'info' : 'critical'}
-        size="small"
-        onClick={onClick}
-      >
+      <Button color={value === null ? 'primary' : 'danger'} size="small" onClick={onClick}>
         {value === null ? buttonText : 'X'}
       </Button>
     </Stack>

@@ -8,7 +8,7 @@ import os from 'os';
   await publish({
     dryRun: true,
     buildCache: path.join(os.tmpdir(), 'monorepo', 'workspaces'),
-    workspaces: new Set(['@tbergq/components']),
+    workspaces: new Set(['@tbergq/components', '@tbergq/theme']),
     npmAuthToken: '',
   });
 })();
