@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Button } from '@kiwicom/orbit-components';
+import { Button } from '@tbergq/components';
 import path from 'path';
 
 const castController = electron.remote.require('./CastController').default;

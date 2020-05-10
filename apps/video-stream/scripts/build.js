@@ -8,13 +8,7 @@ import fs from 'fs';
 
 import packageJson from '../package.json';
 
-const workspaces = JSON.parse(
-  JSON.parse(
-    new ShellCommand(null, 'yarn', 'workspaces', '--json', 'info').runSynchronously().stdout,
-  ).data,
-);
-
-const workspaceDependencies = workspaces[packageJson.name].workspaceDependencies;
+const workspaceDependencies = ['components', 'theme'];
 
 const buildDir = path.join(os.tmpdir(), 'videostream');
 const localBuildDir = path.join(__dirname, '..', '.build');
@@ -46,15 +40,6 @@ packageJson.devDependencies = {
   'electron-builder': packageJson.devDependencies['electron-builder'],
 };
 
-for (const workspace of workspaceDependencies) {
-  packageJson.dependencies[workspace] = `file:///${path.join(
-    os.tmpdir(),
-    'monorepo',
-    'workspaces',
-    `${workspace.split('/')[1]}.tgz`,
-  )}`;
-}
-
 delete packageJson.dependencies.electron;
 delete packageJson.dependencies['electron-builder'];
 
@@ -63,4 +48,17 @@ packageJson.name = 'videostream';
 fs.writeFileSync(path.join(buildDir, 'package.json'), JSON.stringify(packageJson, null, 2));
 
 new ShellCommand(buildDir, 'yarn', 'install').setOutputToScreen().runSynchronously();
+for (const workspace of workspaceDependencies) {
+  fs.mkdirSync(path.join(buildDir, 'node_modules', '@tbergq', workspace), { recursive: true });
+  new ShellCommand(
+    null,
+    'cp',
+    '-r',
+    path.join(os.tmpdir(), 'monorepo', 'workspaces', workspace),
+    path.join(buildDir, 'node_modules', '@tbergq'),
+  )
+    .setOutputToScreen()
+    .runSynchronously();
+}
+
 new ShellCommand(buildDir, 'yarn', 'build:electron').setOutputToScreen().runSynchronously();

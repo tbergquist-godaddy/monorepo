@@ -34,7 +34,7 @@ module.exports = {
     rules: [
       {
         test: (/\.(?:js|jsx)$/ /*: RegExp */),
-        exclude: (/node_modules/ /*: RegExp */),
+        exclude: (/node_modules\/(?!@tbergq\/components|!@tbergq\/theme)/ /*: RegExp */),
         use: {
           loader: 'babel-loader',
           options: {
