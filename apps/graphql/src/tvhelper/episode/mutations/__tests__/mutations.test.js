@@ -6,6 +6,7 @@ import {
   tvHelperConnection,
   WatchedEpisodeRepository,
 } from '@tbergq/tvhelper-persistence';
+import path from 'path';
 
 import executeTestQuery from '../../../../services/executeTestQuery';
 
@@ -27,7 +28,7 @@ describe('episode mutations', () => {
     await tvHelperConnection.collection('watchedepisodes').drop();
   });
 
-  generateTestsFromFixtures(`${__dirname}/__fixtures__`, input =>
+  generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), input =>
     executeTestQuery(input, null, { user: { id: userId } }),
   );
 });

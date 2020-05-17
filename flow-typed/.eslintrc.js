@@ -1,8 +1,10 @@
 // @flow
 
+/* eslint-disable no-unused-vars */
 const OFF = 0;
 const WARNING = 1;
 const ERROR = 2;
+/* eslint-enable no-unused-vars */
 
 module.exports = {
   rules: {

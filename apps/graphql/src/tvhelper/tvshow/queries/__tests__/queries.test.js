@@ -1,6 +1,7 @@
 // @flow
 
 import { generateTestsFromFixtures } from '@adeira/test-utils';
+import path from 'path';
 
 import executeTestQuery from '../../../../services/executeTestQuery';
 
@@ -15,7 +16,7 @@ jest.mock('@tbergq/tvhelper-persistence', () => {
 });
 
 describe('queries', () => {
-  generateTestsFromFixtures(`${__dirname}/__fixtures__`, input =>
+  generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), input =>
     executeTestQuery(input, null, { user: { id: '123' } }),
   );
 });
