@@ -24,12 +24,13 @@ type Props = {|
 function AddExerciseForm(props: InjectedFormikProps<Props, ExerciseValues>) {
   const [showForm, setShowForm] = React.useState(false);
   const lastIsSubmitting = React.useRef(false);
+  const isSubmitting = props.isSubmitting;
   React.useEffect(() => {
-    if (props.isSubmitting === false && lastIsSubmitting.current === true) {
+    if (isSubmitting === false && lastIsSubmitting.current === true) {
       setShowForm(false);
     }
-    lastIsSubmitting.current = props.isSubmitting;
-  }, [props.isSubmitting]);
+    lastIsSubmitting.current = isSubmitting;
+  }, [isSubmitting]);
   return (
     <>
       <FloatingAddButton
