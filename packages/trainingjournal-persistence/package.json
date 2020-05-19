@@ -5,7 +5,7 @@
   "main": "index.js",
   "sideEffects": false,
   "dependencies": {
-    "mongoose": "^5.9.14"
+    "mongoose": "^5.9.15"
   },
   "devDependencies": {
     "mockdate": "^2.0.5",
