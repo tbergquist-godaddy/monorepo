@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash 3f4cef2b1cd8898f4e3d5e6d10cfd5c7
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type deleteFavoriteMutationVariables = {|
@@ -35,18 +33,15 @@ mutation deleteFavoriteMutation(
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "serieId",
-    "type": "ID!",
-    "defaultValue": null
+    "type": "ID!"
   }
 ],
 v1 = [
   {
-    "kind": "LinkedField",
     "alias": null,
-    "name": "deleteFavorite",
-    "storageKey": null,
     "args": [
       {
         "kind": "Variable",
@@ -55,47 +50,50 @@ v1 = [
       }
     ],
     "concreteType": "RangeDelete",
+    "kind": "LinkedField",
+    "name": "deleteFavorite",
     "plural": false,
     "selections": [
       {
-        "kind": "ScalarField",
         "alias": null,
-        "name": "success",
         "args": null,
+        "kind": "ScalarField",
+        "name": "success",
         "storageKey": null
       },
       {
-        "kind": "ScalarField",
         "alias": null,
-        "name": "id",
         "args": null,
+        "kind": "ScalarField",
+        "name": "id",
         "storageKey": null
       }
-    ]
+    ],
+    "storageKey": null
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "deleteFavoriteMutation",
-    "type": "RootMutation",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
-    "selections": (v1/*: any*/)
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "deleteFavoriteMutation",
+    "selections": (v1/*: any*/),
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "deleteFavoriteMutation",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": (v1/*: any*/)
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "deleteFavoriteMutation",
     "id": null,
-    "text": "mutation deleteFavoriteMutation(\n  $serieId: ID!\n) {\n  deleteFavorite(serieId: $serieId) {\n    success\n    id\n  }\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "deleteFavoriteMutation",
+    "operationKind": "mutation",
+    "text": "mutation deleteFavoriteMutation(\n  $serieId: ID!\n) {\n  deleteFavorite(serieId: $serieId) {\n    success\n    id\n  }\n}\n"
   }
 };
 })();

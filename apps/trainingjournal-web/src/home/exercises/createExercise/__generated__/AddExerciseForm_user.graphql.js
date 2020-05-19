@@ -3,7 +3,6 @@
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
@@ -22,26 +21,26 @@ export type AddExerciseForm_user$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "AddExerciseForm_user",
-  "type": "Viewer",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "AddExerciseForm_user",
   "selections": [
     {
       "kind": "InlineFragment",
-      "type": "TraningJournalViewer",
       "selections": [
         {
-          "kind": "ScalarField",
           "alias": null,
-          "name": "id",
           "args": null,
+          "kind": "ScalarField",
+          "name": "id",
           "storageKey": null
         }
-      ]
+      ],
+      "type": "TraningJournalViewer"
     }
-  ]
+  ],
+  "type": "Viewer"
 };
 // prettier-ignore
 (node: any).hash = '4e58068a1a593bdce8e1c90fb87fd834';

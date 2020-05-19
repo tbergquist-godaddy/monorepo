@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash f5e43ef39a7ef42c6749c7713b63f744
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 type SearchScene_search$ref = any;
@@ -58,16 +56,16 @@ fragment TvShowListItem_data on TvShow {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "query",
-    "type": "String!",
-    "defaultValue": null
+    "type": "String!"
   },
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "includeResults",
-    "type": "Boolean!",
-    "defaultValue": null
+    "type": "Boolean!"
   }
 ],
 v1 = {
@@ -76,24 +74,20 @@ v1 = {
   "variableName": "query"
 },
 v2 = {
-  "kind": "ScalarField",
   "alias": null,
-  "name": "id",
   "args": null,
+  "kind": "ScalarField",
+  "name": "id",
   "storageKey": null
 };
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "SearchSceneRefetchQuery",
-    "type": "RootQuery",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "SearchSceneRefetchQuery",
     "selections": [
       {
-        "kind": "FragmentSpread",
-        "name": "SearchScene_search",
         "args": [
           {
             "kind": "Variable",
@@ -101,106 +95,110 @@ return {
             "variableName": "includeResults"
           },
           (v1/*: any*/)
-        ]
+        ],
+        "kind": "FragmentSpread",
+        "name": "SearchScene_search"
       }
-    ]
+    ],
+    "type": "RootQuery"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "SearchSceneRefetchQuery",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
+        "condition": "includeResults",
         "kind": "Condition",
         "passingValue": true,
-        "condition": "includeResults",
         "selections": [
           {
-            "kind": "LinkedField",
             "alias": null,
-            "name": "searchTvShow",
-            "storageKey": null,
             "args": [
               (v1/*: any*/)
             ],
             "concreteType": "TvShowConnection",
+            "kind": "LinkedField",
+            "name": "searchTvShow",
             "plural": false,
             "selections": [
               {
-                "kind": "LinkedField",
                 "alias": null,
-                "name": "edges",
-                "storageKey": null,
                 "args": null,
                 "concreteType": "TvShowEdge",
+                "kind": "LinkedField",
+                "name": "edges",
                 "plural": true,
                 "selections": [
                   {
-                    "kind": "LinkedField",
                     "alias": null,
-                    "name": "node",
-                    "storageKey": null,
                     "args": null,
                     "concreteType": "TvShow",
+                    "kind": "LinkedField",
+                    "name": "node",
                     "plural": false,
                     "selections": [
                       (v2/*: any*/),
                       {
-                        "kind": "ScalarField",
                         "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
                         "name": "name",
-                        "args": null,
                         "storageKey": null
                       },
                       {
-                        "kind": "ScalarField",
                         "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
                         "name": "status",
-                        "args": null,
                         "storageKey": null
                       },
                       {
+                        "alias": null,
+                        "args": null,
                         "kind": "ScalarField",
-                        "alias": null,
                         "name": "rating",
-                        "args": null,
                         "storageKey": null
                       },
                       {
-                        "kind": "LinkedField",
                         "alias": null,
-                        "name": "image",
-                        "storageKey": null,
                         "args": null,
                         "concreteType": "TvHelperImage",
+                        "kind": "LinkedField",
+                        "name": "image",
                         "plural": false,
                         "selections": [
                           {
-                            "kind": "ScalarField",
                             "alias": null,
-                            "name": "medium",
                             "args": null,
+                            "kind": "ScalarField",
+                            "name": "medium",
                             "storageKey": null
                           },
                           (v2/*: any*/)
-                        ]
+                        ],
+                        "storageKey": null
                       }
-                    ]
+                    ],
+                    "storageKey": null
                   }
-                ]
+                ],
+                "storageKey": null
               }
-            ]
+            ],
+            "storageKey": null
           }
         ]
       }
     ]
   },
   "params": {
-    "operationKind": "query",
-    "name": "SearchSceneRefetchQuery",
     "id": null,
-    "text": "query SearchSceneRefetchQuery(\n  $query: String!\n  $includeResults: Boolean!\n) {\n  ...SearchScene_search_1dc2Le\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowListItem_data\n    }\n  }\n}\n\nfragment SearchScene_search_1dc2Le on RootQuery {\n  searchTvShow(query: $query) @include(if: $includeResults) {\n    ...SearchResults_results\n  }\n}\n\nfragment TvShowListItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "SearchSceneRefetchQuery",
+    "operationKind": "query",
+    "text": "query SearchSceneRefetchQuery(\n  $query: String!\n  $includeResults: Boolean!\n) {\n  ...SearchScene_search_1dc2Le\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowListItem_data\n    }\n  }\n}\n\nfragment SearchScene_search_1dc2Le on RootQuery {\n  searchTvShow(query: $query) @include(if: $includeResults) {\n    ...SearchResults_results\n  }\n}\n\nfragment TvShowListItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n"
   }
 };
 })();

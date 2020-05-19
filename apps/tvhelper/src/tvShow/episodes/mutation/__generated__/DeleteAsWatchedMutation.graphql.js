@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash 66cd36838312cbc8f9a05f249fb02d73
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type DeleteAsWatchedMutationVariables = {|
@@ -41,18 +39,15 @@ mutation DeleteAsWatchedMutation(
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "episodeId",
-    "type": "ID!",
-    "defaultValue": null
+    "type": "ID!"
   }
 ],
 v1 = [
   {
-    "kind": "LinkedField",
     "alias": null,
-    "name": "deleteWatchedEpisode",
-    "storageKey": null,
     "args": [
       {
         "kind": "Variable",
@@ -61,65 +56,68 @@ v1 = [
       }
     ],
     "concreteType": "EpisodeWatched",
+    "kind": "LinkedField",
+    "name": "deleteWatchedEpisode",
     "plural": false,
     "selections": [
       {
-        "kind": "ScalarField",
         "alias": null,
-        "name": "success",
         "args": null,
+        "kind": "ScalarField",
+        "name": "success",
         "storageKey": null
       },
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "episode",
-        "storageKey": null,
         "args": null,
         "concreteType": "Episode",
+        "kind": "LinkedField",
+        "name": "episode",
         "plural": false,
         "selections": [
           {
-            "kind": "ScalarField",
             "alias": null,
-            "name": "id",
             "args": null,
+            "kind": "ScalarField",
+            "name": "id",
             "storageKey": null
           },
           {
-            "kind": "ScalarField",
             "alias": null,
-            "name": "watched",
             "args": null,
+            "kind": "ScalarField",
+            "name": "watched",
             "storageKey": null
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "storageKey": null
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "DeleteAsWatchedMutation",
-    "type": "RootMutation",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
-    "selections": (v1/*: any*/)
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "DeleteAsWatchedMutation",
+    "selections": (v1/*: any*/),
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "DeleteAsWatchedMutation",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": (v1/*: any*/)
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "DeleteAsWatchedMutation",
     "id": null,
-    "text": "mutation DeleteAsWatchedMutation(\n  $episodeId: ID!\n) {\n  deleteWatchedEpisode(episodeId: $episodeId) {\n    success\n    episode {\n      id\n      watched\n    }\n  }\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "DeleteAsWatchedMutation",
+    "operationKind": "mutation",
+    "text": "mutation DeleteAsWatchedMutation(\n  $episodeId: ID!\n) {\n  deleteWatchedEpisode(episodeId: $episodeId) {\n    success\n    episode {\n      id\n      watched\n    }\n  }\n}\n"
   }
 };
 })();

@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash 9cd3f8ff107bf85b32704f0542ef5451
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type ChangePasswordFormMutationVariables = {|
@@ -42,16 +40,16 @@ mutation ChangePasswordFormMutation(
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "password",
-    "type": "String!",
-    "defaultValue": null
+    "type": "String!"
   },
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "newPassword",
-    "type": "String!",
-    "defaultValue": null
+    "type": "String!"
   }
 ],
 v1 = [
@@ -68,87 +66,87 @@ v1 = [
 ],
 v2 = {
   "kind": "InlineFragment",
-  "type": "ChangePasswordResponse",
   "selections": [
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "success",
       "args": null,
+      "kind": "ScalarField",
+      "name": "success",
       "storageKey": null
     }
-  ]
+  ],
+  "type": "ChangePasswordResponse"
 },
 v3 = {
   "kind": "InlineFragment",
-  "type": "ChangePasswordError",
   "selections": [
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "message",
       "args": null,
+      "kind": "ScalarField",
+      "name": "message",
       "storageKey": null
     }
-  ]
+  ],
+  "type": "ChangePasswordError"
 };
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "ChangePasswordFormMutation",
-    "type": "RootMutation",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "ChangePasswordFormMutation",
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "tvHelperChangePassword",
-        "storageKey": null,
         "args": (v1/*: any*/),
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "tvHelperChangePassword",
         "plural": false,
         "selections": [
           (v2/*: any*/),
           (v3/*: any*/)
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "ChangePasswordFormMutation",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "tvHelperChangePassword",
-        "storageKey": null,
         "args": (v1/*: any*/),
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "tvHelperChangePassword",
         "plural": false,
         "selections": [
           {
-            "kind": "ScalarField",
             "alias": null,
-            "name": "__typename",
             "args": null,
+            "kind": "ScalarField",
+            "name": "__typename",
             "storageKey": null
           },
           (v2/*: any*/),
           (v3/*: any*/)
-        ]
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "ChangePasswordFormMutation",
     "id": null,
-    "text": "mutation ChangePasswordFormMutation(\n  $password: String!\n  $newPassword: String!\n) {\n  tvHelperChangePassword(password: $password, newPassword: $newPassword) {\n    __typename\n    ... on ChangePasswordResponse {\n      success\n    }\n    ... on ChangePasswordError {\n      message\n    }\n  }\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "ChangePasswordFormMutation",
+    "operationKind": "mutation",
+    "text": "mutation ChangePasswordFormMutation(\n  $password: String!\n  $newPassword: String!\n) {\n  tvHelperChangePassword(password: $password, newPassword: $newPassword) {\n    __typename\n    ... on ChangePasswordResponse {\n      success\n    }\n    ... on ChangePasswordError {\n      message\n    }\n  }\n}\n"
   }
 };
 })();

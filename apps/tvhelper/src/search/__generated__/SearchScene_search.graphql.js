@@ -3,7 +3,6 @@
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
 type SearchResults_results$ref = any;
@@ -25,35 +24,31 @@ export type SearchScene_search$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "SearchScene_search",
-  "type": "RootQuery",
-  "metadata": null,
   "argumentDefinitions": [
     {
+      "defaultValue": null,
       "kind": "LocalArgument",
       "name": "includeResults",
-      "type": "Boolean",
-      "defaultValue": null
+      "type": "Boolean"
     },
     {
+      "defaultValue": null,
       "kind": "LocalArgument",
       "name": "query",
-      "type": "String!",
-      "defaultValue": null
+      "type": "String!"
     }
   ],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "SearchScene_search",
   "selections": [
     {
+      "condition": "includeResults",
       "kind": "Condition",
       "passingValue": true,
-      "condition": "includeResults",
       "selections": [
         {
-          "kind": "LinkedField",
           "alias": null,
-          "name": "searchTvShow",
-          "storageKey": null,
           "args": [
             {
               "kind": "Variable",
@@ -62,18 +57,22 @@ const node: ReaderFragment = {
             }
           ],
           "concreteType": "TvShowConnection",
+          "kind": "LinkedField",
+          "name": "searchTvShow",
           "plural": false,
           "selections": [
             {
+              "args": null,
               "kind": "FragmentSpread",
-              "name": "SearchResults_results",
-              "args": null
+              "name": "SearchResults_results"
             }
-          ]
+          ],
+          "storageKey": null
         }
       ]
     }
-  ]
+  ],
+  "type": "RootQuery"
 };
 // prettier-ignore
 (node: any).hash = '60dc4076525392cc2d7aac9dceb396e2';

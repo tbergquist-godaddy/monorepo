@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash 6e2c43802ec194f9a14ee6f4ddaa3c78
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type addFavoriteMutationVariables = {|
@@ -45,18 +43,15 @@ mutation addFavoriteMutation(
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "serieId",
-    "type": "ID!",
-    "defaultValue": null
+    "type": "ID!"
   }
 ],
 v1 = [
   {
-    "kind": "LinkedField",
     "alias": null,
-    "name": "addFavorite",
-    "storageKey": null,
     "args": [
       {
         "kind": "Variable",
@@ -65,76 +60,79 @@ v1 = [
       }
     ],
     "concreteType": "AddFavorite",
+    "kind": "LinkedField",
+    "name": "addFavorite",
     "plural": false,
     "selections": [
       {
-        "kind": "ScalarField",
         "alias": null,
-        "name": "success",
         "args": null,
+        "kind": "ScalarField",
+        "name": "success",
         "storageKey": null
       },
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "tvShow",
-        "storageKey": null,
         "args": null,
         "concreteType": "TvShowNode",
+        "kind": "LinkedField",
+        "name": "tvShow",
         "plural": false,
         "selections": [
           {
-            "kind": "LinkedField",
             "alias": null,
-            "name": "node",
-            "storageKey": null,
             "args": null,
             "concreteType": "TvShow",
+            "kind": "LinkedField",
+            "name": "node",
             "plural": false,
             "selections": [
               {
-                "kind": "ScalarField",
                 "alias": null,
-                "name": "id",
                 "args": null,
+                "kind": "ScalarField",
+                "name": "id",
                 "storageKey": null
               },
               {
-                "kind": "ScalarField",
                 "alias": null,
-                "name": "isFavorite",
                 "args": null,
+                "kind": "ScalarField",
+                "name": "isFavorite",
                 "storageKey": null
               }
-            ]
+            ],
+            "storageKey": null
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "storageKey": null
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "addFavoriteMutation",
-    "type": "RootMutation",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
-    "selections": (v1/*: any*/)
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "addFavoriteMutation",
+    "selections": (v1/*: any*/),
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "addFavoriteMutation",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": (v1/*: any*/)
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "addFavoriteMutation",
     "id": null,
-    "text": "mutation addFavoriteMutation(\n  $serieId: ID!\n) {\n  addFavorite(serieId: $serieId) {\n    success\n    tvShow {\n      node {\n        id\n        isFavorite\n      }\n    }\n  }\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "addFavoriteMutation",
+    "operationKind": "mutation",
+    "text": "mutation addFavoriteMutation(\n  $serieId: ID!\n) {\n  addFavorite(serieId: $serieId) {\n    success\n    tvShow {\n      node {\n        id\n        isFavorite\n      }\n    }\n  }\n}\n"
   }
 };
 })();

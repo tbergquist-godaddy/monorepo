@@ -3,7 +3,6 @@
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
 type Layout_viewer$ref = any;
@@ -25,29 +24,29 @@ export type SearchScene_viewer$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "SearchScene_viewer",
-  "type": "RootQuery",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "SearchScene_viewer",
   "selections": [
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "viewer",
-      "storageKey": null,
       "args": null,
       "concreteType": null,
+      "kind": "LinkedField",
+      "name": "viewer",
       "plural": false,
       "selections": [
         {
+          "args": null,
           "kind": "FragmentSpread",
-          "name": "Layout_viewer",
-          "args": null
+          "name": "Layout_viewer"
         }
-      ]
+      ],
+      "storageKey": null
     }
-  ]
+  ],
+  "type": "RootQuery"
 };
 // prettier-ignore
 (node: any).hash = '75939813deba341627b713e2691d5dcf';

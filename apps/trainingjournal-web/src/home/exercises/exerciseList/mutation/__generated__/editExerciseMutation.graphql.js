@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash c554542816cd0e4686135304582dbecb
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 type EditExercise_exercise$ref = any;
@@ -59,16 +57,16 @@ fragment EditExercise_exercise on Exercise {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "id",
-    "type": "ID!",
-    "defaultValue": null
+    "type": "ID!"
   },
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "exercise",
-    "type": "CreateExerciseInput!",
-    "defaultValue": null
+    "type": "CreateExerciseInput!"
   }
 ],
 v1 = [
@@ -84,135 +82,135 @@ v1 = [
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "editExerciseMutation",
-    "type": "RootMutation",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "editExerciseMutation",
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "editExercise",
-        "storageKey": null,
         "args": (v1/*: any*/),
         "concreteType": "CreateExercise",
+        "kind": "LinkedField",
+        "name": "editExercise",
         "plural": false,
         "selections": [
           {
-            "kind": "LinkedField",
             "alias": null,
-            "name": "exerciseEdge",
-            "storageKey": null,
             "args": null,
             "concreteType": "ExerciseEdge",
+            "kind": "LinkedField",
+            "name": "exerciseEdge",
             "plural": false,
             "selections": [
               {
-                "kind": "LinkedField",
                 "alias": null,
-                "name": "node",
-                "storageKey": null,
                 "args": null,
                 "concreteType": "Exercise",
+                "kind": "LinkedField",
+                "name": "node",
                 "plural": false,
                 "selections": [
                   {
+                    "args": null,
                     "kind": "FragmentSpread",
-                    "name": "EditExercise_exercise",
-                    "args": null
+                    "name": "EditExercise_exercise"
                   }
-                ]
+                ],
+                "storageKey": null
               }
-            ]
+            ],
+            "storageKey": null
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "editExerciseMutation",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "editExercise",
-        "storageKey": null,
         "args": (v1/*: any*/),
         "concreteType": "CreateExercise",
+        "kind": "LinkedField",
+        "name": "editExercise",
         "plural": false,
         "selections": [
           {
-            "kind": "LinkedField",
             "alias": null,
-            "name": "exerciseEdge",
-            "storageKey": null,
             "args": null,
             "concreteType": "ExerciseEdge",
+            "kind": "LinkedField",
+            "name": "exerciseEdge",
             "plural": false,
             "selections": [
               {
-                "kind": "LinkedField",
                 "alias": null,
-                "name": "node",
-                "storageKey": null,
                 "args": null,
                 "concreteType": "Exercise",
+                "kind": "LinkedField",
+                "name": "node",
                 "plural": false,
                 "selections": [
                   {
-                    "kind": "ScalarField",
                     "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "id",
-                    "args": null,
                     "storageKey": null
                   },
                   {
-                    "kind": "ScalarField",
                     "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "name",
-                    "args": null,
                     "storageKey": null
                   },
                   {
-                    "kind": "ScalarField",
                     "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "muscleGroups",
-                    "args": null,
                     "storageKey": null
                   },
                   {
-                    "kind": "ScalarField",
                     "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "videoUrl",
-                    "args": null,
                     "storageKey": null
                   },
                   {
-                    "kind": "ScalarField",
                     "alias": null,
-                    "name": "description",
                     "args": null,
+                    "kind": "ScalarField",
+                    "name": "description",
                     "storageKey": null
                   }
-                ]
+                ],
+                "storageKey": null
               }
-            ]
+            ],
+            "storageKey": null
           }
-        ]
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "editExerciseMutation",
     "id": null,
-    "text": "mutation editExerciseMutation(\n  $id: ID!\n  $exercise: CreateExerciseInput!\n) {\n  editExercise(exerciseId: $id, exercise: $exercise) {\n    exerciseEdge {\n      node {\n        ...EditExercise_exercise\n        id\n      }\n    }\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "editExerciseMutation",
+    "operationKind": "mutation",
+    "text": "mutation editExerciseMutation(\n  $id: ID!\n  $exercise: CreateExerciseInput!\n) {\n  editExercise(exerciseId: $id, exercise: $exercise) {\n    exerciseEdge {\n      node {\n        ...EditExercise_exercise\n        id\n      }\n    }\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n"
   }
 };
 })();

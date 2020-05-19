@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash 68f4cbdc99286c09c913e70d6b9f9177
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 type ProgramListItem_program$ref = any;
@@ -51,10 +49,10 @@ fragment ProgramListItem_program on Program {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "program",
-    "type": "CreateProgramInput!",
-    "defaultValue": null
+    "type": "CreateProgramInput!"
   }
 ],
 v1 = [
@@ -65,121 +63,121 @@ v1 = [
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "createProgramMutation",
-    "type": "RootMutation",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "createProgramMutation",
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "createProgram",
-        "storageKey": null,
         "args": (v1/*: any*/),
         "concreteType": "CreateProgram",
+        "kind": "LinkedField",
+        "name": "createProgram",
         "plural": false,
         "selections": [
           {
-            "kind": "LinkedField",
             "alias": null,
-            "name": "programEdge",
-            "storageKey": null,
             "args": null,
             "concreteType": "ProgramEdge",
+            "kind": "LinkedField",
+            "name": "programEdge",
             "plural": false,
             "selections": [
               {
-                "kind": "LinkedField",
                 "alias": null,
-                "name": "node",
-                "storageKey": null,
                 "args": null,
                 "concreteType": "Program",
+                "kind": "LinkedField",
+                "name": "node",
                 "plural": false,
                 "selections": [
                   {
+                    "args": null,
                     "kind": "FragmentSpread",
-                    "name": "ProgramListItem_program",
-                    "args": null
+                    "name": "ProgramListItem_program"
                   }
-                ]
+                ],
+                "storageKey": null
               }
-            ]
+            ],
+            "storageKey": null
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "createProgramMutation",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "createProgram",
-        "storageKey": null,
         "args": (v1/*: any*/),
         "concreteType": "CreateProgram",
+        "kind": "LinkedField",
+        "name": "createProgram",
         "plural": false,
         "selections": [
           {
-            "kind": "LinkedField",
             "alias": null,
-            "name": "programEdge",
-            "storageKey": null,
             "args": null,
             "concreteType": "ProgramEdge",
+            "kind": "LinkedField",
+            "name": "programEdge",
             "plural": false,
             "selections": [
               {
-                "kind": "LinkedField",
                 "alias": null,
-                "name": "node",
-                "storageKey": null,
                 "args": null,
                 "concreteType": "Program",
+                "kind": "LinkedField",
+                "name": "node",
                 "plural": false,
                 "selections": [
                   {
-                    "kind": "ScalarField",
                     "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "name",
-                    "args": null,
                     "storageKey": null
                   },
                   {
-                    "kind": "ScalarField",
                     "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "date",
-                    "args": null,
                     "storageKey": null
                   },
                   {
-                    "kind": "ScalarField",
                     "alias": null,
-                    "name": "id",
                     "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
                     "storageKey": null
                   }
-                ]
+                ],
+                "storageKey": null
               }
-            ]
+            ],
+            "storageKey": null
           }
-        ]
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "createProgramMutation",
     "id": null,
-    "text": "mutation createProgramMutation(\n  $program: CreateProgramInput!\n) {\n  createProgram(program: $program) {\n    programEdge {\n      node {\n        ...ProgramListItem_program\n        id\n      }\n    }\n  }\n}\n\nfragment ProgramListItem_program on Program {\n  name\n  date\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "createProgramMutation",
+    "operationKind": "mutation",
+    "text": "mutation createProgramMutation(\n  $program: CreateProgramInput!\n) {\n  createProgram(program: $program) {\n    programEdge {\n      node {\n        ...ProgramListItem_program\n        id\n      }\n    }\n  }\n}\n\nfragment ProgramListItem_program on Program {\n  name\n  date\n}\n"
   }
 };
 })();

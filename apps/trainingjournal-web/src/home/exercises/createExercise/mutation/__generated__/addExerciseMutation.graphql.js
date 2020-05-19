@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash e49907b76c0900765568b50eef1aeda8
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type CreateExerciseInput = {|
@@ -55,18 +53,15 @@ mutation addExerciseMutation(
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "input",
-    "type": "CreateExerciseInput!",
-    "defaultValue": null
+    "type": "CreateExerciseInput!"
   }
 ],
 v1 = [
   {
-    "kind": "LinkedField",
     "alias": null,
-    "name": "createExercise",
-    "storageKey": null,
     "args": [
       {
         "kind": "Variable",
@@ -75,90 +70,93 @@ v1 = [
       }
     ],
     "concreteType": "CreateExercise",
+    "kind": "LinkedField",
+    "name": "createExercise",
     "plural": false,
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "exerciseEdge",
-        "storageKey": null,
         "args": null,
         "concreteType": "ExerciseEdge",
+        "kind": "LinkedField",
+        "name": "exerciseEdge",
         "plural": false,
         "selections": [
           {
-            "kind": "LinkedField",
             "alias": null,
-            "name": "node",
-            "storageKey": null,
             "args": null,
             "concreteType": "Exercise",
+            "kind": "LinkedField",
+            "name": "node",
             "plural": false,
             "selections": [
               {
-                "kind": "ScalarField",
                 "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "id",
-                "args": null,
                 "storageKey": null
               },
               {
-                "kind": "ScalarField",
                 "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "name",
-                "args": null,
                 "storageKey": null
               },
               {
-                "kind": "ScalarField",
                 "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "videoUrl",
-                "args": null,
                 "storageKey": null
               },
               {
-                "kind": "ScalarField",
                 "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "description",
-                "args": null,
                 "storageKey": null
               },
               {
-                "kind": "ScalarField",
                 "alias": null,
-                "name": "muscleGroups",
                 "args": null,
+                "kind": "ScalarField",
+                "name": "muscleGroups",
                 "storageKey": null
               }
-            ]
+            ],
+            "storageKey": null
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "storageKey": null
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "addExerciseMutation",
-    "type": "RootMutation",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
-    "selections": (v1/*: any*/)
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "addExerciseMutation",
+    "selections": (v1/*: any*/),
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "addExerciseMutation",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": (v1/*: any*/)
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "addExerciseMutation",
     "id": null,
-    "text": "mutation addExerciseMutation(\n  $input: CreateExerciseInput!\n) {\n  createExercise(exercise: $input) {\n    exerciseEdge {\n      node {\n        id\n        name\n        videoUrl\n        description\n        muscleGroups\n      }\n    }\n  }\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "addExerciseMutation",
+    "operationKind": "mutation",
+    "text": "mutation addExerciseMutation(\n  $input: CreateExerciseInput!\n) {\n  createExercise(exercise: $input) {\n    exerciseEdge {\n      node {\n        id\n        name\n        videoUrl\n        description\n        muscleGroups\n      }\n    }\n  }\n}\n"
   }
 };
 })();

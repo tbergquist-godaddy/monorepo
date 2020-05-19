@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash d28eefb34486930fd0ce0a85b6737c50
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 type AddProgramForm_user$ref = any;
@@ -65,17 +63,17 @@ fragment ProgramList_viewer on TraningJournalViewer {
 
 const node: ConcreteRequest = (function(){
 var v0 = {
-  "kind": "ScalarField",
   "alias": null,
-  "name": "__typename",
   "args": null,
+  "kind": "ScalarField",
+  "name": "__typename",
   "storageKey": null
 },
 v1 = {
-  "kind": "ScalarField",
   "alias": null,
-  "name": "id",
   "args": null,
+  "kind": "ScalarField",
+  "name": "id",
   "storageKey": null
 },
 v2 = [
@@ -86,166 +84,166 @@ v2 = [
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "ProgramsQuery",
-    "type": "RootQuery",
-    "metadata": null,
     "argumentDefinitions": [],
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "ProgramsQuery",
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "viewer",
-        "storageKey": null,
         "args": null,
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "viewer",
         "plural": false,
         "selections": [
           {
+            "args": null,
             "kind": "FragmentSpread",
-            "name": "ProgramList_viewer",
-            "args": null
+            "name": "ProgramList_viewer"
           },
           {
+            "args": null,
             "kind": "FragmentSpread",
-            "name": "AddProgramForm_user",
-            "args": null
+            "name": "AddProgramForm_user"
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "type": "RootQuery"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": [],
     "kind": "Operation",
     "name": "ProgramsQuery",
-    "argumentDefinitions": [],
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "viewer",
-        "storageKey": null,
         "args": null,
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "viewer",
         "plural": false,
         "selections": [
           (v0/*: any*/),
           {
             "kind": "InlineFragment",
-            "type": "TraningJournalViewer",
             "selections": [
               (v1/*: any*/),
               {
-                "kind": "LinkedField",
                 "alias": null,
-                "name": "programs",
-                "storageKey": "programs(first:10)",
                 "args": (v2/*: any*/),
                 "concreteType": "ProgramConnection",
+                "kind": "LinkedField",
+                "name": "programs",
                 "plural": false,
                 "selections": [
                   {
-                    "kind": "LinkedField",
                     "alias": null,
-                    "name": "edges",
-                    "storageKey": null,
                     "args": null,
                     "concreteType": "ProgramEdge",
+                    "kind": "LinkedField",
+                    "name": "edges",
                     "plural": true,
                     "selections": [
                       {
-                        "kind": "LinkedField",
                         "alias": null,
-                        "name": "node",
-                        "storageKey": null,
                         "args": null,
                         "concreteType": "Program",
+                        "kind": "LinkedField",
+                        "name": "node",
                         "plural": false,
                         "selections": [
                           (v1/*: any*/),
                           {
-                            "kind": "ScalarField",
                             "alias": null,
-                            "name": "name",
                             "args": null,
+                            "kind": "ScalarField",
+                            "name": "name",
                             "storageKey": null
                           },
                           {
-                            "kind": "ScalarField",
                             "alias": null,
-                            "name": "date",
                             "args": null,
+                            "kind": "ScalarField",
+                            "name": "date",
                             "storageKey": null
                           },
                           (v0/*: any*/)
-                        ]
+                        ],
+                        "storageKey": null
                       },
                       {
-                        "kind": "ScalarField",
                         "alias": null,
-                        "name": "cursor",
                         "args": null,
+                        "kind": "ScalarField",
+                        "name": "cursor",
                         "storageKey": null
                       }
-                    ]
+                    ],
+                    "storageKey": null
                   },
                   {
-                    "kind": "LinkedField",
                     "alias": null,
-                    "name": "pageInfo",
-                    "storageKey": null,
                     "args": null,
                     "concreteType": "PageInfo",
+                    "kind": "LinkedField",
+                    "name": "pageInfo",
                     "plural": false,
                     "selections": [
                       {
-                        "kind": "ScalarField",
                         "alias": null,
-                        "name": "endCursor",
                         "args": null,
+                        "kind": "ScalarField",
+                        "name": "endCursor",
                         "storageKey": null
                       },
                       {
-                        "kind": "ScalarField",
                         "alias": null,
-                        "name": "hasNextPage",
                         "args": null,
+                        "kind": "ScalarField",
+                        "name": "hasNextPage",
                         "storageKey": null
                       }
-                    ]
+                    ],
+                    "storageKey": null
                   }
-                ]
+                ],
+                "storageKey": "programs(first:10)"
               },
               {
-                "kind": "LinkedHandle",
                 "alias": null,
-                "name": "programs",
                 "args": (v2/*: any*/),
+                "filters": null,
                 "handle": "connection",
                 "key": "ProgramList_programs",
-                "filters": null
+                "kind": "LinkedHandle",
+                "name": "programs"
               }
-            ]
+            ],
+            "type": "TraningJournalViewer"
           },
           {
             "kind": "InlineFragment",
-            "type": "TvHelperViewer",
             "selections": [
               (v1/*: any*/)
-            ]
+            ],
+            "type": "TvHelperViewer"
           }
-        ]
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "operationKind": "query",
-    "name": "ProgramsQuery",
     "id": null,
-    "text": "query ProgramsQuery {\n  viewer {\n    __typename\n    ...ProgramList_viewer\n    ...AddProgramForm_user\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddProgramForm_user on TraningJournalViewer {\n  id\n}\n\nfragment ProgramListItem_program on Program {\n  name\n  date\n}\n\nfragment ProgramList_viewer on TraningJournalViewer {\n  id\n  programs(first: 10) {\n    edges {\n      node {\n        id\n        ...ProgramListItem_program\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "ProgramsQuery",
+    "operationKind": "query",
+    "text": "query ProgramsQuery {\n  viewer {\n    __typename\n    ...ProgramList_viewer\n    ...AddProgramForm_user\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddProgramForm_user on TraningJournalViewer {\n  id\n}\n\nfragment ProgramListItem_program on Program {\n  name\n  date\n}\n\nfragment ProgramList_viewer on TraningJournalViewer {\n  id\n  programs(first: 10) {\n    edges {\n      node {\n        id\n        ...ProgramListItem_program\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
   }
 };
 })();

@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash f68ad7a5e6ec2da3910ace76bd844dcb
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 type AddExerciseForm_user$ref = any;
@@ -62,75 +60,75 @@ fragment AddExerciseForm_user on Viewer {
 
 const node: ConcreteRequest = (function(){
 var v0 = {
-  "kind": "ScalarField",
   "alias": null,
-  "name": "id",
   "args": null,
+  "kind": "ScalarField",
+  "name": "id",
   "storageKey": null
 },
 v1 = {
-  "kind": "ScalarField",
   "alias": null,
-  "name": "__typename",
   "args": null,
+  "kind": "ScalarField",
+  "name": "__typename",
   "storageKey": null
 },
 v2 = [
   {
-    "kind": "LinkedField",
     "alias": null,
-    "name": "edges",
-    "storageKey": null,
     "args": null,
     "concreteType": "ExerciseEdge",
+    "kind": "LinkedField",
+    "name": "edges",
     "plural": true,
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "node",
-        "storageKey": null,
         "args": null,
         "concreteType": "Exercise",
+        "kind": "LinkedField",
+        "name": "node",
         "plural": false,
         "selections": [
           (v0/*: any*/),
           (v1/*: any*/)
-        ]
+        ],
+        "storageKey": null
       },
       {
-        "kind": "ScalarField",
         "alias": null,
-        "name": "cursor",
         "args": null,
+        "kind": "ScalarField",
+        "name": "cursor",
         "storageKey": null
       }
-    ]
+    ],
+    "storageKey": null
   },
   {
-    "kind": "LinkedField",
     "alias": null,
-    "name": "pageInfo",
-    "storageKey": null,
     "args": null,
     "concreteType": "PageInfo",
+    "kind": "LinkedField",
+    "name": "pageInfo",
     "plural": false,
     "selections": [
       {
-        "kind": "ScalarField",
         "alias": null,
-        "name": "endCursor",
         "args": null,
+        "kind": "ScalarField",
+        "name": "endCursor",
         "storageKey": null
       },
       {
-        "kind": "ScalarField",
         "alias": null,
-        "name": "hasNextPage",
         "args": null,
+        "kind": "ScalarField",
+        "name": "hasNextPage",
         "storageKey": null
       }
-    ]
+    ],
+    "storageKey": null
   }
 ],
 v3 = [
@@ -147,105 +145,102 @@ v4 = {
   "nullable": false
 };
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "AddExerciseFormTestQuery",
-    "type": "RootQuery",
-    "metadata": null,
     "argumentDefinitions": [],
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "AddExerciseFormTestQuery",
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "viewer",
-        "storageKey": null,
         "args": null,
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "viewer",
         "plural": false,
         "selections": [
           {
+            "args": null,
             "kind": "FragmentSpread",
-            "name": "AddExerciseForm_user",
-            "args": null
+            "name": "AddExerciseForm_user"
           },
           {
             "kind": "InlineFragment",
-            "type": "TraningJournalViewer",
             "selections": [
               {
-                "kind": "LinkedField",
                 "alias": "exercises",
-                "name": "__ExerciseList_exercises_connection",
-                "storageKey": null,
                 "args": null,
                 "concreteType": "ExerciseConnection",
+                "kind": "LinkedField",
+                "name": "__ExerciseList_exercises_connection",
                 "plural": false,
-                "selections": (v2/*: any*/)
+                "selections": (v2/*: any*/),
+                "storageKey": null
               }
-            ]
+            ],
+            "type": "TraningJournalViewer"
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "type": "RootQuery"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": [],
     "kind": "Operation",
     "name": "AddExerciseFormTestQuery",
-    "argumentDefinitions": [],
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "viewer",
-        "storageKey": null,
         "args": null,
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "viewer",
         "plural": false,
         "selections": [
           (v1/*: any*/),
           {
             "kind": "InlineFragment",
-            "type": "TraningJournalViewer",
             "selections": [
               (v0/*: any*/),
               {
-                "kind": "LinkedField",
                 "alias": null,
-                "name": "exercises",
-                "storageKey": "exercises(first:1)",
                 "args": (v3/*: any*/),
                 "concreteType": "ExerciseConnection",
+                "kind": "LinkedField",
+                "name": "exercises",
                 "plural": false,
-                "selections": (v2/*: any*/)
+                "selections": (v2/*: any*/),
+                "storageKey": "exercises(first:1)"
               },
               {
-                "kind": "LinkedHandle",
                 "alias": null,
-                "name": "exercises",
                 "args": (v3/*: any*/),
+                "filters": null,
                 "handle": "connection",
                 "key": "ExerciseList_exercises",
-                "filters": null
+                "kind": "LinkedHandle",
+                "name": "exercises"
               }
-            ]
+            ],
+            "type": "TraningJournalViewer"
           },
           {
             "kind": "InlineFragment",
-            "type": "TvHelperViewer",
             "selections": [
               (v0/*: any*/)
-            ]
+            ],
+            "type": "TvHelperViewer"
           }
-        ]
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "operationKind": "query",
-    "name": "AddExerciseFormTestQuery",
     "id": null,
-    "text": "query AddExerciseFormTestQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ... on TraningJournalViewer {\n      exercises(first: 1) {\n        edges {\n          node {\n            id\n            __typename\n          }\n          cursor\n        }\n        pageInfo {\n          endCursor\n          hasNextPage\n        }\n      }\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n",
     "metadata": {
       "connection": [
         {
@@ -316,7 +311,10 @@ return {
         },
         "viewer.exercises.edges.node.__typename": (v4/*: any*/)
       }
-    }
+    },
+    "name": "AddExerciseFormTestQuery",
+    "operationKind": "query",
+    "text": "query AddExerciseFormTestQuery {\n  viewer {\n    __typename\n    ...AddExerciseForm_user\n    ... on TraningJournalViewer {\n      exercises(first: 1) {\n        edges {\n          node {\n            id\n            __typename\n          }\n          cursor\n        }\n        pageInfo {\n          endCursor\n          hasNextPage\n        }\n      }\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddExerciseForm_user on Viewer {\n  ... on TraningJournalViewer {\n    id\n  }\n}\n"
   }
 };
 })();

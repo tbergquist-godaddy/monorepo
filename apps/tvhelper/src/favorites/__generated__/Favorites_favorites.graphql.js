@@ -3,7 +3,6 @@
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
 type FavoriteListItem_favorite$ref = any;
@@ -30,27 +29,23 @@ export type Favorites_favorites$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "Favorites_favorites",
-  "type": "TvHelperViewer",
-  "metadata": null,
   "argumentDefinitions": [
     {
-      "kind": "LocalArgument",
-      "name": "options",
-      "type": "SortOptions",
       "defaultValue": {
         "sortDirection": "DESC",
         "sortBy": "PREVIOUS_EPISODE"
-      }
+      },
+      "kind": "LocalArgument",
+      "name": "options",
+      "type": "SortOptions"
     }
   ],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "Favorites_favorites",
   "selections": [
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "favorites",
-      "storageKey": null,
       "args": [
         {
           "kind": "Variable",
@@ -59,45 +54,49 @@ const node: ReaderFragment = {
         }
       ],
       "concreteType": "TvShowConnection",
+      "kind": "LinkedField",
+      "name": "favorites",
       "plural": false,
       "selections": [
         {
-          "kind": "LinkedField",
           "alias": null,
-          "name": "edges",
-          "storageKey": null,
           "args": null,
           "concreteType": "TvShowEdge",
+          "kind": "LinkedField",
+          "name": "edges",
           "plural": true,
           "selections": [
             {
-              "kind": "LinkedField",
               "alias": null,
-              "name": "node",
-              "storageKey": null,
               "args": null,
               "concreteType": "TvShow",
+              "kind": "LinkedField",
+              "name": "node",
               "plural": false,
               "selections": [
                 {
-                  "kind": "ScalarField",
                   "alias": null,
-                  "name": "id",
                   "args": null,
+                  "kind": "ScalarField",
+                  "name": "id",
                   "storageKey": null
                 },
                 {
+                  "args": null,
                   "kind": "FragmentSpread",
-                  "name": "FavoriteListItem_favorite",
-                  "args": null
+                  "name": "FavoriteListItem_favorite"
                 }
-              ]
+              ],
+              "storageKey": null
             }
-          ]
+          ],
+          "storageKey": null
         }
-      ]
+      ],
+      "storageKey": null
     }
-  ]
+  ],
+  "type": "TvHelperViewer"
 };
 // prettier-ignore
 (node: any).hash = 'f9ba1adf491e27909a01d3f28323f4af';

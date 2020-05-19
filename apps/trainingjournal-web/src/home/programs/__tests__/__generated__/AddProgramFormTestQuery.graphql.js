@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash f5b2e73867fecd32c88947128d5b20aa
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 type AddProgramForm_user$ref = any;
@@ -41,80 +39,77 @@ fragment AddProgramForm_user on TraningJournalViewer {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "kind": "ScalarField",
     "alias": null,
-    "name": "id",
     "args": null,
+    "kind": "ScalarField",
+    "name": "id",
     "storageKey": null
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "AddProgramFormTestQuery",
-    "type": "RootQuery",
-    "metadata": null,
     "argumentDefinitions": [],
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "AddProgramFormTestQuery",
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "viewer",
-        "storageKey": null,
         "args": null,
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "viewer",
         "plural": false,
         "selections": [
           {
+            "args": null,
             "kind": "FragmentSpread",
-            "name": "AddProgramForm_user",
-            "args": null
+            "name": "AddProgramForm_user"
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "type": "RootQuery"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": [],
     "kind": "Operation",
     "name": "AddProgramFormTestQuery",
-    "argumentDefinitions": [],
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "viewer",
-        "storageKey": null,
         "args": null,
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "viewer",
         "plural": false,
         "selections": [
           {
-            "kind": "ScalarField",
             "alias": null,
-            "name": "__typename",
             "args": null,
+            "kind": "ScalarField",
+            "name": "__typename",
             "storageKey": null
           },
           {
             "kind": "InlineFragment",
-            "type": "TraningJournalViewer",
-            "selections": (v0/*: any*/)
+            "selections": (v0/*: any*/),
+            "type": "TraningJournalViewer"
           },
           {
             "kind": "InlineFragment",
-            "type": "TvHelperViewer",
-            "selections": (v0/*: any*/)
+            "selections": (v0/*: any*/),
+            "type": "TvHelperViewer"
           }
-        ]
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "operationKind": "query",
-    "name": "AddProgramFormTestQuery",
     "id": null,
-    "text": "query AddProgramFormTestQuery {\n  viewer {\n    __typename\n    ...AddProgramForm_user\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddProgramForm_user on TraningJournalViewer {\n  id\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -130,7 +125,10 @@ return {
           "nullable": true
         }
       }
-    }
+    },
+    "name": "AddProgramFormTestQuery",
+    "operationKind": "query",
+    "text": "query AddProgramFormTestQuery {\n  viewer {\n    __typename\n    ...AddProgramForm_user\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment AddProgramForm_user on TraningJournalViewer {\n  id\n}\n"
   }
 };
 })();
