@@ -3,7 +3,6 @@
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
 type NavbarRight_viewer$ref = any;
@@ -24,25 +23,25 @@ export type Layout_viewer$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "Layout_viewer",
-  "type": "Viewer",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "Layout_viewer",
   "selections": [
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "__typename",
       "args": null,
+      "kind": "ScalarField",
+      "name": "__typename",
       "storageKey": null
     },
     {
+      "args": null,
       "kind": "FragmentSpread",
-      "name": "NavbarRight_viewer",
-      "args": null
+      "name": "NavbarRight_viewer"
     }
-  ]
+  ],
+  "type": "Viewer"
 };
 // prettier-ignore
 (node: any).hash = 'a84e1f319eb90fc30eeb4c981163c546';

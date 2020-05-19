@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash 2e3cb29fc82f95dd398f36bca2725f3c
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 type EditExercise_exercise$ref = any;
@@ -64,10 +62,10 @@ var v0 = [
   }
 ],
 v1 = {
-  "kind": "ScalarField",
   "alias": null,
-  "name": "id",
   "args": null,
+  "kind": "ScalarField",
+  "name": "id",
   "storageKey": null
 },
 v2 = {
@@ -77,177 +75,174 @@ v2 = {
   "nullable": true
 };
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "EditExerciseTestQuery",
-    "type": "RootQuery",
-    "metadata": null,
     "argumentDefinitions": [],
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "EditExerciseTestQuery",
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "viewer",
-        "storageKey": null,
         "args": null,
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "viewer",
         "plural": false,
         "selections": [
           {
             "kind": "InlineFragment",
-            "type": "TraningJournalViewer",
             "selections": [
               {
-                "kind": "LinkedField",
                 "alias": null,
-                "name": "exercises",
-                "storageKey": "exercises(first:1)",
                 "args": (v0/*: any*/),
                 "concreteType": "ExerciseConnection",
+                "kind": "LinkedField",
+                "name": "exercises",
                 "plural": false,
                 "selections": [
                   {
-                    "kind": "LinkedField",
                     "alias": null,
-                    "name": "edges",
-                    "storageKey": null,
                     "args": null,
                     "concreteType": "ExerciseEdge",
+                    "kind": "LinkedField",
+                    "name": "edges",
                     "plural": true,
                     "selections": [
                       {
-                        "kind": "LinkedField",
                         "alias": null,
-                        "name": "node",
-                        "storageKey": null,
                         "args": null,
                         "concreteType": "Exercise",
+                        "kind": "LinkedField",
+                        "name": "node",
                         "plural": false,
                         "selections": [
                           {
+                            "args": null,
                             "kind": "FragmentSpread",
-                            "name": "EditExercise_exercise",
-                            "args": null
+                            "name": "EditExercise_exercise"
                           }
-                        ]
+                        ],
+                        "storageKey": null
                       }
-                    ]
+                    ],
+                    "storageKey": null
                   }
-                ]
+                ],
+                "storageKey": "exercises(first:1)"
               }
-            ]
+            ],
+            "type": "TraningJournalViewer"
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "type": "RootQuery"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": [],
     "kind": "Operation",
     "name": "EditExerciseTestQuery",
-    "argumentDefinitions": [],
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "viewer",
-        "storageKey": null,
         "args": null,
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "viewer",
         "plural": false,
         "selections": [
           {
-            "kind": "ScalarField",
             "alias": null,
-            "name": "__typename",
             "args": null,
+            "kind": "ScalarField",
+            "name": "__typename",
             "storageKey": null
           },
           {
             "kind": "InlineFragment",
-            "type": "TraningJournalViewer",
             "selections": [
               {
-                "kind": "LinkedField",
                 "alias": null,
-                "name": "exercises",
-                "storageKey": "exercises(first:1)",
                 "args": (v0/*: any*/),
                 "concreteType": "ExerciseConnection",
+                "kind": "LinkedField",
+                "name": "exercises",
                 "plural": false,
                 "selections": [
                   {
-                    "kind": "LinkedField",
                     "alias": null,
-                    "name": "edges",
-                    "storageKey": null,
                     "args": null,
                     "concreteType": "ExerciseEdge",
+                    "kind": "LinkedField",
+                    "name": "edges",
                     "plural": true,
                     "selections": [
                       {
-                        "kind": "LinkedField",
                         "alias": null,
-                        "name": "node",
-                        "storageKey": null,
                         "args": null,
                         "concreteType": "Exercise",
+                        "kind": "LinkedField",
+                        "name": "node",
                         "plural": false,
                         "selections": [
                           (v1/*: any*/),
                           {
-                            "kind": "ScalarField",
                             "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
                             "name": "name",
-                            "args": null,
                             "storageKey": null
                           },
                           {
-                            "kind": "ScalarField",
                             "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
                             "name": "muscleGroups",
-                            "args": null,
                             "storageKey": null
                           },
                           {
-                            "kind": "ScalarField",
                             "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
                             "name": "videoUrl",
-                            "args": null,
                             "storageKey": null
                           },
                           {
-                            "kind": "ScalarField",
                             "alias": null,
-                            "name": "description",
                             "args": null,
+                            "kind": "ScalarField",
+                            "name": "description",
                             "storageKey": null
                           }
-                        ]
+                        ],
+                        "storageKey": null
                       }
-                    ]
+                    ],
+                    "storageKey": null
                   }
-                ]
+                ],
+                "storageKey": "exercises(first:1)"
               },
               (v1/*: any*/)
-            ]
+            ],
+            "type": "TraningJournalViewer"
           },
           {
             "kind": "InlineFragment",
-            "type": "TvHelperViewer",
             "selections": [
               (v1/*: any*/)
-            ]
+            ],
+            "type": "TvHelperViewer"
           }
-        ]
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "operationKind": "query",
-    "name": "EditExerciseTestQuery",
     "id": null,
-    "text": "query EditExerciseTestQuery {\n  viewer {\n    __typename\n    ... on TraningJournalViewer {\n      exercises(first: 1) {\n        edges {\n          node {\n            ...EditExercise_exercise\n            id\n          }\n        }\n      }\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
@@ -291,7 +286,10 @@ return {
         "viewer.exercises.edges.node.videoUrl": (v2/*: any*/),
         "viewer.exercises.edges.node.description": (v2/*: any*/)
       }
-    }
+    },
+    "name": "EditExerciseTestQuery",
+    "operationKind": "query",
+    "text": "query EditExerciseTestQuery {\n  viewer {\n    __typename\n    ... on TraningJournalViewer {\n      exercises(first: 1) {\n        edges {\n          node {\n            ...EditExercise_exercise\n            id\n          }\n        }\n      }\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment EditExercise_exercise on Exercise {\n  id\n  name\n  muscleGroups\n  videoUrl\n  description\n}\n"
   }
 };
 })();

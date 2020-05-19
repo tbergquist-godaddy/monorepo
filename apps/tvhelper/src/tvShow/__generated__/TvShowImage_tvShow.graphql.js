@@ -3,7 +3,6 @@
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
@@ -27,52 +26,52 @@ export type TvShowImage_tvShow$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "TvShowImage_tvShow",
-  "type": "TvShow",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "TvShowImage_tvShow",
   "selections": [
     {
-      "kind": "ScalarField",
       "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "id",
-      "args": null,
       "storageKey": null
     },
     {
+      "alias": null,
+      "args": null,
       "kind": "ScalarField",
-      "alias": null,
       "name": "name",
-      "args": null,
       "storageKey": null
     },
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "image",
-      "storageKey": null,
       "args": null,
       "concreteType": "TvHelperImage",
+      "kind": "LinkedField",
+      "name": "image",
       "plural": false,
       "selections": [
         {
-          "kind": "ScalarField",
           "alias": null,
-          "name": "original",
           "args": null,
+          "kind": "ScalarField",
+          "name": "original",
           "storageKey": null
         }
-      ]
+      ],
+      "storageKey": null
     },
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "isFavorite",
       "args": null,
+      "kind": "ScalarField",
+      "name": "isFavorite",
       "storageKey": null
     }
-  ]
+  ],
+  "type": "TvShow"
 };
 // prettier-ignore
 (node: any).hash = '6ac05d6d7a57a0b1503b0bd297fdb7e3';

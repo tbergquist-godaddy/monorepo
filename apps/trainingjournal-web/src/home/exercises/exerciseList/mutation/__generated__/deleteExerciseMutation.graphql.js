@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash 838bbf3fac5563400d25760146fd94ea
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type deleteExerciseMutationVariables = {|
@@ -35,18 +33,15 @@ mutation deleteExerciseMutation(
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "id",
-    "type": "ID!",
-    "defaultValue": null
+    "type": "ID!"
   }
 ],
 v1 = [
   {
-    "kind": "LinkedField",
     "alias": null,
-    "name": "deleteExercise",
-    "storageKey": null,
     "args": [
       {
         "kind": "Variable",
@@ -55,47 +50,50 @@ v1 = [
       }
     ],
     "concreteType": "DeletedEpisode",
+    "kind": "LinkedField",
+    "name": "deleteExercise",
     "plural": false,
     "selections": [
       {
-        "kind": "ScalarField",
         "alias": null,
-        "name": "success",
         "args": null,
+        "kind": "ScalarField",
+        "name": "success",
         "storageKey": null
       },
       {
-        "kind": "ScalarField",
         "alias": null,
-        "name": "exerciseId",
         "args": null,
+        "kind": "ScalarField",
+        "name": "exerciseId",
         "storageKey": null
       }
-    ]
+    ],
+    "storageKey": null
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "deleteExerciseMutation",
-    "type": "RootMutation",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
-    "selections": (v1/*: any*/)
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "deleteExerciseMutation",
+    "selections": (v1/*: any*/),
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "deleteExerciseMutation",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": (v1/*: any*/)
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "deleteExerciseMutation",
     "id": null,
-    "text": "mutation deleteExerciseMutation(\n  $id: ID!\n) {\n  deleteExercise(id: $id) {\n    success\n    exerciseId\n  }\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "deleteExerciseMutation",
+    "operationKind": "mutation",
+    "text": "mutation deleteExerciseMutation(\n  $id: ID!\n) {\n  deleteExercise(id: $id) {\n    success\n    exerciseId\n  }\n}\n"
   }
 };
 })();

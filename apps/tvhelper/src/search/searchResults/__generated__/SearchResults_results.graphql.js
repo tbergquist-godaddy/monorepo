@@ -3,7 +3,6 @@
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
 type TvShowListItem_data$ref = any;
@@ -28,47 +27,47 @@ export type SearchResults_results$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "SearchResults_results",
-  "type": "TvShowConnection",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "SearchResults_results",
   "selections": [
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "edges",
-      "storageKey": null,
       "args": null,
       "concreteType": "TvShowEdge",
+      "kind": "LinkedField",
+      "name": "edges",
       "plural": true,
       "selections": [
         {
-          "kind": "LinkedField",
           "alias": null,
-          "name": "node",
-          "storageKey": null,
           "args": null,
           "concreteType": "TvShow",
+          "kind": "LinkedField",
+          "name": "node",
           "plural": false,
           "selections": [
             {
-              "kind": "ScalarField",
               "alias": null,
-              "name": "id",
               "args": null,
+              "kind": "ScalarField",
+              "name": "id",
               "storageKey": null
             },
             {
+              "args": null,
               "kind": "FragmentSpread",
-              "name": "TvShowListItem_data",
-              "args": null
+              "name": "TvShowListItem_data"
             }
-          ]
+          ],
+          "storageKey": null
         }
-      ]
+      ],
+      "storageKey": null
     }
-  ]
+  ],
+  "type": "TvShowConnection"
 };
 // prettier-ignore
 (node: any).hash = '551ef5468ff2f5ee7af497265c38cc9e';

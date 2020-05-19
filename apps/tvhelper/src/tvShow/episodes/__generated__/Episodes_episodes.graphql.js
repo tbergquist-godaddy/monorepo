@@ -3,7 +3,6 @@
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
 type Episode_episode$ref = any;
@@ -27,43 +26,43 @@ export type Episodes_episodes$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "Episodes_episodes",
-  "type": "TvShow",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "Episodes_episodes",
   "selections": [
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "episodes",
-      "storageKey": null,
       "args": null,
       "concreteType": "Episode",
+      "kind": "LinkedField",
+      "name": "episodes",
       "plural": true,
       "selections": [
         {
-          "kind": "ScalarField",
           "alias": null,
+          "args": null,
+          "kind": "ScalarField",
           "name": "id",
-          "args": null,
           "storageKey": null
         },
         {
-          "kind": "ScalarField",
           "alias": null,
-          "name": "seasonAndNumber",
           "args": null,
+          "kind": "ScalarField",
+          "name": "seasonAndNumber",
           "storageKey": null
         },
         {
+          "args": null,
           "kind": "FragmentSpread",
-          "name": "Episode_episode",
-          "args": null
+          "name": "Episode_episode"
         }
-      ]
+      ],
+      "storageKey": null
     }
-  ]
+  ],
+  "type": "TvShow"
 };
 // prettier-ignore
 (node: any).hash = 'c31dfb8b38dfcd39b29d480557854c1a';

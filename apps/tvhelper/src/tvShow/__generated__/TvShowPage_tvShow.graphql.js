@@ -3,7 +3,6 @@
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ReaderFragment } from 'relay-runtime';
 type Episodes_episodes$ref = any;
@@ -30,36 +29,33 @@ export type TvShowPage_tvShow$key = {
 
 const node: ReaderFragment = (function(){
 var v0 = {
-  "kind": "ScalarField",
   "alias": null,
-  "name": "name",
   "args": null,
+  "kind": "ScalarField",
+  "name": "name",
   "storageKey": null
 };
 return {
-  "kind": "Fragment",
-  "name": "TvShowPage_tvShow",
-  "type": "TvShow",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "TvShowPage_tvShow",
   "selections": [
     (v0/*: any*/),
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "network",
-      "storageKey": null,
       "args": null,
       "concreteType": "Network",
+      "kind": "LinkedField",
+      "name": "network",
       "plural": false,
       "selections": [
         (v0/*: any*/)
-      ]
+      ],
+      "storageKey": null
     },
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "summary",
       "args": [
         {
           "kind": "Literal",
@@ -67,19 +63,22 @@ return {
           "value": false
         }
       ],
+      "kind": "ScalarField",
+      "name": "summary",
       "storageKey": "summary(stripTags:false)"
     },
     {
+      "args": null,
       "kind": "FragmentSpread",
-      "name": "TvShowImage_tvShow",
-      "args": null
+      "name": "TvShowImage_tvShow"
     },
     {
+      "args": null,
       "kind": "FragmentSpread",
-      "name": "Episodes_episodes",
-      "args": null
+      "name": "Episodes_episodes"
     }
-  ]
+  ],
+  "type": "TvShow"
 };
 })();
 // prettier-ignore
