@@ -53,6 +53,7 @@ const sortByOptions = [
 ];
 
 function Favorites(props: Props) {
+  const isFirstRender = React.useRef(true);
   const edges = props.favorites?.favorites?.edges ?? [];
   const [isLoading, setIsLoading] = React.useState(false);
   const { values } = useFormikContext();
@@ -77,7 +78,11 @@ function Favorites(props: Props) {
     [props.relay],
   );
   React.useEffect(() => {
-    refetch(values.sortBy, values.sortDirection);
+    if (isFirstRender.current === true) {
+      isFirstRender.current = false;
+    } else {
+      refetch(values.sortBy, values.sortDirection);
+    }
   }, [values.sortBy, values.sortDirection, refetch]);
   return (
     <>
