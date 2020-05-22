@@ -17,6 +17,7 @@ const getPrivateIp = () =>
 type Args = {
   +movie: string,
   +subtitle: ?string,
+  +startTime: number,
 };
 
 type Callback = (?Error) => void;
@@ -49,7 +50,7 @@ type Status = {
   +currentTime: number,
 };
 type Device = {
-  +play: (media: Media, cb: Callback) => void,
+  +play: (media: Media, { startTime: number }, cb: Callback) => void,
   +pause: Callback => void,
   +resume: Callback => void,
   +seek: (seconds: number, Callback) => void,
@@ -78,7 +79,7 @@ class CastController {
     this.#privateIP = privateIP;
   }
 
-  startCast: Args => Promise<void> = ({ movie, subtitle }: Args) => {
+  startCast: Args => Promise<void> = ({ movie, subtitle, startTime }: Args) => {
     return new Promise<void>((resolve, reject) => {
       let subtitles = null;
       if (subtitle != null) {
@@ -93,7 +94,8 @@ class CastController {
         url: `http://${this.#privateIP}:5005/stream?path=${encodeURIComponent(movie)}`,
         subtitles,
       };
-      this.device.play(media, err => {
+
+      this.device.play(media, { startTime }, err => {
         if (!err) {
           // eslint-disable-next-line no-console
           console.log('Playing in your chromecast');

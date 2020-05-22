@@ -14,7 +14,8 @@ export default function CastController(): React.Node {
   const startCast = async () => {
     try {
       dispatch({ type: 'setCastState', payload: 'loading' });
-      await castController.startCast({ movie, subtitle });
+      const playTime = localStorage.getItem(movie ?? '') ?? 0;
+      await castController.startCast({ movie, subtitle, startTime: parseInt(playTime, 10) });
       dispatch({ type: 'setCastState', payload: 'casting' });
     } catch (e) {
       dispatch({ type: 'setCastState', payload: 'error' });

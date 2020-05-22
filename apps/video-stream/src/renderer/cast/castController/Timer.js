@@ -73,12 +73,15 @@ export default function Timer(): React.Node {
   const [currentTime, setCurrentTime] = React.useState(0);
   const [totalPlayTime, setTotalPlaytime] = React.useState(0);
   const ref = React.useRef(null);
-  const { castState } = useCastState();
+  const { castState, movie } = useCastState();
 
   const fetchTime = React.useCallback(async () => {
     const time = await castController.getCurrentTime();
+    if (movie != null) {
+      localStorage.setItem(movie, time);
+    }
     setCurrentTime(time);
-  }, []);
+  }, [movie]);
 
   React.useEffect(() => {
     if (castState === 'casting') {
