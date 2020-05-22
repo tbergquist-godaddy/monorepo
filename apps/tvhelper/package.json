@@ -34,9 +34,9 @@
     "dev": "next -p 3020",
     "build": "next build",
     "start": "next start -p $PORT",
-    "docker:build": "yarn monorepo-babel-node scripts/docker.js --isBabelNode",
+    "docker:build": "yarn monorepo-babel-node scripts/docker.js",
     "analyze": "export ANALYZE=TRUE && next build",
-    "persist-queries": "yarn monorepo-babel-node scripts/persistQueries.js --isBabelNode"
+    "persist-queries": "yarn monorepo-babel-node scripts/persistQueries.js"
   },
   "devDependencies": {
     "@tbergq/test-utils": "0.0.1",
