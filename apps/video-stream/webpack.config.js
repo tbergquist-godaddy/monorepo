@@ -23,12 +23,14 @@ module.exports = {
     port: 9000,
   },
   plugins: [
-    (new CopyPlugin([
-      {
-        from: path.join(__dirname, 'src', 'renderer', 'index.html'),
-        to: path.join(__dirname, '.build', 'index.html'),
-      },
-    ]) /*: CopyPlugin */),
+    (new CopyPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, 'src', 'renderer', 'index.html'),
+          to: path.join(__dirname, '.build', 'index.html'),
+        },
+      ],
+    }) /*: CopyPlugin */),
   ],
   module: {
     rules: [

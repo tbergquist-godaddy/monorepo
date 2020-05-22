@@ -40,7 +40,7 @@
   "devDependencies": {
     "@adeira/test-utils": "^0.5.0",
     "@tbergq/monorepo-builder": "*",
-    "mockdate": "^2.0.5",
+    "mockdate": "^3.0.2",
     "mockingoose": "^2.13.2",
     "nodemon": "^2.0.4",
     "rimraf": "^3.0.2"
