@@ -7,11 +7,6 @@ import connection from '../connection';
 
 const UserSchema = new Schema({
   _id: String,
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   password: {
     type: String,
     required: true,
@@ -38,13 +33,11 @@ UserSchema.pre('save', function(next) {
 });
 
 type CreateUserInput = {
-  +username: string,
   +password: string,
   +email: string,
 };
 
 class UserDoc extends Model {
-  username: string;
   password: string;
   email: string;
   emailConfirmed: boolean;

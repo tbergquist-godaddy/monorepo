@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`accountMutations matches expected output: createUser.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+mutation createUserMutation {
+  createUser(user: {email:"lol@lol.no", password:"test"}) {
+    __typename
+    ... on User {
+      id
+      email
+    }
+    ... on GeneralError {
+      message
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "createUser": {
+      "__typename": "User",
+      "id": "VXNlcjpsb2xAbG9sLm5v",
+      "email": "lol@lol.no"
+    }
+  }
+}
+`;
+
+exports[`accountMutations matches expected output: createUserError.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+mutation createUserMutation {
+  createUser(user: {email:"test@test.com", password:"test"}) {
+    __typename
+    ... on User {
+      id
+      email
+    }
+    ... on GeneralError {
+      message
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "createUser": {
+      "__typename": "GeneralError",
+      "message": "E11000 duplicate key error dup key: { : \\"test@test.com\\" }"
+    }
+  }
+}
+`;
