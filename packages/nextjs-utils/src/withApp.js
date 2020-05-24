@@ -8,32 +8,11 @@ import 'nprogress/nprogress.css';
 import cookie from 'next-cookies';
 import { TOKEN_KEY } from '@tbergq/utils';
 import { fetchQuery, Environment, RelayEnvironmentProvider } from '@tbergq/relay';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { MediaContextProvider } from '@tbergq/components';
-import defaultTheme from '@tbergq/theme';
 import { isBrowser } from '@adeira/js';
 
-const GlobalStyle = createGlobalStyle({
-  html: {
-    height: '100%',
-  },
-  body: {
-    fontFamily: 'Roboto, sans-serif',
-  },
-  '#nprogress .bar': {
-    height: '4px',
-  },
-  '#__next': {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    paddingBottom: '64px',
-  },
-  '*': {
-    boxSizing: 'border-box',
-    margin: 0,
-  },
-});
+import GlobalStyle from './GlobalStyle';
+import ThemeProvider from './ThemeProvider';
 
 export default function withNProgress(
   Component: React.AbstractComponent<{ ... }>,
@@ -85,7 +64,7 @@ export default function withNProgress(
       const { token, ssrData, ...rest } = this.props;
       const environment = Environment.getEnvironment(token, ssrData);
       return (
-        <ThemeProvider theme={defaultTheme}>
+        <ThemeProvider>
           <MediaContextProvider>
             <RelayEnvironmentProvider environment={environment}>
               <>
