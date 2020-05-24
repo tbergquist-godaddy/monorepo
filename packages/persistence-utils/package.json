@@ -1,0 +1,10 @@
+{
+  "name": "@tbergq/persistence-utils",
+  "version": "0.0.1",
+  "private": true,
+  "main": "src/index",
+  "sideEffects": false,
+  "devDependencies": {
+    "@adeira/monorepo-utils": "^0.6.0"
+  }
+}
