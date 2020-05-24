@@ -47,6 +47,7 @@
     "@tbergq/tvhelper-persistence": "*"
   },
   "resolutions": {
-    "@adeira/relay": "^1.0.0"
+    "@adeira/relay": "^1.0.0",
+    "graphql": "^15.0.0"
   }
 }

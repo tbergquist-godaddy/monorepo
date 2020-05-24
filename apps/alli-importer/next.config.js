@@ -8,6 +8,11 @@ const { findMonorepoRoot } = require('@adeira/monorepo-utils');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'TRUE',
 });
+const { config } = require('dotenv');
+
+config();
+
+const { GRAPHQL_URL } = process.env;
 
 module.exports = (withBundleAnalyzer(
   withCSS(
@@ -15,7 +20,7 @@ module.exports = (withBundleAnalyzer(
       withTM(['@tbergq'])({
         babelConfigFile: path.join(findMonorepoRoot(), 'babel.config.js'),
         env: {
-          GRAPHQL_URL: '',
+          GRAPHQL_URL,
         },
       }),
     ),
