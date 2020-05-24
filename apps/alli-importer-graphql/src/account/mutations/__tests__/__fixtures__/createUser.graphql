@@ -1,0 +1,12 @@
+mutation createUserMutation {
+  createUser(user: {email:"lol@lol.no", password:"test"}) {
+    __typename
+    ... on User {
+      id
+      email
+    }
+    ... on GeneralError {
+      message
+    }
+  }
+}
