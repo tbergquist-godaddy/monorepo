@@ -2,7 +2,7 @@
   "name": "@tbergq/nextjs-utils",
   "version": "0.0.1",
   "private": true,
-  "main": "index.js",
+  "main": "index",
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^1.2.1",
