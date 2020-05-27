@@ -21,8 +21,8 @@
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
     "@storybook/react": "^6.0.0-beta.15",
     "@tbergq/test-utils": "0.0.1",
     "@testing-library/react": "^10.0.4"
