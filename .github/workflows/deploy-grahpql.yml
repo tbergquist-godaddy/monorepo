@@ -1,0 +1,22 @@
+name: Deploy grahpql
+
+on:
+ push:
+   branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: deploy grahpql
+        run: |
+          yarn install --frozen-lockfile
+          ZEIT_TOKEN="${{ secrets.ZEIT_TOKEN }}" yarn workspace @tbergq/graphql deploy
