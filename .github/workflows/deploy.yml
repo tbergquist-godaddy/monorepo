@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+        env: # Or as an environment variable
+          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+      - name: run Deploy
+        run: |
+          docker login -u tbergq -p "$DOCKER_HUB_TOKEN"
+          yarn global add heroku
+          yarn workspace @tbergq/tvhelper docker:build
+          yarn workspace @tbergq/graphql deploy
+
