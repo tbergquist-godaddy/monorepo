@@ -1,0 +1,24 @@
+name: Deploy tvhelper
+
+on:
+ push:
+   branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: deploy tvhelper
+        run: |
+          docker login -u tbergq -p "${{ secrets.DOCKER_HUB_TOKEN }}"
+          yarn install --frozen-lockfile
+          yarn global add heroku
+          yarn workspace @tbergq/tvhelper docker:build
