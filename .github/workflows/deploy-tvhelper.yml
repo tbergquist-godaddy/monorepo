@@ -22,3 +22,6 @@ jobs:
           yarn install --frozen-lockfile
           yarn global add heroku
           yarn workspace @tbergq/tvhelper docker:build
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          GRAPHQL_URL: ${{ secrets.GRAPHQL_URL }}
