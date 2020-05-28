@@ -7,7 +7,7 @@
     "@adeira/fetch": "^1.0.2",
     "@adeira/js": "^1.2.2",
     "@adeira/monorepo-utils": "^0.6.0",
-    "@next/bundle-analyzer": "^9.4.2",
+    "@next/bundle-analyzer": "^9.4.4",
     "@tbergq/components": "^0",
     "@tbergq/nextjs-utils": "0.0.1",
     "@tbergq/relay": "^0",
@@ -19,12 +19,12 @@
     "js-cookie": "^2.2.1",
     "next": "9.3.6",
     "next-cookies": "^2.0.3",
-    "next-plugin-custom-babel-config": "^1.0.2",
+    "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^3.3.0",
     "react": "^16.13.1",
     "react-content-loader": "^5.0.4",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.1"
   },
   "peerDependencies": {
     "@tbergq/monorepo-builder": "*",
