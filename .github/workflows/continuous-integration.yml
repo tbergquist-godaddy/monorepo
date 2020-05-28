@@ -22,6 +22,6 @@ jobs:
           yarn install --frozen-lockfile
           yarn run typecheck
           yarn run lint
-          yarn run test --silent
+          yarn run test --no-cache --silent
           yarn workspace @tbergq/graphql test-bc
           yarn relay --validate
