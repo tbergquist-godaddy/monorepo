@@ -4,6 +4,6 @@ import mongoose, { type MongooseConnection } from 'mongoose';
 
 const connection: MongooseConnection = mongoose.createConnection();
 
-mongoose.set('debug', __DEV__);
+mongoose.set('debug', false);
 
 export default connection;

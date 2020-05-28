@@ -51,9 +51,9 @@ app.use('/', attachUserToRequest, getPersistedQuery(), (request: $Request, respo
   return createGraphqlServer(request)(request, response);
 });
 
-invariant(TVHELPER_DB_URL != null, 'Expected to have db url for tvhelper, but did not');
-invariant(GRAPHQL_DB_URL != null, 'Expected to have db url for graphql, but did not');
-invariant(TJA_DB_URL != null, 'Expected to have db url for trainingjournal, but did not');
+invariant(TVHELPER_DB_URL != null, 'Expected to have db url for tvhelper, but did not.');
+invariant(GRAPHQL_DB_URL != null, 'Expected to have db url for graphql, but did not.');
+invariant(TJA_DB_URL != null, 'Expected to have db url for trainingjournal, but did not.');
 
 tvHelperConnection.openUri(TVHELPER_DB_URL, {
   useCreateIndex: true,

@@ -19,4 +19,6 @@ jobs:
       - name: deploy grahpql
         run: |
           yarn install --frozen-lockfile
-          ZEIT_TOKEN="${{ secrets.ZEIT_TOKEN }}" yarn workspace @tbergq/graphql deploy
+          yarn workspace @tbergq/graphql deploy
+        env:
+          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
