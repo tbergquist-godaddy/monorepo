@@ -11,6 +11,7 @@ import {
 import styled from 'styled-components';
 import { useFormikContext } from 'formik';
 
+import FavoritesLoader from './FavoritesLoader';
 import type { Favorites_favorites as FavoritesType } from './__generated__/Favorites_favorites.graphql';
 import FavoriteListItem from './FavoriteListItem';
 
@@ -84,6 +85,7 @@ function Favorites(props: Props) {
       refetch(values.sortBy, values.sortDirection);
     }
   }, [values.sortBy, values.sortDirection, refetch]);
+
   return (
     <>
       {isLoading && (
@@ -92,22 +94,28 @@ function Favorites(props: Props) {
         </Loader>
       )}
       <Heading>Favorites</Heading>
-      <Stack flex={true}>
-        <Select label="Sort by" name="sortBy" options={sortByOptions} />
-        <Select
-          label="Direction"
-          name="sortDirection"
-          options={[
-            { label: 'Ascending', value: 'ASC' },
-            { label: 'Descending', value: 'DESC' },
-          ]}
-        />
-      </Stack>
-      <FavoritesWrapper>
-        {edges.map(edge => (
-          <FavoriteListItem favorite={edge?.node} key={edge?.node?.id} />
-        ))}
-      </FavoritesWrapper>
+      {props.favorites == null ? (
+        <FavoritesLoader />
+      ) : (
+        <>
+          <Stack flex={true}>
+            <Select label="Sort by" name="sortBy" options={sortByOptions} />
+            <Select
+              label="Direction"
+              name="sortDirection"
+              options={[
+                { label: 'Ascending', value: 'ASC' },
+                { label: 'Descending', value: 'DESC' },
+              ]}
+            />
+          </Stack>
+          <FavoritesWrapper>
+            {edges.map(edge => (
+              <FavoriteListItem favorite={edge?.node} key={edge?.node?.id} />
+            ))}
+          </FavoritesWrapper>
+        </>
+      )}
     </>
   );
 }
