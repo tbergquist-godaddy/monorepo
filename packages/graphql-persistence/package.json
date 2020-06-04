@@ -4,6 +4,6 @@
   "version": "0.0.1",
   "sideEffects": false,
   "dependencies": {
-    "mongoose": "^5.9.16"
+    "mongoose": "^5.9.17"
   }
 }
