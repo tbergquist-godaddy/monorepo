@@ -9,7 +9,7 @@
     "mongoose": "^5.9.17"
   },
   "devDependencies": {
-    "@adeira/monorepo-utils": "^0.6.0",
+    "@adeira/monorepo-utils": "^0.7.0",
     "mockdate": "^3.0.2",
     "mongodb-memory-server": "^6.6.1"
   }
