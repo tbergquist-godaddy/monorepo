@@ -5,6 +5,6 @@
   "main": "src/index",
   "sideEffects": false,
   "devDependencies": {
-    "@adeira/monorepo-utils": "^0.6.0"
+    "@adeira/monorepo-utils": "^0.7.0"
   }
 }
