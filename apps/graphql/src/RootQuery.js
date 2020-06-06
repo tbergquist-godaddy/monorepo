@@ -9,7 +9,6 @@ import { nodeField } from './node/node';
 const RootQuery: GraphQLObjectType = new GraphQLObjectType({
   name: 'RootQuery',
   description: 'Root Query',
-  // $FlowFixMe
   fields: {
     ...TvhelperQueries,
     viewer,

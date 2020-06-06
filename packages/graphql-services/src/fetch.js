@@ -3,9 +3,10 @@
 import fetch from '@adeira/fetch';
 
 type FetchOptions = {|
-  ...$Exact<RequestOptions>,
   +fetchTimeout?: number,
   +retryDelays?: $ReadOnlyArray<number>,
+  +headers?: { [key: string]: string },
+  +method: 'POST' | 'GET' | 'PATCH' | 'PUT',
 |};
 
 const log = (...args: $ReadOnlyArray<string>) => {
@@ -21,6 +22,7 @@ const Fetch = async <T>(url: string, options?: FetchOptions): Promise<T> => {
     const defaultHeaders = {
       'Content-Type': 'application/json',
     };
+
     const response = await fetch(url, {
       ...options,
       headers: {
