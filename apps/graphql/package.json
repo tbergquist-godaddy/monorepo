@@ -11,7 +11,6 @@
     "@adeira/monorepo-utils": "^0.7.0",
     "@tbergq/graphql-persistence": "*",
     "@tbergq/graphql-services": "*",
-    "@tbergq/trainingjournal-persistence": "*",
     "@tbergq/tvhelper-persistence": "*",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",

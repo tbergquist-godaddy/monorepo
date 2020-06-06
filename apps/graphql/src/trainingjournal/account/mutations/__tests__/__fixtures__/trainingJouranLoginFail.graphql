@@ -1,6 +1,0 @@
-mutation fail {
-  trainingJournalLogin(username: "tito", password: "fail") {
-    success
-    token
-  }
-}

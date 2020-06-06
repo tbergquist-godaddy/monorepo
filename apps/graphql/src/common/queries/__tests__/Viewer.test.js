@@ -15,19 +15,6 @@ it('renders Unautorized type', async () => {
   expect(data).toMatchSnapshot();
 });
 
-it('renders TJViewer type', async () => {
-  const data = await executeTestQuery(
-    `query Viewer {
-      viewer {
-        __typename
-      }
-}`,
-    {},
-    { user: { app: 'trainingjournal' } },
-  );
-  expect(data).toMatchSnapshot();
-});
-
 it('renders TVHViewer type', async () => {
   const data = await executeTestQuery(
     `query Viewer {

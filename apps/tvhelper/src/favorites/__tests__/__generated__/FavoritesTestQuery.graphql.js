@@ -22,9 +22,6 @@ query FavoritesTestQuery {
   viewer {
     __typename
     ...Favorites_favorites
-    ... on TraningJournalViewer {
-      id
-    }
     ... on TvHelperViewer {
       id
     }
@@ -224,13 +221,6 @@ return {
               (v0/*: any*/)
             ],
             "type": "TvHelperViewer"
-          },
-          {
-            "kind": "InlineFragment",
-            "selections": [
-              (v0/*: any*/)
-            ],
-            "type": "TraningJournalViewer"
           }
         ],
         "storageKey": null
@@ -288,7 +278,7 @@ return {
     },
     "name": "FavoritesTestQuery",
     "operationKind": "query",
-    "text": "query FavoritesTestQuery {\n  viewer {\n    __typename\n    ...Favorites_favorites\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n"
+    "text": "query FavoritesTestQuery {\n  viewer {\n    __typename\n    ...Favorites_favorites\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites on TvHelperViewer {\n  favorites(options: {sortDirection: DESC, sortBy: PREVIOUS_EPISODE}) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n"
   }
 };
 })();

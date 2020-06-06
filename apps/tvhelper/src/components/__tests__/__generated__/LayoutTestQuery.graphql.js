@@ -22,9 +22,6 @@ query LayoutTestQuery {
   viewer {
     __typename
     ...Layout_viewer
-    ... on TraningJournalViewer {
-      id
-    }
     ... on TvHelperViewer {
       id
     }
@@ -44,15 +41,7 @@ fragment NavbarRight_viewer on Viewer {
 }
 */
 
-const node: ConcreteRequest = (function(){
-var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-};
-return {
+const node: ConcreteRequest = {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -109,16 +98,15 @@ return {
                 "name": "username",
                 "storageKey": null
               },
-              (v0/*: any*/)
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
+              }
             ],
             "type": "TvHelperViewer"
-          },
-          {
-            "kind": "InlineFragment",
-            "selections": [
-              (v0/*: any*/)
-            ],
-            "type": "TraningJournalViewer"
           }
         ],
         "storageKey": null
@@ -157,10 +145,9 @@ return {
     },
     "name": "LayoutTestQuery",
     "operationKind": "query",
-    "text": "query LayoutTestQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
+    "text": "query LayoutTestQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
   }
 };
-})();
 // prettier-ignore
 (node: any).hash = 'e152ead61ed188bfaea72c3f5b9d15a5';
 export default node;

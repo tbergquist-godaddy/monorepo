@@ -1,7 +1,0 @@
-mutation {
-  createTrainingjournalUser(username:"test", email:"test@test.no", password:"pass") {
-    id
-    username
-    email
-  }
-}

@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders TJViewer type 1`] = `
-Object {
-  "data": Object {
-    "viewer": Object {
-      "__typename": "TraningJournalViewer",
-    },
-  },
-}
-`;
-
 exports[`renders TVHViewer type 1`] = `
 Object {
   "data": Object {

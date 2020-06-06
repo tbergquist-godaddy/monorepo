@@ -5,7 +5,7 @@ import { toGlobalId } from 'graphql-relay';
 import jwt from 'jsonwebtoken';
 import { config } from 'dotenv';
 
-export type Apps = 'tvhelper' | 'trainingjournal';
+export type Apps = 'tvhelper';
 
 type User = {|
   +id: string,

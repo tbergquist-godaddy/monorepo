@@ -1,4 +1,4 @@
-# @generated SignedSource<<64b1f0d44d06dad64f2794e19bed9167>>
+# @generated SignedSource<<3716df076fcb8c11225f9db264ffc434>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -10,6 +10,26 @@
 #  FIELD_REMOVED: RootQuery.favorites was removed.
 #  FIELD_REMOVED: RootQuery.tvShowDetail was removed.
 #  FIELD_REMOVED: RootMutation.tvhHelperChangePassword was removed.
+#  TYPE_REMOVED: CreateExercise was removed.
+#  TYPE_REMOVED: CreateExerciseInput was removed.
+#  TYPE_REMOVED: CreateProgram was removed.
+#  TYPE_REMOVED: CreateProgramInput was removed.
+#  TYPE_REMOVED: CreateTrainingJournalUser was removed.
+#  TYPE_REMOVED: DeletedEpisode was removed.
+#  TYPE_REMOVED: Exercise was removed.
+#  TYPE_REMOVED: ExerciseConnection was removed.
+#  TYPE_REMOVED: ExerciseEdge was removed.
+#  TYPE_REMOVED: Program was removed.
+#  TYPE_REMOVED: ProgramConnection was removed.
+#  TYPE_REMOVED: ProgramEdge was removed.
+#  TYPE_REMOVED: TraningJournalViewer was removed.
+#  FIELD_REMOVED: RootMutation.createExercise was removed.
+#  FIELD_REMOVED: RootMutation.createProgram was removed.
+#  FIELD_REMOVED: RootMutation.createTrainingjournalUser was removed.
+#  FIELD_REMOVED: RootMutation.deleteExercise was removed.
+#  FIELD_REMOVED: RootMutation.editExercise was removed.
+#  FIELD_REMOVED: RootMutation.trainingJournalLogin was removed.
+#  TYPE_REMOVED_FROM_UNION: TraningJournalViewer was removed from union type Viewer.
 # </BREAKING-CHANGES-LOG>
 
 schema {
@@ -47,43 +67,9 @@ type ChangePasswordResponse {
   success: Boolean
 }
 
-"""The return type for create exercise mutation"""
-type CreateExercise {
-  exerciseEdge: ExerciseEdge
-}
-
-"""Input type to create a new exercise"""
-input CreateExerciseInput {
-  description: String
-  muscleGroups: String
-  name: String!
-  videoUrl: String
-}
-
-"""A newly created program"""
-type CreateProgram {
-  programEdge: ProgramEdge
-}
-
-"""Input type for creating a new progrem"""
-input CreateProgramInput {
-  name: String!
-}
-
 """A stored operation, a has with a corresponding graphql operation"""
 type CreateStoredOperation {
   createdOperations: [StoredOperation]
-}
-
-"""Return type for the create user mutation"""
-type CreateTrainingJournalUser {
-  email: String
-
-  """
-  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
-  """
-  id(opaque: Boolean = true): ID!
-  username: String
 }
 
 """The reply for a newly created user"""
@@ -95,12 +81,6 @@ type CreateUserMutation {
 A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
 """
 scalar Date
-
-"""Response type for delete episode mutation"""
-type DeletedEpisode {
-  exerciseId: ID
-  success: Boolean
-}
 
 """Episodes of the tv show"""
 type Episode {
@@ -130,37 +110,6 @@ type EpisodeWatched {
 """Interface to describe an error"""
 interface Error {
   message: String
-}
-
-"""An exercise in the trainingjournal app"""
-type Exercise {
-  description: String
-
-  """
-  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
-  """
-  id(opaque: Boolean = true): ID!
-  muscleGroups: String
-  name: String
-  videoUrl: String
-}
-
-"""A connection to a list of items."""
-type ExerciseConnection {
-  """A list of edges."""
-  edges: [ExerciseEdge]
-
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-}
-
-"""An edge in a connection."""
-type ExerciseEdge {
-  """A cursor for use in pagination"""
-  cursor: String!
-
-  """The item at the end of the edge"""
-  node: Exercise
 }
 
 """Login response, indicates success and gives the token"""
@@ -206,35 +155,6 @@ type Person {
   name: String
 }
 
-"""A trainingjournal program"""
-type Program {
-  date: Date
-
-  """
-  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
-  """
-  id(opaque: Boolean = true): ID!
-  name: String
-}
-
-"""A connection to a list of items."""
-type ProgramConnection {
-  """A list of edges."""
-  edges: [ProgramEdge]
-
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-}
-
-"""An edge in a connection."""
-type ProgramEdge {
-  """A cursor for use in pagination"""
-  cursor: String!
-
-  """The item at the end of the edge"""
-  node: Program
-}
-
 """Return type used for range delete mutations"""
 type RangeDelete {
   id: ID
@@ -246,19 +166,7 @@ type RootMutation {
   """Add tv show to favorite list"""
   addFavorite(serieId: ID!): AddFavorite
   createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
-
-  """Create a new Exercise"""
-  createExercise(exercise: CreateExerciseInput!): CreateExercise
-
-  """Create a new program"""
-  createProgram(program: CreateProgramInput!): CreateProgram
-
-  """Create a user for trainingjournal application"""
-  createTrainingjournalUser(email: String!, password: String!, username: String!): CreateTrainingJournalUser
   createUser(email: String!, password: String!, username: String!): CreateUserMutation
-
-  """Delete an Exercise"""
-  deleteExercise(id: ID!): DeletedEpisode
 
   """Remove tv show from favorite list"""
   deleteFavorite(serieId: ID!): RangeDelete
@@ -266,14 +174,8 @@ type RootMutation {
   """Delete an episode as watched"""
   deleteWatchedEpisode(episodeId: ID!): EpisodeWatched
 
-  """Edits an Exercise"""
-  editExercise(exercise: CreateExerciseInput!, exerciseId: ID!): CreateExercise
-
   """Mark an episode as watched"""
   markAsWatched(episodeId: ID!): EpisodeWatched
-
-  """Login to trainingjournal application"""
-  trainingJournalLogin(password: String!, username: String!): LoginType
   tvHelperChangePassword(newPassword: String!, password: String!): ChangePasswordOrError
   tvHelperLogin(password: String!, username: String!): LoginType
 }
@@ -324,20 +226,6 @@ type StoredOperation {
 input StoredOperationInput {
   operationId: String!
   text: String!
-}
-
-"""
-The viewer object for the current logged in user in TrainingJournal app
-"""
-type TraningJournalViewer {
-  exercises(after: String, before: String, first: Int, last: Int): ExerciseConnection
-
-  """
-  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
-  """
-  id(opaque: Boolean = true): ID!
-  programs(after: String, before: String, first: Int, last: Int): ProgramConnection
-  username: String
 }
 
 """The image of a person or tvshow or episode"""
@@ -411,4 +299,4 @@ type Unauthorized {
   message: String
 }
 
-union Viewer = TraningJournalViewer | TvHelperViewer | Unauthorized
+union Viewer = TvHelperViewer | Unauthorized

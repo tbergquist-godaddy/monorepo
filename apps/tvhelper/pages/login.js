@@ -14,10 +14,10 @@ export default function Login(props: Props): React.Node {
 
 Login.getInitialProps = ctx => {
   const token = getNextToken(ctx);
-
-  if (token != null) {
-    ctx.res.writeHead(302, { Location: '/favorites' });
-    ctx.res.end();
+  const res = ctx.res;
+  if (token != null && ctx.res != null) {
+    res.writeHead(302, { Location: '/favorites' });
+    res.end();
   }
 
   return {

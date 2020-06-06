@@ -34,9 +34,6 @@ query FavoriteQuery(
     __typename
     ...Layout_viewer
     ...Favorites_favorites_2Rby0E
-    ... on TraningJournalViewer {
-      id
-    }
     ... on TvHelperViewer {
       id
     }
@@ -248,13 +245,6 @@ return {
               (v2/*: any*/)
             ],
             "type": "TvHelperViewer"
-          },
-          {
-            "kind": "InlineFragment",
-            "selections": [
-              (v2/*: any*/)
-            ],
-            "type": "TraningJournalViewer"
           }
         ],
         "storageKey": null
@@ -266,7 +256,7 @@ return {
     "metadata": {},
     "name": "FavoriteQuery",
     "operationKind": "query",
-    "text": "query FavoriteQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...Favorites_favorites_2Rby0E\n    ... on TraningJournalViewer {\n      id\n    }\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
+    "text": "query FavoriteQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...Favorites_favorites_2Rby0E\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
   }
 };
 })();
