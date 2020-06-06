@@ -65,6 +65,7 @@ const getHeight = (size: Sizes) => {
 
 const StyledButton: StyledComponent<SCProps, DefaultTheme, HTMLButtonElement> = styled.button(
   ({ colorScheme, theme, buttonSize, disabled }) => ({
+    border: 'none',
     ...getColors(colorScheme, theme),
     ...getFontSize(buttonSize, theme),
     fontFamily: theme.fontFamily,
