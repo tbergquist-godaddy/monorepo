@@ -43,7 +43,6 @@
   },
   "peerDependencies": {
     "@tbergq/graphql-persistence": "*",
-    "@tbergq/trainingjournal-persistence": "*",
     "@tbergq/tvhelper-persistence": "*"
   },
   "resolutions": {
