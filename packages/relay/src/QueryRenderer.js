@@ -14,7 +14,7 @@ import { getDataFromRequest } from '@adeira/relay-utils';
 type Props = {|
   +query: GraphQLTaggedNode,
   +variables: { ... },
-  +render: ({| +[key: string]: any |} | null | void) => React.Node,
+  +render: (props: ?Object) => React.Node,
   +environment?: Environment,
   +renderLoader?: boolean,
 |};
