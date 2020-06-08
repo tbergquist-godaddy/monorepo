@@ -5,7 +5,7 @@
   "sideEffects": false,
   "main": "src/index",
   "dependencies": {
-    "graphql": "^15.0.0",
+    "graphql": "^15.1.0",
     "@tbergq/alli-importer-persistence": "0.0.1",
     "@adeira/graphql-global-id": "^1.0.0"
   },
