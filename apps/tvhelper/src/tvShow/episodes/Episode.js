@@ -110,7 +110,7 @@ const Episode = (props: Props) => {
     }
   }
 
-  const onClick = e => {
+  const onClick = (e) => {
     e.stopPropagation();
     if (isLoggedIn()) {
       toggleWatched();

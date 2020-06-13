@@ -28,7 +28,7 @@ type Args = {
 export default (new GraphQLObjectType({
   name: 'TvHelperViewer',
   description: 'The viewer object for the current logged in user in tvhelper app',
-  isTypeOf: value => value === 'tvhelper',
+  isTypeOf: (value) => value === 'tvhelper',
   fields: {
     id: GlobalID((_: mixed, { user }: GraphqlContextType) => user?.id ?? ''),
     username: {
@@ -55,7 +55,7 @@ export default (new GraphQLObjectType({
         const userId = user?.id ?? '';
         const savedFavorites = await dataLoader.tvhelper.favorites.load(userId);
 
-        const serieIds = savedFavorites.map(item => item.serieId.toString());
+        const serieIds = savedFavorites.map((item) => item.serieId.toString());
         const favorites = await dataLoader.tvhelper.tvDetail.loadMany(serieIds);
 
         const sortBy =

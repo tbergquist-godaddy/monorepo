@@ -30,7 +30,7 @@ export default (function ChangePasswordForm() {
   const onSubmit = ({ password, newPassword }) => {
     changePassword({
       variables: { password, newPassword },
-      onCompleted: res => {
+      onCompleted: (res) => {
         if (res.tvHelperChangePassword?.message != null && toastRef.current != null) {
           toastRef.current.show({ text: res.tvHelperChangePassword.message, type: 'danger' });
         } else if (res.tvHelperChangePassword?.success === true && toastRef.current != null) {

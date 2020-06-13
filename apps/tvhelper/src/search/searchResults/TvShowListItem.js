@@ -23,7 +23,7 @@ const Container = styled.div`
   background-color: #cccccc;
   border-radius: ${borderRadius}px;
   position: relative;
-  background: url(${props => props.url}) no-repeat;
+  background: url(${(props) => props.url}) no-repeat;
   background-size: cover;
 `;
 

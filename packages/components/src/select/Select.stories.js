@@ -36,7 +36,7 @@ const Config: {
 } = {
   component: Select,
   title: 'Select',
-  decorators: [storyFn => <Formik initialValues={{ select: '' }}>{storyFn()}</Formik>],
+  decorators: [(storyFn) => <Formik initialValues={{ select: '' }}>{storyFn()}</Formik>],
 };
 
 export default Config;

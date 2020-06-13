@@ -9,7 +9,7 @@ export default function Signup(): React.Node {
   return <SignupQuery />;
 }
 
-Signup.getInitialProps = ctx => {
+Signup.getInitialProps = (ctx) => {
   const token = getNextToken(ctx);
 
   if (token != null) {

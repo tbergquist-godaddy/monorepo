@@ -29,7 +29,7 @@ describe('LoginForm', () => {
     });
 
     act(() => {
-      environment.mock.resolveMostRecentOperation(operation =>
+      environment.mock.resolveMostRecentOperation((operation) =>
         MockPayloadGenerator.generate(operation, {
           LoginType: () => ({
             token: null,
@@ -59,7 +59,7 @@ describe('LoginForm', () => {
     });
 
     act(() => {
-      environment.mock.resolveMostRecentOperation(operation =>
+      environment.mock.resolveMostRecentOperation((operation) =>
         MockPayloadGenerator.generate(operation, {
           LoginType: () => ({
             token: 'myValidToken',

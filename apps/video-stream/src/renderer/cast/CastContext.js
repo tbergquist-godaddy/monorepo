@@ -10,7 +10,7 @@ type State = {
 };
 
 type ActionState = {
-  +dispatch: Action => void,
+  +dispatch: (Action) => void,
 };
 
 const CastContext: React.Context<State | void> = React.createContext<State | void>(undefined);

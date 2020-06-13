@@ -110,7 +110,7 @@ function Favorites(props: Props) {
             />
           </Stack>
           <FavoritesWrapper>
-            {edges.map(edge => (
+            {edges.map((edge) => (
               <FavoriteListItem favorite={edge?.node} key={edge?.node?.id} />
             ))}
           </FavoritesWrapper>

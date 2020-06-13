@@ -74,7 +74,7 @@ export default function Select({ options, name, label, placeholder }: Props): Re
           isPlaceholder={value === ''}
         >
           <option value="">{placeholder}</option>
-          {options.map(option => (
+          {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
@@ -82,7 +82,7 @@ export default function Select({ options, name, label, placeholder }: Props): Re
         </StyledSelect>
         <StyledChevron />
       </SelectWrapper>
-      <ErrorMessage name={name}>{msg => <ErrorWrapper>{msg}</ErrorWrapper>}</ErrorMessage>
+      <ErrorMessage name={name}>{(msg) => <ErrorWrapper>{msg}</ErrorWrapper>}</ErrorMessage>
     </Label>
   );
 }

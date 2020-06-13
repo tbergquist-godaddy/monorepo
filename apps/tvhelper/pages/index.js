@@ -11,7 +11,7 @@ export default function Index({ queryParam }: Props): React.Node {
   return <SearchQuery query={queryParam} />;
 }
 
-Index.getInitialProps = ctx => {
+Index.getInitialProps = (ctx) => {
   const query = ctx.query?.query ?? '';
   return {
     queryParam: query,

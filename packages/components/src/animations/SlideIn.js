@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  max-height: ${props => (props.isExpanded ? '300px' : 0)};
+  max-height: ${(props) => (props.isExpanded ? '300px' : 0)};
   overflow-y: hidden;
   transition: max-height 0.3s ease-in-out;
 `;

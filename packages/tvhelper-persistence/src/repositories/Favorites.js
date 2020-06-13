@@ -7,7 +7,7 @@ export default class FavoritesRepository {
   async getFavorites(userIds: $ReadOnlyArray<string>): Promise<$ReadOnlyArray<Favorite>> {
     const favorites = await FavoritesModel.find({ userId: { $in: userIds } });
 
-    return favorites.map(favorite => new Favorite(favorite));
+    return favorites.map((favorite) => new Favorite(favorite));
   }
 
   static async createFavorite(userId: string, serieId: string): Promise<Favorite> {

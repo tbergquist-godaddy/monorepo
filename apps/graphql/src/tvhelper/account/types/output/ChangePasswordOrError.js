@@ -24,7 +24,7 @@ export class PasswordError {
 export default (new GraphQLUnionType({
   name: 'ChangePasswordOrError',
   types: [ChangePasswordError, ChangePasswordResponse],
-  resolveType: value => {
+  resolveType: (value) => {
     if (value instanceof PasswordError) {
       return ChangePasswordError;
     }

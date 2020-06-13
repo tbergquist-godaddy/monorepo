@@ -51,11 +51,11 @@ type Status = {
 };
 type Device = {
   +play: (media: Media, { startTime: number }, cb: Callback) => void,
-  +pause: Callback => void,
-  +resume: Callback => void,
+  +pause: (Callback) => void,
+  +resume: (Callback) => void,
   +seek: (seconds: number, Callback) => void,
   +seekTo: (seconds: number, ?Callback) => void,
-  +stop: Callback => void,
+  +stop: (Callback) => void,
   +player: Player,
   +getStatus: ((?Error, ?Status) => void) => void,
 };
@@ -69,7 +69,7 @@ class CastController {
   constructor() {
     this.getPrivateIp();
     const client = new ChromecastAPI();
-    client.on('device', device => {
+    client.on('device', (device) => {
       this.device = device;
     });
   }
@@ -79,7 +79,7 @@ class CastController {
     this.#privateIP = privateIP;
   }
 
-  startCast: Args => Promise<void> = ({ movie, subtitle, startTime }: Args) => {
+  startCast: (Args) => Promise<void> = ({ movie, subtitle, startTime }: Args) => {
     return new Promise<void>((resolve, reject) => {
       let subtitles = null;
       if (subtitle != null) {
@@ -95,7 +95,7 @@ class CastController {
         subtitles,
       };
 
-      this.device.play(media, { startTime }, err => {
+      this.device.play(media, { startTime }, (err) => {
         if (!err) {
           // eslint-disable-next-line no-console
           console.log('Playing in your chromecast');
@@ -125,7 +125,7 @@ class CastController {
 
   stopCast: () => Promise<void> = () => {
     return new Promise<void>((resolve, reject) => {
-      this.device.stop(error => {
+      this.device.stop((error) => {
         if (error) {
           reject(error);
         } else {
@@ -137,7 +137,7 @@ class CastController {
 
   seek: (seconds: number) => Promise<void> = (seconds: number) =>
     new Promise<void>((resolve, reject) => {
-      this.device.seek(seconds, error => {
+      this.device.seek(seconds, (error) => {
         if (error) {
           reject(error);
         } else {
@@ -146,9 +146,9 @@ class CastController {
       });
     });
 
-  seekTo: number => Promise<void> = (seconds: number) =>
+  seekTo: (number) => Promise<void> = (seconds: number) =>
     new Promise((resolve, reject) => {
-      this.device.seekTo(seconds, error => {
+      this.device.seekTo(seconds, (error) => {
         if (error) {
           reject(error);
         } else {
@@ -163,7 +163,7 @@ class CastController {
 
   pause: () => Promise<void> = () =>
     new Promise<void>((resolve, reject) => {
-      this.device.pause(err => {
+      this.device.pause((err) => {
         if (err) {
           reject(err);
         } else {
@@ -174,7 +174,7 @@ class CastController {
 
   resume: () => Promise<void> = () =>
     new Promise<void>((resolve, reject) => {
-      this.device.resume(err => {
+      this.device.resume((err) => {
         if (err) {
           reject(err);
         } else {

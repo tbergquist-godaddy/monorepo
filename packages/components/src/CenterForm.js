@@ -22,7 +22,7 @@ type Props = {|
 export default function CenterForm(props: Props): React.Element<typeof FormGrid> {
   return (
     <FormGrid>
-      {React.Children.map(props.children, child => (
+      {React.Children.map(props.children, (child) => (
         <FormItem>{child}</FormItem>
       ))}
     </FormGrid>

@@ -11,11 +11,11 @@ export default (new GraphQLObjectType({
   fields: {
     message: {
       type: GraphQLString,
-      resolve: parent => parent.toJSON().message,
+      resolve: (parent) => parent.toJSON().message,
     },
     isInvalidPassword: {
       type: GraphQLBoolean,
-      resolve: parent => parent.toJSON().isInvalidPassword,
+      resolve: (parent) => parent.toJSON().isInvalidPassword,
     },
   },
 }): GraphQLObjectType);

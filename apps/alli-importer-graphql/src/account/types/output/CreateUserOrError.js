@@ -19,7 +19,7 @@ export class CreateUserError {
 const CreateUserOrError: GraphQLUnionType = new GraphQLUnionType({
   name: 'CreateUserOrError',
   types: [GeneralError, User],
-  resolveType: value => {
+  resolveType: (value) => {
     if (value instanceof CreateUserError) {
       return GeneralError;
     }

@@ -20,7 +20,7 @@ export default class UserRepository {
 
   static async findUsers(usernames: $ReadOnlyArray<string>): Promise<$ReadOnlyArray<User | null>> {
     const users = await UserModel.find({ username: { $in: usernames } });
-    return users.map(user => (user == null ? null : new User(user)));
+    return users.map((user) => (user == null ? null : new User(user)));
   }
 
   static async createUser({ password, ...rest }: CreateUserType): Promise<User> {

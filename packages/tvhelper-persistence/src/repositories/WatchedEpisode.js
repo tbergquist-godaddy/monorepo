@@ -20,6 +20,6 @@ export default class WatchedEpisodeRepository {
   ): Promise<$ReadOnlyArray<WatchedEpisode | null>> {
     const episodes = await WatchedEpisodeModel.find({ userId, episodeId: { $in: episodeIds } });
 
-    return episodes.map(episode => (episode == null ? null : new WatchedEpisode(episode)));
+    return episodes.map((episode) => (episode == null ? null : new WatchedEpisode(episode)));
   }
 }

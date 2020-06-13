@@ -9,7 +9,7 @@ import type { EpisodeWatched } from '../Episode';
 const loadWatchedEpisode = async (args: $ReadOnlyArray<number>, user: ?LoggedInUser) => {
   const watchedEpisodes = await await WatchedEpisodeRepository.findEpisodes(user?.id, args);
 
-  return args.map(arg => watchedEpisodes.find(episode => episode.episodeId === arg));
+  return args.map((arg) => watchedEpisodes.find((episode) => episode.episodeId === arg));
 };
 
 const EpisodeWatchedLoader = (user: ?LoggedInUser): DataLoader<number, EpisodeWatched, number> =>

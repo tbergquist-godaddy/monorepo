@@ -9,7 +9,7 @@ import {
   act,
   fireEvent,
 } from '@tbergq/test-utils';
-import { graphql, QueryRenderer } from '@tbergq/relay';
+import { graphql, QueryRenderer, RelayEnvironmentProvider } from '@tbergq/relay';
 import { Formik } from 'formik';
 
 import Favorites from '../Favorites';
@@ -21,25 +21,26 @@ beforeEach(() => {
 });
 
 const TestRenderer = () => (
-  <Formik initialValues={{ sortBy: 'PREVIOUS_EPISODE', sortDirection: 'DESC' }}>
-    <QueryRenderer
-      environment={environment}
-      query={graphql`
-        query FavoritesTestQuery @relay_test_operation {
-          viewer {
-            ...Favorites_favorites
+  <RelayEnvironmentProvider environment={environment}>
+    <Formik initialValues={{ sortBy: 'PREVIOUS_EPISODE', sortDirection: 'DESC' }}>
+      <QueryRenderer
+        query={graphql`
+          query FavoritesTestQuery @relay_test_operation {
+            viewer {
+              ...Favorites_favorites
+            }
           }
-        }
-      `}
-      variables={{}}
-      render={props => <Favorites favorites={props?.viewer} />}
-    />
-  </Formik>
+        `}
+        variables={{}}
+        render={(props) => <Favorites favorites={props?.viewer} />}
+      />
+    </Formik>
+  </RelayEnvironmentProvider>
 );
 
 it('refetches', async () => {
   render(<TestRenderer />);
-  environment.mock.resolveMostRecentOperation(operation =>
+  environment.mock.resolveMostRecentOperation((operation) =>
     MockPayloadGenerator.generate(operation, {
       TvShowConnection: () => ({
         edges: [{ node: { name: 'Homeland' } }],
@@ -55,7 +56,7 @@ it('refetches', async () => {
   await act(async () => {
     await fireEvent.change(sortBy, { target: { name: 'sortBy', value: 'NAME' } });
   });
-  environment.mock.resolveMostRecentOperation(operation =>
+  environment.mock.resolveMostRecentOperation((operation) =>
     MockPayloadGenerator.generate(operation, {
       TvShowConnection: () => ({
         edges: [{ node: { name: 'Dexter' } }],

@@ -11,7 +11,7 @@ export default (new GraphQLObjectType({
   fields: {
     message: {
       type: GraphQLString,
-      resolve: parent => {
+      resolve: (parent) => {
         return parent.message;
       },
     },

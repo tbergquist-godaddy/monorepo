@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { render, fireEvent, act } from '@tbergq/test-utils';
 import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
-import { QueryRenderer, graphql } from '@tbergq/relay';
+import { QueryRenderer, graphql, RelayEnvironmentProvider } from '@tbergq/relay';
 
 import * as deleteFavorite from '../mutations/deleteFavorite';
 import * as addFavorite from '../mutations/addFavorite';
@@ -15,27 +15,28 @@ beforeEach(() => {
   environment = createMockEnvironment();
 });
 
-const renderer = props => <TvShowImage tvShow={props?.node} />;
+const renderer = (props) => <TvShowImage tvShow={props?.node} />;
 const TestRenderer = () => (
-  <QueryRenderer
-    environment={environment}
-    query={graphql`
-      query TvShowImageTestQuery($id: ID!) @relay_test_operation {
-        node(id: $id) {
-          ...TvShowImage_tvShow
+  <RelayEnvironmentProvider environment={environment}>
+    <QueryRenderer
+      query={graphql`
+        query TvShowImageTestQuery($id: ID!) @relay_test_operation {
+          node(id: $id) {
+            ...TvShowImage_tvShow
+          }
         }
-      }
-    `}
-    render={renderer}
-    variables={{ id: '234' }}
-  />
+      `}
+      render={renderer}
+      variables={{ id: '234' }}
+    />
+  </RelayEnvironmentProvider>
 );
 
 describe('TvShowImage', () => {
   it('adds favorite on click', () => {
     const { getByTestId } = render(<TestRenderer />);
 
-    environment.mock.resolveMostRecentOperation(operation =>
+    environment.mock.resolveMostRecentOperation((operation) =>
       MockPayloadGenerator.generate(operation, {
         TvShow: () => ({
           id: '234',
@@ -72,7 +73,7 @@ describe('TvShowImage', () => {
   it('removes favorite on click', () => {
     const { getByTestId } = render(<TestRenderer />);
 
-    environment.mock.resolveMostRecentOperation(operation =>
+    environment.mock.resolveMostRecentOperation((operation) =>
       MockPayloadGenerator.generate(operation, {
         TvShow: () => ({
           id: '234',

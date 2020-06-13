@@ -7,7 +7,7 @@ import type { User as UserType } from '../Account';
 
 const fetchUser = async (usernames: $ReadOnlyArray<string>) => {
   const users = await UserRepository.findUsers(usernames);
-  return users.map(user => {
+  return users.map((user) => {
     if (user == null) {
       return null;
     }

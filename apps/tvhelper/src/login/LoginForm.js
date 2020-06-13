@@ -19,7 +19,7 @@ export default function LoginForm(): React.Element<typeof React.Fragment> {
         username,
         password,
       },
-      response => {
+      (response) => {
         const success = response?.tvHelperLogin?.success;
         const token = response?.tvHelperLogin?.token;
         if (success === true && token != null) {

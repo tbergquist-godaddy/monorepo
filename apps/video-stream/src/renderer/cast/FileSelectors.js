@@ -8,13 +8,13 @@ import { useCastAction } from './CastContext';
 export default function FileSelectors(): React.Node {
   const { dispatch } = useCastAction();
   const onMovieChange = React.useCallback(
-    movie => {
+    (movie) => {
       dispatch({ type: 'setMovie', payload: movie });
     },
     [dispatch],
   );
   const onSubtitleChange = React.useCallback(
-    movie => {
+    (movie) => {
       dispatch({ type: 'setSubtitle', payload: movie });
     },
     [dispatch],

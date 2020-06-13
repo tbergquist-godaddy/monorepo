@@ -27,7 +27,7 @@ const UserSchema = new Schema({
   },
 });
 
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', function (next) {
   this._id = this.email;
   next();
 });

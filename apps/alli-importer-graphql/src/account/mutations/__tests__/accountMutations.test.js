@@ -14,5 +14,7 @@ afterEach(async () => {
 });
 
 describe('accountMutations', () => {
-  generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), input => executeTestQuery(input));
+  generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), (input) =>
+    executeTestQuery(input),
+  );
 });

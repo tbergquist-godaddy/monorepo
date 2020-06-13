@@ -9,7 +9,7 @@ function Favorites() {
   return <FavoriteQuery />;
 }
 
-Favorites.getInitialProps = ctx => {
+Favorites.getInitialProps = (ctx) => {
   const token = getNextToken(ctx) ?? '';
 
   if (token !== '') {

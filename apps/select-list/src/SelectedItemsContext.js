@@ -21,7 +21,7 @@ function selectedItemsReducer(state, action) {
       return { selectedItems: [...state.selectedItems, action.payload] };
 
     case 'remove':
-      return { selectedItems: state.selectedItems.filter(item => item !== action.payload) };
+      return { selectedItems: state.selectedItems.filter((item) => item !== action.payload) };
 
     default:
       throw new Error(`Unhandled action type: ${action.type}`);

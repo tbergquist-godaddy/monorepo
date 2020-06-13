@@ -217,7 +217,7 @@ declare module 'next/dynamic' {
   declare type ImportedComponent = Promise<null | React$ElementType>;
   declare type ComponentMapping = {
     [componentName: string]: ImportedComponent,
-    ...,
+    ...
   };
 
   declare type NextDynamicOptions = {

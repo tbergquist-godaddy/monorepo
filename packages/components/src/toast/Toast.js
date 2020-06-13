@@ -39,7 +39,7 @@ type ToastContentProps = $ReadOnly<{
   right?: number,
   isVisible: boolean,
   text: string | null,
-  setDisplay: boolean => void,
+  setDisplay: (boolean) => void,
   dataTest: string,
 }>;
 
@@ -89,7 +89,7 @@ export default (React.forwardRef<Props, ToastRef>(function Toast(
   const showTimeoutRef = React.useRef(null);
 
   const hide = () => {
-    setState(state => ({ ...state, isVisible: false }));
+    setState((state) => ({ ...state, isVisible: false }));
 
     if (onHide != null) {
       onHide();
@@ -97,7 +97,7 @@ export default (React.forwardRef<Props, ToastRef>(function Toast(
   };
 
   const show = (config: Config) => {
-    setState(state => ({ ...state, ...config }));
+    setState((state) => ({ ...state, ...config }));
     setDisplay(true);
     setTimeout(() => {
       hide();
@@ -114,7 +114,7 @@ export default (React.forwardRef<Props, ToastRef>(function Toast(
 
   React.useEffect(() => {
     if (display === true) {
-      setState(state => ({ ...state, isVisible: true }));
+      setState((state) => ({ ...state, isVisible: true }));
     }
   }, [display, setState]);
 

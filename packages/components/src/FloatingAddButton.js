@@ -43,8 +43,8 @@ const IconWrapper: StyledComponent<
   void,
   HTMLDivElement,
 > = styled.div`
-  transform: rotate(${props => (props.rotateIcon ? 45 : 0)}deg);
-  animation: ${props =>
+  transform: rotate(${(props) => (props.rotateIcon ? 45 : 0)}deg);
+  animation: ${(props) =>
     props.rotateIcon
       ? css`
           ${rotateAnimation} .1s linear

@@ -20,7 +20,7 @@ type User = {|
 |};
 
 type Props = {|
-  +onSubmit: User => void,
+  +onSubmit: (User) => void,
   +isLoading: boolean,
 |};
 
