@@ -25,7 +25,7 @@ new ShellCommand(null, 'cp', '-r', localBuildDir, path.join(buildDir, '.build'))
   .setOutputToScreen()
   .runSynchronously();
 
-// $FlowAllowDynamicImport
+// $FlowFixMe[unsupported-syntax]
 const rootPackage = require(path.join(findMonorepoRoot(), 'package.json'));
 
 packageJson.dependencies = {

@@ -33,7 +33,7 @@ module.exports = {
   verbose: false,
   projects: [
     ...Workspaces.getWorkspacesSync().map(packageJSONLocation => {
-      // $FlowAllowDynamicImport
+      // $FlowFixMe[unsupported-syntax]
       const packageJSON = require(packageJSONLocation);
       const workspaceDirname = path.dirname(packageJSONLocation);
       return {

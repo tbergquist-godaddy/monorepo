@@ -22,7 +22,7 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
 const { GRAPHQL_URL } = process.env;
 invariant(GRAPHQL_URL != null, 'Missing GRAPHQL_URL env variable');
 const getPersistedQueries = () => {
-  // $FlowAllowDynamicImport
+  // $FlowFixMe[unsupported-syntax]
   return require(path.join(findMonorepoRoot(), 'persisted-queries.json'));
 };
 
