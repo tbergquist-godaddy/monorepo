@@ -2,7 +2,7 @@
 
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';
-import { connectionArgs, type ConnectionArguments } from 'graphql-relay';
+import { connectionArgs, type ConnectionArguments } from '@adeira/graphql-relay';
 import * as R from 'ramda';
 import { connectionFromArray } from '@tbergq/graphql-services';
 

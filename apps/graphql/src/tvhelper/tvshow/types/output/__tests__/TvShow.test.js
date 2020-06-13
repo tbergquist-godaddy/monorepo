@@ -1,6 +1,6 @@
 // @flow
 
-import { toGlobalId } from 'graphql-relay';
+import { toGlobalId } from '@adeira/graphql-relay';
 
 import TvShow from '../TvShow';
 

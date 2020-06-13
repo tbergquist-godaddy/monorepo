@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { connectionFromArray } from 'graphql-relay';
+import { connectionFromArray } from '@adeira/graphql-relay';
 
 export type ConnectionArguments = {
   before?: ?ConnectionCursor,

@@ -1,7 +1,7 @@
 // @flow
 
 import { GraphQLString, GraphQLNonNull, GraphQLScalarType } from 'graphql';
-import { connectionArgs, type ConnectionArguments } from 'graphql-relay';
+import { connectionArgs, type ConnectionArguments } from '@adeira/graphql-relay';
 import { connectionFromArray, type Connection } from '@tbergq/graphql-services';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';

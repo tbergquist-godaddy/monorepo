@@ -1,7 +1,7 @@
 // @flow
 
 import { GraphQLInterfaceType, type GraphQLFieldConfig } from 'graphql';
-import { nodeDefinitions } from 'graphql-relay';
+import { nodeDefinitions } from '@adeira/graphql-relay';
 import { decode } from '@adeira/graphql-global-id/src/Encoder';
 
 import type { GraphqlContextType } from '../services/createGraphqlContext';
@@ -11,6 +11,7 @@ type GraphQLNodeDefinitions<TContext> = {
   nodeInterface: GraphQLInterfaceType,
   nodeField: GraphQLFieldConfig<any, TContext>,
   nodesField: GraphQLFieldConfig<any, TContext>,
+  ...
 };
 
 async function loadType(relayId, context) {
