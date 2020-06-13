@@ -1,7 +1,7 @@
 // @flow
 
 import { verify } from 'password-hash';
-import { toGlobalId } from 'graphql-relay';
+import { toGlobalId } from '@adeira/graphql-relay';
 import jwt from 'jsonwebtoken';
 import { config } from 'dotenv';
 

@@ -1,7 +1,7 @@
 // @flow
 
 import { GraphQLObjectType, GraphQLID, GraphQLString } from 'graphql';
-import { toGlobalId } from 'graphql-relay';
+import { toGlobalId } from '@adeira/graphql-relay';
 
 import type { Person } from '../../../tvshow/TvShow';
 import TvHelperImage from './TvHelperImage';
