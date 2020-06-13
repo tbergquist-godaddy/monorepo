@@ -73,12 +73,13 @@
     strip-ansi "^6.0.0"
     text-table "^0.2.0"
 
-"@adeira/fetch@^1.0.1", "@adeira/fetch@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@adeira/fetch/-/fetch-1.0.2.tgz#26bbb6ebf93fc91f9a719f79ac93bf37b22721f2"
-  integrity sha512-Ckz6JfMUkhlAPoVvaE/P0GF+eSM3V0pP9oNqwIDtzZU9M6TwtuvRFGClUevEAR6dws75aSDCJQohfnqEJVjtOg==
+"@adeira/fetch@^1.0.1", "@adeira/fetch@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@adeira/fetch/-/fetch-1.0.3.tgz#433c6743b35252c3864e09b48dc09ae2fc2f7e57"
+  integrity sha512-y8hm4amdINCkdM2RB5xbSfrmYnvCgFOe64g59eE732uLxPS9ROVuXDBAYNZOEUzhN5T5FBnqz1zt0wU2UAO3EA==
   dependencies:
     "@adeira/js" "^1.2.0"
+    "@babel/runtime" "^7.10.2"
     cross-fetch "^3.0.4"
 
 "@adeira/flow-bin@^0.2.0":
