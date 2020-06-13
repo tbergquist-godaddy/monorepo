@@ -18,10 +18,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: yarn install, build, and test
+      - uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql database: 'trainingjournal_test'
+          mysql user: 'root'
+          mysql password: ${{ secrets.tjRootPassword }}
         run: |
           yarn install --frozen-lockfile
+          yarn run test
           yarn run typecheck
           yarn run lint
-          yarn run test --silent
           yarn workspace @tbergq/graphql test-bc
           yarn relay --validate
+        env:
+          DB_URL_TJ: ${{ secrets.DB_URL_TJ }}
