@@ -11,5 +11,6 @@ module.exports = {
     'adeira/no-internal-flow-type': OFF, // This rule doesn't make sense here, since imports are not available to flow-typed defs
     'flowtype/no-existential-type': OFF, // Some flow-types modules still use this 😞
     'import/no-extraneous-dependencies': OFF,
+    'flowtype/no-dupe-keys': OFF,
   },
 };

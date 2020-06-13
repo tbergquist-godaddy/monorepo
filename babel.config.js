@@ -21,7 +21,7 @@ function isWebpack(caller) /*: boolean %checks */ {
   return !!(caller && caller.name === 'babel-loader');
 }
 
-module.exports = function(api /*: ApiType */) /* :Object */ {
+module.exports = function (api /*: ApiType */) /* :Object */ {
   api.assertVersion(7);
 
   const presets = [

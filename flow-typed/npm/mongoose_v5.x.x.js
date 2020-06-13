@@ -1,7 +1,5 @@
 // @flow
 
-/* eslint-disable flowtype/no-dupe-keys */
-
 // flow-typed signature: bfbca1ace2b4e13f815c3a7783e9add2
 // flow-typed version: c6154227d1/mongoose_v5.x.x/flow_>=v0.104.x
 
