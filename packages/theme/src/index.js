@@ -16,6 +16,7 @@ const breakpoints = {
 
 const defaultTheme = {
   fontFamily: 'Roboto, sans-serif',
+  navBarColor: '#222',
   primary: '#007bff',
   secondary: '#6c757d',
   danger: '#dc3545',
