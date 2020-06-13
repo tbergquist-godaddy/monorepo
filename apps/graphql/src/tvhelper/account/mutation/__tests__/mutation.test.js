@@ -3,6 +3,7 @@
 import { generateTestsFromFixtures } from '@adeira/test-utils';
 import mockingoose from 'mockingoose';
 import { UserModel } from '@tbergq/tvhelper-persistence';
+import path from 'path';
 
 import executeTestQuery from '../../../../services/executeTestQuery';
 
@@ -23,5 +24,7 @@ const user = {
 mockingoose(UserModel).toReturn([user], 'find');
 
 describe('mutations', () => {
-  generateTestsFromFixtures(`${__dirname}/__fixtures__`, input => executeTestQuery(input));
+  generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), (input) =>
+    executeTestQuery(input),
+  );
 });

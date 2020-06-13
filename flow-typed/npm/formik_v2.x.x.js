@@ -219,7 +219,7 @@ declare module 'formik/@Field' {
 
   declare export var Field: {
     <Props, Value>(props: FieldAttributes<Props, Value>): React$Node,
-    ...,
+    ...
   };
 
   declare export var FastField: typeof Field;

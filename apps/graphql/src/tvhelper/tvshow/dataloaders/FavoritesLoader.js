@@ -5,7 +5,7 @@ import { FavoritesRepository, type FavoriteType } from '@tbergq/tvhelper-persist
 
 const fetchFavorites = async (userIds: $ReadOnlyArray<string>, repository: FavoritesRepository) => {
   const responses = await repository.getFavorites(userIds);
-  return userIds.map(userId => responses.filter(response => response.userId === userId));
+  return userIds.map((userId) => responses.filter((response) => response.userId === userId));
 };
 
 const FavoritesLoader = (

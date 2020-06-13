@@ -7,13 +7,13 @@ import type { TvShow } from '../TvShow';
 
 const fetchTvDetail = async (ids: $ReadOnlyArray<string>) => {
   const responses = await Promise.all(
-    ids.map(id =>
+    ids.map((id) =>
       fetch(
         `http://api.tvmaze.com/shows/${id}?embed[]=episodes&embed[]=nextepisode&embed[]=previousepisode&embed[]=cast`,
       ),
     ),
   );
-  return responses.map(response => {
+  return responses.map((response) => {
     const nextDate = response?._embedded?.nextepisode?.airdate ?? null;
     const previousDate = response?._embedded?.previousepisode?.airdate ?? null;
     return {

@@ -1038,10 +1038,10 @@ type JestPrettyFormatColors = {
   ...
 };
 
-type JestPrettyFormatIndent = string => string;
+type JestPrettyFormatIndent = (string) => string;
 // eslint-disable-next-line no-unused-vars
 type JestPrettyFormatRefs = Array<any>;
-type JestPrettyFormatPrint = any => string;
+type JestPrettyFormatPrint = (any) => string;
 // eslint-disable-next-line no-unused-vars
 type JestPrettyFormatStringOrNull = string | null;
 
@@ -1073,7 +1073,7 @@ type JestPrettyFormatPlugin = {
     opts: JestPrettyFormatOptions,
     colors: JestPrettyFormatColors,
   ) => string,
-  test: any => boolean,
+  test: (any) => boolean,
   ...
 };
 

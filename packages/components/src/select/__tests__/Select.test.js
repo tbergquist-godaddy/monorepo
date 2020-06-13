@@ -6,7 +6,7 @@ import { render, screen, act, fireEvent } from '@tbergq/test-utils';
 
 import Select from '../Select';
 
-const TestRenderer = props => (
+const TestRenderer = (props) => (
   <Formik initialValues={{ select: '' }} {...props}>
     <Select
       name="select"

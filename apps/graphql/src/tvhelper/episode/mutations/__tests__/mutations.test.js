@@ -28,7 +28,7 @@ describe('episode mutations', () => {
     await tvHelperConnection.collection('watchedepisodes').drop();
   });
 
-  generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), input =>
+  generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), (input) =>
     executeTestQuery(input, null, { user: { id: userId } }),
   );
 });

@@ -32,7 +32,7 @@ export default function deleteFavorite(
     variables,
     onCompleted,
     configs,
-    updater: store => {
+    updater: (store) => {
       const payload = store.getRootField('deleteFavorite') ?? {};
       const success = payload.getValue('success') ?? false;
 

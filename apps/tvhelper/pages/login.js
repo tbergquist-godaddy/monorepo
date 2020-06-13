@@ -12,7 +12,7 @@ export default function Login(props: Props): React.Node {
   return <LoginQuery loginFailed={props.loginFailed} />;
 }
 
-Login.getInitialProps = ctx => {
+Login.getInitialProps = (ctx) => {
   const token = getNextToken(ctx);
   const res = ctx.res;
   if (token != null && ctx.res != null) {

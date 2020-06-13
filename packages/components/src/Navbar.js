@@ -11,7 +11,7 @@ import Button from './button/Button';
 import { Media } from './Media';
 
 const NAV_BACKGROUND = '#222';
-const Nav = styled.nav(props => ({
+const Nav = styled.nav((props) => ({
   backgroundColor: NAV_BACKGROUND,
   borderColor: '#090909',
   position: 'fixed',
@@ -98,7 +98,7 @@ type Props = {|
 export default function Navbar(props: Props): React.Element<any> {
   const [expandMenu, setExpandMenu] = React.useState(false);
   function toggleExpand() {
-    setExpandMenu(expand => !expand);
+    setExpandMenu((expand) => !expand);
   }
   return (
     <Nav isExpanded={expandMenu}>
@@ -127,10 +127,10 @@ export default function Navbar(props: Props): React.Element<any> {
           <Media lessThan="tablet">
             {expandMenu && (
               <ExpandedHeader>
-                {React.Children.map(props.headerLeft, child => (
+                {React.Children.map(props.headerLeft, (child) => (
                   <Separator>{child}</Separator>
                 ))}
-                {React.Children.map(props.headerRight, child => (
+                {React.Children.map(props.headerRight, (child) => (
                   <Separator>{child}</Separator>
                 ))}
               </ExpandedHeader>

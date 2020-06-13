@@ -36,7 +36,7 @@ export default async function persistQueries(): Promise<void> {
     body: JSON.stringify({
       query,
       variables: {
-        storedOperations: Object.keys(persistedQueries).map(key => ({
+        storedOperations: Object.keys(persistedQueries).map((key) => ({
           operationId: key,
           text: persistedQueries[key],
         })),

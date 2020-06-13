@@ -19,7 +19,7 @@ const TestRenderer = () => (
   </RelayEnvironmentProvider>
 );
 
-const getInputs = container => {
+const getInputs = (container) => {
   const password = container.querySelector('input[name="password"]');
   const newPassword = container.querySelector('input[name="newPassword"]');
   const confirmPassword = container.querySelector('input[name="confirmPassword"]');

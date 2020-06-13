@@ -3,7 +3,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const modeIndex = process.argv.findIndex(i => i === '--mode');
+const modeIndex = process.argv.findIndex((i) => i === '--mode');
 const isProduction = process.argv[modeIndex + 1] === 'production';
 
 module.exports = {

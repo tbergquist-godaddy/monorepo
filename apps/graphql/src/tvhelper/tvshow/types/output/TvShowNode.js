@@ -10,7 +10,7 @@ export default (new GraphQLObjectType({
   fields: {
     node: {
       type: TvShow,
-      resolve: ancestor => ancestor,
+      resolve: (ancestor) => ancestor,
     },
   },
 }): GraphQLObjectType);

@@ -14,7 +14,7 @@ export default function withDocument(): React.AbstractComponent<{ ... }> {
       try {
         ctx.renderPage = () =>
           originalRenderPage({
-            enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+            enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
           });
 
         const initialProps = await Document.getInitialProps(ctx);

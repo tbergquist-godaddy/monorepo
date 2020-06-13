@@ -8,7 +8,7 @@ import Unauthorized from './Unauthorized';
 export default (new GraphQLUnionType({
   name: 'Viewer',
   types: [TVHViewer, Unauthorized],
-  resolveType: value => {
+  resolveType: (value) => {
     if (value === 'tvhelper') {
       return TVHViewer;
     }

@@ -16,7 +16,7 @@ jest.mock('@tbergq/tvhelper-persistence', () => {
 });
 
 describe('queries', () => {
-  generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), input =>
+  generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), (input) =>
     executeTestQuery(input, null, { user: { id: '123' } }),
   );
 });

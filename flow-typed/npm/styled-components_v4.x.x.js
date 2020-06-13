@@ -143,7 +143,7 @@ declare module 'styled-components' {
   |}>;
   declare export var ThemeProvider: React$ComponentType<{|
     children?: ?React$Node,
-    theme: mixed | (mixed => mixed),
+    theme: mixed | ((mixed) => mixed),
   |}>;
 
   /**
@@ -189,7 +189,7 @@ declare module 'styled-components' {
       StyledComponent<StyleProps, Theme, Instance>,
     >,
     +attrs: <A: { ... }>(
-      (StyleProps => A) | A,
+      ((StyleProps) => A) | A,
     ) => TaggedTemplateLiteral<
       PropsWithTheme<{| ...$Exact<StyleProps>, ...$Exact<A> |}, Theme>,
       StyledComponent<
@@ -206,7 +206,7 @@ declare module 'styled-components' {
       ...Interpolation<PropsWithTheme<StyleProps, Theme>>[]
     ) => StyledComponent<StyleProps, Theme, V>,
     +attrs: <A: { ... }, StyleProps = {||}, Theme = {||}>(
-      (StyleProps => A) | A,
+      ((StyleProps) => A) | A,
     ) => TaggedTemplateLiteral<
       PropsWithTheme<{| ...$Exact<StyleProps>, ...$Exact<A> |}, Theme>,
       StyledComponent<React$Config<{| ...$Exact<StyleProps>, ...$Exact<A> |}, $Exact<A>>, Theme, V>,

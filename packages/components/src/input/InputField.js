@@ -54,7 +54,7 @@ export default function Input({ name, label, dataTest, ...rest }: Props): React.
         value={value}
         id={id}
       />
-      <ErrorMessage name={name}>{msg => <ErrorWrapper>{msg}</ErrorWrapper>}</ErrorMessage>
+      <ErrorMessage name={name}>{(msg) => <ErrorWrapper>{msg}</ErrorWrapper>}</ErrorMessage>
     </Label>
   );
 }

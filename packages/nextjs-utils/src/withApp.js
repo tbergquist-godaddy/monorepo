@@ -28,10 +28,7 @@ export default function withNProgress(
       if (props.pageProps.query != null && !isBrowser()) {
         const environment = Environment.getEnvironment(token);
         await fetchQuery(environment, props.pageProps.query, props.pageProps.variables ?? {});
-        ssrData = environment
-          .getStore()
-          .getSource()
-          .toJSON();
+        ssrData = environment.getStore().getSource().toJSON();
       }
       return {
         ...props,

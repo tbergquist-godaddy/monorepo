@@ -23,6 +23,6 @@ describe('AddFavorite', () => {
   generateTestsFromFixtures(
     `${__dirname}/__fixtures__`,
     // eslint-disable-next-line no-return-await
-    async input => await executeTestQuery(input, null, { user: { id: userId } }),
+    async (input) => await executeTestQuery(input, null, { user: { id: userId } }),
   );
 });

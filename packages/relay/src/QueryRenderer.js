@@ -5,7 +5,6 @@ import {
   type GraphQLTaggedNode,
   useRelayEnvironment,
   QueryRenderer as AdeiraQueryRenderer,
-  type Environment,
 } from '@adeira/relay';
 import { Spinner as Loading } from '@tbergq/components';
 import { isBrowser } from '@adeira/js';
@@ -15,12 +14,11 @@ type Props = {|
   +query: GraphQLTaggedNode,
   +variables: { ... },
   +render: (props: ?Object) => React.Node,
-  +environment?: Environment,
   +renderLoader?: boolean,
 |};
 
 export default function QueryRenderer(props: Props): React.Node {
-  const environment = props.environment ?? useRelayEnvironment();
+  const environment = useRelayEnvironment();
 
   if (!isBrowser()) {
     const data = getDataFromRequest(

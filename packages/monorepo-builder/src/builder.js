@@ -49,7 +49,7 @@ export default async function build(
   const repoRoot = findMonorepoRoot();
   const locations = findRelatedWorkspaces(workspaces, rootWorkspace);
 
-  const projectRoots = Array.from(locations).map(location => path.join(repoRoot, location));
+  const projectRoots = Array.from(locations).map((location) => path.join(repoRoot, location));
 
   for (const projectRoot of projectRoots) {
     const rawFileNames = globSync('/**/*.*', {

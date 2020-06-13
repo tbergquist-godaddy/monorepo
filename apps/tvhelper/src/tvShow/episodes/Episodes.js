@@ -57,7 +57,7 @@ const Episodes = (props: Props) => {
       <CardSection>
         <CardTitle>{`Season ${parseInt(key, 10).toString()}`}</CardTitle>
         <ListWrapper>
-          {episodes.map(episode => (
+          {episodes.map((episode) => (
             <Episode key={episode?.id} episode={episode} />
           ))}
         </ListWrapper>

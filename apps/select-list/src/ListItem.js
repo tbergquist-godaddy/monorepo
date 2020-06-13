@@ -14,7 +14,7 @@ const ListItem = ({ color, name }: Props): React.Element<'li'> => {
   const dispatch = useSelectedItemsDispatch();
 
   const onClick = () => {
-    setIsSelected(isSelected => {
+    setIsSelected((isSelected) => {
       const nextValue = !isSelected;
 
       return nextValue;

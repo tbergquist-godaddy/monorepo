@@ -79,7 +79,7 @@ const TvShowEntity: GraphQLObjectType = new GraphQLObjectType({
         }
         const favorites = await dataLoader.tvhelper.favorites.load(userId);
 
-        return favorites.find(favorite => favorite.serieId === serieId) != null;
+        return favorites.find((favorite) => favorite.serieId === serieId) != null;
       },
     },
     network: {

@@ -35,7 +35,7 @@ const SearchResults = (props: Props) => {
   const edges = props.results?.edges ?? [];
   return (
     <GridContainer>
-      {edges.map<React.Node>(item => (
+      {edges.map<React.Node>((item) => (
         <TvShowListItem data={item?.node} key={item?.node?.id} />
       ))}
     </GridContainer>

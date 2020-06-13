@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { render } from '@tbergq/test-utils';
-import { QueryRenderer, graphql } from '@tbergq/relay';
+import { QueryRenderer, graphql, RelayEnvironmentProvider } from '@tbergq/relay';
 import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
 
 import Layout from '../Layout';
@@ -15,28 +15,29 @@ beforeEach(() => {
 
 const TestRenderer = () => {
   return (
-    <QueryRenderer
-      environment={environment}
-      query={graphql`
-        query LayoutTestQuery @relay_test_operation {
-          viewer {
-            ...Layout_viewer
+    <RelayEnvironmentProvider environment={environment}>
+      <QueryRenderer
+        query={graphql`
+          query LayoutTestQuery @relay_test_operation {
+            viewer {
+              ...Layout_viewer
+            }
           }
-        }
-      `}
-      variables={{}}
-      render={props => (
-        <Layout viewer={props?.viewer}>
-          <div />
-        </Layout>
-      )}
-    />
+        `}
+        variables={{}}
+        render={(props) => (
+          <Layout viewer={props?.viewer}>
+            <div />
+          </Layout>
+        )}
+      />
+    </RelayEnvironmentProvider>
   );
 };
 
 it('does not render favorites link when not logged in', () => {
   const { queryByText } = render(<TestRenderer />);
-  environment.mock.resolveMostRecentOperation(operation =>
+  environment.mock.resolveMostRecentOperation((operation) =>
     MockPayloadGenerator.generate(operation, {
       Viewer: () => ({ __typename: 'Unauthorized' }),
     }),
@@ -47,7 +48,7 @@ it('does not render favorites link when not logged in', () => {
 
 it('renders favorites link when logged in', () => {
   const { getByText } = render(<TestRenderer />);
-  environment.mock.resolveMostRecentOperation(operation =>
+  environment.mock.resolveMostRecentOperation((operation) =>
     MockPayloadGenerator.generate(operation, {
       Viewer: () => ({ __typename: 'TvHelperViewer' }),
     }),
@@ -57,7 +58,7 @@ it('renders favorites link when logged in', () => {
 
 it('renders login link when not logged in', () => {
   const { getByText, queryByText } = render(<TestRenderer />);
-  environment.mock.resolveMostRecentOperation(operation =>
+  environment.mock.resolveMostRecentOperation((operation) =>
     MockPayloadGenerator.generate(operation, {
       Viewer: () => ({ __typename: 'Unauthorized' }),
     }),
@@ -68,7 +69,7 @@ it('renders login link when not logged in', () => {
 
 it('renders logout link when logged in', () => {
   const { queryByText, getByText } = render(<TestRenderer />);
-  environment.mock.resolveMostRecentOperation(operation =>
+  environment.mock.resolveMostRecentOperation((operation) =>
     MockPayloadGenerator.generate(operation, {
       Viewer: () => ({ __typename: 'TvHelperViewer' }),
     }),

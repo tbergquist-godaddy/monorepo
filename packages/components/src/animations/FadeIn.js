@@ -15,7 +15,7 @@ type Props = $ReadOnly<{|
   children: React.Node,
 |}>;
 
-const FadeWrapper = styled.div(props => {
+const FadeWrapper = styled.div((props) => {
   const {
     left = false,
     right = false,
