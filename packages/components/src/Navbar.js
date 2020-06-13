@@ -11,17 +11,17 @@ import Button from './button/Button';
 import { Media } from './Media';
 
 const NAV_BACKGROUND = '#222';
-const Nav = styled.nav((props) => ({
-  backgroundColor: NAV_BACKGROUND,
+const Nav = styled.nav(({ theme, isExpanded }) => ({
+  backgroundColor: theme.navBarColor,
   borderColor: '#090909',
   position: 'fixed',
   top: 0,
   right: 0,
   left: 0,
   minHeight: '50px',
-  zIndex: props.theme.zIndex.onTop,
+  zIndex: theme.zIndex.onTop,
   transition: 'all 0.3s ease',
-  maxHeight: props.isExpanded ? '200px' : '50px',
+  maxHeight: isExpanded ? '200px' : '50px',
 }));
 
 const NavLink = styled.a(({ marginLeft, theme }) => ({
