@@ -21,7 +21,6 @@ sharedmemory.hash_table_pow=21
 emoji=true
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
-suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
 exact_by_default=true
 munge_underscores=true
 
@@ -30,18 +29,12 @@ suppress_type=$FlowFixMe
 suppress_type=$FlowFixMeProps
 suppress_type=$FlowFixMeState
 
-suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(<VERSION>\\)? *\\(site=[a-z,_]*react_native\\(_ios\\)?_\\(oss\\|fb\\)[a-z,_]*\\)?)\\)
-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(<VERSION>\\)? *\\(site=[a-z,_]*react_native\\(_ios\\)?_\\(oss\\|fb\\)[a-z,_]*\\)?)\\)?:? #[0-9]+
-suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
-suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: 
-
 ; This option is always ON in the strict mode. We are enabling it even for the classic mode.
 ; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
 experimental.const_params=true
 
-experimental.types_first=true
-experimental.well_formed_exports=true
+types_first=true
+well_formed_exports=true
 
 
 [strict]

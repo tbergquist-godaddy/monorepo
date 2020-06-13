@@ -10,6 +10,6 @@ export default function Fetch(url: string): Object {
     throw new Error(`No mock result found for url ${url}.`);
   }
 
-  // $FlowAllowDynamicImport
+  // $FlowFixMe[unsupported-syntax]
   return require(path.join(__dirname, '..', 'datasets', metaUrl));
 }
