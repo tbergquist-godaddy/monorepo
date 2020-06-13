@@ -1,0 +1,18 @@
+{
+  "name": "@tbergq/trainingjournal-persistence",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "main": "src/index",
+  "dependencies": {
+    "@adeira/js": "^1.2.2",
+    "@adeira/monorepo-utils": "^0.7.0",
+    "@tbergq/persistence-utils": "0.0.1",
+    "dotenv": "^8.2.0",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.12"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
+  }
+}

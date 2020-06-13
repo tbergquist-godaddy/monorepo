@@ -10,5 +10,7 @@ module.exports = {
     '**/__generated__/**',
     '**/alli-importer/**',
     '**/alli-importer-graphql/**',
+    '**/trainingjournal/**',
+    '**/trainingjournal-graphql/**',
   ],
 };
