@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { Form, Formik } from 'formik';
 
 import Button from '../button/Button';
-import Toast from '../toast/Toast';
 import Input from '../input/InputField';
+import { useShowToast } from '../toast/ToastListState';
 
 const SubmitButton = styled(Button)({
   float: 'right',
@@ -29,14 +29,10 @@ type FormikValues = $ReadOnly<{
   confirmPassword: string,
 }>;
 
-export default (React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((props, ref) => {
+export default (function SignupForm(props: Props) {
+  const show = useShowToast();
   const showToast = (message: string) => {
-    if (typeof ref === 'object') {
-      const show = ref.current?.show;
-      if (typeof show === 'function') {
-        show({ text: message, type: 'danger' });
-      }
-    }
+    show({ text: message, type: 'danger' });
   };
 
   function onSubmit({ password, confirmPassword, email, username }: FormikValues) {
@@ -64,8 +60,7 @@ export default (React.forwardRef<Props, React.ElementRef<typeof Toast> | null>((
         <SubmitButton type="submit" loading={props.isLoading} dataTest="submitButton">
           Confirm
         </SubmitButton>
-        <Toast ref={ref} />
       </Form>
     </Formik>
   );
-}): React.AbstractComponent<Props, null | React.ElementRef<typeof Toast>>);
+}: React.ComponentType<Props>);

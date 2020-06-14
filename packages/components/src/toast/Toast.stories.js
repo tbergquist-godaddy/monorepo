@@ -1,39 +1,44 @@
 // @flow
 
 import * as React from 'react';
-import styled from 'styled-components';
 
 import Toast from './Toast';
+import { useShowToast } from './ToastListState';
+import Stack from '../stack/Stack';
 import Button from '../button/Button';
 
-const Stack = styled.div`
-  display: flex;
-  * {
-    margin-right: 8px;
-  }
-`;
-const Consumer = () => {
-  const ref = React.useRef(null);
-  const onClick = (type?: any) => {
-    if (ref.current != null) {
-      ref.current.show({ text: 'Cheers mate', type });
-    }
+let count = 0;
+
+function Wrapper() {
+  // const dispatch = useToastAction();
+  const showToast = useShowToast();
+  const onClick = (e: SyntheticEvent<HTMLButtonElement>) => {
+    const type = e.currentTarget.dataset.test;
+
+    showToast({
+      text: `lol ${++count}`,
+      // $FlowFixMe: ok for testing
+      type,
+      timeout: 3000,
+    });
   };
 
   return (
-    <>
-      <Toast ref={ref} />
-      <Stack>
-        <Button onClick={onClick}>Show secondary</Button>
-        <Button onClick={() => onClick('danger')}>Show danger</Button>
-        <Button onClick={() => onClick('success')}>Show success</Button>
-      </Stack>
-    </>
+    <Stack flex>
+      <Button dataTest="success" onClick={onClick}>
+        Show toast
+      </Button>
+      <Button color="danger" dataTest="danger" onClick={onClick}>
+        Show danger toast
+      </Button>
+      <Toast />
+    </Stack>
   );
+}
+
+export const critical = (): React.Node => {
+  return <Wrapper />;
 };
-
-export const Normal = (): React.Node => <Consumer />;
-
 export default {
   component: Toast,
   title: 'Toast',
