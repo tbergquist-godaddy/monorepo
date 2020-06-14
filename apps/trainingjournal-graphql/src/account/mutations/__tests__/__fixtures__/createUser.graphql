@@ -1,7 +1,6 @@
 mutation createUser($input: CreateUserInput!) {
   createUser(input: $input) {
     ... on User {
-      id
       username
       email
     }

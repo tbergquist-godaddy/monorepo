@@ -20,15 +20,4 @@ const sequelize: Sequelize = new Sequelize(DB_URL_TJ, {
   logging: NODE_ENV === 'development',
 });
 
-sequelize
-  .authenticate()
-  .then(() => {
-    // eslint-disable-next-line no-console
-    console.log('connected');
-  })
-  .catch((e) => {
-    // eslint-disable-next-line no-console
-    console.log('failed', e);
-  });
-
 export default sequelize;

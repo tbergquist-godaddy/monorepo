@@ -20,4 +20,12 @@ export default class UserRepository {
     });
     return dbUser.toJSON();
   }
+
+  static async verifyPassword(username: string, password: string): Promise<UserType | null> {
+    const user = await User.findOne({ where: { username } });
+    if (user == null || user.password !== encryptPassword(password, user.salt)) {
+      return null;
+    }
+    return user.toJSON();
+  }
 }

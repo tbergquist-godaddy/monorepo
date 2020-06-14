@@ -33,3 +33,4 @@ jobs:
           yarn relay --validate
         env:
           DB_URL_TJ: ${{ secrets.DB_URL_TJ }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
