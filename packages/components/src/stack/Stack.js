@@ -73,10 +73,10 @@ const StyledStack: StyledComponent<StyledProps, DefaultTheme, HTMLDivElement> = 
     '& > *': {
       ...(hasFlex
         ? {
-            marginRight: `${theme.spacing.large} !important`,
+            marginRight: `${theme.spacing.normal} !important`,
           }
         : {
-            marginBottom: `${theme.spacing.large} !important`,
+            marginBottom: `${theme.spacing.normal} !important`,
           }),
       '&:last-child': {
         margin: '0 !important',

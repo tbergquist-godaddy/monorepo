@@ -6,6 +6,7 @@ import { Form, Formik, type FormikConfig } from 'formik';
 
 import Input from '../input/InputField';
 import Button from '../button/Button';
+import Stack from '../stack/Stack';
 
 const ButtonWrapper = styled.div({
   display: 'flex',
@@ -26,13 +27,15 @@ export default function LoginForm({ onSubmit, ...formProps }: Props): React.Elem
     <Formik initialValues={{ username: '', password: '' }} onSubmit={onSubmit}>
       {({ isSubmitting }) => (
         <Form {...formProps}>
-          <Input name="username" label="Username" />
-          <Input name="password" type="password" label="Password" />
-          <ButtonWrapper>
-            <Button loading={isSubmitting} type="submit" dataTest="LoginFormSubmit">
-              Login
-            </Button>
-          </ButtonWrapper>
+          <Stack>
+            <Input name="username" label="Username" />
+            <Input name="password" type="password" label="Password" />
+            <ButtonWrapper>
+              <Button loading={isSubmitting} type="submit" dataTest="LoginFormSubmit">
+                Login
+              </Button>
+            </ButtonWrapper>
+          </Stack>
         </Form>
       )}
     </Formik>

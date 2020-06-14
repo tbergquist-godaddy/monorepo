@@ -18,8 +18,8 @@ it('gives margin bottom', () => {
   const second = screen.getByText('Second');
   const third = screen.getByText('Third');
 
-  expect(first).toHaveStyle('margin-bottom: 18px');
-  expect(second).toHaveStyle('margin-bottom: 18px');
+  expect(first).toHaveStyle('margin-bottom: 12px');
+  expect(second).toHaveStyle('margin-bottom: 12px');
   expect(third).toHaveStyle('margin: 0');
 });
 
@@ -36,8 +36,8 @@ it('gives margin right and flex', () => {
   const second = screen.getByText('Second');
   const third = screen.getByText('Third');
 
-  expect(first).toHaveStyle('margin-right: 18px');
-  expect(second).toHaveStyle('margin-right: 18px');
+  expect(first).toHaveStyle('margin-right: 12px');
+  expect(second).toHaveStyle('margin-right: 12px');
   expect(third).toHaveStyle('margin: 0');
   expect(screen.getByTestId('stack')).toHaveStyle('display: flex');
 });
