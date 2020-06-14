@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { Layout as PageLayout, Navbar, NavLink } from '@tbergq/components';
+import { Layout as PageLayout, Navbar, NavLink, Stack } from '@tbergq/components';
 import { createFragmentContainer, graphql, type FragmentContainerType } from '@tbergq/relay';
 
 import type { Layout_viewer as Viewer } from './__generated__/Layout_viewer.graphql';
@@ -30,7 +30,9 @@ function Layout(props: Props) {
         />
       </header>
       <main>
-        <PageLayout>{props.children}</PageLayout>
+        <PageLayout>
+          <Stack>{props.children}</Stack>
+        </PageLayout>
       </main>
     </>
   );
