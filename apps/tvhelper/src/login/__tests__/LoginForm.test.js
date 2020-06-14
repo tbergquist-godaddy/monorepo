@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, fireEvent, act } from '@tbergq/test-utils';
+import { render, act, userEvent, screen, waitFor } from '@tbergq/test-utils';
 import { RelayEnvironmentProvider } from '@tbergq/relay';
 import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
 import Router from 'next/router';
@@ -17,16 +17,20 @@ beforeEach(() => {
 
 describe('LoginForm', () => {
   it('show login failed message on login error', async () => {
-    const { getByTestId, getByText } = render(
+    render(
       <RelayEnvironmentProvider environment={environment}>
         <LoginForm />
       </RelayEnvironmentProvider>,
     );
 
-    const button = getByTestId('LoginFormSubmit');
-    await act(async () => {
-      await fireEvent.click(button);
-    });
+    const button = screen.getByRole('button', { name: /login/i });
+    const username = screen.getByLabelText('Username');
+    const password = screen.getByLabelText('Password');
+
+    await userEvent.type(username, 'user');
+    await userEvent.type(password, 'pw');
+    await userEvent.click(button);
+    await waitFor(() => expect(button).toBeDisabled());
 
     act(() => {
       environment.mock.resolveMostRecentOperation((operation) =>
@@ -39,25 +43,29 @@ describe('LoginForm', () => {
       );
     });
 
-    expect(getByText('Login failed')).toBeInTheDocument();
+    expect(screen.getByText('Login failed')).toBeInTheDocument();
   });
 
   it('handles successfull login', async () => {
-    const { getByTestId } = render(
+    render(
       <RelayEnvironmentProvider environment={environment}>
         <LoginForm />
       </RelayEnvironmentProvider>,
     );
 
-    const button = getByTestId('LoginFormSubmit');
+    const button = screen.getByRole('button', { name: /login/i });
     const spy = jest.spyOn(cookie, 'set').mockImplementationOnce(jest.fn());
     const push = jest.fn();
     jest.spyOn(Router, 'push').mockImplementationOnce(push);
 
-    await act(async () => {
-      await fireEvent.click(button);
-    });
+    const username = screen.getByLabelText('Username');
+    const password = screen.getByLabelText('Password');
 
+    await userEvent.type(username, 'user');
+    await userEvent.type(password, 'pw');
+    await userEvent.click(button);
+
+    await waitFor(() => expect(button).toBeDisabled());
     act(() => {
       environment.mock.resolveMostRecentOperation((operation) =>
         MockPayloadGenerator.generate(operation, {

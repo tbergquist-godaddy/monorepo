@@ -3,6 +3,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Form, Formik, type FormikConfig } from 'formik';
+import { object, string } from 'yup';
 
 import Input from '../input/InputField';
 import Button from '../button/Button';
@@ -22,9 +23,18 @@ type Props = {
   +method?: 'GET' | 'POST',
 };
 
+const validationSchema = object().shape({
+  username: string().required(),
+  password: string().required(),
+});
+
 export default function LoginForm({ onSubmit, ...formProps }: Props): React.Element<typeof Formik> {
   return (
-    <Formik initialValues={{ username: '', password: '' }} onSubmit={onSubmit}>
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={{ username: '', password: '' }}
+      onSubmit={onSubmit}
+    >
       {({ isSubmitting }) => (
         <Form {...formProps}>
           <Stack>
