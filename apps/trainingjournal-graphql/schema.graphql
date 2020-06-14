@@ -1,0 +1,59 @@
+# @generated SignedSource<<64f5b06d9c111d7816a4a2e935154d74>>
+
+# <BREAKING-CHANGES-LOG>
+# </BREAKING-CHANGES-LOG>
+
+schema {
+  query: RootQuery
+  mutation: RootMutation
+}
+
+"""Type indicating an error creating a user"""
+type CreateUserError {
+  message: String
+  reason: CreateUserErrorReason
+}
+
+enum CreateUserErrorReason {
+  EMAIL_EXISTS
+  UNKNOWN_ERROR
+  USERNAME_EXISTS
+}
+
+"""Object type to create a new user"""
+input CreateUserInput {
+  email: String!
+  password: String!
+  username: String!
+}
+
+"""Type returned when creating a user"""
+union CreateUserOrError = CreateUserError | User
+
+"""Login response, indicates success and gives the token"""
+type LoginType {
+  success: Boolean
+  token: String
+}
+
+"""Root Mutation."""
+type RootMutation {
+  createUser(input: CreateUserInput!): CreateUserOrError
+  login(password: String!, username: String!): LoginType
+}
+
+"""Root Query"""
+type RootQuery {
+  test: String
+}
+
+"""User object"""
+type User {
+  email: String
+
+  """
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  username: String
+}
