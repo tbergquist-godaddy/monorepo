@@ -6,11 +6,17 @@
   "main": "src/index",
   "dependencies": {
     "graphql": "^15.1.0",
+    "@adeira/js": "^1.2.2",
     "@adeira/graphql-global-id": "^1.0.0",
-    "@tbergq/trainingjournal-persistence": "0.0.1"
+    "@adeira/graphql-relay": "^0.1.0",
+    "@tbergq/graphql-services": "0.0.1",
+    "@tbergq/trainingjournal-persistence": "0.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@adeira/monorepo-utils": "^0.7.0",
-    "@adeira/test-utils": "^0.5.0"
+    "@adeira/test-utils": "^0.5.0",
+    "mockdate": "^3.0.2"
   }
 }

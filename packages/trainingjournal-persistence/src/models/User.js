@@ -5,13 +5,20 @@ import Sequelize, { Model } from 'sequelize';
 import connection from '../connection';
 
 export type UserType = $ReadOnly<{
+  id?: number,
   username: string,
   email: string,
   password: string,
   salt: string,
 }>;
 
-export default class User extends Model<UserType> {}
+export default class User extends Model<UserType> {
+  id: number;
+  username: string;
+  email: string;
+  password: string;
+  salt: string;
+}
 
 User.init(
   {

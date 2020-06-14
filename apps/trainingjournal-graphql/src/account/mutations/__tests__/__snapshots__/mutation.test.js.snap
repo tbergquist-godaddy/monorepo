@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mutations matches expected output: createUser.graphql 1`] = `
+exports[`matches expected output: createUser.graphql 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 mutation createUser($input: CreateUserInput!) {
   createUser(input: $input) {
     ... on User {
-      id
       username
       email
     }
@@ -19,9 +18,28 @@ mutation createUser($input: CreateUserInput!) {
 {
   "data": {
     "createUser": {
-      "id": "VXNlcjox",
       "username": "tito",
       "email": "tito@bonito.com"
+    }
+  }
+}
+`;
+
+exports[`matches expected output: login.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+mutation login($username: String!, $password: String!) {
+  login(username: $username, password: $password) {
+    token
+    success
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "login": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZYTmxjam94IiwidXNlcm5hbWUiOiJ0aXRhIiwiZW1haWwiOiJ0aXRhQGJlYml0YS5jb20iLCJpYXQiOjE1Nzc4MzY4MDAsImV4cCI6MTYwOTM5NDQwMCwiaXNzIjoidGJlcmdxLXRyYWluaW5nam91cm5hbC5oZXJva3VhcHAuY29tIn0.KSOGublkXmCLANbv5DmgygbWqTBC6mAbQz1nMiCdvyA",
+      "success": true
     }
   }
 }
