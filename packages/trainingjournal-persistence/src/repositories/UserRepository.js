@@ -22,10 +22,14 @@ export default class UserRepository {
   }
 
   static async verifyPassword(username: string, password: string): Promise<UserType | null> {
-    const user = await User.findOne({ where: { username } });
+    const user = await this.getByUsername(username);
     if (user == null || user.password !== encryptPassword(password, user.salt)) {
       return null;
     }
     return user.toJSON();
+  }
+
+  static getByUsername(username: string): Promise<?User> {
+    return User.findOne({ where: { username } });
   }
 }
