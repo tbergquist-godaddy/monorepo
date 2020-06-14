@@ -6,6 +6,7 @@ import { RelayEnvironmentProvider } from '@tbergq/relay';
 import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
 import Router from 'next/router';
 import cookie from 'js-cookie';
+import { Toast } from '@tbergq/components';
 
 import LoginForm from '../LoginForm';
 
@@ -20,6 +21,7 @@ describe('LoginForm', () => {
     render(
       <RelayEnvironmentProvider environment={environment}>
         <LoginForm />
+        <Toast />
       </RelayEnvironmentProvider>,
     );
 

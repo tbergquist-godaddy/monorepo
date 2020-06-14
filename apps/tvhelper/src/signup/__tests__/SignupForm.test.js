@@ -5,9 +5,17 @@ import { render, fireEvent, act } from '@tbergq/test-utils';
 import { Environment } from '@tbergq/relay';
 import { MockPayloadGenerator } from 'relay-test-utils';
 import Router from 'next/router';
+import { Toast } from '@tbergq/components';
 
-import SignupForm from '../SignupForm';
+import SignUp from '../SignupForm';
 import * as mutation from '../mutation/createUserMutation';
+
+const SignupForm = () => (
+  <>
+    <SignUp />
+    <Toast />
+  </>
+);
 
 describe('SignupForm', () => {
   it('handles username change', async () => {

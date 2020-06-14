@@ -9,7 +9,7 @@ import Loading from '../loading/Loading';
 export type ColorScheme = 'primary' | 'secondary' | 'success' | 'danger';
 export type Sizes = 'small' | 'normal' | 'large';
 type Props = {
-  +onClick?: () => void | Promise<void>,
+  +onClick?: (e: SyntheticEvent<HTMLButtonElement>) => void | Promise<void>,
   +type?: 'button' | 'submit',
   +size?: Sizes,
   +color?: ColorScheme,
@@ -42,7 +42,7 @@ const getFontSize = (size: Sizes, theme: DefaultTheme) => {
 };
 
 type SCProps = {
-  +onClick?: () => void | Promise<void>,
+  +onClick?: (e: SyntheticEvent<HTMLButtonElement>) => void | Promise<void>,
   +type?: 'button' | 'submit',
   +buttonSize?: Sizes,
   +colorScheme?: ColorScheme,
