@@ -12,7 +12,8 @@
     "@testing-library/react": "^10.2.1",
     "formik": "^2.1.4",
     "react-icons": "^3.10.0",
-    "uuid": "^8.1.0"
+    "uuid": "^8.1.0",
+    "yup": "^0.29.1"
   },
   "peerDependencies": {
     "next": "",
