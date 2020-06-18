@@ -110,10 +110,10 @@
     "@adeira/js" "^1.2.2"
     "@babel/runtime" "^7.9.2"
 
-"@adeira/graphql-relay@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/graphql-relay/-/graphql-relay-0.1.0.tgz#cd13fd240b6fcb3a6253b263694212c6b2d11745"
-  integrity sha512-PXez+hc280eSCbjFY00jNJKwDWZTuEuU2USVLmpQbvne9HW4dwToFMSYbYf9+BvygMQWslCqL7mdZH2jXR8pUA==
+"@adeira/graphql-relay@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/graphql-relay/-/graphql-relay-0.2.0.tgz#d910d5c69a7f56c0014bcf147ca9b9c1d42a53f2"
+  integrity sha512-pL/SbvkptoVrXZrVguPUV4EPgtfXSlnSi/4E619c3UD45lB2V766qaXESmox5Xp9VvbQdof2m1rs22kzlx+icg==
   dependencies:
     "@babel/runtime" "^7.10.2"
 

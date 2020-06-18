@@ -10,7 +10,7 @@
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
     "graphql": "^15.1.0",
-    "@adeira/graphql-relay": "^0.1.0",
+    "@adeira/graphql-relay": "^0.2.0",
     "jsonwebtoken": "^8.5.1",
     "password-hash": "^1.2.2"
   }
