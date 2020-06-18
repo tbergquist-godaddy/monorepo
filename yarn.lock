@@ -14541,10 +14541,10 @@ rc-animate@^2.10.2:
     rc-util "^4.15.3"
     react-lifecycles-compat "^3.0.4"
 
-rc-slider@^9.3.0:
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/rc-slider/-/rc-slider-9.3.0.tgz#88c852de2532f488012087afb6b5bc8506b9e431"
-  integrity sha512-9QPRjK8qFYO8L/Cn//O/K4g4dSU1glgvAdeT9qBLmjXtdYSiJ9u3YulcdbHWHo9Y3IE1dyaVm4m4ll2FWdDyqg==
+rc-slider@^9.3.1:
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/rc-slider/-/rc-slider-9.3.1.tgz#444012f3b4847d592b167a9cee6a1a46779a6ef4"
+  integrity sha512-c52PWPyrfJWh28K6dixAm0906L3/4MUIxqrNQA4TLnC/Z+cBNycWJUZoJerpwSOE1HdM3XDwixCsmtFc/7aWlQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.5"
