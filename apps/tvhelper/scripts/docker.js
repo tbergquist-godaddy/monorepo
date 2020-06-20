@@ -35,6 +35,7 @@ const thisWorkspace = packageJson.name;
       transpile: false,
       removeRootDependencies: false,
     });
+
     fs.copyFileSync(path.join(__dirname, '..', 'Dockerfile'), path.join(buildDir, 'Dockerfile'));
     fs.copyFileSync(
       path.join(__dirname, '..', 'docker-compose.yml'),

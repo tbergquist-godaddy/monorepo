@@ -9,7 +9,13 @@ import util from 'util';
 
 import findRelatedWorkspaces from './findRelatedWorkspaceLocations';
 
-const globIgnore = ['**/node_modules/**', '**/__tests__/**', '**/__mocks__/**'];
+const globIgnore = [
+  '**/node_modules/**',
+  '**/__tests__/**',
+  '**/__mocks__/**',
+  '**/.next/**',
+  '**/.storybook/**',
+];
 
 const rimrafPromise = util.promisify(rimraf);
 function copyFileSync(absoluteFrom, absoluteTo) {
@@ -52,10 +58,13 @@ export default async function build(
   const projectRoots = Array.from(locations).map((location) => path.join(repoRoot, location));
 
   for (const projectRoot of projectRoots) {
+    // $FlowExpectedError[prop-missing]: Dot does exist on glob options
     const rawFileNames = globSync('/**/*.*', {
       root: projectRoot,
       ignore: globIgnore,
+      dot: true,
     });
+
     for (const rawFileName of rawFileNames) {
       const destinationFilename = path.join(buildDir, rawFileName.replace(repoRoot, ''));
       if (rawFileName.endsWith('.js') && buildConfig.transpile) {
