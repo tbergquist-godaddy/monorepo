@@ -7,7 +7,7 @@ export default function Index(): React.Node {
   return (
     <>
       <Head>
-        <title>Traningjournal | Home</title>
+        <title>Traningjournal</title>
       </Head>
       <div>TODO</div>
     </>

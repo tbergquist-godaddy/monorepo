@@ -1,10 +1,11 @@
-// @flow strict-local
+// @flow
 
 import * as React from 'react';
 import { GlobalStyle, ThemeProvider } from '@tbergq/nextjs-utils';
 import App from 'next/app';
-import { MediaContextProvider, Navbar, Layout } from '@tbergq/components';
+import { MediaContextProvider, Navbar, Layout, Toast } from '@tbergq/components';
 import { Environment, RelayEnvironmentProvider } from '@tbergq/relay';
+import { RecoilRoot } from 'recoil';
 
 const theme = {
   navBarColor: '#1976d2',
@@ -18,17 +19,20 @@ export default class Trainingjournal extends App {
       <RelayEnvironmentProvider environment={environment}>
         <ThemeProvider theme={theme}>
           <MediaContextProvider>
-            <>
-              <GlobalStyle />
-              <header>
-                <Navbar brand="Trainingjournal" />
-              </header>
-              <main>
-                <Layout>
-                  <Component />
-                </Layout>
-              </main>
-            </>
+            <RecoilRoot>
+              <>
+                <GlobalStyle />
+                <header>
+                  <Navbar brand="Trainingjournal" />
+                </header>
+                <main>
+                  <Layout>
+                    <Component />
+                  </Layout>
+                  <Toast />
+                </main>
+              </>
+            </RecoilRoot>
           </MediaContextProvider>
         </ThemeProvider>
       </RelayEnvironmentProvider>
