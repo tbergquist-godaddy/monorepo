@@ -1,9 +1,12 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { LoginForm as Login } from '@tbergq/components';
+import { LoginForm as Login, useShowToast } from '@tbergq/components';
 import { useMutation, graphql } from '@tbergq/relay';
 import styled from 'styled-components';
+import { TOKEN_KEY } from '@tbergq/utils';
+import cookie from 'js-cookie';
+import { useRouter } from 'next/router';
 
 import type { LoginFormMutation } from './__generated__/LoginFormMutation.graphql';
 
@@ -13,6 +16,8 @@ const Wrapper = styled.div({
 });
 
 export default function LoginForm(): React.Node {
+  const showToast = useShowToast();
+  const { push } = useRouter();
   const [login] = useMutation<LoginFormMutation>(graphql`
     mutation LoginFormMutation($username: String!, $password: String!) {
       login(username: $username, password: $password) {
@@ -25,10 +30,12 @@ export default function LoginForm(): React.Node {
     login({
       variables: { username, password },
       onCompleted: ({ login }) => {
-        if (login?.success === true) {
-          // TODO: Redirect
+        if (login?.success === true && login.token != null) {
+          cookie.set(TOKEN_KEY, login.token);
+          showToast({ type: 'success', text: 'Successfully logged in' });
+          push('/home');
         } else {
-          // TODO: Show toast
+          showToast({ type: 'danger', text: 'Login failed' });
         }
         setSubmitting(false);
       },
