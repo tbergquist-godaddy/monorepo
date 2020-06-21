@@ -3,7 +3,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { ApolloServer } from 'apollo-server-micro';
 import { config as loadEnv } from 'dotenv';
-import { schema } from '@tbergq/trainingjournal-graphql';
+import { schema, createContext } from '@tbergq/trainingjournal-graphql';
 import passport from 'passport';
 import passportJwt from 'passport-jwt';
 import { UserRepository } from '@tbergq/trainingjournal-persistence';
@@ -65,9 +65,7 @@ const apolloServer = new ApolloServer({
   schema,
   introspection: __DEV__,
   playground: __DEV__,
-  context: ({ req }) => {
-    return { user: req.user };
-  },
+  context: createContext,
 });
 
 export const config = {

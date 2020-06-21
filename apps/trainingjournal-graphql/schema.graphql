@@ -1,6 +1,7 @@
-# @generated SignedSource<<64f5b06d9c111d7816a4a2e935154d74>>
+# @generated SignedSource<<c655ae4a16d9b4c6118ea4aa19a315a9>>
 
 # <BREAKING-CHANGES-LOG>
+#  FIELD_REMOVED: RootQuery.test was removed.
 # </BREAKING-CHANGES-LOG>
 
 schema {
@@ -44,7 +45,13 @@ type RootMutation {
 
 """Root Query"""
 type RootQuery {
-  test: String
+  """User context"""
+  viewer: Viewer
+}
+
+"""User is not authorized to view content"""
+type Unauthorized {
+  message: String
 }
 
 """User object"""
@@ -57,3 +64,5 @@ type User {
   id(opaque: Boolean = true): ID!
   username: String
 }
+
+union Viewer = Unauthorized | User

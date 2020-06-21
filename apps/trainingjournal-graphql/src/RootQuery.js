@@ -1,15 +1,14 @@
-// @flow strict
+// @flow strict-local
 
-import { GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLObjectType } from 'graphql';
+
+import viewer from './account/queries/Viewer';
 
 const RootQuery: GraphQLObjectType = new GraphQLObjectType({
   name: 'RootQuery',
   description: 'Root Query',
   fields: {
-    test: {
-      type: GraphQLString,
-      resolve: () => 'test',
-    },
+    viewer,
   },
 });
 
