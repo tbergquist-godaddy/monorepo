@@ -10,10 +10,16 @@ type CreateUserInput = {
   +password: string,
 };
 
-export default class UserRepository {
-  static async createUser(user: CreateUserInput): Promise<UserType> {
+class UserRepository {
+  model: typeof User;
+
+  constructor(model: typeof User) {
+    this.model = model;
+  }
+
+  async createUser(user: CreateUserInput): Promise<UserType> {
     const salt = generateSalt();
-    const dbUser = await User.create({
+    const dbUser = await this.model.create({
       ...user,
       salt,
       password: encryptPassword(user.password, salt),
@@ -21,7 +27,7 @@ export default class UserRepository {
     return dbUser.toJSON();
   }
 
-  static async verifyPassword(username: string, password: string): Promise<UserType | null> {
+  async verifyPassword(username: string, password: string): Promise<UserType | null> {
     const user = await this.getByUsername(username);
     if (user == null || user.password !== encryptPassword(password, user.salt)) {
       return null;
@@ -29,7 +35,10 @@ export default class UserRepository {
     return user.toJSON();
   }
 
-  static getByUsername(username: string): Promise<?User> {
-    return User.findOne({ where: { username } });
+  getByUsername(username: string): Promise<?User> {
+    return this.model.findOne({ where: { username } });
   }
 }
+
+const userRepository: UserRepository = new UserRepository(User);
+export default userRepository;
