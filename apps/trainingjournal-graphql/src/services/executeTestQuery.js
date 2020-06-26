@@ -2,6 +2,7 @@
 
 import { graphql } from 'graphql';
 
+import createContext from '../createContext';
 import schema from '../Schema';
 
 export function getOperationName(query: string): ?string {
@@ -10,6 +11,11 @@ export function getOperationName(query: string): ?string {
   return name;
 }
 
-export default function executeTestQuery(query: string, variables: ?{ ... }): Promise<{ ... }> {
-  return graphql(schema, query, null, null, variables);
+export default function executeTestQuery(
+  query: string,
+  variables: ?{ ... },
+  req: ?{ ... } = { user: null },
+): Promise<{ ... }> {
+  // $FlowExpectedError
+  return graphql(schema, query, null, createContext({ req }), variables);
 }
