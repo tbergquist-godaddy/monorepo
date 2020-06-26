@@ -5,7 +5,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^1.2.2",
-    "@adeira/monorepo-utils": "^0.7.0",
+    "@adeira/monorepo-utils": "^0.8.0",
     "@next/bundle-analyzer": "^9.4.4",
     "@tbergq/components": "0.0.1",
     "@tbergq/nextjs-utils": "0.0.1",

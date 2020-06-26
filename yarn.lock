@@ -198,6 +198,17 @@
     glob "^7.1.6"
     is-ci "^2.0.0"
 
+"@adeira/monorepo-utils@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@adeira/monorepo-utils/-/monorepo-utils-0.8.0.tgz#857b03ea6e222e378f3c54c2a4f544db17026778"
+  integrity sha512-DtWMb0g5HIDznVwe4ktcnBSMxMCcgPP5q4u5vo4iNJtUUwVtZ2bn4ULhvfwCGz6UcF703AdHckFG9A+f+wm4MQ==
+  dependencies:
+    "@adeira/js" "^1.2.0"
+    "@babel/register" "^7.10.1"
+    "@babel/runtime" "^7.10.2"
+    glob "^7.1.6"
+    is-ci "^2.0.0"
+
 "@adeira/relay-runtime@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@adeira/relay-runtime/-/relay-runtime-0.11.0.tgz#595e96402fea91e50ee6cba45dda7e7a557389ef"

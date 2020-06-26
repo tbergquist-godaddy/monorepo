@@ -6,7 +6,7 @@
   "main": "src/index",
   "dependencies": {
     "@adeira/js": "^1.2.2",
-    "@adeira/monorepo-utils": "^0.7.0",
+    "@adeira/monorepo-utils": "^0.8.0",
     "@tbergq/persistence-utils": "0.0.1",
     "dotenv": "^8.2.0",
     "mysql2": "^2.1.0",
