@@ -21,6 +21,10 @@ class ExerciseRepository {
   getById(id: number): Promise<?Exercise> {
     return this.model.findByPk(id);
   }
+
+  getByUserId(userId: number): Promise<$ReadOnlyArray<Exercise>> {
+    return this.model.findAll({ where: { userId } });
+  }
 }
 
 const exerciseRepository: ExerciseRepository = new ExerciseRepository(Exercise);

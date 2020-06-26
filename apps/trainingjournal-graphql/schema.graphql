@@ -1,4 +1,4 @@
-# @generated SignedSource<<c655ae4a16d9b4c6118ea4aa19a315a9>>
+# @generated SignedSource<<fbc46fd3a4fea118bba00747e9ba8a09>>
 
 # <BREAKING-CHANGES-LOG>
 #  FIELD_REMOVED: RootQuery.test was removed.
@@ -31,10 +31,54 @@ input CreateUserInput {
 """Type returned when creating a user"""
 union CreateUserOrError = CreateUserError | User
 
+"""An exercise"""
+type Exercise {
+  description: String
+
+  """
+  The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+  name: String
+}
+
+"""A connection to a list of items."""
+type ExerciseConnection {
+  """A list of edges."""
+  edges: [ExerciseEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+"""An edge in a connection."""
+type ExerciseEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: Exercise
+}
+
 """Login response, indicates success and gives the token"""
 type LoginType {
   success: Boolean
   token: String
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
 }
 
 """Root Mutation."""
@@ -57,6 +101,7 @@ type Unauthorized {
 """User object"""
 type User {
   email: String
+  exercises: ExerciseConnection
 
   """
   The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.

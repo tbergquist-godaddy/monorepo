@@ -13,6 +13,7 @@ Mockdate.set(new Date(2020, 0, 1, 0, 0, 0, 0));
 jest.mock('@adeira/graphql-relay', () => {
   const original = jest.requireActual('@adeira/graphql-relay');
   return {
+    ...original,
     toGlobalId: () => original.toGlobalId('User', 1),
   };
 });

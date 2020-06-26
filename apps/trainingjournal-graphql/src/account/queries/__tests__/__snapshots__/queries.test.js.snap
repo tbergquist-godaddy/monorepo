@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: exercises.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query exercises {
+   viewer {
+    ... on User {
+      exercises {
+        edges {
+          node {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "data": {
+    "viewer": {
+      "exercises": {
+        "edges": [
+          {
+            "node": {
+              "id": "RXhlcmNpc2U6MQ",
+              "name": "Squat"
+            }
+          },
+          {
+            "node": {
+              "id": "RXhlcmNpc2U6Mg",
+              "name": "Bench press"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+`;
