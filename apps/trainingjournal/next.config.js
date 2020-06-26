@@ -19,7 +19,6 @@ module.exports = (withBundleAnalyzer(
     withCustomBabelConfigFile(
       withTM(['@tbergq'])({
         babelConfigFile: path.join(findMonorepoRoot(), 'babel.config.js'),
-        target: 'serverless',
         env: {
           GRAPHQL_URL,
         },

@@ -7,10 +7,11 @@ import path from 'path';
 
 config({ path: path.join(__dirname, '..', '.env') });
 
-const { DB_URL_TJ, NODE_ENV } = process.env;
-invariant(DB_URL_TJ != null, 'Expected to have DB_URL_TJ, but it was undefined');
+const { DB_URL_TJ, NODE_ENV, CLEARDB_DATABASE_URL } = process.env;
+const dbUrl = DB_URL_TJ ?? CLEARDB_DATABASE_URL;
+invariant(dbUrl != null, 'Expected to have DB_URL_TJ, but it was undefined');
 
-const sequelize: Sequelize = new Sequelize(DB_URL_TJ, {
+const sequelize: Sequelize = new Sequelize(dbUrl, {
   pool: {
     max: 5,
     min: 0,
