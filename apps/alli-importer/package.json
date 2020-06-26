@@ -5,7 +5,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^1.2.2",
-    "@adeira/monorepo-utils": "^0.7.0",
+    "@adeira/monorepo-utils": "^0.8.0",
     "@next/bundle-analyzer": "^9.4.4",
     "@tbergq/alli-importer-graphql": "0.0.1",
     "@tbergq/alli-importer-persistence": "0.0.1",

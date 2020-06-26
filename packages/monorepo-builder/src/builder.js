@@ -58,7 +58,6 @@ export default async function build(
   const projectRoots = Array.from(locations).map((location) => path.join(repoRoot, location));
 
   for (const projectRoot of projectRoots) {
-    // $FlowExpectedError[prop-missing]: Dot does exist on glob options
     const rawFileNames = globSync('/**/*.*', {
       root: projectRoot,
       ignore: globIgnore,
