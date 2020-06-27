@@ -1,19 +1,21 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { LoginForm as Login, useShowToast } from '@tbergq/components';
+import { LoginForm as Login, useShowToast, Link } from '@tbergq/components';
 import { useMutation, graphql } from '@tbergq/relay';
-import styled from 'styled-components';
+import styled, { type StyledComponent } from 'styled-components';
 import { TOKEN_KEY } from '@tbergq/utils';
 import cookie from 'js-cookie';
 import { useRouter } from 'next/router';
 
 import type { LoginFormMutation } from './__generated__/LoginFormMutation.graphql';
 
-const Wrapper = styled.div({
-  maxWidth: '500px',
-  margin: '0 auto',
-});
+export const Wrapper: StyledComponent<{ +children: React.Node }, null, HTMLDivElement> = styled.div(
+  {
+    maxWidth: '500px',
+    margin: '0 auto',
+  },
+);
 
 export default function LoginForm(): React.Node {
   const showToast = useShowToast();
@@ -44,6 +46,9 @@ export default function LoginForm(): React.Node {
   return (
     <Wrapper>
       <Login onSubmit={onSubmit} />
+      <div>
+        Don&apos;t have an account? <Link href="/signup">Sign up</Link>
+      </div>
     </Wrapper>
   );
 }

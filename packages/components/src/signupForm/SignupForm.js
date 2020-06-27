@@ -3,10 +3,20 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Form, Formik } from 'formik';
+import { object, string, ref } from 'yup';
 
 import Button from '../button/Button';
 import Input from '../input/InputField';
 import { useShowToast } from '../toast/ToastListState';
+
+const validationSchema = object().shape({
+  username: string().required(),
+  password: string().required(),
+  confirmPassword: string()
+    .required()
+    .oneOf([ref('password'), null], 'Passwords must match'),
+  email: string().required().email(),
+});
 
 const SubmitButton = styled(Button)({
   float: 'right',
@@ -44,8 +54,14 @@ export default (function SignupForm(props: Props) {
   }
   return (
     <Formik
-      initialValues={{ username: '', email: '', password: '', confirmPassword: '' }}
+      initialValues={{
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+      }}
       onSubmit={onSubmit}
+      validationSchema={validationSchema}
     >
       <Form>
         <Input name="username" label="Username" dataTest="usernameInput" />
