@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { GlobalStyle, ThemeProvider } from '@tbergq/nextjs-utils';
 import App from 'next/app';
-import { MediaContextProvider, Navbar, Layout, Toast } from '@tbergq/components';
+import { MediaContextProvider, Navbar, Layout, Toast, NavLink } from '@tbergq/components';
 import { Environment, RelayEnvironmentProvider } from '@tbergq/relay';
 import { RecoilRoot } from 'recoil';
 
@@ -23,7 +23,10 @@ export default class Trainingjournal extends App {
               <>
                 <GlobalStyle />
                 <header>
-                  <Navbar brand="Trainingjournal" />
+                  <Navbar
+                    brand="Trainingjournal"
+                    headerRight={<NavLink href="/login">Login</NavLink>}
+                  />
                 </header>
                 <main>
                   <Layout>

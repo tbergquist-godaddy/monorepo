@@ -62,24 +62,6 @@ describe('SignupForm', () => {
     expect(getByDisplayValue(password)).toBeInTheDocument();
   });
 
-  it('show a toast when password and confirmPassword does not match', async () => {
-    const { getByTestId, getByText } = render(<SignupForm />);
-    const password = getByTestId('passwordInput');
-    const confirmPassword = getByTestId('confirmPasswordInput');
-    const submit = getByTestId('submitButton');
-    const preventDefault = jest.fn();
-    const spy = jest.spyOn(mutation, 'default');
-
-    await act(async () => {
-      fireEvent.change(password, { target: { value: '123456' } });
-      fireEvent.change(confirmPassword, { target: { value: '12345' } });
-      await fireEvent.click(submit, { preventDefault });
-    });
-
-    expect(getByText('password and confirm password does not match')).toBeInTheDocument();
-    expect(spy).not.toHaveBeenCalled();
-  });
-
   it('show a toast when it fails to create a user', async () => {
     const { getByTestId, getByText } = render(<SignupForm />);
     const username = getByTestId('usernameInput');
