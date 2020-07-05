@@ -5,7 +5,7 @@
   "main": "index.js",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/graphql-bc-checker": "^0.1.0",
+    "@adeira/graphql-bc-checker": "^0.2.0",
     "@adeira/graphql-global-id": "^1.0.1",
     "@adeira/js": "^1.2.1",
     "@adeira/monorepo-utils": "^0.8.0",
