@@ -10,7 +10,7 @@
     "@tbergq/persistence-utils": "0.0.1",
     "dotenv": "^8.2.0",
     "mysql2": "^2.1.0",
-    "sequelize": "^5.21.13"
+    "sequelize": "^6.3.0"
   },
   "devDependencies": {
     "sequelize-cli": "^6.2.0"
