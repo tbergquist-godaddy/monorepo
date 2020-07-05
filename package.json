@@ -29,7 +29,7 @@
     "@adeira/flow-bin": "^0.2.0",
     "@adeira/monorepo-npm-publisher": "^0.3.0",
     "@babel/core": "^7.10.4",
-    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.3.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.3.1",
