@@ -94,13 +94,14 @@
     chalk "^3.0.0"
     is-ci "^2.0.0"
 
-"@adeira/graphql-bc-checker@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/graphql-bc-checker/-/graphql-bc-checker-0.1.0.tgz#0e2c319d5653e68e5512cfa486dfebb627d55881"
-  integrity sha512-BvGZmpCjReFjdN71nB8BcOSVxW0ZX4mgWMulmush2qCl23GqtWQFlC2Yi0mYLJRviIczc+6toGi9lQW2r7LfUg==
+"@adeira/graphql-bc-checker@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/graphql-bc-checker/-/graphql-bc-checker-0.2.0.tgz#6ee52d81bcd4f55b5b5f3b39b1187ed25e136f7a"
+  integrity sha512-3ZPRSI5OQg/WfAy8VbOhkNBoqoF3WjNhBTfzAp01KRE4mWtH4C/ox5y6TSOa4F9pq9iOtN4PqSUMjbs60izyTA==
   dependencies:
-    "@adeira/signed-source" "^0.1.0"
-    chalk "^3.0.0"
+    "@adeira/signed-source" "^1.0.0"
+    "@babel/runtime" "^7.10.3"
+    chalk "^4.1.0"
 
 "@adeira/graphql-global-id@^1.0.1":
   version "1.0.1"
@@ -252,6 +253,13 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@adeira/signed-source/-/signed-source-0.1.0.tgz#133dcdc05e73544f0677c7ae6eb91a77e63bf105"
   integrity sha512-RxkGDN3q4aGENhBjUZRtj/ALwpOKuY3Y8pkZATYw6Tq1dBDyrrDf7IZDX7DNA7pZLIBMphT1bmM0vt+4enNH0A==
+
+"@adeira/signed-source@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/signed-source/-/signed-source-1.0.0.tgz#005aa489b1fbedaa51604a91ec3d90dca92a1b34"
+  integrity sha512-S3DU0pCr8l0GyWhJwDdkOZrm9fn+xxi3Q/mbpn5lUq1Uo52i7V2tJgcH1IcOskWIFYe0bFdnhT+OCZDW1aQglg==
+  dependencies:
+    "@babel/runtime" "^7.10.3"
 
 "@adeira/test-utils@^0.1.0":
   version "0.1.0"
@@ -2180,10 +2188,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.0", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2", "@babel/runtime@^7.9.6":
-  version "7.10.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
-  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.0", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2", "@babel/runtime@^7.9.6":
+  version "7.10.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.4.tgz#a6724f1a6b8d2f6ea5236dbfe58c7d7ea9c5eb99"
+  integrity sha512-UpTN5yUJr9b4EX2CnGNWIvER7Ab83ibv0pcvvHc4UOdrBI5jb8bj+32cCwPX6xu0mt2daFNjYhoi+X7beH0RSw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -6114,7 +6122,7 @@ chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.2, chalk@^2.4.
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@4.0.0, chalk@^4.0.0:
+chalk@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.0.0.tgz#6e98081ed2d17faab615eb52ac66ec1fe6209e72"
   integrity sha512-N9oWFcegS0sFr9oh1oz2d7Npos6vNoWW9HvtCg5N1KRFpUhaAhvTv5Y58g880fZaEYSNm3qDz8SU1UrGvp+n7A==
@@ -6137,6 +6145,14 @@ chalk@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
   integrity sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@^4.0.0, chalk@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
+  integrity sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
