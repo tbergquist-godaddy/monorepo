@@ -6,7 +6,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/monorepo-utils": "^0.8.0",
-    "@babel/core": "^7.10.3",
+    "@babel/core": "^7.10.4",
     "rimraf": "^3.0.2"
   }
 }
