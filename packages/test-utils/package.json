@@ -6,7 +6,7 @@
   "main": "src/index",
   "dependencies": {
     "@tbergq/theme": "0.0.1",
-    "@testing-library/react": "^10.4.3",
+    "@testing-library/react": "^10.4.6",
     "@testing-library/user-event": "12.0.11",
     "relay-test-utils": "9.1.0",
     "recoil": "0.0.10"
