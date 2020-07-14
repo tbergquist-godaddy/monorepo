@@ -6,7 +6,7 @@
   "sideEffects": false,
   "dependencies": {
     "@tbergq/persistence-utils": "0.0.1",
-    "mongoose": "^5.9.20"
+    "mongoose": "^5.9.24"
   },
   "devDependencies": {
     "@adeira/monorepo-utils": "^0.8.0",
