@@ -1,15 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import {
-  render,
-  screen,
-  createMockEnvironment,
-  MockPayloadGenerator,
-  waitFor,
-  act,
-  userEvent,
-} from '@tbergq/test-utils';
+import { render, screen, createMockEnvironment, waitFor, act, userEvent } from '@tbergq/test-utils';
 import { RelayEnvironmentProvider } from '@tbergq/relay';
 import * as router from 'next/router';
 import { Toast } from '@tbergq/components';
@@ -52,17 +44,21 @@ it('redirects to login after user is created', async () => {
   userEvent.click(submit);
   await waitFor(() => expect(submit).toBeDisabled());
   act(() => {
-    environment.mock.resolveMostRecentOperation((operation) => {
-      return MockPayloadGenerator.generate(operation, {
-        CreateUserOrError: () => ({
-          __typename: 'User',
-        }),
-      });
+    environment.mock.resolveMostRecentOperation(() => {
+      return {
+        data: {
+          createUser: {
+            __typename: 'User',
+          },
+        },
+      };
     });
   });
+
   expect(
     screen.getByText(/User successfully created, you are being redirect to login page/i),
   ).toBeInTheDocument();
+
   act(() => {
     jest.runAllTimers();
   });

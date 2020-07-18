@@ -102,8 +102,8 @@ describe('SignupForm', () => {
     expect(getByText('Failed to create user')).toBeInTheDocument();
   });
 
-  it('show a toast when it successfully creates a user', async () => {
-    const { getByTestId, getByText } = render(<SignupForm />);
+  it('successfully creates a user', async () => {
+    const { getByTestId } = render(<SignupForm />);
     const username = getByTestId('usernameInput');
     const email = getByTestId('emailInput');
     const password = getByTestId('passwordInput');
@@ -141,7 +141,6 @@ describe('SignupForm', () => {
       expect.anything(), // Should be any function 🤔
     );
 
-    expect(getByText('User was successfully created')).toBeInTheDocument();
     expect(router).toHaveBeenLastCalledWith('/login');
   });
 });

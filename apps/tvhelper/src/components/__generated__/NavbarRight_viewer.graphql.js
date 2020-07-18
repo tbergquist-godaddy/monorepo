@@ -50,10 +50,12 @@ const node: ReaderFragment = {
           "storageKey": null
         }
       ],
-      "type": "TvHelperViewer"
+      "type": "TvHelperViewer",
+      "abstractKey": null
     }
   ],
-  "type": "Viewer"
+  "type": "Viewer",
+  "abstractKey": "__isViewer"
 };
 // prettier-ignore
 (node: any).hash = 'cbab55f33db3a85051fe7a0f73c52ad1';

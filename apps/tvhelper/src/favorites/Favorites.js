@@ -128,7 +128,7 @@ export default (createRefetchContainer(
         @argumentDefinitions(
           options: {
             type: "SortOptions"
-            defaultValue: { sortDirection: "DESC", sortBy: "PREVIOUS_EPISODE" }
+            defaultValue: { sortDirection: DESC, sortBy: PREVIOUS_EPISODE }
           }
         ) {
         favorites(options: $options) {

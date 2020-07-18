@@ -67,8 +67,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "options",
-    "type": "SortOptions"
+    "name": "options"
   }
 ],
 v1 = [
@@ -109,7 +108,8 @@ return {
         "storageKey": null
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -218,7 +218,8 @@ return {
               },
               (v2/*: any*/)
             ],
-            "type": "TvHelperViewer"
+            "type": "TvHelperViewer",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -226,6 +227,7 @@ return {
     ]
   },
   "params": {
+    "cacheID": "50cafa7e76abb26b46227fdf6aad0183",
     "id": null,
     "metadata": {},
     "name": "FavoritesQuery",

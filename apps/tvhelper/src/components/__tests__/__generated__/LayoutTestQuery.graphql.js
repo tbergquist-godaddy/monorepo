@@ -29,11 +29,13 @@ query LayoutTestQuery {
 }
 
 fragment Layout_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ...NavbarRight_viewer
 }
 
 fragment NavbarRight_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ... on TvHelperViewer {
     username
@@ -41,7 +43,14 @@ fragment NavbarRight_viewer on Viewer {
 }
 */
 
-const node: ConcreteRequest = {
+const node: ConcreteRequest = (function(){
+var v0 = {
+  "enumValues": null,
+  "nullable": false,
+  "plural": false,
+  "type": "String"
+};
+return {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -65,7 +74,8 @@ const node: ConcreteRequest = {
         "storageKey": null
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -89,6 +99,10 @@ const node: ConcreteRequest = {
             "storageKey": null
           },
           {
+            "kind": "TypeDiscriminator",
+            "abstractKey": "__isViewer"
+          },
+          {
             "kind": "InlineFragment",
             "selections": [
               {
@@ -106,7 +120,8 @@ const node: ConcreteRequest = {
                 "storageKey": null
               }
             ],
-            "type": "TvHelperViewer"
+            "type": "TvHelperViewer",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -114,40 +129,38 @@ const node: ConcreteRequest = {
     ]
   },
   "params": {
+    "cacheID": "123211e30cddbb3cdf76b4037556a63d",
     "id": null,
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
-          "type": "Viewer",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "Viewer"
         },
-        "viewer.__typename": {
-          "type": "String",
-          "enumValues": null,
-          "plural": false,
-          "nullable": false
-        },
+        "viewer.__isViewer": (v0/*: any*/),
+        "viewer.__typename": (v0/*: any*/),
         "viewer.id": {
-          "type": "ID",
           "enumValues": null,
+          "nullable": false,
           "plural": false,
-          "nullable": true
+          "type": "ID"
         },
         "viewer.username": {
-          "type": "String",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "String"
         }
       }
     },
     "name": "LayoutTestQuery",
     "operationKind": "query",
-    "text": "query LayoutTestQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
+    "text": "query LayoutTestQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
   }
 };
+})();
 // prettier-ignore
 (node: any).hash = 'e152ead61ed188bfaea72c3f5b9d15a5';
 export default node;

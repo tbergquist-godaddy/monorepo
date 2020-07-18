@@ -45,8 +45,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "serieId",
-    "type": "ID!"
+    "name": "serieId"
   }
 ],
 v1 = [
@@ -118,7 +117,8 @@ return {
     "metadata": null,
     "name": "addFavoriteMutation",
     "selections": (v1/*: any*/),
-    "type": "RootMutation"
+    "type": "RootMutation",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -128,6 +128,7 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+    "cacheID": "0fe4c087abfbae722729997747962fa1",
     "id": null,
     "metadata": {},
     "name": "addFavoriteMutation",

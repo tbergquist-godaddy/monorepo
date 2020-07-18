@@ -41,8 +41,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "episodeId",
-    "type": "ID!"
+    "name": "episodeId"
   }
 ],
 v1 = [
@@ -103,7 +102,8 @@ return {
     "metadata": null,
     "name": "DeleteAsWatchedMutation",
     "selections": (v1/*: any*/),
-    "type": "RootMutation"
+    "type": "RootMutation",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -113,6 +113,7 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+    "cacheID": "930c9570fb568aa4ca8f2a9c140f460a",
     "id": null,
     "metadata": {},
     "name": "DeleteAsWatchedMutation",

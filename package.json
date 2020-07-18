@@ -47,7 +47,7 @@
     "@tbergq/trainingjournal-persistence": "*"
   },
   "resolutions": {
-    "@adeira/relay": "^1.0.0",
+    "@adeira/relay": "^2.0.1",
     "graphql": "^15.0.0"
   }
 }

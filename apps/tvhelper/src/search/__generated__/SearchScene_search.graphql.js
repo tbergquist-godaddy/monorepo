@@ -28,14 +28,12 @@ const node: ReaderFragment = {
     {
       "defaultValue": null,
       "kind": "LocalArgument",
-      "name": "includeResults",
-      "type": "Boolean"
+      "name": "includeResults"
     },
     {
       "defaultValue": null,
       "kind": "LocalArgument",
-      "name": "query",
-      "type": "String!"
+      "name": "query"
     }
   ],
   "kind": "Fragment",
@@ -72,7 +70,8 @@ const node: ReaderFragment = {
       ]
     }
   ],
-  "type": "RootQuery"
+  "type": "RootQuery",
+  "abstractKey": null
 };
 // prettier-ignore
 (node: any).hash = '60dc4076525392cc2d7aac9dceb396e2';

@@ -78,7 +78,8 @@ return {
       "name": "Episodes_episodes"
     }
   ],
-  "type": "TvShow"
+  "type": "TvShow",
+  "abstractKey": null
 };
 })();
 // prettier-ignore

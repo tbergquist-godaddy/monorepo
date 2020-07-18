@@ -29,11 +29,13 @@ query LoginQuery {
 }
 
 fragment Layout_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ...NavbarRight_viewer
 }
 
 fragment NavbarRight_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ... on TvHelperViewer {
     username
@@ -65,7 +67,8 @@ const node: ConcreteRequest = {
         "storageKey": null
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -89,6 +92,10 @@ const node: ConcreteRequest = {
             "storageKey": null
           },
           {
+            "kind": "TypeDiscriminator",
+            "abstractKey": "__isViewer"
+          },
+          {
             "kind": "InlineFragment",
             "selections": [
               {
@@ -106,7 +113,8 @@ const node: ConcreteRequest = {
                 "storageKey": null
               }
             ],
-            "type": "TvHelperViewer"
+            "type": "TvHelperViewer",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -114,11 +122,12 @@ const node: ConcreteRequest = {
     ]
   },
   "params": {
+    "cacheID": "979444576d41188dce9d080b9d2e200b",
     "id": null,
     "metadata": {},
     "name": "LoginQuery",
     "operationKind": "query",
-    "text": "query LoginQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
+    "text": "query LoginQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
   }
 };
 // prettier-ignore
