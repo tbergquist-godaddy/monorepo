@@ -29,11 +29,13 @@ query SearchQuery(
 }
 
 fragment Layout_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ...NavbarRight_viewer
 }
 
 fragment NavbarRight_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ... on TvHelperViewer {
     username
@@ -78,26 +80,22 @@ fragment TvShowListItem_data on TvShow {
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = [
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "query",
-    "type": "String!"
-  },
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "includeResults",
-    "type": "Boolean!"
-  }
-],
+var v0 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "includeResults"
+},
 v1 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "query"
+},
+v2 = {
   "kind": "Variable",
   "name": "query",
   "variableName": "query"
 },
-v2 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -106,7 +104,10 @@ v2 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/)
+    ],
     "kind": "Fragment",
     "metadata": null,
     "name": "SearchQuery",
@@ -118,7 +119,7 @@ return {
             "name": "includeResults",
             "variableName": "includeResults"
           },
-          (v1/*: any*/)
+          (v2/*: any*/)
         ],
         "kind": "FragmentSpread",
         "name": "SearchScene_search"
@@ -129,11 +130,15 @@ return {
         "name": "SearchScene_viewer"
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v1/*: any*/),
+      (v0/*: any*/)
+    ],
     "kind": "Operation",
     "name": "SearchQuery",
     "selections": [
@@ -153,6 +158,10 @@ return {
             "storageKey": null
           },
           {
+            "kind": "TypeDiscriminator",
+            "abstractKey": "__isViewer"
+          },
+          {
             "kind": "InlineFragment",
             "selections": [
               {
@@ -162,9 +171,10 @@ return {
                 "name": "username",
                 "storageKey": null
               },
-              (v2/*: any*/)
+              (v3/*: any*/)
             ],
-            "type": "TvHelperViewer"
+            "type": "TvHelperViewer",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -177,7 +187,7 @@ return {
           {
             "alias": null,
             "args": [
-              (v1/*: any*/)
+              (v2/*: any*/)
             ],
             "concreteType": "TvShowConnection",
             "kind": "LinkedField",
@@ -200,7 +210,7 @@ return {
                     "name": "node",
                     "plural": false,
                     "selections": [
-                      (v2/*: any*/),
+                      (v3/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -237,7 +247,7 @@ return {
                             "name": "medium",
                             "storageKey": null
                           },
-                          (v2/*: any*/)
+                          (v3/*: any*/)
                         ],
                         "storageKey": null
                       }
@@ -255,11 +265,12 @@ return {
     ]
   },
   "params": {
+    "cacheID": "94c9665d261ba3d2e43f21717c582328",
     "id": null,
     "metadata": {},
     "name": "SearchQuery",
     "operationKind": "query",
-    "text": "query SearchQuery(\n  $query: String!\n  $includeResults: Boolean!\n) {\n  ...SearchScene_search_1dc2Le\n  ...SearchScene_viewer\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowListItem_data\n    }\n  }\n}\n\nfragment SearchScene_search_1dc2Le on RootQuery {\n  searchTvShow(query: $query) @include(if: $includeResults) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchScene_viewer on RootQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment TvShowListItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n"
+    "text": "query SearchQuery(\n  $query: String!\n  $includeResults: Boolean!\n) {\n  ...SearchScene_search_1dc2Le\n  ...SearchScene_viewer\n}\n\nfragment Layout_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment SearchResults_results on TvShowConnection {\n  edges {\n    node {\n      id\n      ...TvShowListItem_data\n    }\n  }\n}\n\nfragment SearchScene_search_1dc2Le on RootQuery {\n  searchTvShow(query: $query) @include(if: $includeResults) {\n    ...SearchResults_results\n  }\n}\n\nfragment SearchScene_viewer on RootQuery {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment TvShowListItem_data on TvShow {\n  id\n  name\n  status\n  rating\n  image {\n    medium\n    id\n  }\n}\n"
   }
 };
 })();

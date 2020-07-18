@@ -32,12 +32,11 @@ const node: ReaderFragment = {
   "argumentDefinitions": [
     {
       "defaultValue": {
-        "sortDirection": "DESC",
-        "sortBy": "PREVIOUS_EPISODE"
+        "sortBy": "PREVIOUS_EPISODE",
+        "sortDirection": "DESC"
       },
       "kind": "LocalArgument",
-      "name": "options",
-      "type": "SortOptions"
+      "name": "options"
     }
   ],
   "kind": "Fragment",
@@ -96,8 +95,9 @@ const node: ReaderFragment = {
       "storageKey": null
     }
   ],
-  "type": "TvHelperViewer"
+  "type": "TvHelperViewer",
+  "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = 'f9ba1adf491e27909a01d3f28323f4af';
+(node: any).hash = '55ddc3fc2c9847b760504c902f606cda';
 export default node;

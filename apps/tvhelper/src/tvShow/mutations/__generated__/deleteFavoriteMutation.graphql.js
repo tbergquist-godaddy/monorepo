@@ -35,8 +35,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "serieId",
-    "type": "ID!"
+    "name": "serieId"
   }
 ],
 v1 = [
@@ -79,7 +78,8 @@ return {
     "metadata": null,
     "name": "deleteFavoriteMutation",
     "selections": (v1/*: any*/),
-    "type": "RootMutation"
+    "type": "RootMutation",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -89,6 +89,7 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+    "cacheID": "09191c8b7fd22238e7ead31bea13bc1d",
     "id": null,
     "metadata": {},
     "name": "deleteFavoriteMutation",

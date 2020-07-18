@@ -59,11 +59,13 @@ fragment Episodes_episodes on TvShow {
 }
 
 fragment Layout_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ...NavbarRight_viewer
 }
 
 fragment NavbarRight_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ... on TvHelperViewer {
     username
@@ -97,8 +99,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "id",
-    "type": "ID!"
+    "name": "id"
   }
 ],
 v1 = [
@@ -169,7 +170,8 @@ return {
         "storageKey": null
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -187,6 +189,10 @@ return {
         "selections": [
           (v2/*: any*/),
           {
+            "kind": "TypeDiscriminator",
+            "abstractKey": "__isViewer"
+          },
+          {
             "kind": "InlineFragment",
             "selections": [
               {
@@ -198,7 +204,8 @@ return {
               },
               (v3/*: any*/)
             ],
-            "type": "TvHelperViewer"
+            "type": "TvHelperViewer",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -311,7 +318,8 @@ return {
                 "storageKey": null
               }
             ],
-            "type": "TvShow"
+            "type": "TvShow",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -319,11 +327,12 @@ return {
     ]
   },
   "params": {
+    "cacheID": "0e0342b124de6cd30b822baecdc728c2",
     "id": null,
     "metadata": {},
     "name": "TvShowQuery",
     "operationKind": "query",
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TvHelperViewer {\n      id\n    }\n  }\n  node(id: $id) {\n    __typename\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n"
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ... on TvHelperViewer {\n      id\n    }\n  }\n  node(id: $id) {\n    __typename\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n"
   }
 };
 })();

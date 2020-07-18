@@ -46,8 +46,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "id",
-    "type": "ID!"
+    "name": "id"
   }
 ],
 v1 = [
@@ -65,10 +64,16 @@ v2 = {
   "storageKey": null
 },
 v3 = {
-  "type": "String",
   "enumValues": null,
+  "nullable": false,
   "plural": false,
-  "nullable": true
+  "type": "ID"
+},
+v4 = {
+  "enumValues": null,
+  "nullable": true,
+  "plural": false,
+  "type": "String"
 };
 return {
   "fragment": {
@@ -94,7 +99,8 @@ return {
         "storageKey": null
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -155,7 +161,8 @@ return {
                 "storageKey": null
               }
             ],
-            "type": "TvShow"
+            "type": "TvShow",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -163,41 +170,38 @@ return {
     ]
   },
   "params": {
+    "cacheID": "09620bf13bf26aeebf62020eff1410b3",
     "id": null,
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "node": {
-          "type": "Node",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "Node"
         },
-        "node.id": {
-          "type": "ID",
+        "node.__typename": {
           "enumValues": null,
+          "nullable": false,
           "plural": false,
-          "nullable": false
+          "type": "String"
         },
-        "node.name": (v3/*: any*/),
+        "node.id": (v3/*: any*/),
         "node.image": {
-          "type": "TvHelperImage",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "TvHelperImage"
         },
+        "node.image.id": (v3/*: any*/),
+        "node.image.original": (v4/*: any*/),
         "node.isFavorite": {
-          "type": "Boolean",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "Boolean"
         },
-        "node.image.original": (v3/*: any*/),
-        "node.image.id": {
-          "type": "ID",
-          "enumValues": null,
-          "plural": false,
-          "nullable": true
-        }
+        "node.name": (v4/*: any*/)
       }
     },
     "name": "TvShowImageTestQuery",

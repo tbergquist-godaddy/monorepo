@@ -62,7 +62,8 @@ const node: ReaderFragment = {
       "storageKey": null
     }
   ],
-  "type": "TvShow"
+  "type": "TvShow",
+  "abstractKey": null
 };
 // prettier-ignore
 (node: any).hash = 'c31dfb8b38dfcd39b29d480557854c1a';

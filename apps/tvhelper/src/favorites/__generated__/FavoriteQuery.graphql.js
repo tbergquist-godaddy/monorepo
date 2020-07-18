@@ -64,11 +64,13 @@ fragment Favorites_favorites_2Rby0E on TvHelperViewer {
 }
 
 fragment Layout_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ...NavbarRight_viewer
 }
 
 fragment NavbarRight_viewer on Viewer {
+  __isViewer: __typename
   __typename
   ... on TvHelperViewer {
     username
@@ -81,8 +83,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "options",
-    "type": "SortOptions"
+    "name": "options"
   }
 ],
 v1 = [
@@ -128,7 +129,8 @@ return {
         "storageKey": null
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -150,6 +152,10 @@ return {
             "kind": "ScalarField",
             "name": "__typename",
             "storageKey": null
+          },
+          {
+            "kind": "TypeDiscriminator",
+            "abstractKey": "__isViewer"
           },
           {
             "kind": "InlineFragment",
@@ -244,7 +250,8 @@ return {
               },
               (v2/*: any*/)
             ],
-            "type": "TvHelperViewer"
+            "type": "TvHelperViewer",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -252,11 +259,12 @@ return {
     ]
   },
   "params": {
+    "cacheID": "293a556216de3218d661777477868d28",
     "id": null,
     "metadata": {},
     "name": "FavoriteQuery",
     "operationKind": "query",
-    "text": "query FavoriteQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...Favorites_favorites_2Rby0E\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
+    "text": "query FavoriteQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...Favorites_favorites_2Rby0E\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
   }
 };
 })();

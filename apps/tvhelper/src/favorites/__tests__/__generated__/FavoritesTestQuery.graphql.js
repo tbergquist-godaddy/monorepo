@@ -61,22 +61,22 @@ var v0 = {
   "storageKey": null
 },
 v1 = {
-  "type": "ID",
   "enumValues": null,
+  "nullable": false,
   "plural": false,
-  "nullable": true
+  "type": "ID"
 },
 v2 = {
-  "type": "String",
   "enumValues": null,
+  "nullable": true,
   "plural": false,
-  "nullable": true
+  "type": "String"
 },
 v3 = {
-  "type": "Date",
   "enumValues": null,
+  "nullable": true,
   "plural": false,
-  "nullable": true
+  "type": "Date"
 };
 return {
   "fragment": {
@@ -102,7 +102,8 @@ return {
         "storageKey": null
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -220,7 +221,8 @@ return {
               },
               (v0/*: any*/)
             ],
-            "type": "TvHelperViewer"
+            "type": "TvHelperViewer",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -228,52 +230,54 @@ return {
     ]
   },
   "params": {
+    "cacheID": "dbbee7eb58e0fecd17af0191a63f41ba",
     "id": null,
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "viewer": {
-          "type": "Viewer",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "Viewer"
+        },
+        "viewer.__typename": {
+          "enumValues": null,
+          "nullable": false,
+          "plural": false,
+          "type": "String"
         },
         "viewer.favorites": {
-          "type": "TvShowConnection",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "TvShowConnection"
         },
-        "viewer.id": (v1/*: any*/),
         "viewer.favorites.edges": {
-          "type": "TvShowEdge",
           "enumValues": null,
+          "nullable": true,
           "plural": true,
-          "nullable": true
+          "type": "TvShowEdge"
         },
         "viewer.favorites.edges.node": {
-          "type": "TvShow",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "TvShow"
         },
-        "viewer.favorites.edges.node.id": {
-          "type": "ID",
+        "viewer.favorites.edges.node.id": (v1/*: any*/),
+        "viewer.favorites.edges.node.image": {
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": false
+          "type": "TvHelperImage"
         },
+        "viewer.favorites.edges.node.image.id": (v1/*: any*/),
+        "viewer.favorites.edges.node.image.medium": (v2/*: any*/),
         "viewer.favorites.edges.node.name": (v2/*: any*/),
         "viewer.favorites.edges.node.nextEpisode": (v3/*: any*/),
         "viewer.favorites.edges.node.previousEpisode": (v3/*: any*/),
         "viewer.favorites.edges.node.status": (v2/*: any*/),
-        "viewer.favorites.edges.node.image": {
-          "type": "TvHelperImage",
-          "enumValues": null,
-          "plural": false,
-          "nullable": true
-        },
-        "viewer.favorites.edges.node.image.medium": (v2/*: any*/),
-        "viewer.favorites.edges.node.image.id": (v1/*: any*/)
+        "viewer.id": (v1/*: any*/)
       }
     },
     "name": "FavoritesTestQuery",

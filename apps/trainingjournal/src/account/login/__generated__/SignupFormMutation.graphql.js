@@ -46,8 +46,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "input",
-    "type": "CreateUserInput!"
+    "name": "input"
   }
 ],
 v1 = [
@@ -67,13 +66,6 @@ v2 = {
 v3 = {
   "kind": "InlineFragment",
   "selections": [
-    (v2/*: any*/)
-  ],
-  "type": "User"
-},
-v4 = {
-  "kind": "InlineFragment",
-  "selections": [
     {
       "alias": null,
       "args": null,
@@ -82,7 +74,8 @@ v4 = {
       "storageKey": null
     }
   ],
-  "type": "CreateUserError"
+  "type": "CreateUserError",
+  "abstractKey": null
 };
 return {
   "fragment": {
@@ -99,13 +92,21 @@ return {
         "name": "createUser",
         "plural": false,
         "selections": [
-          (v3/*: any*/),
-          (v4/*: any*/)
+          {
+            "kind": "InlineFragment",
+            "selections": [
+              (v2/*: any*/)
+            ],
+            "type": "User",
+            "abstractKey": null
+          },
+          (v3/*: any*/)
         ],
         "storageKey": null
       }
     ],
-    "type": "RootMutation"
+    "type": "RootMutation",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -122,14 +123,14 @@ return {
         "plural": false,
         "selections": [
           (v2/*: any*/),
-          (v3/*: any*/),
-          (v4/*: any*/)
+          (v3/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
+    "cacheID": "23922e643a8b15febef7de6ddf8eb880",
     "id": null,
     "metadata": {},
     "name": "SignupFormMutation",

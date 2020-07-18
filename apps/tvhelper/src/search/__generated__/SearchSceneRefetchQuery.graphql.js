@@ -54,26 +54,22 @@ fragment TvShowListItem_data on TvShow {
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = [
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "query",
-    "type": "String!"
-  },
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "includeResults",
-    "type": "Boolean!"
-  }
-],
+var v0 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "includeResults"
+},
 v1 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "query"
+},
+v2 = {
   "kind": "Variable",
   "name": "query",
   "variableName": "query"
 },
-v2 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -82,7 +78,10 @@ v2 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/)
+    ],
     "kind": "Fragment",
     "metadata": null,
     "name": "SearchSceneRefetchQuery",
@@ -94,17 +93,21 @@ return {
             "name": "includeResults",
             "variableName": "includeResults"
           },
-          (v1/*: any*/)
+          (v2/*: any*/)
         ],
         "kind": "FragmentSpread",
         "name": "SearchScene_search"
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v1/*: any*/),
+      (v0/*: any*/)
+    ],
     "kind": "Operation",
     "name": "SearchSceneRefetchQuery",
     "selections": [
@@ -116,7 +119,7 @@ return {
           {
             "alias": null,
             "args": [
-              (v1/*: any*/)
+              (v2/*: any*/)
             ],
             "concreteType": "TvShowConnection",
             "kind": "LinkedField",
@@ -139,7 +142,7 @@ return {
                     "name": "node",
                     "plural": false,
                     "selections": [
-                      (v2/*: any*/),
+                      (v3/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -176,7 +179,7 @@ return {
                             "name": "medium",
                             "storageKey": null
                           },
-                          (v2/*: any*/)
+                          (v3/*: any*/)
                         ],
                         "storageKey": null
                       }
@@ -194,6 +197,7 @@ return {
     ]
   },
   "params": {
+    "cacheID": "eeeebf14e45aaf78b15398ccad1bb861",
     "id": null,
     "metadata": {},
     "name": "SearchSceneRefetchQuery",

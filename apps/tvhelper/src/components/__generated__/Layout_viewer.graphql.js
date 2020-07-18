@@ -41,7 +41,8 @@ const node: ReaderFragment = {
       "name": "NavbarRight_viewer"
     }
   ],
-  "type": "Viewer"
+  "type": "Viewer",
+  "abstractKey": "__isViewer"
 };
 // prettier-ignore
 (node: any).hash = 'a84e1f319eb90fc30eeb4c981163c546';
