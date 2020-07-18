@@ -1,7 +1,7 @@
 // @flow
 
 import express, { type $Request, type $Response } from 'express';
-import graphqlHTTP from 'express-graphql';
+import { graphqlHTTP } from 'express-graphql';
 import cors from 'cors';
 import compression from 'compression';
 import morgan from 'morgan';
