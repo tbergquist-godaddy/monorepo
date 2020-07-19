@@ -13,7 +13,8 @@ export type SortOptions = {|
   sortDirection?: ?SortDirection,
 |};
 export type FavoritesQueryVariables = {|
-  options?: ?SortOptions
+  options?: ?SortOptions,
+  first?: ?number,
 |};
 export type FavoritesQueryResponse = {|
   +viewer: ?{|
@@ -28,10 +29,11 @@ export type FavoritesQuery = {|
 /*
 query FavoritesQuery(
   $options: SortOptions
+  $first: Int
 ) {
   viewer {
     __typename
-    ...Favorites_favorites_2Rby0E
+    ...Favorites_favorites_42u0Wi
     ... on TvHelperViewer {
       id
     }
@@ -50,34 +52,55 @@ fragment FavoriteListItem_favorite on TvShow {
   }
 }
 
-fragment Favorites_favorites_2Rby0E on TvHelperViewer {
-  favorites(options: $options) {
+fragment Favorites_favorites_42u0Wi on TvHelperViewer {
+  favorites(options: $options, first: $first) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
     edges {
       node {
         id
         ...FavoriteListItem_favorite
+        __typename
       }
+      cursor
     }
   }
 }
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = [
+var v0 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "first"
+},
+v1 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "options"
+},
+v2 = [
   {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "options"
-  }
-],
-v1 = [
+    "kind": "Variable",
+    "name": "first",
+    "variableName": "first"
+  },
   {
     "kind": "Variable",
     "name": "options",
     "variableName": "options"
   }
 ],
-v2 = {
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "__typename",
+  "storageKey": null
+},
+v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -86,7 +109,10 @@ v2 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/)
+    ],
     "kind": "Fragment",
     "metadata": null,
     "name": "FavoritesQuery",
@@ -100,7 +126,7 @@ return {
         "plural": false,
         "selections": [
           {
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "kind": "FragmentSpread",
             "name": "Favorites_favorites"
           }
@@ -113,7 +139,10 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v1/*: any*/),
+      (v0/*: any*/)
+    ],
     "kind": "Operation",
     "name": "FavoritesQuery",
     "selections": [
@@ -125,24 +154,43 @@ return {
         "name": "viewer",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "__typename",
-            "storageKey": null
-          },
+          (v3/*: any*/),
           {
             "kind": "InlineFragment",
             "selections": [
               {
                 "alias": null,
-                "args": (v1/*: any*/),
+                "args": (v2/*: any*/),
                 "concreteType": "TvShowConnection",
                 "kind": "LinkedField",
                 "name": "favorites",
                 "plural": false,
                 "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "PageInfo",
+                    "kind": "LinkedField",
+                    "name": "pageInfo",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "hasNextPage",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "endCursor",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  },
                   {
                     "alias": null,
                     "args": null,
@@ -159,7 +207,7 @@ return {
                         "name": "node",
                         "plural": false,
                         "selections": [
-                          (v2/*: any*/),
+                          (v4/*: any*/),
                           {
                             "alias": null,
                             "args": null,
@@ -203,11 +251,19 @@ return {
                                 "name": "medium",
                                 "storageKey": null
                               },
-                              (v2/*: any*/)
+                              (v4/*: any*/)
                             ],
                             "storageKey": null
-                          }
+                          },
+                          (v3/*: any*/)
                         ],
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "cursor",
                         "storageKey": null
                       }
                     ],
@@ -216,7 +272,18 @@ return {
                 ],
                 "storageKey": null
               },
-              (v2/*: any*/)
+              {
+                "alias": null,
+                "args": (v2/*: any*/),
+                "filters": [
+                  "options"
+                ],
+                "handle": "connection",
+                "key": "Favorites_favorites",
+                "kind": "LinkedHandle",
+                "name": "favorites"
+              },
+              (v4/*: any*/)
             ],
             "type": "TvHelperViewer",
             "abstractKey": null
@@ -227,15 +294,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "50cafa7e76abb26b46227fdf6aad0183",
+    "cacheID": "5941bf65f8a210baf78e3ba0df857a47",
     "id": null,
     "metadata": {},
     "name": "FavoritesQuery",
     "operationKind": "query",
-    "text": "query FavoritesQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...Favorites_favorites_2Rby0E\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n"
+    "text": "query FavoritesQuery(\n  $options: SortOptions\n  $first: Int\n) {\n  viewer {\n    __typename\n    ...Favorites_favorites_42u0Wi\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_42u0Wi on TvHelperViewer {\n  favorites(options: $options, first: $first) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n        __typename\n      }\n      cursor\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '65ea3ca459fdcdc70524622ea58dad1c';
+(node: any).hash = 'a572f2277702799afd708e52797304d6';
 export default node;

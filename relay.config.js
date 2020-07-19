@@ -12,5 +12,6 @@ module.exports = {
     '**/alli-importer-graphql/**',
     '**/trainingjournal/**',
     '**/trainingjournal-graphql/**',
+    '**/.next/**',
   ],
 };
