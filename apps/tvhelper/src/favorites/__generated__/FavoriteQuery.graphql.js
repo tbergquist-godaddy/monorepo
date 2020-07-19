@@ -53,12 +53,18 @@ fragment FavoriteListItem_favorite on TvShow {
 }
 
 fragment Favorites_favorites_2Rby0E on TvHelperViewer {
-  favorites(options: $options) {
+  favorites(options: $options, first: 10) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
     edges {
       node {
         id
         ...FavoriteListItem_favorite
+        __typename
       }
+      cursor
     }
   }
 }
@@ -86,14 +92,27 @@ var v0 = [
     "name": "options"
   }
 ],
-v1 = [
-  {
-    "kind": "Variable",
-    "name": "options",
-    "variableName": "options"
-  }
-],
+v1 = {
+  "kind": "Variable",
+  "name": "options",
+  "variableName": "options"
+},
 v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "__typename",
+  "storageKey": null
+},
+v3 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 10
+  },
+  (v1/*: any*/)
+],
+v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -121,7 +140,9 @@ return {
             "name": "Layout_viewer"
           },
           {
-            "args": (v1/*: any*/),
+            "args": [
+              (v1/*: any*/)
+            ],
             "kind": "FragmentSpread",
             "name": "Favorites_favorites"
           }
@@ -146,13 +167,7 @@ return {
         "name": "viewer",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "__typename",
-            "storageKey": null
-          },
+          (v2/*: any*/),
           {
             "kind": "TypeDiscriminator",
             "abstractKey": "__isViewer"
@@ -169,12 +184,37 @@ return {
               },
               {
                 "alias": null,
-                "args": (v1/*: any*/),
+                "args": (v3/*: any*/),
                 "concreteType": "TvShowConnection",
                 "kind": "LinkedField",
                 "name": "favorites",
                 "plural": false,
                 "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "PageInfo",
+                    "kind": "LinkedField",
+                    "name": "pageInfo",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "hasNextPage",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "endCursor",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  },
                   {
                     "alias": null,
                     "args": null,
@@ -191,7 +231,7 @@ return {
                         "name": "node",
                         "plural": false,
                         "selections": [
-                          (v2/*: any*/),
+                          (v4/*: any*/),
                           {
                             "alias": null,
                             "args": null,
@@ -235,11 +275,19 @@ return {
                                 "name": "medium",
                                 "storageKey": null
                               },
-                              (v2/*: any*/)
+                              (v4/*: any*/)
                             ],
                             "storageKey": null
-                          }
+                          },
+                          (v2/*: any*/)
                         ],
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "cursor",
                         "storageKey": null
                       }
                     ],
@@ -248,7 +296,18 @@ return {
                 ],
                 "storageKey": null
               },
-              (v2/*: any*/)
+              {
+                "alias": null,
+                "args": (v3/*: any*/),
+                "filters": [
+                  "options"
+                ],
+                "handle": "connection",
+                "key": "Favorites_favorites",
+                "kind": "LinkedHandle",
+                "name": "favorites"
+              },
+              (v4/*: any*/)
             ],
             "type": "TvHelperViewer",
             "abstractKey": null
@@ -259,12 +318,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "293a556216de3218d661777477868d28",
+    "cacheID": "b612bb60ce60902642ab069b57d9d3c6",
     "id": null,
     "metadata": {},
     "name": "FavoriteQuery",
     "operationKind": "query",
-    "text": "query FavoriteQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...Favorites_favorites_2Rby0E\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options) {\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n      }\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
+    "text": "query FavoriteQuery(\n  $options: SortOptions\n) {\n  viewer {\n    __typename\n    ...Layout_viewer\n    ...Favorites_favorites_2Rby0E\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment FavoriteListItem_favorite on TvShow {\n  name\n  nextEpisode\n  previousEpisode\n  id\n  status\n  image {\n    medium\n    id\n  }\n}\n\nfragment Favorites_favorites_2Rby0E on TvHelperViewer {\n  favorites(options: $options, first: 10) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...FavoriteListItem_favorite\n        __typename\n      }\n      cursor\n    }\n  }\n}\n\nfragment Layout_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ...NavbarRight_viewer\n}\n\nfragment NavbarRight_viewer on Viewer {\n  __isViewer: __typename\n  __typename\n  ... on TvHelperViewer {\n    username\n  }\n}\n"
   }
 };
 })();

@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import * as React from 'react';
-import { Heading, Select, Spinner, Stack } from '@tbergq/components';
+import { Heading, Select, Spinner, Stack, Button } from '@tbergq/components';
 import {
   createRefetchContainer,
   graphql,
@@ -54,6 +54,7 @@ const sortByOptions = [
 ];
 
 function Favorites(props: Props) {
+  const [isLoadingMore, setIsLoadingMore] = React.useState(false);
   const isFirstRender = React.useRef(true);
   const edges = props.favorites?.favorites?.edges ?? [];
   const [isLoading, setIsLoading] = React.useState(false);
@@ -68,6 +69,7 @@ function Favorites(props: Props) {
             sortBy,
             sortDirection,
           },
+          first: 10,
         },
         null,
         () => {
@@ -85,6 +87,24 @@ function Favorites(props: Props) {
       refetch(values.sortBy, values.sortDirection);
     }
   }, [values.sortBy, values.sortDirection, refetch]);
+
+  const loadMore = () => {
+    setIsLoadingMore(true);
+    props.relay.refetch(
+      {
+        options: {
+          sortBy: values.sortBy,
+          sortDirection: values.sortDirection,
+        },
+        first: edges.length + 10,
+      },
+      null,
+      () => {
+        setIsLoadingMore(false);
+      },
+      { fetchPolicy: 'store-or-network' },
+    );
+  };
 
   return (
     <>
@@ -114,6 +134,13 @@ function Favorites(props: Props) {
               <FavoriteListItem favorite={edge?.node} key={edge?.node?.id} />
             ))}
           </FavoritesWrapper>
+          {props.favorites?.favorites?.pageInfo.hasNextPage && (
+            <Stack justify="center" flex={true}>
+              <Button loading={isLoadingMore} onClick={loadMore} color="secondary">
+                Load more
+              </Button>
+            </Stack>
+          )}
         </>
       )}
     </>
@@ -130,8 +157,12 @@ export default (createRefetchContainer(
             type: "SortOptions"
             defaultValue: { sortDirection: DESC, sortBy: PREVIOUS_EPISODE }
           }
+          first: { type: "Int", defaultValue: 10 }
         ) {
-        favorites(options: $options) {
+        favorites(options: $options, first: $first) @connection(key: "Favorites_favorites") {
+          pageInfo {
+            hasNextPage
+          }
           edges {
             node {
               id
@@ -143,9 +174,9 @@ export default (createRefetchContainer(
     `,
   },
   graphql`
-    query FavoritesQuery($options: SortOptions) {
+    query FavoritesQuery($options: SortOptions, $first: Int) {
       viewer {
-        ...Favorites_favorites @arguments(options: $options)
+        ...Favorites_favorites @arguments(options: $options, first: $first)
       }
     }
   `,

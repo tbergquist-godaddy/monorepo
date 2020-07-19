@@ -11,12 +11,15 @@ declare export opaque type Favorites_favorites$ref: FragmentReference;
 declare export opaque type Favorites_favorites$fragmentType: Favorites_favorites$ref;
 export type Favorites_favorites = {|
   +favorites: ?{|
+    +pageInfo: {|
+      +hasNextPage: boolean
+    |},
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
         +id: string,
         +$fragmentRefs: FavoriteListItem_favorite$ref,
       |}
-    |}>
+    |}>,
   |},
   +$refType: Favorites_favorites$ref,
 |};
@@ -31,6 +34,11 @@ export type Favorites_favorites$key = {
 const node: ReaderFragment = {
   "argumentDefinitions": [
     {
+      "defaultValue": 10,
+      "kind": "LocalArgument",
+      "name": "first"
+    },
+    {
       "defaultValue": {
         "sortBy": "PREVIOUS_EPISODE",
         "sortDirection": "DESC"
@@ -40,11 +48,22 @@ const node: ReaderFragment = {
     }
   ],
   "kind": "Fragment",
-  "metadata": null,
+  "metadata": {
+    "connection": [
+      {
+        "count": "first",
+        "cursor": null,
+        "direction": "forward",
+        "path": [
+          "favorites"
+        ]
+      }
+    ]
+  },
   "name": "Favorites_favorites",
   "selections": [
     {
-      "alias": null,
+      "alias": "favorites",
       "args": [
         {
           "kind": "Variable",
@@ -54,9 +73,34 @@ const node: ReaderFragment = {
       ],
       "concreteType": "TvShowConnection",
       "kind": "LinkedField",
-      "name": "favorites",
+      "name": "__Favorites_favorites_connection",
       "plural": false,
       "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "kind": "LinkedField",
+          "name": "pageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "hasNextPage",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endCursor",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
         {
           "alias": null,
           "args": null,
@@ -81,11 +125,25 @@ const node: ReaderFragment = {
                   "storageKey": null
                 },
                 {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "__typename",
+                  "storageKey": null
+                },
+                {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "FavoriteListItem_favorite"
                 }
               ],
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "cursor",
               "storageKey": null
             }
           ],
@@ -99,5 +157,5 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = '55ddc3fc2c9847b760504c902f606cda';
+(node: any).hash = '7679187c9df51d98b24dc6f14df0d0b0';
 export default node;
