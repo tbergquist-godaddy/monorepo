@@ -7,7 +7,7 @@
   "dependencies": {
     "@adeira/js": "^1.2.3",
     "@artsy/fresnel": "^1.2.0",
-    "@storybook/react": "^6.0.0-rc.14",
+    "@storybook/react": "^6.0.0-rc.20",
     "@tbergq/theme": "0.0.1",
     "@testing-library/react": "^10.4.7",
     "formik": "^2.1.5",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/react": "^6.0.0-rc.14",
+    "@storybook/react": "^6.0.0-rc.20",
     "@tbergq/test-utils": "0.0.1",
     "@testing-library/react": "^10.4.7"
   },
