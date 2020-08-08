@@ -5,7 +5,7 @@
   "sideEffects": false,
   "main": "src/index",
   "dependencies": {
-    "@adeira/js": "^1.2.3",
+    "@adeira/js": "^1.2.4",
     "@adeira/monorepo-utils": "^0.8.0",
     "@tbergq/persistence-utils": "0.0.1",
     "dotenv": "^8.2.0",

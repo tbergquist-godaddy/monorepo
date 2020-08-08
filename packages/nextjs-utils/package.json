@@ -5,7 +5,7 @@
   "main": "index",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/js": "^1.2.3",
+    "@adeira/js": "^1.2.4",
     "@tbergq/components": "0.0.1",
     "@tbergq/relay": "0.0.1",
     "@tbergq/theme": "0.0.1",
