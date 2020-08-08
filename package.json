@@ -34,7 +34,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.5.0",
     "flow-bin": "^0.130.0",
-    "jest": "^26.1.0",
+    "jest": "^26.2.2",
     "jest-styled-components": "^7.0.2",
     "mongodb-memory-server": "^6.6.3",
     "now": "^19.2.0",
