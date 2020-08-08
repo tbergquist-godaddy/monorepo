@@ -5,7 +5,7 @@
   "main": ".build/main/Main.js",
   "dependencies": {
     "@adeira/monorepo-utils": "^0.8.0",
-    "chromecast-api": "^0.3.3",
+    "chromecast-api": "^0.3.4",
     "compression": "^1.7.4",
     "copy-webpack-plugin": "^6.0.3",
     "cors": "^2.8.5",
