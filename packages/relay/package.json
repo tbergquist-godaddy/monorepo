@@ -7,7 +7,7 @@
   "dependencies": {
     "@adeira/fetch": "^1.0.3",
     "@adeira/js": "^1.2.4",
-    "@adeira/relay": "^2.0.2",
+    "@adeira/relay": "^2.0.3",
     "@adeira/relay-utils": "^0.11.0",
     "@tbergq/components": "*",
     "graphql": "^15.1.0"
