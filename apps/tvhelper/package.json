@@ -42,7 +42,7 @@
   "devDependencies": {
     "@tbergq/test-utils": "0.0.1",
     "@testing-library/jest-dom": "^5.11.3",
-    "@testing-library/react": "^10.4.7",
+    "@testing-library/react": "^10.4.8",
     "babel-plugin-styled-components": "^1.11.1",
     "relay-test-utils": "^10.0.1",
     "rimraf": "^3.0.2"
