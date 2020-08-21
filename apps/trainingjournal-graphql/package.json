@@ -5,7 +5,7 @@
   "sideEffects": false,
   "main": "src/index",
   "dependencies": {
-    "@adeira/graphql-global-id": "^1.0.1",
+    "@adeira/graphql-global-id": "^1.1.1",
     "@adeira/graphql-relay": "^0.2.0",
     "@adeira/js": "^1.2.4",
     "@tbergq/graphql-services": "0.0.1",

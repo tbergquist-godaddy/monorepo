@@ -6,7 +6,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/fetch": "^1.0.3",
-    "@adeira/graphql-global-id": "^1.0.1",
+    "@adeira/graphql-global-id": "^1.1.1",
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
     "graphql": "^15.1.0",
