@@ -2,6 +2,7 @@
 
 import { tvHelperConnection, UserRepository } from '@tbergq/tvhelper-persistence';
 import { generateTestsFromFixtures } from '@adeira/test-utils';
+import path from 'path';
 
 import executeTestQuery from '../../../../services/executeTestQuery';
 
@@ -21,7 +22,7 @@ describe('AddFavorite', () => {
     await tvHelperConnection.collection('users').drop();
   });
   generateTestsFromFixtures(
-    `${__dirname}/__fixtures__`,
+    path.join(__dirname, '__fixtures__'),
     // eslint-disable-next-line no-return-await
     async (input) => await executeTestQuery(input, null, { user: { id: userId } }),
   );

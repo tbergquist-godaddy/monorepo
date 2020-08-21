@@ -30,9 +30,15 @@ const CardSection = styled.div(({ theme }) => ({
 }));
 
 const Episodes = (props: Props) => {
-  const episodes = props.episodes?.episodes ?? [];
+  const episodes = props.episodes?.episodes;
+
   const seasonMap = React.useMemo(() => {
     const map = new Map();
+
+    if (episodes == null) {
+      return map;
+    }
+
     for (const episode of episodes) {
       if (episode?.seasonAndNumber != null) {
         const match = /^s(?<season>\d{2})/i.exec(episode.seasonAndNumber);
