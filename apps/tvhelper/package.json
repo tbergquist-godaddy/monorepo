@@ -20,7 +20,7 @@
     "next": "^9.5.1",
     "next-cookies": "^2.0.3",
     "next-plugin-custom-babel-config": "^1.0.4",
-    "next-transpile-modules": "^4.0.2",
+    "next-transpile-modules": "^4.1.0",
     "react": "^16.13.1",
     "react-content-loader": "^5.1.0",
     "react-dom": "^16.13.1",
