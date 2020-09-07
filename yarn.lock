@@ -219,10 +219,10 @@
     "@adeira/relay-runtime" "^0.14.0"
     "@babel/runtime" "^7.10.5"
 
-"@adeira/relay@^2.0.2", "@adeira/relay@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-2.0.3.tgz#e47c139ae00d6f536d3aaa40e7c490079bb1fa5d"
-  integrity sha512-s2Wl8burFyimuJmNEy9wScyfXF/Tdv1RXmo50FAB9Q9OTLqwJOXbD17+yMqHe9oBcoo0ux60RXAB3wliElEt5g==
+"@adeira/relay@^2.0.2", "@adeira/relay@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-2.1.0.tgz#773df082ef4f0beb69c4430e30d8ef89981a7bd6"
+  integrity sha512-90IyNPYGtfKQ/6TKAKcNPXhmqweHHD2ZpRt2hxbG8nkdMt2q0FcEBdYWJwoGFn7n5aLKIYastZ13lj6PxchomA==
   dependencies:
     "@adeira/fetch" "^1.0.3"
     "@adeira/js" "^1.2.4"
@@ -231,9 +231,9 @@
     "@adeira/relay-runtime" "^0.14.0"
     "@adeira/signed-source" "^1.0.0"
     "@babel/register" "^7.10.5"
-    "@babel/runtime" "^7.10.5"
+    "@babel/runtime" "^7.11.2"
     babel-plugin-relay "^10.0.1"
-    commander "^6.0.0"
+    commander "^6.1.0"
     is-ci "^2.0.0"
     react-relay "^10.0.1"
     relay-compiler "^10.0.1"
@@ -6479,10 +6479,10 @@ comma-separated-tokens@^1.0.0:
   resolved "https://registry.yarnpkg.com/comma-separated-tokens/-/comma-separated-tokens-1.0.8.tgz#632b80b6117867a158f1080ad498b2fbe7e3f5ea"
   integrity sha512-GHuDRO12Sypu2cV70d1dkA2EUmXHgntrzbpvOB+Qy+49ypNfGgFQIC2fhhXbnyrJRynDCAARsT7Ou0M6hirpfw==
 
-commander@, commander@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-6.0.0.tgz#2b270da94f8fb9014455312f829a1129dbf8887e"
-  integrity sha512-s7EA+hDtTYNhuXkTlhqew4txMZVdszBmKWSPEMxGr8ru8JXR7bLUFIAtPhcSuFdJQ0ILMxnJi8GkQL0yvDy/YA==
+commander@, commander@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.1.0.tgz#f8d722b78103141006b66f4c7ba1e97315ba75bc"
+  integrity sha512-wl7PNrYWd2y5mp1OK/LhTlv8Ff4kQJQRXXAvF+uU/TPNiVJUxZLRYGj/B0y/lPGAVcSbJqH2Za/cvHmrPMC8mA==
 
 commander@2.9.0:
   version "2.9.0"
