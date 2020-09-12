@@ -73,6 +73,22 @@
     strip-ansi "^6.0.0"
     text-table "^0.2.0"
 
+"@adeira/eslint-runner@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-0.2.0.tgz#dd450e16bb529390ee841425a9ef4fcd74a53803"
+  integrity sha512-74xsB2y7oY/FVkzFt6zo3DPprgsBgIOJTX6gw/2vmkJgEByW4zInm2krvc4QX6ZR21ziZc2nkFQOlvqDTgugsg==
+  dependencies:
+    "@adeira/monorepo-utils" "^0.8.0"
+    "@babel/code-frame" "^7.10.4"
+    "@babel/register" "^7.10.5"
+    "@babel/runtime" "^7.11.2"
+    chalk "^4.1.0"
+    create-jest-runner "^0.7.0"
+    is-ci "^2.0.0"
+    progress "^2.0.3"
+    strip-ansi "^6.0.0"
+    text-table "^0.2.0"
+
 "@adeira/fetch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@adeira/fetch/-/fetch-1.0.3.tgz#433c6743b35252c3864e09b48dc09ae2fc2f7e57"
@@ -6803,6 +6819,15 @@ create-jest-runner@^0.5.3:
     chalk "^2.4.2"
     jest-worker "^24.0.0"
     throat "^4.1.0"
+
+create-jest-runner@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/create-jest-runner/-/create-jest-runner-0.7.0.tgz#c5b438ab551fc727fda2db1828119a8b5c2408e2"
+  integrity sha512-lPG9GhfxrpcltKEls4/XsbkW6SEuzk9frCTC0SEA1ZVwk5XBYyxdmoqg/h7iKr9Nkq2uAg2Zcs+D4ZzUOuKabQ==
+  dependencies:
+    chalk "^4.1.0"
+    jest-worker "^26.3.0"
+    throat "^5.0.0"
 
 create-react-context@0.3.0, create-react-context@^0.3.0:
   version "0.3.0"
