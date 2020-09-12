@@ -82,16 +82,17 @@
     "@babel/runtime" "^7.10.2"
     cross-fetch "^3.0.4"
 
-"@adeira/flow-bin@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@adeira/flow-bin/-/flow-bin-0.2.0.tgz#a8b4b85480aebb45e24f5413ec6523ad8ee18325"
-  integrity sha512-j5QlT1GPO2rXfCeGfHCPFZ8GmZVhnZxEfRG9hI/ieclGu3CkquJSmzKNjJRx/9GbdpyVLpri93BELrRv15cEkw==
+"@adeira/flow-bin@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@adeira/flow-bin/-/flow-bin-0.3.0.tgz#81747b83de7c89e0af008fa7737ab85fa40670bc"
+  integrity sha512-okty/q/Pzvwt+b7lD56dpYJ4i1QB3SCG//lIfbMXeHmxZ1SqaLMbROo359jjqB73jHEWARsf4EhQzgB6z1h68A==
   dependencies:
-    "@adeira/js" "^1.2.0"
-    "@adeira/logger" "^0.1.0"
-    "@adeira/monorepo-utils" "^0.4.0"
-    "@babel/register" "^7.8.6"
-    chalk "^3.0.0"
+    "@adeira/js" "^1.2.4"
+    "@adeira/logger" "^0.2.0"
+    "@adeira/monorepo-utils" "^0.8.0"
+    "@babel/register" "^7.10.5"
+    "@babel/runtime" "^7.11.2"
+    chalk "^4.1.0"
     is-ci "^2.0.0"
 
 "@adeira/graphql-bc-checker@^0.2.0":
@@ -134,15 +135,6 @@
   integrity sha512-Hg5GtRtrfso3ZwZsQcTNeEb1OG8LrLUuRQtZS/XojfnLhXEFPGHMP2ysKSVp3BKL6rjF/L2p5WVbLhuuPIXXAg==
   dependencies:
     "@babel/runtime" "^7.10.5"
-
-"@adeira/logger@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/logger/-/logger-0.1.0.tgz#8c1cce053c1eaf878ef358a09a2c750e2233542c"
-  integrity sha512-uUGZRSdOHL+Mrw4jZWbpWkJvBUoLCosO/sSE2sEF06MKecQyekeTAgzGyH/xsmgF6KSOAz+Q18+JYppojYiGEw==
-  dependencies:
-    "@adeira/js" "^0.1.0"
-    triple-beam "^1.3.0"
-    winston "^3.2.1"
 
 "@adeira/logger@^0.2.0":
   version "0.2.0"
@@ -2152,7 +2144,7 @@
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-transform-typescript" "^7.9.0"
 
-"@babel/register@^7.10.1", "@babel/register@^7.10.5", "@babel/register@^7.7.4", "@babel/register@^7.8.3", "@babel/register@^7.8.6":
+"@babel/register@^7.10.1", "@babel/register@^7.10.5", "@babel/register@^7.7.4", "@babel/register@^7.8.3":
   version "7.10.5"
   resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.10.5.tgz#354f3574895f1307f79efe37a51525e52fd38d89"
   integrity sha512-eYHdLv43nyvmPn9bfNfrcC4+iYNwdQ8Pxk1MFJuU/U5LpSYl/PH4dFMazCYZDFVi8ueG3shvO+AQfLrxpYulQw==
