@@ -11,6 +11,6 @@
   "devDependencies": {
     "@adeira/monorepo-utils": "^0.8.0",
     "mockdate": "^3.0.2",
-    "mongodb-memory-server": "^6.6.3"
+    "mongodb-memory-server": "^6.9.1"
   }
 }
