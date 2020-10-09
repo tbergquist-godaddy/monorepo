@@ -7,7 +7,7 @@
     "@adeira/fetch": "^1.0.3",
     "@adeira/js": "^1.2.4",
     "@adeira/monorepo-utils": "^0.8.0",
-    "@next/bundle-analyzer": "^9.5.2",
+    "@next/bundle-analyzer": "^9.5.4",
     "@tbergq/components": "^0",
     "@tbergq/nextjs-utils": "0.0.1",
     "@tbergq/relay": "^0",
