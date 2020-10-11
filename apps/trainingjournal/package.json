@@ -24,7 +24,7 @@
     "passport-jwt": "^4.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1",
+    "styled-components": "^5.2.0",
     "formik": "^2.1.5",
     "js-cookie": "^2.2.1",
     "recoil": "^0.0.10",
