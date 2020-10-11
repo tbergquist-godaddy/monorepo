@@ -4,7 +4,7 @@
   "private": true,
   "sideEffects": false,
   "dependencies": {
-    "@adeira/fetch": "^1.0.3",
+    "@adeira/fetch": "^1.0.4",
     "@adeira/js": "^1.2.4",
     "@adeira/monorepo-utils": "^0.8.0",
     "@next/bundle-analyzer": "^9.5.5",
