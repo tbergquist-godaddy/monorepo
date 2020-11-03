@@ -25,7 +25,7 @@
     "react-content-loader": "^5.1.2",
     "react-dom": "^16.13.1",
     "recoil": "0.0.10",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.2.1"
   },
   "peerDependencies": {
     "@tbergq/monorepo-builder": "*",
