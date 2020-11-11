@@ -15,7 +15,7 @@
     "@zeit/next-css": "^1.0.1",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
-    "formik": "^2.1.5",
+    "formik": "^2.2.4",
     "js-cookie": "^2.2.1",
     "next": "^9.5.4",
     "next-cookies": "^2.0.3",
