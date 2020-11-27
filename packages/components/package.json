@@ -9,7 +9,7 @@
     "@artsy/fresnel": "^1.2.1",
     "@storybook/react": "^6.0.26",
     "@tbergq/theme": "0.0.1",
-    "@testing-library/react": "^11.0.2",
+    "@testing-library/react": "^11.2.2",
     "formik": "^2.1.5",
     "react-icons": "^3.11.0",
     "recoil": "0.0.10",
@@ -27,7 +27,7 @@
     "@storybook/addon-knobs": "^6.0.21",
     "@storybook/react": "^6.0.26",
     "@tbergq/test-utils": "0.0.1",
-    "@testing-library/react": "^11.0.2"
+    "@testing-library/react": "^11.2.2"
   },
   "scripts": {
     "storybook": "start-storybook"
