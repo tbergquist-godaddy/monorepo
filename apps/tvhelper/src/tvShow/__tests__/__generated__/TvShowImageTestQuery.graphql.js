@@ -34,7 +34,7 @@ fragment TvShowImage_tvShow on TvShow {
   id
   name
   image {
-    original
+    medium
     id
   }
   isFavorite
@@ -146,7 +146,7 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
-                    "name": "original",
+                    "name": "medium",
                     "storageKey": null
                   },
                   (v2/*: any*/)
@@ -170,7 +170,7 @@ return {
     ]
   },
   "params": {
-    "cacheID": "09620bf13bf26aeebf62020eff1410b3",
+    "cacheID": "9f900fc335d79134a740dc935de76f8f",
     "id": null,
     "metadata": {
       "relayTestingSelectionTypeInfo": {
@@ -194,7 +194,7 @@ return {
           "type": "TvHelperImage"
         },
         "node.image.id": (v3/*: any*/),
-        "node.image.original": (v4/*: any*/),
+        "node.image.medium": (v4/*: any*/),
         "node.isFavorite": {
           "enumValues": null,
           "nullable": true,
@@ -206,7 +206,7 @@ return {
     },
     "name": "TvShowImageTestQuery",
     "operationKind": "query",
-    "text": "query TvShowImageTestQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...TvShowImage_tvShow\n    id\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    original\n    id\n  }\n  isFavorite\n}\n"
+    "text": "query TvShowImageTestQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...TvShowImage_tvShow\n    id\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    medium\n    id\n  }\n  isFavorite\n}\n"
   }
 };
 })();
