@@ -12,7 +12,7 @@ export type TvShowImage_tvShow = {|
   +id: string,
   +name: ?string,
   +image: ?{|
-    +original: ?string
+    +medium: ?string
   |},
   +isFavorite: ?boolean,
   +$refType: TvShowImage_tvShow$ref,
@@ -57,7 +57,7 @@ const node: ReaderFragment = {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "original",
+          "name": "medium",
           "storageKey": null
         }
       ],
@@ -75,5 +75,5 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = '6ac05d6d7a57a0b1503b0bd297fdb7e3';
+(node: any).hash = 'fd1bf557f149cc0ecb5cb61cfcfd9a64';
 export default node;

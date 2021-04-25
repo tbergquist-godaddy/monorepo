@@ -21,19 +21,19 @@ type Props = {|
 |};
 
 const Image = styled.img({
-  width: '100%',
   maxHeight: '300px',
+  borderRadius: '4px',
 });
 
 const FavoriteButton = styled(IconButton)({
   position: 'absolute',
   bottom: 10,
-  right: 5,
+  left: 5,
 });
 
 const TvShowImage = (props: Props) => {
   const [isLoading, setIsLoading] = React.useState(false);
-  const src = props.tvShow?.image?.original ?? '';
+  const src = props.tvShow?.image?.medium ?? '';
   const isFavorite = props.tvShow?.isFavorite === true;
   const notLoggedIn = props.tvShow?.isFavorite == null;
 
@@ -78,7 +78,7 @@ export default (createFragmentContainer(TvShowImage, {
       id
       name
       image {
-        original
+        medium
       }
       isFavorite
     }
