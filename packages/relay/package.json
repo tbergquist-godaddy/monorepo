@@ -1,7 +1,11 @@
 {
   "name": "@tbergq/relay",
   "private": true,
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "files": [
+    "dist/"
+  ],
   "version": "0.0.1",
   "sideEffects": false,
   "dependencies": {
@@ -19,5 +23,10 @@
   },
   "devDependencies": {
     "relay-test-utils": "^10.0.1"
+  },
+  "scripts": {
+    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
+    "build:cjs": "babel src --out-dir dist/cjs",
+    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc"
   }
 }

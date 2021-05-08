@@ -10,8 +10,8 @@ import {
   type GraphQLTaggedNode as _GraphQLTaggedNode,
 } from '@adeira/relay';
 
-export { default as QueryRenderer } from './src/QueryRenderer';
-export { default as Environment } from './src/Environment';
+export { default as QueryRenderer } from './QueryRenderer';
+export { default as Environment } from './Environment';
 export {
   graphql,
   createFragmentContainer,
@@ -33,8 +33,4 @@ export type MutationConfig = DeclarativeMutationConfig;
 export type RecordMap = _RecordMap;
 export type GraphQLTaggedNode = _GraphQLTaggedNode;
 
-export type {
-  FragmentContainerType,
-  RefetchContainerType,
-  PaginationContainerType,
-} from './src/types';
+export type { FragmentContainerType, RefetchContainerType, PaginationContainerType } from './types';
