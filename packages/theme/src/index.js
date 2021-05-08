@@ -50,9 +50,9 @@ const defaultTheme = {
     onTop: 900,
   },
   fontSize: {
-    small: '12px',
-    normal: '14px',
-    large: '16px',
+    small: `${14 / 16}rem`,
+    normal: '1rem',
+    large: `${18 / 16}rem`,
   },
   spacing: {
     tiny: '4px',
