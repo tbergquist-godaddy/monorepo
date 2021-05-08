@@ -2,7 +2,10 @@
   "name": "@tbergq/graphql-services",
   "version": "0.0.1",
   "private": true,
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
   "sideEffects": false,
   "dependencies": {
     "@adeira/fetch": "^1.0.4",
@@ -13,5 +16,8 @@
     "@adeira/graphql-relay": "^0.2.0",
     "jsonwebtoken": "^8.5.1",
     "password-hash": "^1.2.2"
+  },
+  "scripts": {
+    "build": "yarn rimraf dist && babel src --out-dir dist"
   }
 }
