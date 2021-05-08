@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "sideEffects": false,
-  "main": "src/index",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "files": [
+    "dist/"
+  ],
   "dependencies": {
     "@tbergq/theme": "0.0.1",
     "@testing-library/react": "^11.2.2",
@@ -15,5 +19,10 @@
     "@kiwicom/orbit-components": "^0",
     "react": "^16.13.1",
     "styled-components": "^5"
+  },
+  "scripts": {
+    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
+    "build:cjs": "babel src --out-dir dist/cjs",
+    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc"
   }
 }
