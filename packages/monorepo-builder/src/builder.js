@@ -77,7 +77,6 @@ export default async function build(
     }
   }
 
-  // $FlowFixMe[unsupported-syntax]
   const packageJSON = require(path.join(repoRoot, 'package.json'), 'utf8');
   fs.writeFileSync(
     path.join(buildDir, 'package.json'),

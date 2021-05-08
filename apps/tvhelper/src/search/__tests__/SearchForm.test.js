@@ -19,7 +19,6 @@ const TestRenderer = () => (
 describe('SearchForm', () => {
   it('sets intial input value correctly', () => {
     const { getByTestId } = render(<TestRenderer />);
-    // $FlowFixMe: (add testing-library flow types)
     expect(getByTestId('SearchFormInput').value).not.toBeNull();
   });
 
@@ -30,7 +29,6 @@ describe('SearchForm', () => {
     await act(async () => {
       await fireEvent.change(input, { target: { value: 'test' } });
     });
-    // $FlowFixMe: (add testing-library flow types)
     expect(input.value).toEqual('test');
   });
 });

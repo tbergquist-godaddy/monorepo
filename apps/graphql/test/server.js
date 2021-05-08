@@ -7,7 +7,8 @@ import meta from './datasets/meta.json';
 
 const handlers = [];
 
-for (const [key, value] of Object.entries(meta)) {
+for (const [key, v] of Object.entries(meta)) {
+  const value: string = (v: any);
   handlers.push(
     rest.get(key, (_, res, ctx) => {
       const json = require(`./datasets/${value}`);
