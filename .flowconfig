@@ -37,6 +37,7 @@ types_first=true
 well_formed_exports=true
 
 module.name_mapper='^@tbergq/components' -> '<PROJECT_ROOT>/packages/components/src'
+module.name_mapper='^@tbergq/graphql-services' -> '<PROJECT_ROOT>/packages/graphql-services/src'
 
 
 [strict]
