@@ -36,6 +36,8 @@ experimental.const_params=true
 types_first=true
 well_formed_exports=true
 
+module.name_mapper='^@tbergq/components' -> '<PROJECT_ROOT>/packages/components/src'
+
 
 [strict]
 untyped-import
