@@ -1,8 +1,12 @@
 {
   "name": "@tbergq/components",
   "private": false,
-  "main": "index",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
   "version": "0.0.1",
+  "files": [
+    "dist/"
+  ],
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^1.2.4",
@@ -30,6 +34,9 @@
     "@testing-library/react": "^11.2.2"
   },
   "scripts": {
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "build:cjs": "babel src --out-dir dist/cjs",
+    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
+    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm"
   }
 }
