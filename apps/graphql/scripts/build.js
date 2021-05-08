@@ -35,7 +35,6 @@ if (ZEIT_TOKEN == null) {
     await rimrafPromise(buildDir);
     await monorepoBuilder(thisWorkspace, buildDir, { removeRootDependencies: false });
     fs.copyFileSync(path.join(__dirname, '..', 'now.json'), path.join(buildDir, 'now.json'));
-    // $FlowFixMe[unsupported-syntax]
     const packageJson = require(path.join(buildDir, 'apps', 'graphql', 'package.json'));
     packageJson.engines = { node: '10.x' };
     fs.writeFileSync(

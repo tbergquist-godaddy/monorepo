@@ -35,9 +35,14 @@ experimental.const_params=true
 
 types_first=true
 well_formed_exports=true
+module.ignore_non_literal_requires=true
 
 module.name_mapper='^@tbergq/components' -> '<PROJECT_ROOT>/packages/components/src'
 module.name_mapper='^@tbergq/graphql-services' -> '<PROJECT_ROOT>/packages/graphql-services/src'
+module.name_mapper='^@tbergq/relay' -> '<PROJECT_ROOT>/packages/relay/src'
+module.name_mapper='^@tbergq/theme' -> '<PROJECT_ROOT>/packages/theme/src'
+module.name_mapper='^@tbergq/utils' -> '<PROJECT_ROOT>/packages/utils/src'
+module.name_mapper='^@tbergq/tvhelper-persistence' -> '<PROJECT_ROOT>/packages/tvhelper-persistence/src'
 
 
 [strict]

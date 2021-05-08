@@ -14,7 +14,6 @@ it('updates correctly', async () => {
     </Formik>,
   );
   const input = getByTestId('testInput');
-  // $FlowExpectedError: this is an input
   expect(input.value).toBe('');
   await act(async () => {
     await fireEvent.change(input, { target: { name: 'test', value: '123' } });
