@@ -30,7 +30,6 @@ jobs:
           yarn run lint
           yarn run test --force-exit
           yarn workspace @tbergq/graphql test-bc
-          yarn workspace @tbergq/trainingjournal-graphql test-bc
           yarn relay --validate
           yarn workspace @tbergq/trainingjournal relay --validate
         env:
