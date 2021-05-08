@@ -41,6 +41,7 @@ module.exports = {
           '**/__mocks__/*.js',
           '**/*stories.js',
           '**/jest.config.js',
+          '**/test/*.js',
         ],
       },
     ],

@@ -1,6 +1,6 @@
 {
-  "http://api.tvmaze.com/search/shows?q=the 100&embed[]=nextepisode&embed[]=previousepisode": "searchTvshow.json",
-  "http://api.tvmaze.com/shows/6?embed[]=episodes&embed[]=nextepisode&embed[]=previousepisode&embed[]=cast": "tvDetail.json",
+  "http://api.tvmaze.com/search/shows": "searchTvshow.json",
+  "http://api.tvmaze.com/shows/6": "tvDetail.json",
   "http://api.tvmaze.com/shows/6/episodes": "episodes6.json",
   "http://api.tvmaze.com/episodes/123": "episode123.json",
   "http://api.tvmaze.com/shows/13652/episodes": "episodes13652.json",

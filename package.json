@@ -10,7 +10,8 @@
     "typecheck": "adeira-flow-bin",
     "test-ci": "yarn typecheck && yarn lint && yarn test && yarn workspace @tbergq/graphql test-bc && yarn relay --validate",
     "relay": "yarn adeira-relay-compiler",
-    "migrate": "yarn adeira-flow-migrate types-first node_modules/.bin/flow"
+    "migrate": "yarn adeira-flow-migrate types-first node_modules/.bin/flow",
+    "build": "yarn lerna run build"
   },
   "workspaces": [
     "packages/*",
@@ -36,6 +37,7 @@
     "flow-bin": "^0.131.0",
     "jest": "^26.4.2",
     "jest-styled-components": "^7.0.3",
+    "lerna": "^4.0.0",
     "mongodb-memory-server": "^6.9.2",
     "now": "^19.2.0",
     "react-test-renderer": "16.13.1",
@@ -43,8 +45,8 @@
   },
   "peerDependencies": {
     "@tbergq/graphql-persistence": "*",
-    "@tbergq/tvhelper-persistence": "*",
-    "@tbergq/trainingjournal-persistence": "*"
+    "@tbergq/trainingjournal-persistence": "*",
+    "@tbergq/tvhelper-persistence": "*"
   },
   "resolutions": {
     "graphql": "^15.0.0"
