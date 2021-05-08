@@ -37,13 +37,16 @@
     "start": "next start -p $PORT",
     "docker:build": "yarn monorepo-babel-node scripts/docker.js",
     "analyze": "export ANALYZE=TRUE && next build",
-    "persist-queries": "yarn monorepo-babel-node scripts/persistQueries.js"
+    "persist-queries": "yarn monorepo-babel-node scripts/persistQueries.js",
+    "lint": "eslint . --fix --report-unused-disable-directives",
+    "test": "jest"
   },
   "devDependencies": {
     "@tbergq/test-utils": "0.0.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.2.2",
     "babel-plugin-styled-components": "^1.11.1",
+    "jest-styled-components": "^7.0.4",
     "relay-test-utils": "^10.0.1",
     "rimraf": "^3.0.2"
   }

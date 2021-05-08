@@ -1,12 +1,12 @@
 // @flow
 
-const path = require('path');
-
 module.exports = {
   rootDir: __dirname,
   testEnvironment: 'jsdom',
+  setupFiles: ['<rootDir>/scripts/testEnv.js'],
   setupFilesAfterEnv: [
-    (path.join(__dirname, '..', '..', 'scripts', 'setupTestingLibrary.js') /*: string */),
-    (path.join(__dirname, '..', '..', 'scripts', 'setupTest.js') /*: string */),
+    '<rootDir>/scripts/setupTestingLibrary.js',
+    '<rootDir>/scripts/setupTest.js',
   ],
+  testMatch: ['**/__tests__/**/?(*.)+(spec|test).js'],
 };
