@@ -22,7 +22,7 @@
     "webpack": "^4.44.1"
   },
   "scripts": {
-    "build": "yarn monorepo-babel-node scripts/build.js",
+    "build:app": "yarn monorepo-babel-node scripts/build.js",
     "build:renderer": "yarn webpack --mode production",
     "build:main": "yarn babel src/main/ --out-dir .build/main --root-mode upward",
     "build:electron": "yarn electron-builder --dir",
