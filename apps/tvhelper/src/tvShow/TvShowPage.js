@@ -10,29 +10,32 @@ import Episodes from './episodes/Episodes';
 import TvShowImage from './TvShowImage';
 import TvShowLoader from './TvShowLoader';
 
-const GridContainer = styled.div(({ theme }) => ({
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gridTemplateRows: '1fr',
-  gridColumnGap: '16px',
-  gridRowGap: '16px',
-  [theme.media.tablet]: {
-    gridTemplateColumns: '1fr 1fr',
-  },
-}));
-
-const FullWidthGridItem = styled.div(({ theme }) => ({
-  [theme.media.tablet]: {
-    gridColumn: 'span 2',
-  },
-}));
-
-const NetworkWrapper = styled(FullWidthGridItem)({
-  marginLeft: '16px',
+const NetworkWrapper = styled.div({
+  paddingLeft: '24px',
 });
 
-const ImageWrapper = styled.div({
+const ImageWrapper = styled.div(({ theme }) => ({
   position: 'relative',
+  marginBottom: '16px',
+  [theme.media.largeMobile]: {
+    marginRight: '16px',
+    marginBottom: '0',
+  },
+  [theme.media.tablet]: {
+    marginRight: '32px',
+  },
+}));
+
+const FlexContainer = styled.div(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  [theme.media.largeMobile]: {
+    flexDirection: 'row',
+  },
+}));
+
+const SummaryContainer = styled.div({
+  flex: 1,
 });
 
 type Props = {|
@@ -47,19 +50,17 @@ const TvShowPage = (props: Props) => {
   return (
     <>
       <Heading>{name}</Heading>
-      <GridContainer>
+      <FlexContainer>
         <ImageWrapper>
           <TvShowImage tvShow={props.tvShow} />
         </ImageWrapper>
-        <div dangerouslySetInnerHTML={{ __html: props.tvShow.summary }} />
-        <NetworkWrapper>
-          <strong>Network: </strong>
-          {props.tvShow.network?.name}
-        </NetworkWrapper>
-        <FullWidthGridItem>
-          <Episodes episodes={props.tvShow} />
-        </FullWidthGridItem>
-      </GridContainer>
+        <SummaryContainer dangerouslySetInnerHTML={{ __html: props.tvShow.summary }} />
+      </FlexContainer>
+      <NetworkWrapper>
+        <strong>Network: </strong>
+        {props.tvShow.network?.name}
+      </NetworkWrapper>
+      <Episodes episodes={props.tvShow} />
     </>
   );
 };

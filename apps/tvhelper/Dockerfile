@@ -3,7 +3,7 @@ FROM node:14-alpine
 WORKDIR /build
 COPY . .
 
-ENV GRAPHQL_URL https://tbergq-graphql.now.sh/graphql/
+ENV GRAPHQL_URL https://tbergq-graphql.vercel.app/graphql/
 ENV NODE_ENV production
 
 RUN apk add --no-cache bash curl

@@ -6,7 +6,7 @@ import fetch from '@adeira/fetch';
 import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql/utilities';
 
 (async () => {
-  const res = await fetch('https://tbergq-graphql.now.sh/graphql/', {
+  const res = await fetch('https://tbergq-graphql.vercel.app/graphql/', {
     method: 'POST',
     headers: {
       Accept: 'application/json',

@@ -4,7 +4,7 @@ services:
     build:
       context: .
       args: 
-        - GRAPHQL_URL=https://tbergq-graphql.now.sh/graphql/
+        - GRAPHQL_URL=https://tbergq-graphql.vercel.app/graphql/
     image: tbergq/tvhelper
     ports:
       - "8080:3020"
