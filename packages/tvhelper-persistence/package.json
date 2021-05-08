@@ -2,7 +2,10 @@
   "name": "@tbergq/tvhelper-persistence",
   "private": true,
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
   "sideEffects": false,
   "dependencies": {
     "@adeira/monorepo-utils": "^0.8.0",
@@ -17,5 +20,8 @@
   "devDependencies": {
     "mockingoose": "^2.13.2",
     "mongodb-memory-server": "^6.9.2"
+  },
+  "scripts": {
+    "build": "yarn rimraf dist && babel src --out-dir dist"
   }
 }
