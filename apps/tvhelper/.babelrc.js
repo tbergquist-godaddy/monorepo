@@ -1,13 +1,13 @@
 // @flow
 
 module.exports = {
-  presets: ['next/babel'],
+  presets: ['next/babel', '@babel/preset-flow'],
   plugins: [
     [
-      "babel-plugin-styled-components",
+      'babel-plugin-styled-components',
       {
-        "ssr": true
-      }
+        ssr: true,
+      },
     ],
     'relay',
   ],
