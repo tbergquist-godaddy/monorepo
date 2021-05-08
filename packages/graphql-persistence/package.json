@@ -3,7 +3,14 @@
   "private": true,
   "version": "0.0.1",
   "sideEffects": false,
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
   "dependencies": {
     "mongoose": "^5.10.2"
+  },
+  "scripts": {
+    "build": "yarn rimraf dist/ && babel src --out-dir dist/"
   }
 }
