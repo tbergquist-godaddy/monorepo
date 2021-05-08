@@ -4,4 +4,5 @@ module.exports = {
   rootDir: __dirname,
   testEnvironment: 'node',
   setupFilesAfterEnv: ['<rootDir>/scripts/setupTests.js'],
+  timers: 'fake',
 };

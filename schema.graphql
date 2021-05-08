@@ -1,4 +1,4 @@
-# @generated SignedSource<<3716df076fcb8c11225f9db264ffc434>>
+# @generated SignedSource<<3cbb89b9c6d1ceeebc3ac0feeb362310>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -165,8 +165,8 @@ type RangeDelete {
 type RootMutation {
   """Add tv show to favorite list"""
   addFavorite(serieId: ID!): AddFavorite
-  createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
   createUser(email: String!, password: String!, username: String!): CreateUserMutation
+  createdStoredOperations(storedOperations: [StoredOperationInput!]!): CreateStoredOperation
 
   """Remove tv show from favorite list"""
   deleteFavorite(serieId: ID!): RangeDelete

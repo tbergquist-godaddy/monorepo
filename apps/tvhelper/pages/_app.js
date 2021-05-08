@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { withApp } from '@tbergq/nextjs-utils';
 import { Toast } from '@tbergq/components';
 import { RecoilRoot } from 'recoil';
+import 'nprogress/nprogress.css';
 
 class MyApp extends App {
   render() {
