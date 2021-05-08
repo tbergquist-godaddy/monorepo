@@ -2,7 +2,11 @@
   "name": "@tbergq/nextjs-utils",
   "version": "0.0.1",
   "private": true,
-  "main": "index",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "files": [
+    "dist/"
+  ],
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^1.2.4",
@@ -15,5 +19,10 @@
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "styled-components": "^5.2.1"
+  },
+  "scripts": {
+    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
+    "build:cjs": "babel src --out-dir dist/cjs",
+    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc"
   }
 }
