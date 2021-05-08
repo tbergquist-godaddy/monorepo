@@ -4,7 +4,6 @@ import * as React from 'react';
 import App from 'next/app';
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 import cookie from 'next-cookies';
 import { TOKEN_KEY } from '@tbergq/utils';
 import { fetchQuery, Environment, RelayEnvironmentProvider } from '@tbergq/relay';

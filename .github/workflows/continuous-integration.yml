@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
       - uses: actions/checkout@v1
@@ -20,11 +20,12 @@ jobs:
       - name: yarn install, build, and test
         run: |
           yarn install --frozen-lockfile
+          yarn run build
           yarn run typecheck
-          yarn run lint
-          yarn run test --force-exit
-          yarn workspace @tbergq/graphql test-bc
+          yarn run lint --since origin/master
+          yarn run test --since origin/master
           yarn relay --validate
         env:
           DB_URL_TJ: ${{ secrets.DB_URL_TJ }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          GRAPHQL_URL: ${{ secrets.GRAPHQL_URL }}
