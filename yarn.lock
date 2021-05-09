@@ -59,16 +59,7 @@
     eslint-plugin-sx "^0.11.0"
     prettier "^2.2.1"
 
-"@adeira/fetch@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@adeira/fetch/-/fetch-1.0.4.tgz#1028494edd39ceee29b9c9396972dccc260d33e6"
-  integrity sha512-UA+z+TZpCJx8TK9gRzaI5DNyPAkLSURQiWGJYyNQyeE9l0oc8Ziif7qYC93gMLePeUI1PA0t8Z0r4po35rJN8A==
-  dependencies:
-    "@adeira/js" "^1.2.4"
-    "@babel/runtime" "^7.11.2"
-    cross-fetch "^3.0.6"
-
-"@adeira/fetch@^2.0.2":
+"@adeira/fetch@^2.0.2", "@adeira/fetch@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@adeira/fetch/-/fetch-2.1.0.tgz#89eb6aa90f8f84a3490285d47eba54b88bd76b05"
   integrity sha512-vz1oTsmmY5LET/AuKE47bVeMJLaaQgRPfnyeRVynSFrGapb6ZI7rWMyPfDrpxh08anpbuVEetBUew1TljteLAw==
@@ -7754,13 +7745,6 @@ cross-fetch@^3.0.4, cross-fetch@^3.1.4:
   dependencies:
     node-fetch "2.6.1"
 
-cross-fetch@^3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.6.tgz#3a4040bc8941e653e0e9cf17f29ebcd177d3365c"
-  integrity sha512-KBPUbqgFjzWlVcURG+Svp9TlhA5uliYtiNx/0r8nv0pdypeQCRJ9IaSIc3q/x3q8t3F75cHuwxVql1HFGHCNJQ==
-  dependencies:
-    node-fetch "2.6.1"
-
 cross-spawn@7.0.3, cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
@@ -10604,7 +10588,7 @@ graphql-iso-date@^3.6.1:
   resolved "https://registry.yarnpkg.com/graphql-iso-date/-/graphql-iso-date-3.6.1.tgz#bd2d0dc886e0f954cbbbc496bbf1d480b57ffa96"
   integrity sha512-AwFGIuYMJQXOEAgRlJlFL4H1ncFM8n8XmoVDTNypNOZyQ8LFDG2ppMFlsS862BSTCDcSUfHp8PD3/uJhv7t59Q==
 
-"graphql@^14.0.0 || ^15.0.0", graphql@^15.0.0, graphql@^15.1.0, graphql@^15.4.0:
+"graphql@^14.0.0 || ^15.0.0", graphql@^15.1.0, graphql@^15.4.0:
   version "15.5.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.0.tgz#39d19494dbe69d1ea719915b578bf920344a69d5"
   integrity sha512-OmaM7y0kaK31NKG31q4YbD2beNYa6jBBKtMFT6gLYJljHLJr42IqJ8KX08u3Li/0ifzTU5HjmoOOrwa5BRLeDA==
