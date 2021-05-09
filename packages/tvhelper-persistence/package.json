@@ -13,15 +13,13 @@
     "mongoose": "^5.12.7",
     "password-hash": "^1.2.2"
   },
-  "peerDependencies": {
-    "mockingoose": "^2.13.2"
-  },
   "devDependencies": {
-    "mockingoose": "^2.15.2",
-    "mongodb-memory-server": "^6.9.6"
+    "mongodb-memory-server": "^6.9.6",
+    "@tbergq/test-preset": "0.0.1"
   },
   "scripts": {
-    "build": "yarn rimraf dist && babel src --out-dir dist",
-    "lint": "eslint . --fix --report-unused-disable-directives"
+    "build": "yarn rimraf dist && babel src --out-dir dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\"",
+    "lint": "eslint . --fix --report-unused-disable-directives",
+    "test": "jest"
   }
 }

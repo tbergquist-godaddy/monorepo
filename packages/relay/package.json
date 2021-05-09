@@ -28,7 +28,6 @@
     "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
     "build:cjs": "yarn build:base --out-dir dist/cjs",
     "build:esm": "yarn build:base --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
-    "lint": "eslint . --fix --report-unused-disable-directives",
-    "test": "jest"
+    "lint": "eslint . --fix --report-unused-disable-directives"
   }
 }
