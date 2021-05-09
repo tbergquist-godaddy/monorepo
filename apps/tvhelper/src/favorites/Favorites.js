@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import { useState, useRef, useCallback, useEffect, type Node } from 'react';
 import { Heading, Select, Spinner, Stack, Button } from '@tbergq/components';
 import {
   createRefetchContainer,
@@ -54,13 +54,13 @@ const sortByOptions = [
 ];
 
 function Favorites(props: Props) {
-  const [isLoadingMore, setIsLoadingMore] = React.useState(false);
-  const isFirstRender = React.useRef(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const isFirstRender = useRef(true);
   const edges = props.favorites?.favorites?.edges ?? [];
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { values } = useFormikContext();
 
-  const refetch = React.useCallback(
+  const refetch = useCallback(
     (sortBy, sortDirection) => {
       setIsLoading(true);
       props.relay.refetch(
@@ -80,7 +80,7 @@ function Favorites(props: Props) {
     },
     [props.relay],
   );
-  React.useEffect(() => {
+  useEffect(() => {
     if (isFirstRender.current === true) {
       isFirstRender.current = false;
     } else {
@@ -152,13 +152,13 @@ export default (createRefetchContainer(
   {
     favorites: graphql`
       fragment Favorites_favorites on TvHelperViewer
-        @argumentDefinitions(
-          options: {
-            type: "SortOptions"
-            defaultValue: { sortDirection: DESC, sortBy: PREVIOUS_EPISODE }
-          }
-          first: { type: "Int", defaultValue: 10 }
-        ) {
+      @argumentDefinitions(
+        options: {
+          type: "SortOptions"
+          defaultValue: { sortDirection: DESC, sortBy: PREVIOUS_EPISODE }
+        }
+        first: { type: "Int", defaultValue: 10 }
+      ) {
         favorites(options: $options, first: $first) @connection(key: "Favorites_favorites") {
           pageInfo {
             hasNextPage
@@ -180,4 +180,4 @@ export default (createRefetchContainer(
       }
     }
   `,
-): RefetchContainerType<Props, React.Node>);
+): RefetchContainerType<Props, Node>);

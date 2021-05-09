@@ -1,9 +1,9 @@
 // @flow strict
 
-import * as React from 'react';
+import type { Node } from 'react';
 import ContentLoader from 'react-content-loader';
 
-const FavoritesLoader = (): React.Node => (
+const FavoritesLoader = (): Node => (
   <ContentLoader
     speed={2}
     width={400}

@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import { useState, useEffect, type Node, type Element } from 'react';
 import styled from 'styled-components';
 
-type Props = $ReadOnly<{|
+type Props = $ReadOnly<{
   easeTiming: number,
   left: boolean,
   right: boolean,
@@ -12,8 +12,8 @@ type Props = $ReadOnly<{|
   by?: number,
   delayBy?: number,
   reset: boolean,
-  children: React.Node,
-|}>;
+  children: Node,
+}>;
 
 const FadeWrapper = styled.div((props) => {
   const {
@@ -65,13 +65,13 @@ const FadeWrapper = styled.div((props) => {
   return combinedStyles;
 });
 
-function FadeIn({ children, easeTiming = 0.5, reset, ...rest }: Props): React.Element<'div'> {
-  const [applyStyles, setApplyStyles] = React.useState(false);
-  React.useEffect(() => {
+function FadeIn({ children, easeTiming = 0.5, reset, ...rest }: Props): Element<'div'> {
+  const [applyStyles, setApplyStyles] = useState(false);
+  useEffect(() => {
     setTimeout(() => setApplyStyles(true), 50);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!reset) {
       setApplyStyles(false);
     }

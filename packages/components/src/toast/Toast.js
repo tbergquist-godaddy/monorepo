@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Element, ComponentType } from 'react';
 import styled from 'styled-components';
 
 import { useToastListState } from './ToastListState';
@@ -16,17 +16,17 @@ const ToastWrapper = styled.div`
   z-index: ${({ theme }) => theme.zIndex.onTop};
 `;
 
-type Props = {|
+type Props = {
   +bottom?: number,
   +right?: number,
   +onHide?: () => void,
   +dataTest?: string,
-|};
+};
 
 export type Config = {
   +text: string,
   +type?: 'success' | 'danger',
-  +icon?: React.Element<any>,
+  +icon?: Element<any>,
   +timeout?: number,
 };
 
@@ -49,4 +49,4 @@ export default (function Toast({ bottom = 16, right = 16 }: Props) {
       })}
     </ToastWrapper>
   );
-}: React.ComponentType<Props>);
+}: ComponentType<Props>);

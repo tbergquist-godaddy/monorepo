@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import { render, screen } from '@tbergq/test-utils';
 
 import Stack from '../Stack';

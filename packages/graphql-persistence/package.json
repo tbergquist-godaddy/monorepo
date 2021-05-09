@@ -8,9 +8,10 @@
     "dist/"
   ],
   "dependencies": {
-    "mongoose": "^5.10.2"
+    "mongoose": "^5.12.7"
   },
   "scripts": {
+    "lint": "eslint . --fix --report-unused-disable-directives",
     "build": "yarn rimraf dist/ && babel src --out-dir dist/"
   }
 }

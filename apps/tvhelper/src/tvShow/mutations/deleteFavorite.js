@@ -24,7 +24,7 @@ const mutation = graphql`
 export default function deleteFavorite(
   environment: RelayEnvironmentType,
   variables: deleteFavoriteMutationVariables,
-  onCompleted: Function,
+  onCompleted: $FlowFixMe,
   configs?: $ReadOnlyArray<MutationConfig>,
 ) {
   commitMutation<MutationType>(environment, {

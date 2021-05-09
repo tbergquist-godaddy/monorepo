@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { AbstractComponent } from 'react';
 import { withDocument } from '@tbergq/nextjs-utils';
 
-export default (withDocument(): React.AbstractComponent<{ ... }>);
+export default (withDocument(): AbstractComponent<{ ... }>);

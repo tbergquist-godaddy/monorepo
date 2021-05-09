@@ -1,6 +1,8 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
+
+import { useState, useEffect } from 'react';
 import { Button, Stack } from '@tbergq/components';
 import path from 'path';
 import styled from 'styled-components';
@@ -23,9 +25,9 @@ const LabelWrapper = styled.div(({ hasRendererd }) => ({
   overflow: 'hidden',
 }));
 
-const Label = ({ children }: { +children: React.Node }) => {
-  const [hasRendererd, setHasRendered] = React.useState(false);
-  React.useEffect(() => {
+const Label = ({ children }: { +children: Node }) => {
+  const [hasRendererd, setHasRendered] = useState(false);
+  useEffect(() => {
     setHasRendered(true);
   }, []);
   return <LabelWrapper hasRendererd={hasRendererd}>{children}</LabelWrapper>;
@@ -36,8 +38,8 @@ export default function FileSelector({
   name,
   buttonText,
   onSelect,
-}: Props): React.Node {
-  const [value, setValue] = React.useState(null);
+}: Props): Node {
+  const [value, setValue] = useState(null);
   const onClick = () => {
     if (value === null) {
       const files: $ReadOnlyArray<string> | void = dialog.showOpenDialogSync({

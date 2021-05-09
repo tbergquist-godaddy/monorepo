@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import type { Node } from 'react';
 import styled from 'styled-components';
 import { MdExpandMore } from 'react-icons/md';
 import { useField, ErrorMessage } from 'formik';
@@ -18,18 +18,18 @@ const SelectWrapper = styled.div({
 });
 
 const StyledSelect = styled.select(({ theme, hasError, isPlaceholder }) => ({
-  cursor: 'pointer',
-  height: '46px',
-  paddingLeft: '12px',
-  paddingRight: '40px',
-  width: '100%',
-  borderRadius: '3px',
-  fontFamily: theme.fontFamily,
-  fontSize: theme.fontSize.normal,
-  outline: 'none',
-  appearance: 'none',
-  border: `1px solid ${hasError ? theme.danger : theme.gray}`,
-  color: isPlaceholder ? theme.secondary : theme.black,
+  'cursor': 'pointer',
+  'height': '46px',
+  'paddingLeft': '12px',
+  'paddingRight': '40px',
+  'width': '100%',
+  'borderRadius': '3px',
+  'fontFamily': theme.fontFamily,
+  'fontSize': theme.fontSize.normal,
+  'outline': 'none',
+  'appearance': 'none',
+  'border': `1px solid ${hasError ? theme.danger : theme.gray}`,
+  'color': isPlaceholder ? theme.secondary : theme.black,
   ':focus': {
     boxShadow:
       !hasError &&
@@ -56,7 +56,7 @@ type Props = {
   +placeholder?: string,
 };
 
-export default function Select({ options, name, label, placeholder }: Props): React.Node {
+export default function Select({ options, name, label, placeholder }: Props): Node {
   const id = useId();
   const [{ onChange, onBlur, value }, { touched, error }] = useField({ name });
 

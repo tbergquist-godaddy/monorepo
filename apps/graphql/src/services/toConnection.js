@@ -2,10 +2,10 @@
 
 import { offsetToCursor } from '@adeira/graphql-relay';
 
-type Config = {|
+type Config = {
   +offset: number,
   +count: number,
-|};
+};
 export default function toConnection<T>(
   items: $ReadOnlyArray<T>,
   config: Config,
@@ -18,10 +18,10 @@ export default function toConnection<T>(
     startCursor: null | string,
   },
 } {
-  const edges = items.map<{|
+  const edges = items.map<{
     +cursor: string,
     +node: T,
-  |}>((value, index) => ({
+  }>((value, index) => ({
     cursor: offsetToCursor(config.offset + index),
     node: value,
   }));

@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { Button, Stack } from '@tbergq/components';
 import { MdPlayArrow, MdPause, MdStop, MdFastRewind, MdFastForward } from 'react-icons/md';
 import styled from 'styled-components';
@@ -16,7 +16,7 @@ const IconContainer = styled.span({
 
 const castController = electron.remote.require('./CastController').default;
 
-export default function ControlPanel(): React.Node {
+export default function ControlPanel(): Node {
   const { castState } = useCastState();
   const { dispatch } = useCastAction();
   const pause = () => {

@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { ComponentType } from 'react';
 import styled from 'styled-components';
 import { Form, Formik } from 'formik';
 import { object, string, ref } from 'yup';
@@ -23,16 +23,16 @@ const SubmitButton = styled(Button)({
   marginTop: '8px',
 });
 
-type User = {|
+type User = {
   username: string,
   email: string,
   password: string,
-|};
+};
 
-type Props = {|
+type Props = {
   +onSubmit: (User) => void,
   +isLoading: boolean,
-|};
+};
 
 type FormikValues = $ReadOnly<{
   ...User,
@@ -79,4 +79,4 @@ export default (function SignupForm(props: Props) {
       </Form>
     </Formik>
   );
-}: React.ComponentType<Props>);
+}: ComponentType<Props>);

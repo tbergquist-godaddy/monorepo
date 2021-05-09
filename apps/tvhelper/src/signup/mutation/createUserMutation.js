@@ -17,7 +17,7 @@ const mutation = graphql`
 
 export default function createUserMuatation(
   variables: createUserMutationVariables,
-  onCompleted?: Function,
+  onCompleted?: $FlowFixMe,
 ) {
   const environment = Environment.getEnvironment();
   commitMutation<MutationType>(environment, {

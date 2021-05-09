@@ -1,11 +1,11 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { AbstractComponent } from 'react';
 import Document, { Head, Main, NextScript, type DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { createMediaStyle } from '@tbergq/components';
 
-export default function withDocument(): React.AbstractComponent<{ ... }> {
+export default function withDocument(): AbstractComponent<{ ... }> {
   return class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
       const sheet = new ServerStyleSheet();

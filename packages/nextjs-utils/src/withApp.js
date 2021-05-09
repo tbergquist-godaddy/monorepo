@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { AbstractComponent, ComponentType } from 'react';
 import App from 'next/app';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -14,8 +14,8 @@ import GlobalStyle from './GlobalStyle';
 import ThemeProvider from './ThemeProvider';
 
 export default function withNProgress(
-  Component: React.AbstractComponent<{ ... }>,
-): React.ComponentType<{ ... }> {
+  Component: AbstractComponent<{ ... }>,
+): ComponentType<{ ... }> {
   class WithNProgress extends App {
     static async getInitialProps(ctx: any) {
       const props = await App.getInitialProps(ctx);

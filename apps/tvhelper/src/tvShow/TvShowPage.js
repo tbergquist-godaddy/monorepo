@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { Heading } from '@tbergq/components';
 import styled from 'styled-components';
@@ -38,9 +38,9 @@ const SummaryContainer = styled.div({
   flex: 1,
 });
 
-type Props = {|
+type Props = {
   +tvShow: ?TvShow,
-|};
+};
 
 const TvShowPage = (props: Props) => {
   const name = props.tvShow?.name ?? '';
@@ -77,4 +77,4 @@ export default (createFragmentContainer(TvShowPage, {
       ...Episodes_episodes
     }
   `,
-}): FragmentContainerType<Props, React.Node>);
+}): FragmentContainerType<Props, Node>);

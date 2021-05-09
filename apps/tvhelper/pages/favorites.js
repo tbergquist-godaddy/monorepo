@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { ComponentType } from 'react';
 import { getNextToken } from '@tbergq/utils';
 
 import FavoriteQuery, { favoritesQuery } from '../src/favorites/FavoriteQuery';
@@ -24,4 +24,4 @@ Favorites.getInitialProps = (ctx) => {
   return {};
 };
 
-export default (Favorites: React.ComponentType<{}>);
+export default (Favorites: ComponentType<{}>);

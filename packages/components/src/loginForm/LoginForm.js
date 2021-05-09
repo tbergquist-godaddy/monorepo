@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Element } from 'react';
 import styled from 'styled-components';
 import { Form, Formik, type FormikConfig } from 'formik';
 import { object, string } from 'yup';
@@ -28,7 +28,7 @@ const validationSchema = object().shape({
   password: string().required(),
 });
 
-export default function LoginForm({ onSubmit, ...formProps }: Props): React.Element<typeof Formik> {
+export default function LoginForm({ onSubmit, ...formProps }: Props): Element<typeof Formik> {
   return (
     <Formik
       validationSchema={validationSchema}

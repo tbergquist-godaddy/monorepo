@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { Button } from '@tbergq/components';
 
 import { useCastAction, useCastState } from '../CastContext';
@@ -8,7 +8,7 @@ import CastImage from './cast.png';
 
 const castController = electron.remote.require('./CastController').default;
 
-export default function CastController(): React.Node {
+export default function CastController(): Node {
   const { dispatch } = useCastAction();
   const { castState, movie, subtitle } = useCastState();
   const startCast = async () => {

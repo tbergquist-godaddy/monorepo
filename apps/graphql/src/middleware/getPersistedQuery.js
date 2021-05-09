@@ -7,7 +7,7 @@ import { StoredOperationRepository } from '@tbergq/graphql-persistence';
 const jsonParser = bodyParser.json();
 
 export default function matchQueryMiddleware(): (req: $Request, res: $Response, next: any) => any {
-  return (req: $Request, res: $Response, next: Function) => {
+  return (req: $Request, res: $Response, next: $FlowFixMe) => {
     return jsonParser(req, res, async () => {
       const { queryId } = req.body;
       if (typeof queryId === 'string') {

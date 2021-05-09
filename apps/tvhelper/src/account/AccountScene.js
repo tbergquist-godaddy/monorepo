@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { ComponentType } from 'react';
 import { Heading } from '@tbergq/components';
 
 import ChangePasswordForm from './changePassword/ChangePasswordForm';
@@ -12,4 +12,4 @@ export default (function AccountScene() {
       <ChangePasswordForm />
     </>
   );
-}: React.ComponentType<{}>);
+}: ComponentType<{}>);

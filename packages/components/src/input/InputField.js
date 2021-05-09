@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import styled from 'styled-components';
 import { useField, ErrorMessage } from 'formik';
 
@@ -8,25 +8,25 @@ import ErrorWrapper from '../form/ErrorWrapper';
 import LabelText from '../form/LabelText';
 import useId from '../useId';
 
-type Props = {|
+type Props = {
   +name: string,
   +label?: string,
   +placeholder?: string,
   +type?: 'text' | 'number' | 'password',
   +dataTest?: string,
-|};
+};
 
 const InputField = styled.input.attrs(({ hasError }) => ({
   'aria-invalid': hasError ? 'true' : null,
 }))(({ theme, hasError }) => ({
-  padding: '0 12px',
-  width: '100%',
-  height: '46px',
-  borderRadius: '3px',
-  border: `1px solid ${hasError ? theme.danger : theme.gray}`,
-  fontFamily: theme.fontFamily,
-  fontSize: theme.fontSize.normal,
-  outline: 'none',
+  'padding': '0 12px',
+  'width': '100%',
+  'height': '46px',
+  'borderRadius': '3px',
+  'border': `1px solid ${hasError ? theme.danger : theme.gray}`,
+  'fontFamily': theme.fontFamily,
+  'fontSize': theme.fontSize.normal,
+  'outline': 'none',
   ':focus': {
     boxShadow:
       !hasError &&
@@ -38,7 +38,7 @@ const Label = styled.label({
   display: 'block',
 });
 
-export default function Input({ name, label, dataTest, ...rest }: Props): React.Node {
+export default function Input({ name, label, dataTest, ...rest }: Props): Node {
   const id = useId();
   const [{ onChange, onBlur, value }, { touched, error }] = useField({ name });
   return (

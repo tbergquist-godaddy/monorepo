@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { getNextToken } from '@tbergq/utils';
 import type { Context } from 'next';
 import type { GraphQLTaggedNode } from '@tbergq/relay';
@@ -14,7 +14,7 @@ type InitialProps = {
 type Props = {
   +loginFailed: boolean,
 };
-export default function Login(props: Props): React.Node {
+export default function Login(props: Props): Node {
   return <LoginQuery loginFailed={props.loginFailed} />;
 }
 

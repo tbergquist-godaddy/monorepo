@@ -20,7 +20,7 @@ const mutation = graphql`
 `;
 
 export default function markAsWatched(
-  environment: Object,
+  environment: $FlowFixMe,
   variables: MarkAsWatchedMutationVariables,
   onCompleted: () => void,
 ) {

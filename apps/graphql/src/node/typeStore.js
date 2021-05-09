@@ -18,9 +18,9 @@ type Type = {
   +type: GraphQLObjectType,
   +loader: LoaderFunction,
 };
-type Types = {|
+type Types = {
   TvShow: ?Type,
-|};
+};
 
 const types: Types = {
   TvShow: null,

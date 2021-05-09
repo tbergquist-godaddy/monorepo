@@ -18,6 +18,7 @@
     "password-hash": "^1.2.2"
   },
   "scripts": {
-    "build": "yarn rimraf dist && babel src --out-dir dist"
+    "build": "yarn rimraf dist && babel src --out-dir dist",
+    "lint": "eslint . --fix --report-unused-disable-directives"
   }
 }

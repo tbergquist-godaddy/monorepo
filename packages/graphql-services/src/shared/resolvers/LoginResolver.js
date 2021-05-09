@@ -7,19 +7,19 @@ import { config } from 'dotenv';
 
 export type Apps = 'tvhelper';
 
-type User = {|
+type User = {
   +id: string,
   +username: string,
   +password: string,
-|};
+};
 
-export type LoggedInUser = {|
+export type LoggedInUser = {
   +id?: string,
   +username: string,
   +email?: string,
   +token?: string,
   +app: Apps,
-|};
+};
 
 config();
 

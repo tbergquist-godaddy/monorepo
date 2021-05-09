@@ -4,11 +4,11 @@ import { Schema } from 'mongoose';
 
 import connection from '../connection';
 
-export type WatchedEpisodeType = {|
+export type WatchedEpisodeType = {
   +_id: string,
   +userId: ?string,
   +episodeId: number,
-|};
+};
 
 const WatchedEpisodesSchema = new Schema({
   userId: {

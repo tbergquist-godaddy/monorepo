@@ -1,14 +1,14 @@
 // @flow strict-local
 
-import * as React from 'react';
+import { memo, type AbstractComponent } from 'react';
 import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';
 
 import type { SearchQueryResponse } from './__generated__/SearchQuery.graphql';
 import SearchScene from './SearchScene';
 
-type Props = {|
+type Props = {
   +query: string,
-|};
+};
 
 export const searchQuery: GraphQLTaggedNode = graphql`
   query SearchQuery($query: String!, $includeResults: Boolean!) {
@@ -31,4 +31,4 @@ function SearchQuery(props: Props) {
   );
 }
 
-export default (React.memo<Props>(SearchQuery): React.AbstractComponent<Props>);
+export default (memo<Props>(SearchQuery): AbstractComponent<Props>);

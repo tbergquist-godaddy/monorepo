@@ -1,19 +1,21 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
+
+import { useCallback } from 'react';
 
 import FileSelector from '../components/FileSelector';
 import { useCastAction } from './CastContext';
 
-export default function FileSelectors(): React.Node {
+export default function FileSelectors(): Node {
   const { dispatch } = useCastAction();
-  const onMovieChange = React.useCallback(
+  const onMovieChange = useCallback(
     (movie) => {
       dispatch({ type: 'setMovie', payload: movie });
     },
     [dispatch],
   );
-  const onSubtitleChange = React.useCallback(
+  const onSubtitleChange = useCallback(
     (movie) => {
       dispatch({ type: 'setSubtitle', payload: movie });
     },

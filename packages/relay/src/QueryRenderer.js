@@ -1,23 +1,23 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import {
   type GraphQLTaggedNode,
   useRelayEnvironment,
   QueryRenderer as AdeiraQueryRenderer,
+  getDataFromRequest,
 } from '@adeira/relay';
 import { Spinner as Loading } from '@tbergq/components';
 import { isBrowser } from '@adeira/js';
-import { getDataFromRequest } from '@adeira/relay-utils';
 
-type Props = {|
+type Props = {
   +query: GraphQLTaggedNode,
   +variables: { ... },
-  +render: (props: ?Object) => React.Node,
+  +render: (props: ?$FlowFixMe) => Node,
   +renderLoader?: boolean,
-|};
+};
 
-export default function QueryRenderer(props: Props): React.Node {
+export default function QueryRenderer(props: Props): Node {
   const environment = useRelayEnvironment();
 
   if (!isBrowser()) {

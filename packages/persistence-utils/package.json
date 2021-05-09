@@ -7,10 +7,8 @@
     "dist/"
   ],
   "sideEffects": false,
-  "devDependencies": {
-    "@adeira/monorepo-utils": "^0.8.0"
-  },
   "scripts": {
-    "build": "yarn rimraf dist && babel src --out-dir dist"
+    "build": "yarn rimraf dist && babel src --out-dir dist",
+    "lint": "eslint . --fix --report-unused-disable-directives"
   }
 }

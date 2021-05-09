@@ -20,7 +20,7 @@ const mutation = graphql`
 `;
 
 export default function deleteAsWatched(
-  environment: Object,
+  environment: $FlowFixMe,
   variables: DeleteAsWatchedMutationVariables,
   onCompleted: () => void,
 ) {

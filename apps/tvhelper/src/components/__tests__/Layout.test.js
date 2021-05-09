@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import { render } from '@tbergq/test-utils';
 import { QueryRenderer, graphql, RelayEnvironmentProvider } from '@tbergq/relay';
 import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';

@@ -4,11 +4,11 @@ import { Schema } from 'mongoose';
 
 import connection from '../connection';
 
-export type Favorite = {|
+export type Favorite = {
   +_id: string,
   +userId: ?string,
   +serieId: string,
-|};
+};
 
 const FavoritesSchema = new Schema({
   userId: {

@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import { useState, type Node } from 'react';
 import {
   graphql,
   createFragmentContainer,
@@ -15,10 +15,10 @@ import type { TvShowImage_tvShow as TvShow } from './__generated__/TvShowImage_t
 import addFavorite from './mutations/addFavorite';
 import deleteFavorite from './mutations/deleteFavorite';
 
-type Props = {|
+type Props = {
   +tvShow: ?TvShow,
   +relay: RelayProp,
-|};
+};
 
 const Image = styled.img({
   maxHeight: '300px',
@@ -32,7 +32,7 @@ const FavoriteButton = styled(IconButton)({
 });
 
 const TvShowImage = (props: Props) => {
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const src = props.tvShow?.image?.medium ?? '';
   const isFavorite = props.tvShow?.isFavorite === true;
   const notLoggedIn = props.tvShow?.isFavorite == null;
@@ -83,4 +83,4 @@ export default (createFragmentContainer(TvShowImage, {
       isFavorite
     }
   `,
-}): FragmentContainerType<Props, React.Node>);
+}): FragmentContainerType<Props, Node>);

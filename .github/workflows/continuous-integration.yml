@@ -22,7 +22,7 @@ jobs:
           yarn install --frozen-lockfile
           yarn run build
           yarn run typecheck
-          yarn run lint --since origin/master
+          yarn run lint --since origin/master --parallel
           yarn run test --since origin/master
         env:
           DB_URL_TJ: ${{ secrets.DB_URL_TJ }}

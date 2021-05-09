@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Element } from 'react';
 import { graphql, QueryRenderer, type GraphQLTaggedNode } from '@tbergq/relay';
 import { Formik } from 'formik';
 
@@ -25,7 +25,7 @@ const renderQuery = (props: ?FavoriteQueryResponse) => (
   </Layout>
 );
 
-export default function FavoriteQuery(): React.Element<typeof QueryRenderer> {
+export default function FavoriteQuery(): Element<typeof QueryRenderer> {
   return (
     <QueryRenderer
       query={favoritesQuery}

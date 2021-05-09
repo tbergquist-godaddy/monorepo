@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import { useState, Children, type Node, type Element } from 'react';
 import styled from 'styled-components';
 import { MdMenu } from 'react-icons/md';
 // eslint-disable-next-line no-restricted-imports
@@ -25,12 +25,12 @@ const Nav = styled.nav(({ theme, isExpanded }) => ({
 }));
 
 const NavLink = styled.a(({ marginLeft, theme }) => ({
-  color: '#e2e2e2',
-  textDecoration: 'none',
+  'color': '#e2e2e2',
+  'textDecoration': 'none',
   ':hover': {
     color: '#fff',
   },
-  marginLeft: 0,
+  'marginLeft': 0,
   [theme.media.tablet]: {
     marginLeft,
   },
@@ -57,18 +57,18 @@ const NavContainer = styled(Container)({
 });
 
 const BurgerButton = styled(Button)({
-  maxHeight: '20px',
-  border: 'none',
-  backgroundColor: NAV_BACKGROUND,
+  'maxHeight': '20px',
+  'border': 'none',
+  'backgroundColor': NAV_BACKGROUND,
   ':hover': {
     backgroundColor: NAV_BACKGROUND,
   },
 });
 
 const HeaderContainer = styled.div({
-  display: 'flex',
+  'display': 'flex',
   '*': {
-    marginRight: '8px',
+    'marginRight': '8px',
     ':last-child': {
       marginRight: 0,
     },
@@ -89,14 +89,14 @@ const Separator = styled.div({
   },
 });
 
-type Props = {|
-  +brand: React.Node,
-  +headerLeft?: React.Node,
-  +headerRight?: React.Node,
-|};
+type Props = {
+  +brand: Node,
+  +headerLeft?: Node,
+  +headerRight?: Node,
+};
 
-export default function Navbar(props: Props): React.Element<any> {
-  const [expandMenu, setExpandMenu] = React.useState(false);
+export default function Navbar(props: Props): Element<any> {
+  const [expandMenu, setExpandMenu] = useState(false);
   function toggleExpand() {
     setExpandMenu((expand) => !expand);
   }
@@ -127,10 +127,10 @@ export default function Navbar(props: Props): React.Element<any> {
           <Media lessThan="tablet">
             {expandMenu && (
               <ExpandedHeader>
-                {React.Children.map(props.headerLeft, (child) => (
+                {Children.map(props.headerLeft, (child) => (
                   <Separator>{child}</Separator>
                 ))}
-                {React.Children.map(props.headerRight, (child) => (
+                {Children.map(props.headerRight, (child) => (
                   <Separator>{child}</Separator>
                 ))}
               </ExpandedHeader>

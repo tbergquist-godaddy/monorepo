@@ -2,6 +2,6 @@
 
 import type { TvShow } from '../tvshow/TvShow';
 
-export type SearchTvShowType = $ReadOnlyArray<{|
+export type SearchTvShowType = $ReadOnlyArray<{
   +show: TvShow,
-|}>;
+}>;

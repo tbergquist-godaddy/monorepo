@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import type { Node, Element } from 'react';
 import styled, { type StyledComponent } from 'styled-components';
 import { type DefaultTheme, type ThemeColors } from '@tbergq/theme';
 
@@ -13,7 +13,7 @@ type Props = {
   +type?: 'button' | 'submit',
   +size?: Sizes,
   +color?: ColorScheme,
-  +children: React.Node,
+  +children: Node,
   +loading?: boolean,
   +dataTest?: string,
   +ariaLabel?: string,
@@ -42,12 +42,12 @@ const getFontSize = (size: Sizes, theme: DefaultTheme) => {
 };
 
 type SCProps = {
-  +onClick?: (e: SyntheticEvent<HTMLButtonElement>) => void | Promise<void>,
-  +type?: 'button' | 'submit',
-  +buttonSize?: Sizes,
-  +colorScheme?: ColorScheme,
-  +children: React.Node,
-  +disabled: boolean,
+  +'onClick'?: (e: SyntheticEvent<HTMLButtonElement>) => void | Promise<void>,
+  +'type'?: 'button' | 'submit',
+  +'buttonSize'?: Sizes,
+  +'colorScheme'?: ColorScheme,
+  +'children': Node,
+  +'disabled': boolean,
   +'data-test': ?string,
   +'aria-label'?: string,
 };
@@ -89,7 +89,7 @@ export default function Button({
   dataTest,
   ariaLabel,
   ...rest
-}: Props): React.Element<typeof StyledButton> {
+}: Props): Element<typeof StyledButton> {
   return (
     <StyledButton
       aria-label={ariaLabel}

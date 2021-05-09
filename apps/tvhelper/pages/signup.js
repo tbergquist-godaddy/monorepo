@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { getNextToken } from '@tbergq/utils';
 import type { Context } from 'next';
 import type { GraphQLTaggedNode } from '@tbergq/relay';
@@ -11,7 +11,7 @@ type InitialProps = {
   +query: GraphQLTaggedNode,
 };
 
-export default function Signup(): React.Node {
+export default function Signup(): Node {
   return <SignupQuery />;
 }
 

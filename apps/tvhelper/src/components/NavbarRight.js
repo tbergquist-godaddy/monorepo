@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { createFragmentContainer, graphql, type FragmentContainerType } from '@tbergq/relay';
 import { NavLink } from '@tbergq/components';
 
@@ -31,4 +31,4 @@ export default (createFragmentContainer(NavbarRight, {
       }
     }
   `,
-}): FragmentContainerType<Props, React.Node>);
+}): FragmentContainerType<Props, Node>);

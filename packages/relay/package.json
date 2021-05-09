@@ -11,8 +11,7 @@
   "dependencies": {
     "@adeira/fetch": "^1.0.4",
     "@adeira/js": "^1.2.4",
-    "@adeira/relay": "^2.1.0",
-    "@adeira/relay-utils": "^0.11.0",
+    "@adeira/relay": "^3.2.4",
     "@tbergq/components": "*",
     "graphql": "^15.1.0"
   },
@@ -22,11 +21,12 @@
     "relay-runtime": ""
   },
   "devDependencies": {
-    "relay-test-utils": "^10.0.1"
+    "relay-test-utils": "^11.0.2"
   },
   "scripts": {
     "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
     "build:cjs": "babel src --out-dir dist/cjs",
-    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc"
+    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
+    "lint": "eslint . --fix --report-unused-disable-directives"
   }
 }

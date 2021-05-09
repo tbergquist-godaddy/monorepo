@@ -1,10 +1,10 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import Loader from './Loading';
 
-export const Loading = (): React.Node => <Loader />;
+export const Loading = (): Node => <Loader />;
 
 export default {
   component: Loader,

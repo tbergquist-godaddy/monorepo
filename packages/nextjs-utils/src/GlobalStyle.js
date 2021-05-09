@@ -1,13 +1,13 @@
 // @flow strict
 
-import * as React from 'react';
+import type { ComponentType } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle: React.ComponentType<{}> = createGlobalStyle({
-  html: {
+const GlobalStyle: ComponentType<{}> = createGlobalStyle({
+  'html': {
     height: '100%',
   },
-  body: {
+  'body': {
     fontFamily: 'Roboto, sans-serif',
   },
   '#nprogress .bar': {

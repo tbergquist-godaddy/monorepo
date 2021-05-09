@@ -23,6 +23,7 @@ esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
 exact_by_default=true
 munge_underscores=true
+react.runtime=automatic
 
 suppress_type=$FlowIssue
 suppress_type=$FlowFixMe

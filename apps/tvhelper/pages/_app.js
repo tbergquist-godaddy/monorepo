@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { AbstractComponent } from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 import { withApp } from '@tbergq/nextjs-utils';
@@ -24,4 +24,4 @@ class MyApp extends App {
   }
 }
 
-export default (withApp(MyApp): React.AbstractComponent<{ ... }>);
+export default (withApp(MyApp): AbstractComponent<{ ... }>);

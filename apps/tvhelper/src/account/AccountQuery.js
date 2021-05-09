@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { ComponentType } from 'react';
 import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';
 
 import Layout from '../components/Layout';
@@ -29,4 +29,4 @@ export default (function AccountQuery() {
       )}
     />
   );
-}: React.ComponentType<Props>);
+}: ComponentType<Props>);

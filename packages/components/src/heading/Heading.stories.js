@@ -1,11 +1,11 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
 
 import Heading from './Heading';
 
-export const h1 = (): React.Node => (
+export const h1 = (): Node => (
   <Heading level={select('level', ['h1', 'h2', 'h3', 'h4', 'h5'])}>
     {text('Text', 'Heading')}
   </Heading>

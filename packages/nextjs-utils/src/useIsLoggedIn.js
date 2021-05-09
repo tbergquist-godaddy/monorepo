@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 
 export default function useIsLoggedIn({ isLoggedIn }: Props) {
   const router = useRouter();
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isLoggedIn) {
       router.push('/login');
     }

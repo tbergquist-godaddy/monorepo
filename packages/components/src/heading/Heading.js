@@ -1,10 +1,10 @@
 // @flow strict
 
-import * as React from 'react';
+import type { Node } from 'react';
 import styled from 'styled-components';
 
 type Props = {
-  +children: React.Node,
+  +children: Node,
   +level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5',
 };
 
@@ -35,7 +35,7 @@ const HeadingLevel5 = styled.h5`
   line-height: 20px;
 `;
 
-export default function Heading({ children, level = 'h1' }: Props): React.Node {
+export default function Heading({ children, level = 'h1' }: Props): Node {
   switch (level) {
     case 'h2':
       return <HeadingLevel2>{children}</HeadingLevel2>;

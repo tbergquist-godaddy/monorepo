@@ -1,16 +1,16 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { Layout as PageLayout, Navbar, NavLink, Stack } from '@tbergq/components';
 import { createFragmentContainer, graphql, type FragmentContainerType } from '@tbergq/relay';
 
 import type { Layout_viewer as Viewer } from './__generated__/Layout_viewer.graphql';
 import NavbarRight from './NavbarRight';
 
-type Props = {|
-  +children: React.Node,
+type Props = {
+  +children: Node,
   +viewer: ?Viewer,
-|};
+};
 
 function Layout(props: Props) {
   const loggedIn = props.viewer?.__typename === 'TvHelperViewer';
@@ -45,4 +45,4 @@ export default (createFragmentContainer(Layout, {
       ...NavbarRight_viewer
     }
   `,
-}): FragmentContainerType<Props, React.Node>);
+}): FragmentContainerType<Props, Node>);

@@ -3,10 +3,10 @@
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';
 
-type Ancestor = {|
+type Ancestor = {
   +medium: string,
   +original: string,
-|};
+};
 
 export default (new GraphQLObjectType({
   name: 'TvHelperImage',

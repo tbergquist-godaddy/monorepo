@@ -1,10 +1,10 @@
 // @flow
 
-import * as React from 'react';
+import { useState, useEffect, type Node, type Element } from 'react';
 
 import FadeIn from './FadeIn';
 
-type Props = $ReadOnly<{|
+type Props = $ReadOnly<{
   activate: boolean,
   easeTiming?: number,
   left?: boolean,
@@ -13,8 +13,8 @@ type Props = $ReadOnly<{|
   down?: boolean,
   by?: number,
   delayBy?: number,
-  children: React.Node,
-|}>;
+  children: Node,
+}>;
 
 function FadeInOut({
   children,
@@ -26,10 +26,10 @@ function FadeInOut({
   by,
   delayBy,
   activate = false,
-}: Props): React.Element<typeof FadeIn> | null {
-  const [show, setShow] = React.useState(activate);
+}: Props): Element<typeof FadeIn> | null {
+  const [show, setShow] = useState(activate);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const miliseconds = easeTiming * 1000;
 
     if (activate) {

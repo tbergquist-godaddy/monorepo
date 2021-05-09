@@ -6,10 +6,10 @@ import { StoredOperationRepository } from '@tbergq/graphql-persistence';
 import CreatedStoredOperation from '../types/output/StoredOperationMutation';
 import StoredOperationInput from '../types/input/StoredOperationInput';
 
-type StoredOperationType = {|
+type StoredOperationType = {
   +operationId: string,
   +text: string,
-|};
+};
 
 type Args = {
   storedOperations: $ReadOnlyArray<StoredOperationType>,

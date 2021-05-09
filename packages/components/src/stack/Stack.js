@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import type { Node, Element } from 'react';
 import styled, { type StyledComponent } from 'styled-components';
 import type { DefaultTheme } from '@tbergq/theme';
 
@@ -8,7 +8,7 @@ type SpaceAfter = 'normal';
 type Justify = 'flex-end' | 'space-between' | 'center';
 type Align = 'center';
 type Props = {
-  +children: React.Node,
+  +children: Node,
   +flex?: boolean,
   +dataTest?: string,
   +spaceAfter?: SpaceAfter,
@@ -23,7 +23,7 @@ export default function Stack({
   spaceAfter,
   justify,
   align,
-}: Props): React.Element<typeof StyledStack> {
+}: Props): Element<typeof StyledStack> {
   return (
     <StyledStack
       justifyContent={justify}
@@ -38,7 +38,7 @@ export default function Stack({
 }
 
 type StyledProps = {
-  +children: React.Node,
+  +children: Node,
   +hasFlex: boolean,
   +dataTest?: string,
   +spaceAfter?: SpaceAfter,
@@ -47,14 +47,14 @@ type StyledProps = {
 };
 
 type StackStyles = {
-  +display: 'flex' | 'block',
-  +width: string,
-  +marginBottom?: string,
-  justifyContent?: Justify,
-  alignItems?: Align,
+  +'display': 'flex' | 'block',
+  +'width': string,
+  +'marginBottom'?: string,
+  'justifyContent'?: Justify,
+  'alignItems'?: Align,
   +'& > *': $ReadOnly<{
-    +marginRight?: string,
-    +marginBottom?: string,
+    +'marginRight'?: string,
+    +'marginBottom'?: string,
     '&:last-child': {
       +margin: string,
     },
@@ -67,8 +67,8 @@ const StyledStack: StyledComponent<StyledProps, DefaultTheme, HTMLDivElement> = 
   }),
 )(({ theme, hasFlex, spaceAfter, justifyContent, alignItems }) => {
   const styles: StackStyles = {
-    display: hasFlex ? 'flex' : 'block',
-    width: '100%',
+    'display': hasFlex ? 'flex' : 'block',
+    'width': '100%',
     ...(spaceAfter ? { marginBottom: theme.spacing[spaceAfter] } : null),
     '& > *': {
       ...(hasFlex
