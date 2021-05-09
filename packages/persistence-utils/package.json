@@ -6,9 +6,13 @@
   "files": [
     "dist/"
   ],
+  "devDependencies": {
+    "@tbergq/test-preset": "0.0.1"
+  },
   "sideEffects": false,
   "scripts": {
-    "build": "yarn rimraf dist && babel src --out-dir dist",
-    "lint": "eslint . --fix --report-unused-disable-directives"
+    "build": "yarn rimraf dist && babel src --out-dir dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\"",
+    "lint": "eslint . --fix --report-unused-disable-directives",
+    "test": "jest"
   }
 }
