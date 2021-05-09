@@ -4,6 +4,7 @@ import type { Node } from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { Link, Media } from '@tbergq/components';
 import { format, isValid, parseISO } from 'date-fns';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 
 import type { FavoriteListItem_favorite as Favorite } from './__generated__/FavoriteListItem_favorite.graphql';

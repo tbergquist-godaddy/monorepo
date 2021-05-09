@@ -19,6 +19,7 @@ export const favoritesQuery: GraphQLTaggedNode = graphql`
 
 const renderQuery = (props: ?FavoriteQueryResponse) => (
   <Layout viewer={props?.viewer}>
+    {/* $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>) */}
     <Formik initialValues={{ sortBy: 'PREVIOUS_EPISODE', sortDirection: 'DESC' }}>
       <Favorites favorites={props?.viewer} />
     </Formik>

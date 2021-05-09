@@ -9,6 +9,7 @@ import {
 } from '@tbergq/relay';
 import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 import { Checkbox } from '@tbergq/components';
 

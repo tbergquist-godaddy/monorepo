@@ -25,8 +25,10 @@ const getISOShortFormat = (date: Date) => {
 
 describe('resolvePreviousEpisode', () => {
   it('returns next episode', async () => {
-    // $FlowExpectedError: Just passing what is needed to test resolver
+    // $FlowExpectedError[incompatible-call] Just passing what is needed to test resolver
+    // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
     const previousEpisode = await resolvePreviousEpisode(dataloader, 1);
+    // $FlowFixMe[incompatible-call] $FlowFixMe(>=<150.1>)
     expect(getISOShortFormat(previousEpisode)).toEqual('2019-01-10');
   });
 
@@ -43,8 +45,8 @@ describe('resolvePreviousEpisode', () => {
 
 describe('resolveNextEpisode', () => {
   it('returns next episode', async () => {
-    // $FlowExpectedError: Just passing what is needed to test resolver
     const nextEpisode = await resolveNextEpisode(dataloader, 1);
+    // $FlowFixMe[incompatible-call] $FlowFixMe(>=<150.1>)
     expect(getISOShortFormat(nextEpisode)).toEqual('2019-01-20');
   });
 

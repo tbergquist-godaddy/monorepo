@@ -19,8 +19,6 @@ unclear-type=off
 [options]
 sharedmemory.hash_table_pow=21
 emoji=true
-esproposal.optional_chaining=enable
-esproposal.nullish_coalescing=enable
 exact_by_default=true
 munge_underscores=true
 react.runtime=automatic
@@ -34,8 +32,6 @@ suppress_type=$FlowFixMeState
 ; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
 experimental.const_params=true
 
-types_first=true
-well_formed_exports=true
 module.ignore_non_literal_requires=true
 
 module.name_mapper='^@tbergq/components' -> '<PROJECT_ROOT>/packages/components/src'

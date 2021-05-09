@@ -13,8 +13,11 @@ const ErrorWrapper = styled.div({
 type Props = {
   +loginFailed: boolean,
 };
+// $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
+// $FlowFixMe[incompatible-type] $FlowFixMe(>=<150.1>)
 export default function Login(props: Props): Element<typeof CenterForm> {
   return (
+    // $FlowFixMe[incompatible-return] $FlowFixMe(>=<150.1>)
     <CenterForm>
       <LoginForm />
       <>

@@ -2,6 +2,7 @@
 
 import type { ComponentType } from 'react';
 import { InputField, Button } from '@tbergq/components';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 import { Form, useFormikContext } from 'formik';
 

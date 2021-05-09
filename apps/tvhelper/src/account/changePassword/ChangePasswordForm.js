@@ -3,6 +3,7 @@
 import type { ComponentType } from 'react';
 import { Formik, Form } from 'formik';
 import { Heading, InputField, Button, useShowToast, Stack } from '@tbergq/components';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 import { useMutation, graphql } from '@tbergq/relay';
 

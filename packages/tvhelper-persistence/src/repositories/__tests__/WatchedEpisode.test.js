@@ -35,7 +35,9 @@ describe('WatchedEpisode', () => {
   it('finds added episode', async () => {
     const episodes = await await WatchedEpisode.findEpisodes(user1Id, [episodeId]);
     expect(episodes).toHaveLength(1);
+    // $FlowFixMe[incompatible-use] $FlowFixMe(>=<150.1>)
     expect(episodes[0].episodeId).toBe(episodeId);
+    // $FlowFixMe[incompatible-use] $FlowFixMe(>=<150.1>)
     expect(episodes[0].userId).toBe(user1Id);
   });
 

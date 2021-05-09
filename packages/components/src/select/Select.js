@@ -1,6 +1,7 @@
 // @flow strict
 
 import type { Node } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 import { MdExpandMore } from 'react-icons/md';
 import { useField, ErrorMessage } from 'formik';

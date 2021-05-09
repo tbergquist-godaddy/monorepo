@@ -22,6 +22,7 @@ export default function SignupQuery(): Element<typeof QueryRenderer> {
       variables={{}}
       render={(renderProps: ?SignupQueryResponse) => (
         <Layout viewer={renderProps?.viewer}>
+          {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
           <SignupScene />
         </Layout>
       )}

@@ -2,6 +2,7 @@
 
 import type { AbstractComponent } from 'react';
 import Document, { Head, Main, NextScript, type DocumentContext } from 'next/document';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import { ServerStyleSheet } from 'styled-components';
 import { createMediaStyle } from '@tbergq/components';
 

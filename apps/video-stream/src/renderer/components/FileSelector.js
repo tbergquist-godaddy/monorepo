@@ -5,6 +5,7 @@ import type { Node } from 'react';
 import { useState, useEffect } from 'react';
 import { Button, Stack } from '@tbergq/components';
 import path from 'path';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 
 type Props = {
@@ -57,8 +58,10 @@ export default function FileSelector({
   };
 
   return (
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <Stack flex={true} align="center">
       {value !== null && <Label>{`${name}: ${path.basename(value)}`}</Label>}
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <Button color={value === null ? 'primary' : 'danger'} size="small" onClick={onClick}>
         {value === null ? buttonText : 'X'}
       </Button>

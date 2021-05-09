@@ -21,6 +21,7 @@ beforeEach(() => {
 
 const TestRenderer = () => (
   <RelayEnvironmentProvider environment={environment}>
+    {/* $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>) */}
     <Formik initialValues={{ sortBy: 'PREVIOUS_EPISODE', sortDirection: 'DESC' }}>
       <QueryRenderer
         query={graphql`

@@ -10,6 +10,7 @@ import IconButton from '../IconButton';
 it('calls onClick callback', () => {
   const onClick = jest.fn();
   render(
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <IconButton dataTest="button" ariaLabel="test" onClick={onClick}>
       <MdFavorite />
     </IconButton>,
@@ -24,12 +25,15 @@ it('calls onClick callback', () => {
 it('has correct colors', () => {
   render(
     <>
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <IconButton dataTest="primary" ariaLabel="test">
         <MdFavorite />
       </IconButton>
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <IconButton ariaLabel="test" dataTest="secondary" color="secondary">
         <MdFavorite />
       </IconButton>
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <IconButton ariaLabel="test" dataTest="danger" color="danger">
         <MdFavorite />
       </IconButton>
@@ -47,6 +51,7 @@ it('has correct colors', () => {
 
 it('handles loading state', () => {
   render(
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <IconButton ariaLabel="test" dataTest="loading" loading={true}>
       <MdFavorite data-test="favorite" />
     </IconButton>,

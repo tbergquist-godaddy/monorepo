@@ -6,6 +6,7 @@ import { render, screen, act, fireEvent } from '@tbergq/test-utils';
 import Select from '../Select';
 
 const TestRenderer = (props) => (
+  // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
   <Formik initialValues={{ select: '' }} {...props}>
     <Select
       name="select"

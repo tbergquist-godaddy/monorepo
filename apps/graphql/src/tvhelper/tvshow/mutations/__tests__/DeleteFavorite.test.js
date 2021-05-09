@@ -36,6 +36,7 @@ describe('DeleteFavorite', () => {
       null,
       { user: { id: 'fail' } },
     );
+    // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
     expect(res.data.deleteFavorite.success).toBe(false);
   });
 
@@ -49,6 +50,7 @@ describe('DeleteFavorite', () => {
       null,
       { user: { id: createdUserId } },
     );
+    // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
     expect(res.data.deleteFavorite.success).toBe(false);
   });
 

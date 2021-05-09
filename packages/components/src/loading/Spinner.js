@@ -1,6 +1,8 @@
 // @flow strict
 
 import type { Node, Element } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
+// $FlowFixMe[untyped-type-import] $FlowFixMe(>=<150.1>)
 import styled, { type StyledComponent } from 'styled-components';
 
 type Size = 'page' | 'normal' | 'small';
@@ -31,6 +33,7 @@ const getSpinSize = (size: Size) => {
   }
 };
 
+// $FlowFixMe[value-as-type] $FlowFixMe(>=<150.1>)
 const SpinnerContainer: StyledComponent<SpinnerProps, void, HTMLDivElement> = styled.div(
   ({ spinSize }) => ({
     position: 'relative',
@@ -99,7 +102,8 @@ type Props = {
 export default function Spinner({
   size = 'page',
   dataTest,
-}: Props): Element<typeof SpinnerContainer> {
+}: // $FlowFixMe[incompatible-type] $FlowFixMe(>=<150.1>)
+Props): Element<typeof SpinnerContainer> {
   return (
     <SpinnerContainer data-test={dataTest} spinSize={size}>
       <SpinnerElement spinSize={size} />

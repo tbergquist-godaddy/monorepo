@@ -6,6 +6,7 @@ import Stack from '../Stack';
 
 it('gives margin bottom', () => {
   render(
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <Stack>
       <div>First</div>
       <div>Second</div>
@@ -24,6 +25,7 @@ it('gives margin bottom', () => {
 
 it('gives margin right and flex', () => {
   render(
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <Stack dataTest="stack" flex={true}>
       <div>First</div>
       <div>Second</div>
@@ -43,6 +45,7 @@ it('gives margin right and flex', () => {
 
 it('gives margin botton', () => {
   render(
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <Stack dataTest="stack" spaceAfter="normal">
       <div>First</div>
       <div>Second</div>

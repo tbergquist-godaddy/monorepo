@@ -1,6 +1,7 @@
 // @flow strict
 
 import { useState, useEffect, type Node, type Element } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 
 const Wrapper = styled.div`

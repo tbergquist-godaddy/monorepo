@@ -31,6 +31,7 @@ function Layout(props: Props) {
       </header>
       <main>
         <PageLayout>
+          {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
           <Stack>{props.children}</Stack>
         </PageLayout>
       </main>

@@ -1,4 +1,4 @@
-// @flow strict-local
+// @flow
 
 import type { Element } from 'react';
 import styled from 'styled-components';

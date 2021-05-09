@@ -1,6 +1,8 @@
 // @flow strict
 
 import type { Node, Element } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
+// $FlowFixMe[untyped-type-import] $FlowFixMe(>=<150.1>)
 import styled, { type StyledComponent } from 'styled-components';
 import { type DefaultTheme, type ThemeColors } from '@tbergq/theme';
 
@@ -63,6 +65,7 @@ const getHeight = (size: Sizes) => {
   }
 };
 
+// $FlowFixMe[value-as-type] $FlowFixMe(>=<150.1>)
 const StyledButton: StyledComponent<SCProps, DefaultTheme, HTMLButtonElement> = styled.button(
   ({ colorScheme, theme, buttonSize, disabled }) => ({
     border: 'none',
@@ -89,7 +92,8 @@ export default function Button({
   dataTest,
   ariaLabel,
   ...rest
-}: Props): Element<typeof StyledButton> {
+}: // $FlowFixMe[incompatible-type] $FlowFixMe(>=<150.1>)
+Props): Element<typeof StyledButton> {
   return (
     <StyledButton
       aria-label={ariaLabel}

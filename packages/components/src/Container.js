@@ -1,9 +1,12 @@
 // @flow strict
 
 import type { Node } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
+// $FlowFixMe[untyped-type-import] $FlowFixMe(>=<150.1>)
 import styled, { type StyledComponent } from 'styled-components';
 import type { DefaultTheme } from '@tbergq/theme';
 
+// $FlowFixMe[value-as-type] $FlowFixMe(>=<150.1>)
 const Container: StyledComponent<{ +children: Node }, DefaultTheme, HTMLDivElement> = styled.div(
   ({ theme }) => ({
     paddingRight: '15px',

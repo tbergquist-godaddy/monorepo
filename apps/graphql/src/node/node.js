@@ -15,7 +15,7 @@ type GraphQLNodeDefinitions<TContext> = {
 };
 
 async function loadType(relayId, context) {
-  // $FlowExpectedError: Cannot call fromGlobalId with relayId bound to opaqueID because string [1] is incompatible with OpaqueIDString
+  // $FlowExpectedError[incompatible-call] Cannot call fromGlobalId with relayId bound to opaqueID because string [1] is incompatible with OpaqueIDString
   const decoded = decode(relayId);
   const [__type, id]: any[] = decoded.split(':');
   const type = getType(__type);

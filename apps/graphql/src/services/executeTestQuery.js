@@ -10,6 +10,6 @@ export default function executeTestQuery(
   variables: ?{ ... },
   request: ?{ ... } = {},
 ): Promise<{ ... }> {
-  // $FlowExpectedError: Ok for testing purposes
+  // $FlowExpectedError[incompatible-call] Ok for testing purposes
   return graphql(schema, query, null, createContext(request), variables);
 }
