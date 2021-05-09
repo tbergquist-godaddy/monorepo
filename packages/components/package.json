@@ -31,13 +31,16 @@
     "@storybook/addon-knobs": "^6.2.9",
     "@storybook/react": "^6.0.26",
     "@tbergq/test-utils": "0.0.1",
-    "@testing-library/react": "^11.2.2"
+    "@testing-library/react": "^11.2.2",
+    "@tbergq/test-preset": "0.0.1"
   },
   "scripts": {
     "storybook": "start-storybook",
-    "build:cjs": "babel src --out-dir dist/cjs",
-    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
+    "build:base": "babel src --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\"",
+    "build:cjs": "yarn build:base --out-dir dist/cjs",
+    "build:esm": "yarn build:base --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
     "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
-    "lint": "eslint . --fix --report-unused-disable-directives"
+    "lint": "eslint . --fix --report-unused-disable-directives",
+    "test": "jest"
   }
 }

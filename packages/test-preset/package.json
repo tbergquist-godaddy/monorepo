@@ -1,0 +1,17 @@
+{
+  "name": "@tbergq/test-preset",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/runtime": "^7.14.0"
+  },
+  "scripts": {
+    "build": "rimraf dist && babel src --out-dir dist"
+  }
+}

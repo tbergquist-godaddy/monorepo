@@ -5,6 +5,7 @@ WORKDIR /build
 COPY package.json lerna.json yarn.lock ./
 COPY apps/tvhelper/package.json ./apps/tvhelper/package.json
 COPY packages/test-utils/package.json ./packages/test-utils/package.json
+COPY packages/test-preset/package.json ./packages/test-preset/package.json
 COPY packages/components/package.json ./packages/components/package.json
 COPY packages/nextjs-utils/package.json ./packages/nextjs-utils/package.json
 COPY packages/relay/package.json ./packages/relay/package.json
@@ -22,6 +23,7 @@ ENV GRAPHQL_URL=https://tbergq-graphql.vercel.app/graphql/
 COPY --from=deps  /build/node_modules ./node_modules
 COPY --from=deps  /build/apps/tvhelper/ ./apps/tvhelper/
 COPY --from=deps  /build/packages/test-utils/ ./packages/test-utils/
+COPY --from=deps  /build/packages/test-preset/ ./packages/test-preset/
 COPY --from=deps  /build/packages/components/ ./packages/components/
 COPY --from=deps  /build/packages/nextjs-utils/ ./packages/nextjs-utils/
 COPY --from=deps  /build/packages/relay/ ./packages/relay/
@@ -30,6 +32,7 @@ COPY --from=deps  /build/packages/utils/ ./packages/utils/
 
 COPY apps/tvhelper ./apps/tvhelper
 COPY packages/test-utils ./packages/test-utils/
+COPY packages/test-preset ./packages/test-preset/
 COPY packages/components ./packages/components/
 COPY packages/nextjs-utils ./packages/nextjs-utils/
 COPY packages/relay ./packages/relay/
