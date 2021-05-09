@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import { Formik } from 'formik';
 import { render, screen, act, fireEvent } from '@tbergq/test-utils';
 

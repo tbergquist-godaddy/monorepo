@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import type { Element } from 'react';
 import styled from 'styled-components';
 
 type LoadingProps = {
@@ -39,7 +39,7 @@ const Wrapper = styled.span`
   display: flex;
 `;
 
-export default function Loading({ dataTest }: LoadingProps): React.Element<'span'> {
+export default function Loading({ dataTest }: LoadingProps): Element<'span'> {
   return (
     <Wrapper data-test={dataTest}>
       <StyledSpan />

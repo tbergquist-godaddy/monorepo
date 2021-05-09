@@ -1,12 +1,12 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import Spinner from './Spinner';
 
-export const Page = (): React.Node => <Spinner />;
-export const Normal = (): React.Node => <Spinner size="normal" />;
-export const Small = (): React.Node => <Spinner size="small" />;
+export const Page = (): Node => <Spinner />;
+export const Normal = (): Node => <Spinner size="normal" />;
+export const Small = (): Node => <Spinner size="small" />;
 
 export default {
   component: Spinner,

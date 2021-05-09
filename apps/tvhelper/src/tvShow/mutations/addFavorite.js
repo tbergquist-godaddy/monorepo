@@ -29,7 +29,7 @@ const mutation = graphql`
 export default function addFavorite(
   environment: RelayEnvironmentType,
   variables: addFavoriteMutationVariables,
-  onCompleted: Function,
+  onCompleted: $FlowFixMe,
   configs?: $ReadOnlyArray<MutationConfig>,
 ) {
   commitMutation<MutationType>(environment, {

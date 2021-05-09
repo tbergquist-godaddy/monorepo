@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import { create } from 'react-test-renderer';
 
 import Link from '../Link';

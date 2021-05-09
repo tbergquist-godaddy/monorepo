@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Element } from 'react';
 import { LoginForm as CommonLoginForm, useShowToast } from '@tbergq/components';
 import { TOKEN_KEY } from '@tbergq/utils';
 import Router from 'next/router';
@@ -9,7 +9,7 @@ import { useRelayEnvironment } from '@tbergq/relay';
 
 import loginMutation from './mutation/loginMutation';
 
-export default function LoginForm(): React.Element<typeof CommonLoginForm> {
+export default function LoginForm(): Element<typeof CommonLoginForm> {
   const show = useShowToast();
   const environment = useRelayEnvironment();
   const onSubmit = ({ username, password }, { setSubmitting }) => {

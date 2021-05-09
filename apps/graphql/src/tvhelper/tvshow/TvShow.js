@@ -2,28 +2,28 @@
 
 import type { Episode } from '../episode/Episode';
 
-export type Person = {|
+export type Person = {
   +id: string,
   +name: string,
-  +image: {| +original: string, +medium: string |},
-|};
+  +image: { +original: string, +medium: string },
+};
 
-export type Cast = {|
+export type Cast = {
   +person: Person,
   +character: Person,
-|};
+};
 
-export type TvShow = {|
+export type TvShow = {
   +id: number,
   +name: string,
   +status: string,
   +premiered: Date,
-  +rating: {| +average: number |},
+  +rating: { +average: number },
   +summary: string,
-  +_embedded?: {|
+  +_embedded?: {
     +episodes?: ?$ReadOnlyArray<Episode>,
     +nextepisode?: ?Episode,
     +previousepisode?: ?Episode,
     +cast?: ?$ReadOnlyArray<Cast>,
-  |},
-|};
+  },
+};

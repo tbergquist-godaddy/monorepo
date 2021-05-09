@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import { render } from 'react-dom';
 import { Heading, Stack } from '@tbergq/components';
 import defaultTheme from '@tbergq/theme';

@@ -25,7 +25,7 @@ export const createRelayEnvironment = (token: ?string, initialData: ?RecordMap):
     const res = await fetch(GRAPHQL_URL, {
       method: 'POST',
       headers: {
-        Authorization: token ?? '',
+        'Authorization': token ?? '',
         'content-type': 'application/json',
       },
       body: JSON.stringify(getBody(operation, variables)),

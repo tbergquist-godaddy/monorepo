@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { Heading } from '@tbergq/components';
 import Router, { useRouter } from 'next/router';
 import { Formik } from 'formik';
@@ -58,7 +58,7 @@ export default (createRefetchContainer(
   {
     search: graphql`
       fragment SearchScene_search on RootQuery
-        @argumentDefinitions(includeResults: { type: "Boolean" }, query: { type: "String!" }) {
+      @argumentDefinitions(includeResults: { type: "Boolean" }, query: { type: "String!" }) {
         searchTvShow(query: $query) @include(if: $includeResults) {
           ...SearchResults_results
         }
@@ -77,4 +77,4 @@ export default (createRefetchContainer(
       ...SearchScene_search @arguments(includeResults: $includeResults, query: $query)
     }
   `,
-): RefetchContainerType<Props, React.Node>);
+): RefetchContainerType<Props, Node>);

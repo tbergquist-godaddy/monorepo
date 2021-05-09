@@ -5,12 +5,12 @@ import passport from 'passport';
 import { UserRepository } from '@tbergq/tvhelper-persistence';
 import type { Apps } from '@tbergq/graphql-services';
 
-type JwtPayload = {|
+type JwtPayload = {
   +iss: string,
   +username: string,
   +token?: string,
   +app?: Apps,
-|};
+};
 
 export const jwtFromRequest = (request: $Request): void | string => {
   return request.get('Authorization');
@@ -25,7 +25,7 @@ const getFindUserFunction = (app: ?Apps) => {
   }
 };
 
-export const tokenToUser = async (jwtPayload: JwtPayload, done: Function) => {
+export const tokenToUser = async (jwtPayload: JwtPayload, done: $FlowFixMe) => {
   const findUserFunction = getFindUserFunction(jwtPayload.app);
   const user = await findUserFunction(jwtPayload.username);
   if (user != null) {
@@ -40,7 +40,7 @@ export const tokenToUser = async (jwtPayload: JwtPayload, done: Function) => {
   }
 };
 
-export const attachUserToRequest = (req: $Request, res: $Response, next: Function) => {
+export const attachUserToRequest = (req: $Request, res: $Response, next: $FlowFixMe) => {
   passport.authenticate('jwt', { session: false }, (err, user) => {
     if (user) {
       req.user = user;

@@ -1,29 +1,29 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { Formik } from 'formik';
 
 import InputField from './InputField';
 
-export const withValue = (): React.Node => (
+export const withValue = (): Node => (
   <Formik initialValues={{ test: 'Hello input world!' }}>
     <InputField name="test" />
   </Formik>
 );
 
-export const withPlaceholder = (): React.Node => (
+export const withPlaceholder = (): Node => (
   <Formik initialValues={{ test: '' }}>
     <InputField name="test" placeholder="Test placeholder" />
   </Formik>
 );
 
-export const withLabel = (): React.Node => (
+export const withLabel = (): Node => (
   <Formik initialValues={{ test: '' }}>
     <InputField name="test" label="Test" placeholder="Test placeholder" />
   </Formik>
 );
 
-export const withError = (): React.Node => (
+export const withError = (): Node => (
   <Formik
     initialValues={{ test: '' }}
     initialErrors={{ test: 'Test is required' }}

@@ -1,15 +1,15 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { graphql, QueryRenderer, type GraphQLTaggedNode } from '@tbergq/relay';
 
 import type { TvShowQueryResponse } from './__generated__/TvShowQuery.graphql';
 import TvShowPage from './TvShowPage';
 import Layout from '../components/Layout';
 
-type Props = {|
+type Props = {
   +tvShowId: ?string,
-|};
+};
 
 export const tvShowQuery: GraphQLTaggedNode = graphql`
   query TvShowQuery($id: ID!) {
@@ -30,7 +30,7 @@ function renderQuery(props: ?TvShowQueryResponse) {
   );
 }
 
-export default function TvShowQuery(props: Props): React.Node {
+export default function TvShowQuery(props: Props): Node {
   if (props.tvShowId == null) {
     return null;
   }

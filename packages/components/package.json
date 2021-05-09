@@ -10,15 +10,15 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^1.2.4",
-    "@artsy/fresnel": "^1.2.1",
-    "@storybook/react": "^6.0.26",
+    "@artsy/fresnel": "^1.5.0",
+    "@storybook/react": "^6.2.9",
     "@tbergq/theme": "0.0.1",
-    "@testing-library/react": "^11.2.2",
-    "formik": "^2.2.5",
+    "@testing-library/react": "^11.2.6",
+    "formik": "^2.2.6",
     "react-icons": "^3.11.0",
     "recoil": "0.0.10",
     "uuid": "^8.3.0",
-    "yup": "^0.29.3"
+    "yup": "^0.32.9"
   },
   "peerDependencies": {
     "next": "",
@@ -27,8 +27,8 @@
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.0.26",
-    "@storybook/addon-knobs": "^6.0.21",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-knobs": "^6.2.9",
     "@storybook/react": "^6.0.26",
     "@tbergq/test-utils": "0.0.1",
     "@testing-library/react": "^11.2.2"
@@ -37,6 +37,7 @@
     "storybook": "start-storybook",
     "build:cjs": "babel src --out-dir dist/cjs",
     "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
-    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm"
+    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
+    "lint": "eslint . --fix --report-unused-disable-directives"
   }
 }

@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import styled from 'styled-components';
 import { Link } from '@tbergq/components';
@@ -10,7 +10,7 @@ import type { TvShowListItem_data as TvShow } from './__generated__/TvShowListIt
 const borderRadius = 4;
 
 const StyledLink = styled(Link)({
-  outline: 'none',
+  'outline': 'none',
   ':focus, :hover': {
     transform: ' scale(1.05)',
     transition: 'all 0.2s ease-in',
@@ -48,10 +48,10 @@ const StyledText = styled.div({
   fontSize: '16px',
 });
 
-type Props = {|
+type Props = {
   +data: ?TvShow,
   +width?: number,
-|};
+};
 
 function TvShowListItem(props: Props) {
   const status = props.data?.status ?? '';
@@ -86,4 +86,4 @@ export default (createFragmentContainer(TvShowListItem, {
       }
     }
   `,
-}): FragmentContainerType<Props, React.Node>);
+}): FragmentContainerType<Props, Node>);

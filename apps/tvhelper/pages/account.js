@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { ComponentType } from 'react';
 
 import AccountQuery, { query } from '../src/account/AccountQuery';
 
@@ -12,4 +12,4 @@ Account.getInitialProps = () => {
   return { query };
 };
 
-export default (Account: React.ComponentType<{}>);
+export default (Account: ComponentType<{}>);

@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import ContentLoader from 'react-content-loader';
 
-const TvShowLoader = (): React.Node => (
+const TvShowLoader = (): Node => (
   <ContentLoader
     speed={2}
     width={400}

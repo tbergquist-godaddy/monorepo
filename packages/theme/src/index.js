@@ -78,9 +78,9 @@ const defaultTheme = {
       padding: '14px 26px',
     },
     primary: {
-      backgroundColor: '#007bff',
-      borderColor: '#007bff',
-      color: '#fff',
+      'backgroundColor': '#007bff',
+      'borderColor': '#007bff',
+      'color': '#fff',
       ':focus': {
         boxShadow: `${activeBoxShadow} rgba(38,143,255,.5)`,
       },
@@ -90,9 +90,9 @@ const defaultTheme = {
       },
     },
     secondary: {
-      backgroundColor: '#6c757d',
-      borderColor: '#6c757d',
-      color: '#fff',
+      'backgroundColor': '#6c757d',
+      'borderColor': '#6c757d',
+      'color': '#fff',
       ':focus': {
         boxShadow: `${activeBoxShadow} rgba(119,124,129,.5);`,
       },
@@ -102,9 +102,9 @@ const defaultTheme = {
       },
     },
     danger: {
-      backgroundColor: '#dc3545',
-      borderColor: '#dc3545',
-      color: '#fff',
+      'backgroundColor': '#dc3545',
+      'borderColor': '#dc3545',
+      'color': '#fff',
       ':focus': {
         boxShadow: `${activeBoxShadow} rgba(225,83,97,.5);`,
       },
@@ -120,9 +120,9 @@ export default defaultTheme;
 
 export type DefaultTheme = typeof defaultTheme;
 export type ThemeColors = $ReadOnly<{
-  backgroundColor: string,
-  borderColor: string,
-  color: string,
+  'backgroundColor': string,
+  'borderColor': string,
+  'color': string,
   ':focus': {
     boxShadow: string,
   },

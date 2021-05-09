@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { v4 } from 'uuid';
 
 /**
@@ -8,8 +8,8 @@ import { v4 } from 'uuid';
  * There could be a mismatch in ids if we don't use the useEffect.
  */
 export default function useId(): string {
-  const [id, setId] = React.useState(v4());
-  React.useEffect(() => {
+  const [id, setId] = useState(v4());
+  useEffect(() => {
     setId(v4());
   }, []);
 

@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import { fireEvent, screen } from '@testing-library/react';
 import { render } from '@tbergq/test-utils';
 import defaultTheme from '@tbergq/theme';

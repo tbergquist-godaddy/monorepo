@@ -2,12 +2,12 @@
 
 import fetch from '@adeira/fetch';
 
-type FetchOptions = {|
+type FetchOptions = {
   +fetchTimeout?: number,
   +retryDelays?: $ReadOnlyArray<number>,
   +headers?: { [key: string]: string },
   +method: 'POST' | 'GET' | 'PATCH' | 'PUT',
-|};
+};
 
 const log = (...args: $ReadOnlyArray<string>) => {
   // eslint-disable-next-line no-console

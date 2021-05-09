@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Element } from 'react';
 import { Alert, Link, CenterForm } from '@tbergq/components';
 import styled from 'styled-components';
 
@@ -13,7 +13,7 @@ const ErrorWrapper = styled.div({
 type Props = {
   +loginFailed: boolean,
 };
-export default function Login(props: Props): React.Element<typeof CenterForm> {
+export default function Login(props: Props): Element<typeof CenterForm> {
   return (
     <CenterForm>
       <LoginForm />

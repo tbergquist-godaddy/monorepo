@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import { render, screen, fireEvent } from '@tbergq/test-utils';
 
 import Checkbox from '../Checkbox';

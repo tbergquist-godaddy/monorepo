@@ -4,11 +4,11 @@ import { Schema } from 'mongoose';
 
 import graphqlConnection from '../connection';
 
-export type StoredOperationType = {|
+export type StoredOperationType = {
   +_id?: string,
   +operationId: string,
   +text: string,
-|};
+};
 
 const StoredOperationSchema = new Schema({
   operationId: {

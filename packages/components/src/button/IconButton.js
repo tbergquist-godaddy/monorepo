@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import type { Node, Element } from 'react';
 import styled, { type StyledComponent } from 'styled-components';
 import { type DefaultTheme } from '@tbergq/theme';
 
@@ -12,19 +12,19 @@ type Props = {
   +type?: 'button' | 'submit',
   +size?: Sizes,
   +color?: ColorScheme,
-  +children: React.Node,
+  +children: Node,
   +loading?: boolean,
   +dataTest?: string,
   +ariaLabel: string,
 };
 
 type SCProps = {
-  +onClick?: () => void,
-  +type?: 'button' | 'submit',
-  +buttonSize?: Sizes,
-  +colorScheme?: ColorScheme,
-  +children: React.Node,
-  +disabled: boolean,
+  +'onClick'?: () => void,
+  +'type'?: 'button' | 'submit',
+  +'buttonSize'?: Sizes,
+  +'colorScheme'?: ColorScheme,
+  +'children': Node,
+  +'disabled': boolean,
   +'data-test': ?string,
   +'aria-label'?: string,
 };
@@ -42,18 +42,18 @@ const getButtonSize = (size: Sizes) => {
 
 const StyledButton: StyledComponent<SCProps, DefaultTheme, HTMLButtonElement> = styled.button(
   ({ theme, colorScheme, disabled, buttonSize }) => ({
-    border: 'none',
+    'border': 'none',
     ...getColors(colorScheme, theme),
     ...getButtonSize(buttonSize),
-    cursor: disabled ? 'not-allowed' : 'pointer',
-    backgroundPosition: 'center',
-    transition: 'background 0.8s',
-    opacity: disabled ? '0.65' : '1',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    outline: 'none',
+    'cursor': disabled ? 'not-allowed' : 'pointer',
+    'backgroundPosition': 'center',
+    'transition': 'background 0.8s',
+    'opacity': disabled ? '0.65' : '1',
+    'borderRadius': '50%',
+    'display': 'flex',
+    'alignItems': 'center',
+    'justifyContent': 'center',
+    'outline': 'none',
     '*': {
       height: '1em',
       width: '1em',
@@ -69,7 +69,7 @@ export default function IconButton({
   ariaLabel,
   dataTest,
   ...rest
-}: Props): React.Element<typeof StyledButton> {
+}: Props): Element<typeof StyledButton> {
   return (
     <StyledButton
       disabled={loading}

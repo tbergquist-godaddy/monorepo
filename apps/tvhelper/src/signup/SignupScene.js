@@ -1,11 +1,11 @@
 // @flow
 
-import * as React from 'react';
+import type { Element } from 'react';
 import { CenterForm } from '@tbergq/components';
 
 import SignupForm from './SignupForm';
 
-export default function Signup(): React.Element<typeof CenterForm> {
+export default function Signup(): Element<typeof CenterForm> {
   return (
     <CenterForm>
       <SignupForm />

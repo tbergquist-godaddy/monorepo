@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import Toast from './Toast';
 import { useShowToast } from './ToastListState';
@@ -36,7 +36,7 @@ function Wrapper() {
   );
 }
 
-export const critical = (): React.Node => {
+export const critical = (): Node => {
   return <Wrapper />;
 };
 export default {

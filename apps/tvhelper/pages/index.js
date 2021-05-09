@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
 import type { Context } from 'next';
 import type { GraphQLTaggedNode } from '@tbergq/relay';
 
@@ -17,7 +17,7 @@ type InitialProps = {
 type Props = {
   queryParam: string,
 };
-export default function Index({ queryParam }: Props): React.Node {
+export default function Index({ queryParam }: Props): Node {
   return <SearchQuery query={queryParam} />;
 }
 

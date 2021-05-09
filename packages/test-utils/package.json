@@ -10,10 +10,10 @@
   ],
   "dependencies": {
     "@tbergq/theme": "0.0.1",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "12.1.7",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "13.1.8",
     "recoil": "0.0.10",
-    "relay-test-utils": "10.0.1"
+    "relay-test-utils": "11.0.2"
   },
   "peerDependencies": {
     "@kiwicom/orbit-components": "^0",
@@ -23,6 +23,7 @@
   "scripts": {
     "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
     "build:cjs": "babel src --out-dir dist/cjs",
-    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc"
+    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
+    "lint": "eslint . --fix --report-unused-disable-directives"
   }
 }

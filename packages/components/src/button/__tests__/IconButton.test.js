@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import { fireEvent, screen } from '@testing-library/react';
 import { MdFavorite } from 'react-icons/md';
 import defaultTheme from '@tbergq/theme';

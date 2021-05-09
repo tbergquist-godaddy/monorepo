@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import { useState, type ComponentType } from 'react';
 import { useShowToast, SignupForm as CommonSignup } from '@tbergq/components';
 import Router from 'next/router';
 
@@ -8,13 +8,13 @@ import createUserMutation from './mutation/createUserMutation';
 import type { createUserMutationResponse } from './mutation/__generated__/createUserMutation.graphql';
 
 export default (function SignupForm() {
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const show = useShowToast();
   const showToast = (message: string, type: 'success' | 'danger') => {
     show({ text: message, type });
   };
 
-  function onSubmit(user: {| username: string, password: string, email: string |}) {
+  function onSubmit(user: { username: string, password: string, email: string }) {
     setIsLoading(true);
     createUserMutation(
       user,
@@ -31,4 +31,4 @@ export default (function SignupForm() {
     );
   }
   return <CommonSignup isLoading={isLoading} onSubmit={onSubmit} />;
-}: React.ComponentType<{}>);
+}: ComponentType<{}>);

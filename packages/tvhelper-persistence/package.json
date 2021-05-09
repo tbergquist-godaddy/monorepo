@@ -8,20 +8,20 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "@adeira/monorepo-utils": "^0.8.0",
     "dotenv": "^8.2.0",
-    "mongodb": "^3.6.2",
-    "mongoose": "^5.10.2",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.7",
     "password-hash": "^1.2.2"
   },
   "peerDependencies": {
     "mockingoose": "^2.13.2"
   },
   "devDependencies": {
-    "mockingoose": "^2.13.2",
-    "mongodb-memory-server": "^6.9.2"
+    "mockingoose": "^2.15.2",
+    "mongodb-memory-server": "^6.9.6"
   },
   "scripts": {
-    "build": "yarn rimraf dist && babel src --out-dir dist"
+    "build": "yarn rimraf dist && babel src --out-dir dist",
+    "lint": "eslint . --fix --report-unused-disable-directives"
   }
 }

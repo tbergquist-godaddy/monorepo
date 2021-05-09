@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import { useState, useEffect, type Node, type Element } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -9,19 +9,19 @@ const Wrapper = styled.div`
   transition: max-height 0.3s ease-in-out;
 `;
 
-type Props = {|
+type Props = {
   +isExpanded: boolean,
-  +children: React.Node,
-|};
+  +children: Node,
+};
 /**
  * To animate in, component must be in the dom, with isExpanded false, then isExpanded must change to true
  * To animate out, component must be in the dom, with isExpanded true, then isExpanded must change to false, and component removed from DOM
  * */
-export default function ExerciseForm(props: Props): React.Element<'div'> | null {
-  const [isExpanded, setIsExpanded] = React.useState(props.isExpanded);
-  const [shouldRender, setShouldRender] = React.useState(props.isExpanded);
+export default function ExerciseForm(props: Props): Element<'div'> | null {
+  const [isExpanded, setIsExpanded] = useState(props.isExpanded);
+  const [shouldRender, setShouldRender] = useState(props.isExpanded);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (props.isExpanded) {
       setShouldRender(true);
     } else {
@@ -29,13 +29,13 @@ export default function ExerciseForm(props: Props): React.Element<'div'> | null 
     }
   }, [props.isExpanded]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (shouldRender) {
       setIsExpanded(true);
     }
   }, [shouldRender]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isExpanded) {
       // Allow component to animate out, then remove it from the DOM
       setTimeout(() => {

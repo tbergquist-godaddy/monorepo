@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Element } from 'react';
 import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';
 
 import Layout from '../components/Layout';
@@ -19,7 +19,7 @@ export const query: GraphQLTaggedNode = graphql`
   }
 `;
 
-export default function LoginQuery(props: Props): React.Element<typeof QueryRenderer> {
+export default function LoginQuery(props: Props): Element<typeof QueryRenderer> {
   return (
     <QueryRenderer
       query={query}

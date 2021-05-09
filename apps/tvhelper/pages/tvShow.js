@@ -1,13 +1,13 @@
 // @flow
 
-import * as React from 'react';
+import type { ComponentType } from 'react';
 import type { Context } from 'next';
 
 import TvShowQuery, { tvShowQuery } from '../src/tvShow/TvShowQuery';
 
-type Props = {|
+type Props = {
   +tvshowId: string,
-|};
+};
 
 function TvShowPage(props: Props) {
   return <TvShowQuery tvShowId={props.tvshowId} />;
@@ -22,4 +22,4 @@ TvShowPage.getInitialProps = (ctx: Context) => {
   };
 };
 
-export default (TvShowPage: React.ComponentType<Props>);
+export default (TvShowPage: ComponentType<Props>);

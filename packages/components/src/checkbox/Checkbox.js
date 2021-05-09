@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import { useState, useEffect, type Node } from 'react';
 import styled from 'styled-components';
 
 import useId from '../useId';
@@ -57,9 +57,9 @@ type Props = {
   +tabIndex?: string,
 };
 
-export default function Checkbox({ label, checked = false, onChange, ...rest }: Props): React.Node {
+export default function Checkbox({ label, checked = false, onChange, ...rest }: Props): Node {
   const id = useId();
-  const [isChecked, setIsChecked] = React.useState(checked);
+  const [isChecked, setIsChecked] = useState(checked);
   const handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
     if (onChange != null) {
       onChange(e);
@@ -68,7 +68,7 @@ export default function Checkbox({ label, checked = false, onChange, ...rest }: 
       setIsChecked(e.target.checked);
     }
   };
-  React.useEffect(() => {
+  useEffect(() => {
     setIsChecked(checked);
   }, [checked]);
   return (

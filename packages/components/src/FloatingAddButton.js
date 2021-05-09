@@ -1,23 +1,23 @@
 // @flow
 
-import * as React from 'react';
+import type { Node, Element } from 'react';
 import styled, { keyframes, css, type StyledComponent } from 'styled-components';
 import { MdAdd } from 'react-icons/md';
 
 const AddButton = styled.button(({ theme }) => ({
-  cursor: 'pointer',
-  position: 'fixed',
-  bottom: '16px',
-  right: '16px',
-  borderRadius: '50%',
-  padding: '16px',
-  backgroundColor: theme.primary,
-  color: theme.white,
+  'cursor': 'pointer',
+  'position': 'fixed',
+  'bottom': '16px',
+  'right': '16px',
+  'borderRadius': '50%',
+  'padding': '16px',
+  'backgroundColor': theme.primary,
+  'color': theme.white,
   ':focus': {
     boxShadow: '0 0 3px #000',
   },
-  outline: 'none',
-  zIndex: theme.zIndex.sticky,
+  'outline': 'none',
+  'zIndex': theme.zIndex.sticky,
 }));
 
 const rotateAnimation = keyframes`
@@ -39,7 +39,7 @@ const reverseRotate = keyframes`
 `;
 
 const IconWrapper: StyledComponent<
-  {| +children: React.Node, +rotateIcon: boolean |},
+  { +children: Node, +rotateIcon: boolean },
   void,
   HTMLDivElement,
 > = styled.div`
@@ -54,18 +54,18 @@ const IconWrapper: StyledComponent<
         `};
 `;
 
-type Props = {|
+type Props = {
   +onClick: () => void,
   +ariaLabel: string,
   +rotate: boolean,
   +dataTest?: string,
-|};
+};
 export default function FloatingAddButton({
   onClick,
   ariaLabel,
   rotate,
   dataTest,
-}: Props): React.Element<'button'> {
+}: Props): Element<'button'> {
   return (
     <AddButton data-test={dataTest} type="button" onClick={onClick} aria-label={ariaLabel}>
       <IconWrapper rotateIcon={rotate}>

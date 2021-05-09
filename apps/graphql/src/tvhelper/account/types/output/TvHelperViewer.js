@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable flowtype/use-read-only-spread */
+
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';
 import { connectionArgs, type ConnectionArguments } from '@adeira/graphql-relay';
@@ -17,10 +19,10 @@ type SortBy =
   | '_embedded.previousepisode.airdate'
   | 'status';
 type Args = {
-  +options: {|
+  +options: {
     +sortDirection: 'ascending' | 'descending',
     +sortBy: SortBy,
-  |},
+  },
   ...$Exact<ConnectionArguments>,
   ...
 };

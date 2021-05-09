@@ -18,6 +18,7 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'react/react-in-jsx-scope': OFF,
     'flowtype/require-inexact-type': OFF,
     'no-restricted-imports': [
       ERROR,

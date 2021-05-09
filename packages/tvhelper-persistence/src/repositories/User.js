@@ -5,11 +5,11 @@ import { generate, verify } from 'password-hash';
 import UserModel from '../models/UserModel';
 import User from '../dataObjects/User';
 
-type CreateUserType = {|
+type CreateUserType = {
   +username: string,
   +password: string,
   +email: string,
-|};
+};
 
 export default class UserRepository {
   static async findUser(username: ?string): Promise<null | User> {

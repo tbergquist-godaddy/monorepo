@@ -1,6 +1,8 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
+
+import { useState, useRef, useEffect, useCallback } from 'react';
 import Slider from 'rc-slider';
 import styled from 'styled-components';
 
@@ -22,11 +24,11 @@ const SliderContainer = styled.div({
 });
 
 function MySlider({ totalPlayTime, currentTime }) {
-  const [isDragging, setIsDragging] = React.useState(false);
-  const [sliderValue, setSliderValue] = React.useState(currentTime);
-  const ref = React.useRef();
+  const [isDragging, setIsDragging] = useState(false);
+  const [sliderValue, setSliderValue] = useState(currentTime);
+  const ref = useRef();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isDragging) {
       setSliderValue(currentTime);
     }
@@ -69,13 +71,13 @@ const formatTime = (input: number) => {
   const seconds = Math.floor(input - hours * 3600 - minutes * 60);
   return [hours, minutes, seconds].map((i) => i.toString().padStart(2, '0')).join(':');
 };
-export default function Timer(): React.Node {
-  const [currentTime, setCurrentTime] = React.useState(0);
-  const [totalPlayTime, setTotalPlaytime] = React.useState(0);
-  const ref = React.useRef(null);
+export default function Timer(): Node {
+  const [currentTime, setCurrentTime] = useState(0);
+  const [totalPlayTime, setTotalPlaytime] = useState(0);
+  const ref = useRef(null);
   const { castState, movie } = useCastState();
 
-  const fetchTime = React.useCallback(async () => {
+  const fetchTime = useCallback(async () => {
     const time = await castController.getCurrentTime();
     if (movie != null) {
       localStorage.setItem(movie, time);
@@ -83,7 +85,7 @@ export default function Timer(): React.Node {
     setCurrentTime(time);
   }, [movie]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (castState === 'casting') {
       ref.current = setInterval(fetchTime, 1000);
     }
@@ -95,7 +97,7 @@ export default function Timer(): React.Node {
     };
   }, [castState, fetchTime]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTotalPlaytime(castController.getTotalPlayTime());
   }, []);
 

@@ -1,6 +1,8 @@
 // @flow strict
 
-import * as React from 'react';
+import type { Context, Node, Element } from 'react';
+
+import { createContext, useReducer, useMemo, useContext } from 'react';
 
 type CastStates = 'idle' | 'readyToCast' | 'loading' | 'casting' | 'paused' | 'error';
 type State = {
@@ -13,11 +15,11 @@ type ActionState = {
   +dispatch: (Action) => void,
 };
 
-const CastContext: React.Context<State | void> = React.createContext<State | void>(undefined);
-const CastContextAction = React.createContext<ActionState | void>(undefined);
+const CastContext: Context<State | void> = createContext<State | void>(undefined);
+const CastContextAction = createContext<ActionState | void>(undefined);
 
 type ContextProps = {
-  +children: React.Node,
+  +children: Node,
 };
 
 type Action =
@@ -53,10 +55,10 @@ function reducer(state: State, action: Action): State {
 }
 
 const intialStatate = { movie: null, subtitle: null, castState: 'idle' };
-function CastContextProvider(props: ContextProps): React.Element<typeof CastContext.Provider> {
-  const [state, dispatch] = React.useReducer(reducer, intialStatate);
+function CastContextProvider(props: ContextProps): Element<typeof CastContext.Provider> {
+  const [state, dispatch] = useReducer(reducer, intialStatate);
 
-  const action = React.useMemo(
+  const action = useMemo(
     () => ({
       dispatch,
     }),
@@ -70,7 +72,7 @@ function CastContextProvider(props: ContextProps): React.Element<typeof CastCont
 }
 
 function useCastState(): State {
-  const context = React.useContext(CastContext);
+  const context = useContext(CastContext);
   if (context == null) {
     throw new Error('No cast provider was added');
   }
@@ -78,7 +80,7 @@ function useCastState(): State {
 }
 
 function useCastAction(): ActionState {
-  const context = React.useContext(CastContextAction);
+  const context = useContext(CastContextAction);
   if (context == null) {
     throw new Error('No cast provider was added');
   }

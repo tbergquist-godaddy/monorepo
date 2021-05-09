@@ -37,7 +37,7 @@ it('passes along assigned config', async () => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authentication: 'Bearer Token',
+      'Authentication': 'Bearer Token',
     },
   });
 });

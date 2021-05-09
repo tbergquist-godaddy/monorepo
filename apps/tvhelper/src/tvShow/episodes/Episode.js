@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import { useState, type Node } from 'react';
 import {
   graphql,
   createFragmentContainer,
@@ -16,25 +16,25 @@ import type { Episode_episode as EpisodeType } from './__generated__/Episode_epi
 import markAsWatchedMutation from './mutation/MarkAsWatched';
 import deleteAsWatchedMutation from './mutation/DeleteAsWatched';
 
-type Props = {|
+type Props = {
   +episode: ?EpisodeType,
   +relay: RelayProp,
-|};
+};
 
 const ListItem = styled.button(({ theme }) => ({
-  border: 'none',
-  background: 'none',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  width: '100%',
-  padding: theme.spacing.increased,
-  borderBottom: `1px solid ${theme.gray}`,
-  marginTop: '1px',
-  marginBottom: '-1px',
-  fontFamily: theme.fontFamily,
-  fontSize: theme.fontSize.normal,
-  cursor: 'pointer',
+  'border': 'none',
+  'background': 'none',
+  'display': 'flex',
+  'justifyContent': 'space-between',
+  'alignItems': 'center',
+  'width': '100%',
+  'padding': theme.spacing.increased,
+  'borderBottom': `1px solid ${theme.gray}`,
+  'marginTop': '1px',
+  'marginBottom': '-1px',
+  'fontFamily': theme.fontFamily,
+  'fontSize': theme.fontSize.normal,
+  'cursor': 'pointer',
   ':hover, :focus': {
     backgroundColor: theme.gray,
     outline: 'none',
@@ -61,7 +61,7 @@ const TextWrapper = styled.span(({ theme }) => ({
 }));
 
 const Episode = (props: Props) => {
-  const [isMutating, setIsMutating] = React.useState(false);
+  const [isMutating, setIsMutating] = useState(false);
   const name = props.episode?.name ?? '';
   const airdate = props.episode?.airdate ?? null;
   const rawDate = airdate != null ? new Date(airdate) : null;
@@ -138,4 +138,4 @@ export default (createFragmentContainer(Episode, {
       watched
     }
   `,
-}): FragmentContainerType<Props, React.Node>);
+}): FragmentContainerType<Props, Node>);

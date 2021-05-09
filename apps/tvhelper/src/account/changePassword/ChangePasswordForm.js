@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { ComponentType } from 'react';
 import { Formik, Form } from 'formik';
 import { Heading, InputField, Button, useShowToast, Stack } from '@tbergq/components';
 import styled from 'styled-components';
@@ -76,4 +76,4 @@ export default (function ChangePasswordForm() {
       </Form>
     </Formik>
   );
-}: React.ComponentType<{}>);
+}: ComponentType<{}>);

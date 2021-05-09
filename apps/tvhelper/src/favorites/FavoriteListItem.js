@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import { Link, Media } from '@tbergq/components';
 import { format, isValid, parseISO } from 'date-fns';
@@ -8,9 +8,9 @@ import styled from 'styled-components';
 
 import type { FavoriteListItem_favorite as Favorite } from './__generated__/FavoriteListItem_favorite.graphql';
 
-type Props = {|
+type Props = {
   +favorite: ?Favorite,
-|};
+};
 
 const DATE_FORMAT = 'do MMM yyyy';
 
@@ -22,13 +22,13 @@ const getFormattedDate = (date: ?string) => {
 };
 
 const ListItem = styled(Link)(({ theme }) => ({
-  display: 'block',
-  borderBottom: `1px solid ${theme.gray}`,
-  padding: `${theme.spacing.normal} 0`,
-  marginBottom: '-1px',
-  marginTop: '1px',
-  textDecoration: 'none',
-  color: theme.black,
+  'display': 'block',
+  'borderBottom': `1px solid ${theme.gray}`,
+  'padding': `${theme.spacing.normal} 0`,
+  'marginBottom': '-1px',
+  'marginTop': '1px',
+  'textDecoration': 'none',
+  'color': theme.black,
   ':focus, :hover': {
     backgroundColor: theme.gray,
     opacity: 0.8,
@@ -37,11 +37,11 @@ const ListItem = styled(Link)(({ theme }) => ({
 }));
 
 const Container = styled.div(({ theme }) => ({
-  padding: `0 ${theme.spacing.normal}`,
-  display: 'flex',
-  alignItems: 'center',
+  'padding': `0 ${theme.spacing.normal}`,
+  'display': 'flex',
+  'alignItems': 'center',
   '& > *': {
-    marginRight: theme.spacing.large,
+    'marginRight': theme.spacing.large,
     '&:last-child': {
       margin: '0',
     },
@@ -63,7 +63,7 @@ const FlexItem = styled.div({
   flex: 1,
 });
 
-const FavoriteItem = (props: { +label: string, +children: React.Node }) => (
+const FavoriteItem = (props: { +label: string, +children: Node }) => (
   <FlexItem>
     <Label>{props.label}</Label>
     {props.children}
@@ -105,4 +105,4 @@ export default (createFragmentContainer(FavoriteListItem, {
       }
     }
   `,
-}): FragmentContainerType<Props, React.Node>);
+}): FragmentContainerType<Props, Node>);

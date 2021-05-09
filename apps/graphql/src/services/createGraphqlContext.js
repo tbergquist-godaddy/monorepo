@@ -5,12 +5,12 @@ import type { $Request } from 'express';
 
 import getTvhelperLoaders, { type TvHelperDataLoaders } from '../tvhelper/getDataloaders';
 
-export type GraphqlContextType = {|
+export type GraphqlContextType = {
   +user: ?LoggedInUser,
-  +dataLoader: {|
+  +dataLoader: {
     +tvhelper: TvHelperDataLoaders,
-  |},
-|};
+  },
+};
 
 export default function createContext(request: $Request): GraphqlContextType {
   return {

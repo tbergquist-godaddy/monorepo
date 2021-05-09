@@ -1,11 +1,11 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import Stack from './Stack';
 
-export const stack = (): React.Node => (
+export const stack = (): Node => (
   <Stack>
     <div>First</div>
     <div>Second</div>
@@ -13,7 +13,7 @@ export const stack = (): React.Node => (
   </Stack>
 );
 
-export const flexStack = (): React.Node => (
+export const flexStack = (): Node => (
   <Stack flex={true}>
     <div>First</div>
     <div>Second</div>
@@ -21,7 +21,7 @@ export const flexStack = (): React.Node => (
   </Stack>
 );
 
-export const spaceAfter = (): React.Node => (
+export const spaceAfter = (): Node => (
   <>
     <Stack spaceAfter="normal" flex={boolean('flex', false)}>
       <div>First</div>

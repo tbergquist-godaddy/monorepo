@@ -28,10 +28,10 @@ function copyAndTranspileFileSync(absoluteFrom, absoluteTo, babelConfig) {
   fs.writeFileSync(absoluteTo, transformFileSync(absoluteFrom, babelConfig).code);
 }
 
-type Config = {|
+type Config = {
   +removeRootDependencies: boolean,
   +transpile: boolean,
-|};
+};
 
 const defaultConfig = {
   removeRootDependencies: true,

@@ -1,13 +1,13 @@
 // @flow strict
 
-import * as React from 'react';
+import type { Node, Element } from 'react';
 import styled, { type StyledComponent } from 'styled-components';
 
 type Size = 'page' | 'normal' | 'small';
 
 type SpinnerProps = {
-  +children: React.Node,
-  +spinSize: Size,
+  +'children': Node,
+  +'spinSize': Size,
   +'data-test': ?string,
 };
 
@@ -67,11 +67,11 @@ const getElementSize = (size: Size) => {
 
 const SpinnerElement = styled.div(({ spinSize, theme }) => ({
   ...getElementSize(spinSize),
-  boxSizing: 'border-box',
-  position: 'absolute',
-  borderRadius: '50%',
-  borderColor: `${theme.secondary} transparent transparent transparent`,
-  animation: 'spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
+  'boxSizing': 'border-box',
+  'position': 'absolute',
+  'borderRadius': '50%',
+  'borderColor': `${theme.secondary} transparent transparent transparent`,
+  'animation': 'spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
   '@keyframes spin': {
     '0%': {
       transform: 'rotate(0deg)',
@@ -99,7 +99,7 @@ type Props = {
 export default function Spinner({
   size = 'page',
   dataTest,
-}: Props): React.Element<typeof SpinnerContainer> {
+}: Props): Element<typeof SpinnerContainer> {
   return (
     <SpinnerContainer data-test={dataTest} spinSize={size}>
       <SpinnerElement spinSize={size} />

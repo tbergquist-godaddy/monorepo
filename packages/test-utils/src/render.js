@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Element } from 'react';
 import {
   render,
   type RenderOptionsWithoutCustomQueries,
@@ -11,7 +11,7 @@ import defaultTheme from '@tbergq/theme';
 import { RecoilRoot } from 'recoil';
 
 function testRenderer(
-  ui: React.Element<any>,
+  ui: Element<any>,
   options?: RenderOptionsWithoutCustomQueries,
 ): RenderResult<> {
   return render(

@@ -1,15 +1,15 @@
 // @flow
 
-import * as React from 'react';
+import { useMemo, type Node } from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import styled from 'styled-components';
 
 import type { Episodes_episodes as EpisodeType } from './__generated__/Episodes_episodes.graphql';
 import Episode from './Episode';
 
-type Props = {|
+type Props = {
   +episodes: ?EpisodeType,
-|};
+};
 
 const ListWrapper = styled.div({
   overflow: 'hidden',
@@ -32,7 +32,7 @@ const CardSection = styled.div(({ theme }) => ({
 const Episodes = (props: Props) => {
   const episodes = props.episodes?.episodes;
 
-  const seasonMap = React.useMemo(() => {
+  const seasonMap = useMemo(() => {
     const map = new Map();
 
     if (episodes == null) {
@@ -58,7 +58,7 @@ const Episodes = (props: Props) => {
     return map;
   }, [episodes]);
 
-  return Array.from(seasonMap).map<React.Node>(([key, episodes]) => (
+  return Array.from(seasonMap).map<Node>(([key, episodes]) => (
     <Card key={key}>
       <CardSection>
         <CardTitle>{`Season ${parseInt(key, 10).toString()}`}</CardTitle>
@@ -82,4 +82,4 @@ export default (createFragmentContainer(Episodes, {
       }
     }
   `,
-}): FragmentContainerType<Props, React.Node>);
+}): FragmentContainerType<Props, Node>);

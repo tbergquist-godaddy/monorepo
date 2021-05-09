@@ -1,18 +1,18 @@
 // @flow strict
 
-export type Episode = {|
+export type Episode = {
   +id: number,
   +name: string,
   +season: number,
   +number: number,
   +airdate: Date,
-  +image: {| +medium: string, +original: string |},
+  +image: { +medium: string, +original: string },
   +summary: string,
   +isWatched?: boolean,
-|};
+};
 
-export type EpisodeWatched = {|
+export type EpisodeWatched = {
   +userId: number,
   +episodeId: number,
   +id: number,
-|};
+};

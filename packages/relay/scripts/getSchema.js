@@ -9,7 +9,7 @@ import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql/u
   const res = await fetch('https://tbergq-graphql.vercel.app/graphql/', {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({

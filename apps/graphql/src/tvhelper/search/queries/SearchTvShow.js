@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable flowtype/use-read-only-spread */
+
 import { GraphQLString, GraphQLNonNull, GraphQLScalarType } from 'graphql';
 import { connectionArgs, type ConnectionArguments } from '@adeira/graphql-relay';
 import { connectionFromArray, type Connection } from '@tbergq/graphql-services';

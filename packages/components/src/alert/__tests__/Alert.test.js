@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import theme from '@tbergq/theme';
 import { render, screen } from '@tbergq/test-utils';
 
