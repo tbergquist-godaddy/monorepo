@@ -39,7 +39,9 @@
     "analyze": "export ANALYZE=TRUE && next build",
     "persist-queries": "yarn monorepo-babel-node scripts/persistQueries.js",
     "lint": "eslint . --fix --report-unused-disable-directives",
-    "test": "jest"
+    "test": "yarn test-only && yarn relay --validate",
+    "test-only": "jest",
+    "relay": "yarn adeira-relay-compiler"
   },
   "devDependencies": {
     "@tbergq/test-utils": "0.0.1",
