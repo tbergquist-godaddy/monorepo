@@ -5,7 +5,6 @@
 import fetch from '@adeira/fetch';
 import { config } from 'dotenv';
 import path from 'path';
-import { findMonorepoRoot } from '@adeira/monorepo-utils';
 import { invariant } from '@adeira/js';
 
 config();
@@ -22,7 +21,7 @@ const query = `mutation create($storedOperations: [StoredOperationInput!]!) {
 const { GRAPHQL_URL } = process.env;
 invariant(GRAPHQL_URL != null, 'Missing GRAPHQL_URL env variable');
 const getPersistedQueries = () => {
-  return require(path.join(findMonorepoRoot(), 'persisted-queries.json'));
+  return require(path.join(__dirname, '..', 'persisted-queries.json'));
 };
 
 export default async function persistQueries(): Promise<void> {
