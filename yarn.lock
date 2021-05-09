@@ -59,22 +59,6 @@
     eslint-plugin-sx "^0.11.0"
     prettier "^2.2.1"
 
-"@adeira/eslint-runner@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-0.2.0.tgz#dd450e16bb529390ee841425a9ef4fcd74a53803"
-  integrity sha512-74xsB2y7oY/FVkzFt6zo3DPprgsBgIOJTX6gw/2vmkJgEByW4zInm2krvc4QX6ZR21ziZc2nkFQOlvqDTgugsg==
-  dependencies:
-    "@adeira/monorepo-utils" "^0.8.0"
-    "@babel/code-frame" "^7.10.4"
-    "@babel/register" "^7.10.5"
-    "@babel/runtime" "^7.11.2"
-    chalk "^4.1.0"
-    create-jest-runner "^0.7.0"
-    is-ci "^2.0.0"
-    progress "^2.0.3"
-    strip-ansi "^6.0.0"
-    text-table "^0.2.0"
-
 "@adeira/fetch@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@adeira/fetch/-/fetch-1.0.4.tgz#1028494edd39ceee29b9c9396972dccc260d33e6"
@@ -2412,7 +2396,7 @@
     "@babel/helper-validator-option" "^7.12.17"
     "@babel/plugin-transform-typescript" "^7.13.0"
 
-"@babel/register@^7.10.1", "@babel/register@^7.10.5", "@babel/register@^7.11.5", "@babel/register@^7.12.1", "@babel/register@^7.8.3":
+"@babel/register@^7.10.1", "@babel/register@^7.11.5", "@babel/register@^7.12.1", "@babel/register@^7.8.3":
   version "7.12.1"
   resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.12.1.tgz#cdb087bdfc4f7241c03231f22e15d211acf21438"
   integrity sha512-XWcmseMIncOjoydKZnWvWi0/5CUCD+ZYKhRwgYlWOrA8fGZ/FjuLRpqtIhLOVD/fvR1b9DQHtZPn68VvhpYf+Q==
@@ -7755,15 +7739,6 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-jest-runner@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/create-jest-runner/-/create-jest-runner-0.7.0.tgz#c5b438ab551fc727fda2db1828119a8b5c2408e2"
-  integrity sha512-lPG9GhfxrpcltKEls4/XsbkW6SEuzk9frCTC0SEA1ZVwk5XBYyxdmoqg/h7iKr9Nkq2uAg2Zcs+D4ZzUOuKabQ==
-  dependencies:
-    chalk "^4.1.0"
-    jest-worker "^26.3.0"
-    throat "^5.0.0"
-
 create-react-context@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.3.0.tgz#546dede9dc422def0d3fc2fe03afe0bc0f4f7d8c"
@@ -12470,15 +12445,6 @@ jest-worker@^26.2.1, jest-worker@^26.6.2:
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.6.2.tgz#7f72cbc4d643c365e27b9fd775f9d0eaa9c7a8ed"
   integrity sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==
-  dependencies:
-    "@types/node" "*"
-    merge-stream "^2.0.0"
-    supports-color "^7.0.0"
-
-jest-worker@^26.3.0:
-  version "26.3.0"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.3.0.tgz#7c8a97e4f4364b4f05ed8bca8ca0c24de091871f"
-  integrity sha512-Vmpn2F6IASefL+DVBhPzI2J9/GJUsqzomdeN+P+dK8/jKxbh8R3BtFnx3FIta7wYlPU62cpJMJQo4kuOowcMnw==
   dependencies:
     "@types/node" "*"
     merge-stream "^2.0.0"
