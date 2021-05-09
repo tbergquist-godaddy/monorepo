@@ -13,7 +13,8 @@ const args = null;
 
 describe('tvShow', () => {
   it('returns null when not logged in', async () => {
-    // $FlowExpectedError: Ok for test purpose
+    // $FlowExpectedError[incompatible-call] Ok for test purpose
+    // $FlowFixMe[not-a-function] $FlowFixMe(>=<150.1>)
     expect(await resolve(ancestor, args, { user: null, dataLoader: {} })).toBeNull();
   });
 
@@ -29,7 +30,8 @@ describe('tvShow', () => {
       },
     };
     const context = { user, dataLoader };
-    // $FlowExpectedError: Ok for test purpose
+    // $FlowExpectedError[incompatible-call] Ok for test purpose
+    // $FlowFixMe[not-a-function] $FlowFixMe(>=<150.1>)
     expect(await resolve(ancestor, args, context)).toBe(true);
   });
 
@@ -45,7 +47,8 @@ describe('tvShow', () => {
       },
     };
     const context = { user, dataLoader };
-    // $FlowExpectedError: Ok for test purpose
+    // $FlowExpectedError[incompatible-call] Ok for test purpose
+    // $FlowFixMe[not-a-function] $FlowFixMe(>=<150.1>)
     expect(await resolve(ancestor, args, context)).toBe(false);
   });
 });

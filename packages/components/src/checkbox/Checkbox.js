@@ -1,6 +1,7 @@
 // @flow strict
 
 import { useState, useEffect, type Node } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 
 import useId from '../useId';
@@ -64,7 +65,7 @@ export default function Checkbox({ label, checked = false, onChange, ...rest }: 
     if (onChange != null) {
       onChange(e);
     } else {
-      // $FlowExpectedError: checked is a property on a checbox
+      // $FlowExpectedError[prop-missing] checked is a property on a checbox
       setIsChecked(e.target.checked);
     }
   };

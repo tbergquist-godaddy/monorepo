@@ -1,6 +1,7 @@
 // @flow strict-local
 
 import type { Node, ChildrenArray } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 
 import Container from './Container';

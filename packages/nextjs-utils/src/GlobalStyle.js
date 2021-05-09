@@ -1,6 +1,7 @@
 // @flow strict
 
 import type { ComponentType } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle: ComponentType<{}> = createGlobalStyle({

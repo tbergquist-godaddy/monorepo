@@ -30,6 +30,7 @@ module.exports = {
           to: path.join(__dirname, '.build', 'index.html'),
         },
       ],
+    // $FlowFixMe[value-as-type] $FlowFixMe(>=<150.1>)
     }) /*: CopyPlugin */),
   ],
   module: {

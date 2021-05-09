@@ -12,6 +12,7 @@ const options = [
 export const select = (): Node => <Select name="select" options={options} />;
 
 export const error = (): Node => (
+  // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
   <Formik
     initialValues={{ select: '' }}
     initialTouched={{ select: true }}
@@ -36,6 +37,7 @@ const Config: {
 } = {
   component: Select,
   title: 'Select',
+  // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
   decorators: [(storyFn) => <Formik initialValues={{ select: '' }}>{storyFn()}</Formik>],
 };
 

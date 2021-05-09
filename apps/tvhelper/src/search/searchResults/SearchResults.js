@@ -2,6 +2,8 @@
 
 import type { Node } from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
+// $FlowFixMe[untyped-type-import] $FlowFixMe(>=<150.1>)
 import styled, { type StyledComponent } from 'styled-components';
 
 import type { SearchResults_results as ResultsType } from './__generated__/SearchResults_results.graphql';
@@ -11,6 +13,7 @@ type Props = {
   +results: ?ResultsType,
 };
 
+// $FlowFixMe[value-as-type] $FlowFixMe(>=<150.1>)
 const GridContainer: StyledComponent<{ +children: Node }, void, HTMLDivElement> = styled.div(
   ({ theme }) => ({
     display: 'grid',

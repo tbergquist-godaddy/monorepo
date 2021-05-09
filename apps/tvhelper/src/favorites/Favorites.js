@@ -8,6 +8,7 @@ import {
   type RefetchContainerType,
   type RefetchRelayProp,
 } from '@tbergq/relay';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 import { useFormikContext } from 'formik';
 
@@ -118,6 +119,7 @@ function Favorites(props: Props) {
         <FavoritesLoader />
       ) : (
         <>
+          {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
           <Stack flex={true}>
             <Select label="Sort by" name="sortBy" options={sortByOptions} />
             <Select
@@ -135,7 +137,9 @@ function Favorites(props: Props) {
             ))}
           </FavoritesWrapper>
           {props.favorites?.favorites?.pageInfo.hasNextPage && (
+            // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
             <Stack justify="center" flex={true}>
+              {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
               <Button loading={isLoadingMore} onClick={loadMore} color="secondary">
                 Load more
               </Button>

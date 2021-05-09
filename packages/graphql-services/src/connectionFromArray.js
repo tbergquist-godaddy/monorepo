@@ -39,6 +39,6 @@ export default function connectionFromArrayWrapper<T>(
   data: Array<T>,
   args: ConnectionArguments,
 ): Connection<T> {
-  // $FlowExpectedError: Module not using exact_by_default
+  // $FlowExpectedError[incompatible-exact] Module not using exact_by_default
   return connectionFromArray(data, args);
 }

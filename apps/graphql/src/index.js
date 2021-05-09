@@ -46,7 +46,6 @@ function createGraphqlServer(request: $Request) {
 }
 
 app.use('/', attachUserToRequest, getPersistedQuery(), (request: $Request, response: $Response) => {
-  // $FlowExpectedError: graphqlHTTP uses types from node http module
   return createGraphqlServer(request)(request, response);
 });
 

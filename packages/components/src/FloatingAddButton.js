@@ -1,6 +1,7 @@
 // @flow
 
 import type { Node, Element } from 'react';
+// $FlowFixMe[untyped-type-import] $FlowFixMe(>=<150.1>)
 import styled, { keyframes, css, type StyledComponent } from 'styled-components';
 import { MdAdd } from 'react-icons/md';
 
@@ -38,6 +39,7 @@ const reverseRotate = keyframes`
 }
 `;
 
+// $FlowFixMe[value-as-type] $FlowFixMe(>=<150.1>)
 const IconWrapper: StyledComponent<
   { +children: Node, +rotateIcon: boolean },
   void,

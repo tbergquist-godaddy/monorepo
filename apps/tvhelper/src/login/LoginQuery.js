@@ -26,6 +26,7 @@ export default function LoginQuery(props: Props): Element<typeof QueryRenderer> 
       variables={{}}
       render={(renderProps: ?LoginQueryResponse) => (
         <Layout viewer={renderProps?.viewer}>
+          {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
           <LoginScene loginFailed={props.loginFailed} />
         </Layout>
       )}

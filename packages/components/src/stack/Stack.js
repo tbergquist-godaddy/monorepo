@@ -1,6 +1,8 @@
 // @flow strict
 
 import type { Node, Element } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
+// $FlowFixMe[untyped-type-import] $FlowFixMe(>=<150.1>)
 import styled, { type StyledComponent } from 'styled-components';
 import type { DefaultTheme } from '@tbergq/theme';
 
@@ -23,7 +25,8 @@ export default function Stack({
   spaceAfter,
   justify,
   align,
-}: Props): Element<typeof StyledStack> {
+}: // $FlowFixMe[incompatible-type] $FlowFixMe(>=<150.1>)
+Props): Element<typeof StyledStack> {
   return (
     <StyledStack
       justifyContent={justify}
@@ -61,6 +64,7 @@ type StackStyles = {
   }>,
 };
 
+// $FlowFixMe[value-as-type] $FlowFixMe(>=<150.1>)
 const StyledStack: StyledComponent<StyledProps, DefaultTheme, HTMLDivElement> = styled.div.attrs(
   ({ dataTest }) => ({
     'data-test': dataTest,

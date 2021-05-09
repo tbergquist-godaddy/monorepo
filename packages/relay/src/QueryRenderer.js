@@ -28,6 +28,7 @@ export default function QueryRenderer(props: Props): Node {
       },
       environment,
     );
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     return data == null ? <Loading dataTest="queryRenderLoader" /> : props.render(data);
   }
 
@@ -38,6 +39,7 @@ export default function QueryRenderer(props: Props): Node {
     if (rendererProps || props.renderLoader === false) {
       return props.render(rendererProps);
     }
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     return <Loading dataTest="queryRenderLoader" />;
   }
 

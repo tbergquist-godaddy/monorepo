@@ -3,6 +3,7 @@
 import type { Node } from 'react';
 import { Button, Stack } from '@tbergq/components';
 import { MdPlayArrow, MdPause, MdStop, MdFastRewind, MdFastForward } from 'react-icons/md';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 
 import { useCastState, useCastAction } from '../CastContext';
@@ -47,23 +48,28 @@ export default function ControlPanel(): Node {
   return (
     <>
       <Timer />
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <Stack flex={true}>
+        {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
         <Button onClick={playPause}>
           <IconContainer>
             {castState === 'casting' && <MdPause />}
             {castState === 'paused' && <MdPlayArrow />}
           </IconContainer>
         </Button>
+        {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
         <Button onClick={fastRewind}>
           <IconContainer>
             <MdFastRewind />
           </IconContainer>
         </Button>
+        {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
         <Button onClick={fastForward}>
           <IconContainer>
             <MdFastForward />
           </IconContainer>
         </Button>
+        {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
         <Button onClick={stop}>
           <IconContainer>
             <MdStop />

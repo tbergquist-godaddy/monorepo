@@ -8,6 +8,7 @@ import InputField from '../InputField';
 
 it('updates correctly', async () => {
   const { getByTestId, getByDisplayValue } = render(
+    // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
     <Formik initialValues={{ test: '' }}>
       <InputField dataTest="testInput" name="test" />
     </Formik>,
@@ -22,6 +23,7 @@ it('updates correctly', async () => {
 
 it('shows label', () => {
   render(
+    // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
     <Formik initialValues={{ test: '' }}>
       <InputField label="My label" dataTest="testInput" name="test" />
     </Formik>,
@@ -32,6 +34,7 @@ it('shows label', () => {
 
 it('shows placeholder', () => {
   render(
+    // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
     <Formik initialValues={{ test: '' }}>
       <InputField placeholder="my placeholder" label="My label" dataTest="testInput" name="test" />
     </Formik>,
@@ -43,6 +46,7 @@ it('shows placeholder', () => {
 
 it('shows error', () => {
   render(
+    // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
     <Formik
       initialValues={{ test: '' }}
       initialErrors={{ test: 'Test is required' }}

@@ -8,6 +8,7 @@ import Button from '../Button';
 
 it('calls onClick callback', () => {
   const onClick = jest.fn();
+  // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
   render(<Button onClick={onClick}>test</Button>);
 
   const button = screen.getByText('test');
@@ -19,8 +20,11 @@ it('calls onClick callback', () => {
 it('has correct colors', () => {
   render(
     <>
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <Button>primary</Button>
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <Button color="secondary">secondary</Button>
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <Button color="danger">danger</Button>
     </>,
   );
@@ -36,6 +40,7 @@ it('has correct colors', () => {
 
 it('handles loading state', () => {
   render(
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <Button dataTest="loading" loading={true}>
       primary
     </Button>,

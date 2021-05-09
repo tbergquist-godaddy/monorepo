@@ -64,6 +64,7 @@ const Episodes = (props: Props) => {
         <CardTitle>{`Season ${parseInt(key, 10).toString()}`}</CardTitle>
         <ListWrapper>
           {episodes.map((episode) => (
+            // $FlowFixMe[unnecessary-optional-chain] $FlowFixMe(>=<150.1>)
             <Episode key={episode?.id} episode={episode} />
           ))}
         </ListWrapper>

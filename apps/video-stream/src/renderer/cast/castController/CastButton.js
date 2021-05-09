@@ -22,6 +22,7 @@ export default function CastController(): Node {
     }
   };
   return (
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <Button loading={castState === 'loading'} onClick={startCast}>
       <img src={CastImage} alt="Cast" />
     </Button>

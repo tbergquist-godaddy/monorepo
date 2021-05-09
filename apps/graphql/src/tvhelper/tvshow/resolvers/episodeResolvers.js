@@ -25,6 +25,7 @@ export const resolvePreviousEpisode = async (
     }
     return acc;
   }, []);
+  // $FlowFixMe[incompatible-call] $FlowFixMe(>=<150.1>)
   const date = dates.length > 0 ? new Date(Math.max(...dates)) : null;
 
   return date;
@@ -49,6 +50,7 @@ export const resolveNextEpisode = async (
     }
     return acc;
   }, []);
+  // $FlowFixMe[incompatible-call] $FlowFixMe(>=<150.1>)
   const date = dates.length > 0 ? new Date(Math.min(...dates)) : null;
 
   return date;

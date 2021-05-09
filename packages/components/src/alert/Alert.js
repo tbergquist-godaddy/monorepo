@@ -1,6 +1,8 @@
 // @flow strict
 
 import type { Node, Element } from 'react';
+// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
+// $FlowFixMe[untyped-type-import] $FlowFixMe(>=<150.1>)
 import styled, { type StyledComponent } from 'styled-components';
 import type { DefaultTheme } from '@tbergq/theme';
 
@@ -13,7 +15,8 @@ type Props = {
 export default function Alert({
   children,
   type = 'success',
-}: Props): Element<typeof AlertContainer> {
+}: // $FlowFixMe[incompatible-type] $FlowFixMe(>=<150.1>)
+Props): Element<typeof AlertContainer> {
   return (
     <AlertContainer role="alert" alertType={type}>
       {children}
@@ -36,6 +39,7 @@ const getAlertType = (type: AlertType, theme: DefaultTheme) => {
   }
 };
 
+// $FlowFixMe[value-as-type] $FlowFixMe(>=<150.1>)
 const AlertContainer: StyledComponent<
   AlertContainerProps,
   DefaultTheme,

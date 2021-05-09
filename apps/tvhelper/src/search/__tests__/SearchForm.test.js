@@ -10,6 +10,7 @@ jest.mock('next/router', () => ({
 }));
 
 const TestRenderer = () => (
+  // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
   <Formik initialValues={{ query: '' }}>
     <SearchForm />
   </Formik>

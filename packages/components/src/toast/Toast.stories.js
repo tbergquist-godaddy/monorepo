@@ -17,17 +17,20 @@ function Wrapper() {
 
     showToast({
       text: `lol ${++count}`,
-      // $FlowFixMe: ok for testing
+      // $FlowFixMe[incompatible-call] ok for testing
       type,
       timeout: 3000,
     });
   };
 
   return (
+    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <Stack flex>
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <Button dataTest="success" onClick={onClick}>
         Show toast
       </Button>
+      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <Button color="danger" dataTest="danger" onClick={onClick}>
         Show danger toast
       </Button>
