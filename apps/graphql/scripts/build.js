@@ -36,7 +36,7 @@ if (ZEIT_TOKEN == null) {
     await monorepoBuilder(thisWorkspace, buildDir, { removeRootDependencies: false });
     fs.copyFileSync(path.join(__dirname, '..', 'now.json'), path.join(buildDir, 'now.json'));
     const packageJson = require(path.join(buildDir, 'apps', 'graphql', 'package.json'));
-    packageJson.engines = { node: '10.x' };
+
     fs.writeFileSync(
       path.join(buildDir, 'apps', 'graphql', 'package.json'),
       JSON.stringify(packageJson, null, 2),
