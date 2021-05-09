@@ -4,7 +4,7 @@
   "private": true,
   "sideEffects": false,
   "dependencies": {
-    "@adeira/fetch": "^1.0.4",
+    "@adeira/fetch": "^2.1.0",
     "@adeira/js": "^1.2.4",
     "@next/bundle-analyzer": "^10.2.0",
     "@tbergq/components": "^0",
