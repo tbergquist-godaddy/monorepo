@@ -12,6 +12,10 @@
   },
   "scripts": {
     "lint": "eslint . --fix --report-unused-disable-directives",
-    "build": "yarn rimraf dist/ && babel src --out-dir dist/"
+    "build": "yarn rimraf dist/ && babel src --out-dir dist/ --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\"",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^6.9.6"
   }
 }
