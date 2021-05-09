@@ -10072,6 +10072,11 @@ gzip-size@^6.0.0:
   dependencies:
     duplexer "^0.1.2"
 
+hamt_plus@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hamt_plus/-/hamt_plus-1.0.2.tgz#e21c252968c7e33b20f6a1b094cd85787a265601"
+  integrity sha1-4hwlKWjH4zsg9qGwlM2FeHomVgE=
+
 handle-thing@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.0.tgz#0e039695ff50c93fc288557d696f3c1dc6776754"
@@ -15852,10 +15857,12 @@ rechoir@^0.7.0:
   dependencies:
     resolve "^1.9.0"
 
-recoil@0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.0.10.tgz#679ab22306f559f8a63c46fd5ff5241539f9248f"
-  integrity sha512-+9gRqehw3yKETmoZbhSnWu4GO10HDb5xYf1CjLF1oXGK2uT6GX5Lu9mfTXwjxV/jXxEKx8MIRUUbgPxvbJ8SEw==
+recoil@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.2.0.tgz#69344b5bec3129272560d8d9d6001ada3ee4d80c"
+  integrity sha512-VOJfYVQ3VgmfS7L5tV9QdOR+AJhvll8yGr1+3nJPCqADulImuScGZ2sJtejPps3zfTu/o98y5kO4lje8Tx6XHw==
+  dependencies:
+    hamt_plus "1.0.2"
 
 recursive-readdir@2.2.2:
   version "2.2.2"
