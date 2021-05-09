@@ -24,9 +24,11 @@
     "relay-test-utils": "^11.0.2"
   },
   "scripts": {
+    "build:base": "babel src --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\",\"**/__mocks__/**\"",
     "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
-    "build:cjs": "babel src --out-dir dist/cjs",
-    "build:esm": "babel src --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
-    "lint": "eslint . --fix --report-unused-disable-directives"
+    "build:cjs": "yarn build:base --out-dir dist/cjs",
+    "build:esm": "yarn build:base --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
+    "lint": "eslint . --fix --report-unused-disable-directives",
+    "test": "jest"
   }
 }
