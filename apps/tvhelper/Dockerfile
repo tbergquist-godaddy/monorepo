@@ -1,16 +1,56 @@
-FROM node:14-alpine
+FROM node:16-alpine as deps
 
 WORKDIR /build
-COPY . .
 
-ENV GRAPHQL_URL https://tbergq-graphql.vercel.app/graphql/
-ENV NODE_ENV production
+COPY package.json lerna.json yarn.lock ./
+COPY apps/tvhelper/package.json ./apps/tvhelper/package.json
+COPY packages/test-utils/package.json ./packages/test-utils/package.json
+COPY packages/components/package.json ./packages/components/package.json
+COPY packages/nextjs-utils/package.json ./packages/nextjs-utils/package.json
+COPY packages/relay/package.json ./packages/relay/package.json
+COPY packages/utils/package.json ./packages/utils/package.json
+COPY packages/theme/package.json ./packages/theme/package.json
 
-RUN apk add --no-cache bash curl
-RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b /usr/local/bin
+RUN yarn install --frozen-lockfile
 
-RUN yarn install
-RUN node-prune
+FROM node:16-alpine as builder
+
+WORKDIR /build
+ENV NODE_ENV=production
+ENV GRAPHQL_URL=https://tbergq-graphql.vercel.app/graphql/
+
+COPY --from=deps  /build/node_modules ./node_modules
+COPY --from=deps  /build/apps/tvhelper/ ./apps/tvhelper/
+COPY --from=deps  /build/packages/test-utils/ ./packages/test-utils/
+COPY --from=deps  /build/packages/components/ ./packages/components/
+COPY --from=deps  /build/packages/nextjs-utils/ ./packages/nextjs-utils/
+COPY --from=deps  /build/packages/relay/ ./packages/relay/
+COPY --from=deps  /build/packages/theme/ ./packages/theme/
+COPY --from=deps  /build/packages/utils/ ./packages/utils/
+
+COPY apps/tvhelper ./apps/tvhelper
+COPY packages/test-utils ./packages/test-utils/
+COPY packages/components ./packages/components/
+COPY packages/nextjs-utils ./packages/nextjs-utils/
+COPY packages/relay ./packages/relay/
+COPY packages/utils ./packages/utils/
+COPY packages/theme ./packages/theme/
+
+COPY package.json lerna.json relay.config.js ./
+
+RUN yarn lerna run build
+
+FROM node:16-alpine as runner
+
+WORKDIR /build
+
+ENV NODE_ENV=production
+ENV GRAPHQL_URL=https://tbergq-graphql.vercel.app/graphql/
+
+COPY --from=builder /build/node_modules ./node_modules
+COPY --from=builder /build/package.json ./package.json
+COPY --from=builder /build/apps/tvhelper ./apps/tvhelper
+COPY --from=builder /build/packages ./packages
 
 EXPOSE 3020
 
