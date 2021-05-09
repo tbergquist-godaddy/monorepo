@@ -9,7 +9,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "@adeira/js": "^1.2.4",
+    "@adeira/js": "^2.1.0",
     "@tbergq/components": "0.0.1",
     "@tbergq/relay": "0.0.1",
     "@tbergq/theme": "0.0.1",

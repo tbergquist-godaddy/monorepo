@@ -5,7 +5,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/fetch": "^2.1.0",
-    "@adeira/js": "^1.2.4",
+    "@adeira/js": "^2.1.0",
     "@next/bundle-analyzer": "^10.2.0",
     "@tbergq/components": "^0",
     "@tbergq/nextjs-utils": "0.0.1",

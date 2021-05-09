@@ -9,8 +9,8 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/fetch": "^2.1.0",
-    "@adeira/graphql-global-id": "^1.1.1",
-    "@adeira/graphql-relay": "^0.2.0",
+    "@adeira/graphql-global-id": "^2.0.1",
+    "@adeira/graphql-relay": "^0.3.0",
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
     "graphql": "^15.1.0",
