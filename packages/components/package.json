@@ -9,7 +9,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "@adeira/js": "^1.2.4",
+    "@adeira/js": "^2.1.0",
     "@artsy/fresnel": "^1.5.0",
     "@storybook/react": "^6.2.9",
     "@tbergq/theme": "0.0.1",
@@ -30,9 +30,9 @@
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-knobs": "^6.2.9",
     "@storybook/react": "^6.0.26",
+    "@tbergq/test-preset": "0.0.1",
     "@tbergq/test-utils": "0.0.1",
-    "@testing-library/react": "^11.2.2",
-    "@tbergq/test-preset": "0.0.1"
+    "@testing-library/react": "^11.2.2"
   },
   "scripts": {
     "storybook": "start-storybook",

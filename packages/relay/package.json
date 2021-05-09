@@ -10,7 +10,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/fetch": "^2.1.0",
-    "@adeira/js": "^1.2.4",
+    "@adeira/js": "^2.1.0",
     "@adeira/relay": "^3.2.4",
     "@tbergq/components": "*",
     "graphql": "^15.1.0"
