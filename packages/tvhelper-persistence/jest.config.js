@@ -3,10 +3,10 @@
 const path = require('path');
 
 module.exports = {
+  preset: (path.relative(
+    __dirname,
+    require.resolve('@tbergq/test-preset/node-preset.js'),
+  ) /*: string */),
   rootDir: __dirname,
-  testEnvironment: 'node',
-  setupFilesAfterEnv: [
-    (path.join(__dirname, '..', '..', 'scripts', 'setupTest.js') /*: string */),
-    (path.join(__dirname, '..', '..', 'scripts', 'mongoMemoryServer.js') /*: string */),
-  ],
+  setupFilesAfterEnv: [(path.join(__dirname, 'scripts', 'setupTest.js') /*: string */)],
 };
