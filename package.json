@@ -8,8 +8,7 @@
     "test": "yarn lerna run test",
     "lint": "yarn lerna run lint",
     "typecheck": "adeira-flow-bin",
-    "test-ci": "yarn typecheck && yarn lint && yarn test && yarn workspace @tbergq/graphql test-bc && yarn relay --validate",
-    "relay": "yarn adeira-relay-compiler",
+    "test-ci": "yarn typecheck && yarn lint && yarn test",
     "migrate": "yarn adeira-flow-migrate types-first node_modules/.bin/flow",
     "build": "yarn lerna run build"
   },

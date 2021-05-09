@@ -24,7 +24,6 @@ jobs:
           yarn run typecheck
           yarn run lint --since origin/master
           yarn run test --since origin/master
-          yarn relay --validate
         env:
           DB_URL_TJ: ${{ secrets.DB_URL_TJ }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}

@@ -9,6 +9,6 @@ const allowBreakingChanges = process.argv.includes('--allow-bc');
 
 testBC({
   allowBreakingChanges,
-  snapshotLocation: path.join(__dirname, '..', '..', '..', 'schema.graphql'),
+  snapshotLocation: path.join(__dirname, '..', 'schema.graphql'),
   schema: Schema,
 });
