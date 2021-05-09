@@ -8,14 +8,14 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^9.0.1",
     "mongodb": "^3.6.6",
     "mongoose": "^5.12.7",
     "password-hash": "^1.2.2"
   },
   "devDependencies": {
-    "mongodb-memory-server": "^6.9.6",
-    "@tbergq/test-preset": "0.0.1"
+    "@tbergq/test-preset": "0.0.1",
+    "mongodb-memory-server": "^6.9.6"
   },
   "scripts": {
     "build": "yarn rimraf dist && babel src --out-dir dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\"",
