@@ -8,7 +8,7 @@
     "test": "yarn lerna run test",
     "lint": "yarn lerna run lint",
     "typecheck": "adeira-flow-bin",
-    "test-ci": "yarn typecheck && yarn lint && yarn test",
+    "test-ci": "yarn typecheck && yarn lint --parallel && yarn test --parallel",
     "migrate": "yarn adeira-flow-migrate types-first node_modules/.bin/flow",
     "build": "yarn lerna run build"
   },
