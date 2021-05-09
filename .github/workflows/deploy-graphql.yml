@@ -3,6 +3,11 @@ name: Deploy grahpql
 on:
   push:
     branches: [master]
+    paths:
+      - 'apps/graphql/**'
+      - 'packages/graphql-persistence/**'
+      - 'packages/graphql-services/**'
+      - 'packages/tvhelper-persistence/**'
 
 jobs:
   build:
