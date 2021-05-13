@@ -11,7 +11,7 @@
   "dependencies": {
     "@tbergq/theme": "0.0.1",
     "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "13.1.8",
+    "@testing-library/user-event": "13.1.9",
     "recoil": "0.0.10",
     "relay-test-utils": "11.0.2"
   },
