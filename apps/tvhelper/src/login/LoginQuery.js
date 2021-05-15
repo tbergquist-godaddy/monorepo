@@ -3,9 +3,8 @@
 import type { Element } from 'react';
 import { QueryRenderer, graphql, type GraphQLTaggedNode } from '@tbergq/relay';
 
-import Layout from '../components/Layout';
 import LoginScene from './LoginScene';
-import type { LoginQueryResponse } from './__generated__/LoginQuery.graphql';
+import type { LoginQueryResponse } from '__generated__/LoginQuery.graphql';
 
 type Props = {
   +loginFailed: boolean,
@@ -14,7 +13,7 @@ type Props = {
 export const query: GraphQLTaggedNode = graphql`
   query LoginQuery {
     viewer {
-      ...Layout_viewer
+      __typename
     }
   }
 `;
@@ -24,12 +23,7 @@ export default function LoginQuery(props: Props): Element<typeof QueryRenderer> 
     <QueryRenderer
       query={query}
       variables={{}}
-      render={(renderProps: ?LoginQueryResponse) => (
-        <Layout viewer={renderProps?.viewer}>
-          {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
-          <LoginScene loginFailed={props.loginFailed} />
-        </Layout>
-      )}
+      render={(renderProps: ?LoginQueryResponse) => <LoginScene loginFailed={props.loginFailed} />}
     />
   );
 }

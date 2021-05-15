@@ -34,8 +34,10 @@
     "lerna": "^4.0.0",
     "mongodb-memory-server": "^6.9.6",
     "now": "^21.0.1",
+    "prettier": "^2.3.0",
     "react-test-renderer": "17.0.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.2.4"
   },
   "peerDependencies": {
     "@tbergq/graphql-persistence": "*",

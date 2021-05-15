@@ -10,7 +10,7 @@ import {
 import type {
   addFavoriteMutationVariables,
   addFavoriteMutation as MutationType,
-} from './__generated__/addFavoriteMutation.graphql';
+} from '__generated__/addFavoriteMutation.graphql';
 
 const mutation = graphql`
   mutation addFavoriteMutation($serieId: ID!) {

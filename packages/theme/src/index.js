@@ -54,6 +54,7 @@ const defaultTheme = {
     normal: '1rem',
     large: `${18 / 16}rem`,
   },
+  space: [0, 4, 8, 12, 16, 18, 20, 22, 24],
   spacing: {
     tiny: '4px',
     small: '8px',

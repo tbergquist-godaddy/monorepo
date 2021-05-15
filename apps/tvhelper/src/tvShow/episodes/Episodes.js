@@ -4,7 +4,7 @@ import { useMemo, type Node } from 'react';
 import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
 import styled from 'styled-components';
 
-import type { Episodes_episodes as EpisodeType } from './__generated__/Episodes_episodes.graphql';
+import type { Episodes_episodes as EpisodeType } from '__generated__/Episodes_episodes.graphql';
 import Episode from './Episode';
 
 type Props = {

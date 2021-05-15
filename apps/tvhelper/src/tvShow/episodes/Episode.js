@@ -13,7 +13,7 @@ import { isLoggedIn } from '@tbergq/utils';
 import styled from 'styled-components';
 import { Checkbox } from '@tbergq/components';
 
-import type { Episode_episode as EpisodeType } from './__generated__/Episode_episode.graphql';
+import type { Episode_episode as EpisodeType } from '__generated__/Episode_episode.graphql';
 import markAsWatchedMutation from './mutation/MarkAsWatched';
 import deleteAsWatchedMutation from './mutation/DeleteAsWatched';
 

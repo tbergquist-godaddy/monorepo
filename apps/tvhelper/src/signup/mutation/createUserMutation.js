@@ -5,7 +5,7 @@ import { commitMutation, graphql, Environment } from '@tbergq/relay';
 import type {
   createUserMutationVariables,
   createUserMutation as MutationType,
-} from './__generated__/createUserMutation.graphql';
+} from '__generated__/createUserMutation.graphql';
 
 const mutation = graphql`
   mutation createUserMutation($username: String!, $password: String!, $email: String!) {

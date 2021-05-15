@@ -3,9 +3,8 @@
 import type { Node } from 'react';
 import { graphql, QueryRenderer, type GraphQLTaggedNode } from '@tbergq/relay';
 
-import type { TvShowQueryResponse } from './__generated__/TvShowQuery.graphql';
+import type { TvShowQueryResponse } from '__generated__/TvShowQuery.graphql';
 import TvShowPage from './TvShowPage';
-import Layout from '../components/Layout';
 
 type Props = {
   +tvShowId: ?string,
@@ -14,7 +13,7 @@ type Props = {
 export const tvShowQuery: GraphQLTaggedNode = graphql`
   query TvShowQuery($id: ID!) {
     viewer {
-      ...Layout_viewer
+      __typename
     }
     node(id: $id) {
       ...TvShowPage_tvShow
@@ -23,11 +22,7 @@ export const tvShowQuery: GraphQLTaggedNode = graphql`
 `;
 
 function renderQuery(props: ?TvShowQueryResponse) {
-  return (
-    <Layout viewer={props?.viewer}>
-      <TvShowPage tvShow={props?.node} />
-    </Layout>
-  );
+  return <TvShowPage tvShow={props?.node} />;
 }
 
 export default function TvShowQuery(props: Props): Node {

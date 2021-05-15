@@ -19,7 +19,7 @@ const TestRenderer = () => {
         query={graphql`
           query LayoutTestQuery @relay_test_operation {
             viewer {
-              ...Layout_viewer
+              __typename
             }
           }
         `}

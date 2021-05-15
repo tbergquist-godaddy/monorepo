@@ -5,7 +5,7 @@ import { graphql, createFragmentContainer, type FragmentContainerType } from '@t
 import { Heading } from '@tbergq/components';
 import styled from 'styled-components';
 
-import type { TvShowPage_tvShow as TvShow } from './__generated__/TvShowPage_tvShow.graphql';
+import type { TvShowPage_tvShow as TvShow } from '__generated__/TvShowPage_tvShow.graphql';
 import Episodes from './episodes/Episodes';
 import TvShowImage from './TvShowImage';
 import TvShowLoader from './TvShowLoader';

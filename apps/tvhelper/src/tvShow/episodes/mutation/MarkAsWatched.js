@@ -5,7 +5,7 @@ import { graphql, commitMutation } from '@tbergq/relay';
 import type {
   MarkAsWatchedMutationVariables,
   MarkAsWatchedMutation as MutationType,
-} from './__generated__/MarkAsWatchedMutation.graphql';
+} from '__generated__/MarkAsWatchedMutation.graphql';
 
 const mutation = graphql`
   mutation MarkAsWatchedMutation($episodeId: ID!) {
