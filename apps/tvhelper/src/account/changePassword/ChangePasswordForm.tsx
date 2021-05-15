@@ -1,20 +1,20 @@
-// @flow strict-local
-
-import type { ComponentType } from 'react';
 import { Formik, Form } from 'formik';
-import { Heading, InputField, Button, useShowToast, Stack } from '@tbergq/components';
-// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
-import styled from 'styled-components';
-import { useMutation, graphql } from '@tbergq/relay';
+import { Heading, InputField, Button, useShowToast } from '@tbergq/components';
+import { useMutation, graphql } from 'react-relay';
+import { ChangePasswordFormMutation } from '__generated__/ChangePasswordFormMutation.graphql';
+import * as yup from 'yup';
+import Box from 'components/Box';
 
-import type { ChangePasswordFormMutation } from '__generated__/ChangePasswordFormMutation.graphql';
-
-const ButtonWrapper = styled.div({
-  justifyContent: 'flex-end',
-  display: 'flex',
+const validationSchema = yup.object().shape({
+  password: yup.string().required(),
+  newPassword: yup.string().required(),
+  confirmPassword: yup
+    .string()
+    .required()
+    .oneOf([yup.ref('newPassword'), null], "Passwords don't match"),
 });
 
-export default (function ChangePasswordForm() {
+export default function ChangePasswordForm() {
   const show = useShowToast();
   const [changePassword, isLoading] = useMutation<ChangePasswordFormMutation>(graphql`
     mutation ChangePasswordFormMutation($password: String!, $newPassword: String!) {
@@ -28,6 +28,7 @@ export default (function ChangePasswordForm() {
       }
     }
   `);
+
   const onSubmit = ({ password, newPassword }) => {
     changePassword({
       variables: { password, newPassword },
@@ -40,41 +41,28 @@ export default (function ChangePasswordForm() {
       },
     });
   };
+
   return (
     <Formik
       onSubmit={onSubmit}
       initialValues={{ password: '', newPassword: '', confirmPassword: '' }}
-      validate={({ newPassword, confirmPassword, password }) => {
-        const errors = {};
-
-        if (password === '') {
-          errors.password = 'This field is required';
-        }
-        if (newPassword === '') {
-          errors.newPassword = 'This field is required';
-        }
-        if (confirmPassword === '') {
-          errors.confirmPassword = 'This field is required';
-        }
-        if (confirmPassword !== '' && newPassword !== confirmPassword) {
-          errors.confirmPassword = 'Confirm password does not match new password';
-        }
-        return errors;
-      }}
+      validationSchema={validationSchema}
     >
       <Form>
-        <Stack>
-          <Heading level="h3">Change password</Heading>
+        <fieldset>
+          <legend>
+            <Heading level="h2">Change password</Heading>
+          </legend>
           <InputField type="password" name="password" label="Old password" />
           <InputField type="password" name="newPassword" label="New password" />
           <InputField type="password" name="confirmPassword" label="Confirm password" />
-          <ButtonWrapper>
+          <Box display="flex" justifyContent="flex-end">
             <Button loading={isLoading} type="submit">
               Change password
             </Button>
-          </ButtonWrapper>
-        </Stack>
+          </Box>
+        </fieldset>
       </Form>
     </Formik>
   );
-}: ComponentType<{}>);
+}
