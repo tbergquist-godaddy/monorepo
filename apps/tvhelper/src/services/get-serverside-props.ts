@@ -1,8 +1,9 @@
 import { GetServerSidePropsContext } from 'next';
-import { createEnvironment, makeFetchQuery } from './relay';
 import { fetchQuery, GraphQLTaggedNode } from 'react-relay';
 import cookies from 'next-cookies';
 import { TOKEN_KEY } from '@tbergq/utils';
+
+import { createEnvironment, makeFetchQuery } from './relay';
 
 const { GRAPHQL_URL } = process.env;
 
@@ -14,19 +15,31 @@ const fetchData = ({ environment, query, variables }) =>
     });
   });
 
-interface Props {
-  readonly relayQueryData?: Readonly<{
+type Props = Readonly<{
+  relayQueryData?: Readonly<{
     query: GraphQLTaggedNode;
     variables: Record<string, unknown>;
   }>;
-  readonly pageProps?: Record<string, unknown>;
-  readonly pageName: string;
-}
+  pageProps?: Record<string, unknown>;
+  isSecure?: boolean;
+  pageName: string;
+}>;
 
-export default function makeGetInitialProps({ relayQueryData, pageProps, pageName }: Props) {
+export default function makeGetInitialProps({
+  relayQueryData,
+  pageProps,
+  pageName,
+  isSecure = false,
+}: Props) {
   return async function getInitialProps(ctx: GetServerSidePropsContext) {
     const serverCookies = cookies(ctx);
     const token: string | null = serverCookies[TOKEN_KEY] ?? null;
+
+    if (isSecure && !token) {
+      const res = ctx.res;
+      res.writeHead(302, { Location: '/login' });
+      res.end();
+    }
 
     const environment = createEnvironment({
       fetchQuery: makeFetchQuery(token, GRAPHQL_URL),

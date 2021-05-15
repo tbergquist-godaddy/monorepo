@@ -1,39 +1,20 @@
-// @flow strict-local
-
-import { useState, useRef, useCallback, useEffect, type Node } from 'react';
-import { Heading, Select, Spinner, Stack, Button } from '@tbergq/components';
-import {
-  createRefetchContainer,
-  graphql,
-  type RefetchContainerType,
-  type RefetchRelayProp,
-} from '@tbergq/relay';
-// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
-import styled from 'styled-components';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import { Heading, Select } from '@tbergq/components';
+import { createRefetchContainer, graphql, RelayRefetchProp } from 'react-relay';
 import { useFormikContext } from 'formik';
-
-import FavoritesLoader from './FavoritesLoader';
 import type { Favorites_favorites as FavoritesType } from '__generated__/Favorites_favorites.graphql';
+import dynamic from 'next/dynamic';
+import Box from 'components/Box';
+
 import FavoriteListItem from './FavoriteListItem';
 
-type Props = {
-  +favorites: ?FavoritesType,
-  +relay: RefetchRelayProp,
-};
+const FavoritesLoader = dynamic(() => import('./FavoritesLoader'));
+const LoadMore = dynamic(() => import('./LoadMore'));
 
-const FavoritesWrapper = styled.div({
-  overflow: 'hidden',
-});
-
-const Loader = styled.div({
-  position: 'fixed',
-  top: '50%',
-  right: '50%',
-  zIndex: 100,
-  backgroundColor: 'rgba(0,0,0,0.1)',
-  borderRadius: '6px',
-  padding: '8px',
-});
+type Props = Readonly<{
+  favorites: FavoritesType;
+  relay: RelayRefetchProp;
+}>;
 
 const sortByOptions = [
   {
@@ -54,12 +35,17 @@ const sortByOptions = [
   },
 ];
 
+type FormValues = Readonly<{
+  sortBy: string;
+  sortDirection: string;
+}>;
+
 function Favorites(props: Props) {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const isFirstRender = useRef(true);
   const edges = props.favorites?.favorites?.edges ?? [];
   const [isLoading, setIsLoading] = useState(false);
-  const { values } = useFormikContext();
+  const { values } = useFormikContext<FormValues>();
 
   const refetch = useCallback(
     (sortBy, sortDirection) => {
@@ -109,49 +95,38 @@ function Favorites(props: Props) {
 
   return (
     <>
-      {isLoading && (
-        <Loader>
-          <Spinner dataTest="tableLoader" />
-        </Loader>
-      )}
+      {isLoading && <FavoritesLoader />}
       <Heading>Favorites</Heading>
-      {props.favorites == null ? (
-        <FavoritesLoader />
-      ) : (
-        <>
-          {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
-          <Stack flex={true}>
+      <>
+        <Box display="flex" pt={8}>
+          <Box mr={4}>
             <Select label="Sort by" name="sortBy" options={sortByOptions} />
-            <Select
-              label="Direction"
-              name="sortDirection"
-              options={[
-                { label: 'Ascending', value: 'ASC' },
-                { label: 'Descending', value: 'DESC' },
-              ]}
-            />
-          </Stack>
-          <FavoritesWrapper>
-            {edges.map((edge) => (
-              <FavoriteListItem favorite={edge?.node} key={edge?.node?.id} />
-            ))}
-          </FavoritesWrapper>
-          {props.favorites?.favorites?.pageInfo.hasNextPage && (
-            // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
-            <Stack justify="center" flex={true}>
-              {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
-              <Button loading={isLoadingMore} onClick={loadMore} color="secondary">
-                Load more
-              </Button>
-            </Stack>
-          )}
-        </>
-      )}
+          </Box>
+          <Select
+            label="Direction"
+            name="sortDirection"
+            options={[
+              { label: 'Ascending', value: 'ASC' },
+              { label: 'Descending', value: 'DESC' },
+            ]}
+          />
+        </Box>
+        <Box pt={8}>
+          {edges.map((edge) => (
+            <FavoriteListItem favorite={edge?.node} key={edge?.node?.id} />
+          ))}
+        </Box>
+        {props.favorites?.favorites?.pageInfo.hasNextPage && (
+          <Box pt={8}>
+            <LoadMore isLoadingMore={isLoadingMore} loadMore={loadMore} />
+          </Box>
+        )}
+      </>
     </>
   );
 }
 
-export default (createRefetchContainer(
+export default createRefetchContainer(
   Favorites,
   {
     favorites: graphql`
@@ -184,4 +159,4 @@ export default (createRefetchContainer(
       }
     }
   `,
-): RefetchContainerType<Props, Node>);
+);
