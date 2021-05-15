@@ -6,13 +6,13 @@ const active = {
   transition: 'background 0s',
 };
 
-const breakpoints = {
-  mediumMobile: 414,
-  largeMobile: 576,
-  tablet: 768,
-  desktop: 992,
-  largeDesktop: 1200,
-};
+const breakpoints = ['414px', '576px', '768px', '992px', '1200px'];
+
+breakpoints.mediumMobile = breakpoints[0];
+breakpoints.largeMobile = breakpoints[1];
+breakpoints.tablet = breakpoints[2];
+breakpoints.desktop = breakpoints[3];
+breakpoints.largeDesktop = breakpoints[4];
 
 const defaultTheme = {
   fontFamily: 'Roboto, sans-serif',
@@ -38,11 +38,11 @@ const defaultTheme = {
   },
   breakpoints,
   media: {
-    mediumMobile: `@media only screen and (min-width: ${breakpoints.mediumMobile}px)`,
-    largeMobile: `@media only screen and (min-width: ${breakpoints.largeMobile}px)`,
-    tablet: `@media only screen and (min-width: ${breakpoints.tablet}px)`,
-    desktop: `@media only screen and (min-width: ${breakpoints.desktop}px)`,
-    largeDesktop: `@media only screen and (min-width: ${breakpoints.largeDesktop}px)`,
+    mediumMobile: `@media only screen and (min-width: ${breakpoints.mediumMobile})`,
+    largeMobile: `@media only screen and (min-width: ${breakpoints.largeMobile})`,
+    tablet: `@media only screen and (min-width: ${breakpoints.tablet})`,
+    desktop: `@media only screen and (min-width: ${breakpoints.desktop})`,
+    largeDesktop: `@media only screen and (min-width: ${breakpoints.largeDesktop})`,
   },
   zIndex: {
     default: 1,
@@ -79,9 +79,9 @@ const defaultTheme = {
       padding: '14px 26px',
     },
     primary: {
-      'backgroundColor': '#007bff',
-      'borderColor': '#007bff',
-      'color': '#fff',
+      backgroundColor: '#007bff',
+      borderColor: '#007bff',
+      color: '#fff',
       ':focus': {
         boxShadow: `${activeBoxShadow} rgba(38,143,255,.5)`,
       },
@@ -91,9 +91,9 @@ const defaultTheme = {
       },
     },
     secondary: {
-      'backgroundColor': '#6c757d',
-      'borderColor': '#6c757d',
-      'color': '#fff',
+      backgroundColor: '#6c757d',
+      borderColor: '#6c757d',
+      color: '#fff',
       ':focus': {
         boxShadow: `${activeBoxShadow} rgba(119,124,129,.5);`,
       },
@@ -103,9 +103,9 @@ const defaultTheme = {
       },
     },
     danger: {
-      'backgroundColor': '#dc3545',
-      'borderColor': '#dc3545',
-      'color': '#fff',
+      backgroundColor: '#dc3545',
+      borderColor: '#dc3545',
+      color: '#fff',
       ':focus': {
         boxShadow: `${activeBoxShadow} rgba(225,83,97,.5);`,
       },
@@ -121,9 +121,9 @@ export default defaultTheme;
 
 export type DefaultTheme = typeof defaultTheme;
 export type ThemeColors = $ReadOnly<{
-  'backgroundColor': string,
-  'borderColor': string,
-  'color': string,
+  backgroundColor: string,
+  borderColor: string,
+  color: string,
   ':focus': {
     boxShadow: string,
   },
