@@ -1,25 +1,28 @@
-// @flow
-
-import type { Element } from 'react';
 import { LoginForm as CommonLoginForm, useShowToast } from '@tbergq/components';
 import { TOKEN_KEY } from '@tbergq/utils';
 import Router from 'next/router';
 import cookie from 'js-cookie';
-import { useRelayEnvironment } from '@tbergq/relay';
+import { useMutation, graphql } from 'react-relay';
+import { LoginFormMutation } from '__generated__/LoginFormMutation.graphql';
 
-import loginMutation from './mutation/loginMutation';
+const mutation = graphql`
+  mutation LoginFormMutation($username: String!, $password: String!) {
+    tvHelperLogin(username: $username, password: $password) {
+      success
+      token
+    }
+  }
+`;
 
-export default function LoginForm(): Element<typeof CommonLoginForm> {
+export default function LoginForm() {
+  const [loginMutation] = useMutation<LoginFormMutation>(mutation);
+
   const show = useShowToast();
-  const environment = useRelayEnvironment();
+
   const onSubmit = ({ username, password }, { setSubmitting }) => {
-    loginMutation(
-      environment,
-      {
-        username,
-        password,
-      },
-      (response) => {
+    loginMutation({
+      variables: { username, password },
+      onCompleted: (response) => {
         const success = response?.tvHelperLogin?.success;
         const token = response?.tvHelperLogin?.token;
         if (success === true && token != null) {
@@ -30,7 +33,7 @@ export default function LoginForm(): Element<typeof CommonLoginForm> {
         }
         setSubmitting(false);
       },
-    );
+    });
   };
 
   return <CommonLoginForm action="/api/login" method="POST" onSubmit={onSubmit} />;

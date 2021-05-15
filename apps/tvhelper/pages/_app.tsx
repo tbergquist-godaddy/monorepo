@@ -38,7 +38,6 @@ const GlobalStyle = createGlobalStyle({
 
 export default function MyApp({ Component, pageProps, isLoggedIn }: any) {
   const { records, token } = pageProps;
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <MediaContextProvider>

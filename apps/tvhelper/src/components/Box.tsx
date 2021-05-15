@@ -3,6 +3,9 @@ import { space, color, layout, flexbox } from 'styled-system';
 
 interface Props {
   py: number;
+  pt: number;
+  my: number;
+  mb: number;
   display: string;
   justifyContent: string;
 }

@@ -26,8 +26,8 @@ interface Props {
 export default function makeGetInitialProps({ relayQueryData, pageProps, pageName }: Props) {
   return async function getInitialProps(ctx: GetServerSidePropsContext) {
     const serverCookies = cookies(ctx);
-    const token = serverCookies[TOKEN_KEY];
-    
+    const token: string | null = serverCookies[TOKEN_KEY] ?? null;
+
     const environment = createEnvironment({
       fetchQuery: makeFetchQuery(token, GRAPHQL_URL),
     });

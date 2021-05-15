@@ -1,13 +1,9 @@
 // @flow strict-local
 
-import type { Node } from 'react';
-import { createFragmentContainer, graphql, type FragmentContainerType } from '@tbergq/relay';
 import { NavLink } from '@tbergq/components';
 
-import type { NavbarRight_viewer as Viewer } from '__generated__/NavbarRight_viewer.graphql';
-
 type Props = {
-  +username: ?string,
+  username: string | undefined;
 };
 
 function NavbarRight({ username }: Props) {

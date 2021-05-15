@@ -1,4 +1,4 @@
-import { Layout as PageLayout, Navbar as DSNavbar, NavLink, Stack } from '@tbergq/components';
+import { Navbar as DSNavbar, NavLink } from '@tbergq/components';
 import jwtDecode from 'jwt-decode';
 
 import NavbarRight from './NavbarRight';
@@ -12,7 +12,7 @@ interface Claims {
 }
 
 function Navbar(props: Props) {
-  const username = jwtDecode<Claims | undefined>(props.token)?.username;
+  const username = props.token == null ? null : jwtDecode<Claims>(props.token).username;
   const loggedIn = username != null;
 
   const headerLeft = loggedIn ? (
