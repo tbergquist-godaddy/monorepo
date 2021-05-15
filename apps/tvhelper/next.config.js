@@ -10,6 +10,9 @@ config();
 const { GRAPHQL_URL } = process.env;
 
 module.exports = (withBundleAnalyzer({
+  images: {
+    domains: ['static.tvmaze.com'],
+  },
   env: {
     GRAPHQL_URL,
   },

@@ -7,7 +7,7 @@ import { Heading, InputField, Button, useShowToast, Stack } from '@tbergq/compon
 import styled from 'styled-components';
 import { useMutation, graphql } from '@tbergq/relay';
 
-import type { ChangePasswordFormMutation } from './__generated__/ChangePasswordFormMutation.graphql';
+import type { ChangePasswordFormMutation } from '__generated__/ChangePasswordFormMutation.graphql';
 
 const ButtonWrapper = styled.div({
   justifyContent: 'flex-end',

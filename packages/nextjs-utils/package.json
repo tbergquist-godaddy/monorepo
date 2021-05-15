@@ -17,8 +17,10 @@
     "next": "^10.2.0",
     "next-cookies": "^2.0.3",
     "nprogress": "^0.2.0",
-    "react": "^17.0.2",
     "styled-components": "^5.3.0"
+  },
+  "peerDependencies": {
+    "react": "^0.0.0-experimental-1a2d79250"
   },
   "scripts": {
     "lint": "eslint . --fix --report-unused-disable-directives",

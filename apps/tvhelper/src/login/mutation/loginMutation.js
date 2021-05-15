@@ -6,7 +6,7 @@ import type {
   loginMutationVariables,
   loginMutationResponse,
   loginMutation as MutationType,
-} from './__generated__/loginMutation.graphql';
+} from '__generated__/loginMutation.graphql';
 
 const mutation = graphql`
   mutation loginMutation($username: String!, $password: String!) {

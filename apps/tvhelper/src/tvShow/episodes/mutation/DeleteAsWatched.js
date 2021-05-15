@@ -5,7 +5,7 @@ import { graphql, commitMutation } from '@tbergq/relay';
 import type {
   DeleteAsWatchedMutationVariables,
   DeleteAsWatchedMutation as MutationType,
-} from './__generated__/DeleteAsWatchedMutation.graphql';
+} from '__generated__/DeleteAsWatchedMutation.graphql';
 
 const mutation = graphql`
   mutation DeleteAsWatchedMutation($episodeId: ID!) {

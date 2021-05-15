@@ -18,6 +18,8 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'import/no-unresolved': OFF,
+    'node/file-extension-in-import': OFF,
     'react/react-in-jsx-scope': OFF,
     'flowtype/require-inexact-type': OFF,
     'no-restricted-imports': [

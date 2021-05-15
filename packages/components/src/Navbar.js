@@ -25,12 +25,12 @@ const Nav = styled.nav(({ theme, isExpanded }) => ({
 }));
 
 const NavLink = styled.a(({ marginLeft, theme }) => ({
-  'color': '#e2e2e2',
-  'textDecoration': 'none',
+  color: '#e2e2e2',
+  textDecoration: 'none',
   ':hover': {
     color: '#fff',
   },
-  'marginLeft': 0,
+  marginLeft: 0,
   [theme.media.tablet]: {
     marginLeft,
   },
@@ -57,18 +57,18 @@ const NavContainer = styled(Container)({
 });
 
 const BurgerButton = styled(Button)({
-  'maxHeight': '20px',
-  'border': 'none',
-  'backgroundColor': NAV_BACKGROUND,
+  maxHeight: '20px',
+  border: 'none',
+  backgroundColor: NAV_BACKGROUND,
   ':hover': {
     backgroundColor: NAV_BACKGROUND,
   },
 });
 
 const HeaderContainer = styled.div({
-  'display': 'flex',
+  display: 'flex',
   '*': {
-    'marginRight': '8px',
+    marginRight: '8px',
     ':last-child': {
       marginRight: 0,
     },

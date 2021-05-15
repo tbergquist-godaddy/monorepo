@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import { useFormikContext } from 'formik';
 
 import FavoritesLoader from './FavoritesLoader';
-import type { Favorites_favorites as FavoritesType } from './__generated__/Favorites_favorites.graphql';
+import type { Favorites_favorites as FavoritesType } from '__generated__/Favorites_favorites.graphql';
 import FavoriteListItem from './FavoriteListItem';
 
 type Props = {

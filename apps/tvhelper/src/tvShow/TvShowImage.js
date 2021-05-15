@@ -11,7 +11,7 @@ import { IconButton } from '@tbergq/components';
 import styled from 'styled-components';
 import { MdFavorite } from 'react-icons/md';
 
-import type { TvShowImage_tvShow as TvShow } from './__generated__/TvShowImage_tvShow.graphql';
+import type { TvShowImage_tvShow as TvShow } from '__generated__/TvShowImage_tvShow.graphql';
 import addFavorite from './mutations/addFavorite';
 import deleteFavorite from './mutations/deleteFavorite';
 
