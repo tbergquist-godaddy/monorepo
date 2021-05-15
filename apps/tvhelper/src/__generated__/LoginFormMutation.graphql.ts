@@ -3,25 +3,25 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type loginMutationVariables = {
+export type LoginFormMutationVariables = {
     username: string;
     password: string;
 };
-export type loginMutationResponse = {
+export type LoginFormMutationResponse = {
     readonly tvHelperLogin: {
         readonly success: boolean | null;
         readonly token: string | null;
     } | null;
 };
-export type loginMutation = {
-    readonly response: loginMutationResponse;
-    readonly variables: loginMutationVariables;
+export type LoginFormMutation = {
+    readonly response: LoginFormMutationResponse;
+    readonly variables: LoginFormMutationVariables;
 };
 
 
 
 /*
-mutation loginMutation(
+mutation LoginFormMutation(
   $username: String!
   $password: String!
 ) {
@@ -89,7 +89,7 @@ return {
     ],
     "kind": "Fragment",
     "metadata": null,
-    "name": "loginMutation",
+    "name": "LoginFormMutation",
     "selections": (v2/*: any*/),
     "type": "RootMutation",
     "abstractKey": null
@@ -101,18 +101,18 @@ return {
       (v0/*: any*/)
     ],
     "kind": "Operation",
-    "name": "loginMutation",
+    "name": "LoginFormMutation",
     "selections": (v2/*: any*/)
   },
   "params": {
-    "cacheID": "fd6c59b8b8bc3494ceaec2ee80767016",
+    "cacheID": "491c4a9a7dd87ec2e0a6813547704e09",
     "id": null,
     "metadata": {},
-    "name": "loginMutation",
+    "name": "LoginFormMutation",
     "operationKind": "mutation",
-    "text": "mutation loginMutation(\n  $username: String!\n  $password: String!\n) {\n  tvHelperLogin(username: $username, password: $password) {\n    success\n    token\n  }\n}\n"
+    "text": "mutation LoginFormMutation(\n  $username: String!\n  $password: String!\n) {\n  tvHelperLogin(username: $username, password: $password) {\n    success\n    token\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = '2851893dd75dca8660f0980ca9504cae';
+(node as any).hash = '1af9da321112febbfad699f2b675b051';
 export default node;
