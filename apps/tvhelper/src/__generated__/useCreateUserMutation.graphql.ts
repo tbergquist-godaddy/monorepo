@@ -3,25 +3,25 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type createUserMutationVariables = {
+export type useCreateUserMutationVariables = {
     username: string;
     password: string;
     email: string;
 };
-export type createUserMutationResponse = {
+export type useCreateUserMutationResponse = {
     readonly createUser: {
         readonly success: boolean | null;
     } | null;
 };
-export type createUserMutation = {
-    readonly response: createUserMutationResponse;
-    readonly variables: createUserMutationVariables;
+export type useCreateUserMutation = {
+    readonly response: useCreateUserMutationResponse;
+    readonly variables: useCreateUserMutationVariables;
 };
 
 
 
 /*
-mutation createUserMutation(
+mutation useCreateUserMutation(
   $username: String!
   $password: String!
   $email: String!
@@ -93,7 +93,7 @@ return {
     ],
     "kind": "Fragment",
     "metadata": null,
-    "name": "createUserMutation",
+    "name": "useCreateUserMutation",
     "selections": (v3/*: any*/),
     "type": "RootMutation",
     "abstractKey": null
@@ -106,18 +106,18 @@ return {
       (v0/*: any*/)
     ],
     "kind": "Operation",
-    "name": "createUserMutation",
+    "name": "useCreateUserMutation",
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "ea49701e432506ad1a8a55ddc7ffa269",
+    "cacheID": "028f4cb420e1c1322c6b8525c9b10fa6",
     "id": null,
     "metadata": {},
-    "name": "createUserMutation",
+    "name": "useCreateUserMutation",
     "operationKind": "mutation",
-    "text": "mutation createUserMutation(\n  $username: String!\n  $password: String!\n  $email: String!\n) {\n  createUser(username: $username, password: $password, email: $email) {\n    success\n  }\n}\n"
+    "text": "mutation useCreateUserMutation(\n  $username: String!\n  $password: String!\n  $email: String!\n) {\n  createUser(username: $username, password: $password, email: $email) {\n    success\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = 'fe65e1343228277eb43cb31f00af16e1';
+(node as any).hash = '3234930c16f96ffd7b1eb579498befec';
 export default node;

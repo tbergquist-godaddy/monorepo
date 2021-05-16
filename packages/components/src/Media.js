@@ -33,14 +33,16 @@ type AppMediaType = {
   +MediaContextProvider: ComponentType<{ +children: Node }>,
 };
 
+const stripPx = (px: string) => px.slice(0, px.length - 2);
+
 const AppMedia: AppMediaType = createMedia({
   breakpoints: {
     smallMobile: 0,
-    [QUERIES.MEDIUMMOBILE]: theme.breakpoints.mediumMobile,
-    [QUERIES.LARGEMOBILE]: theme.breakpoints.largeMobile,
-    [QUERIES.TABLET]: theme.breakpoints.tablet,
-    [QUERIES.DESKTOP]: theme.breakpoints.desktop,
-    [QUERIES.LARGEDESKTOP]: theme.breakpoints.largeDesktop,
+    [QUERIES.MEDIUMMOBILE]: stripPx(theme.breakpoints.mediumMobile),
+    [QUERIES.LARGEMOBILE]: stripPx(theme.breakpoints.largeMobile),
+    [QUERIES.TABLET]: stripPx(theme.breakpoints.tablet),
+    [QUERIES.DESKTOP]: stripPx(theme.breakpoints.desktop),
+    [QUERIES.LARGEDESKTOP]: stripPx(theme.breakpoints.largeDesktop),
   },
 });
 
