@@ -1,5 +1,3 @@
-// @flow
-
 import { render, fireEvent, act } from '@tbergq/test-utils';
 import { Formik } from 'formik';
 
@@ -10,8 +8,7 @@ jest.mock('next/router', () => ({
 }));
 
 const TestRenderer = () => (
-  // $FlowFixMe[prop-missing] $FlowFixMe(>=<150.1>)
-  <Formik initialValues={{ query: '' }}>
+  <Formik onSubmit={jest.fn()} initialValues={{ query: '' }}>
     <SearchForm />
   </Formik>
 );
