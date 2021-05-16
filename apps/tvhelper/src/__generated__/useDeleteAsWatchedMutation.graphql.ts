@@ -3,11 +3,11 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type MarkAsWatchedMutationVariables = {
+export type useDeleteAsWatchedMutationVariables = {
     episodeId: string;
 };
-export type MarkAsWatchedMutationResponse = {
-    readonly markAsWatched: {
+export type useDeleteAsWatchedMutationResponse = {
+    readonly deleteWatchedEpisode: {
         readonly success: boolean | null;
         readonly episode: {
             readonly id: string;
@@ -15,18 +15,18 @@ export type MarkAsWatchedMutationResponse = {
         } | null;
     } | null;
 };
-export type MarkAsWatchedMutation = {
-    readonly response: MarkAsWatchedMutationResponse;
-    readonly variables: MarkAsWatchedMutationVariables;
+export type useDeleteAsWatchedMutation = {
+    readonly response: useDeleteAsWatchedMutationResponse;
+    readonly variables: useDeleteAsWatchedMutationVariables;
 };
 
 
 
 /*
-mutation MarkAsWatchedMutation(
+mutation useDeleteAsWatchedMutation(
   $episodeId: ID!
 ) {
-  markAsWatched(episodeId: $episodeId) {
+  deleteWatchedEpisode(episodeId: $episodeId) {
     success
     episode {
       id
@@ -56,7 +56,7 @@ v1 = [
     ],
     "concreteType": "EpisodeWatched",
     "kind": "LinkedField",
-    "name": "markAsWatched",
+    "name": "deleteWatchedEpisode",
     "plural": false,
     "selections": [
       {
@@ -100,7 +100,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "MarkAsWatchedMutation",
+    "name": "useDeleteAsWatchedMutation",
     "selections": (v1/*: any*/),
     "type": "RootMutation",
     "abstractKey": null
@@ -109,18 +109,18 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "MarkAsWatchedMutation",
+    "name": "useDeleteAsWatchedMutation",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "5291931e8dc373c5a43626591ef0dbf2",
+    "cacheID": "4aad391c0f8c0041762f1e7d60508826",
     "id": null,
     "metadata": {},
-    "name": "MarkAsWatchedMutation",
+    "name": "useDeleteAsWatchedMutation",
     "operationKind": "mutation",
-    "text": "mutation MarkAsWatchedMutation(\n  $episodeId: ID!\n) {\n  markAsWatched(episodeId: $episodeId) {\n    success\n    episode {\n      id\n      watched\n    }\n  }\n}\n"
+    "text": "mutation useDeleteAsWatchedMutation(\n  $episodeId: ID!\n) {\n  deleteWatchedEpisode(episodeId: $episodeId) {\n    success\n    episode {\n      id\n      watched\n    }\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = 'dad9374747b0d6ac8e3e7d23b5cf41fe';
+(node as any).hash = '9d2c91d1a4e0b21e014e9395036e26cd';
 export default node;

@@ -3,10 +3,10 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type addFavoriteMutationVariables = {
+export type useAddFavoriteMutationVariables = {
     serieId: string;
 };
-export type addFavoriteMutationResponse = {
+export type useAddFavoriteMutationResponse = {
     readonly addFavorite: {
         readonly success: boolean | null;
         readonly tvShow: {
@@ -17,15 +17,15 @@ export type addFavoriteMutationResponse = {
         } | null;
     } | null;
 };
-export type addFavoriteMutation = {
-    readonly response: addFavoriteMutationResponse;
-    readonly variables: addFavoriteMutationVariables;
+export type useAddFavoriteMutation = {
+    readonly response: useAddFavoriteMutationResponse;
+    readonly variables: useAddFavoriteMutationVariables;
 };
 
 
 
 /*
-mutation addFavoriteMutation(
+mutation useAddFavoriteMutation(
   $serieId: ID!
 ) {
   addFavorite(serieId: $serieId) {
@@ -115,7 +115,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "addFavoriteMutation",
+    "name": "useAddFavoriteMutation",
     "selections": (v1/*: any*/),
     "type": "RootMutation",
     "abstractKey": null
@@ -124,18 +124,18 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "addFavoriteMutation",
+    "name": "useAddFavoriteMutation",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "0fe4c087abfbae722729997747962fa1",
+    "cacheID": "2739b3dfad2f88a7a2be42fb9637a98a",
     "id": null,
     "metadata": {},
-    "name": "addFavoriteMutation",
+    "name": "useAddFavoriteMutation",
     "operationKind": "mutation",
-    "text": "mutation addFavoriteMutation(\n  $serieId: ID!\n) {\n  addFavorite(serieId: $serieId) {\n    success\n    tvShow {\n      node {\n        id\n        isFavorite\n      }\n    }\n  }\n}\n"
+    "text": "mutation useAddFavoriteMutation(\n  $serieId: ID!\n) {\n  addFavorite(serieId: $serieId) {\n    success\n    tvShow {\n      node {\n        id\n        isFavorite\n      }\n    }\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = '92bffb315e32ac8306063e91a6fe1a33';
+(node as any).hash = 'f8e196df65842bb0faf134fee1682047';
 export default node;

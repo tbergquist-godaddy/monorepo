@@ -49,7 +49,6 @@ const StyledImage = styled(Image)(({ theme }) => ({
 }));
 
 const Label = styled.div(({ theme }) => {
-  console.log({ theme });
   return {
     fontSize: theme.fontSize.small,
     color: theme.secondary,
