@@ -54,12 +54,15 @@ const TvShowImage = (props: Props) => {
         deleteFavorite({
           variables,
           updater: (store) => {
-            const payload = store.getRootField('deleteFavorite') ?? {};
-            const success = payload.getValue('success') ?? false;
-
-            if (success === true) {
-              const serie = store.get(variables.serieId) ?? {};
-              serie.setValue(false, 'isFavorite');
+            const payload = store.getRootField('deleteFavorite');
+            if (payload != null) {
+              const success = payload.getValue('success') ?? false;
+              if (success === true) {
+                const serie = store.get(variables.serieId);
+                if (serie != null) {
+                  serie.setValue(false, 'isFavorite');
+                }
+              }
             }
           },
         });

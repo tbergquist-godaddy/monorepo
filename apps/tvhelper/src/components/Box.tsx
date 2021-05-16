@@ -25,6 +25,7 @@ interface Props {
 }
 
 const Box: StyledComponent<'div', any, Partial<Props>, never> = styled.div(
+  // @ts-ignore: gap is a valid css prop
   { gap: ({ gap }) => gap },
   space,
   color,

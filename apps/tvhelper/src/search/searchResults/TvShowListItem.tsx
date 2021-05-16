@@ -82,6 +82,7 @@ function TvShowListItem(props: Props) {
   return (
     <StyledLink href={`/tvShow?id=${tvShowId}`}>
       <Container>
+        {/* @ts-ignore: layout does exist */}
         {src != null && <StyledImage alt={name} layout="fill" src={data?.image?.medium} />}
         <BottomSheet>
           <StyledText>{`${name} - ${rating}`}</StyledText>

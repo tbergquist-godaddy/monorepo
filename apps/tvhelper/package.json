@@ -46,7 +46,8 @@
     "lint": "eslint . --fix --report-unused-disable-directives",
     "test": "yarn test-only && yarn relay --validate",
     "test-only": "jest",
-    "relay": "yarn relay-compiler --language typescript"
+    "relay": "yarn relay-compiler --language typescript",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@tbergq/test-utils": "0.0.1",
