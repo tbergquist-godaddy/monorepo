@@ -2,7 +2,7 @@
 
 import path from 'path';
 import { monorepoBuilder } from '@tbergq/monorepo-builder';
-import { ShellCommand, getTouchedWorkspaces } from '@adeira/monorepo-utils';
+import { ShellCommand } from '@adeira/monorepo-utils';
 import fs from 'fs';
 import rimraf from 'rimraf';
 import util from 'util';
@@ -25,13 +25,6 @@ if (ZEIT_TOKEN == null) {
 }
 (async () => {
   try {
-    const touchedWorkapaces = getTouchedWorkspaces();
-    const workspaces = Array.from(touchedWorkapaces);
-
-    if (!workspaces.includes(thisWorkspace)) {
-      log('no changes, skipping deploy.');
-      process.exit(0);
-    }
     await rimrafPromise(buildDir);
     await monorepoBuilder(thisWorkspace, buildDir, { removeRootDependencies: false });
     fs.copyFileSync(path.join(__dirname, '..', 'now.json'), path.join(buildDir, 'now.json'));
