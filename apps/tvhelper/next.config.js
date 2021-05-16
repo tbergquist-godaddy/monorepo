@@ -10,6 +10,9 @@ config();
 const { GRAPHQL_URL } = process.env;
 
 module.exports = (withBundleAnalyzer({
+  future: {
+    webpack5: true,
+  },
   images: {
     domains: ['static.tvmaze.com'],
   },

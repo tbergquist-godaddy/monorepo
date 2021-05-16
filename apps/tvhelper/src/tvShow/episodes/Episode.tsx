@@ -71,7 +71,7 @@ const Episode = (props: Props) => {
 
   const isMutating = deleteLoading || markLoading;
   const name = data?.name ?? '';
-  const airdate = data?.airdate ?? null;
+  const airdate = typeof data?.airdate === 'string' ? data?.airdate : null;
   const rawDate = airdate != null ? new Date(airdate) : null;
   const date = rawDate !== null ? format(rawDate, 'do MMM yyyy') : '';
   const seasonAndNumber = data?.seasonAndNumber ?? '';

@@ -61,18 +61,22 @@ const Episodes = (props: Props) => {
     return map;
   }, [episodes]);
 
-  return Array.from(seasonMap).map<ReactNode>(([key, episodes]) => (
-    <Card key={key}>
-      <Box p={8}>
-        <CardTitle>{`Season ${parseInt(key, 10).toString()}`}</CardTitle>
-        <Box overflow="hidden">
-          {episodes.map((episode) => (
-            <Episode key={episode?.id} episode={episode} />
-          ))}
-        </Box>
-      </Box>
-    </Card>
-  ));
+  return (
+    <>
+      {Array.from(seasonMap).map<ReactNode>(([key, episodes]) => (
+        <Card key={key}>
+          <Box p={8}>
+            <CardTitle>{`Season ${parseInt(key, 10).toString()}`}</CardTitle>
+            <Box overflow="hidden">
+              {episodes.map((episode) => (
+                <Episode key={episode?.id} episode={episode} />
+              ))}
+            </Box>
+          </Box>
+        </Card>
+      ))}
+    </>
+  );
 };
 
 export default Episodes;
