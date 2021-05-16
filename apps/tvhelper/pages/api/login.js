@@ -5,6 +5,7 @@ import { TOKEN_KEY } from '@tbergq/utils';
 import { addYears } from 'date-fns';
 import { invariant } from '@adeira/js';
 
+/* ::
 type Request = {
   +body: { [key: string]: string, ... },
   +method: 'GET' | 'POST',
@@ -18,11 +19,11 @@ type LoginResponse = {
     },
   },
 };
-
+ */
 const { GRAPHQL_URL } = process.env;
 invariant(GRAPHQL_URL != null, 'You need to set GRAPHQL_URL');
 
-export default async function login(req: Request, res: http$ServerResponse) {
+export default async function login(req /* : Request */, res /* : http$ServerResponse */) {
   if (req.method === 'POST') {
     const { username, password } = req.body;
     try {
@@ -42,7 +43,7 @@ export default async function login(req: Request, res: http$ServerResponse) {
         }),
       });
 
-      const json: LoginResponse = await response.json();
+      const json /* : LoginResponse */ = await response.json();
       if (json.data.tvHelperLogin?.success !== true) {
         throw new Error('Login failed');
       }

@@ -2,7 +2,7 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import { Heading, Select } from '@tbergq/components';
 import { createRefetchContainer, graphql, RelayRefetchProp } from 'react-relay';
 import { useFormikContext } from 'formik';
-import type { Favorites_favorites as FavoritesType } from '__generated__/Favorites_favorites.graphql';
+import { Favorites_favorites as FavoritesType } from '__generated__/Favorites_favorites.graphql';
 import dynamic from 'next/dynamic';
 import Box from 'components/Box';
 

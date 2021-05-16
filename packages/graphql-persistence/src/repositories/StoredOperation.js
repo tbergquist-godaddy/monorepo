@@ -1,14 +1,19 @@
 // @flow
 
-import StoredOperationModel, { type StoredOperationType } from '../models/StoredOperation';
+import StoredOperationModel from '../models/StoredOperation';
 
+/*:: 
+import {type StoredOperationType} from  '../models/StoredOperation';
+*/
 export default class StoredOperationRepository {
-  static async getOperationText(operationId: string): Promise<?string> {
+  static async getOperationText(operationId /* : string */) /* : Promise<?string> */ {
     const operation = await StoredOperationModel.findOne({ operationId });
     return operation?.text;
   }
 
-  static async addOperations(operations: $ReadOnlyArray<StoredOperationType>): Promise<any> {
+  static async addOperations(
+    operations /* : $ReadOnlyArray<StoredOperationType> */,
+  ) /* : Promise<any>  */ {
     const operationIds = operations.map((i) => i.operationId);
     const existingOperations = await StoredOperationModel.find({
       operationId: { $in: operationIds },

@@ -2,7 +2,7 @@ import { graphql, useFragment } from 'react-relay';
 import { Link } from '@tbergq/components';
 import { format, isValid, parseISO } from 'date-fns';
 import styled from 'styled-components';
-import type { FavoriteListItem_favorite$key as Favorite } from '__generated__/FavoriteListItem_favorite.graphql';
+import { FavoriteListItem_favorite$key as Favorite } from '__generated__/FavoriteListItem_favorite.graphql';
 import { ReactNode } from 'react';
 import Image from 'next/image';
 import Box from 'components/Box';

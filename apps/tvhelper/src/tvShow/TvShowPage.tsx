@@ -1,13 +1,13 @@
 import { graphql, useFragment } from 'react-relay';
 import { Heading, Container } from '@tbergq/components';
-import { TvShowPage_tvShow$key as TvShow } from '__generated__/TvShowPage_tvShow.graphql';
+import { TvShowPage_tvShow$key as TvShowType } from '__generated__/TvShowPage_tvShow.graphql';
 import Box from 'components/Box';
 
 import Episodes from './episodes/Episodes';
 import TvShowImage from './TvShowImage';
 
 type Props = Readonly<{
-  tvShow: TvShow;
+  tvShow: TvShowType;
 }>;
 
 const TvShowPage = (props: Props) => {

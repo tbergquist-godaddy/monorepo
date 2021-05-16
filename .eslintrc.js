@@ -9,6 +9,7 @@ const ERROR = 2;
 module.exports = {
   root: true,
   extends: ['@adeira/eslint-config/strict'],
+  plugins: ['@typescript-eslint'],
   // adjust the rules as needed
   parser: 'babel-eslint',
   env: {
@@ -18,10 +19,12 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'strict': OFF,
     'import/no-unresolved': OFF,
     'node/file-extension-in-import': OFF,
     'react/react-in-jsx-scope': OFF,
     'flowtype/require-inexact-type': OFF,
+    'import/extensions': [ERROR, 'never', { json: 'always', graphql: 'always' }],
     'no-restricted-imports': [
       ERROR,
       {
@@ -38,7 +41,7 @@ module.exports = {
       ERROR,
       {
         devDependencies: [
-          '**/*.test.js',
+          '**/*.test.{js,ts,tsx}',
           '**/*.spec.js',
           '**/scripts/*.js',
           '**/__mocks__/*.js',

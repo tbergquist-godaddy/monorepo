@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { graphql, useFragment } from 'react-relay';
 import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
@@ -53,7 +52,7 @@ const TextWrapper = styled.span(({ theme }) => ({
 }));
 
 const Episode = (props: Props) => {
-  const data = useFragment(
+  const data = useFragment<EpisodeType>(
     graphql`
       fragment Episode_episode on Episode {
         id

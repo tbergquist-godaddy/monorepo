@@ -26,6 +26,19 @@ export const createEnvironment = ({ fetchQuery, records }: CreateEnvironmentArgs
 
 const { GRAPHQL_URL } = process.env;
 
+const getBody = (operation, variables) => {
+  if (operation.id) {
+    return {
+      queryId: operation.id,
+      variables,
+    };
+  }
+  return {
+    query: operation.text,
+    variables,
+  };
+};
+
 export const makeFetchQuery = (token, baseUrl = '') => {
   const fetchQuery = async (operation, variables /* , cacheConfig, uploadables */) => {
     const res = await fetch(`${baseUrl}`, {
@@ -33,12 +46,9 @@ export const makeFetchQuery = (token, baseUrl = '') => {
       headers: {
         // Add authentication and other headers here
         'content-type': 'application/json',
-        authorization: token,
+        'authorization': token,
       },
-      body: JSON.stringify({
-        query: operation.text, // GraphQL text from input
-        variables,
-      }),
+      body: JSON.stringify(getBody(operation, variables)),
     });
     return res.json();
   };
@@ -46,7 +56,10 @@ export const makeFetchQuery = (token, baseUrl = '') => {
 };
 
 const EnvironmentProvider = ({ children, records, token }: Props) => {
-  const environment = createEnvironment({ fetchQuery: makeFetchQuery(token, GRAPHQL_URL), records });
+  const environment = createEnvironment({
+    fetchQuery: makeFetchQuery(token, GRAPHQL_URL),
+    records,
+  });
 
   return <RelayEnvironmentProvider environment={environment}>{children}</RelayEnvironmentProvider>;
 };

@@ -39,7 +39,7 @@ const SearchResults = (props: Props) => {
     `,
     props.results,
   );
-  
+
   const edges = data.edges ?? [];
   return (
     <GridContainer>

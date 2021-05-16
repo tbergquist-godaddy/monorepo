@@ -1,5 +1,5 @@
 import { graphql, useLazyLoadQuery } from 'react-relay';
-import { TvShowQuery as TvShowQueryType } from '__generated__/TvShowQuery.graphql';
+import { TvShowQuery } from '__generated__/TvShowQuery.graphql';
 
 import TvShowPage from './TvShowPage';
 
@@ -15,8 +15,8 @@ export const tvShowQuery = graphql`
   }
 `;
 
-export default function TvShowQuery(props: Props) {
-  const data = useLazyLoadQuery<TvShowQueryType>(
+export default function TvShowQueryComponent(props: Props) {
+  const data = useLazyLoadQuery<TvShowQuery>(
     tvShowQuery,
     { id: props.tvShowId },
     { fetchPolicy: 'store-or-network' },
