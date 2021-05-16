@@ -1,24 +1,19 @@
-// @flow
-
-import { useState, type ComponentType } from 'react';
 import { useShowToast, SignupForm as CommonSignup } from '@tbergq/components';
 import Router from 'next/router';
 
-import createUserMutation from './mutation/createUserMutation';
-import type { createUserMutationResponse } from './mutation/__generated__/createUserMutation.graphql';
+import useCreateUserMutation from './mutation/useCreateUserMutation';
 
-export default (function SignupForm() {
-  const [isLoading, setIsLoading] = useState(false);
+export default function SignupForm() {
+  const [createUserMutation, isLoading] = useCreateUserMutation();
   const show = useShowToast();
   const showToast = (message: string, type: 'success' | 'danger') => {
     show({ text: message, type });
   };
 
-  function onSubmit(user: { username: string, password: string, email: string }) {
-    setIsLoading(true);
-    createUserMutation(
-      user,
-      (response: ?createUserMutationResponse, errors: ?$ReadOnlyArray<Error>) => {
+  function onSubmit(user: { username: string; password: string; email: string }) {
+    createUserMutation({
+      variables: user,
+      onCompleted: (response, errors) => {
         const success = response?.createUser?.success ?? false;
         if (!success || errors != null) {
           showToast('Failed to create user', 'danger');
@@ -26,9 +21,8 @@ export default (function SignupForm() {
           showToast('User was successfully created', 'success');
           Router.push('/login');
         }
-        setIsLoading(false);
       },
-    );
+    });
   }
   return <CommonSignup isLoading={isLoading} onSubmit={onSubmit} />;
-}: ComponentType<{}>);
+}
