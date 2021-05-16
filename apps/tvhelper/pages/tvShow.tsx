@@ -22,4 +22,3 @@ export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
     pageProps: { tvshowId: id },
   })(ctx);
 };
-

@@ -1,4 +1,4 @@
-import { RelayEnvironmentProvider } from '@tbergq/relay';
+import { RelayEnvironmentProvider } from 'react-relay';
 import { createMockEnvironment } from 'relay-test-utils';
 import { render, act, fireEvent, waitFor } from '@tbergq/test-utils';
 

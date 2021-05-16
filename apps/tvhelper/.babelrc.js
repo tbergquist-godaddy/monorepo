@@ -9,7 +9,7 @@ module.exports = {
         ssr: true,
       },
     ],
-    'relay',
+    ['relay', { artifactDirectory: './src/__generated__' }],
     [
       'module-resolver',
       {

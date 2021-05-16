@@ -1,5 +1,4 @@
-import { Alert, Link, CenterForm } from '@tbergq/components';
-import styled from 'styled-components';
+import { Link, CenterForm } from '@tbergq/components';
 import Box from 'components/Box';
 import dynamic from 'next/dynamic';
 

@@ -1,5 +1,5 @@
 import { render, act, userEvent, screen, waitFor } from '@tbergq/test-utils';
-import { RelayEnvironmentProvider } from '@tbergq/relay';
+import { RelayEnvironmentProvider } from 'react-relay';
 import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
 import Router from 'next/router';
 import cookie from 'js-cookie';

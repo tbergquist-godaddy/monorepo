@@ -12,9 +12,6 @@
     "js-cookie": "^2.2.1",
     "next-cookies": "^2.0.3"
   },
-  "peerDependencies": {
-    "@tbergq/relay": ""
-  },
   "scripts": {
     "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
     "build:cjs": "babel src --out-dir dist/cjs",
