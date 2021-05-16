@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 import { Heading, Container, Spinner } from '@tbergq/components';
 import { Formik } from 'formik';
 import Box from 'components/Box';
@@ -7,7 +7,13 @@ import dynamic from 'next/dynamic';
 
 import SearchForm from './SearchForm';
 
-const SearchQuery = dynamic(() => import('./SearchQuery'));
+const SearchQuery = dynamic(() => import('./SearchQuery'), {
+  loading: () => (
+    <Box display="flex" justifyContent="center">
+      <Spinner />
+    </Box>
+  ),
+});
 
 type Props = {
   query: string;
@@ -39,19 +45,7 @@ function SearchScene(props: Props) {
         </Box>
       </Container>
       <Box py={8}>
-        <Container>
-          {query && (
-            <Suspense
-              fallback={
-                <Box display="flex" justifyContent="center">
-                  <Spinner />
-                </Box>
-              }
-            >
-              <SearchQuery query={query} />
-            </Suspense>
-          )}
-        </Container>
+        <Container>{query && <SearchQuery query={query} />}</Container>
       </Box>
     </>
   );
