@@ -21,7 +21,7 @@ const FormItem = styled.div({
 type Props = {
   +children: Node,
 };
-// $FlowFixMe[incompatible-type] $FlowFixMe(>=<150.1>)
+
 export default function CenterForm(props: Props): Element<typeof FormGrid> {
   return (
     <FormGrid>

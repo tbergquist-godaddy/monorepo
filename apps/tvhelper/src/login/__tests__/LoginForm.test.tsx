@@ -1,5 +1,3 @@
-// @flow
-
 import { render, act, userEvent, screen, waitFor } from '@tbergq/test-utils';
 import { RelayEnvironmentProvider } from '@tbergq/relay';
 import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';

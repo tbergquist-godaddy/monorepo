@@ -40,12 +40,9 @@ const getAlertType = (type: AlertType, theme: DefaultTheme) => {
 };
 
 // $FlowFixMe[value-as-type] $FlowFixMe(>=<150.1>)
-const AlertContainer: StyledComponent<
-  AlertContainerProps,
-  DefaultTheme,
-  HTMLDivElement,
-> = styled.div(({ theme, alertType }) => ({
-  borderRadius: '3px',
-  padding: theme.spacing.increased,
-  ...getAlertType(alertType, theme),
-}));
+const AlertContainer: StyledComponent<AlertContainerProps, DefaultTheme, HTMLDivElement> =
+  styled.div(({ theme, alertType }) => ({
+    borderRadius: '3px',
+    padding: theme.spacing.increased,
+    ...getAlertType(alertType, theme),
+  }));

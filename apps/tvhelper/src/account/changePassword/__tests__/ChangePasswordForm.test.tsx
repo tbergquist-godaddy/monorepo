@@ -1,8 +1,6 @@
-// @flow
-
 import { RelayEnvironmentProvider } from '@tbergq/relay';
 import { createMockEnvironment } from 'relay-test-utils';
-import { render, act, fireEvent } from '@tbergq/test-utils';
+import { render, act, fireEvent, waitFor } from '@tbergq/test-utils';
 
 import ChangePasswordForm from '../ChangePasswordForm';
 
@@ -34,11 +32,9 @@ it('show required warnings', async () => {
   const { container, getAllByText } = render(<TestRenderer />);
 
   const button = container.querySelector('button[type="submit"]');
-  await act(async () => {
-    await fireEvent.click(button);
-  });
+  fireEvent.click(button);
 
-  const errors = getAllByText('This field is required');
+  const errors = await waitFor(() => getAllByText(/is a required field/i));
   expect(errors).toHaveLength(3);
 });
 
@@ -57,6 +53,6 @@ it('show error if confirm password does not match new password', async () => {
     await fireEvent.click(button);
   });
 
-  const error = getByText('Confirm password does not match new password');
+  const error = getByText("Passwords don't match");
   expect(error).toBeInTheDocument();
 });

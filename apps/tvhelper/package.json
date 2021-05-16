@@ -40,7 +40,7 @@
     "analyze": "export ANALYZE=TRUE && next build",
     "persist-queries": "yarn monorepo-babel-node scripts/persistQueries.js",
     "lint": "eslint . --fix --report-unused-disable-directives",
-    "test": "yarn test-only && yarn relay --validate",
+    "test": "yarn typecheck && yarn test-only && yarn relay --validate",
     "test-only": "jest",
     "relay": "yarn relay-compiler --language typescript",
     "typecheck": "tsc --noEmit"
@@ -52,6 +52,7 @@
     "@types/react-relay": "^11.0.1",
     "@types/relay-runtime": "^11.0.0",
     "@types/styled-components": "^5.1.9",
+    "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-styled-components": "^1.12.0",
     "jest-styled-components": "^7.0.4",
     "relay-compiler-language-typescript": "^14.0.0",

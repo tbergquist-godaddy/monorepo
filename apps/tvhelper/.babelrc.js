@@ -10,5 +10,14 @@ module.exports = {
       },
     ],
     'relay',
+    [
+      'module-resolver',
+      {
+        root: ['./src'],
+        alias: {
+          components: './src/components',
+        },
+      },
+    ],
   ],
 };
