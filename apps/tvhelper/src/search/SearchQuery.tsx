@@ -1,5 +1,6 @@
-import { useLazyLoadQuery, graphql } from 'react-relay';
-import type { SearchQuery as SearchQueryType } from '__generated__/SearchQuery.graphql';
+import { QueryRenderer, graphql, useRelayEnvironment } from 'react-relay';
+import { Spinner } from '@tbergq/components';
+import Box from 'components/Box';
 
 import SearchResults from './searchResults/SearchResults';
 
@@ -16,11 +17,27 @@ export const searchQuery = graphql`
 `;
 
 export default function SearchQuery({ query }: Props) {
-  const data = useLazyLoadQuery<SearchQueryType>(
-    searchQuery,
-    { query },
-    { fetchPolicy: 'store-or-network' },
-  );
+  const environment = useRelayEnvironment();
 
-  return <SearchResults results={data?.searchTvShow} />;
+  return (
+    <QueryRenderer
+      query={searchQuery}
+      environment={environment}
+      variables={{ query }}
+      fetchPolicy="store-and-network"
+      render={({ props, error }: any) => {
+        if (props) {
+          return <SearchResults results={props?.searchTvShow} />;
+        }
+        if (error) {
+          <div>Failed to load data from the server</div>;
+        }
+        return (
+          <Box display="flex" justifyContent="center">
+            <Spinner />
+          </Box>
+        );
+      }}
+    />
+  );
 }
