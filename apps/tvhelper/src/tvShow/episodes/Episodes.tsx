@@ -1,36 +1,39 @@
-// @flow
-
-import { useMemo, type Node } from 'react';
-import { graphql, createFragmentContainer, type FragmentContainerType } from '@tbergq/relay';
+import { ReactNode, useMemo } from 'react';
+import { graphql, useFragment } from 'react-relay';
 import styled from 'styled-components';
+import type { Episodes_episodes$key as EpisodeType } from '__generated__/Episodes_episodes.graphql';
+import Box from 'components/Box';
 
-import type { Episodes_episodes as EpisodeType } from '__generated__/Episodes_episodes.graphql';
 import Episode from './Episode';
 
-type Props = {
-  +episodes: ?EpisodeType,
-};
-
-const ListWrapper = styled.div({
-  overflow: 'hidden',
-});
+type Props = Readonly<{
+  episodes: EpisodeType;
+}>;
 
 const Card = styled.div(({ theme }) => ({
   width: '100%',
   border: `1px solid ${theme.gray}`,
 }));
 
-const CardTitle = styled.h2(({ theme }) => ({
-  fontSize: theme.fontSize.large,
-  fontWeight: '500',
-}));
-
-const CardSection = styled.div(({ theme }) => ({
-  padding: theme.spacing.xxxLarge,
-}));
+const CardTitle = styled.h2`
+  font-size: ${({ theme }) => theme.fontSize.large};
+  font-weight: 500;
+`;
 
 const Episodes = (props: Props) => {
-  const episodes = props.episodes?.episodes;
+  const data = useFragment(
+    graphql`
+      fragment Episodes_episodes on TvShow {
+        episodes {
+          id
+          seasonAndNumber
+          ...Episode_episode
+        }
+      }
+    `,
+    props.episodes,
+  );
+  const episodes = data?.episodes;
 
   const seasonMap = useMemo(() => {
     const map = new Map();
@@ -58,29 +61,18 @@ const Episodes = (props: Props) => {
     return map;
   }, [episodes]);
 
-  return Array.from(seasonMap).map<Node>(([key, episodes]) => (
+  return Array.from(seasonMap).map<ReactNode>(([key, episodes]) => (
     <Card key={key}>
-      <CardSection>
+      <Box p={8}>
         <CardTitle>{`Season ${parseInt(key, 10).toString()}`}</CardTitle>
-        <ListWrapper>
+        <Box overflow="hidden">
           {episodes.map((episode) => (
-            // $FlowFixMe[unnecessary-optional-chain] $FlowFixMe(>=<150.1>)
             <Episode key={episode?.id} episode={episode} />
           ))}
-        </ListWrapper>
-      </CardSection>
+        </Box>
+      </Box>
     </Card>
   ));
 };
 
-export default (createFragmentContainer(Episodes, {
-  episodes: graphql`
-    fragment Episodes_episodes on TvShow {
-      episodes {
-        id
-        seasonAndNumber
-        ...Episode_episode
-      }
-    }
-  `,
-}): FragmentContainerType<Props, Node>);
+export default Episodes;

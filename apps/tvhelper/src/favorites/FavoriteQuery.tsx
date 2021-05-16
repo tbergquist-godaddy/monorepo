@@ -17,9 +17,13 @@ export const favoritesQuery = graphql`
 const noop = () => {};
 
 export default function FavoriteQuery() {
-  const data = useLazyLoadQuery<FavoritesType>(favoritesQuery, {
-    options: { sortDirection: 'DESC', sortBy: 'PREVIOUS_EPISODE' },
-  });
+  const data = useLazyLoadQuery<FavoritesType>(
+    favoritesQuery,
+    {
+      options: { sortDirection: 'DESC', sortBy: 'PREVIOUS_EPISODE' },
+    },
+    { fetchPolicy: 'store-or-network' },
+  );
 
   return (
     <Container>

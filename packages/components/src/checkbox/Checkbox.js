@@ -23,10 +23,10 @@ const StyledCheckbox = styled.span`
   :after {
     content: '';
     position: absolute;
-    height: 6px;
-    width: 3px;
+    height: 7px;
+    width: 4px;
     top: 1px;
-    left: 3px;
+    left: 4px;
     transition: opacity 0.3s ease-in;
     opacity: 0;
   }

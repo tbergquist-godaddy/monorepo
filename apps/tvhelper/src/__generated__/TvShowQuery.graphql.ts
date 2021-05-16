@@ -8,9 +8,6 @@ export type TvShowQueryVariables = {
     id: string;
 };
 export type TvShowQueryResponse = {
-    readonly viewer: {
-        readonly __typename: string;
-    } | null;
     readonly node: {
         readonly " $fragmentRefs": FragmentRefs<"TvShowPage_tvShow">;
     } | null;
@@ -26,12 +23,6 @@ export type TvShowQuery = {
 query TvShowQuery(
   $id: ID!
 ) {
-  viewer {
-    __typename
-    ... on TvHelperViewer {
-      id
-    }
-  }
   node(id: $id) {
     __typename
     ...TvShowPage_tvShow
@@ -86,28 +77,21 @@ var v0 = [
     "name": "id"
   }
 ],
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "__typename",
-  "storageKey": null
-},
-v2 = [
+v1 = [
   {
     "kind": "Variable",
     "name": "id",
     "variableName": "id"
   }
 ],
-v3 = {
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v4 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -123,19 +107,7 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": null,
-        "concreteType": null,
-        "kind": "LinkedField",
-        "name": "viewer",
-        "plural": false,
-        "selections": [
-          (v1/*: any*/)
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": (v2/*: any*/),
+        "args": (v1/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
@@ -161,38 +133,24 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": null,
-        "concreteType": null,
-        "kind": "LinkedField",
-        "name": "viewer",
-        "plural": false,
-        "selections": [
-          (v1/*: any*/),
-          {
-            "kind": "InlineFragment",
-            "selections": [
-              (v3/*: any*/)
-            ],
-            "type": "TvHelperViewer",
-            "abstractKey": null
-          }
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": (v2/*: any*/),
+        "args": (v1/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
         "plural": false,
         "selections": [
-          (v1/*: any*/),
-          (v3/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "__typename",
+            "storageKey": null
+          },
+          (v2/*: any*/),
           {
             "kind": "InlineFragment",
             "selections": [
-              (v4/*: any*/),
+              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -201,8 +159,8 @@ return {
                 "name": "network",
                 "plural": false,
                 "selections": [
-                  (v4/*: any*/),
-                  (v3/*: any*/)
+                  (v3/*: any*/),
+                  (v2/*: any*/)
                 ],
                 "storageKey": null
               },
@@ -234,7 +192,7 @@ return {
                     "name": "medium",
                     "storageKey": null
                   },
-                  (v3/*: any*/)
+                  (v2/*: any*/)
                 ],
                 "storageKey": null
               },
@@ -253,7 +211,7 @@ return {
                 "name": "episodes",
                 "plural": true,
                 "selections": [
-                  (v3/*: any*/),
+                  (v2/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -261,7 +219,7 @@ return {
                     "name": "seasonAndNumber",
                     "storageKey": null
                   },
-                  (v4/*: any*/),
+                  (v3/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -296,14 +254,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d658f745dee82b434670112e976687c0",
+    "cacheID": "5f137ad05795d07d39ae3fd02a228ec4",
     "id": null,
     "metadata": {},
     "name": "TvShowQuery",
     "operationKind": "query",
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  viewer {\n    __typename\n    ... on TvHelperViewer {\n      id\n    }\n  }\n  node(id: $id) {\n    __typename\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    medium\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n"
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    medium\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n"
   }
 };
 })();
-(node as any).hash = '23dfe62ce0b6b94adcd23a3cf316baa9';
+(node as any).hash = '9d89cc467b4de158a456a5c7a5f0877e';
 export default node;

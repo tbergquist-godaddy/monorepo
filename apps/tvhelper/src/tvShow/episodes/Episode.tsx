@@ -1,26 +1,17 @@
-// @flow strict-local
-
-import { useState, type Node } from 'react';
-import {
-  graphql,
-  createFragmentContainer,
-  type RelayProp,
-  type FragmentContainerType,
-} from '@tbergq/relay';
+import { useState } from 'react';
+import { graphql, useFragment } from 'react-relay';
 import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
-// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 import { Checkbox } from '@tbergq/components';
+import { Episode_episode$key as EpisodeType } from '__generated__/Episode_episode.graphql';
 
-import type { Episode_episode as EpisodeType } from '__generated__/Episode_episode.graphql';
-import markAsWatchedMutation from './mutation/MarkAsWatched';
-import deleteAsWatchedMutation from './mutation/DeleteAsWatched';
+import useMarkAsWatchedMutation from './mutation/useMarkAsWatched';
+import useDeleteAsWatchedMutation from './mutation/useDeleteAsWatched';
 
-type Props = {
-  +episode: ?EpisodeType,
-  +relay: RelayProp,
-};
+type Props = Readonly<{
+  episode: EpisodeType;
+}>;
 
 const ListItem = styled.button(({ theme }) => ({
   'border': 'none',
@@ -48,10 +39,10 @@ const Description = styled.span(({ theme }) => ({
   textAlign: 'left',
 }));
 
-const Title = styled.span(() => ({
-  fontWeight: '500',
-  textAlign: 'left',
-}));
+const Title = styled.span`
+  font-weight: 500;
+  text-align: left;
+`;
 
 const TextWrapper = styled.span(({ theme }) => ({
   display: 'flex',
@@ -62,47 +53,68 @@ const TextWrapper = styled.span(({ theme }) => ({
 }));
 
 const Episode = (props: Props) => {
-  const [isMutating, setIsMutating] = useState(false);
-  const name = props.episode?.name ?? '';
-  const airdate = props.episode?.airdate ?? null;
+  const data = useFragment(
+    graphql`
+      fragment Episode_episode on Episode {
+        id
+        name
+        seasonAndNumber
+        airdate
+        summary
+        watched
+      }
+    `,
+    props.episode,
+  );
+  const [deleteAsWatchedMutation, deleteLoading] = useDeleteAsWatchedMutation();
+  const [markAsWatchedMutation, markLoading] = useMarkAsWatchedMutation();
+
+  const isMutating = deleteLoading || markLoading;
+  const name = data?.name ?? '';
+  const airdate = data?.airdate ?? null;
   const rawDate = airdate != null ? new Date(airdate) : null;
   const date = rawDate !== null ? format(rawDate, 'do MMM yyyy') : '';
-  const seasonAndNumber = props.episode?.seasonAndNumber ?? '';
-  const summary = props.episode?.summary ?? '';
-  const watched = props.episode?.watched === true;
+  const seasonAndNumber = data?.seasonAndNumber ?? '';
+  const summary = data?.summary ?? '';
+  const watched = data?.watched === true;
 
   const markAsWatched = () => {
-    const episodeId = props.episode?.id;
+    const episodeId = data?.id;
     if (episodeId != null) {
-      markAsWatchedMutation(
-        props.relay.environment,
-        {
-          episodeId,
+      markAsWatchedMutation({
+        variables: { episodeId },
+        optimisticResponse: {
+          markAsWatched: {
+            success: true,
+            episode: {
+              id: episodeId,
+              watched: true,
+            },
+          },
         },
-        () => {
-          setIsMutating(false);
-        },
-      );
+      });
     }
   };
 
   const unMarkAsWatched = () => {
-    const episodeId = props.episode?.id;
+    const episodeId = data?.id;
     if (episodeId != null) {
-      deleteAsWatchedMutation(
-        props.relay.environment,
-        {
-          episodeId,
+      deleteAsWatchedMutation({
+        variables: { episodeId },
+        optimisticResponse: {
+          deleteWatchedEpisode: {
+            success: true,
+            episode: {
+              id: episodeId,
+              watched: false,
+            },
+          },
         },
-        () => {
-          setIsMutating(false);
-        },
-      );
+      });
     }
   };
   function toggleWatched() {
     if (!isMutating) {
-      setIsMutating(true);
       if (!watched) {
         markAsWatched();
       } else {
@@ -128,15 +140,4 @@ const Episode = (props: Props) => {
   );
 };
 
-export default (createFragmentContainer(Episode, {
-  episode: graphql`
-    fragment Episode_episode on Episode {
-      id
-      name
-      seasonAndNumber
-      airdate
-      summary
-      watched
-    }
-  `,
-}): FragmentContainerType<Props, Node>);
+export default Episode;

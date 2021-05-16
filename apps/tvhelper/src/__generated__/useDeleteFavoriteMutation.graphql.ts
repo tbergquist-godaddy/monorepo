@@ -3,24 +3,24 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-export type deleteFavoriteMutationVariables = {
+export type useDeleteFavoriteMutationVariables = {
     serieId: string;
 };
-export type deleteFavoriteMutationResponse = {
+export type useDeleteFavoriteMutationResponse = {
     readonly deleteFavorite: {
         readonly success: boolean | null;
         readonly id: string | null;
     } | null;
 };
-export type deleteFavoriteMutation = {
-    readonly response: deleteFavoriteMutationResponse;
-    readonly variables: deleteFavoriteMutationVariables;
+export type useDeleteFavoriteMutation = {
+    readonly response: useDeleteFavoriteMutationResponse;
+    readonly variables: useDeleteFavoriteMutationVariables;
 };
 
 
 
 /*
-mutation deleteFavoriteMutation(
+mutation useDeleteFavoriteMutation(
   $serieId: ID!
 ) {
   deleteFavorite(serieId: $serieId) {
@@ -76,7 +76,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "deleteFavoriteMutation",
+    "name": "useDeleteFavoriteMutation",
     "selections": (v1/*: any*/),
     "type": "RootMutation",
     "abstractKey": null
@@ -85,18 +85,18 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "deleteFavoriteMutation",
+    "name": "useDeleteFavoriteMutation",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "09191c8b7fd22238e7ead31bea13bc1d",
+    "cacheID": "6484f86aef3f45968d76dda9239b8665",
     "id": null,
     "metadata": {},
-    "name": "deleteFavoriteMutation",
+    "name": "useDeleteFavoriteMutation",
     "operationKind": "mutation",
-    "text": "mutation deleteFavoriteMutation(\n  $serieId: ID!\n) {\n  deleteFavorite(serieId: $serieId) {\n    success\n    id\n  }\n}\n"
+    "text": "mutation useDeleteFavoriteMutation(\n  $serieId: ID!\n) {\n  deleteFavorite(serieId: $serieId) {\n    success\n    id\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = '59a7c691aad375d601cb9e1541f872f9';
+(node as any).hash = '9d3f1395124253308db494c7b72547bd';
 export default node;
