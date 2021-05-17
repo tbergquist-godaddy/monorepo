@@ -19,12 +19,12 @@ module.exports = {
     es6: true,
   },
   rules: {
-    'strict': OFF,
+    strict: OFF,
     'import/no-unresolved': OFF,
     'node/file-extension-in-import': OFF,
     'react/react-in-jsx-scope': OFF,
     'flowtype/require-inexact-type': OFF,
-    'import/extensions': [ERROR, 'never', { json: 'always', graphql: 'always' }],
+    'import/extensions': [ERROR, 'never', { json: 'always', graphql: 'always', css: 'always' }],
     'no-restricted-imports': [
       ERROR,
       {
@@ -45,7 +45,7 @@ module.exports = {
           '**/*.spec.js',
           '**/scripts/*.js',
           '**/__mocks__/*.js',
-          '**/*stories.js',
+          '**/*.stories.{js,ts,tsx}',
           '**/jest.config.js',
           '**/test/*.js',
         ],

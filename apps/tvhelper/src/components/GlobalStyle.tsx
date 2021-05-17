@@ -32,6 +32,9 @@ const GlobalStyle = createGlobalStyle({
       marginBottom: '16px',
     },
   },
+  'button,input,select': {
+    fontFamily: 'inherit',
+  },
 });
 
 export default GlobalStyle;

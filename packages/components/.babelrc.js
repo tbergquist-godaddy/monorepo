@@ -7,5 +7,6 @@ module.exports = {
         displayName: true,
       },
     ],
+    '@vanilla-extract/babel-plugin'
   ],
 };
