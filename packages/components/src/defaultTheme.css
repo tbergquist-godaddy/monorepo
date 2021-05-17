@@ -1,0 +1,14 @@
+:root {
+  --color-primary: #007bff;
+  --color-primary-active: rgba(38,143,255,.5);
+  --color-secondary: #6c757d;
+  --color-secondary-active: rgba(119,124,129,.5);
+  --color-danger: #dc3545;
+  --color-danger-active: rgba(225,83,97,.5);
+  --color-success: #28a745;
+  --color-gray: #e2e2e2;
+  --color-white: #fff;
+  --color-black: #000;
+
+  --box-shadow-active: 0 0 0 0.2rem;
+}
