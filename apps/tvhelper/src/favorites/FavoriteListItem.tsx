@@ -90,11 +90,11 @@ const FavoriteListItem = (props: Props) => {
           <FavoriteItem label="Name">{name}</FavoriteItem>
           <FavoriteItem label="Status">{data?.status ?? ''}</FavoriteItem>
           <Box flex="2" display="flex" justifyContent="flex-start">
-            <FavoriteItem label="Next episode">
-              {getFormattedDate(sanitizeUnknownDate(data?.nextEpisode))}
-            </FavoriteItem>
             <FavoriteItem label="Previous episode">
               {getFormattedDate(sanitizeUnknownDate(data?.previousEpisode))}
+            </FavoriteItem>
+            <FavoriteItem label="Next episode">
+              {getFormattedDate(sanitizeUnknownDate(data?.nextEpisode))}
             </FavoriteItem>
           </Box>
         </Box>
