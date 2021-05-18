@@ -1,6 +1,6 @@
 // @flow
 
-import { useState, Children, type Node, type Element } from 'react';
+import { useState, Children, type Node, type Element, cloneElement } from 'react';
 import styled from 'styled-components';
 import { MdMenu } from 'react-icons/md';
 // eslint-disable-next-line no-restricted-imports
@@ -82,7 +82,7 @@ const HeaderLeftContainer = styled.div({
 
 const ExpandedHeader = styled.div({});
 
-const Separator = styled.div({
+const StyledSeparator = styled.div({
   '*': {
     display: 'block',
     paddingTop: '12px',
@@ -94,6 +94,10 @@ type Props = {
   +headerLeft?: Node,
   +headerRight?: Node,
 };
+
+function Separator({ children, toggle }: $FlowFixMe) {
+  return <StyledSeparator>{cloneElement(children, { onClick: toggle })}</StyledSeparator>;
+}
 
 export default function Navbar(props: Props): Element<any> {
   const [expandMenu, setExpandMenu] = useState(false);
@@ -128,10 +132,10 @@ export default function Navbar(props: Props): Element<any> {
             {expandMenu && (
               <ExpandedHeader>
                 {Children.map(props.headerLeft, (child) => (
-                  <Separator>{child}</Separator>
+                  <Separator toggle={() => setExpandMenu(false)}>{child}</Separator>
                 ))}
                 {Children.map(props.headerRight, (child) => (
-                  <Separator>{child}</Separator>
+                  <Separator toggle={() => setExpandMenu(false)}>{child}</Separator>
                 ))}
               </ExpandedHeader>
             )}
