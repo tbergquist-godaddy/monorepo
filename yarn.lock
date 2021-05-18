@@ -7669,7 +7669,7 @@ enhanced-resolve@^4.5.0:
     memory-fs "^0.5.0"
     tapable "^1.0.0"
 
-enhanced-resolve@^5.7.0, enhanced-resolve@^5.8.0:
+enhanced-resolve@^5.8.0:
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.8.0.tgz#d9deae58f9d3773b6a111a5a46831da5be5c9ac0"
   integrity sha512-Sl3KRpJA8OpprrtaIswVki3cWPiPKxXuFxJXBp+zNb6s6VwNWwFRUdtmzd2ReUut8n+sCPx7QCtQ7w5wfJhSgQ==
@@ -12469,14 +12469,6 @@ next-plugin-custom-babel-config@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/next-plugin-custom-babel-config/-/next-plugin-custom-babel-config-1.0.4.tgz#b99d8b7cfafb141176b51d717491957ee19bc338"
   integrity sha512-553Xu6qtPIv10TaP/KRtnOP97Xi4yGF1aAZTACQgLz/qJTOCVG4F25fm84uf1xZRdHlhOUEt9t86frolh4N0EA==
-
-next-transpile-modules@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-7.0.0.tgz#5a48988cede89bc5920defb15378093d0d8562eb"
-  integrity sha512-HgVczU5ajXKvE7HO3ZLmBmxXj79aq8jSZNYpCttim+MZ+b0GIsdk7AV2w7Ax/tIM1/dJA+vV/6loXCRYlbsGGA==
-  dependencies:
-    enhanced-resolve "^5.7.0"
-    escalade "^3.1.1"
 
 next@^10.2.0:
   version "10.2.0"
