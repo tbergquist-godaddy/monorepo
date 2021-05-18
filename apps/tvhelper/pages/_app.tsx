@@ -1,15 +1,16 @@
 import Head from 'next/head';
 import { Toast, MediaContextProvider } from '@tbergq/components';
 import { RecoilRoot } from 'recoil';
-import 'nprogress/nprogress.css';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from '@tbergq/theme';
 import Navbar from 'components/Navbar';
 import GlobalStyle from 'components/GlobalStyle';
 import { EnvironmentProvider } from 'services/relay';
+import useNprogress from 'components/hooks/useNprogress';
 
 export default function MyApp({ Component, pageProps, isLoggedIn }: any) {
   const { records, token } = pageProps;
+  useNprogress();
   return (
     <ThemeProvider theme={defaultTheme}>
       <MediaContextProvider>
