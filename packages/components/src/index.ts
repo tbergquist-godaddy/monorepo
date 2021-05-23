@@ -5,6 +5,7 @@ export { default as FloatingAddButton } from './FloatingAddButton';
 export { default as Heading } from './heading/Heading';
 export { default as IconButton } from './button/IconButton';
 export { default as InputField } from './input/InputField';
+export type { Props as InputProps } from './input/InputField';
 export { default as Layout } from './Layout';
 export { default as Link } from './Link';
 export { default as Loading } from './loading/Loading';
@@ -18,7 +19,10 @@ export { useShowToast } from './toast/ToastListState';
 
 export { default as CenterForm } from './CenterForm';
 export { default as Container } from './Container';
-export { default as SignupForm } from './signupForm/SignupForm';
 
 // Layout
 export { MediaContextProvider, Media, createMediaStyle } from './Media';
+
+// vanilla-extract
+export { theme } from './theme.css';
+export { atoms } from './sprinkles.css';

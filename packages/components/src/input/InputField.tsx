@@ -6,13 +6,13 @@ import ErrorWrapper from '../form/ErrorWrapper';
 import LabelText from '../form/LabelText';
 import { classNames } from './InputField.css';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   dataTest?: string;
   error?: ReactNode;
 }
 
-export default function Input({ label, dataTest, error, className, ...rest }: Props) {
+export default function InputField({ label, dataTest, error, className, ...rest }: Props) {
   const seed = useUIDSeed();
   const id = rest.id ?? seed('input');
   return (
@@ -20,14 +20,14 @@ export default function Input({ label, dataTest, error, className, ...rest }: Pr
       <label className={classNames.label}>
         <LabelText>{label}</LabelText>
         <input
-          aria-invalid={error != null}
+          aria-invalid={Boolean(error)}
           className={cn(classNames.input, className)}
           data-test={dataTest}
           {...rest}
           aria-describedby={error == null ? null : `${id}-error-message`}
         />
       </label>
-      {error != null && <ErrorWrapper id={`${id}-error-message`}>{error}</ErrorWrapper>}
+      {error && <ErrorWrapper id={`${id}-error-message`}>{error}</ErrorWrapper>}
     </>
   );
 }
