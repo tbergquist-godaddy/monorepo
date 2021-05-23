@@ -74,6 +74,7 @@ export const useShowToast = () => {
 
   const showToast = useCallback(
     (config: Config) => {
+      // @ts-ignore: I have no idea what is wrong
       setToastState((state) => {
         return {
           toasts: [

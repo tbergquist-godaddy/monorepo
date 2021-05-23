@@ -1,7 +1,8 @@
-import { Navbar as DSNavbar, NavLink } from '@tbergq/components';
+import { Navbar as DSNavbar } from '@tbergq/components';
 import jwtDecode from 'jwt-decode';
 
 import NavbarRight from './NavbarRight';
+import NavLink from './NavLink';
 
 type Props = {
   token: string | undefined;

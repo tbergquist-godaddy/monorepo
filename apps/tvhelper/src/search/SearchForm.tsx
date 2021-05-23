@@ -1,4 +1,5 @@
-import { InputField, Button } from '@tbergq/components';
+import { Button } from '@tbergq/components';
+import { FormikInput as InputField } from '@tbergq/formik-wrapper';
 import styled from 'styled-components';
 import { Form, useFormikContext } from 'formik';
 

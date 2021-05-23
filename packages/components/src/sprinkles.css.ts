@@ -11,6 +11,7 @@ const space = {
   xLarge: '20px',
   xxLarge: '22px',
   xxxLarge: '24px',
+  auto: 'auto',
 };
 
 const responsiveStyles = createAtomicStyles({
@@ -23,6 +24,7 @@ const responsiveStyles = createAtomicStyles({
   },
   defaultCondition: 'mediumMobile',
   properties: {
+    flex: [1],
     display: ['none', 'flex', 'block', 'inline'],
     flexDirection: ['row', 'column'],
     justifyContent: [

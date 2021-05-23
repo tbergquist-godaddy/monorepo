@@ -1,10 +1,10 @@
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import InputField from './InputField';
+import InputField, { Props } from './InputField';
 
-const Template = ({ value, ...rest }) => (
-  <InputField {...rest} value={text('value', value)} onChange={action('change')} />
+const Template = ({ value, ...rest }: Props) => (
+  <InputField {...rest} value={text('value', value as string)} onChange={action('change')} />
 );
 export const withValue = Template.bind({});
 withValue.args = {

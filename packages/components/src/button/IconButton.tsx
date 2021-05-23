@@ -15,6 +15,7 @@ type Props = Readonly<{
   loading?: boolean;
   dataTest?: string;
   ariaLabel: string;
+  className?: string;
 }>;
 
 export default function IconButton({
@@ -25,6 +26,7 @@ export default function IconButton({
   ariaLabel,
   dataTest,
   type = 'button',
+  className,
   ...rest
 }: Props) {
   return (
@@ -34,9 +36,15 @@ export default function IconButton({
       aria-label={ariaLabel}
       data-test={dataTest}
       type={type === 'button' ? 'button' : 'submit'}
-      className={cn(iconButtonClassNames.base, classNames[color], iconButtonClassNames[size], {
-        [classNames.disabled]: loading,
-      })}
+      className={cn(
+        iconButtonClassNames.base,
+        classNames[color],
+        iconButtonClassNames[size],
+        className,
+        {
+          [classNames.disabled]: loading,
+        },
+      )}
     >
       {loading ? <Loading /> : children}
     </button>
