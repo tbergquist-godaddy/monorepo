@@ -31,7 +31,7 @@
     "build:base": "babel src --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\" --extensions '.ts,.tsx,.js'",
     "build:cjs": "yarn build:base --out-dir dist/cjs",
     "build:esm": "yarn build:base --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
-    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm",
+    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm && yarn generate:types",
     "lint": "eslint '**/*.{ts,tsx}' --fix --report-unused-disable-directives",
     "typecheck": "tsc --noEmit",
     "test": "yarn typecheck && yarn test-only",

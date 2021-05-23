@@ -15,7 +15,7 @@ export { default as Select } from './select/Select';
 export { default as Spinner } from './loading/Spinner';
 export { default as Stack } from './stack/Stack';
 export { default as Toast } from './toast/Toast';
-export { useShowToast } from './toast/ToastListState';
+export { useShowToast, ToastProvider } from './toast/ToastContext';
 
 export { default as CenterForm } from './CenterForm';
 export { default as Container } from './Container';
