@@ -9,6 +9,7 @@
     "@next/bundle-analyzer": "^10.2.0",
     "@tbergq/components": "^0",
     "@tbergq/theme": "^0.0.1",
+    "@tbergq/formik-wrapper": "^0.0.1",
     "@tbergq/utils": "^0",
     "@zeit/next-css": "^1.0.1",
     "date-fns": "^2.21.3",
