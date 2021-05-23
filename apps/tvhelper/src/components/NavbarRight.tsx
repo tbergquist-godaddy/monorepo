@@ -1,6 +1,4 @@
-// @flow strict-local
-
-import { NavLink } from '@tbergq/components';
+import NavLink from './NavLink';
 
 type Props = {
   username: string | undefined;

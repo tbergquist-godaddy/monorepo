@@ -8,8 +8,9 @@ module.exports = {
     '@storybook/addon-actions/register',
     '@storybook/addon-knobs/register',
     '@storybook/addon-a11y',
+    '@storybook/addon-viewport',
   ],
-  webpackFinal: (config) => {
+  webpackFinal: (config /* :$FlowFixMe */) /* :$FlowFixMe */ => {
     config.plugins.push(new VanillaExtractPlugin());
     return config;
   },

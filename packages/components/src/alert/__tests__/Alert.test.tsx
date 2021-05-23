@@ -1,4 +1,4 @@
-import { render, screen } from '@tbergq/test-utils';
+import { render, screen } from '@testing-library/react';
 
 import Alert from '../Alert';
 

@@ -1,12 +1,12 @@
 import { graphql, useFragment } from 'react-relay';
 import styled from 'styled-components';
-import { Link } from '@tbergq/components';
+import Link from 'next/link';
 import Image from 'next/image';
 import type { TvShowListItem_data$key as TvShow } from '__generated__/TvShowListItem_data.graphql';
 
 const borderRadius = 4;
 
-const StyledLink = styled(Link)({
+const StyledLink = styled.a({
   'outline': 'none',
   ':focus, :hover': {
     transform: ' scale(1.05)',
@@ -80,16 +80,18 @@ function TvShowListItem(props: Props) {
     return null;
   }
   return (
-    <StyledLink href={`/tvShow?id=${tvShowId}`}>
-      <Container>
-        {/* @ts-ignore: layout does exist */}
-        {src != null && <StyledImage alt={name} layout="fill" src={data?.image?.medium} />}
-        <BottomSheet>
-          <StyledText>{`${name} - ${rating}`}</StyledText>
-          <StyledText>{status}</StyledText>
-        </BottomSheet>
-      </Container>
-    </StyledLink>
+    <Link href={`/tvShow?id=${tvShowId}`}>
+      <StyledLink href={`/tvShow?id=${tvShowId}`}>
+        <Container>
+          {/* @ts-ignore: layout does exist */}
+          {src != null && <StyledImage alt={name} layout="fill" src={data?.image?.medium} />}
+          <BottomSheet>
+            <StyledText>{`${name} - ${rating}`}</StyledText>
+            <StyledText>{status}</StyledText>
+          </BottomSheet>
+        </Container>
+      </StyledLink>
+    </Link>
   );
 }
 

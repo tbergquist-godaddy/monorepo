@@ -1,5 +1,6 @@
 import { Formik, Form } from 'formik';
-import { Heading, InputField, Button, useShowToast } from '@tbergq/components';
+import { Heading, Button, useShowToast } from '@tbergq/components';
+import { FormikInput as InputField } from '@tbergq/formik-wrapper';
 import { useMutation, graphql } from 'react-relay';
 import { ChangePasswordFormMutation } from '__generated__/ChangePasswordFormMutation.graphql';
 import * as yup from 'yup';

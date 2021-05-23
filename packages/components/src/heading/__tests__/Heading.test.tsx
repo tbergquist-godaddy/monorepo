@@ -1,6 +1,4 @@
-// @flow
-
-import { render, screen } from '@tbergq/test-utils';
+import { render, screen } from '@testing-library/react';
 
 import Heading from '../Heading';
 

@@ -1,5 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react';
-import { render } from '@tbergq/test-utils';
+import { fireEvent, screen, render } from '@testing-library/react';
 
 import Button from '../Button';
 

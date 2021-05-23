@@ -16,6 +16,7 @@ type Props = Readonly<{
   loading?: boolean;
   dataTest?: string;
   ariaLabel?: string;
+  className?: string;
 }>;
 
 export default function Button({
@@ -26,6 +27,7 @@ export default function Button({
   dataTest,
   ariaLabel,
   type = 'button',
+  className,
   ...rest
 }: Props) {
   return (
@@ -35,7 +37,7 @@ export default function Button({
       disabled={loading === true}
       {...rest}
       type={type === 'button' ? 'button' : 'submit'}
-      className={cn(classNames.base, classNames[color], classNames[size], {
+      className={cn(classNames.base, classNames[color], classNames[size], className, {
         [classNames.disabled]: loading,
       })}
     >

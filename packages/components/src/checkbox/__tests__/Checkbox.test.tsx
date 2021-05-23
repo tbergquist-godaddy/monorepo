@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@tbergq/test-utils';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 import Checkbox from '../Checkbox';
 

@@ -1,6 +1,5 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen, render } from '@testing-library/react';
 import { MdFavorite } from 'react-icons/md';
-import { render } from '@tbergq/test-utils';
 
 import IconButton from '../IconButton';
 

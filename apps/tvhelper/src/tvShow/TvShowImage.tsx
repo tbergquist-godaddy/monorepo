@@ -17,9 +17,12 @@ const Image = styled.img({
 });
 
 const FavoriteButton = styled(IconButton)({
-  position: 'absolute',
-  bottom: 10,
-  left: 5,
+  'position': 'absolute',
+  'bottom': 10,
+  'left': 5,
+  '&&': {
+    borderRadius: '50%',
+  },
 });
 
 const TvShowImage = (props: Props) => {
@@ -75,7 +78,6 @@ const TvShowImage = (props: Props) => {
       {notLoggedIn === false && (
         <FavoriteButton
           loading={isLoading}
-          circled={true}
           color={isFavorite ? 'danger' : 'primary'}
           onClick={onToggleFavorite}
           dataTest="toggleFavoriteButton"
