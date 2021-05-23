@@ -1,4 +1,5 @@
-import { useShowToast, SignupForm as CommonSignup } from '@tbergq/components';
+import { useShowToast } from '@tbergq/components';
+import { SignupForm as CommonSignup } from '@tbergq/formik-wrapper';
 import Router from 'next/router';
 
 import useCreateUserMutation from './mutation/useCreateUserMutation';

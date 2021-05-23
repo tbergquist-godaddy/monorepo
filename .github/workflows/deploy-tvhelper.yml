@@ -9,6 +9,7 @@ on:
       - 'packages/components/**'
       - 'packages/theme/**'
       - 'packages/utils/**'
+      - 'packages/formik-wrapper/**'
 
 jobs:
   build:

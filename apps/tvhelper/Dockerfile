@@ -9,6 +9,7 @@ COPY packages/test-preset/package.json ./packages/test-preset/package.json
 COPY packages/components/package.json ./packages/components/package.json
 COPY packages/utils/package.json ./packages/utils/package.json
 COPY packages/theme/package.json ./packages/theme/package.json
+COPY packages/formik-wrapper/package.json ./packages/formik-wrapper/package.json
 
 RUN yarn install --frozen-lockfile
 
@@ -25,6 +26,7 @@ COPY --from=deps  /build/packages/test-preset/ ./packages/test-preset/
 COPY --from=deps  /build/packages/components/ ./packages/components/
 COPY --from=deps  /build/packages/theme/ ./packages/theme/
 COPY --from=deps  /build/packages/utils/ ./packages/utils/
+COPY --from=deps  /build/packages/formik-wrapper/ ./packages/formik-wrapper/
 
 COPY apps/tvhelper ./apps/tvhelper
 COPY packages/test-utils ./packages/test-utils/
@@ -32,8 +34,9 @@ COPY packages/test-preset ./packages/test-preset/
 COPY packages/components ./packages/components/
 COPY packages/utils ./packages/utils/
 COPY packages/theme ./packages/theme/
+COPY packages/formik-wrapper ./packages/formik-wrapper/
 
-COPY package.json lerna.json ./
+COPY package.json lerna.json tsconfig.json ./
 
 RUN yarn lerna run build
 
