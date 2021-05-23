@@ -12,11 +12,9 @@
     "@tbergq/theme": "0.0.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "13.1.9",
-    "recoil": "0.0.10",
     "relay-test-utils": "11.0.2"
   },
   "peerDependencies": {
-    "@kiwicom/orbit-components": "^0",
     "react": "^16.13.1",
     "styled-components": "^5"
   },

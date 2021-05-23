@@ -109,7 +109,12 @@ const otherStyles = createAtomicStyles({
   properties: {
     cursor: ['pointer', 'not-allowed'],
     outline: ['none'],
-    position: ['absolute', 'relative'],
+    position: ['absolute', 'relative', 'fixed'],
+    zIndex: {
+      default: 1,
+      sticky: 100,
+      onTop: 900,
+    },
   },
 });
 

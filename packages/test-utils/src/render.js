@@ -8,18 +8,12 @@ import {
 } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from '@tbergq/theme';
-import { RecoilRoot } from 'recoil';
 
 function testRenderer(
   ui: Element<any>,
   options?: RenderOptionsWithoutCustomQueries,
 ): RenderResult<> {
-  return render(
-    <ThemeProvider theme={defaultTheme}>
-      <RecoilRoot>{ui}</RecoilRoot>
-    </ThemeProvider>,
-    options,
-  );
+  return render(<ThemeProvider theme={defaultTheme}>{ui}</ThemeProvider>, options);
 }
 
 export default testRenderer;

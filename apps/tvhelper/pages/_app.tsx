@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { Toast, MediaContextProvider } from '@tbergq/components';
-import { RecoilRoot } from 'recoil';
+import { Toast, MediaContextProvider, ToastProvider } from '@tbergq/components';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from '@tbergq/theme';
 import Navbar from 'components/Navbar';
@@ -15,7 +14,7 @@ export default function MyApp({ Component, pageProps, isLoggedIn }: any) {
     <ThemeProvider theme={defaultTheme}>
       <MediaContextProvider>
         <EnvironmentProvider records={records} token={token}>
-          <RecoilRoot>
+          <ToastProvider>
             <Head>
               <title>Tv helper | {pageProps.pageName ?? ''}</title>
             </Head>
@@ -27,7 +26,7 @@ export default function MyApp({ Component, pageProps, isLoggedIn }: any) {
               <Component {...pageProps} isLoggedIn={isLoggedIn} />
             </main>
             <Toast />
-          </RecoilRoot>
+          </ToastProvider>
         </EnvironmentProvider>
       </MediaContextProvider>
     </ThemeProvider>

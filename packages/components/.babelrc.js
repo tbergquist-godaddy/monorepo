@@ -1,5 +1,5 @@
 module.exports = {
-  presets: ['@adeira/babel-preset-adeira'],
+  presets: ['@adeira/babel-preset-adeira', '@babel/preset-typescript'],
   plugins: [
     [
       'babel-plugin-styled-components',
@@ -7,6 +7,6 @@ module.exports = {
         displayName: true,
       },
     ],
-    '@vanilla-extract/babel-plugin'
+    '@vanilla-extract/babel-plugin',
   ],
 };
