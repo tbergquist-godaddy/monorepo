@@ -74,7 +74,7 @@ const TvShowImage = (props: Props) => {
   }
   return (
     <>
-      <Image src={src} alt={data?.name} />
+      <Image loading="lazy" src={src} alt={data?.name} />
       {notLoggedIn === false && (
         <FavoriteButton
           loading={isLoading}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // @flow
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -13,12 +14,8 @@ config();
 const { GRAPHQL_URL } = process.env;
 
 function withVanillaExtract(pluginOptions = {}) {
-  /**
-   * @param {any} nextConfig Custom config for Next.js
-   */
   return (nextConfig = {}) => {
     return {
-      // For Webpack 4, you'll need to install it seperately
       ...nextConfig,
 
       webpack(config, options) {
