@@ -7,6 +7,8 @@ import { ReactNode } from 'react';
 import Image from 'next/image';
 import Box from 'components/Box';
 
+import { classNames } from './FavoritesListItem.css';
+
 type Props = Readonly<{
   favorite: Favorite;
 }>;
@@ -80,12 +82,17 @@ const FavoriteListItem = (props: Props) => {
   );
   const id = data?.id ?? '';
   const name = data?.name ?? '';
+  const src = data?.image?.medium;
   return (
     <Link href={`/tvShow?id=${id}`}>
       <ListItem href={`/tvShow?id=${id}`}>
         <Box display="flex" alignItems="center">
           <Box mr={8}>
-            <StyledImage height={50} width={50} src={data?.image?.medium} alt={name} />
+            {src ? (
+              <StyledImage height={50} width={50} src={data?.image?.medium} alt={name} />
+            ) : (
+              <div className={classNames.imageFallback} />
+            )}
           </Box>
           <Box flex="1" display={['block', 'block', 'flex']} mb={-2}>
             <FavoriteItem label="Name">{name}</FavoriteItem>

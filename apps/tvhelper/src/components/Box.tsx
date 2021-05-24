@@ -20,6 +20,7 @@ interface Props {
   flexDirection: MediaProp<string>;
   position: MediaProp<string>;
   height: MediaProp<number | string>;
+  minHeight: MediaProp<number | string>;
   width: MediaProp<number | string>;
   gap: MediaProp<string>;
   overflow: MediaProp<string>;

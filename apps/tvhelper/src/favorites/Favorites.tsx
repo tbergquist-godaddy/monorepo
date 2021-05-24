@@ -1,7 +1,6 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect, ChangeEvent } from 'react';
 import { Heading, Select } from '@tbergq/components';
 import { createRefetchContainer, graphql, RelayRefetchProp } from 'react-relay';
-import { useFormikContext } from 'formik';
 import { Favorites_favorites as FavoritesType } from '__generated__/Favorites_favorites.graphql';
 import dynamic from 'next/dynamic';
 import Box from 'components/Box';
@@ -35,17 +34,13 @@ const sortByOptions = [
   },
 ];
 
-type FormValues = Readonly<{
-  sortBy: string;
-  sortDirection: string;
-}>;
-
 function Favorites(props: Props) {
+  const [sortBy, setSortBy] = useState('PREVIOUS_EPISODE');
+  const [sortDirection, setSortDirection] = useState('DESC');
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const isFirstRender = useRef(true);
   const edges = props.favorites?.favorites?.edges ?? [];
   const [isLoading, setIsLoading] = useState(false);
-  const { values } = useFormikContext<FormValues>();
 
   const refetch = useCallback(
     (sortBy, sortDirection) => {
@@ -71,17 +66,17 @@ function Favorites(props: Props) {
     if (isFirstRender.current === true) {
       isFirstRender.current = false;
     } else {
-      refetch(values.sortBy, values.sortDirection);
+      refetch(sortBy, sortDirection);
     }
-  }, [values.sortBy, values.sortDirection, refetch]);
+  }, [sortBy, sortDirection, refetch]);
 
   const loadMore = () => {
     setIsLoadingMore(true);
     props.relay.refetch(
       {
         options: {
-          sortBy: values.sortBy,
-          sortDirection: values.sortDirection,
+          sortBy,
+          sortDirection: sortDirection,
         },
         first: edges.length + 10,
       },
@@ -93,6 +88,10 @@ function Favorites(props: Props) {
     );
   };
 
+  const makeHandleChange = (changeFn) => (e: ChangeEvent<HTMLSelectElement>) => {
+    changeFn(e.target.value);
+  };
+
   return (
     <>
       {isLoading && <FavoritesLoader />}
@@ -100,11 +99,19 @@ function Favorites(props: Props) {
       <>
         <Box display="flex" pt={8}>
           <Box mr={4}>
-            <Select label="Sort by" name="sortBy" options={sortByOptions} />
+            <Select
+              onChange={makeHandleChange(setSortBy)}
+              label="Sort by"
+              name="sortBy"
+              options={sortByOptions}
+              value={sortBy}
+            />
           </Box>
           <Select
             label="Direction"
             name="sortDirection"
+            value={sortDirection}
+            onChange={makeHandleChange(setSortDirection)}
             options={[
               { label: 'Ascending', value: 'ASC' },
               { label: 'Descending', value: 'DESC' },
