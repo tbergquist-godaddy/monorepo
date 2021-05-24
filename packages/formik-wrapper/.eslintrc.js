@@ -2,6 +2,10 @@
 
 module.exports = {
   parser: '@typescript-eslint/parser',
+  extends: [
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
   rules: {
     'flowtype/require-valid-file-annotation': 'off',
     'flowtype/require-readonly-react-props': 'off',
