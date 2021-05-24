@@ -1,6 +1,4 @@
-// @flow strict-local
-
-import { NavLink } from '@tbergq/components';
+import NavLink from './NavLink';
 
 type Props = {
   username: string | undefined;
@@ -14,7 +12,7 @@ function NavbarRight({ username, onClick }: Props) {
         <NavLink onClick={onClick} href="/account">
           Hello {username}
         </NavLink>
-        <NavLink onClick={onClick} href="/api/logout">
+        <NavLink marginLeft="16px" onClick={onClick} href="/api/logout">
           logout
         </NavLink>
       </>

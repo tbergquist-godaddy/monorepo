@@ -24,8 +24,11 @@
     "@adeira/eslint-config": "^6.0.0",
     "@adeira/monorepo-npm-publisher": "^2.0.0",
     "@babel/core": "^7.14.0",
+    "@babel/preset-typescript": "^7.13.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
+    "@types/classnames": "^2.3.1",
+    "@types/react": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "babel-eslint": "^10.1.0",
@@ -46,5 +49,8 @@
     "@tbergq/graphql-persistence": "*",
     "@tbergq/trainingjournal-persistence": "*",
     "@tbergq/tvhelper-persistence": "*"
+  },
+  "resolutions": {
+    "typescript": "^4.2.4"
   }
 }

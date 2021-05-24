@@ -24,19 +24,7 @@ module.exports = {
     'node/file-extension-in-import': OFF,
     'react/react-in-jsx-scope': OFF,
     'flowtype/require-inexact-type': OFF,
-    'import/extensions': [ERROR, 'never', { json: 'always', graphql: 'always' }],
-    'no-restricted-imports': [
-      ERROR,
-      {
-        name: 'next/link',
-        message: "Please use '@tbergq/components' Link instead.",
-      },
-      {
-        name: '@kiwicom/orbit-components',
-        importNames: ['Heading', 'InputField', 'Alert', 'Stack'],
-        message: "Please use '@tbergq/components' package instead.",
-      },
-    ],
+    'import/extensions': [ERROR, 'never', { json: 'always', graphql: 'always', css: 'always' }],
     'import/no-extraneous-dependencies': [
       ERROR,
       {
@@ -45,9 +33,10 @@ module.exports = {
           '**/*.spec.js',
           '**/scripts/*.js',
           '**/__mocks__/*.js',
-          '**/*stories.js',
+          '**/*.stories.{js,ts,tsx}',
           '**/jest.config.js',
           '**/test/*.js',
+          '**/next.config.js',
         ],
       },
     ],

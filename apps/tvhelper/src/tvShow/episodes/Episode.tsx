@@ -134,7 +134,7 @@ const Episode = (props: Props) => {
         <Title>{`${seasonAndNumber} - ${name} - ${date}`}</Title>
         <Description>{summary}</Description>
       </TextWrapper>
-      {isLoggedIn() && <Checkbox tabIndex="-1" checked={watched} />}
+      {isLoggedIn() && <Checkbox tabIndex={-1} checked={watched} />}
     </ListItem>
   );
 };

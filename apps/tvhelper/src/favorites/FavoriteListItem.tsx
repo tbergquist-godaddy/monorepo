@@ -1,11 +1,13 @@
 import { graphql, useFragment } from 'react-relay';
-import { Link } from '@tbergq/components';
+import Link from 'next/link';
 import { format, isValid, parseISO } from 'date-fns';
 import styled from 'styled-components';
 import { FavoriteListItem_favorite$key as Favorite } from '__generated__/FavoriteListItem_favorite.graphql';
 import { ReactNode } from 'react';
 import Image from 'next/image';
 import Box from 'components/Box';
+
+import { classNames } from './FavoritesListItem.css';
 
 type Props = Readonly<{
   favorite: Favorite;
@@ -27,7 +29,7 @@ const getFormattedDate = (date: string | null) => {
   return format(new Date(date), DATE_FORMAT);
 };
 
-const ListItem = styled(Link)(({ theme }) => ({
+const ListItem = styled.a(({ theme }) => ({
   'display': 'block',
   'borderBottom': `1px solid ${theme.gray}`,
   'padding': `${theme.spacing.normal} 0`,
@@ -80,26 +82,33 @@ const FavoriteListItem = (props: Props) => {
   );
   const id = data?.id ?? '';
   const name = data?.name ?? '';
+  const src = data?.image?.medium;
   return (
-    <ListItem href={`/tvShow?id=${id}`}>
-      <Box display="flex" alignItems="center">
-        <Box mr={8}>
-          <StyledImage height={50} width={50} src={data?.image?.medium} alt={name} />
-        </Box>
-        <Box flex="1" display={['block', 'block', 'flex']} mb={-2}>
-          <FavoriteItem label="Name">{name}</FavoriteItem>
-          <FavoriteItem label="Status">{data?.status ?? ''}</FavoriteItem>
-          <Box flex="2" display="flex" justifyContent="flex-start">
-            <FavoriteItem label="Previous episode">
-              {getFormattedDate(sanitizeUnknownDate(data?.previousEpisode))}
-            </FavoriteItem>
-            <FavoriteItem label="Next episode">
-              {getFormattedDate(sanitizeUnknownDate(data?.nextEpisode))}
-            </FavoriteItem>
+    <Link href={`/tvShow?id=${id}`}>
+      <ListItem href={`/tvShow?id=${id}`}>
+        <Box display="flex" alignItems="center">
+          <Box mr={8}>
+            {src ? (
+              <StyledImage height={50} width={50} src={data?.image?.medium} alt={name} />
+            ) : (
+              <div className={classNames.imageFallback} />
+            )}
+          </Box>
+          <Box flex="1" display={['block', 'block', 'flex']} mb={-2}>
+            <FavoriteItem label="Name">{name}</FavoriteItem>
+            <FavoriteItem label="Status">{data?.status ?? ''}</FavoriteItem>
+            <Box flex="2" display="flex" justifyContent="flex-start">
+              <FavoriteItem label="Previous episode">
+                {getFormattedDate(sanitizeUnknownDate(data?.previousEpisode))}
+              </FavoriteItem>
+              <FavoriteItem label="Next episode">
+                {getFormattedDate(sanitizeUnknownDate(data?.nextEpisode))}
+              </FavoriteItem>
+            </Box>
           </Box>
         </Box>
-      </Box>
-    </ListItem>
+      </ListItem>
+    </Link>
   );
 };
 

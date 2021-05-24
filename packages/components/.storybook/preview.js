@@ -1,14 +1,10 @@
-// @flow
+import { withKnobs } from '@storybook/addon-knobs';
+import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 
-import { addDecorator } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
-import defaultTheme from '@tbergq/theme';
-import { RecoilRoot } from 'recoil';
+export const decorators = [withKnobs];
 
-
-addDecorator(storyFn => (
-  <ThemeProvider theme={defaultTheme}>
-    <RecoilRoot>{storyFn()}</RecoilRoot>
-  </ThemeProvider>
-  )
-);
+export const parameters = {
+  viewport: {
+    viewports: MINIMAL_VIEWPORTS,
+  },
+};

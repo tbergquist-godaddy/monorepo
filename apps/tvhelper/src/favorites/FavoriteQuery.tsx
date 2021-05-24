@@ -1,5 +1,4 @@
 import { graphql, useLazyLoadQuery } from 'react-relay';
-import { Formik } from 'formik';
 import { FavoriteQuery as FavoritesType } from '__generated__/FavoriteQuery.graphql';
 import { Container } from '@tbergq/components';
 import Box from 'components/Box';
@@ -14,8 +13,6 @@ export const favoritesQuery = graphql`
   }
 `;
 
-const noop = () => {};
-
 export default function FavoriteQuery() {
   const data = useLazyLoadQuery<FavoritesType>(
     favoritesQuery,
@@ -28,12 +25,7 @@ export default function FavoriteQuery() {
   return (
     <Container>
       <Box pt={8}>
-        <Formik
-          onSubmit={noop}
-          initialValues={{ sortBy: 'PREVIOUS_EPISODE', sortDirection: 'DESC' }}
-        >
-          <Favorites favorites={data?.viewer} />
-        </Formik>
+        <Favorites favorites={data?.viewer} />
       </Box>
     </Container>
   );

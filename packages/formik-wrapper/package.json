@@ -1,0 +1,40 @@
+{
+  "name": "@tbergq/formik-wrapper",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/es/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "@tbergq/components": "0.0.1",
+    "@vanilla-extract/css": "^0.5.1",
+    "formik": "^2.2.8",
+    "yup": "^0.32.9"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.2.9",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-knobs": "^6.2.9",
+    "@storybook/react": "^6.0.26",
+    "@vanilla-extract/babel-plugin": "^0.4.2",
+    "@vanilla-extract/webpack-plugin": "^0.3.1"
+  },
+  "scripts": {
+    "storybook": "start-storybook",
+    "build:base": "babel src --ignore \"src/**/*.test.tsx\" --extensions '.ts,.tsx,.js'",
+    "build:cjs": "yarn build:base --out-dir dist/cjs",
+    "build:esm": "yarn build:base --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
+    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm && yarn generate:types",
+    "lint": "eslint '**/*.{ts,tsx}' --fix --report-unused-disable-directives",
+    "typecheck": "tsc --noEmit",
+    "test": "yarn typecheck",
+    "generate:types": "tsc -d --emitDeclarationOnly --outDir dist/es"
+  }
+}

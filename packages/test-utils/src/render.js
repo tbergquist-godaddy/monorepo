@@ -8,7 +8,7 @@ import {
 } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from '@tbergq/theme';
-import { RecoilRoot } from 'recoil';
+import { ToastProvider } from '@tbergq/components';
 
 function testRenderer(
   ui: Element<any>,
@@ -16,7 +16,7 @@ function testRenderer(
 ): RenderResult<> {
   return render(
     <ThemeProvider theme={defaultTheme}>
-      <RecoilRoot>{ui}</RecoilRoot>
+      <ToastProvider>{ui}</ToastProvider>
     </ThemeProvider>,
     options,
   );

@@ -33,7 +33,7 @@ const TvShowPage = (props: Props) => {
       <Box pt={8}>
         <Heading>{name}</Heading>
         <Box display="flex" py={8} gap="16px" flexDirection={['column', 'column', 'row']}>
-          <Box position="relative">
+          <Box position="relative" minHeight="300px">
             <TvShowImage tvShow={data} />
           </Box>
           <Box flex="1" dangerouslySetInnerHTML={{ __html: data.summary }} />

@@ -1,4 +1,5 @@
-import { Link, CenterForm } from '@tbergq/components';
+import { Container } from '@tbergq/components';
+import Link from 'next/link';
 import Box from 'components/Box';
 import dynamic from 'next/dynamic';
 
@@ -12,16 +13,18 @@ type Props = Readonly<{
 
 export default function Login(props: Props) {
   return (
-    <Box pt={8}>
-      <CenterForm>
-        <LoginForm />
-        <Box pt={8}>
-          {props.loginFailed ? <LoginError /> : null}
-          <Link prefetch={true} href="/signup">
-            Don&lsquo;t have an account? Signup
-          </Link>
+    <Container>
+      <Box pt={8}>
+        <Box mx="auto" width={['80%', '80%', '50%']}>
+          <LoginForm />
+          <Box pt={8}>
+            {props.loginFailed ? <LoginError /> : null}
+            <Link prefetch={true} href="/signup">
+              <a href="/signup">Don&lsquo;t have an account? Signup</a>
+            </Link>
+          </Box>
         </Box>
-      </CenterForm>
-    </Box>
+      </Box>
+    </Container>
   );
 }

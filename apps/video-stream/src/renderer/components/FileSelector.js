@@ -1,11 +1,8 @@
-// @flow strict-local
+// @flow
 
-import type { Node } from 'react';
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type Node } from 'react';
 import { Button, Stack } from '@tbergq/components';
 import path from 'path';
-// $FlowFixMe[untyped-import] $FlowFixMe(>=<150.1>)
 import styled from 'styled-components';
 
 type Props = {
@@ -34,12 +31,7 @@ const Label = ({ children }: { +children: Node }) => {
   return <LabelWrapper hasRendererd={hasRendererd}>{children}</LabelWrapper>;
 };
 
-export default function FileSelector({
-  extensions,
-  name,
-  buttonText,
-  onSelect,
-}: Props): Node {
+export default function FileSelector({ extensions, name, buttonText, onSelect }: Props): Node {
   const [value, setValue] = useState(null);
   const onClick = () => {
     if (value === null) {
@@ -58,10 +50,8 @@ export default function FileSelector({
   };
 
   return (
-    // $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>)
     <Stack flex={true} align="center">
       {value !== null && <Label>{`${name}: ${path.basename(value)}`}</Label>}
-      {/* $FlowFixMe[incompatible-type-arg] $FlowFixMe(>=<150.1>) */}
       <Button color={value === null ? 'primary' : 'danger'} size="small" onClick={onClick}>
         {value === null ? buttonText : 'X'}
       </Button>
