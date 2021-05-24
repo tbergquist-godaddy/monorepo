@@ -12,7 +12,7 @@ function NavbarRight({ username, onClick }: Props) {
         <NavLink onClick={onClick} href="/account">
           Hello {username}
         </NavLink>
-        <NavLink onClick={onClick} href="/api/logout">
+        <NavLink marginLeft="16px" onClick={onClick} href="/api/logout">
           logout
         </NavLink>
       </>
