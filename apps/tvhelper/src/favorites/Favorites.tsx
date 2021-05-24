@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { Heading, Select } from '@tbergq/components';
 import { createRefetchContainer, graphql, RelayRefetchProp } from 'react-relay';
 import { Favorites_favorites as FavoritesType } from '__generated__/Favorites_favorites.graphql';
@@ -35,42 +35,34 @@ const sortByOptions = [
 ];
 
 function Favorites(props: Props) {
-  const [sortBy, setSortBy] = useState('PREVIOUS_EPISODE');
-  const [sortDirection, setSortDirection] = useState('DESC');
+  const [sortState, setSortState] = useState({
+    sortBy: 'PREVIOUS_EPISODE',
+    sortDirection: 'DESC',
+  });
+  const { sortBy, sortDirection } = sortState;
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const isFirstRender = useRef(true);
   const edges = props.favorites?.favorites?.edges ?? [];
   const [isLoading, setIsLoading] = useState(false);
 
-  const refetch = useCallback(
-    (sortBy, sortDirection) => {
-      setIsLoading(true);
-      props.relay.refetch(
-        {
-          options: {
-            sortBy,
-            sortDirection,
-          },
-          first: 10,
+  const refetch = ({ sortBy, sortDirection }) => {
+    setIsLoading(true);
+    props.relay.refetch(
+      {
+        options: {
+          sortBy,
+          sortDirection,
         },
-        null,
-        () => {
-          setIsLoading(false);
-        },
-        { fetchPolicy: 'store-or-network' },
-      );
-    },
-    [props.relay],
-  );
-  useEffect(() => {
-    if (isFirstRender.current === true) {
-      isFirstRender.current = false;
-    } else {
-      refetch(sortBy, sortDirection);
-    }
-  }, [sortBy, sortDirection, refetch]);
+        first: 10,
+      },
+      null,
+      () => {
+        setIsLoading(false);
+      },
+      { fetchPolicy: 'store-or-network' },
+    );
+  };
 
-  const loadMore = () => {
+  const loadMore = (loadAll = false) => {
     setIsLoadingMore(true);
     props.relay.refetch(
       {
@@ -78,7 +70,7 @@ function Favorites(props: Props) {
           sortBy,
           sortDirection: sortDirection,
         },
-        first: edges.length + 10,
+        first: loadAll ? null : edges.length + 10,
       },
       null,
       () => {
@@ -88,8 +80,16 @@ function Favorites(props: Props) {
     );
   };
 
-  const makeHandleChange = (changeFn) => (e: ChangeEvent<HTMLSelectElement>) => {
-    changeFn(e.target.value);
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSortState((state) => {
+      const newState = {
+        ...state,
+        [e.target.name]: e.target.value,
+      };
+
+      refetch(newState);
+      return newState;
+    });
   };
 
   return (
@@ -100,7 +100,7 @@ function Favorites(props: Props) {
         <Box display="flex" pt={8}>
           <Box mr={4}>
             <Select
-              onChange={makeHandleChange(setSortBy)}
+              onChange={handleChange}
               label="Sort by"
               name="sortBy"
               options={sortByOptions}
@@ -111,7 +111,7 @@ function Favorites(props: Props) {
             label="Direction"
             name="sortDirection"
             value={sortDirection}
-            onChange={makeHandleChange(setSortDirection)}
+            onChange={handleChange}
             options={[
               { label: 'Ascending', value: 'ASC' },
               { label: 'Descending', value: 'DESC' },
@@ -124,8 +124,21 @@ function Favorites(props: Props) {
           ))}
         </Box>
         {props.favorites?.favorites?.pageInfo.hasNextPage && (
-          <Box pt={8}>
-            <LoadMore isLoadingMore={isLoadingMore} loadMore={loadMore} />
+          <Box pt={8} display="flex" justifyContent="center" gap="12px">
+            <LoadMore
+              isLoading={isLoadingMore}
+              onClick={() => {
+                loadMore();
+              }}
+            />
+            <LoadMore
+              isLoading={isLoadingMore}
+              onClick={() => {
+                const loadAll = true;
+                loadMore(loadAll);
+              }}
+              text="Load all"
+            />
           </Box>
         )}
       </>
