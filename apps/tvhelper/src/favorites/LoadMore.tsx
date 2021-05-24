@@ -1,18 +1,16 @@
-import Box from 'components/Box';
 import { Button } from '@tbergq/components';
 
 type Props = Readonly<{
-  isLoadingMore: boolean;
-  loadMore: () => void;
+  isLoading: boolean;
+  onClick: () => void;
+  text?: string;
 }>;
 
-const LoadMore = ({ isLoadingMore, loadMore }: Props) => {
+const LoadMore = ({ isLoading, onClick, text = 'Load more' }: Props): JSX.Element => {
   return (
-    <Box justifyContent="center" display="flex">
-      <Button loading={isLoadingMore} onClick={loadMore} color="secondary">
-        Load more
-      </Button>
-    </Box>
+    <Button loading={isLoading} onClick={onClick} color="secondary">
+      {text}
+    </Button>
   );
 };
 

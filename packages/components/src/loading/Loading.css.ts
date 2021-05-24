@@ -30,7 +30,7 @@ export const classNames = {
     }),
     atoms({
       borderRadius: 'round',
-      backgroundColor: 'secondary',
+      backgroundColor: 'white',
       marginRight: 'tiny',
     }),
   ),
