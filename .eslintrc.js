@@ -36,6 +36,7 @@ module.exports = {
           '**/*.stories.{js,ts,tsx}',
           '**/jest.config.js',
           '**/test/*.js',
+          '**/next.config.js',
         ],
       },
     ],

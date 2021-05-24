@@ -16,11 +16,7 @@ function Navbar(props: Props) {
   const username = props.token == null ? null : jwtDecode<Claims>(props.token).username;
   const loggedIn = username != null;
 
-  const headerLeft = loggedIn ? (
-    <NavLink marginLeft="8px" href="/favorites">
-      Favorites
-    </NavLink>
-  ) : null;
+  const headerLeft = loggedIn ? <NavLink href="/favorites">Favorites</NavLink> : null;
 
   return (
     <DSNavbar
