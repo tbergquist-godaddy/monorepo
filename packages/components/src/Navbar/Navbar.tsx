@@ -39,7 +39,13 @@ export default function Navbar(props: Props) {
                 <div className={classNames.headerContainer}>{props.headerRight}</div>
               </Media>
               <Media lessThan="tablet">
-                <button className={classNames.burgerButton} type="button" onClick={toggleExpand}>
+                <button
+                  aria-label="menu"
+                  aria-expanded={expandMenu}
+                  className={classNames.burgerButton}
+                  type="button"
+                  onClick={toggleExpand}
+                >
                   <MdMenu className={classNames.icon} />
                 </button>
               </Media>
