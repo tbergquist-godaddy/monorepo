@@ -2,7 +2,7 @@
 
 module.exports = {
   testMatch: ['**/__tests__/**/?(*.)+(spec|test).{ts,tsx,js}'],
-  timers: 'fake',
+  timers: 'modern',
   globals: {
     __DEV__: true,
   },

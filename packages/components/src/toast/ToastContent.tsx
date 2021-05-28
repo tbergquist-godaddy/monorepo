@@ -31,9 +31,13 @@ export default function ToastContent(props: Props) {
 
   useEffect(() => {
     // This component is now mounted, we are ready to animate
-    requestAnimationFrame(() => {
+    const frame = requestAnimationFrame(() => {
       setVisible(toastId);
     });
+
+    return () => {
+      cancelAnimationFrame(frame);
+    };
   }, [setVisible, toastId]);
   return (
     <div

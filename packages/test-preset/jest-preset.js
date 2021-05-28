@@ -9,4 +9,5 @@ const distPath = path.join(__dirname, 'dist');
 module.exports = {
   ...sharedConfig,
   setupFilesAfterEnv: [(path.join(distPath, 'setupTestingLibrary.js') /*: string */)],
+  testEnvironment: 'jsdom',
 };
