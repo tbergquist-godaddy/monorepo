@@ -19,7 +19,6 @@
   },
   "scripts": {
     "build": "yarn rimraf dist && babel src --out-dir dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\"",
-    "lint": "eslint . --fix --report-unused-disable-directives",
-    "test": "jest"
+    "lint": "eslint . --fix --report-unused-disable-directives"
   }
 }
