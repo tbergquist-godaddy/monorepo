@@ -20,4 +20,3 @@ export { MediaContextProvider, Media, createMediaStyle } from './Media';
 
 // vanilla-extract
 export { theme } from './theme.css';
-export { atoms } from './sprinkles.css';

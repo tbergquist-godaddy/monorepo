@@ -1,15 +1,11 @@
-import { style, composeStyles } from '@vanilla-extract/css';
-import { atoms } from '@tbergq/components';
+import { style } from '@vanilla-extract/css';
+import { theme } from '@tbergq/components';
 
 export const classNames = {
-  imageFallback: composeStyles(
-    atoms({
-      borderRadius: 'round',
-      backgroundColor: 'gray',
-    }),
-    style({
-      height: '50px',
-      width: '50px',
-    }),
-  ),
+  imageFallback: style({
+    backgroundColor: theme.color.gray,
+    borderRadius: '50%',
+    height: '50px',
+    width: '50px',
+  }),
 };
