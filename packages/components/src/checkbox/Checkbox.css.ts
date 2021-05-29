@@ -29,7 +29,7 @@ export const classNames = {
       ':after': {
         content: "''",
         position: 'absolute',
-        height: '7px',
+        height: '8px',
         width: '4px',
         top: '1px',
         left: '4px',
@@ -39,13 +39,17 @@ export const classNames = {
     }),
   ),
   checked: style({
-    'border': `2px solid ${theme.color.primary}`,
-    'backgroundColor': theme.color.primary,
     ':after': {
       border: `solid ${theme.color.white}`,
       borderWidth: '0 2px 2px 0',
       transform: 'rotate(45deg)',
       opacity: 1,
+    },
+    'selectors': {
+      '&&': {
+        border: `2px solid ${theme.color.primary}`,
+        backgroundColor: theme.color.primary,
+      },
     },
   }),
   label: atoms({
