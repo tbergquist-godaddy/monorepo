@@ -6,6 +6,7 @@ import Navbar from 'components/Navbar';
 import GlobalStyle from 'components/GlobalStyle';
 import { EnvironmentProvider } from 'services/relay';
 import useNprogress from 'components/hooks/useNprogress';
+import '@tbergq/components/dist/es/index.css';
 
 export default function MyApp({ Component, pageProps, isLoggedIn }: any) {
   const { records, token } = pageProps;
