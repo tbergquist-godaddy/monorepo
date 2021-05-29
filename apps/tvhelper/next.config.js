@@ -1,5 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
-// @flow
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'TRUE',
@@ -35,10 +35,19 @@ function withVanillaExtract(pluginOptions = {}) {
                   isServer,
                   isDevelopment: dev,
                 },
-                [],
+                ['autoprefixer'],
                 [],
               )
-            : [MiniCssExtractPlugin.loader, 'css-loader'],
+            : [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    plugins: () => [require('autoprefixer')],
+                  },
+                },
+              ],
         });
 
         const plugins = [];
@@ -67,7 +76,7 @@ function withVanillaExtract(pluginOptions = {}) {
   };
 }
 
-module.exports = (withVanillaExtract()(
+module.exports = withVanillaExtract()(
   withBundleAnalyzer({
     future: {
       webpack5: true,
@@ -79,4 +88,4 @@ module.exports = (withVanillaExtract()(
       GRAPHQL_URL,
     },
   }),
-) /*: Object  */);
+);

@@ -18,5 +18,6 @@ module.exports = {
       { 'ts-expect-error': 'allow-with-description', 'ts-ignore': 'allow-with-description' },
     ],
     '@typescript-eslint/no-empty-function': 'off',
+    'adeira/no-invalid-flow-annotations': 'off',
   },
 };
