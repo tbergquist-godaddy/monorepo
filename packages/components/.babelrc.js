@@ -1,12 +1,4 @@
 module.exports = {
-  presets: ['@adeira/babel-preset-adeira', '@babel/preset-typescript'],
-  plugins: [
-    [
-      'babel-plugin-styled-components',
-      {
-        displayName: true,
-      },
-    ],
-    '@vanilla-extract/babel-plugin',
-  ],
+  presets: [['@adeira/babel-preset-adeira'], '@babel/preset-typescript'],
+  plugins: ['@vanilla-extract/babel-plugin'],
 };
