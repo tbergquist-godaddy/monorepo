@@ -1,7 +1,4 @@
-// @flow
-
-module.exports = {
+export default {
   preset: '@tbergq/test-preset',
   rootDir: __dirname,
-  testEnvironment: 'jsdom',
 };

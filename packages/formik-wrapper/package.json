@@ -24,14 +24,12 @@
     "@storybook/addon-knobs": "^6.2.9",
     "@storybook/react": "^6.0.26",
     "@vanilla-extract/babel-plugin": "^1.0.0",
-    "@vanilla-extract/webpack-plugin": "^1.0.0"
+    "@vanilla-extract/webpack-plugin": "^1.0.0",
+    "@tbergq/esbuild-tools": "0.0.1"
   },
   "scripts": {
     "storybook": "start-storybook",
-    "build:base": "babel src --ignore \"src/**/*.test.tsx\" --extensions '.ts,.tsx,.js'",
-    "build:cjs": "yarn build:base --out-dir dist/cjs",
-    "build:esm": "yarn build:base --out-dir dist/es --config-file ./.babelrc.esm.js --no-babelrc",
-    "build": "yarn rimraf dist && yarn build:cjs && yarn build:esm && yarn generate:types",
+    "build": "yarn rimraf dist && node es-build.js && yarn generate:types",
     "lint": "eslint '**/*.{ts,tsx}' --fix --report-unused-disable-directives",
     "typecheck": "tsc --noEmit",
     "test": "yarn typecheck",
