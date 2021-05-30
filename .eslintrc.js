@@ -19,6 +19,9 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'flowtype/require-valid-file-annotation': 'off',
+    'flowtype/require-readonly-react-props': 'off',
+    'flowtype/no-types-missing-file-annotation': 'off',
     'strict': OFF,
     'import/no-unresolved': OFF,
     'node/file-extension-in-import': OFF,
@@ -37,6 +40,7 @@ module.exports = {
           '**/jest.config.js',
           '**/test/*.js',
           '**/next.config.js',
+          '**/es-build.js',
         ],
       },
     ],

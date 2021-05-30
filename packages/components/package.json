@@ -38,9 +38,8 @@
     "@testing-library/user-event": "^13.1.9",
     "@types/shortid": "^0.0.29",
     "@vanilla-extract/babel-plugin": "^1.0.0",
-    "@vanilla-extract/esbuild-plugin": "^1.0.0",
     "@vanilla-extract/webpack-plugin": "^1.0.0",
-    "esbuild": "^0.12.5"
+    "@tbergq/esbuild-tools": "0.0.1"
   },
   "scripts": {
     "storybook": "start-storybook",
