@@ -4078,9 +4078,9 @@
     deep-object-diff "^1.1.0"
 
 "@vanilla-extract/esbuild-plugin@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/esbuild-plugin/-/esbuild-plugin-1.0.0.tgz#aceec8a256eaa13ce946dc89166d29480f65a24a"
-  integrity sha512-6CC/FN4Uy+DHS9u4bEnuBnJ1YuwUN3m37mCVYIR6DUXr2/TQ9mS8CrqYQj0HDmIvRny3SUwlslcwMg9yR5j5WA==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/esbuild-plugin/-/esbuild-plugin-1.1.0.tgz#d877c639622da15b2e0aa69d5ed92b6f860b19cc"
+  integrity sha512-Lz196deft86eqpc74ss2kjpXf13RqTtnIbajqaHrOKQdjCSkA/KKgbQK7IN+NSTp0sCtAe5xFzVSN++0Xn5mhQ==
   dependencies:
     "@vanilla-extract/integration" "^1.0.0"
 
