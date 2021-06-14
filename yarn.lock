@@ -76,14 +76,14 @@
     "@adeira/js" "^1.3.0"
     "@babel/runtime" "^7.12.5"
 
-"@adeira/graphql-bc-checker@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@adeira/graphql-bc-checker/-/graphql-bc-checker-0.3.0.tgz#8a6d56062d19d1fbeac1292499a2a739630d91c7"
-  integrity sha512-myYUDvDeBAEe9+0fc8o4y8XW/u5JUOflVXeunx+mO1tGj1LCkOs9dnTsqfniCmHE3VN+BjtBoIY7Ikm7shiBXw==
+"@adeira/graphql-bc-checker@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@adeira/graphql-bc-checker/-/graphql-bc-checker-0.4.0.tgz#ecbbb213fc5f9ed8d8ae92b234516b09c341ff24"
+  integrity sha512-MAkZy02HB3S1R3jaRpA8iBJHi4T6pB61vlIS4gIU1WlIK+m7cNnbOCydcWIzPET58dj4k0ejG2T4oU331s6dMw==
   dependencies:
-    "@adeira/signed-source" "^1.0.0"
-    "@babel/runtime" "^7.12.5"
-    chalk "^4.1.0"
+    "@adeira/signed-source" "^2.0.0"
+    "@babel/runtime" "^7.14.5"
+    chalk "^4.1.1"
 
 "@adeira/graphql-global-id@^2.0.1":
   version "2.0.1"
@@ -143,12 +143,12 @@
     glob "^7.1.6"
     is-ci "^2.0.0"
 
-"@adeira/signed-source@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@adeira/signed-source/-/signed-source-1.0.0.tgz#005aa489b1fbedaa51604a91ec3d90dca92a1b34"
-  integrity sha512-S3DU0pCr8l0GyWhJwDdkOZrm9fn+xxi3Q/mbpn5lUq1Uo52i7V2tJgcH1IcOskWIFYe0bFdnhT+OCZDW1aQglg==
+"@adeira/signed-source@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/signed-source/-/signed-source-2.0.0.tgz#74b8d0cee6c89b1ef88c88088a59bba5a7aeab48"
+  integrity sha512-NgR1c4iJSBLHY1J7cDIM0dcRV3wktNwHhmFrAC8PpkvcLX10ecMKgdfpNp3elBJ5R93/XA4ra6Qn0eOO/cGh0Q==
   dependencies:
-    "@babel/runtime" "^7.10.3"
+    "@babel/runtime" "^7.12.5"
 
 "@adeira/test-utils@^0.6.0":
   version "0.6.0"
@@ -1385,7 +1385,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.10.5", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.13.17", "@babel/runtime@^7.14.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.5", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.13.17", "@babel/runtime@^7.14.0", "@babel/runtime@^7.14.5", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.5.tgz#665450911c6031af38f81db530f387ec04cd9a98"
   integrity sha512-121rumjddw9c3NCQ55KGkyE1h/nzWhU/owjhw0l4mQrkzz4x9SGS1X8gFLraHwX7td3Yo4QTL+qj0NcIzN87BA==
