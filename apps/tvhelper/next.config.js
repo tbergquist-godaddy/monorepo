@@ -81,5 +81,8 @@ module.exports = withVanillaExtract()(
     env: {
       GRAPHQL_URL,
     },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
   }),
 );
