@@ -21,7 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^3.0.0",
-    "@adeira/eslint-config": "^6.0.0",
+    "@adeira/eslint-config": "^6.1.0",
     "@adeira/monorepo-npm-publisher": "^2.0.0",
     "@babel/core": "^7.14.0",
     "@babel/preset-typescript": "^7.13.0",

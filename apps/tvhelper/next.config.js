@@ -28,9 +28,6 @@ function withVanillaExtract(pluginOptions = {}) {
             ? getGlobalCssLoader(
                 {
                   assetPrefix: options.config.assetPrefix,
-                  future: {
-                    webpack5: true,
-                  },
                   isClient: !isServer,
                   isServer,
                   isDevelopment: dev,
@@ -78,9 +75,6 @@ function withVanillaExtract(pluginOptions = {}) {
 
 module.exports = withVanillaExtract()(
   withBundleAnalyzer({
-    future: {
-      webpack5: true,
-    },
     images: {
       domains: ['static.tvmaze.com'],
     },
