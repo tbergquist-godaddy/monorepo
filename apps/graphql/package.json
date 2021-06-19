@@ -5,7 +5,7 @@
   "main": "index.js",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/graphql-bc-checker": "^0.3.0",
+    "@adeira/graphql-bc-checker": "^0.4.0",
     "@adeira/graphql-global-id": "^2.0.1",
     "@adeira/graphql-relay": "^0.3.0",
     "@adeira/js": "^2.1.0",
@@ -28,7 +28,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "ramda": "^0.27.1",
-    "striptags": "^3.1.1"
+    "striptags": "^3.2.0"
   },
   "scripts": {
     "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn monorepo-babel-node src/index.js",

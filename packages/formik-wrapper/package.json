@@ -23,9 +23,9 @@
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-knobs": "^6.2.9",
     "@storybook/react": "^6.0.26",
+    "@tbergq/esbuild-tools": "0.0.1",
     "@vanilla-extract/babel-plugin": "^1.0.0",
-    "@vanilla-extract/webpack-plugin": "^1.0.0",
-    "@tbergq/esbuild-tools": "0.0.1"
+    "@vanilla-extract/webpack-plugin": "^1.0.2"
   },
   "scripts": {
     "storybook": "start-storybook",
