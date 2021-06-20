@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "declaration": false,
+    "isolatedModules": true,
+    "lib": ["ESNext"],
+    "module": "CommonJS",
+    "rootDir": "src",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "baseUrl": "src",
+    "esModuleInterop": true,
+    "allowUnreachableCode": false,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "@types/**/*"]
+}
