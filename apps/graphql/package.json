@@ -37,11 +37,22 @@
     "test": "yarn test-bc",
     "test-only": "jest -i",
     "test-bc": "yarn monorepo-babel-node scripts/test-bc.js",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.6.0",
     "@tbergq/monorepo-builder": "*",
+    "@types/adeira__js": "^1.2.0",
+    "@types/compression": "^1.7.0",
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.12",
+    "@types/graphql-iso-date": "^3.4.0",
+    "@types/morgan": "^1.9.2",
+    "@types/passport": "^1.0.6",
+    "@types/passport-jwt": "^3.0.5",
+    "@types/ramda": "^0.27.40",
+    "@types/adeira__graphql-global-id": "^1.2.0",
     "mockdate": "^3.0.5",
     "mockingoose": "^2.15.2",
     "mongodb-memory-server": "^6.9.6",
