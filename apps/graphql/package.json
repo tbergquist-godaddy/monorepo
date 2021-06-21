@@ -31,18 +31,18 @@
     "striptags": "^3.2.0"
   },
   "scripts": {
-    "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec yarn monorepo-babel-node src/index.js",
-    "deploy": "yarn monorepo-babel-node scripts/build.js",
-    "build": "echo \"already build\" ",
+    "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec ts-node src/index.ts",
+    "es-build": "node esbuild.js",
     "test": "yarn test-bc",
     "test-only": "jest -i",
-    "test-bc": "yarn monorepo-babel-node scripts/test-bc.js",
+    "test-bc": "yarn ts-node scripts/test-bc.ts",
     "lint": "eslint . --fix",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.6.0",
     "@tbergq/monorepo-builder": "*",
+    "@types/adeira__graphql-global-id": "^1.2.0",
     "@types/adeira__js": "^1.2.0",
     "@types/compression": "^1.7.0",
     "@types/cors": "^2.8.10",
@@ -52,12 +52,14 @@
     "@types/passport": "^1.0.6",
     "@types/passport-jwt": "^3.0.5",
     "@types/ramda": "^0.27.40",
-    "@types/adeira__graphql-global-id": "^1.2.0",
+    "esbuild": "^0.12.9",
     "mockdate": "^3.0.5",
     "mockingoose": "^2.15.2",
+    "mongodb-client-encryption": "^1.2.5",
     "mongodb-memory-server": "^6.9.6",
     "msw": "^0.29.0",
     "nodemon": "^2.0.7",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "vercel": "^23.0.1"
   }
 }
