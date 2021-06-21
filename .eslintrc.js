@@ -41,6 +41,7 @@ module.exports = {
           '**/test/*.js',
           '**/next.config.js',
           '**/es-build.js',
+          '**/esbuild.js',
         ],
       },
     ],

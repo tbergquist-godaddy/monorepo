@@ -1,5 +1,3 @@
-// @flow
-
 import path from 'path';
 import testBC from '@adeira/graphql-bc-checker';
 
