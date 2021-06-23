@@ -1,6 +1,6 @@
 import { graphql } from 'graphql';
 
-import schema from '../Schema';
+import schema from '../application/Schema';
 import createContext from './createGraphqlContext';
 
 export default function executeTestQuery(

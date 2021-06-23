@@ -24,6 +24,7 @@
     "graphql-iso-date": "^3.6.1",
     "json-stable-stringify": "^1.0.1",
     "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.14",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
@@ -33,8 +34,8 @@
   "scripts": {
     "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec ts-node src/index.ts",
     "es-build": "node esbuild.js",
-    "test": "yarn test-bc",
-    "test-only": "jest -i",
+    "test": "yarn test-only && yarn test-bc",
+    "test-only": "jest",
     "test-bc": "yarn ts-node scripts/test-bc.ts",
     "lint": "eslint . --fix",
     "typecheck": "tsc --noEmit"
