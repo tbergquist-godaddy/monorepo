@@ -4170,9 +4170,9 @@
   integrity sha512-xGfKPSJiCf3rnRkV9+mwzJuvs11tnN7+scNEZ20G023gRWDB6IODf8gaB8SxBhH03zJG/Xp2R8HViEDp9BzpvA==
 
 "@vanilla-extract/webpack-plugin@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/webpack-plugin/-/webpack-plugin-1.0.2.tgz#3cfd766855ce3419756aab47ff86568d3329be96"
-  integrity sha512-t8ZhPzzgTGFPEr2pcH/lTQovbSJdmNvDwSvvIUWUbkCo4bTmf4ahu0kjiqjNk/AC1XIZxGI24R3zhMTMeEImhA==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/webpack-plugin/-/webpack-plugin-1.0.3.tgz#765c27a644c5f9a3356c50036a88e8cc004088f1"
+  integrity sha512-lU68fxYa+AtBcWlSzGVR7tinoOBy77iqUdHhU66O8rFp2NAySQBSUDpuMvd96gRmDNP3o5kq7B4tJvnMWzMEuA==
   dependencies:
     "@vanilla-extract/integration" "^1.0.0"
     chalk "^4.1.1"
