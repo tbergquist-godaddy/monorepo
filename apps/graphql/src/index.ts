@@ -4,9 +4,9 @@ import cors from 'cors';
 import compression from 'compression';
 import morgan from 'morgan';
 import passport from 'passport';
-import { tvHelperConnection } from '@tbergq/tvhelper-persistence';
+import { tvHelperConnection as lol } from '@tbergq/tvhelper-persistence';
 import { graphqlConnection } from '@tbergq/graphql-persistence';
-import { invariant } from '@adeira/js';
+import { invariant, nullthrows } from '@adeira/js';
 import { config } from 'dotenv';
 import passportJwt from 'passport-jwt';
 
@@ -14,6 +14,7 @@ import Schema from './application/Schema';
 import createGraphqlContext from './services/createGraphqlContext';
 import { jwtFromRequest, tokenToUser, attachUserToRequest } from './services/auth';
 import getPersistedQuery from './middleware/getPersistedQuery';
+import { tvHelperConnection } from './connection';
 
 config();
 
@@ -48,14 +49,16 @@ app.use('/', attachUserToRequest, getPersistedQuery(), (request: Request, respon
   return createGraphqlServer(request)(request, response);
 });
 
-invariant(TVHELPER_DB_URL != null, 'Expected to have db url for tvhelper, but did not.');
 invariant(GRAPHQL_DB_URL != null, 'Expected to have db url for graphql, but did not.');
 
-tvHelperConnection.openUri(TVHELPER_DB_URL, {
+tvHelperConnection.openUri(nullthrows(TVHELPER_DB_URL), {
   useCreateIndex: true,
   useNewUrlParser: true,
 });
-
+lol.openUri(TVHELPER_DB_URL, {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+});
 graphqlConnection.openUri(GRAPHQL_DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,

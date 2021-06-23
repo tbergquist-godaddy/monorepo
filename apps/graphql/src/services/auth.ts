@@ -1,8 +1,8 @@
 import type { Request, Response } from 'express';
 import 'express';
 import passport from 'passport';
-import { UserRepository } from '@tbergq/tvhelper-persistence';
 
+import { UserService } from '../account';
 type Apps = any;
 
 type JwtPayload = {
@@ -15,19 +15,9 @@ export const jwtFromRequest = (request: Request): void | string => {
   return request.get('Authorization');
 };
 
-const getFindUserFunction = (app: Apps | null | undefined) => {
-  switch (app) {
-    case 'tvhelper':
-      return UserRepository.findUser;
-
-    default:
-      throw new Error('Unkown app type.');
-  }
-};
-
 export const tokenToUser = async (jwtPayload: JwtPayload, done: any) => {
-  const findUserFunction = getFindUserFunction(jwtPayload.app);
-  const user = await findUserFunction(jwtPayload.username);
+  const userService = new UserService();
+  const user = await userService.getByUserName(jwtPayload.username);
 
   if (user != null) {
     done(null, {
