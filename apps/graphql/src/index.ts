@@ -10,7 +10,7 @@ import { invariant } from '@adeira/js';
 import { config } from 'dotenv';
 import passportJwt from 'passport-jwt';
 
-import Schema from './Schema';
+import Schema from './application/Schema';
 import createGraphqlContext from './services/createGraphqlContext';
 import { jwtFromRequest, tokenToUser, attachUserToRequest } from './services/auth';
 import getPersistedQuery from './middleware/getPersistedQuery';
