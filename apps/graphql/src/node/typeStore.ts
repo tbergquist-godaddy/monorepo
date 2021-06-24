@@ -1,4 +1,5 @@
 import type { GraphQLObjectType } from 'graphql';
+
 import type { GraphqlContextType } from '../services/createGraphqlContext';
 
 /**

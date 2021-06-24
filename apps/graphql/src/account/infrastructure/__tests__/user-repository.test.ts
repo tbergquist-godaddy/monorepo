@@ -1,5 +1,6 @@
+import * as crosscutting from 'crosscutting';
+
 import UserRepository from '../user-repository';
-import * as crosscutting from '../../../crosscutting';
 
 const setup = () => {
   const user = {

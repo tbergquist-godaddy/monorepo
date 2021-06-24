@@ -1,13 +1,7 @@
 import { GraphQLString, GraphQLNonNull } from 'graphql';
-import { LoginType, LoginResolver } from '@tbergq/graphql-services';
+import { LoginType } from '@tbergq/graphql-services';
 
-import type { GraphqlContextType } from '../../../services/createGraphqlContext';
 import { loginResolver } from '../../../account';
-
-type Args = {
-  username: string;
-  password: string;
-};
 
 export default {
   type: LoginType,
