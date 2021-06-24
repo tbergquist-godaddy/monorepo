@@ -54,14 +54,17 @@ invariant(GRAPHQL_DB_URL != null, 'Expected to have db url for graphql, but did 
 tvHelperConnection.openUri(nullthrows(TVHELPER_DB_URL), {
   useCreateIndex: true,
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 lol.openUri(TVHELPER_DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 graphqlConnection.openUri(GRAPHQL_DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 if (process.env.NODE_ENV === 'production') {

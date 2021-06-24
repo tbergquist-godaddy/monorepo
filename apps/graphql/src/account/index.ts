@@ -4,3 +4,4 @@ export type { IUserDTO } from './domain/dto/user-dto';
 
 export { default as loginResolver } from './domain/resolvers/login-resolver';
 export { default as changePasswordResolver } from './domain/resolvers/change-password-resolver';
+export { default as createUserResolver } from './domain/resolvers/create-user-resolver';

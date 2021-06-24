@@ -1,7 +1,7 @@
 import path from 'path';
 import testBC from '@adeira/graphql-bc-checker';
 
-import Schema from '../src/Schema';
+import Schema from '../src/application/Schema';
 
 const allowBreakingChanges = process.argv.includes('--allow-bc');
 

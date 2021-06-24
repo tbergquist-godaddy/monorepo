@@ -12,11 +12,13 @@ const setup = () => {
   const findOne = jest.fn();
   const find = jest.fn();
   const updateOne = jest.fn();
+  const create = jest.fn();
 
   const model: any = {
     findOne,
     find,
     updateOne,
+    create,
   };
 
   const repository = new UserRepository(model);
@@ -27,6 +29,7 @@ const setup = () => {
     find,
     user,
     updateOne,
+    create,
   };
 };
 
@@ -106,6 +109,39 @@ describe('saveUser', () => {
 
     expect(await repository.saveUser(user)).toBe(false);
     expect(spy).toHaveBeenCalledWith('Failed to update user', user, error);
+    spy.mockRestore();
+  });
+});
+
+describe('createUser', () => {
+  it('returns the new user', async () => {
+    const { repository, create } = setup();
+    const newUser = {
+      username: 'username',
+      password: 'hashed_password',
+      email: 'lol@lol.com',
+    };
+
+    create.mockResolvedValue({
+      toObject: () => ({ ...newUser, _id: '1' }),
+    });
+
+    expect(await repository.createUser(newUser)).toEqual({ ...newUser, _id: '1' });
+  });
+
+  it('throws the error if creation fails', async () => {
+    const spy = jest.spyOn(crosscutting, 'log').mockImplementation();
+
+    const {
+      repository,
+      create,
+      user: { _id, ...newUser },
+    } = setup();
+    const error = new Error('Failed to create user');
+    create.mockRejectedValue(error);
+
+    await expect(repository.createUser(newUser)).rejects.toEqual(error);
+    expect(spy).toHaveBeenCalledWith('Failed to create user', error);
     spy.mockRestore();
   });
 });

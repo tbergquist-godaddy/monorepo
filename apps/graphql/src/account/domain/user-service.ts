@@ -13,6 +13,7 @@ export interface IUserService {
   getByUserNames: (usernames: Array<string>) => Promise<Array<MaybeUser> | null>;
   verifyPassword: (username: string, password: string) => Promise<boolean>;
   changePassword: (username: string, password: string, newPassword: string) => Promise<boolean>;
+  createUser: (user: Omit<IUser, '_id'>) => Promise<MaybeUser>;
 }
 
 export default class UserService implements IUserService {
@@ -25,6 +26,15 @@ export default class UserService implements IUserService {
   ) {
     this.#userLoader = userLoader;
     this.#repository = repository;
+  }
+
+  async createUser(user: Omit<IUser, '_id'>): Promise<MaybeUser> {
+    try {
+      const newUser = await this.#repository.createUser(user);
+      return this.mapUserToDTO(newUser);
+    } catch {
+      return null;
+    }
   }
 
   async changePassword(username: string, password: string, newPassword: string): Promise<boolean> {
