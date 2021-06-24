@@ -1,4 +1,5 @@
-import { generate } from 'password-hash';
+import hash from 'password-hash';
+import * as crosscutting from 'crosscutting';
 
 import UserService from '../user-service';
 
@@ -11,18 +12,24 @@ const setup = () => {
   };
   const getByUserName = jest.fn();
   const getByUserNames = jest.fn();
+  const saveUser = jest.fn();
 
   const userLoader: any = {
     load: getByUserName,
     loadMany: getByUserNames,
   };
-  const service = new UserService(userLoader);
+  const repository: any = {
+    saveUser,
+  };
+
+  const service = new UserService(userLoader, repository);
 
   return {
     service,
     getByUserName,
     getByUserNames,
     user,
+    saveUser,
   };
 };
 
@@ -70,7 +77,7 @@ describe('verify password', () => {
   it('returns true when password is correct', async () => {
     const { getByUserName, service, user } = setup();
     const password = '123456';
-    user.password = generate(password);
+    user.password = hash.generate(password);
     getByUserName.mockResolvedValue(user);
 
     expect(await service.verifyPassword(user.username, password)).toBe(true);
@@ -79,9 +86,51 @@ describe('verify password', () => {
   it('returns false when password is incorrect', async () => {
     const { getByUserName, service, user } = setup();
     const password = '123456';
-    user.password = generate(password);
+    user.password = hash.generate(password);
     getByUserName.mockResolvedValue(user);
 
     expect(await service.verifyPassword(user.username, 'password')).toBe(false);
+  });
+});
+
+describe('change password', () => {
+  it('returns false if password is wrong', async () => {
+    const spy = jest.spyOn(hash, 'verify').mockImplementation().mockReturnValue(false);
+    const { service, getByUserName, user } = setup();
+    getByUserName.mockResolvedValue(user);
+
+    expect(await service.changePassword(user.username, '213', '123')).toBe(false);
+
+    spy.mockRestore();
+  });
+
+  it('returns false if user is not found', async () => {
+    const spy = jest.spyOn(crosscutting, 'log').mockImplementation(jest.fn());
+    const { service, getByUserName } = setup();
+    const error = new Error('not found');
+    getByUserName.mockRejectedValue(error);
+
+    expect(await service.changePassword('user', '213', '123')).toBe(false);
+    expect(spy).toHaveBeenCalledWith('Failed to change password', error);
+    spy.mockRestore();
+  });
+
+  it('returns true if the password is changed successfully', async () => {
+    const spy = jest.spyOn(hash, 'verify').mockImplementation().mockReturnValue(true);
+    const spy2 = jest
+      .spyOn(hash, 'generate')
+      .mockImplementation()
+      .mockReturnValue('hashed_password');
+    const { service, getByUserName, user, saveUser } = setup();
+    getByUserName.mockResolvedValue(user);
+    saveUser.mockResolvedValue(true);
+
+    expect(await service.changePassword(user.username, '213', '123')).toBe(true);
+    expect(saveUser).toHaveBeenCalledWith({
+      ...user,
+      password: 'hashed_password',
+    });
+    spy.mockRestore();
+    spy2.mockRestore();
   });
 });

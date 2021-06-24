@@ -1,8 +1,8 @@
 import { nullthrows } from '@adeira/js';
 import { config } from 'dotenv';
 import jwt from 'jsonwebtoken';
+import { GraphqlContextType } from 'services/createGraphqlContext';
 
-import { GraphqlContextType } from '../../../services/createGraphqlContext';
 import { IUserDTO } from '../dto/user-dto';
 
 interface Args {
