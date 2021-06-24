@@ -5,6 +5,6 @@ export default {
   type: ViewerType,
   description: 'User context',
   resolve: (_: unknown, __: unknown, { user }: GraphqlContextType): string => {
-    return user?.app ?? 'Unauthorized';
+    return user == null ? 'Unauthorized' : 'tvhelper';
   },
 };

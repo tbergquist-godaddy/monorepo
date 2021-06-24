@@ -11,16 +11,22 @@ const setup = () => {
   };
   const findOne = jest.fn();
   const find = jest.fn();
+  const updateOne = jest.fn();
+
   const model: any = {
     findOne,
     find,
+    updateOne,
   };
+
   const repository = new UserRepository(model);
+
   return {
     repository,
     findOne,
     find,
     user,
+    updateOne,
   };
 };
 
@@ -73,6 +79,33 @@ describe('getByUserNames', () => {
 
     expect(await repository.getByUserNames(['lars', 'lol', 'tore'])).toBeNull();
     expect(spy).toHaveBeenCalledWith('failed to fetch users', ['lars', 'lol', 'tore'], error);
+    spy.mockRestore();
+  });
+});
+
+describe('saveUser', () => {
+  it('returns true when the operation succeeds', async () => {
+    const { repository, updateOne, user } = setup();
+    updateOne.mockResolvedValue({ ok: 1 });
+
+    expect(await repository.saveUser(user)).toBe(true);
+  });
+
+  it('returns false when no records were updated', async () => {
+    const { repository, updateOne, user } = setup();
+    updateOne.mockResolvedValue({ ok: 0 });
+
+    expect(await repository.saveUser(user)).toBe(false);
+  });
+
+  it('returns false when update throws', async () => {
+    const spy = jest.spyOn(crosscutting, 'log').mockImplementation();
+    const { repository, updateOne, user } = setup();
+    const error = new Error('Failed');
+    updateOne.mockRejectedValue(error);
+
+    expect(await repository.saveUser(user)).toBe(false);
+    expect(spy).toHaveBeenCalledWith('Failed to update user', user, error);
     spy.mockRestore();
   });
 });
