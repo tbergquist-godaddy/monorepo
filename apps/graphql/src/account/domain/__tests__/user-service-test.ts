@@ -13,6 +13,7 @@ const setup = () => {
   const getByUserName = jest.fn();
   const getByUserNames = jest.fn();
   const saveUser = jest.fn();
+  const createUser = jest.fn();
 
   const userLoader: any = {
     load: getByUserName,
@@ -20,6 +21,7 @@ const setup = () => {
   };
   const repository: any = {
     saveUser,
+    createUser,
   };
 
   const service = new UserService(userLoader, repository);
@@ -30,6 +32,7 @@ const setup = () => {
     getByUserNames,
     user,
     saveUser,
+    createUser,
   };
 };
 
@@ -132,5 +135,19 @@ describe('change password', () => {
     });
     spy.mockRestore();
     spy2.mockRestore();
+  });
+});
+
+describe('createUser', () => {
+  it('creates a new user', async () => {
+    const { service, createUser, user } = setup();
+    const { _id, ...newUser } = user;
+    createUser.mockResolvedValue(user);
+
+    expect(await service.createUser(newUser)).toEqual({
+      id: '1',
+      email: user.email,
+      username: user.username,
+    });
   });
 });

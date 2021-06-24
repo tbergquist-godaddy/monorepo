@@ -1,13 +1,7 @@
 import { GraphQLString, GraphQLNonNull } from 'graphql';
-import { UserRepository } from '@tbergq/tvhelper-persistence';
+import { createUserResolver } from 'account';
 
 import CreateUserType from '../types/output/CreateUserType';
-
-type Args = {
-  username: string;
-  password: string;
-  email: string;
-};
 
 export default {
   type: CreateUserType,
@@ -22,16 +16,5 @@ export default {
       type: GraphQLNonNull(GraphQLString),
     },
   },
-  resolve: async (
-    _: unknown,
-    { username, password, email }: Args,
-  ): Promise<{ success: boolean }> => {
-    const user = await UserRepository.createUser({
-      username,
-      password,
-      email,
-    });
-
-    return { success: user != null };
-  },
+  resolve: createUserResolver,
 };
