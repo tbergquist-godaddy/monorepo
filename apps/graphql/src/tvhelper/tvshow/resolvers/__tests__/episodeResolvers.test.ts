@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Mockdate from 'mockdate';
 
 import { resolvePreviousEpisode, resolveNextEpisode } from '../episodeResolvers';

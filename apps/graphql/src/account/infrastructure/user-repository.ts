@@ -1,7 +1,7 @@
 import { Model } from 'mongoose';
+import { log } from 'crosscutting';
 
 import UserModel, { IUser } from './entities/user-entity';
-import { log } from '../../crosscutting';
 
 export type MaybeUser = IUser | null | undefined;
 

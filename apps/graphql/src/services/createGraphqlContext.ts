@@ -1,8 +1,8 @@
 import type { Request } from 'express';
-import type { TvHelperDataLoaders } from '../tvhelper/getDataloaders';
-import getTvhelperLoaders from '../tvhelper/getDataloaders';
-import { UserService, IUserService } from '../account';
-import { log } from '../crosscutting';
+import { UserService, IUserService } from 'account';
+import { log } from 'crosscutting';
+
+import getTvhelperLoaders, { TvHelperDataLoaders } from '../tvhelper/getDataloaders';
 
 type LoggedInUser = any;
 

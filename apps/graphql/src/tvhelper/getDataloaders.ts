@@ -1,6 +1,6 @@
 import { FavoritesRepository } from '@tbergq/tvhelper-persistence';
-import type { LoggedInUser } from '@tbergq/graphql-services';
 import Dataloader from 'dataloader';
+
 import SearchTvShowLoader from './search/dataloaders/SearchTvShowLoader';
 import TvDetailLoader from './tvshow/dataloaders/TvDetailLoader';
 import EpisodesLoader from './episode/dataloaders/EpisodesLoader';
@@ -9,7 +9,6 @@ import FavoritesLoader from './tvshow/dataloaders/FavoritesLoader';
 import EpisodeWatchedLoader from './episode/dataloaders/EpisodeWatched';
 import type { TvShow } from './tvshow/TvShow';
 import type { Episode, EpisodeWatched } from './episode/Episode';
-import type { User } from './account/Account';
 
 export type TvHelperDataLoaders = {
   readonly searchTvShow: Dataloader<string, TvShow[]>;

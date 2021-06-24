@@ -1,8 +1,7 @@
 import type { Request, Response } from 'express';
-import 'express';
 import passport from 'passport';
+import { UserService } from 'account';
 
-import { UserService } from '../account';
 type Apps = any;
 
 type JwtPayload = {
