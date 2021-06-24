@@ -28,6 +28,7 @@
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "password-hash": "^1.2.2",
     "ramda": "^0.27.1",
     "striptags": "^3.2.0"
   },
@@ -52,6 +53,7 @@
     "@types/morgan": "^1.9.2",
     "@types/passport": "^1.0.6",
     "@types/passport-jwt": "^3.0.5",
+    "@types/password-hash": "^1.2.20",
     "@types/ramda": "^0.27.40",
     "esbuild": "^0.12.9",
     "mockdate": "^3.0.5",

@@ -2,6 +2,7 @@ import { GraphQLString, GraphQLNonNull } from 'graphql';
 import { LoginType, LoginResolver } from '@tbergq/graphql-services';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
+import { loginResolver } from '../../../account';
 
 type Args = {
   username: string;
@@ -18,13 +19,5 @@ export default {
       type: GraphQLNonNull(GraphQLString),
     },
   },
-  resolve: async (
-    _: unknown,
-    { username, password }: Args,
-    { dataLoader }: GraphqlContextType,
-  ): Promise<{ success: boolean; token: string }> => {
-    const user = await dataLoader.tvhelper.user.load(username);
-
-    return LoginResolver(user, password, 'tvhelper');
-  },
+  resolve: loginResolver,
 };
