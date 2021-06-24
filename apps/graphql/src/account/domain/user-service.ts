@@ -1,21 +1,26 @@
-import UserRepository, { IUserRepository } from '../infrastructure/user-repository';
-import { IUserDTO } from './dto/user-dto';
+import { verify } from 'password-hash';
 
-interface IUserService {
-  getByUserName: (username: string) => Promise<IUserDTO | null>;
+import { IUser } from '../infrastructure/entities/user-entity';
+import { IUserDTO } from './dto/user-dto';
+import makeUserLoader, { UserDataLoader } from './dataloaders/user-loader';
+
+type MaybeUser = IUserDTO | null;
+
+export interface IUserService {
+  getByUserName: (username: string) => Promise<MaybeUser>;
+  getByUserNames: (usernames: Array<string>) => Promise<Array<MaybeUser> | null>;
+  verifyPassword: (username: string, password: string) => Promise<boolean>;
 }
 
 export default class UserService implements IUserService {
-  repository: IUserRepository;
+  userLoader: UserDataLoader;
 
-  constructor(repository: IUserRepository = new UserRepository()) {
-    this.repository = repository;
+  constructor(userLoader: UserDataLoader = makeUserLoader()) {
+    this.userLoader = userLoader;
   }
 
-  async getByUserName(username: string): Promise<IUserDTO | null> {
-    const user = await this.repository.getByUserName(username);
-
-    if (user == null) {
+  mapUserToDTO(user: IUser | null | undefined | Error): MaybeUser {
+    if (user == null || user instanceof Error) {
       return null;
     }
 
@@ -24,5 +29,25 @@ export default class UserService implements IUserService {
       id,
       ...rest,
     };
+  }
+
+  async verifyPassword(username: string, password: string): Promise<boolean> {
+    const user = await this.userLoader.load(username);
+    if (user == null || user instanceof Error) {
+      return false;
+    }
+    return verify(password, user.password);
+  }
+
+  async getByUserNames(usernames: Array<string>): Promise<Array<MaybeUser> | null> {
+    const users = await this.userLoader.loadMany(usernames);
+
+    return users.map(this.mapUserToDTO);
+  }
+
+  async getByUserName(username: string): Promise<MaybeUser> {
+    const user = await this.userLoader.load(username);
+
+    return this.mapUserToDTO(user);
   }
 }
