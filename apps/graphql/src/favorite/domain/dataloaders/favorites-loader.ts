@@ -13,10 +13,10 @@ const fetchFavorites = async (
 
 export type FavoritesDataLoader = Dataloader<string, IFavorite[], string>;
 
-const makeFavoritesLoader = (repository = new FavoriteRepository()): FavoritesDataLoader => {
+const makeIsFavoritesLoader = (repository = new FavoriteRepository()): FavoritesDataLoader => {
   return new Dataloader<string, IFavorite[]>((userIds: ReadonlyArray<string>) =>
     fetchFavorites(userIds, repository),
   );
 };
 
-export default makeFavoritesLoader;
+export default makeIsFavoritesLoader;
