@@ -6,6 +6,7 @@ import UserService from '../user-service';
 const setup = () => {
   const user = {
     _id: '1',
+    id: '1',
     username: 'lol',
     email: 'lol@lol.com',
     password: '123',
@@ -54,8 +55,8 @@ describe('getByUserNames', () => {
   it('returns users', async () => {
     const { getByUserNames, service } = setup();
     const users = [
-      { _id: '1', username: 'user_1', password: 'pw1', email: 'u@1.com' },
-      { _id: '2', username: 'user_2', password: 'pw2', email: 'u@2.com' },
+      { _id: '1', id: '1', username: 'user_1', password: 'pw1', email: 'u@1.com' },
+      { _id: '2', id: '2', username: 'user_2', password: 'pw2', email: 'u@2.com' },
       null,
     ];
     getByUserNames.mockResolvedValue(users);
