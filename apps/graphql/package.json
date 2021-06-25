@@ -35,7 +35,7 @@
   "scripts": {
     "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec ts-node -r tsconfig-paths/register src/index.ts",
     "es-build": "node esbuild.js",
-    "test": "yarn test-only && yarn test-bc",
+    "test": "yarn test-only",
     "test-only": "jest",
     "test-bc": "yarn ts-node scripts/test-bc.ts",
     "lint": "eslint 'src/**/*.ts' --fix --report-unused-disable-directives",
@@ -50,6 +50,7 @@
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.12",
     "@types/graphql-iso-date": "^3.4.0",
+    "@types/json-stable-stringify": "^1.0.32",
     "@types/morgan": "^1.9.2",
     "@types/passport": "^1.0.6",
     "@types/passport-jwt": "^3.0.5",

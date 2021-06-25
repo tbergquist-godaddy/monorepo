@@ -7,6 +7,7 @@ import {
 } from 'graphql';
 import { GraphQLDate } from 'graphql-iso-date';
 import GlobalID from '@adeira/graphql-global-id';
+import { isFavoritesResolver } from 'favorite';
 
 import type { TvShow } from '../../TvShow';
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
@@ -70,19 +71,7 @@ const TvShowEntity: GraphQLObjectType = new GraphQLObjectType({
     },
     isFavorite: {
       type: GraphQLBoolean,
-      resolve: async (
-        { id: serieId }: TvShow,
-        _: unknown,
-        { user, dataLoader }: GraphqlContextType,
-      ) => {
-        const userId = user?.id;
-        if (userId == null) {
-          return null;
-        }
-        const favorites = await dataLoader.tvhelper.favorites.load(userId);
-
-        return favorites.find((favorite) => favorite.serieId === serieId) != null;
-      },
+      resolve: isFavoritesResolver,
     },
     network: {
       type: Network,
