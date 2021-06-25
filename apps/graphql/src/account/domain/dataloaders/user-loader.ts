@@ -13,11 +13,11 @@ const fetchUser = async (
   return users;
 };
 
-const makeUserLoader = (repository = new UserRepository()) => {
+export type UserDataLoader = Dataloader<string, MaybeUser, string>;
+const makeUserLoader = (repository = new UserRepository()): UserDataLoader => {
   return new Dataloader<string, MaybeUser>((usernames: ReadonlyArray<string>) =>
     fetchUser(usernames, repository),
   );
 };
 
-export type UserDataLoader = Dataloader<string, MaybeUser, string>;
 export default makeUserLoader;

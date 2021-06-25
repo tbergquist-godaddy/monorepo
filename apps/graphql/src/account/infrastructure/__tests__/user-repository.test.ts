@@ -1,10 +1,12 @@
 import * as crosscutting from 'crosscutting';
 
+import { IUser } from '../entities/user-entity';
 import UserRepository from '../user-repository';
 
 const setup = () => {
-  const user = {
-    _id: '1',
+  const user: IUser = {
+    _id: '1' as any,
+    id: '1',
     username: 'lol',
     password: '123',
     email: 'lol@lol.com',

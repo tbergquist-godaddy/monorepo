@@ -9,7 +9,7 @@ export interface IUserRepository {
   getByUserName: (username: string) => Promise<MaybeUser>;
   getByUserNames: (usernames: Array<string>) => Promise<Array<MaybeUser> | null>;
   saveUser: (user: IUser) => Promise<boolean>;
-  createUser: (user: Omit<IUser, '_id'>) => Promise<IUser>;
+  createUser: (user: Omit<IUser, '_id' | 'id'>) => Promise<IUser>;
 }
 
 export default class UserRepository implements IUserRepository {
@@ -19,7 +19,7 @@ export default class UserRepository implements IUserRepository {
     this.#model = model;
   }
 
-  async createUser(user: Omit<IUser, '_id'>): Promise<IUser> {
+  async createUser(user: Omit<IUser, '_id' | 'id'>): Promise<IUser> {
     try {
       const newUser = await this.#model.create(user);
       return newUser.toObject();
