@@ -2,6 +2,7 @@ import Dataloader from 'dataloader';
 import stringify from 'json-stable-stringify';
 
 import FavoritesService from '../favorites-service';
+import { IFavoriteRepository } from '../../infrastructure/favorite-repository';
 
 const setup = () => {
   const favoritesFn = jest.fn();
@@ -11,12 +12,20 @@ const setup = () => {
     cacheKeyFn: stringify,
   });
 
-  const service = new FavoritesService(favoritesLoader, isFavoritesLoader);
+  const addFavorite = jest.fn();
+  const repository: IFavoriteRepository = {
+    addFavorite,
+    getFavorites: jest.fn(),
+    isFavorite: jest.fn(),
+  };
+
+  const service = new FavoritesService(favoritesLoader, isFavoritesLoader, repository);
 
   return {
     service,
     favoritesFn,
     isFavoriteFn,
+    addFavorite,
   };
 };
 
@@ -43,5 +52,24 @@ describe('isFavorite', () => {
     isFavoriteFn.mockResolvedValue([false]);
 
     expect(await service.isFavorite('123', 123)).toBe(false);
+  });
+});
+
+describe('addFavorite', () => {
+  it('returns a favorite', async () => {
+    const { service, addFavorite } = setup();
+    const favorite = {
+      _id: '123',
+      userId: '321',
+      serieId: 6,
+    };
+    addFavorite.mockResolvedValue(favorite);
+
+    expect(await service.addFavorite(favorite.userId, favorite.serieId)).toEqual({
+      id: favorite._id,
+      userId: favorite.userId,
+      serieId: favorite.serieId,
+    });
+    expect(addFavorite).toHaveBeenCalledWith(favorite.userId, favorite.serieId);
   });
 });
