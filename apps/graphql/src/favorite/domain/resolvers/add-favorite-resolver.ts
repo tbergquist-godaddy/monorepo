@@ -27,9 +27,9 @@ export default async function addFavoriteResolver(
     dataLoader.tvhelper.tvDetail.load(serieId),
   ]);
 
-  const isSuccess = addResult.status === 'fulfilled';
+  const isSuccess = addResult.status === 'fulfilled' && addResult.value != null;
   return {
-    success: addResult.status === 'fulfilled',
+    success: isSuccess,
     tvShow: tvDetailResult.status === 'fulfilled' && isSuccess ? tvDetailResult.value : null,
   };
 }

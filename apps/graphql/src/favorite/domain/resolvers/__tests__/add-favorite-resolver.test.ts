@@ -67,3 +67,12 @@ it('returns success false if adding favorite failed', async () => {
 
   expect(await resolve()).toEqual({ success: false, tvShow: null });
 });
+
+it('returns success false if add favorite returns null', async () => {
+  const { resolve, fetchTvShow, addFavorite } = setup({ id: '123' });
+  const tvShow = { name: 'lol' };
+  addFavorite.mockResolvedValue(null);
+  fetchTvShow.mockResolvedValue(tvShow);
+
+  expect(await resolve()).toEqual({ success: false, tvShow: null });
+});
