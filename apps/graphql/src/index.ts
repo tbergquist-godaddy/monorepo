@@ -4,7 +4,6 @@ import cors from 'cors';
 import compression from 'compression';
 import morgan from 'morgan';
 import passport from 'passport';
-import { tvHelperConnection as tmpConnection } from '@tbergq/tvhelper-persistence';
 import { graphqlConnection } from '@tbergq/graphql-persistence';
 import { invariant, nullthrows } from '@adeira/js';
 import { config } from 'dotenv';
@@ -56,11 +55,7 @@ tvHelperConnection.openUri(nullthrows(TVHELPER_DB_URL), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-tmpConnection.openUri(TVHELPER_DB_URL, {
-  useCreateIndex: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+
 graphqlConnection.openUri(GRAPHQL_DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,

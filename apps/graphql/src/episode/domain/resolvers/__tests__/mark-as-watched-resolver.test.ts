@@ -35,12 +35,12 @@ it('returns failure if service returns null', async () => {
   const { resolve, addWatchedEpisode } = setup({ id: '1' });
   addWatchedEpisode.mockResolvedValue(null);
   expect(await resolve()).toEqual({ success: false, episode: null });
-  expect(addWatchedEpisode).toHaveBeenCalledWith('1', 6);
+  expect(addWatchedEpisode).toHaveBeenCalledWith(6);
 });
 
 it('returns success if service succeeds', async () => {
   const { resolve, addWatchedEpisode } = setup({ id: '1' });
   addWatchedEpisode.mockResolvedValue({});
   expect(await resolve()).toEqual({ success: true, episode: { id: '6', isWatched: true } });
-  expect(addWatchedEpisode).toHaveBeenCalledWith('1', 6);
+  expect(addWatchedEpisode).toHaveBeenCalledWith(6);
 });
