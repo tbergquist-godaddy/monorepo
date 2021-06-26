@@ -37,7 +37,7 @@ it('returns failure if service fails to add', async () => {
   deleteWatchedEpisode.mockResolvedValue(false);
 
   expect(await resolve()).toEqual({ success: false, episode: null });
-  expect(deleteWatchedEpisode).toHaveBeenCalledWith('1', 6);
+  expect(deleteWatchedEpisode).toHaveBeenCalledWith(6);
 });
 
 it('returns success if all goes well', async () => {
@@ -45,5 +45,5 @@ it('returns success if all goes well', async () => {
   deleteWatchedEpisode.mockResolvedValue(true);
 
   expect(await resolve()).toEqual({ success: true, episode: { id: '6', isWatched: false } });
-  expect(deleteWatchedEpisode).toHaveBeenCalledWith('1', 6);
+  expect(deleteWatchedEpisode).toHaveBeenCalledWith(6);
 });
