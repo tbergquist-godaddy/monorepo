@@ -35,9 +35,9 @@
   "scripts": {
     "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec ts-node -r tsconfig-paths/register src/index.ts",
     "es-build": "node esbuild.js",
-    "test": "yarn test-only",
+    "test": "yarn test-only && yarn test-bc",
     "test-only": "jest",
-    "test-bc": "yarn ts-node scripts/test-bc.ts",
+    "test-bc": "yarn ts-node -r tsconfig-paths/register scripts/test-bc.ts",
     "lint": "eslint 'src/**/*.ts' --fix --report-unused-disable-directives",
     "typecheck": "tsc --noEmit"
   },

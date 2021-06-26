@@ -1,3 +1,4 @@
+import { log } from 'crosscutting';
 import { Model } from 'mongoose';
 
 import FavoriteModel, { IFavorite } from './entities/favorite-entity';
@@ -5,6 +6,7 @@ import FavoriteModel, { IFavorite } from './entities/favorite-entity';
 export interface IFavoriteRepository {
   getFavorites: (userIds: Array<string>) => Promise<Array<IFavorite>>;
   isFavorite: (userId: string, serieId: number) => Promise<boolean>;
+  addFavorite: (userId: string, serieId: number) => Promise<IFavorite | null>;
 }
 
 export default class FavoriteRepository implements IFavoriteRepository {
@@ -12,6 +14,16 @@ export default class FavoriteRepository implements IFavoriteRepository {
 
   constructor(model: Model<IFavorite> = FavoriteModel) {
     this.#model = model;
+  }
+
+  async addFavorite(userId: string, serieId: number): Promise<IFavorite | null> {
+    try {
+      const favorite = await this.#model.create({ userId, serieId });
+      return favorite?.toObject();
+    } catch (e) {
+      log('Failed to add favorite', e);
+      return null;
+    }
   }
 
   isFavorite(userId: string, serieId: number): Promise<boolean> {
