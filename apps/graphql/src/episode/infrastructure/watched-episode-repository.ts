@@ -7,6 +7,7 @@ type MaybeEpisode = IWatchedEpisode | null | undefined;
 
 export interface IWatchedEpisodeRepository {
   addWatchedEpisode: (userId: string, episodeId: number) => Promise<MaybeEpisode>;
+  deleteWatchedEpisode: (userId: string, episodeId: number) => Promise<boolean>;
 }
 
 export default class WatchedEpisodeRepository implements IWatchedEpisodeRepository {
@@ -14,6 +15,17 @@ export default class WatchedEpisodeRepository implements IWatchedEpisodeReposito
 
   constructor(model: Model<IWatchedEpisode> = WatchedEpisode) {
     this.#model = model;
+  }
+
+  async deleteWatchedEpisode(userId: string, episodeId: number): Promise<boolean> {
+    try {
+      const result = await this.#model.deleteOne({ userId, episodeId });
+      const deletedCount = result?.deletedCount ?? 0;
+      return deletedCount > 0;
+    } catch (e) {
+      log('Failed to delete episode', e);
+      return false;
+    }
   }
 
   async addWatchedEpisode(userId: string, episodeId: number): Promise<MaybeEpisode> {
