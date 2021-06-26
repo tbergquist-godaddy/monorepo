@@ -17,6 +17,7 @@ const setup = () => {
     addFavorite,
     getFavorites: jest.fn(),
     isFavorite: jest.fn(),
+    deleteFavorite: jest.fn(),
   };
 
   const service = new FavoritesService(favoritesLoader, isFavoritesLoader, repository);
