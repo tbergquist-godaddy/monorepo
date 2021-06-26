@@ -3,3 +3,4 @@ export type { IWatchedEpisodeService } from './domain/watched-episode-service';
 
 export { default as markAsWatchedResolver } from './domain/resolvers/mark-as-watched-resolver';
 export { default as deleteWatchedResolver } from './domain/resolvers/delete-watched-resolver';
+export { default as isEpisodeWatchedResolver } from './domain/resolvers/is-episode-watched-resolver';

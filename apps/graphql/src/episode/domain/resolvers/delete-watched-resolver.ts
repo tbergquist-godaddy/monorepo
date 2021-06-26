@@ -21,7 +21,7 @@ export default async function deleteWatchedResolver(
   if (userId == null) {
     return failObject;
   }
-  const success = await watchedEpisodeService.deleteWatchedEpisode(userId, parseInt(episodeId, 10));
+  const success = await watchedEpisodeService.deleteWatchedEpisode(parseInt(episodeId, 10));
 
   if (!success) {
     return failObject;

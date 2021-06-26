@@ -21,7 +21,7 @@ export default async function markAsWatchedResolver(
   if (userId == null) {
     return failedObject;
   }
-  const result = await watchedEpisodeService.addWatchedEpisode(userId, parseInt(episodeId, 10));
+  const result = await watchedEpisodeService.addWatchedEpisode(parseInt(episodeId, 10));
 
   if (result == null) {
     return failedObject;

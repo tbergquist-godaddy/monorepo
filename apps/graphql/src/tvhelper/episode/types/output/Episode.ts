@@ -1,10 +1,10 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';
 import { GraphQLDate } from 'graphql-iso-date';
+import { isEpisodeWatchedResolver } from 'episode';
 
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
 import Summary from '../../../common/types/output/Summary';
-import type { GraphqlContextType } from '../../../../services/createGraphqlContext';
 import type { Episode } from '../../Episode';
 
 export default new GraphQLObjectType({
@@ -41,21 +41,7 @@ export default new GraphQLObjectType({
     summary: Summary,
     watched: {
       type: GraphQLBoolean,
-      resolve: async (
-        { id, isWatched }: Episode,
-        _: unknown,
-        { user, dataLoader }: GraphqlContextType,
-      ) => {
-        if (user == null) {
-          return false;
-        }
-        if (isWatched != null) {
-          return isWatched;
-        }
-        const watched = await dataLoader.tvhelper.episodeWatched.load(id);
-
-        return watched != null;
-      },
+      resolve: isEpisodeWatchedResolver,
     },
   },
 });

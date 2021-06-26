@@ -12,6 +12,7 @@ const setup = (user: User = null) => {
   const watchedEpisodeService: IWatchedEpisodeService = {
     deleteWatchedEpisode,
     addWatchedEpisode: jest.fn(),
+    isEpisodeWatched: jest.fn(),
   };
   const context: any = {
     watchedEpisodeService,

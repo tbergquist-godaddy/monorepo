@@ -25,9 +25,10 @@ export default function createContext(request: Request): GraphqlContextType {
     log,
     userService: new UserService(),
     favoriteService: new FavoriteService(),
-    watchedEpisodeService: new WatchedEpisodeService(),
+    // @ts-ignore: It does exist
+    watchedEpisodeService: new WatchedEpisodeService(request.user?.id ?? ''),
     dataLoader: {
-      tvhelper: getTvhelperLoaders(request.user),
+      tvhelper: getTvhelperLoaders(),
     },
   };
 }
