@@ -23,7 +23,7 @@ export default async function addFavoriteResolver(
   }
 
   const [addResult, tvDetailResult] = await Promise.allSettled([
-    favoriteService.addFavorite(userId, serieId),
+    favoriteService.addFavorite(userId, parseInt(serieId, 10)),
     dataLoader.tvhelper.tvDetail.load(serieId),
   ]);
 

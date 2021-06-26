@@ -7,6 +7,7 @@ export interface IFavoriteRepository {
   getFavorites: (userIds: Array<string>) => Promise<Array<IFavorite>>;
   isFavorite: (userId: string, serieId: number) => Promise<boolean>;
   addFavorite: (userId: string, serieId: number) => Promise<IFavorite | null>;
+  deleteFavorite: (userId: string, serieId: number) => Promise<boolean>;
 }
 
 export default class FavoriteRepository implements IFavoriteRepository {
@@ -14,6 +15,25 @@ export default class FavoriteRepository implements IFavoriteRepository {
 
   constructor(model: Model<IFavorite> = FavoriteModel) {
     this.#model = model;
+  }
+
+  async deleteFavorite(userId: string, serieId: number): Promise<boolean> {
+    try {
+      const result = await this.#model.deleteOne({ userId, serieId });
+      if (result == null) {
+        return false;
+      }
+      const getDeletedCount = () => {
+        if (result.deletedCount != null) {
+          return result.deletedCount;
+        }
+        return 0;
+      };
+      return getDeletedCount() > 0;
+    } catch (e) {
+      log('Failed to delete favorite', e);
+      return false;
+    }
   }
 
   async addFavorite(userId: string, serieId: number): Promise<IFavorite | null> {

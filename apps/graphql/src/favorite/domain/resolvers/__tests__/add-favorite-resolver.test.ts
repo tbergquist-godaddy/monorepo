@@ -10,6 +10,7 @@ const setup = (user: User = null) => {
     addFavorite,
     getFavorites: jest.fn(),
     isFavorite: jest.fn(),
+    deleteFavorite: jest.fn(),
   };
 
   const fetchTvShow = jest.fn();

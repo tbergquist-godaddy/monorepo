@@ -8,6 +8,7 @@ export interface IFavoriteService {
   getFavorites: (userId: string) => Promise<Array<IFavoriteDTO>>;
   isFavorite: (userId: string, serieId: number) => Promise<boolean>;
   addFavorite: (userId: string, serieId: number) => Promise<IFavoriteDTO | null>;
+  deleteFavorite: (userId: string, serieId: number) => Promise<boolean>;
 }
 
 export default class FavoriteService implements IFavoriteService {
@@ -23,6 +24,10 @@ export default class FavoriteService implements IFavoriteService {
     this.#favoritesLoader = loader;
     this.#isFavoriteLoader = isFavoritesLoader;
     this.#repository = repository;
+  }
+
+  deleteFavorite(userId: string, serieId: number): Promise<boolean> {
+    return this.#repository.deleteFavorite(userId, serieId);
   }
 
   async addFavorite(userId: string, serieId: number): Promise<IFavoriteDTO | null> {
