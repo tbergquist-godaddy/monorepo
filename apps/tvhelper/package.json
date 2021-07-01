@@ -48,7 +48,7 @@
   "devDependencies": {
     "@tbergq/test-utils": "0.0.1",
     "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.7",
+    "@testing-library/react": "^12.0.0",
     "@types/react-relay": "^11.0.1",
     "@types/relay-runtime": "^11.0.0",
     "@types/styled-components": "^5.1.9",
