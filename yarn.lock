@@ -13054,9 +13054,9 @@ modify-values@^1.0.0:
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
 mongodb-client-encryption@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/mongodb-client-encryption/-/mongodb-client-encryption-1.2.5.tgz#947734ec4223a263a00edec77dccacc24bbf925d"
-  integrity sha512-zvMcPaB22RR3WXWn32gI97zrgwWTaQM6D22A1gruoK4g4BuIPItgFGI7u8UBJbjFqaaXYmYlFZkY+lrXcAsjCg==
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/mongodb-client-encryption/-/mongodb-client-encryption-1.2.6.tgz#388b163651644c9929c955bfaecdd7fec64cb378"
+  integrity sha512-GOO0PKAkbqPy27tRs26PdEu2wypdMLLjEOVUd7obRg7nj9I3f7dYCDWQzgT+HfsEbHnCLq7z4jDcmgUorSAXwA==
   dependencies:
     bindings "^1.5.0"
     bl "^2.2.1"
