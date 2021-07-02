@@ -15,6 +15,6 @@
     "build": "yarn rimraf dist/ && babel src --out-dir dist/ --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\""
   },
   "devDependencies": {
-    "mongodb-memory-server": "^6.9.6"
+    "mongodb-memory-server": "^7.0.0"
   }
 }
