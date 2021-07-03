@@ -18,7 +18,8 @@
     "baseUrl": "src",
     "esModuleInterop": true,
     "allowUnreachableCode": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*", "@types/**/*"]
 }
