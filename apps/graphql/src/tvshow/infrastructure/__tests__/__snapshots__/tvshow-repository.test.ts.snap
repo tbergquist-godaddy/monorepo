@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search fetches tv shows 1`] = `
+Array [
+  Object {
+    "id": 6,
+    "image": Object {
+      "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/189/474423.jpg",
+      "original": "http://static.tvmaze.com/uploads/images/original_untouched/189/474423.jpg",
+    },
+    "name": "The 100",
+    "network": Object {
+      "country": Object {
+        "code": "US",
+        "name": "United States",
+        "timezone": "America/New_York",
+      },
+      "id": 5,
+      "name": "The CW",
+    },
+    "premiered": "2014-03-19",
+    "rating": 7.9,
+    "status": "Running",
+    "summary": "<p>Ninety-seven years ago, nuclear Armageddon decimated planet Earth, destroying civilization. The only survivors were the 400 inhabitants of 12 international space stations that were in orbit at the time. Three generations have been born in space, the survivors now number 4,000, and resources are running out on their dying \\"Ark\\" - the 12 stations now linked together and repurposed to keep the survivors alive. Draconian measures including capital punishment and population control are the order of the day, as the leaders of the Ark take ruthless steps to ensure their future, including secretly exiling a group of 100 juvenile prisoners to the Earth's surface to test whether it's habitable.</p>",
+  },
+  Object {
+    "id": 13652,
+    "image": Object {
+      "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/60/151111.jpg",
+      "original": "http://static.tvmaze.com/uploads/images/original_untouched/60/151111.jpg",
+    },
+    "name": "100% Hotter",
+    "network": Object {
+      "country": Object {
+        "code": "GB",
+        "name": "United Kingdom",
+        "timezone": "Europe/London",
+      },
+      "id": 553,
+      "name": "5STAR",
+    },
+    "premiered": "2016-06-08",
+    "rating": null,
+    "status": "Ended",
+    "summary": "<p>Entertaining makeunder series in which fashion eyesores are stripped of their excessive make-up and outrageous clothes and transformed by fashion stylist Grace Woodward, hair designer Daniel K Palmer and makeup Melissa Sophia.</p>",
+  },
+  Object {
+    "id": 3953,
+    "image": Object {
+      "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/155/388120.jpg",
+      "original": "http://static.tvmaze.com/uploads/images/original_untouched/155/388120.jpg",
+    },
+    "name": "100 Code",
+    "network": null,
+    "premiered": "2015-03-11",
+    "rating": 8.3,
+    "status": "Ended",
+    "summary": "<p>New York, USA. Stockholm, Sweden. Over the course of the last 12 months, young, blonde, blue-eyed women have been turning up dead in a field of Asphodel flowers. Through a special dispensation from the NYPD, Detective Tommy Conley is given permission to observe and advise the Stockholm PD. Upon his arrival in Sweden, he is paired with Mikael Eklund, a by-the-book Swedish cop with an aversion to American grab-and-go culture. Both hate each other, but the two had better straighten out their differences as the killings continue. Jobs aside, both cops are fighting demons from the past. Conley's guilt over his girlfriend Maggie's death continues to haunt him. He is forced to confront his past when he starts dating Charlie, the owner of a local American sports bar. Eklund's need to be a better father to Hanna is what drives him, but with the investigation intensifying it proves more and more difficult – he seems to fall into old patterns again. As the investigation unfolds, Conley and Eklund are led along a path of no return, to a killer behind the prolific murders. But who is he and what is he after?</p>",
+  },
+  Object {
+    "id": 33159,
+    "image": Object {
+      "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/133/334997.jpg",
+      "original": "http://static.tvmaze.com/uploads/images/original_untouched/133/334997.jpg",
+    },
+    "name": "100%",
+    "network": Object {
+      "country": Object {
+        "code": "GB",
+        "name": "United Kingdom",
+        "timezone": "Europe/London",
+      },
+      "id": 135,
+      "name": "Channel 5",
+    },
+    "premiered": "1997-03-31",
+    "rating": null,
+    "status": "Ended",
+    "summary": "<p><b>100% </b>was a general knowledge quiz show. Three contestants were asked one hundred questions with the choice of three answers. The contestant with the most correct answers at the end of the show would win £100 and be asked back to compete on the next show.</p>",
+  },
+  Object {
+    "id": 24082,
+    "image": Object {
+      "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/92/232253.jpg",
+      "original": "http://static.tvmaze.com/uploads/images/original_untouched/92/232253.jpg",
+    },
+    "name": "Celebrity 100% Hotter",
+    "network": Object {
+      "country": Object {
+        "code": "GB",
+        "name": "United Kingdom",
+        "timezone": "Europe/London",
+      },
+      "id": 135,
+      "name": "Channel 5",
+    },
+    "premiered": "2017-01-10",
+    "rating": null,
+    "status": "Running",
+    "summary": "<p>Celebrity take on the entertaining makeunder series.</p>",
+  },
+  Object {
+    "id": 36508,
+    "image": Object {
+      "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/185/463666.jpg",
+      "original": "http://static.tvmaze.com/uploads/images/original_untouched/185/463666.jpg",
+    },
+    "name": "100 év 100 film",
+    "network": Object {
+      "country": Object {
+        "code": "HU",
+        "name": "Hungary",
+        "timezone": "Europe/Budapest",
+      },
+      "id": 1558,
+      "name": "Magyar Televízió",
+    },
+    "premiered": "2001-01-01",
+    "rating": null,
+    "status": "Ended",
+    "summary": null,
+  },
+  Object {
+    "id": 34669,
+    "image": Object {
+      "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/144/361062.jpg",
+      "original": "http://static.tvmaze.com/uploads/images/original_untouched/144/361062.jpg",
+    },
+    "name": "Mob Psycho 100",
+    "network": null,
+    "premiered": "2018-01-12",
+    "rating": null,
+    "status": "Running",
+    "summary": "<p>There's an organization gathering espers for a nefarious purpose. Powerful psychic Mob, however, is just trying to be the protagonist of his own life.</p>",
+  },
+  Object {
+    "id": 26430,
+    "image": Object {
+      "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/104/260176.jpg",
+      "original": "http://static.tvmaze.com/uploads/images/original_untouched/104/260176.jpg",
+    },
+    "name": "100 Days",
+    "network": Object {
+      "country": Object {
+        "code": "GB",
+        "name": "United Kingdom",
+        "timezone": "Europe/London",
+      },
+      "id": 696,
+      "name": "BBC News",
+    },
+    "premiered": "2017-01-23",
+    "rating": null,
+    "status": "Running",
+    "summary": "<p>As President Trump takes office, Katty Kay in Washington and Christian Fraser in London report on the events that are shaping the world.</p>",
+  },
+  Object {
+    "id": 33558,
+    "image": null,
+    "name": "100% Bakvis",
+    "network": Object {
+      "country": Object {
+        "code": "BE",
+        "name": "Belgium",
+        "timezone": "Europe/Brussels",
+      },
+      "id": 973,
+      "name": "Ketnet",
+    },
+    "premiered": null,
+    "rating": null,
+    "status": "Ended",
+    "summary": null,
+  },
+  Object {
+    "id": 1987,
+    "image": Object {
+      "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/11/28018.jpg",
+      "original": "http://static.tvmaze.com/uploads/images/original_untouched/11/28018.jpg",
+    },
+    "name": "100 Questions",
+    "network": Object {
+      "country": Object {
+        "code": "US",
+        "name": "United States",
+        "timezone": "America/New_York",
+      },
+      "id": 1,
+      "name": "NBC",
+    },
+    "premiered": "2010-05-27",
+    "rating": 6.7,
+    "status": "Ended",
+    "summary": "<p>Charlotte Payne is looking for love but she has yet to meet Mr. Right. When she joins an online dating site, Charlotte takes a 100-question compatibility test -- and each one requires her to recount a humorous time in her life.</p>",
+  },
+]
+`;

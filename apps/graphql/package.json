@@ -25,6 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.14",
     "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "password-hash": "^1.2.2",
@@ -32,7 +33,7 @@
     "striptags": "^3.2.0"
   },
   "scripts": {
-    "dev": "yarn run nodemon -w ../../packages/ -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec ts-node -r tsconfig-paths/register src/index.ts",
+    "dev": "NODE_ENV=development yarn run nodemon -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec ts-node -r tsconfig-paths/register src/index.ts",
     "es-build": "node esbuild.js",
     "test": "yarn test-only && yarn test-bc",
     "test-only": "jest",

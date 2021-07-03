@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resolves correctly 1`] = `
+Object {
+  "edges": Array [
+    Object {
+      "cursor": "YXJyYXljb25uZWN0aW9uOjA=",
+      "node": Object {
+        "id": 1,
+        "image": Object {
+          "medium": "mock_medium",
+          "original": "mock_original",
+        },
+        "name": "Game of Thrones",
+        "network": Object {
+          "id": 5,
+          "name": "HBO",
+        },
+        "premiered": "2011-04-17",
+        "rating": 5,
+        "status": "running",
+      },
+    },
+  ],
+  "pageInfo": Object {
+    "endCursor": "YXJyYXljb25uZWN0aW9uOjA=",
+    "hasNextPage": false,
+    "hasPreviousPage": false,
+    "startCursor": "YXJyYXljb25uZWN0aW9uOjA=",
+  },
+}
+`;
