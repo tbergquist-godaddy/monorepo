@@ -1,7 +1,12 @@
 import type { Request } from 'express';
 import { UserService, IUserService } from 'account';
 import { FavoriteService, IFavoriteService } from 'favorite';
-import { WatchedEpisodeService, IWatchedEpisodeService } from 'episode';
+import {
+  WatchedEpisodeService,
+  IWatchedEpisodeService,
+  IEpisodeService,
+  EpisodesService,
+} from 'episode';
 import { log } from 'crosscutting';
 import { TvshowService, ITvshowService } from 'tvshow';
 
@@ -15,6 +20,7 @@ export type GraphqlContextType = {
   readonly favoriteService: IFavoriteService;
   readonly watchedEpisodeService: IWatchedEpisodeService;
   readonly tvshowService: ITvshowService;
+  readonly episodeService: IEpisodeService;
   readonly log: typeof log;
   readonly dataLoader: {
     readonly tvhelper: TvHelperDataLoaders;
@@ -22,6 +28,7 @@ export type GraphqlContextType = {
 };
 
 export default function createContext(request: Request): GraphqlContextType {
+  const episodeService = new EpisodesService();
   return {
     user: request.user,
     log,
@@ -29,7 +36,8 @@ export default function createContext(request: Request): GraphqlContextType {
     favoriteService: new FavoriteService(),
     // @ts-ignore: request.user does exist
     watchedEpisodeService: new WatchedEpisodeService(request.user?.id ?? ''),
-    tvshowService: new TvshowService(),
+    tvshowService: new TvshowService(episodeService),
+    episodeService,
     dataLoader: {
       tvhelper: getTvhelperLoaders(),
     },

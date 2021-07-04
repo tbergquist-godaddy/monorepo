@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "name": "tbergq-graphql",
   "builds": [
     {
       "src": "./index.js",
@@ -16,7 +17,7 @@
     "TRAININGJOURNAL_DB_URL": "@trainingjournal_db_url",
     "TJA_DB_URL": "@tja_db_url"
   },
-  "alias": "tbergq-graphql.now.sh",
+  "alias": "tbergq-graphql.vercel.app",
   "routes": [
     {
       "src": "/(.*)",

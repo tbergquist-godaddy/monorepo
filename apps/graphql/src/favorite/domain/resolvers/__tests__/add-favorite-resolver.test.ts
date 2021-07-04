@@ -1,4 +1,5 @@
 import { toGlobalId } from '@adeira/graphql-global-id';
+import { ITvshowService } from 'tvshow';
 
 import { IFavoriteService } from '../../favorites-service';
 import addFavoriteResolver from '../add-favorite-resolver';
@@ -12,26 +13,25 @@ const setup = (user: User = null) => {
     isFavorite: jest.fn(),
     deleteFavorite: jest.fn(),
   };
-
-  const fetchTvShow = jest.fn();
-
-  const dataLoader: any = {
-    tvhelper: {
-      tvDetail: { load: fetchTvShow },
-    },
+  const getById = jest.fn();
+  const tvshowService: ITvshowService = {
+    getById,
+    getByIds: jest.fn(),
+    search: jest.fn(),
   };
 
   const context: any = {
     user,
     favoriteService,
-    dataLoader,
+    tvshowService,
   };
+
   const args = { serieId: toGlobalId('tvShow', 1) };
   const resolve = () => addFavoriteResolver({}, args, context);
 
   return {
     resolve,
-    fetchTvShow,
+    getById,
     addFavorite,
   };
 };
@@ -43,36 +43,36 @@ it('returns false if you are not logged in', async () => {
 });
 
 it('returns success if all goes well', async () => {
-  const { resolve, fetchTvShow, addFavorite } = setup({ id: '123' });
+  const { resolve, getById, addFavorite } = setup({ id: '123' });
   const tvShow = { name: 'lol' };
   addFavorite.mockResolvedValue({ id: '1', userId: '123', serieId: 123 });
-  fetchTvShow.mockResolvedValue(tvShow);
+  getById.mockResolvedValue(tvShow);
 
   expect(await resolve()).toEqual({ success: true, tvShow });
 });
 
 it('returns success even if fetching tv detail fails', async () => {
-  const { resolve, fetchTvShow, addFavorite } = setup({ id: '123' });
+  const { resolve, getById, addFavorite } = setup({ id: '123' });
   addFavorite.mockResolvedValue({ id: '1', userId: '123', serieId: 123 });
-  fetchTvShow.mockRejectedValue(new Error('Failed to fetch'));
+  getById.mockRejectedValue(new Error('Failed to fetch'));
 
   expect(await resolve()).toEqual({ success: true, tvShow: null });
 });
 
 it('returns success false if adding favorite failed', async () => {
-  const { resolve, fetchTvShow, addFavorite } = setup({ id: '123' });
+  const { resolve, getById, addFavorite } = setup({ id: '123' });
   const tvShow = { name: 'lol' };
   addFavorite.mockRejectedValue(new Error('Duplicate key'));
-  fetchTvShow.mockResolvedValue(tvShow);
+  getById.mockResolvedValue(tvShow);
 
   expect(await resolve()).toEqual({ success: false, tvShow: null });
 });
 
 it('returns success false if add favorite returns null', async () => {
-  const { resolve, fetchTvShow, addFavorite } = setup({ id: '123' });
+  const { resolve, getById, addFavorite } = setup({ id: '123' });
   const tvShow = { name: 'lol' };
   addFavorite.mockResolvedValue(null);
-  fetchTvShow.mockResolvedValue(tvShow);
+  getById.mockResolvedValue(tvShow);
 
   expect(await resolve()).toEqual({ success: false, tvShow: null });
 });

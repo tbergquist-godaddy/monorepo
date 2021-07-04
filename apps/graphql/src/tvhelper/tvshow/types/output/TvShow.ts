@@ -8,19 +8,18 @@ import {
 import { GraphQLDate } from 'graphql-iso-date';
 import GlobalID from '@adeira/graphql-global-id';
 import { isFavoritesResolver } from 'favorite';
+import { ITvshowDTO } from 'tvshow';
 
-import type { TvShow } from '../../TvShow';
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
 import Summary from '../../../common/types/output/Summary';
 import Cast from '../../../common/types/output/Cast';
 import Episode from '../../../episode/types/output/Episode';
-import { resolvePreviousEpisode, resolveNextEpisode } from '../../resolvers/episodeResolvers';
 import type { GraphqlContextType } from '../../../../services/createGraphqlContext';
 import Network from './Network';
 import { nodeInterface } from '../../../../node/node';
 import { register } from '../../../../node/typeStore';
 
-const TvShowEntity: GraphQLObjectType = new GraphQLObjectType({
+const TvShowEntity: GraphQLObjectType = new GraphQLObjectType<ITvshowDTO, GraphqlContextType>({
   name: 'TvShow',
   description: 'Information about a tv show',
   interfaces: [nodeInterface],
@@ -40,34 +39,34 @@ const TvShowEntity: GraphQLObjectType = new GraphQLObjectType({
     },
     rating: {
       type: GraphQLFloat,
-      resolve: ({ rating }: TvShow) => rating.average,
+      resolve: ({ rating }: ITvshowDTO) => rating,
     },
-    // @ts-ignore: Ok
+    // @ts-ignore: I don't understand this error
     summary: Summary,
     cast: {
       type: GraphQLList(Cast),
-      resolve: ({ _embedded }: TvShow) => _embedded?.cast,
+      resolve: () => {
+        // TODO: Add resolver, unused at the moment AFAIK
+        return null;
+      },
     },
     episodes: {
       type: GraphQLList(Episode),
-      resolve: async ({ id, _embedded }: TvShow, _: unknown, { dataLoader }) => {
-        const episodes =
-          _embedded?.episodes ?? (await dataLoader.tvhelper.episodes.load(id.toString()));
+      resolve: async ({ id }: ITvshowDTO, _: unknown, { episodeService }) => {
+        const episodes = await episodeService.getByTvshowId(id);
 
         return episodes;
       },
     },
     previousEpisode: {
       type: GraphQLDate,
-      resolve: ({ _embedded, id }: TvShow, _: unknown, { dataLoader }: GraphqlContextType) =>
-        // @ts-ignore: What, this is the same type
-        _embedded?.previousepisode?.airdate ?? resolvePreviousEpisode(dataLoader, id),
+      resolve: ({ previousEpisode }: ITvshowDTO) => {
+        return previousEpisode;
+      },
     },
     nextEpisode: {
       type: GraphQLDate,
-      resolve: ({ _embedded, id }: TvShow, _: unknown, { dataLoader }: GraphqlContextType) =>
-        // @ts-ignore: What, this is the same type
-        _embedded?.nextepisode?.airdate ?? resolveNextEpisode(dataLoader, id),
+      resolve: ({ nextEpisode }: ITvshowDTO) => nextEpisode,
     },
     isFavorite: {
       type: GraphQLBoolean,
@@ -79,8 +78,8 @@ const TvShowEntity: GraphQLObjectType = new GraphQLObjectType({
   },
 });
 
-register('TvShow', TvShowEntity, (id, context) => {
-  return context.dataLoader.tvhelper.tvDetail.load(id);
+register<ITvshowDTO | null>('TvShow', TvShowEntity, (id, context) => {
+  return context.tvshowService.getById(parseInt(id, 10));
 });
 
 export default TvShowEntity;

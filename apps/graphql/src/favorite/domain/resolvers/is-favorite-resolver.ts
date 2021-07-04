@@ -1,9 +1,8 @@
 import { GraphqlContextType } from 'services/createGraphqlContext';
-
-import { TvShow } from '../../../tvhelper/tvshow/TvShow';
+import { ITvshowDTO } from 'tvshow';
 
 export default function isFavoriteLoader(
-  { id: serieId }: TvShow,
+  { id: serieId }: ITvshowDTO,
   _: unknown,
   { user, favoriteService }: GraphqlContextType,
 ): Promise<boolean> | null {

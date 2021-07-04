@@ -5,7 +5,7 @@ import compression from 'compression';
 import morgan from 'morgan';
 import passport from 'passport';
 import { graphqlConnection } from '@tbergq/graphql-persistence';
-import { invariant, nullthrows } from '@adeira/js';
+import { invariant } from '@adeira/js';
 import { config } from 'dotenv';
 import passportJwt from 'passport-jwt';
 
@@ -49,8 +49,9 @@ app.use('/', attachUserToRequest, getPersistedQuery(), (request: Request, respon
 });
 
 invariant(GRAPHQL_DB_URL != null, 'Expected to have db url for graphql, but did not.');
+invariant(TVHELPER_DB_URL != null, 'Expected to have db url for graphql, but did not.');
 
-tvHelperConnection.openUri(nullthrows(TVHELPER_DB_URL), {
+tvHelperConnection.openUri(TVHELPER_DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -6,10 +6,7 @@ import type { GraphqlContextType } from '../services/createGraphqlContext';
  * The sole purpose of the file is avoiding circular dependencies.
  * See https://github.com/graphql/graphql-relay-js/issues/113
  */
-type LoaderFunction = (
-  id: string,
-  context: GraphqlContextType,
-) => Promise<Readonly<Record<string, unknown>>>;
+type LoaderFunction<T = any> = (id: string, context: GraphqlContextType) => Promise<T>;
 type Type = {
   type: GraphQLObjectType;
   loader: LoaderFunction;
@@ -20,7 +17,11 @@ type Types = {
 const types: Types = {
   TvShow: null,
 };
-export function register(type: keyof Types, value: GraphQLObjectType, loader: LoaderFunction) {
+export function register<T>(
+  type: keyof Types,
+  value: GraphQLObjectType,
+  loader: LoaderFunction<T>,
+): void {
   types[type] = {
     type: value,
     loader,
