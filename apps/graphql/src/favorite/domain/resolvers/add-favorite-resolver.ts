@@ -1,19 +1,18 @@
 import { fromGlobalId } from '@adeira/graphql-global-id';
 import { GraphqlContextType } from 'services/createGraphqlContext';
-
-import { TvShow } from '../../../tvhelper/tvshow/TvShow';
+import { ITvshowDTO } from 'tvshow/domain/dto/tvshow-dto';
 
 type Args = {
   serieId: string;
 };
 type Resolver = {
   success: boolean;
-  tvShow: TvShow | null;
+  tvShow: ITvshowDTO | null;
 };
 export default async function addFavoriteResolver(
   _: unknown,
   args: Args,
-  { favoriteService, dataLoader, user }: GraphqlContextType,
+  { favoriteService, tvshowService, user }: GraphqlContextType,
 ): Promise<Resolver> {
   const serieId = fromGlobalId(args.serieId);
   const userId = user?.id;
@@ -24,7 +23,7 @@ export default async function addFavoriteResolver(
 
   const [addResult, tvDetailResult] = await Promise.allSettled([
     favoriteService.addFavorite(userId, parseInt(serieId, 10)),
-    dataLoader.tvhelper.tvDetail.load(serieId),
+    tvshowService.getById(parseInt(serieId, 10)),
   ]);
 
   const isSuccess = addResult.status === 'fulfilled' && addResult.value != null;

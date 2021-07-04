@@ -1,4 +1,4 @@
-interface TvShowServer {
+export interface TvShowServer {
   id: number;
   url: string;
   name: string;

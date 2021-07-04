@@ -1,9 +1,6 @@
 import { GraphQLString, GraphQLBoolean } from 'graphql';
 import striptags from 'striptags';
-
-type Ancestor = {
-  summary: string;
-};
+import { ITvshowDTO } from 'tvshow';
 
 export default {
   type: GraphQLString,
@@ -13,7 +10,7 @@ export default {
       defaultValue: true,
     },
   },
-  resolve: ({ summary }: Ancestor, args: { stripTags: boolean }): any | string => {
+  resolve: ({ summary }: ITvshowDTO, args: { stripTags: boolean }): string => {
     if (args.stripTags) {
       return striptags(summary);
     }

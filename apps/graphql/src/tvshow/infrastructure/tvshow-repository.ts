@@ -1,9 +1,10 @@
 import { log, fetch } from 'crosscutting';
 
-import { ITvshow, SearchTvShowResponse } from './entities/tvshow';
+import { ITvshow, SearchTvShowResponse, TvShowServer } from './entities/tvshow';
 
 export interface ITvshowRepository {
   search: (query: string) => Promise<ITvshow[]>;
+  getById: (id: number) => Promise<ITvshow | null>;
 }
 
 export default class TvshowRepository implements ITvshowRepository {
@@ -13,6 +14,27 @@ export default class TvshowRepository implements ITvshowRepository {
   constructor(fetchFn: typeof fetch = fetch, baseUrl = 'http://api.tvmaze.com') {
     this.#fetchFn = fetchFn;
     this.#baseUrl = baseUrl;
+  }
+
+  async getById(id: number): Promise<ITvshow | null> {
+    try {
+      const response = await this.#fetchFn(`${this.#baseUrl}/shows/${id}`);
+      const serverData: TvShowServer = await response.json();
+
+      return {
+        id: serverData.id,
+        name: serverData.name,
+        image: serverData.image,
+        network: serverData.network,
+        premiered: serverData.premiered,
+        summary: serverData.summary,
+        status: serverData.status,
+        rating: serverData.rating.average,
+      };
+    } catch (error) {
+      log('Failed to fetch tvshow', { id }, error);
+      return null;
+    }
   }
 
   async search(query: string): Promise<ITvshow[]> {

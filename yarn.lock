@@ -3599,10 +3599,10 @@
   dependencies:
     graphql "^15.4.0"
 
-"@types/adeira__js@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@types/adeira__js/-/adeira__js-1.2.0.tgz#bb9d597768929532e71c5a0fcd89c4e962fa1159"
-  integrity sha512-TO/r3OEot2FamG0Vs+e69DtIuYedTYw1/lOJ5lNrg6B8+HVHaLAG0JaHVPB68qzoYmPhNP28jncERrogeKig/Q==
+"@types/adeira__js@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/adeira__js/-/adeira__js-2.1.0.tgz#69634ec9ccf1e681ab7f7e6ab77e61c569d57077"
+  integrity sha512-iFFVKmh/stIMgNz2Ey9bR7v0dObuKFbxITrnBijYbMfVyTG3aIXf8itqudbDnKkGwAXt0Qc3k+oLeUmT8MJGBg==
 
 "@types/aria-query@^4.2.0":
   version "4.2.1"

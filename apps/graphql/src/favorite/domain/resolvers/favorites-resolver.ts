@@ -23,12 +23,12 @@ type ConnectionType = any; // TODO
 export default async function favoritesResolver(
   _: unknown,
   args: Args,
-  { user, dataLoader, favoriteService }: GraphqlContextType,
+  { user, tvshowService, favoriteService }: GraphqlContextType,
 ): Promise<ConnectionType> {
   const userId = user?.id ?? '';
   const savedFavorites = await favoriteService.getFavorites(userId);
-  const serieIds = savedFavorites.map((item) => item.serieId.toString());
-  const favorites = await dataLoader.tvhelper.tvDetail.loadMany(serieIds);
+  const serieIds = savedFavorites.map((item) => item.serieId);
+  const favorites = await tvshowService.getByIds(serieIds);
 
   const sortBy =
     args.options.sortDirection === 'ascending'

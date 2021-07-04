@@ -12,8 +12,8 @@ const SortBy = new GraphQLEnumType({
   name: 'SortBy',
   values: {
     NAME: { value: 'name' },
-    NEXT_EPISODE: { value: '_embedded.nextepisode.airdate' },
-    PREVIOUS_EPISODE: { value: '_embedded.previousepisode.airdate' },
+    NEXT_EPISODE: { value: 'nextEpisode' },
+    PREVIOUS_EPISODE: { value: 'previousEpisode' },
     STATUS: { value: 'status' },
   },
 });

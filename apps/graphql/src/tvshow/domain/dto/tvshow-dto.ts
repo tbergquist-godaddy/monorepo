@@ -11,8 +11,8 @@ export interface ITvshowDTO {
   summary: string;
   cast?: null;
   episodes?: null;
-  previousEpisode?: null;
-  nextEpisode?: null;
+  previousEpisode?: Date | null;
+  nextEpisode?: Date | null;
   network: {
     id: number;
     name: string;
