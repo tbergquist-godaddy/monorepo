@@ -1,4 +1,4 @@
-name: Deploy grahpql
+name: Deploy graphql
 
 # on: [push]
 on:
@@ -8,7 +8,6 @@ on:
       - 'apps/graphql/**'
       - 'packages/graphql-persistence/**'
       - 'packages/graphql-services/**'
-      - 'packages/tvhelper-persistence/**'
 
 jobs:
   build:
