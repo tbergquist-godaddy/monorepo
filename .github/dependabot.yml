@@ -5,6 +5,9 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    labels:
+      - 'dependencies'
+      - 'automerge'
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'github-actions'
