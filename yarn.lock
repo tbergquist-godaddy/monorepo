@@ -3586,10 +3586,10 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^8.0.0"
 
-"@testing-library/user-event@13.2.0", "@testing-library/user-event@^13.1.9":
-  version "13.2.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-13.2.0.tgz#8d63aaae1f5ec1d683d3afe57acd5f175f819f0f"
-  integrity sha512-wDEuKkkChNfA02Fpd9A39AXmdmxkvRcHyt/cK3WWiPAQTyMhcKFNM51aQgpEDJUcdj7uPsOaDEESoW/L1b2kZA==
+"@testing-library/user-event@13.2.1", "@testing-library/user-event@^13.1.9":
+  version "13.2.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-13.2.1.tgz#7a71a39e50b4a733afbe2916fa2b99966e941f98"
+  integrity sha512-cczlgVl+krjOb3j1625usarNEibI0IFRJrSWX9UsJ1HKYFgCQv9Nb7QAipUDXl3Xdz8NDTsiS78eAkPSxlzTlw==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
@@ -7324,9 +7324,9 @@ dataloader@^2.0.0:
   integrity sha512-YzhyDAwA4TaQIhM5go+vCLmU0UikghC/t9DTQYZR2M/UvZ1MdOhPezSDZcjj9uqQJOMqjLcpWtyW2iNINdlatQ==
 
 date-fns@^2.16.1, date-fns@^2.22.1:
-  version "2.22.1"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.22.1.tgz#1e5af959831ebb1d82992bf67b765052d8f0efc4"
-  integrity sha512-yUFPQjrxEmIsMqlHhAhmxkuH769baF21Kk+nZwZGyrMoyLA+LugaQtC0+Tqf9CBUUULWwUJt6Q5ySI3LJDDCGg==
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.23.0.tgz#4e886c941659af0cf7b30fafdd1eaa37e88788a9"
+  integrity sha512-5ycpauovVyAk0kXNZz6ZoB9AYMZB4DObse7P3BPWmyEjXNORTI8EJ6X0uaSAq4sCHzM1uajzrkr6HnsLQpxGXA==
 
 dateformat@^3.0.0:
   version "3.0.3"
@@ -8202,9 +8202,9 @@ esbuild@^0.11.16:
   integrity sha512-iaiZZ9vUF5wJV8ob1tl+5aJTrwDczlvGP0JoMmnpC2B0ppiMCu8n8gmy5ZTGl5bcG081XBVn+U+jP+mPFm5T5Q==
 
 esbuild@^0.12.9:
-  version "0.12.15"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.15.tgz#9d99cf39aeb2188265c5983e983e236829f08af0"
-  integrity sha512-72V4JNd2+48eOVCXx49xoSWHgC3/cCy96e7mbXKY+WOWghN00cCmlGnwVLRhRHorvv0dgCyuMYBZlM2xDM5OQw==
+  version "0.12.16"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.16.tgz#c397144ce13b445a6ead9c1f747da11f79ec5e67"
+  integrity sha512-XqI9cXP2bmQ6MREIqrYBb13KfYFSERsV1+e5jSVWps8dNlLZK+hln7d0mznzDIpfISsg/AgQW0DW3kSInXWhrg==
 
 escalade@^3.0.2, escalade@^3.1.1:
   version "3.1.1"
