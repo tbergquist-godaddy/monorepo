@@ -4501,9 +4501,9 @@
   integrity sha512-ABrFJGSmF7a1M+eDTsIeAErPhIeRyBY3ypyLQPc4bUVEK1mvF7F2gx4fTP81pm12bkS0GhjSJtM854lcPWhB+w==
 
 "@vanilla-extract/sprinkles@^0.4.2":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-0.4.3.tgz#dfc6f25b1311aba64a482f11009c146887a4191a"
-  integrity sha512-IiqHQLemhdTacOsNBB4o3iKwGIBD/jwODeBAbdwxiledpKupX59LR6RXFGSskr+5RYbK8Q1o/d4Qn3m88lij/w==
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-0.4.4.tgz#067364a997f71f152286a160f45babd06afbc24e"
+  integrity sha512-uz77Up4oFXYM2jXg3F+Oqz4dnvOTBan28T8mVK1u0i3DTJHV9MuStknP89gcsPMa1irOsgxv06P7aVEg0QR5xQ==
 
 "@vanilla-extract/webpack-plugin@^1.0.2":
   version "1.0.3"
