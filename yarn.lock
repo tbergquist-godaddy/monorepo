@@ -4294,21 +4294,7 @@
     "@babel/template" "^7.12.13"
     "@vanilla-extract/integration" "^1.0.0"
 
-"@vanilla-extract/css@^1.0.0":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.1.2.tgz#ce00e32a3cdb4adf19e3193c08652a95fc8a7b12"
-  integrity sha512-ZroX0o25EiRbcgsK/ul9AEq+zlZpyKRI/yrxlTzEnRtqjBuUsFP1U34rUApK13qzHKGjEtGAI17H73bkf6NACQ==
-  dependencies:
-    "@emotion/hash" "^0.8.0"
-    "@vanilla-extract/private" "^1.0.1"
-    chalk "^4.1.1"
-    css-what "^5.0.1"
-    cssesc "^3.0.0"
-    csstype "^3.0.7"
-    dedent "^0.7.0"
-    deep-object-diff "^1.1.0"
-
-"@vanilla-extract/css@^1.2.0":
+"@vanilla-extract/css@^1.0.0", "@vanilla-extract/css@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.2.0.tgz#a2bfb56e165dc187cc149731b04e85b0193b84e2"
   integrity sha512-Ord6Ubt+89Iov4wuVp+Ox3pCU7ydv4xDBZJJjmqaseVDJ7SgMSuen4d3vx8slHq0zBqAiX6akYZv5NUern/H4g==
