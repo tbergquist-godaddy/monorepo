@@ -4330,9 +4330,9 @@
     "@vanilla-extract/integration" "^1.0.0"
 
 "@vanilla-extract/css@^1.0.0", "@vanilla-extract/css@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.2.0.tgz#a2bfb56e165dc187cc149731b04e85b0193b84e2"
-  integrity sha512-Ord6Ubt+89Iov4wuVp+Ox3pCU7ydv4xDBZJJjmqaseVDJ7SgMSuen4d3vx8slHq0zBqAiX6akYZv5NUern/H4g==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.2.1.tgz#7928f964a13094b2c23622b935d96310cd8dc388"
+  integrity sha512-YANTzzYQCplZRwoZvUa+2iSE2McS/ug8EqOdejeLssRlsQAv213XU1xB8OjZbtRAwXVbl3mWbvbvBZEfNtctBw==
   dependencies:
     "@emotion/hash" "^0.8.0"
     "@vanilla-extract/private" "^1.0.1"
