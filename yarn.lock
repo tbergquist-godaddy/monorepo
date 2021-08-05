@@ -263,15 +263,6 @@
     jsesc "^2.5.1"
     source-map "^0.5.0"
 
-"@babel/generator@^7.15.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.15.0.tgz#a7d0c172e0d814974bad5aa77ace543b97917f15"
-  integrity sha512-eKl4XdMrbpYvuB505KTta4AV9g+wWzmVBW69tX0H2NwKVKd2YJbKgyK6M8j/rgLbmHOYJn6rUklV677nOyJrEQ==
-  dependencies:
-    "@babel/types" "^7.15.0"
-    jsesc "^2.5.1"
-    source-map "^0.5.0"
-
 "@babel/helper-annotate-as-pure@^7.0.0", "@babel/helper-annotate-as-pure@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.14.5.tgz#7bf478ec3b71726d56a8ca5775b046fc29879e61"
@@ -506,11 +497,6 @@
   resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.14.9.tgz#6654d171b2024f6d8ee151bf2509699919131d48"
   integrity sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g==
 
-"@babel/helper-validator-identifier@^7.14.9":
-  version "7.14.9"
-  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.14.9.tgz#6654d171b2024f6d8ee151bf2509699919131d48"
-  integrity sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g==
-
 "@babel/helper-validator-option@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-validator-option/-/helper-validator-option-7.14.5.tgz#6e72a1fff18d5dfcb878e1e62f1a021c4b72d5a3"
@@ -545,11 +531,6 @@
     js-tokens "^4.0.0"
 
 "@babel/parser@^7.0.0", "@babel/parser@^7.1.0", "@babel/parser@^7.12.11", "@babel/parser@^7.12.7", "@babel/parser@^7.14.5", "@babel/parser@^7.15.0", "@babel/parser@^7.7.0", "@babel/parser@^7.7.2":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.15.0.tgz#b6d6e29058ca369127b0eeca2a1c4b5794f1b6b9"
-  integrity sha512-0v7oNOjr6YT9Z2RAOTv4T9aP+ubfx4Q/OhVtAet7PFDt0t9Oy6Jn+/rfC6b8HJ5zEqrQCiMxJfgtHpmIminmJQ==
-
-"@babel/parser@^7.15.0":
   version "7.15.0"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.15.0.tgz#b6d6e29058ca369127b0eeca2a1c4b5794f1b6b9"
   integrity sha512-0v7oNOjr6YT9Z2RAOTv4T9aP+ubfx4Q/OhVtAet7PFDt0t9Oy6Jn+/rfC6b8HJ5zEqrQCiMxJfgtHpmIminmJQ==
@@ -1358,21 +1339,6 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
-"@babel/traverse@^7.15.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.15.0.tgz#4cca838fd1b2a03283c1f38e141f639d60b3fc98"
-  integrity sha512-392d8BN0C9eVxVWd8H6x9WfipgVH5IaIoLp23334Sc1vbKKWINnvwRpb4us0xtPaCumlwbTtIYNA0Dv/32sVFw==
-  dependencies:
-    "@babel/code-frame" "^7.14.5"
-    "@babel/generator" "^7.15.0"
-    "@babel/helper-function-name" "^7.14.5"
-    "@babel/helper-hoist-variables" "^7.14.5"
-    "@babel/helper-split-export-declaration" "^7.14.5"
-    "@babel/parser" "^7.15.0"
-    "@babel/types" "^7.15.0"
-    debug "^4.1.0"
-    globals "^11.1.0"
-
 "@babel/types@7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.8.3.tgz#5a383dffa5416db1b73dedffd311ffd0788fb31c"
@@ -1383,14 +1349,6 @@
     to-fast-properties "^2.0.0"
 
 "@babel/types@^7.0.0", "@babel/types@^7.12.11", "@babel/types@^7.12.7", "@babel/types@^7.14.5", "@babel/types@^7.14.8", "@babel/types@^7.15.0", "@babel/types@^7.2.0", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.7.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.15.0.tgz#61af11f2286c4e9c69ca8deb5f4375a73c72dcbd"
-  integrity sha512-OBvfqnllOIdX4ojTHpwZbpvz4j3EWyjkZEdmjH0/cgsd6QOdSgU8rLSk6ard/pcW7rlmjdVSX/AWOaORR1uNOQ==
-  dependencies:
-    "@babel/helper-validator-identifier" "^7.14.9"
-    to-fast-properties "^2.0.0"
-
-"@babel/types@^7.15.0":
   version "7.15.0"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.15.0.tgz#61af11f2286c4e9c69ca8deb5f4375a73c72dcbd"
   integrity sha512-OBvfqnllOIdX4ojTHpwZbpvz4j3EWyjkZEdmjH0/cgsd6QOdSgU8rLSk6ard/pcW7rlmjdVSX/AWOaORR1uNOQ==
@@ -11785,10 +11743,10 @@ jest@^27.0.1:
     import-local "^3.0.2"
     jest-cli "^27.0.6"
 
-js-cookie@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
-  integrity sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==
+js-cookie@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.0.tgz#db1661d5459920ec95aaf186ccf74ceb4a495164"
+  integrity sha512-oUbbplKuH07/XX2YD2+Q+GMiPpnVXaRz8npE7suhBH9QEkJe2W7mQ6rwuMXHue3fpfcftQwzgyvGzIHyfCSngQ==
 
 js-levenshtein@^1.1.6:
   version "1.1.6"
