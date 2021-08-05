@@ -16,7 +16,7 @@
     "date-fns": "^2.22.1",
     "dotenv": "^10.0.0",
     "formik": "^2.2.6",
-    "js-cookie": "^2.2.1",
+    "js-cookie": "^3.0.0",
     "jwt-decode": "^3.1.2",
     "next": "^11.0.0",
     "next-cookies": "^2.0.3",
