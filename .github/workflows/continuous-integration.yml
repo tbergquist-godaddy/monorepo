@@ -16,7 +16,7 @@ jobs:
       - run: |
           git fetch --no-tags --prune --depth=1 origin +refs/heads/master:refs/remotes/origin/master
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.3.2
+        uses: actions/setup-node@v2.4.0
         with:
           node-version: ${{ matrix.node-version }}
       - name: yarn install, build, and test
