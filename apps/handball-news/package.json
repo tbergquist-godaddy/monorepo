@@ -1,0 +1,14 @@
+{
+  "name": "@tbergq/handball-news",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "dependencies": {
+    "next": "^11.0.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint '**/*.{ts,tsx,js}' --fix --report-unused-disable-directives"
+  }
+}
