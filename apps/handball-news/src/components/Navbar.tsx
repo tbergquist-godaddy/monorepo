@@ -1,4 +1,5 @@
 import { Box, Container, Text, Image } from '@chakra-ui/react';
+import { Trans } from 'next-i18next';
 
 export default function Navbar(): JSX.Element {
   return (
@@ -15,7 +16,7 @@ export default function Navbar(): JSX.Element {
               mr="2"
             />
             <Text fontSize="lg" color="white">
-              Handball news
+              <Trans i18nKey="common:navbar.brand">Handball news</Trans>
             </Text>
           </Box>
         </Box>

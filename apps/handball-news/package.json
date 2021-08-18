@@ -15,6 +15,10 @@
   "scripts": {
     "dev": "next",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint '**/*.{ts,tsx,js}' --fix --report-unused-disable-directives"
+    "lint": "eslint '**/*.{ts,tsx,js}' --fix --report-unused-disable-directives",
+    "translations": "i18next"
+  },
+  "devDependencies": {
+    "i18next-parser": "^4.4.0"
   }
 }
