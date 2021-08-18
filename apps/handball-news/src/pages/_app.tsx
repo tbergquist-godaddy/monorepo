@@ -1,6 +1,7 @@
 import { ChakraProvider, ColorModeProvider, Box } from '@chakra-ui/react';
 import { AppProps } from 'next/app';
 import Navbar from 'components/Navbar';
+import { appWithTranslation } from 'next-i18next';
 
 import theme from '../theme';
 
@@ -25,4 +26,4 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
