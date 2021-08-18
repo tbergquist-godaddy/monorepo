@@ -1,30 +1,28 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Parser from 'rss-parser';
-import { Heading, Container } from '@chakra-ui/react';
+import { Heading, Container, Box } from '@chakra-ui/react';
 import { Trans } from 'next-i18next';
+import loadFeeds from 'feed-reader';
+import { NewsFeed } from 'news-feed';
 
-export default function Home({ feed: { items } }): JSX.Element {
+export default function Home({ feed }): JSX.Element {
   return (
     <Container maxW="container.xl">
-      <Heading as="h1" fontSize="5xl">
-        <Trans i18nKey="common:navbar.brand">Handball news</Trans>
-      </Heading>
-      {items.map((item) => (
-        <div key={item.guid} style={{ margin: '20px 0' }}>
-          <Heading>{item.title}</Heading>
-          <div dangerouslySetInnerHTML={{ __html: item.content }} />
-        </div>
-      ))}
+      <Box py={8}>
+        <Heading as="h1" fontSize="5xl">
+          <Trans i18nKey="common:navbar.brand">Handball news</Trans>
+        </Heading>
+      </Box>
+      <NewsFeed items={feed} />
     </Container>
   );
 }
 
 export async function getStaticProps({ locale }) {
-  const parser = new Parser();
   const [feed, translations] = await Promise.all([
-    parser.parseURL('https://www.handball-planet.com/feed/'),
+    loadFeeds(),
     serverSideTranslations(locale, ['common']),
   ]);
+  console.log({ feed });
   return {
     props: {
       ...translations,
