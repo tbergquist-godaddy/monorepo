@@ -1,5 +1,6 @@
-import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeProvider, Box } from '@chakra-ui/react';
 import { AppProps } from 'next/app';
+import Navbar from 'components/Navbar';
 
 import theme from '../theme';
 
@@ -11,7 +12,14 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           useSystemColorMode: true,
         }}
       >
-        <Component {...pageProps} />
+        <Box minH="100vh" bg="gray.100">
+          <header>
+            <Navbar />
+          </header>
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </Box>
       </ColorModeProvider>
     </ChakraProvider>
   );
