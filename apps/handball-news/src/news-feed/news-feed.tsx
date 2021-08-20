@@ -4,7 +4,7 @@ import { Feed } from 'feed-reader';
 import ArticleLink from './article-link';
 
 type Props = {
-  items: Array<Feed>;
+  items: ReadonlyArray<Feed>;
 };
 
 export default function NewsFeed({ items }: Props): JSX.Element {
