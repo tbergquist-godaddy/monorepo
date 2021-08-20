@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           useSystemColorMode: true,
         }}
       >
-        <Box minH="100vh" bg="gray.100">
+        <Box minH="100vh" bg="gray.100" pb="10">
           <header>
             <Navbar />
           </header>

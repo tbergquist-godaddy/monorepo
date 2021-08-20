@@ -1,5 +1,8 @@
-import { Heading, Link, Text, GridItem } from '@chakra-ui/react';
+import { Heading, Link, Text, GridItem, Box } from '@chakra-ui/react';
 import { Feed } from 'feed-reader';
+import { ClassNames } from '@emotion/react';
+
+import ArticleImage from './article-image';
 
 type Props = {
   item: Feed;
@@ -7,11 +10,42 @@ type Props = {
 
 export default function ArticleLink({ item }: Props): JSX.Element {
   return (
-    <GridItem>
-      <Link href={item.link} isExternal>
-        <Heading>{item.title}</Heading>
-      </Link>
-      <Text>{item.content}</Text>
-    </GridItem>
+    <ClassNames>
+      {({ css }) => (
+        <GridItem
+          className={css`
+            &:focus-within {
+              transform: scale(1.01);
+            }
+          `}
+          bg="white"
+          borderRadius="base"
+        >
+          <Box position="relative">
+            <ArticleImage image={item.image} />
+            <Box p="2">
+              <Link
+                className={css`
+                  &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                  }
+                `}
+                href={item.link}
+                isExternal
+              >
+                <Heading>{item.title}</Heading>
+              </Link>
+
+              <Text>{item.content}</Text>
+            </Box>
+          </Box>
+        </GridItem>
+      )}
+    </ClassNames>
   );
 }
