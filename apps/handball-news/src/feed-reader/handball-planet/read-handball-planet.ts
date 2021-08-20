@@ -1,7 +1,10 @@
 import { parse } from 'node-html-parser';
+import { invariant } from '@adeira/js';
 
 import { Feed } from '../types';
 import loadFeed from '../load-feed';
+
+const { HANDBALL_PLANET_URL } = process.env;
 
 const timeoutPromise = <T>(cb) => {
   return new Promise<T>((resolve) => {
@@ -47,7 +50,11 @@ const getImageUrl = async (url: string) => {
 };
 
 export default async function readHandballPlanet(): Promise<ReadonlyArray<Feed>> {
-  const feed = await loadFeed('https://www.handball-planet.com/feed/');
+  invariant(
+    HANDBALL_PLANET_URL != null,
+    'Expected HANDBALL_PLANET_URL env variable to be set, but it was not',
+  );
+  const feed = await loadFeed(HANDBALL_PLANET_URL);
   const imagesUrlPromises = feed.items.map((item) => getImageUrl(item.guid ?? ''));
   const urls = await Promise.all(imagesUrlPromises);
 
