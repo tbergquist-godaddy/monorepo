@@ -21,7 +21,8 @@ export default function ArticleLink({ image }: Props): JSX.Element | null {
             height={image.height}
             layout="intrinsic"
             className={css`
-              border-radius: var(--chakra-radii-base);
+              border-top-right-radius: var(--chakra-radii-base);
+              border-top-left-radius: var(--chakra-radii-base);
             `}
           />
         );
