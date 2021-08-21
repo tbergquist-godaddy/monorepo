@@ -1,11 +1,11 @@
 name: Deploy handball-news
 
-on: [push]
-# on:
-#   push:
-#     branches: [master]
-#     paths:
-#       - 'apps/handball-news/**'
+# on: [push]
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'apps/handball-news/**'
 
 jobs:
   build:
