@@ -32,6 +32,6 @@ export async function getStaticProps({ locale }) {
       ...translations,
       feed,
     },
-    revalidate: 60 * 60, // one hour
+    revalidate: 60 * 5, // five min
   };
 }
