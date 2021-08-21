@@ -60,7 +60,7 @@ export default async function readHandballPlanet(): Promise<ReadonlyArray<Feed>>
 
   return feed.items.map((item, i) => ({
     title: item.title ?? '',
-    content: item.contentSnippet?.split('\n')[0] ?? '',
+    content: item.contentSnippet ?? '',
     guid: item.guid ?? '',
     link: item.guid ?? '',
     image: urls[i],
