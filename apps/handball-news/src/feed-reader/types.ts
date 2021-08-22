@@ -10,4 +10,5 @@ export interface Feed {
   content: string;
   link: string;
   image: Image | null;
+  timestamp: number | null;
 }

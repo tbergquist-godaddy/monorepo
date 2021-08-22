@@ -9,6 +9,7 @@
     "@chakra-ui/theme-tools": "^1.1.9",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "date-fns": "^2.23.0",
     "framer-motion": "^4",
     "next": "^11.0.0",
     "next-i18next": "^8.6.0",
