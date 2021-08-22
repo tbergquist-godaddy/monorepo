@@ -64,5 +64,6 @@ export default async function readHandballPlanet(): Promise<ReadonlyArray<Feed>>
     guid: item.guid ?? '',
     link: item.guid ?? '',
     image: urls[i],
+    timestamp: item.isoDate != null ? new Date(item.isoDate).getTime() : null,
   }));
 }

@@ -1,6 +1,7 @@
 import { Heading, Link, Text, GridItem, Box } from '@chakra-ui/react';
 import { Feed } from 'feed-reader';
 import { ClassNames } from '@emotion/react';
+import { format } from 'date-fns';
 
 import ArticleImage from './article-image';
 
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export default function ArticleLink({ item }: Props): JSX.Element {
+  // console.log({ item });
   return (
     <ClassNames>
       {({ css }) => (
@@ -40,7 +42,11 @@ export default function ArticleLink({ item }: Props): JSX.Element {
               >
                 <Heading>{item.title}</Heading>
               </Link>
-
+              {item.timestamp != null && (
+                <Text fontSize="sm" color="gray.600">
+                  {format(item.timestamp, 'PP')}
+                </Text>
+              )}
               <Text>{item.content}</Text>
             </Box>
           </Box>
