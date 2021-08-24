@@ -4383,9 +4383,9 @@
   integrity sha512-ABrFJGSmF7a1M+eDTsIeAErPhIeRyBY3ypyLQPc4bUVEK1mvF7F2gx4fTP81pm12bkS0GhjSJtM854lcPWhB+w==
 
 "@vanilla-extract/sprinkles@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.0.0.tgz#44ff25e9782ba48e8a32aa1282d1772df16a2d6d"
-  integrity sha512-owMxzIZ9YIMAUNkHfr4B+GKAOW2jaZLCYk66rwRwY2olHS1MX8I0L5CESzRgkh4shuH7sUCUYLhIS247/SLK4w==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.1.1.tgz#12430480066b5b40dbc3bf51149c6976f80d2468"
+  integrity sha512-kOusDUaGUR2Vh7ScZgp/+n+6Dp4IIniZ+cc8HLLZ/o6GUMp1+mGf1LiNg2/bk7q2UpmbYdg5TvYYOLYevAowgw==
 
 "@vanilla-extract/webpack-plugin@^1.0.2":
   version "1.1.0"
@@ -8251,9 +8251,9 @@ esbuild@^0.11.16:
   integrity sha512-iaiZZ9vUF5wJV8ob1tl+5aJTrwDczlvGP0JoMmnpC2B0ppiMCu8n8gmy5ZTGl5bcG081XBVn+U+jP+mPFm5T5Q==
 
 esbuild@^0.12.9:
-  version "0.12.20"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.20.tgz#4d3c9d83c99a4031e027b42a4c398c23b6827cb0"
-  integrity sha512-u7+0qTo9Z64MD9PhooEngCmzyEYJ6ovFhPp8PLNh3UasR5Ihjv6HWVXqm8uHmasdQlpsAf0IsY4U0YVUfCpt4Q==
+  version "0.12.22"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.22.tgz#6031a1257b8d0307d306bed673b79c3668607f51"
+  integrity sha512-yWCr9RoFehpqoe/+MwZXJpYOEIt7KOEvNnjIeMZpMSyQt+KCBASM3y7yViiN5dJRphf1wGdUz1+M4rTtWd/ulA==
 
 escalade@^3.0.2, escalade@^3.1.1:
   version "3.1.1"
