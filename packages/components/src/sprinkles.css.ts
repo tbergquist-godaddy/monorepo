@@ -14,18 +14,35 @@ const space = {
   auto: 'auto',
 };
 
+const colors = {
+  'primary': theme.color.primary,
+  'primaryContrast': theme.color.white,
+  'secondary': theme.color.secondary,
+  'secondaryContrast': theme.color.white,
+  'danger': theme.color.danger,
+  'dangerContrast': theme.color.white,
+  'success': theme.color.success,
+  'gray': theme.color.gray,
+  'gray.100': theme.color['gray.100'],
+  'white': theme.color.white,
+  'black': theme.color.black,
+};
+
+const conditions = {
+  mediumMobile: {},
+  largeMobile: { '@media': 'screen and (min-width: 576px)' },
+  tablet: { '@media': 'screen and (min-width: 768px)' },
+  desktop: { '@media': 'screen and (min-width: 992px)' },
+  largeDesktop: { '@media': 'screen and (min-width: 1200px)' },
+};
+
 const responsiveStyles = createAtomicStyles({
-  conditions: {
-    mediumMobile: {},
-    largeMobile: { '@media': 'screen and (min-width: 576px)' },
-    tablet: { '@media': 'screen and (min-width: 768px)' },
-    desktop: { '@media': 'screen and (min-width: 992px)' },
-    largeDesktop: { '@media': 'screen and (min-width: 1200px)' },
-  },
+  conditions,
   defaultCondition: 'mediumMobile',
   properties: {
+    height: ['100%'],
     flex: [1],
-    display: ['none', 'flex', 'block', 'inline'],
+    display: ['none', 'flex', 'block', 'inline', 'grid'],
     flexDirection: ['row', 'column'],
     justifyContent: [
       'stretch',
@@ -45,6 +62,7 @@ const responsiveStyles = createAtomicStyles({
     marginBottom: space,
     marginLeft: space,
     marginRight: space,
+    gap: space,
     // etc.
   },
   shorthands: {
@@ -58,28 +76,29 @@ const responsiveStyles = createAtomicStyles({
   },
 });
 
+const borderValues = {
+  small: '2px',
+  normal: '4px',
+  round: '50%',
+};
+const borderWidths = {
+  normal: '1px',
+};
+const borderStyle: Array<'solid'> = ['solid'];
+
 const borderStyles = createAtomicStyles({
   properties: {
-    borderRadius: {
-      small: '2px',
-      normal: '4px',
-      round: '50%',
-    },
+    borderRadius: borderValues,
+    borderBottomLeftRadius: borderValues,
+    borderBottomRightRadius: borderValues,
+    border: ['none'],
+    borderColor: colors,
+    borderWidth: borderWidths,
+    borderStyle: borderStyle,
+    borderBottomWidth: borderWidths,
+    borderBottomStyle: borderStyle,
   },
 });
-
-const colors = {
-  primary: theme.color.primary,
-  primaryContrast: theme.color.white,
-  secondary: theme.color.secondary,
-  secondaryContrast: theme.color.white,
-  danger: theme.color.danger,
-  dangerContrast: theme.color.white,
-  success: theme.color.success,
-  gray: theme.color.gray,
-  white: theme.color.white,
-  black: theme.color.black,
-};
 
 const colorStyles = createAtomicStyles({
   properties: {
@@ -108,10 +127,17 @@ const fontStyles = createAtomicStyles({
 });
 
 const otherStyles = createAtomicStyles({
+  conditions,
+  defaultCondition: 'mediumMobile',
   properties: {
+    objectFit: ['cover'],
     cursor: ['pointer', 'not-allowed'],
     outline: ['none'],
     position: ['absolute', 'relative', 'fixed'],
+    backgroundSize: ['cover'],
+    background: ['none'],
+    width: ['100%', 'unset'],
+    textAlign: ['left'],
     zIndex: {
       default: 1,
       sticky: 100,

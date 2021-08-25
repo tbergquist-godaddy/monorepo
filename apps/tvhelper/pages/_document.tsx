@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link
-            href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700&display=swap"
+            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
             rel="stylesheet"
           />
         </Head>

@@ -10,7 +10,7 @@ module.exports = {
     'flowtype/require-valid-file-annotation': 'off',
     'flowtype/require-readonly-react-props': 'off',
     'flowtype/no-types-missing-file-annotation': 'off',
-    'relay/generated-flow-types': 'warn',
+    'relay/generated-flow-types': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
     '@typescript-eslint/ban-ts-comment': [

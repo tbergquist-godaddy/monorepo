@@ -1,60 +1,16 @@
 import { graphql, useFragment } from 'react-relay';
-import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { TvShowListItem_data$key as TvShow } from '__generated__/TvShowListItem_data.graphql';
 
-const borderRadius = 4;
-
-const StyledLink = styled.a({
-  'outline': 'none',
-  ':focus, :hover': {
-    transform: ' scale(1.05)',
-    transition: 'all 0.2s ease-in',
-  },
-});
-
-const Container = styled.div`
-  height: 100%;
-  margin-bottom: 8px;
-  background-color: #cccccc;
-  border-radius: ${borderRadius}px;
-  position: relative;
-  background-size: cover;
-`;
-
-const BottomSheet = styled.div({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: '#000000',
-  opacity: 0.7,
-  minHeight: '50px',
-  borderBottomLeftRadius: `${borderRadius}px`,
-  borderBottomRightRadius: `${borderRadius}px`,
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'column',
-});
-
-const StyledText = styled.div({
-  paddingTop: '5px',
-  color: '#ffffff',
-  fontSize: '16px',
-});
-
-const StyledImage = styled(Image)({
-  objectFit: 'cover',
-  borderRadius,
-});
+import { classNames } from './TvShowListItem.css';
 
 type Props = {
   data: TvShow | null;
   width?: number;
 };
 
-function TvShowListItem(props: Props) {
+function TvShowListItem(props: Props): JSX.Element {
   const data = useFragment(
     graphql`
       fragment TvShowListItem_data on TvShow {
@@ -81,16 +37,22 @@ function TvShowListItem(props: Props) {
   }
   return (
     <Link href={`/tvShow?id=${tvShowId}`}>
-      <StyledLink href={`/tvShow?id=${tvShowId}`}>
-        <Container>
-          {/* @ts-ignore: layout does exist */}
-          {src != null && <StyledImage alt={name} layout="fill" src={data?.image?.medium} />}
-          <BottomSheet>
-            <StyledText>{`${name} - ${rating}`}</StyledText>
-            <StyledText>{status}</StyledText>
-          </BottomSheet>
-        </Container>
-      </StyledLink>
+      <a className={classNames.link} href={`/tvShow?id=${tvShowId}`}>
+        <div className={classNames.container}>
+          {src != null && (
+            <Image
+              className={classNames.image}
+              alt={name}
+              layout="fill"
+              src={data?.image?.medium}
+            />
+          )}
+          <div className={classNames.bottomSheet}>
+            <div className={classNames.text}>{`${name} - ${rating}`}</div>
+            <div className={classNames.text}>{status}</div>
+          </div>
+        </div>
+      </a>
     </Link>
   );
 }

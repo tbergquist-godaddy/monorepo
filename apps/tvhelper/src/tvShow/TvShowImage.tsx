@@ -1,31 +1,17 @@
 import { graphql, useFragment } from 'react-relay';
 import { IconButton } from '@tbergq/components';
-import styled from 'styled-components';
 import { MdFavorite } from 'react-icons/md';
 import { TvShowImage_tvShow$key as TvShow } from '__generated__/TvShowImage_tvShow.graphql';
 
 import useAddFavorite from './mutations/useAddFavorite';
 import useDeleteFavorite from './mutations/useDeleteFavorite';
+import { classNames } from './TvShowImage.css';
 
 type Props = Readonly<{
   tvShow: TvShow;
 }>;
 
-const Image = styled.img({
-  maxHeight: '300px',
-  borderRadius: '4px',
-});
-
-const FavoriteButton = styled(IconButton)({
-  'position': 'absolute',
-  'bottom': 10,
-  'left': 5,
-  '&&': {
-    borderRadius: '50%',
-  },
-});
-
-const TvShowImage = (props: Props) => {
+const TvShowImage = (props: Props): JSX.Element => {
   const data = useFragment(
     graphql`
       fragment TvShowImage_tvShow on TvShow {
@@ -74,17 +60,18 @@ const TvShowImage = (props: Props) => {
   }
   return (
     <>
-      <Image loading="lazy" src={src} alt={data?.name} />
+      <img className={classNames.image} loading="lazy" src={src} alt={data?.name} />
       {notLoggedIn === false && (
-        <FavoriteButton
+        <IconButton
           loading={isLoading}
           color={isFavorite ? 'danger' : 'primary'}
           onClick={onToggleFavorite}
           dataTest="toggleFavoriteButton"
           ariaLabel={isFavorite ? 'Delete favorite' : 'Add favorite'}
+          className={classNames.favoriteButton}
         >
           <MdFavorite />
-        </FavoriteButton>
+        </IconButton>
       )}
     </>
   );

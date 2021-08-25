@@ -1,40 +1,31 @@
 import { Button } from '@tbergq/components';
 import { FormikInput as InputField } from '@tbergq/formik-wrapper';
-import styled from 'styled-components';
 import { Form, useFormikContext } from 'formik';
 
-const ButtonWrapper = styled('div')(({ theme }) => ({
-  'marginTop': '8px',
-  '& > :first-child': {
-    marginBottom: '16px',
-  },
-  '& > :last-child': {
-    alignSelf: 'flex-end',
-  },
-  'flexDirection': 'column',
-  'display': 'flex',
-  [theme.media.largeMobile]: {
-    'flexDirection': 'row',
-    'justifyContent': 'flex-start',
-    'alignItems': 'flex-end',
-    '& > :first-child': {
-      flex: 1,
-      marginRight: '16px',
-      marginBottom: 0,
-    },
-  },
-}));
+import { classNames } from './SearchForm.css';
 
-export default function SearchForm() {
+export default function SearchForm(): JSX.Element {
   const { isSubmitting } = useFormikContext();
   return (
     <Form action="/" method="get">
-      <ButtonWrapper>
-        <InputField name="query" dataTest="SearchFormInput" label="Search" />
-        <Button loading={isSubmitting} dataTest="SearchFormButton" type="submit">
-          Search
-        </Button>
-      </ButtonWrapper>
+      <div className={classNames.formContent}>
+        <InputField
+          labelClassName={classNames.label}
+          name="query"
+          dataTest="SearchFormInput"
+          label="Search"
+        />
+        <div className={classNames.buttonWrapper}>
+          <Button
+            className={classNames.button}
+            loading={isSubmitting}
+            dataTest="SearchFormButton"
+            type="submit"
+          >
+            Search
+          </Button>
+        </div>
+      </div>
     </Form>
   );
 }
