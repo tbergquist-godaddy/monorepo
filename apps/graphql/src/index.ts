@@ -51,17 +51,9 @@ app.use('/', attachUserToRequest, getPersistedQuery(), (request: Request, respon
 invariant(GRAPHQL_DB_URL != null, 'Expected to have db url for graphql, but did not.');
 invariant(TVHELPER_DB_URL != null, 'Expected to have db url for graphql, but did not.');
 
-tvHelperConnection.openUri(TVHELPER_DB_URL, {
-  useCreateIndex: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+tvHelperConnection.openUri(TVHELPER_DB_URL, {});
 
-graphqlConnection.openUri(GRAPHQL_DB_URL, {
-  useCreateIndex: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+graphqlConnection.openUri(GRAPHQL_DB_URL, {});
 
 if (process.env.NODE_ENV === 'production') {
   app.listen();
