@@ -8,7 +8,7 @@
     "dist/"
   ],
   "dependencies": {
-    "mongoose": "^5.12.14"
+    "mongoose": "^6.0.0"
   },
   "scripts": {
     "lint": "eslint . --fix --report-unused-disable-directives",
