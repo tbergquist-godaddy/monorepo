@@ -12,6 +12,7 @@ const space = {
   xxLarge: '22px',
   xxxLarge: '24px',
   auto: 'auto',
+  negativeNormal: '-12px',
 };
 
 const colors = {
@@ -41,7 +42,7 @@ const responsiveStyles = createAtomicStyles({
   defaultCondition: 'mediumMobile',
   properties: {
     height: ['100%'],
-    flex: [1],
+    flex: [1, 2],
     display: ['none', 'flex', 'block', 'inline', 'grid'],
     flexDirection: ['row', 'column'],
     justifyContent: [
@@ -131,12 +132,16 @@ const otherStyles = createAtomicStyles({
   defaultCondition: 'mediumMobile',
   properties: {
     objectFit: ['cover'],
+    overflow: ['hidden'],
     cursor: ['pointer', 'not-allowed'],
-    outline: ['none'],
+    outline: {
+      none: 'none',
+      debug: '2px solid salmon',
+    },
     position: ['absolute', 'relative', 'fixed'],
     backgroundSize: ['cover'],
     background: ['none'],
-    width: ['100%', 'unset'],
+    width: ['50%', '80%', '100%', 'unset'],
     textAlign: ['left'],
     zIndex: {
       default: 1,

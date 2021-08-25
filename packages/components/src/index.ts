@@ -1,4 +1,5 @@
 export { default as Alert } from './alert/Alert';
+export { default as Box } from './box/box';
 export { default as Button } from './button/Button';
 export { default as Checkbox } from './checkbox/Checkbox';
 export { default as Heading } from './heading/Heading';

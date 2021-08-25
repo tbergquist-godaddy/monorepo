@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Heading, Container, Spinner } from '@tbergq/components';
+import { Heading, Container, Spinner, Box } from '@tbergq/components';
 import { Formik } from 'formik';
-import Box from 'components/Box';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 
@@ -20,7 +19,7 @@ type Props = {
   token: string;
 };
 
-function SearchScene(props: Props) {
+function SearchScene(props: Props): JSX.Element {
   const { push, pathname } = useRouter();
 
   const [query, setQuery] = useState(props.query ?? '');
@@ -37,14 +36,14 @@ function SearchScene(props: Props) {
   return (
     <>
       <Container>
-        <Box py={8}>
+        <Box paddingY="xxxLarge">
           <Heading>Search tv show</Heading>
           <Formik onSubmit={onSubmit} initialValues={{ query }}>
             <SearchForm />
           </Formik>
         </Box>
       </Container>
-      <Box py={8}>
+      <Box paddingY="xxxLarge">
         <Container>{query && <SearchQuery query={query} />}</Container>
       </Box>
     </>

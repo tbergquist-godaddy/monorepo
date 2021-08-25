@@ -1,16 +1,16 @@
 import { graphql, useFragment } from 'react-relay';
-import { Heading, Container } from '@tbergq/components';
+import { Heading, Container, Box } from '@tbergq/components';
 import { TvShowPage_tvShow$key as TvShowType } from '__generated__/TvShowPage_tvShow.graphql';
-import Box from 'components/Box';
 
 import Episodes from './episodes/Episodes';
 import TvShowImage from './TvShowImage';
+import { classNames } from './TvShowPage.css';
 
 type Props = Readonly<{
   tvShow: TvShowType;
 }>;
 
-const TvShowPage = (props: Props) => {
+const TvShowPage = (props: Props): JSX.Element => {
   const data = useFragment(
     graphql`
       fragment TvShowPage_tvShow on TvShow {
@@ -30,15 +30,23 @@ const TvShowPage = (props: Props) => {
 
   return (
     <Container>
-      <Box pt={8}>
+      <Box paddingTop="xxxLarge">
         <Heading>{name}</Heading>
-        <Box display="flex" py={8} gap="16px" flexDirection={['column', 'column', 'row']}>
-          <Box position="relative" minHeight="300px">
+        <Box
+          display="flex"
+          paddingY="xxxLarge"
+          gap="increased"
+          flexDirection={{
+            mediumMobile: 'column',
+            tablet: 'row',
+          }}
+        >
+          <Box position="relative" className={classNames.imageContainer}>
             <TvShowImage tvShow={data} />
           </Box>
           <Box flex="1" dangerouslySetInnerHTML={{ __html: data.summary }} />
         </Box>
-        <Box pl={24} pb={8}>
+        <Box paddingLeft="xxxLarge" paddingBottom="xxxLarge">
           <strong>Network: </strong>
           {data.network?.name}
         </Box>

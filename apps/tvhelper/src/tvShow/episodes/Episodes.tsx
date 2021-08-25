@@ -1,7 +1,7 @@
 import { ReactNode, useMemo } from 'react';
 import { graphql, useFragment } from 'react-relay';
 import type { Episodes_episodes$key as EpisodeType } from '__generated__/Episodes_episodes.graphql';
-import Box from 'components/Box';
+import { Box } from '@tbergq/components';
 
 import Episode from './Episode';
 import { classNames } from './Episodes.css';
@@ -55,7 +55,7 @@ const Episodes = (props: Props): JSX.Element => {
     <>
       {Array.from(seasonMap).map<ReactNode>(([key, episodes]) => (
         <div className={classNames.card} key={key}>
-          <Box p={8}>
+          <Box padding="xxxLarge">
             <h2 className={classNames.title}>{`Season ${parseInt(key, 10).toString()}`}</h2>
             <Box overflow="hidden">
               {episodes.map((episode) => (

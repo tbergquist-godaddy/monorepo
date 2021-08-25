@@ -1,9 +1,8 @@
-import { Alert } from '@tbergq/components';
-import Box from 'components/Box';
+import { Alert, Box } from '@tbergq/components';
 
-export default function LoginError() {
+export default function LoginError(): JSX.Element {
   return (
-    <Box mb={8}>
+    <Box marginBottom="xxxLarge">
       <Alert type="danger">Wrong username or password</Alert>
     </Box>
   );

@@ -1,6 +1,5 @@
 import { QueryRenderer, graphql, useRelayEnvironment } from 'react-relay';
-import { Spinner } from '@tbergq/components';
-import Box from 'components/Box';
+import { Spinner, Box } from '@tbergq/components';
 
 import SearchResults from './searchResults/SearchResults';
 
@@ -16,7 +15,7 @@ export const searchQuery = graphql`
   }
 `;
 
-export default function SearchQuery({ query }: Props) {
+export default function SearchQuery({ query }: Props): JSX.Element {
   const environment = useRelayEnvironment();
 
   return (

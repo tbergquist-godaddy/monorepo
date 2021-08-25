@@ -1,13 +1,19 @@
-import { Container, Heading } from '@tbergq/components';
-import Box from 'components/Box';
+import { Container, Heading, Box } from '@tbergq/components';
 
 import SignupForm from './SignupForm';
 
-export default function Signup() {
+export default function Signup(): JSX.Element {
   return (
     <Container>
-      <Box pt={8} mx="auto" width={['80%', '80%', '50%']}>
-        <Box mb={8}>
+      <Box
+        paddingTop="xxxLarge"
+        marginX="auto"
+        width={{
+          mediumMobile: '80%',
+          tablet: '50%',
+        }}
+      >
+        <Box marginBottom="xxxLarge">
           <Heading>Signup</Heading>
         </Box>
         <SignupForm />
