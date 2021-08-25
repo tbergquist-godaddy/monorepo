@@ -1,15 +1,14 @@
-import { Heading, Container } from '@tbergq/components';
-import Box from 'components/Box';
+import { Heading, Container, Box } from '@tbergq/components';
 
 import ChangePasswordForm from './changePassword/ChangePasswordForm';
 
-export default function AccountScene() {
+export default function AccountScene(): JSX.Element {
   return (
     <Container>
-      <Box py={8}>
+      <Box paddingY="xxxLarge">
         <Heading>My Account</Heading>
       </Box>
-      <Box py={8}>
+      <Box paddingY="xxxLarge">
         <ChangePasswordForm />
       </Box>
     </Container>

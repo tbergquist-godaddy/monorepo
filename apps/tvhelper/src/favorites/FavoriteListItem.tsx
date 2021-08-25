@@ -4,7 +4,7 @@ import { format, isValid, parseISO } from 'date-fns';
 import { FavoriteListItem_favorite$key as Favorite } from '__generated__/FavoriteListItem_favorite.graphql';
 import { ReactNode } from 'react';
 import Image from 'next/image';
-import Box from 'components/Box';
+import { Box } from '@tbergq/components';
 
 import { classNames } from './FavoriteListItem.css';
 
@@ -29,7 +29,7 @@ const getFormattedDate = (date: string | null) => {
 };
 
 const FavoriteItem = (props: { label: string; children: ReactNode; flex?: string }) => (
-  <Box flex={props.flex ?? '1'} mb={2}>
+  <Box flex={1} marginBottom="normal">
     <div className={classNames.label}>{props.label}</div>
     {props.children}
   </Box>
@@ -59,7 +59,7 @@ const FavoriteListItem = (props: Props): JSX.Element => {
     <Link href={`/tvShow?id=${id}`}>
       <a className={classNames.listItem} href={`/tvShow?id=${id}`}>
         <Box display="flex" alignItems="center">
-          <Box mr={8}>
+          <Box marginRight="xxxLarge">
             {src ? (
               <Image
                 className={classNames.image}
@@ -72,7 +72,14 @@ const FavoriteListItem = (props: Props): JSX.Element => {
               <div className={classNames.imageFallback} />
             )}
           </Box>
-          <Box flex="1" display={['block', 'block', 'flex']} mb={-2}>
+          <Box
+            flex="1"
+            display={{
+              mediumMobile: 'block',
+              tablet: 'flex',
+            }}
+            marginBottom="negativeNormal"
+          >
             <FavoriteItem label="Name">{name}</FavoriteItem>
             <FavoriteItem label="Status">{data?.status ?? ''}</FavoriteItem>
             <Box flex="2" display="flex" justifyContent="flex-start">

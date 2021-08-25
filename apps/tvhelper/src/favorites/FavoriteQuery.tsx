@@ -1,7 +1,6 @@
 import { graphql, useLazyLoadQuery } from 'react-relay';
 import { FavoriteQuery as FavoritesType } from '__generated__/FavoriteQuery.graphql';
-import { Container } from '@tbergq/components';
-import Box from 'components/Box';
+import { Container, Box } from '@tbergq/components';
 
 import Favorites from './Favorites';
 
@@ -13,7 +12,7 @@ export const favoritesQuery = graphql`
   }
 `;
 
-export default function FavoriteQuery() {
+export default function FavoriteQuery(): JSX.Element {
   const data = useLazyLoadQuery<FavoritesType>(
     favoritesQuery,
     {
@@ -24,7 +23,7 @@ export default function FavoriteQuery() {
 
   return (
     <Container>
-      <Box pt={8}>
+      <Box paddingTop="xxxLarge">
         <Favorites favorites={data?.viewer} />
       </Box>
     </Container>

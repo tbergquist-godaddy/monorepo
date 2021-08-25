@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { Toast, MediaContextProvider, ToastProvider } from '@tbergq/components';
-import { ThemeProvider } from 'styled-components';
-import defaultTheme from '@tbergq/theme';
 import Navbar from 'components/Navbar';
 import { EnvironmentProvider } from 'services/relay';
 import useNprogress from 'components/hooks/useNprogress';
@@ -19,23 +17,21 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   useNprogress();
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <MediaContextProvider>
-        <EnvironmentProvider records={records} token={token}>
-          <ToastProvider>
-            <Head>
-              <title>Tv helper | {pageProps.pageName ?? ''}</title>
-            </Head>
-            <header>
-              <Navbar token={token} />
-            </header>
-            <main>
-              <Component {...pageProps} />
-            </main>
-            <Toast />
-          </ToastProvider>
-        </EnvironmentProvider>
-      </MediaContextProvider>
-    </ThemeProvider>
+    <MediaContextProvider>
+      <EnvironmentProvider records={records} token={token}>
+        <ToastProvider>
+          <Head>
+            <title>Tv helper | {pageProps.pageName ?? ''}</title>
+          </Head>
+          <header>
+            <Navbar token={token} />
+          </header>
+          <main>
+            <Component {...pageProps} />
+          </main>
+          <Toast />
+        </ToastProvider>
+      </EnvironmentProvider>
+    </MediaContextProvider>
   );
 }

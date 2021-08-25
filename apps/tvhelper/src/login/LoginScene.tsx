@@ -1,6 +1,5 @@
-import { Container } from '@tbergq/components';
+import { Container, Box } from '@tbergq/components';
 import Link from 'next/link';
-import Box from 'components/Box';
 import dynamic from 'next/dynamic';
 
 import LoginForm from './LoginForm';
@@ -11,13 +10,19 @@ type Props = Readonly<{
   loginFailed: boolean;
 }>;
 
-export default function Login(props: Props) {
+export default function Login(props: Props): JSX.Element {
   return (
     <Container>
-      <Box pt={8}>
-        <Box mx="auto" width={['80%', '80%', '50%']}>
+      <Box paddingTop="xxxLarge">
+        <Box
+          marginX="auto"
+          width={{
+            mediumMobile: '50%',
+            tablet: '80%',
+          }}
+        >
           <LoginForm />
-          <Box pt={8}>
+          <Box paddingTop="xxxLarge">
             {props.loginFailed ? <LoginError /> : null}
             <Link prefetch={true} href="/signup">
               <a href="/signup">Don&lsquo;t have an account? Signup</a>

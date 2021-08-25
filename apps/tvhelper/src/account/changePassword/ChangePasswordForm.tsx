@@ -1,10 +1,9 @@
 import { Formik, Form } from 'formik';
-import { Heading, Button, useShowToast } from '@tbergq/components';
+import { Heading, Button, useShowToast, Box } from '@tbergq/components';
 import { FormikInput as InputField } from '@tbergq/formik-wrapper';
 import { useMutation, graphql } from 'react-relay';
 import { ChangePasswordFormMutation } from '__generated__/ChangePasswordFormMutation.graphql';
 import * as yup from 'yup';
-import Box from 'components/Box';
 
 const validationSchema = yup.object().shape({
   password: yup.string().required(),
@@ -15,7 +14,7 @@ const validationSchema = yup.object().shape({
     .oneOf([yup.ref('newPassword'), null], "Passwords don't match"),
 });
 
-export default function ChangePasswordForm() {
+export default function ChangePasswordForm(): JSX.Element {
   const show = useShowToast();
   const [changePassword, isLoading] = useMutation<ChangePasswordFormMutation>(graphql`
     mutation ChangePasswordFormMutation($password: String!, $newPassword: String!) {

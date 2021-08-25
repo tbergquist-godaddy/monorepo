@@ -1,9 +1,8 @@
 import { useState, ChangeEvent } from 'react';
-import { Heading, Select } from '@tbergq/components';
+import { Heading, Select, Box } from '@tbergq/components';
 import { createRefetchContainer, graphql, RelayRefetchProp } from 'react-relay';
 import { Favorites_favorites as FavoritesType } from '__generated__/Favorites_favorites.graphql';
 import dynamic from 'next/dynamic';
-import Box from 'components/Box';
 
 import FavoriteListItem from './FavoriteListItem';
 
@@ -97,8 +96,8 @@ function Favorites(props: Props) {
       {isLoading && <FavoritesLoader />}
       <Heading>Favorites</Heading>
       <>
-        <Box display="flex" pt={8}>
-          <Box mr={4}>
+        <Box display="flex" paddingTop="xxxLarge">
+          <Box marginRight="increased">
             <Select
               onChange={handleChange}
               label="Sort by"
@@ -118,13 +117,13 @@ function Favorites(props: Props) {
             ]}
           />
         </Box>
-        <Box pt={8}>
+        <Box paddingTop="xxxLarge">
           {edges.map((edge) => (
             <FavoriteListItem favorite={edge?.node} key={edge?.node?.id} />
           ))}
         </Box>
         {props.favorites?.favorites?.pageInfo.hasNextPage && (
-          <Box pt={8} display="flex" justifyContent="center" gap="12px">
+          <Box paddingTop="xxxLarge" display="flex" justifyContent="center" gap="normal">
             <LoadMore
               isLoading={isLoadingMore}
               onClick={() => {
