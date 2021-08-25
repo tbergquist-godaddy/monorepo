@@ -5,14 +5,14 @@ type Props = {
   onClick?: () => void;
 };
 
-function NavbarRight({ username, onClick }: Props) {
+function NavbarRight({ username, onClick }: Props): JSX.Element {
   if (username) {
     return (
       <>
         <NavLink onClick={onClick} href="/account">
           Hello {username}
         </NavLink>
-        <NavLink marginLeft="16px" onClick={onClick} href="/api/logout">
+        <NavLink onClick={onClick} href="/api/logout">
           logout
         </NavLink>
       </>

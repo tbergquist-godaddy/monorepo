@@ -1,26 +1,16 @@
 import { ReactNode, useMemo } from 'react';
 import { graphql, useFragment } from 'react-relay';
-import styled from 'styled-components';
 import type { Episodes_episodes$key as EpisodeType } from '__generated__/Episodes_episodes.graphql';
 import Box from 'components/Box';
 
 import Episode from './Episode';
+import { classNames } from './Episodes.css';
 
 type Props = Readonly<{
   episodes: EpisodeType;
 }>;
 
-const Card = styled.div(({ theme }) => ({
-  width: '100%',
-  border: `1px solid ${theme.gray}`,
-}));
-
-const CardTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize.large};
-  font-weight: 500;
-`;
-
-const Episodes = (props: Props) => {
+const Episodes = (props: Props): JSX.Element => {
   const data = useFragment(
     graphql`
       fragment Episodes_episodes on TvShow {
@@ -64,16 +54,16 @@ const Episodes = (props: Props) => {
   return (
     <>
       {Array.from(seasonMap).map<ReactNode>(([key, episodes]) => (
-        <Card key={key}>
+        <div className={classNames.card} key={key}>
           <Box p={8}>
-            <CardTitle>{`Season ${parseInt(key, 10).toString()}`}</CardTitle>
+            <h2 className={classNames.title}>{`Season ${parseInt(key, 10).toString()}`}</h2>
             <Box overflow="hidden">
               {episodes.map((episode) => (
                 <Episode key={episode?.id} episode={episode} />
               ))}
             </Box>
           </Box>
-        </Card>
+        </div>
       ))}
     </>
   );

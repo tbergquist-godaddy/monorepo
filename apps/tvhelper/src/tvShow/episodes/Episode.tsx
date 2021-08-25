@@ -1,57 +1,18 @@
 import { graphql, useFragment } from 'react-relay';
 import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
-import styled from 'styled-components';
 import { Checkbox } from '@tbergq/components';
 import { Episode_episode$key as EpisodeType } from '__generated__/Episode_episode.graphql';
 
 import useMarkAsWatchedMutation from './mutation/useMarkAsWatched';
 import useDeleteAsWatchedMutation from './mutation/useDeleteAsWatched';
+import { classNames } from './Episode.css';
 
 type Props = Readonly<{
   episode: EpisodeType;
 }>;
 
-const ListItem = styled.button(({ theme }) => ({
-  'border': 'none',
-  'background': 'none',
-  'display': 'flex',
-  'justifyContent': 'space-between',
-  'alignItems': 'center',
-  'width': '100%',
-  'padding': theme.spacing.increased,
-  'borderBottom': `1px solid ${theme.gray}`,
-  'marginTop': '1px',
-  'marginBottom': '-1px',
-  'fontFamily': theme.fontFamily,
-  'fontSize': theme.fontSize.normal,
-  'cursor': 'pointer',
-  ':hover, :focus': {
-    backgroundColor: theme.gray,
-    outline: 'none',
-  },
-}));
-
-const Description = styled.span(({ theme }) => ({
-  color: theme.secondary,
-  fontSize: theme.fontSize.small,
-  textAlign: 'left',
-}));
-
-const Title = styled.span`
-  font-weight: 500;
-  text-align: left;
-`;
-
-const TextWrapper = styled.span(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'flex-start',
-  justifyContent: 'flex-start',
-  flexDirection: 'column',
-  marginRight: theme.spacing.increased,
-}));
-
-const Episode = (props: Props) => {
+const Episode = (props: Props): JSX.Element => {
   const data = useFragment<EpisodeType>(
     graphql`
       fragment Episode_episode on Episode {
@@ -129,13 +90,18 @@ const Episode = (props: Props) => {
     }
   };
   return (
-    <ListItem type="button" onClick={onClick} onChangeCapture={onClick}>
-      <TextWrapper>
-        <Title>{`${seasonAndNumber} - ${name} - ${date}`}</Title>
-        <Description>{summary}</Description>
-      </TextWrapper>
+    <button
+      className={classNames.listItem}
+      type="button"
+      onClick={onClick}
+      onChangeCapture={onClick}
+    >
+      <span className={classNames.textWrapper}>
+        <span className={classNames.title}>{`${seasonAndNumber} - ${name} - ${date}`}</span>
+        <span className={classNames.description}>{summary}</span>
+      </span>
       {isLoggedIn() && <Checkbox tabIndex={-1} checked={watched} />}
-    </ListItem>
+    </button>
   );
 };
 

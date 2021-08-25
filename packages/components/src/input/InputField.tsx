@@ -10,14 +10,22 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   dataTest?: string;
   error?: ReactNode;
+  labelClassName?: string;
 }
 
-export default function InputField({ label, dataTest, error, className, ...rest }: Props) {
+export default function InputField({
+  label,
+  dataTest,
+  error,
+  className,
+  labelClassName,
+  ...rest
+}: Props): JSX.Element {
   const seed = useUIDSeed();
   const id = rest.id ?? seed('input');
   return (
     <>
-      <label className={classNames.label}>
+      <label className={cn(classNames.label, labelClassName)}>
         <LabelText>{label}</LabelText>
         <input
           aria-invalid={Boolean(error)}
