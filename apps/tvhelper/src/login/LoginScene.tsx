@@ -17,8 +17,8 @@ export default function Login(props: Props): JSX.Element {
         <Box
           marginX="auto"
           width={{
-            mediumMobile: '50%',
-            tablet: '80%',
+            mediumMobile: '80%',
+            tablet: '50%',
           }}
         >
           <LoginForm />
