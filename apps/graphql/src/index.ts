@@ -51,14 +51,17 @@ app.use('/', attachUserToRequest, getPersistedQuery(), (request: Request, respon
 invariant(GRAPHQL_DB_URL != null, 'Expected to have db url for graphql, but did not.');
 invariant(TVHELPER_DB_URL != null, 'Expected to have db url for graphql, but did not.');
 
-tvHelperConnection.openUri(TVHELPER_DB_URL, {});
+(async () => {
+  await Promise.all([
+    tvHelperConnection.openUri(TVHELPER_DB_URL, {}),
+    graphqlConnection.openUri(GRAPHQL_DB_URL, {}),
+  ]);
 
-graphqlConnection.openUri(GRAPHQL_DB_URL, {});
+  if (process.env.NODE_ENV === 'production') {
+    app.listen();
+  } else {
+    app.listen(PORT ?? 3001);
+  }
 
-if (process.env.NODE_ENV === 'production') {
-  app.listen();
-} else {
-  app.listen(PORT ?? 3001);
-}
-
-console.log(`app running on http://localhost:${PORT ?? '3001'}`); // eslint-disable-line no-console
+  console.log(`app running on http://localhost:${PORT ?? '3001'}`); // eslint-disable-line no-console
+})();
