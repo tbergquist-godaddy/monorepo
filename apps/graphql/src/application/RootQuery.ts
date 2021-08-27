@@ -1,7 +1,7 @@
 import { GraphQLObjectType } from 'graphql';
 
 import TvhelperQueries from '../tvhelper/TvhelperQueries';
-import viewer from '../common/queries/Viewer';
+import viewer from './queries/Viewer';
 import { nodeField } from '../node/node';
 
 const RootQuery: GraphQLObjectType = new GraphQLObjectType({

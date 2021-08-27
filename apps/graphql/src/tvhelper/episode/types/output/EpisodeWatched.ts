@@ -1,6 +1,6 @@
 import { GraphQLObjectType, GraphQLBoolean } from 'graphql';
 
-import Episode from './Episode';
+import Episode from '../../../../application/models/Episode';
 
 export default new GraphQLObjectType({
   name: 'EpisodeWatched',

@@ -32,7 +32,7 @@ export default class UserRepository implements IUserRepository {
   async saveUser(user: IUser): Promise<boolean> {
     try {
       const status = await this.#model.updateOne({ username: user.username }, user);
-      return status.ok > 0;
+      return status.matchedCount > 0;
     } catch (e) {
       log('Failed to update user', user, e);
       return false;
