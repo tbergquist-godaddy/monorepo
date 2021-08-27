@@ -8,3 +8,4 @@ export type { IEpisodeDTO } from './domain/dto/episode-dto';
 export { default as markAsWatchedResolver } from './domain/resolvers/mark-as-watched-resolver';
 export { default as deleteWatchedResolver } from './domain/resolvers/delete-watched-resolver';
 export { default as isEpisodeWatchedResolver } from './domain/resolvers/is-episode-watched-resolver';
+export { default as notSeenEpisodeResolver } from './domain/resolvers/not-seen-episodes-resolver';

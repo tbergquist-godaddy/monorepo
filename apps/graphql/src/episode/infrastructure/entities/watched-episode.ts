@@ -11,6 +11,7 @@ export interface IWatchedEpisode {
 
 const WatchedEpisodesSchema = new Schema<IWatchedEpisode>({
   userId: {
+    // @ts-ignore: Fix later, this works
     type: Schema.Types.ObjectId,
     ref: 'users',
     required: true,

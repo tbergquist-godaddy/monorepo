@@ -28,14 +28,19 @@ export type GraphqlContextType = {
 };
 
 export default function createContext(request: Request): GraphqlContextType {
-  const episodeService = new EpisodesService();
+  // @ts-ignore: request.user does exist
+  const watchedEpisodeService = new WatchedEpisodeService(request.user?.id ?? '');
+  const favoriteService = new FavoriteService();
+  const episodeService = new EpisodesService({
+    favoriteService,
+    watchedEpisodeService,
+  });
   return {
     user: request.user,
     log,
     userService: new UserService(),
-    favoriteService: new FavoriteService(),
-    // @ts-ignore: request.user does exist
-    watchedEpisodeService: new WatchedEpisodeService(request.user?.id ?? ''),
+    favoriteService,
+    watchedEpisodeService,
     tvshowService: new TvshowService(episodeService),
     episodeService,
     dataLoader: {

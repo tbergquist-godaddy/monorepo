@@ -1,4 +1,4 @@
-import ViewerType from '../types/output/Viewer';
+import ViewerType from '../models/Viewer';
 import type { GraphqlContextType } from '../../services/createGraphqlContext';
 
 export default {

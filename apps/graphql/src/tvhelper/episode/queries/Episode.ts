@@ -2,7 +2,7 @@ import { GraphQLNonNull, GraphQLID } from 'graphql';
 import { fromGlobalId } from '@adeira/graphql-global-id';
 
 import type { GraphqlContextType } from '../../../services/createGraphqlContext';
-import Episode from '../types/output/Episode';
+import Episode from '../../../application/models/Episode';
 
 type Args = {
   id: string;

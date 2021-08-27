@@ -1,7 +1,7 @@
 import { GraphQLUnionType } from 'graphql';
 
-import TVHViewer from '../../../tvhelper/account/types/output/TvHelperViewer';
-import Unauthorized from './Unauthorized';
+import TVHViewer from './TvHelperViewer';
+import Unauthorized from '../../common/types/output/Unauthorized';
 
 export default new GraphQLUnionType({
   name: 'Viewer',

@@ -91,14 +91,14 @@ describe('getByUserNames', () => {
 describe('saveUser', () => {
   it('returns true when the operation succeeds', async () => {
     const { repository, updateOne, user } = setup();
-    updateOne.mockResolvedValue({ ok: 1 });
+    updateOne.mockResolvedValue({ matchedCount: 1 });
 
     expect(await repository.saveUser(user)).toBe(true);
   });
 
   it('returns false when no records were updated', async () => {
     const { repository, updateOne, user } = setup();
-    updateOne.mockResolvedValue({ ok: 0 });
+    updateOne.mockResolvedValue({ matchedCount: 0 });
 
     expect(await repository.saveUser(user)).toBe(false);
   });

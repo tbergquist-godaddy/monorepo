@@ -3,9 +3,9 @@ import GlobalID from '@adeira/graphql-global-id';
 import { GraphQLDate } from 'graphql-iso-date';
 import { isEpisodeWatchedResolver } from 'episode';
 
-import TvHelperImage from '../../../common/types/output/TvHelperImage';
-import Summary from '../../../common/types/output/Summary';
-import type { Episode } from '../../Episode';
+import TvHelperImage from '../../tvhelper/common/types/output/TvHelperImage';
+import Summary from '../../tvhelper/common/types/output/Summary';
+import type { Episode } from '../../tvhelper/episode/Episode';
 
 export default new GraphQLObjectType({
   name: 'Episode',

@@ -13,7 +13,7 @@ import { ITvshowDTO } from 'tvshow';
 import TvHelperImage from '../../../common/types/output/TvHelperImage';
 import Summary from '../../../common/types/output/Summary';
 import Cast from '../../../common/types/output/Cast';
-import Episode from '../../../episode/types/output/Episode';
+import Episode from '../../../../application/models/Episode';
 import type { GraphqlContextType } from '../../../../services/createGraphqlContext';
 import Network from './Network';
 import { nodeInterface } from '../../../../node/node';

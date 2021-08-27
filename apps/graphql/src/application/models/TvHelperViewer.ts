@@ -3,9 +3,11 @@ import GlobalID from '@adeira/graphql-global-id';
 import { connectionArgs } from '@adeira/graphql-relay';
 import { favoritesResolver } from 'favorite';
 import { GraphqlContextType } from 'services/createGraphqlContext';
+import { notSeenEpisodeResolver } from 'episode';
 
-import TvShowConnection from '../../../tvshow/types/output/TvShowConnection';
-import SortOptions from '../../../tvshow/types/input/SortOptions';
+import TvShowConnection from '../../tvhelper/tvshow/types/output/TvShowConnection';
+import SortOptions from '../../tvhelper/tvshow/types/input/SortOptions';
+import EpisodeConnection from './episode-connection';
 
 export default new GraphQLObjectType({
   name: 'TvHelperViewer',
@@ -35,6 +37,15 @@ export default new GraphQLObjectType({
       },
       // @ts-ignore: Oh my
       resolve: favoritesResolver,
+    },
+
+    notSeenEpisodes: {
+      type: EpisodeConnection,
+      args: {
+        ...connectionArgs,
+      },
+      description: 'The episodes you have not seen for your saved favorites',
+      resolve: notSeenEpisodeResolver,
     },
   },
 });
