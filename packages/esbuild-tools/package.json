@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@vanilla-extract/esbuild-plugin": "^1.0.0",
+    "@vanilla-extract/esbuild-plugin": "^2.0.0",
     "esbuild": "^0.12.9"
   },
   "peerDependencies": {

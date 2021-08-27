@@ -4257,14 +4257,14 @@
     dedent "^0.7.0"
     deep-object-diff "^1.1.0"
 
-"@vanilla-extract/esbuild-plugin@^1.0.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/esbuild-plugin/-/esbuild-plugin-1.2.0.tgz#51ac580f21b0a61ba01cbfe99603869698eddcfb"
-  integrity sha512-x7yiSone3tszbqsgzjw73Q0A2iXc/tok1zCynWFdzeGgUtYxRqICnHh9/9rAIQADyJ/+lF3GARgKLDiBzZssjg==
+"@vanilla-extract/esbuild-plugin@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/esbuild-plugin/-/esbuild-plugin-2.0.0.tgz#f5ee90f9cc4e5447f4c90d4a2587b5b0ddc7206c"
+  integrity sha512-NqLVDtcIxfl6J/ksX9xJuJjOqBVCBMHnDqsTZjBiApgd9HPmHLZsKa4w1lsZPhp75FfrKo1WKXGGMrj3+wSvqA==
   dependencies:
-    "@vanilla-extract/integration" "^1.1.0"
+    "@vanilla-extract/integration" "^1.2.0"
 
-"@vanilla-extract/integration@^1.0.0", "@vanilla-extract/integration@^1.1.0", "@vanilla-extract/integration@^1.2.0":
+"@vanilla-extract/integration@^1.0.0", "@vanilla-extract/integration@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/integration/-/integration-1.2.0.tgz#057a9a74bd6bf8ea2cfadb89d9b90fb8629efae9"
   integrity sha512-mawQst1Kk8LnsTXNcQ5VBTmg11DeYgctUG/G/l4ELlaINUAdvc7mguuf46nqXA1lfkrMbjquaBeiZQ9/Vz6x0g==
