@@ -3,7 +3,6 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
-
 export type ChangePasswordFormMutationVariables = {
     password: string;
     newPassword: string;
