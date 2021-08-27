@@ -3,7 +3,6 @@
 // @ts-nocheck
 
 import { ReaderFragment } from "relay-runtime";
-
 import { FragmentRefs } from "relay-runtime";
 export type FavoriteListItem_favorite = {
     readonly name: string | null;
