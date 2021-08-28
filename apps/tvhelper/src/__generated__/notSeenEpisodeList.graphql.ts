@@ -11,6 +11,7 @@ export type notSeenEpisodeList = {
                 readonly id: string;
                 readonly name: string | null;
                 readonly airdate: unknown | null;
+                readonly seasonAndNumber: string | null;
                 readonly tvShow: {
                     readonly name: string | null;
                 } | null;
@@ -83,6 +84,13 @@ return {
                 {
                   "alias": null,
                   "args": null,
+                  "kind": "ScalarField",
+                  "name": "seasonAndNumber",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
                   "concreteType": "TvShow",
                   "kind": "LinkedField",
                   "name": "tvShow",
@@ -106,5 +114,5 @@ return {
   "abstractKey": null
 };
 })();
-(node as any).hash = 'bd4abf41e3aa87d29cf30db1943f8755';
+(node as any).hash = '9fecae66e9e0601d86a259b2bd32f31d';
 export default node;
