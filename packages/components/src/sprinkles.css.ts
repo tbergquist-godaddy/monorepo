@@ -13,6 +13,8 @@ const space = {
   xxxLarge: '24px',
   auto: 'auto',
   negativeNormal: '-12px',
+  listHide: '-1px',
+  listAdjust: '1px',
 };
 
 const colors = {

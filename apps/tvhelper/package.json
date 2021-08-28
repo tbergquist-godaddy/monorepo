@@ -40,7 +40,7 @@
     "lint": "eslint '**/*.{ts,tsx,js}' --fix --report-unused-disable-directives",
     "test": "yarn typecheck && yarn test-only && yarn relay --validate",
     "test-only": "jest",
-    "relay": "yarn relay-compiler --language typescript",
+    "relay": "bash relay.sh",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
