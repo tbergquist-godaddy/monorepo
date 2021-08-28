@@ -15,6 +15,7 @@ export default function NotSeenEpisodeList({ viewer }: Props): JSX.Element {
               id
               name
               airdate
+              seasonAndNumber
               tvShow {
                 name
               }
@@ -39,7 +40,7 @@ export default function NotSeenEpisodeList({ viewer }: Props): JSX.Element {
           marginBottom="listHide"
           marginTop="listAdjust"
         >
-          {node.name} -{' '}
+          {node.seasonAndNumber} - {node.name} -{' '}
           <Box as="span" fontWeight={500}>
             {node.tvShow.name}
           </Box>{' '}

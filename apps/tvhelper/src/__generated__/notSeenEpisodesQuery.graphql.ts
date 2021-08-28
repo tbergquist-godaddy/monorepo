@@ -35,6 +35,7 @@ fragment notSeenEpisodeList on TvHelperViewer {
         id
         name
         airdate
+        seasonAndNumber
         tvShow {
           name
           id
@@ -147,6 +148,13 @@ return {
                           {
                             "alias": null,
                             "args": null,
+                            "kind": "ScalarField",
+                            "name": "seasonAndNumber",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
                             "concreteType": "TvShow",
                             "kind": "LinkedField",
                             "name": "tvShow",
@@ -177,12 +185,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "934987e5a917ef4b06722214123860e8",
+    "cacheID": "b8524d9a01f72f7279c91e5bbfeaef4a",
     "id": null,
     "metadata": {},
     "name": "notSeenEpisodesQuery",
     "operationKind": "query",
-    "text": "query notSeenEpisodesQuery {\n  viewer {\n    __typename\n    ...notSeenEpisodeList\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment notSeenEpisodeList on TvHelperViewer {\n  notSeenEpisodes {\n    edges {\n      node {\n        id\n        name\n        airdate\n        tvShow {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query notSeenEpisodesQuery {\n  viewer {\n    __typename\n    ...notSeenEpisodeList\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment notSeenEpisodeList on TvHelperViewer {\n  notSeenEpisodes {\n    edges {\n      node {\n        id\n        name\n        airdate\n        seasonAndNumber\n        tvShow {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n"
   }
 };
 })();
