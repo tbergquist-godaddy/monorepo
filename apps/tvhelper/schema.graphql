@@ -1,4 +1,4 @@
-# @generated SignedSource<<3cbb89b9c6d1ceeebc3ac0feeb362310>>
+# @generated SignedSource<<77bee5e67e3c2ef0aa3c5f3c629bf073>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -98,7 +98,26 @@ type Episode {
   """Gives season and episode number on format S01E01"""
   seasonAndNumber: String
   summary(stripTags: Boolean = true): String
+  tvShow: TvShow
   watched: Boolean
+}
+
+"""A connection to a list of items."""
+type EpisodeConnection {
+  """A list of edges."""
+  edges: [EpisodeEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+}
+
+"""An edge in a connection."""
+type EpisodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: Episode
 }
 
 """Mutation response type for episode watched mutation"""
@@ -247,6 +266,9 @@ type TvHelperViewer {
   The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.
   """
   id(opaque: Boolean = true): ID!
+
+  """The episodes you have not seen for your saved favorites"""
+  notSeenEpisodes(after: String, before: String, first: Int, last: Int): EpisodeConnection
   username: String
 }
 
