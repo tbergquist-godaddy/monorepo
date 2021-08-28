@@ -8,6 +8,8 @@ import { graphqlConnection } from '@tbergq/graphql-persistence';
 import { invariant } from '@adeira/js';
 import { config } from 'dotenv';
 import passportJwt from 'passport-jwt';
+// @ts-ignore: No types available
+import depthLimit from 'graphql-depth-limit';
 
 import Schema from './application/Schema';
 import createGraphqlContext from './services/createGraphqlContext';
@@ -41,6 +43,7 @@ function createGraphqlServer(request: Request) {
     schema: Schema,
     graphiql: true,
     context: createGraphqlContext(request),
+    validationRules: [depthLimit(10)],
   });
 }
 
