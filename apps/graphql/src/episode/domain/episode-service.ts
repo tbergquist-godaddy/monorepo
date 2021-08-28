@@ -53,7 +53,7 @@ export default class EpisodeService implements IEpisodeService {
       }
       episodes.push(
         ...episode.reduce<IEpisodeDTO[]>((acc, curr) => {
-          if (new Date(curr.airdate) > new Date()) {
+          if (curr.airdate === '' || new Date(curr.airdate) > new Date()) {
             return acc;
           }
           return [...acc, this.mapToDTO(curr)];
