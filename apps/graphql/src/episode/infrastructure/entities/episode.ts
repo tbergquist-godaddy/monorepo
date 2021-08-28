@@ -28,4 +28,5 @@ export interface IEpisode {
   number: number;
   airdate: string;
   summary: string;
+  tvshowId: number;
 }

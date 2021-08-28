@@ -15,6 +15,7 @@ const makePastEpisode = (id: number = faker.datatype.number()): IEpisode => {
     number: faker.datatype.number(),
     airdate: faker.date.past().toISOString(),
     summary: faker.random.words(),
+    tvshowId: faker.datatype.number(),
   };
 
   return episode;
@@ -29,6 +30,7 @@ const makeFutureEpisode = (): IEpisode => {
     number: faker.datatype.number(),
     airdate: faker.date.future().toISOString(),
     summary: faker.random.words(),
+    tvshowId: faker.datatype.number(),
   };
 
   return episode;

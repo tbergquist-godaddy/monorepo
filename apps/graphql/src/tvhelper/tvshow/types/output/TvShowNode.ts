@@ -2,7 +2,7 @@
 
 import { GraphQLObjectType } from 'graphql';
 
-import TvShow from './TvShow';
+import TvShow from '../../../../application/models/TvShow';
 
 export default new GraphQLObjectType({
   name: 'TvShowNode',

@@ -1,9 +1,8 @@
+import { IEpisodeDTO } from 'episode';
 import type { GraphqlContextType } from 'services/createGraphqlContext';
 
-import { Episode } from '../../../tvhelper/episode/Episode';
-
 export default function isEpisodeWatchedResolver(
-  { id, isWatched }: Episode,
+  { id, isWatched }: IEpisodeDTO,
   _: unknown,
   { user, watchedEpisodeService }: GraphqlContextType,
 ): Promise<boolean> | boolean {

@@ -5,7 +5,7 @@ import { favoritesResolver } from 'favorite';
 import { GraphqlContextType } from 'services/createGraphqlContext';
 import { notSeenEpisodeResolver } from 'episode';
 
-import TvShowConnection from '../../tvhelper/tvshow/types/output/TvShowConnection';
+import TvShowConnection from './TvShowConnection';
 import SortOptions from '../../tvhelper/tvshow/types/input/SortOptions';
 import EpisodeConnection from './episode-connection';
 

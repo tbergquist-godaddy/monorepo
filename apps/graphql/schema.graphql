@@ -1,4 +1,4 @@
-# @generated SignedSource<<d90921675b13a677aa52f1e8e5140cc5>>
+# @generated SignedSource<<77bee5e67e3c2ef0aa3c5f3c629bf073>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -98,6 +98,7 @@ type Episode {
   """Gives season and episode number on format S01E01"""
   seasonAndNumber: String
   summary(stripTags: Boolean = true): String
+  tvShow: TvShow
   watched: Boolean
 }
 

@@ -27,6 +27,7 @@ export default class EpisodeRepository {
       number: episode.number,
       season: episode.season,
       summary: episode.summary,
+      tvshowId,
     }));
   }
 }

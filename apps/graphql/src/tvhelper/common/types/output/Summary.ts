@@ -1,8 +1,13 @@
-import { GraphQLString, GraphQLBoolean } from 'graphql';
+import { IEpisodeDTO } from 'episode';
+import { GraphQLString, GraphQLBoolean, GraphQLFieldConfig } from 'graphql';
+import { GraphqlContextType } from 'services/createGraphqlContext';
 import striptags from 'striptags';
-import { ITvshowDTO } from 'tvshow';
 
-export default {
+type Args = {
+  stripTags?: boolean;
+};
+
+const Summary: GraphQLFieldConfig<IEpisodeDTO, GraphqlContextType, Args> = {
   type: GraphQLString,
   args: {
     stripTags: {
@@ -10,10 +15,12 @@ export default {
       defaultValue: true,
     },
   },
-  resolve: ({ summary }: ITvshowDTO, args: { stripTags: boolean }): string => {
+  resolve: ({ summary }: IEpisodeDTO, args: Args): string => {
     if (args.stripTags) {
       return striptags(summary);
     }
     return summary;
   },
 };
+
+export default Summary;
