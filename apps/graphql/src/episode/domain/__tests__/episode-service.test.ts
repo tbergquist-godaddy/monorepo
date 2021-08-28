@@ -6,14 +6,21 @@ import { IEpisode } from '../../infrastructure/entities/episode';
 import EpisodeService from '../episode-service';
 import { EpisodesLoader } from '../dataloaders/episodes-loader';
 
-const makePastEpisode = (id: number = faker.datatype.number()): IEpisode => {
+type EpisodeProps = {
+  id?: number;
+  airdate?: string;
+};
+const makePastEpisode = ({
+  id = faker.datatype.number(),
+  airdate = faker.date.past().toISOString(),
+}: EpisodeProps): IEpisode => {
   const episode: IEpisode = {
     id,
     image: { medium: faker.image.imageUrl(), original: faker.image.imageUrl() },
     name: faker.random.word(),
     season: faker.datatype.number(),
     number: faker.datatype.number(),
-    airdate: faker.date.past().toISOString(),
+    airdate,
     summary: faker.random.words(),
     tvshowId: faker.datatype.number(),
   };
@@ -121,9 +128,10 @@ describe('getNotSeenEpisodes', () => {
       makeFutureEpisode(),
       makeFutureEpisode(),
       makeFutureEpisode(),
-      makePastEpisode(1),
-      makePastEpisode(2),
-      makePastEpisode(3),
+      makePastEpisode({ id: 1 }),
+      makePastEpisode({ id: 2 }),
+      makePastEpisode({ id: 3 }),
+      makePastEpisode({ id: 4, airdate: '' }),
     ];
 
     favoriteService.getFavorites.mockResolvedValue(favorites);
