@@ -12,4 +12,6 @@ export interface IEpisodeDTO {
   airdate: string;
   summary: string;
   seasonAndNumber: string;
+  tvshowId?: number | null;
+  isWatched?: boolean;
 }

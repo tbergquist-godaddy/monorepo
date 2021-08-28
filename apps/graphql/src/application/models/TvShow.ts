@@ -10,14 +10,14 @@ import GlobalID from '@adeira/graphql-global-id';
 import { isFavoritesResolver } from 'favorite';
 import { ITvshowDTO } from 'tvshow';
 
-import TvHelperImage from '../../../common/types/output/TvHelperImage';
-import Summary from '../../../common/types/output/Summary';
-import Cast from '../../../common/types/output/Cast';
-import Episode from '../../../../application/models/Episode';
-import type { GraphqlContextType } from '../../../../services/createGraphqlContext';
-import Network from './Network';
-import { nodeInterface } from '../../../../node/node';
-import { register } from '../../../../node/typeStore';
+import TvHelperImage from '../../tvhelper/common/types/output/TvHelperImage';
+import Summary from '../../tvhelper/common/types/output/Summary';
+import Cast from '../../tvhelper/common/types/output/Cast';
+import Episode from './Episode';
+import type { GraphqlContextType } from '../../services/createGraphqlContext';
+import Network from '../../tvhelper/tvshow/types/output/Network';
+import { nodeInterface } from '../../node/node';
+import { register } from '../../node/typeStore';
 
 const TvShowEntity: GraphQLObjectType = new GraphQLObjectType<ITvshowDTO, GraphqlContextType>({
   name: 'TvShow',

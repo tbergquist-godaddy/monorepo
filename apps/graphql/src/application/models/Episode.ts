@@ -1,16 +1,17 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';
 import { GraphQLDate } from 'graphql-iso-date';
-import { isEpisodeWatchedResolver } from 'episode';
+import { isEpisodeWatchedResolver, IEpisodeDTO } from 'episode';
+import { GraphqlContextType } from 'services/createGraphqlContext';
 
 import TvHelperImage from '../../tvhelper/common/types/output/TvHelperImage';
 import Summary from '../../tvhelper/common/types/output/Summary';
-import type { Episode } from '../../tvhelper/episode/Episode';
+import TvShow from './TvShow';
 
-export default new GraphQLObjectType({
+export default new GraphQLObjectType<IEpisodeDTO, GraphqlContextType>({
   name: 'Episode',
   description: 'Episodes of the tv show',
-  fields: {
+  fields: () => ({
     id: GlobalID(({ id }) => id),
     image: {
       type: TvHelperImage,
@@ -27,7 +28,7 @@ export default new GraphQLObjectType({
     seasonAndNumber: {
       type: GraphQLString,
       description: 'Gives season and episode number on format S01E01',
-      resolve: ({ season, number }: Episode) => {
+      resolve: ({ season, number }: IEpisodeDTO) => {
         const paddedSeason = season < 10 ? `0${season}` : season;
         const paddedNumber = number < 10 ? `0${number}` : number;
         return `S${paddedSeason}E${paddedNumber}`;
@@ -35,13 +36,27 @@ export default new GraphQLObjectType({
     },
     airdate: {
       type: GraphQLDate,
-      resolve: ({ airdate }: Episode) => airdate || null, // Failes with nullish coalescing maybe date can be emptystring, which is invalid date
+      resolve: ({ airdate }: IEpisodeDTO) => airdate || null, // Fails with nullish coalescing maybe date can be emptystring, which is invalid date
     },
-    // @ts-ignore: Unsure
     summary: Summary,
     watched: {
       type: GraphQLBoolean,
       resolve: isEpisodeWatchedResolver,
     },
-  },
+
+    tvShow: {
+      type: TvShow,
+      resolve: async (
+        { tvshowId }: IEpisodeDTO,
+        __: unknown,
+        { tvshowService }: GraphqlContextType,
+      ) => {
+        if (tvshowId == null) {
+          return null;
+        }
+        const show = await tvshowService.getById(tvshowId);
+        return show;
+      },
+    },
+  }),
 });
