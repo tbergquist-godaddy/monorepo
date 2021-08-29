@@ -1,3 +1,5 @@
+import { Box } from '@tbergq/components';
+
 import NavLink from './NavLink';
 
 type Props = {
@@ -9,12 +11,16 @@ function NavbarRight({ username, onClick }: Props): JSX.Element {
   if (username) {
     return (
       <>
-        <NavLink onClick={onClick} href="/account">
-          Hello {username}
-        </NavLink>
-        <NavLink onClick={onClick} href="/api/logout">
-          logout
-        </NavLink>
+        <Box paddingY={{ mediumMobile: 'tiny', tablet: 'none' }}>
+          <NavLink onClick={onClick} href="/account">
+            Hello {username}
+          </NavLink>
+        </Box>
+        <Box paddingY={{ mediumMobile: 'tiny', tablet: 'none' }}>
+          <NavLink onClick={onClick} href="/api/logout">
+            logout
+          </NavLink>
+        </Box>
       </>
     );
   }

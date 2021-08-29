@@ -16,7 +16,7 @@ function Separator({ children, toggle }) {
   return <div className={classNames.separator}>{cloneElement(children, { onClick: toggle })}</div>;
 }
 
-export default function Navbar(props: Props) {
+export default function Navbar(props: Props): JSX.Element {
   const [expandMenu, setExpandMenu] = useState(false);
   function toggleExpand() {
     setExpandMenu((expand) => !expand);

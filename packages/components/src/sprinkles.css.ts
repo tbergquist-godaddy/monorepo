@@ -3,6 +3,7 @@ import { createAtomicStyles, createAtomsFn } from '@vanilla-extract/sprinkles';
 import { theme } from './theme.css';
 
 const space = {
+  none: '0',
   tiny: '4px',
   small: '8px',
   normal: '12px',

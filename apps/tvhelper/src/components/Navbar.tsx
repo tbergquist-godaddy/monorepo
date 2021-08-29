@@ -1,4 +1,4 @@
-import { Navbar as DSNavbar } from '@tbergq/components';
+import { Navbar as DSNavbar, Box } from '@tbergq/components';
 import jwtDecode from 'jwt-decode';
 
 import NavbarRight from './NavbarRight';
@@ -18,8 +18,12 @@ function NavbarLeft({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element {
   }
   return (
     <>
-      <NavLink href="/favorites">Favorites</NavLink>
-      <NavLink href="/episodes">Episodes</NavLink>
+      <Box paddingY={{ mediumMobile: 'tiny', tablet: 'none' }}>
+        <NavLink href="/favorites">Favorites</NavLink>
+      </Box>
+      <Box paddingY={{ mediumMobile: 'tiny', tablet: 'none' }}>
+        <NavLink href="/episodes">Episodes</NavLink>
+      </Box>
     </>
   );
 }
