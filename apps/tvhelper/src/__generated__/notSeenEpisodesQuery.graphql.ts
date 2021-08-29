@@ -3,6 +3,7 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
+
 import { FragmentRefs } from "relay-runtime";
 export type notSeenEpisodesQueryVariables = {};
 export type notSeenEpisodesQueryResponse = {
@@ -33,15 +34,19 @@ fragment notSeenEpisodeList on TvHelperViewer {
     edges {
       node {
         id
-        name
-        airdate
-        seasonAndNumber
-        tvShow {
-          name
-          id
-        }
+        ...notSeenEpisodeListItem
       }
     }
+  }
+}
+
+fragment notSeenEpisodeListItem on Episode {
+  name
+  airdate
+  seasonAndNumber
+  tvShow {
+    id
+    name
   }
 }
 */
@@ -160,8 +165,8 @@ return {
                             "name": "tvShow",
                             "plural": false,
                             "selections": [
-                              (v1/*: any*/),
-                              (v0/*: any*/)
+                              (v0/*: any*/),
+                              (v1/*: any*/)
                             ],
                             "storageKey": null
                           }
@@ -185,12 +190,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b8524d9a01f72f7279c91e5bbfeaef4a",
+    "cacheID": "94bb64015f70844e7e013f5a83e42a42",
     "id": null,
     "metadata": {},
     "name": "notSeenEpisodesQuery",
     "operationKind": "query",
-    "text": "query notSeenEpisodesQuery {\n  viewer {\n    __typename\n    ...notSeenEpisodeList\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment notSeenEpisodeList on TvHelperViewer {\n  notSeenEpisodes {\n    edges {\n      node {\n        id\n        name\n        airdate\n        seasonAndNumber\n        tvShow {\n          name\n          id\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query notSeenEpisodesQuery {\n  viewer {\n    __typename\n    ...notSeenEpisodeList\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment notSeenEpisodeList on TvHelperViewer {\n  notSeenEpisodes {\n    edges {\n      node {\n        id\n        ...notSeenEpisodeListItem\n      }\n    }\n  }\n}\n\nfragment notSeenEpisodeListItem on Episode {\n  name\n  airdate\n  seasonAndNumber\n  tvShow {\n    id\n    name\n  }\n}\n"
   }
 };
 })();

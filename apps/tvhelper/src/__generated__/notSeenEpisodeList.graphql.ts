@@ -3,18 +3,14 @@
 // @ts-nocheck
 
 import { ReaderFragment } from "relay-runtime";
+
 import { FragmentRefs } from "relay-runtime";
 export type notSeenEpisodeList = {
     readonly notSeenEpisodes: {
         readonly edges: ReadonlyArray<{
             readonly node: {
                 readonly id: string;
-                readonly name: string | null;
-                readonly airdate: unknown | null;
-                readonly seasonAndNumber: string | null;
-                readonly tvShow: {
-                    readonly name: string | null;
-                } | null;
+                readonly " $fragmentRefs": FragmentRefs<"notSeenEpisodeListItem">;
             } | null;
         } | null> | null;
     } | null;
@@ -28,15 +24,7 @@ export type notSeenEpisodeList$key = {
 
 
 
-const node: ReaderFragment = (function(){
-var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-};
-return {
+const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -73,32 +61,10 @@ return {
                   "name": "id",
                   "storageKey": null
                 },
-                (v0/*: any*/),
                 {
-                  "alias": null,
                   "args": null,
-                  "kind": "ScalarField",
-                  "name": "airdate",
-                  "storageKey": null
-                },
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "seasonAndNumber",
-                  "storageKey": null
-                },
-                {
-                  "alias": null,
-                  "args": null,
-                  "concreteType": "TvShow",
-                  "kind": "LinkedField",
-                  "name": "tvShow",
-                  "plural": false,
-                  "selections": [
-                    (v0/*: any*/)
-                  ],
-                  "storageKey": null
+                  "kind": "FragmentSpread",
+                  "name": "notSeenEpisodeListItem"
                 }
               ],
               "storageKey": null
@@ -113,6 +79,5 @@ return {
   "type": "TvHelperViewer",
   "abstractKey": null
 };
-})();
-(node as any).hash = '9fecae66e9e0601d86a259b2bd32f31d';
+(node as any).hash = '09550acf5ba5bc11cca261e0023e750a';
 export default node;
