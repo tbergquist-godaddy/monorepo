@@ -36,8 +36,8 @@ function TvShowListItem(props: Props): JSX.Element {
     return null;
   }
   return (
-    <Link href={`/tvShow?id=${tvShowId}`}>
-      <a className={classNames.link} href={`/tvShow?id=${tvShowId}`}>
+    <Link href={`/tvShow/${tvShowId}`}>
+      <a className={classNames.link} href={`/tvShow/${tvShowId}`}>
         <div className={classNames.container}>
           {src != null && (
             <Image

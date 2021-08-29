@@ -56,8 +56,8 @@ const FavoriteListItem = (props: Props): JSX.Element => {
   const src = data?.image?.medium;
 
   return (
-    <Link href={`/tvShow?id=${id}`}>
-      <a className={classNames.listItem} href={`/tvShow?id=${id}`}>
+    <Link href={`/tvShow/${id}`}>
+      <a className={classNames.listItem} href={`/tvShow/${id}`}>
         <Box display="flex" alignItems="center">
           <Box marginRight="xxxLarge">
             {src ? (

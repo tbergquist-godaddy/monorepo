@@ -12,16 +12,25 @@ interface Claims {
   username: string;
 }
 
-function Navbar(props: Props) {
+function NavbarLeft({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element {
+  if (!isLoggedIn) {
+    return null;
+  }
+  return (
+    <>
+      <NavLink href="/favorites">Favorites</NavLink>
+      <NavLink href="/episodes">Episodes</NavLink>
+    </>
+  );
+}
+function Navbar(props: Props): JSX.Element {
   const username = props.token == null ? null : jwtDecode<Claims>(props.token).username;
   const loggedIn = username != null;
-
-  const headerLeft = loggedIn ? <NavLink href="/favorites">Favorites</NavLink> : null;
 
   return (
     <DSNavbar
       brand="Tvhelper"
-      headerLeft={headerLeft}
+      headerLeft={<NavbarLeft isLoggedIn={loggedIn} />}
       headerRight={<NavbarRight username={username} />}
     />
   );
