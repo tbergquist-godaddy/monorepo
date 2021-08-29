@@ -146,6 +146,7 @@ const otherStyles = createAtomicStyles({
     background: ['none'],
     width: ['50%', '80%', '100%', 'unset'],
     textAlign: ['left'],
+    textDecoration: ['none'],
     zIndex: {
       default: 1,
       sticky: 100,

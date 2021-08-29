@@ -2,6 +2,8 @@ import { Box } from '@tbergq/components';
 import { useFragment, graphql } from 'react-relay';
 import { notSeenEpisodeList$key } from '__generated__/notSeenEpisodeList.graphql';
 
+import NotSeenEpisodeListItem from './not-seen-episode-list-item';
+
 type Props = {
   viewer?: notSeenEpisodeList$key;
 };
@@ -13,12 +15,7 @@ export default function NotSeenEpisodeList({ viewer }: Props): JSX.Element {
           edges {
             node {
               id
-              name
-              airdate
-              seasonAndNumber
-              tvShow {
-                name
-              }
+              ...notSeenEpisodeListItem
             }
           }
         }
@@ -27,25 +24,11 @@ export default function NotSeenEpisodeList({ viewer }: Props): JSX.Element {
     viewer,
   );
   const edges = data?.notSeenEpisodes?.edges ?? [];
-  // TODO: Improve styling
+
   return (
     <Box overflow="hidden">
       {edges.map(({ node }) => (
-        <Box
-          key={node.id}
-          padding="large"
-          borderBottomWidth="normal"
-          borderBottomStyle="solid"
-          borderColor="gray"
-          marginBottom="listHide"
-          marginTop="listAdjust"
-        >
-          {node.seasonAndNumber} - {node.name} -{' '}
-          <Box as="span" fontWeight={500}>
-            {node.tvShow.name}
-          </Box>{' '}
-          - {node.airdate}
-        </Box>
+        <NotSeenEpisodeListItem key={node.id} episode={node} />
       ))}
     </Box>
   );
