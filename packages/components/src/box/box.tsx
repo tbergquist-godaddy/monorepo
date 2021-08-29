@@ -24,9 +24,9 @@ export default function Box({ children, className, as = 'div', ...rest }: Props)
   }
 
   const atomicClasses = atoms(atomProps);
-
+  const classNames = [atomicClasses, className].filter(Boolean).join(' ');
   return (
-    <Component {...spreadProps} className={[atomicClasses, className].filter(Boolean).join(' ')}>
+    <Component {...spreadProps} className={classNames || null}>
       {children}
     </Component>
   );
