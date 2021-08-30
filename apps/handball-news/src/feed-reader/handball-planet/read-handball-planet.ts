@@ -1,28 +1,12 @@
 import { parse } from 'node-html-parser';
 import { invariant } from '@adeira/js';
+import fetchHtml from 'services/fetch-html';
+import log from 'logger';
 
 import { Feed } from '../types';
 import loadFeed from '../load-feed';
 
 const { HANDBALL_PLANET_URL } = process.env;
-
-const timeoutPromise = <T>(cb) => {
-  return new Promise<T>((resolve) => {
-    setTimeout(() => {
-      resolve(cb());
-    }, 1000);
-  });
-};
-
-const fetchHtml = async (url: string) => {
-  let response = await fetch(url);
-
-  while (response.status === 429) {
-    response = await timeoutPromise(() => fetch(url));
-  }
-
-  return response.text();
-};
 
 const getImageUrl = async (url: string) => {
   const html = await fetchHtml(url);
@@ -34,9 +18,7 @@ const getImageUrl = async (url: string) => {
     return null;
   }
 
-  const img: HTMLImageElement | undefined = imageContainer.childNodes.find(
-    (node: any) => node.rawTagName === 'img',
-  ) as any;
+  const img = imageContainer.querySelector('img');
 
   if (img == null) {
     return null;
@@ -54,6 +36,7 @@ export default async function readHandballPlanet(): Promise<ReadonlyArray<Feed>>
     HANDBALL_PLANET_URL != null,
     'Expected HANDBALL_PLANET_URL env variable to be set, but it was not',
   );
+  log('loading handball planet feed');
   const feed = await loadFeed(HANDBALL_PLANET_URL);
   const imagesUrlPromises = feed.items.map((item) => getImageUrl(item.guid ?? ''));
   const urls = await Promise.all(imagesUrlPromises);
