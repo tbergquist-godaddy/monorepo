@@ -25,8 +25,9 @@ export default function Home({ feed }: Props): JSX.Element {
 export async function getStaticProps({ locale }) {
   log('running getStaticProps in pages/index');
   try {
+    log('locale is', locale);
     const [feed, translations] = await Promise.all([
-      loadFeeds(),
+      loadFeeds(locale),
       serverSideTranslations(locale, ['common', 'index']),
     ]);
     log('re-fetched feeds successfully');

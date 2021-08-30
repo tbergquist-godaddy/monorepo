@@ -12,6 +12,7 @@ FROM node:16-alpine as builder
 WORKDIR /build
 ENV NODE_ENV=production
 ENV HANDBALL_PLANET_URL=https://www.handball-planet.com/feed/
+ENV HANDBALL_NO=https://www.handball.no/
 
 COPY --from=deps  /build/node_modules ./node_modules
 COPY --from=deps  /build/apps/handball-news/ ./apps/handball-news/
@@ -28,6 +29,7 @@ WORKDIR /build
 
 ENV NODE_ENV=production
 ENV HANDBALL_PLANET_URL=https://www.handball-planet.com/feed/
+ENV HANDBALL_NO=https://www.handball.no/
 ENV PORT=3000
 
 COPY --from=builder /build/node_modules ./node_modules
