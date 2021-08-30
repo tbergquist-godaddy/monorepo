@@ -31,3 +31,4 @@ jobs:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
           GRAPHQL_URL: ${{ secrets.GRAPHQL_URL }}
           HANDBALL_PLANET_URL: ${{ secrets.HANDBALL_PLANET_URL }}
+          HANDBALL_NO: ${{ secrets.HANDBALL_NO }}
