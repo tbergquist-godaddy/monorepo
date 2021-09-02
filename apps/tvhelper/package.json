@@ -26,8 +26,8 @@
     "react-content-loader": "^6.0.3",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
-    "react-relay": "^11.0.2",
-    "relay-runtime": "^11.0.2",
+    "react-relay": "^12.0.0",
+    "relay-runtime": "^12.0.0",
     "yup": "^0.32.9"
   },
   "scripts": {
@@ -40,7 +40,7 @@
     "lint": "eslint '**/*.{ts,tsx,js}' --fix --report-unused-disable-directives",
     "test": "yarn typecheck && yarn test-only && yarn relay --validate",
     "test-only": "jest",
-    "relay": "bash relay.sh",
+    "relay": "cp ../graphql/schema.graphql ./schema.graphql && yarn relay-compiler --language typescript",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
@@ -51,14 +51,14 @@
     "@types/relay-runtime": "^11.0.0",
     "@vanilla-extract/webpack-plugin": "^2.0.0",
     "babel-plugin-module-resolver": "^4.1.0",
-    "babel-plugin-relay": "^11.0.2",
+    "babel-plugin-relay": "^12.0.0",
     "css-loader": "^6.0.0",
     "eslint-config-next": "^11.0.0",
     "mini-css-extract-plugin": "^1.6.0",
-    "relay-compiler": "^11.0.2",
+    "relay-compiler": "^12.0.0",
     "relay-compiler-language-typescript": "^14.0.0",
-    "relay-config": "^11.0.2",
-    "relay-test-utils": "^11.0.2",
+    "relay-config": "^12.0.0",
+    "relay-test-utils": "^12.0.0",
     "rimraf": "^3.0.2"
   }
 }
