@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -7,13 +6,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const { config } = require('dotenv');
 const { VanillaExtractPlugin } = require('@vanilla-extract/webpack-plugin');
 const { getGlobalCssLoader } = require('next/dist/build/webpack/config/blocks/css/loaders');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 config();
 
 const { GRAPHQL_URL } = process.env;
 
-function withVanillaExtract(pluginOptions = {}) {
+function withVanillaExtract() {
   return (nextConfig = {}) => {
     return {
       ...nextConfig,
@@ -21,51 +19,22 @@ function withVanillaExtract(pluginOptions = {}) {
       webpack(config, options) {
         const { dev, isServer } = options;
 
-        config.module.rules.push({
-          test: /\.css$/i,
+        config.module.rules[config.module.rules.length - 1].oneOf.unshift({
+          test: /\.vanilla\.css$/i,
           sideEffects: true,
-          use: dev
-            ? getGlobalCssLoader(
-                {
-                  assetPrefix: options.config.assetPrefix,
-                  isClient: !isServer,
-                  isServer,
-                  isDevelopment: dev,
-                },
-                ['autoprefixer'],
-                [],
-              )
-            : [
-                MiniCssExtractPlugin.loader,
-                'css-loader',
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    plugins: () => [require('autoprefixer')],
-                  },
-                },
-              ],
+          use: getGlobalCssLoader(
+            {
+              assetPrefix: config.assetPrefix,
+              isClient: !isServer,
+              isServer,
+              isDevelopment: dev,
+            },
+            [],
+            [],
+          ),
         });
 
-        const plugins = [];
-
-        plugins.push(new VanillaExtractPlugin(pluginOptions));
-
-        if (!dev) {
-          plugins.push(
-            new MiniCssExtractPlugin({
-              filename: 'static/css/[contenthash].css',
-              chunkFilename: 'static/css/[contenthash].css',
-              ignoreOrder: true,
-            }),
-          );
-        }
-
-        config.plugins.push(...plugins);
-
-        if (typeof nextConfig.webpack === 'function') {
-          return nextConfig.webpack(config, options);
-        }
+        config.plugins.push(new VanillaExtractPlugin());
 
         return config;
       },
