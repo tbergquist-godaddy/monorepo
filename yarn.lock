@@ -2946,18 +2946,18 @@
     "@sinonjs/commons" "^1.7.0"
 
 "@storybook/addon-a11y@^6.2.9":
-  version "6.3.7"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-6.3.7.tgz#a802455f2d932eda07314e3d44a96c94bbd22b3d"
-  integrity sha512-Z5Lhxm8r5CkPW9FYf6zmAk9c7IhUeUQZxKZeEWGZdOvcjQ32rtg4IYvO2SHgWNrEKBdxxFm3pMiyK3wylQLfsQ==
+  version "6.3.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-6.3.8.tgz#7d6542d8e11fab38b21e7280100b0001a2b75232"
+  integrity sha512-Ili7hX+l4s9ILc/Hp19PoS9P942+139oawkzW5aW3Z6iwmP5J0ySXT4xcF9tFe2X8PeNTk5t2wXEUtBjmoE9Sg==
   dependencies:
-    "@storybook/addons" "6.3.7"
-    "@storybook/api" "6.3.7"
-    "@storybook/channels" "6.3.7"
-    "@storybook/client-api" "6.3.7"
-    "@storybook/client-logger" "6.3.7"
-    "@storybook/components" "6.3.7"
-    "@storybook/core-events" "6.3.7"
-    "@storybook/theming" "6.3.7"
+    "@storybook/addons" "6.3.8"
+    "@storybook/api" "6.3.8"
+    "@storybook/channels" "6.3.8"
+    "@storybook/client-api" "6.3.8"
+    "@storybook/client-logger" "6.3.8"
+    "@storybook/components" "6.3.8"
+    "@storybook/core-events" "6.3.8"
+    "@storybook/theming" "6.3.8"
     axe-core "^4.2.0"
     core-js "^3.8.2"
     global "^4.4.0"
@@ -9969,9 +9969,9 @@ graphql-iso-date@^3.6.1:
   integrity sha512-AwFGIuYMJQXOEAgRlJlFL4H1ncFM8n8XmoVDTNypNOZyQ8LFDG2ppMFlsS862BSTCDcSUfHp8PD3/uJhv7t59Q==
 
 "graphql@^14.0.0 || ^15.0.0", graphql@^15.1.0, graphql@^15.4.0, graphql@^15.5.1:
-  version "15.5.2"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.2.tgz#efa19f8f2bf1a48eb7d5c85bf17e144ba8bb0480"
-  integrity sha512-dZjLPWNQqYv0dqV2RNbiFed0LtSp6yd4jchsDGnuhDKa9OQHJYCfovaOEvY91w9gqbYO7Se9LKDTl3xxYva/3w==
+  version "15.5.3"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.3.tgz#c72349017d5c9f5446a897fe6908b3186db1da00"
+  integrity sha512-sM+jXaO5KinTui6lbK/7b7H/Knj9BpjGxZ+Ki35v7YbUJxxdBCUqNM0h3CRVU1ZF9t5lNiBzvBCSYPvIwxPOQA==
 
 gud@^1.0.0:
   version "1.0.0"
