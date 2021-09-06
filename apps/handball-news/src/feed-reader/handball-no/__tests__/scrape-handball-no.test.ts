@@ -38,6 +38,7 @@ Array [
       "width": 640,
     },
     "link": "http://localhost/hb-no/test-link-1",
+    "source": "handball.no",
     "timestamp": NaN,
     "title": "Heading-1",
   },

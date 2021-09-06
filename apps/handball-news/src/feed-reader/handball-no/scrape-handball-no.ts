@@ -50,6 +50,7 @@ export default async function scrapeHandballNo(): Promise<ReadonlyArray<Feed>> {
       link,
       timestamp: 0,
       title,
+      source: 'handball.no',
     });
 
     itemPromises.push(getDate(link));

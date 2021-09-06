@@ -84,6 +84,7 @@ export default {
   moduleNameMapper: {
     '^services/(.*)': '<rootDir>/src/services/$1',
     '^logger': '<rootDir>/src/logger',
+    '^test-utils/(.*)': '<rootDir>/src/test-utils/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

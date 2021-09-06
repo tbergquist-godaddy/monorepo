@@ -5,6 +5,7 @@ import log from 'logger';
 
 import { Feed } from '../types';
 import loadFeed from '../load-feed';
+import scrape from './scrape-handball-planet';
 
 const { HANDBALL_PLANET_URL } = process.env;
 
@@ -37,16 +38,23 @@ export default async function readHandballPlanet(): Promise<ReadonlyArray<Feed>>
     'Expected HANDBALL_PLANET_URL env variable to be set, but it was not',
   );
   log('loading handball planet feed');
-  const feed = await loadFeed(HANDBALL_PLANET_URL);
-  const imagesUrlPromises = feed.items.map((item) => getImageUrl(item.guid ?? ''));
-  const urls = await Promise.all(imagesUrlPromises);
+  try {
+    const feed = await loadFeed(HANDBALL_PLANET_URL);
+    const imagesUrlPromises = feed.items.map((item) => getImageUrl(item.guid ?? ''));
+    const urls = await Promise.all(imagesUrlPromises);
 
-  return feed.items.map((item, i) => ({
-    title: item.title ?? '',
-    content: item.contentSnippet ?? '',
-    guid: item.guid ?? '',
-    link: item.guid ?? '',
-    image: urls[i],
-    timestamp: item.isoDate != null ? new Date(item.isoDate).getTime() : null,
-  }));
+    return feed.items.map((item, i) => ({
+      title: item.title ?? '',
+      content: item.contentSnippet ?? '',
+      guid: item.guid ?? '',
+      link: item.guid ?? '',
+      image: urls[i],
+      timestamp: item.isoDate != null ? new Date(item.isoDate).getTime() : Date.now(),
+      source: 'handball-planet.com',
+    }));
+  } catch (e) {
+    // Seems like they shut down the rss feed 🤔 Consider only scraping
+    log('failed to read handball-planet rss feed, trying to scrape', e);
+    return scrape();
+  }
 }
