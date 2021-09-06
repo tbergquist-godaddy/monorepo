@@ -10,7 +10,6 @@ type Props = {
 };
 
 export default function ArticleLink({ item }: Props): JSX.Element {
-  // console.log({ item });
   return (
     <ClassNames>
       {({ css }) => (
@@ -42,11 +41,16 @@ export default function ArticleLink({ item }: Props): JSX.Element {
               >
                 <Heading>{item.title}</Heading>
               </Link>
-              {item.timestamp != null && (
+              <Box display="flex" gap="normal">
+                {item.timestamp != null && (
+                  <Text fontSize="sm" color="gray.600" marginEnd={2}>
+                    {format(item.timestamp, 'PP')}
+                  </Text>
+                )}
                 <Text fontSize="sm" color="gray.600">
-                  {format(item.timestamp, 'PP')}
+                  {item.source}
                 </Text>
-              )}
+              </Box>
               <Text>{item.content}</Text>
             </Box>
           </Box>

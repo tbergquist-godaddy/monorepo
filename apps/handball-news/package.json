@@ -25,8 +25,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint '**/*.{ts,tsx,js}' --fix --report-unused-disable-directives",
     "translations": "i18next",
-    "test": "jest",
-    "build": "next build",
+    "test": "yarn test-only && yarn typecheck",
+    "test-only": "jest",
+    "build:app": "next build",
     "start": "next start -p $PORT"
   },
   "devDependencies": {

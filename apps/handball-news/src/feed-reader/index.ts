@@ -11,18 +11,15 @@ export default async function loadFeeds(language: string): Promise<ReadonlyArray
     feedPromises.push(scrapeHandballNo());
   }
   const feeds = await Promise.all(feedPromises);
-  return (
-    feeds
-      .reduce((acc, feed) => [...acc, ...feed], [])
-      // @ts-ignore: ok
-      .sort((a, b) => {
-        if (a.timestamp > b.timestamp) {
-          return -1;
-        }
-        if (a.timestamp < b.timestamp) {
-          return 1;
-        }
-        return 0;
-      })
-  );
+  return feeds
+    .reduce<Array<Feed>>((acc, feed) => [...acc, ...feed], [])
+    .sort((a, b) => {
+      if (a.timestamp > b.timestamp) {
+        return -1;
+      }
+      if (a.timestamp < b.timestamp) {
+        return 1;
+      }
+      return 0;
+    });
 }
