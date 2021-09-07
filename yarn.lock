@@ -5091,6 +5091,13 @@
     javascript-stringify "^2.0.1"
     lodash "^4.17.21"
 
+"@vanilla-extract/next-plugin@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/next-plugin/-/next-plugin-1.0.0.tgz#32378c98254817dc3af5a847cede48da91bee45c"
+  integrity sha512-728O1S9wpfNpi7e0TpdETr4CFwHuLo6aGlE1H46fr3FxrKvnWvr+5aZNvq2zVLxvJaBrTAZsJ2R7PxV6wgeZeg==
+  dependencies:
+    "@vanilla-extract/webpack-plugin" "^2.0.0"
+
 "@vanilla-extract/private@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/private/-/private-1.0.1.tgz#c9479cebea7e7fbb07a1fe5b5c988a8753ef04ed"
@@ -14125,9 +14132,9 @@ mongodb@4.1.1:
     saslprep "^1.0.0"
 
 mongoose@^6.0.0:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.0.4.tgz#e735eecd964b72e0d112c1e2df28449fb274b95f"
-  integrity sha512-tkbyaGXj1gtIpsIBfp5fqWPzqL36nHfS0x4ykk0H9vHgSWXPvhzabtrs7c94li6Iqv13hTKXXQ4Q09o+mxIONw==
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.0.5.tgz#42648005d13b49261c757607d1f23761b59a610d"
+  integrity sha512-1MoG52oosjEK8z45DHQVbakP6DJG1sbQI/ZASBW8sZRV+rCaG/pC3L3wWjrsiped/2+uhvanWM9C89F2n6bQ3w==
   dependencies:
     bson "^4.2.2"
     kareem "2.3.2"
