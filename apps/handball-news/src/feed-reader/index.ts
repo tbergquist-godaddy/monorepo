@@ -1,12 +1,12 @@
 import { Feed as _Feed, Image as _Image } from './types';
-import { readHandballPlanet } from './handball-planet';
 import { scrapeHandballNo } from './handball-no';
+import { readStregspillerRssFeed } from './stregspiller';
 
 export type Feed = _Feed;
 export type Image = _Image;
 
 export default async function loadFeeds(language: string): Promise<ReadonlyArray<Feed>> {
-  const feedPromises = [readHandballPlanet()];
+  const feedPromises = [readStregspillerRssFeed()];
   if (language === 'nb') {
     feedPromises.push(scrapeHandballNo());
   }

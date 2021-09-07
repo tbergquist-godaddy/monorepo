@@ -36,7 +36,7 @@ export async function getStaticProps({ locale }) {
         ...translations,
         feed,
       },
-      // revalidate: 60 * 5, not working on heroku at the moment
+      revalidate: 60 * 5,
     };
   } catch (e) {
     log('Failed to get static props', e);

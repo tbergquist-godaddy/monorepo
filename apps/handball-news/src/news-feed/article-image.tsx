@@ -1,5 +1,5 @@
 import { Image } from 'feed-reader';
-import NextImage from 'next/image';
+import { Img as ChakraImage } from '@chakra-ui/react';
 import { ClassNames } from '@emotion/react';
 
 type Props = {
@@ -10,19 +10,18 @@ export default function ArticleLink({ image }: Props): JSX.Element | null {
   if (image == null) {
     return null;
   }
-
   return (
     <ClassNames>
       {({ css }) => {
         return (
-          <NextImage
+          <ChakraImage
             src={image.url}
-            width={image.width}
-            height={image.height}
-            layout="intrinsic"
+            alt=""
             className={css`
               border-top-right-radius: var(--chakra-radii-base);
               border-top-left-radius: var(--chakra-radii-base);
+              height: auto;
+              width: 100%;
             `}
           />
         );
