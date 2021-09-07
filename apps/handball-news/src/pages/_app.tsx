@@ -5,7 +5,9 @@ import { appWithTranslation } from 'next-i18next';
 
 import theme from '../theme';
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+type Locales = 'en' | 'nb';
+
+function MyApp({ Component, pageProps, router: { locale } }: AppProps): JSX.Element {
   return (
     <ChakraProvider resetCSS theme={theme}>
       <ColorModeProvider
@@ -15,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       >
         <Box minH="100vh" bg="gray.100" pb="10">
           <header>
-            <Navbar />
+            <Navbar locale={locale as any as Locales} />
           </header>
           <main>
             <Component {...pageProps} />

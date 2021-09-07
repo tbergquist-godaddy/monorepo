@@ -1,4 +1,8 @@
 {
+  "language": {
+    "english": "English",
+    "norwegian": "Norwegian"
+  },
   "navbar": {
     "brand": "Handball news"
   }
