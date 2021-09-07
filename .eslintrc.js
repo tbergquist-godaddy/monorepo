@@ -19,6 +19,7 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'jsx-a11y/accessible-emoji': 'off',
     'flowtype/require-valid-file-annotation': 'off',
     'flowtype/require-readonly-react-props': 'off',
     'flowtype/no-types-missing-file-annotation': 'off',
