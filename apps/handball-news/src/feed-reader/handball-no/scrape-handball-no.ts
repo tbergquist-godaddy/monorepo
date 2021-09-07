@@ -21,7 +21,7 @@ const getDate = async (url: string) => {
   return new Date(`20${year}-${month}-${day}`).getTime();
 };
 
-export default async function scrapeHandballNo(): Promise<ReadonlyArray<Feed>> {
+export default async function scrapeHandballNo(): Promise<Array<Feed>> {
   log('fetching handball.no');
   invariant(HANDBALL_NO != null, 'Expected HANDBALL_NO to be defined, but it was not');
 
