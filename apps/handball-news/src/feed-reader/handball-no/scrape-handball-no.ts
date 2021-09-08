@@ -51,6 +51,7 @@ export default async function scrapeHandballNo(): Promise<Array<Feed>> {
       timestamp: 0,
       title,
       source: 'handball.no',
+      hasImageConsent: null,
     });
 
     itemPromises.push(getDate(link));
