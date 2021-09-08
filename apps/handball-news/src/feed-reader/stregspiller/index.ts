@@ -31,6 +31,7 @@ export async function readStregspillerRssFeed(): Promise<Array<Feed>> {
       source: 'stregspiller.com',
       timestamp: item.pubDate != null ? new Date(item.pubDate).getTime() : 0,
       title: item.title ?? '',
+      hasImageConsent: null,
     });
   }
   return items;
