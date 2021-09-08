@@ -12,4 +12,5 @@ export interface Feed {
   image: Image | null;
   timestamp: number;
   source: string;
+  hasImageConsent: boolean | null;
 }
