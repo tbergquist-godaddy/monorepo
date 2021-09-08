@@ -23,7 +23,8 @@ export default function ArticleLink({ item }: Props): JSX.Element {
           borderRadius="base"
         >
           <Box position="relative">
-            <ArticleImage image={item.image} />
+            {/* TODO: Some archive images */}
+            {item.hasImageConsent === true && <ArticleImage image={item.image} />}
             <Box p="2">
               <Link
                 className={css`

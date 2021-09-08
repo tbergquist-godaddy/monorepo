@@ -32,6 +32,7 @@ Array [
                         Link 1 teaser
                     ",
     "guid": "uuid-123",
+    "hasImageConsent": null,
     "image": Object {
       "height": 360,
       "url": "http://localhost/hb-no/test-image-1",
