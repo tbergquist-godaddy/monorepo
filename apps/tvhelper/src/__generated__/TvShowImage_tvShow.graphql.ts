@@ -3,7 +3,6 @@
 // @ts-nocheck
 
 import { ReaderFragment } from "relay-runtime";
-
 import { FragmentRefs } from "relay-runtime";
 export type TvShowImage_tvShow = {
     readonly id: string;
