@@ -1,10 +1,11 @@
-import { useState, Children, cloneElement, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { MdMenu } from 'react-icons/md';
 import AnimateHeight from 'react-animate-height';
 
 import Container from '../Container';
 import { Media } from '../Media';
 import { classNames } from './Navbar.css';
+import { useNavbar } from './useNavbar';
 
 type Props = Readonly<{
   brand: ReactNode;
@@ -12,15 +13,11 @@ type Props = Readonly<{
   headerRight?: ReactNode;
 }>;
 
-function Separator({ children, toggle }) {
-  return <div className={classNames.separator}>{cloneElement(children, { onClick: toggle })}</div>;
-}
-
 export default function Navbar(props: Props): JSX.Element {
-  const [expandMenu, setExpandMenu] = useState(false);
-  function toggleExpand() {
-    setExpandMenu((expand) => !expand);
-  }
+  const {
+    models: { expandMenu },
+    operations: { toggleExpand },
+  } = useNavbar();
   return (
     <nav className={classNames.nav}>
       <Container className={classNames.navContainer} data-test="NavContainer">
@@ -54,12 +51,10 @@ export default function Navbar(props: Props): JSX.Element {
           <Media className={classNames.expandMenu} lessThan="tablet">
             <AnimateHeight height={expandMenu ? 'auto' : 0}>
               <Container className={classNames.smallMenuContainer}>
-                {Children.map(props.headerLeft, (child) => (
-                  <Separator toggle={() => setExpandMenu(false)}>{child}</Separator>
-                ))}
-                {Children.map(props.headerRight, (child) => (
-                  <Separator toggle={() => setExpandMenu(false)}>{child}</Separator>
-                ))}
+                <button type="button" className={classNames.clickCapture} onClick={toggleExpand}>
+                  {props.headerLeft}
+                  {props.headerRight}
+                </button>
               </Container>
             </AnimateHeight>
           </Media>
