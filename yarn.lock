@@ -14390,10 +14390,10 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-network@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/network/-/network-0.5.0.tgz#4fca12ffe80877035a859f655618ee30b48238da"
-  integrity sha512-pH4/Qg6/z0itY09yqVAZcHO64yvkqvGn6Qo8dKdg8mkx6eYZnVE1Qlzk8Bl2lb5wtJLVDKQJr5eU2b6i5M35Gw==
+network@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/network/-/network-0.6.0.tgz#700779ce3cd91b2633100fcd1b7a717ecc460c1c"
+  integrity sha512-n8lAL64ysBC8ThRA7DHJ8q8r7wHS2FPMtiru9rGTEWLX6A3g5WjUpK2S0WO+e4AJbTzeNi5/otXXPrslI2BxrA==
   dependencies:
     async "^1.5.2"
     commander "2.9.0"
