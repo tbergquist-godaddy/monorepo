@@ -13,7 +13,7 @@
   ],
   "dependencies": {
     "@adeira/js": "^2.1.0",
-    "@artsy/fresnel": "^1.5.0",
+    "@artsy/fresnel": "^3.0.1",
     "@tbergq/theme": "0.0.1",
     "@vanilla-extract/css": "^1.0.0",
     "@vanilla-extract/sprinkles": "^1.0.0",
