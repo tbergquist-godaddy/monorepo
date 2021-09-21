@@ -161,9 +161,9 @@
     "@babel/runtime" "^7.11.2"
 
 "@artsy/fresnel@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-3.0.1.tgz#cadf27cd088b61b17dbdba1ec80aed22c27db194"
-  integrity sha512-ePfPDIF2nAMLdkjoqnd4WCGVsgJg7gtDVqh3BJlypmF9aG99259qCKd4Jd620CJL61u88OJr6L7dqKdZzytlLw==
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-3.0.2.tgz#c52d03dfa385627174ef03d28b0a1a61eef13bfb"
+  integrity sha512-nx4oIX5jgwdYXtPydkBK3ZGwJ9mCGxaV/CRn7DzLFeKxW9qQPj56H1OvtMEm43UGCshXnLEu2ID/B2ozioMLrQ==
 
 "@babel/cli@^7.13.16":
   version "7.15.7"
@@ -10819,9 +10819,9 @@ graphql-iso-date@^3.6.1:
   integrity sha512-AwFGIuYMJQXOEAgRlJlFL4H1ncFM8n8XmoVDTNypNOZyQ8LFDG2ppMFlsS862BSTCDcSUfHp8PD3/uJhv7t59Q==
 
 "graphql@^14.0.0 || ^15.0.0", graphql@^15.1.0, graphql@^15.4.0, graphql@^15.5.1:
-  version "15.5.3"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.3.tgz#c72349017d5c9f5446a897fe6908b3186db1da00"
-  integrity sha512-sM+jXaO5KinTui6lbK/7b7H/Knj9BpjGxZ+Ki35v7YbUJxxdBCUqNM0h3CRVU1ZF9t5lNiBzvBCSYPvIwxPOQA==
+  version "15.6.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.6.0.tgz#e69323c6a9780a1a4b9ddf7e35ca8904bb04df02"
+  integrity sha512-WJR872Zlc9hckiEPhXgyUftXH48jp2EjO5tgBBOyNMRJZ9fviL2mJBD6CAysk6N5S0r9BTs09Qk39nnJBkvOXQ==
 
 gud@^1.0.0:
   version "1.0.0"
@@ -14172,9 +14172,9 @@ mongodb@4.1.1:
     saslprep "^1.0.0"
 
 mongoose@^6.0.0:
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.0.6.tgz#d99d7c478b121e23c0035682da1b9b7640bff48b"
-  integrity sha512-8lHgva/q5msZT16KOKDl+26Mh7uzTrmznup0p/TMqDCt7Y41voP7rZ0sTW/6tk2nsrmmMlJzzThJ8vexq7aQtQ==
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.0.7.tgz#a933743a1e2a67519f02c58b264e6825beb9b6aa"
+  integrity sha512-44STDcV6awu0zfo1Z3NyKPHZwfVrGU93/QgR0gYbt4bik/nEa7lI1RRGcq5oyGM0YE7l63i2j80v1OhvrlFvYw==
   dependencies:
     bson "^4.2.2"
     kareem "2.3.2"
