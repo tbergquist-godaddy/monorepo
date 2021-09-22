@@ -29,10 +29,10 @@ interface FormikValues extends User {
   confirmPassword: string;
 }
 
-export default function SignupForm(props: Props) {
-  function onSubmit({ password, email, username }: FormikValues) {
+export default function SignupForm(props: Props): JSX.Element {
+  const onSubmit = ({ password, email, username }: FormikValues) => {
     props.onSubmit({ username, password, email });
-  }
+  };
   return (
     <Formik
       initialValues={{

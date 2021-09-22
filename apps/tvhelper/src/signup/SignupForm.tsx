@@ -4,14 +4,14 @@ import Router from 'next/router';
 
 import useCreateUserMutation from './mutation/useCreateUserMutation';
 
-export default function SignupForm() {
+export default function SignupForm(): JSX.Element {
   const [createUserMutation, isLoading] = useCreateUserMutation();
   const show = useShowToast();
   const showToast = (message: string, type: 'success' | 'danger') => {
     show({ text: message, type });
   };
 
-  function onSubmit(user: { username: string; password: string; email: string }) {
+  const onSubmit = (user: { username: string; password: string; email: string }) => {
     createUserMutation({
       variables: user,
       onCompleted: (response, errors) => {
@@ -24,6 +24,6 @@ export default function SignupForm() {
         }
       },
     });
-  }
+  };
   return <CommonSignup isLoading={isLoading} onSubmit={onSubmit} />;
 }

@@ -33,7 +33,7 @@ const TvShowImage = (props: Props): JSX.Element => {
   const isFavorite = data?.isFavorite === true;
   const notLoggedIn = data?.isFavorite == null;
 
-  function onToggleFavorite() {
+  const onToggleFavorite = () => {
     const serieId = data?.id;
     if (serieId != null) {
       const variables = { serieId };
@@ -57,7 +57,7 @@ const TvShowImage = (props: Props): JSX.Element => {
         });
       }
     }
-  }
+  };
   return (
     <>
       <img className={classNames.image} loading="lazy" src={src} alt={data?.name} />
