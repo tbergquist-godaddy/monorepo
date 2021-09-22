@@ -36,9 +36,9 @@
     "@babel/runtime" "^7.12.5"
 
 "@adeira/eslint-config@^6.1.0":
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-6.5.0.tgz#3216eae37492495853430b22fcaea6f5001a18f5"
-  integrity sha512-t941bnpU0dCVeoRKrNVNoodqQpQEudM6KFloK/XQNftuYERiK90DPPAgUGRjQwcXuHrzjkU8wdTNZ1N5GOCXHA==
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-6.5.1.tgz#c8310c962b4aba93c47e73dbed9c89dc29de347d"
+  integrity sha512-6gBFUGmRYn0xKjp/bmmOOpFDduiYneCqSxD22JtMXspLLjPPoxL5uk2T0Ios/VFH68GBJRIxM7qAZyPpXU54iA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@next/eslint-plugin-next" "^11.1.2"
@@ -48,13 +48,13 @@
     eslint-plugin-fb-flow "^0.0.4"
     eslint-plugin-flowtype "^6.0.1"
     eslint-plugin-import "^2.24.2"
-    eslint-plugin-jest "^24.4.0"
+    eslint-plugin-jest "^24.4.2"
     eslint-plugin-jsx-a11y "^6.4.1"
     eslint-plugin-monorepo "^0.3.2"
     eslint-plugin-node "^11.1.0"
     eslint-plugin-prettier "^4.0.0"
     eslint-plugin-promise "^5.1.0"
-    eslint-plugin-react "^7.25.2"
+    eslint-plugin-react "7.25.1"
     eslint-plugin-react-hooks "^4.2.0"
     eslint-plugin-react-native "^3.11.0"
     eslint-plugin-relay "^1.8.2"
@@ -9313,10 +9313,10 @@ eslint-plugin-import@^2.22.1, eslint-plugin-import@^2.24.2:
     resolve "^1.20.0"
     tsconfig-paths "^3.11.0"
 
-eslint-plugin-jest@^24.4.0:
-  version "24.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.4.0.tgz#fa4b614dbd46a98b652d830377971f097bda9262"
-  integrity sha512-8qnt/hgtZ94E9dA6viqfViKBfkJwFHXgJmTWlMGDgunw1XJEGqm3eiPjDsTanM3/u/3Az82nyQM9GX7PM/QGmg==
+eslint-plugin-jest@^24.4.2:
+  version "24.4.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.4.2.tgz#9e8cf05ee6a0e3025e6149df2f36950abfa8d5bf"
+  integrity sha512-jNMnqwX75z0RXRMXkxwb/+9ylKJYJLJ8nT8nBT0XFM5qx4IQGxP4edMawa0qGkSbHae0BDPBmi8I2QF0/F04XQ==
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.0.1"
 
@@ -9399,7 +9399,26 @@ eslint-plugin-react-native@^3.11.0:
     "@babel/traverse" "^7.7.4"
     eslint-plugin-react-native-globals "^0.1.1"
 
-eslint-plugin-react@^7.23.1, eslint-plugin-react@^7.25.2:
+eslint-plugin-react@7.25.1:
+  version "7.25.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.25.1.tgz#9286b7cd9bf917d40309760f403e53016eda8331"
+  integrity sha512-P4j9K1dHoFXxDNP05AtixcJEvIT6ht8FhYKsrkY0MPCPaUMYijhpWwNiRDZVtA8KFuZOkGSeft6QwH8KuVpJug==
+  dependencies:
+    array-includes "^3.1.3"
+    array.prototype.flatmap "^1.2.4"
+    doctrine "^2.1.0"
+    estraverse "^5.2.0"
+    has "^1.0.3"
+    jsx-ast-utils "^2.4.1 || ^3.0.0"
+    minimatch "^3.0.4"
+    object.entries "^1.1.4"
+    object.fromentries "^2.0.4"
+    object.values "^1.1.4"
+    prop-types "^15.7.2"
+    resolve "^2.0.0-next.3"
+    string.prototype.matchall "^4.0.5"
+
+eslint-plugin-react@^7.23.1:
   version "7.25.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.25.3.tgz#3333a974772745ddb3aecea84621019b635766bc"
   integrity sha512-ZMbFvZ1WAYSZKY662MBVEWR45VaBT6KSJCiupjrNlcdakB90juaZeDCbJq19e73JZQubqFtgETohwgAt8u5P6w==
