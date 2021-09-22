@@ -9,8 +9,8 @@ export interface IFavorite {
 }
 
 const favoritesSchema = new Schema<IFavorite>({
+  // @ts-ignore: Fix later, this works
   userId: {
-    // @ts-ignore: Fix later, this works
     type: Schema.Types.ObjectId,
     ref: 'users',
   },
