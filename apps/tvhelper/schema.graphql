@@ -1,4 +1,4 @@
-# @generated SignedSource<<77bee5e67e3c2ef0aa3c5f3c629bf073>>
+# @generated SignedSource<<b2a310b66f321d35a75a9cddd7d5d23a>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -83,7 +83,7 @@ A date string, such as 2007-12-03, compliant with the `full-date` format outline
 scalar Date
 
 """Episodes of the tv show"""
-type Episode {
+type Episode implements ImageSummary {
   airdate: Date
 
   """
@@ -129,6 +129,11 @@ type EpisodeWatched {
 """Interface to describe an error"""
 interface Error {
   message: String
+}
+
+interface ImageSummary {
+  image: TvHelperImage
+  summary(stripTags: Boolean = true): String
 }
 
 """Login response, indicates success and gives the token"""
@@ -273,7 +278,7 @@ type TvHelperViewer {
 }
 
 """Information about a tv show"""
-type TvShow implements Node {
+type TvShow implements ImageSummary & Node {
   cast: [Cast]
   episodes: [Episode]
 

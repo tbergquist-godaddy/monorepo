@@ -3,17 +3,15 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from "relay-runtime";
+import { FragmentRefs } from "relay-runtime";
 export type episodeQueryVariables = {
     id: string;
 };
 export type episodeQueryResponse = {
     readonly episode: {
         readonly name: string | null;
-        readonly summary: string | null;
         readonly seasonAndNumber: string | null;
-        readonly image: {
-            readonly medium: string | null;
-        } | null;
+        readonly " $fragmentRefs": FragmentRefs<"imageSummary">;
     } | null;
 };
 export type episodeQuery = {
@@ -29,14 +27,19 @@ query episodeQuery(
 ) {
   episode(id: $id) {
     name
-    summary
     seasonAndNumber
-    image {
-      medium
-      id
-    }
+    ...imageSummary
     id
   }
+}
+
+fragment imageSummary on ImageSummary {
+  __isImageSummary: __typename
+  image {
+    medium
+    id
+  }
+  summary(stripTags: false)
 }
 */
 
@@ -66,24 +69,10 @@ v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "summary",
-  "storageKey": null
-},
-v4 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
   "name": "seasonAndNumber",
   "storageKey": null
 },
-v5 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "medium",
-  "storageKey": null
-},
-v6 = {
+v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -107,18 +96,10 @@ return {
         "selections": [
           (v2/*: any*/),
           (v3/*: any*/),
-          (v4/*: any*/),
           {
-            "alias": null,
             "args": null,
-            "concreteType": "TvHelperImage",
-            "kind": "LinkedField",
-            "name": "image",
-            "plural": false,
-            "selections": [
-              (v5/*: any*/)
-            ],
-            "storageKey": null
+            "kind": "FragmentSpread",
+            "name": "imageSummary"
           }
         ],
         "storageKey": null
@@ -145,33 +126,58 @@ return {
           (v3/*: any*/),
           (v4/*: any*/),
           {
-            "alias": null,
-            "args": null,
-            "concreteType": "TvHelperImage",
-            "kind": "LinkedField",
-            "name": "image",
-            "plural": false,
+            "kind": "InlineFragment",
             "selections": [
-              (v5/*: any*/),
-              (v6/*: any*/)
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "TvHelperImage",
+                "kind": "LinkedField",
+                "name": "image",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "medium",
+                    "storageKey": null
+                  },
+                  (v4/*: any*/)
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": [
+                  {
+                    "kind": "Literal",
+                    "name": "stripTags",
+                    "value": false
+                  }
+                ],
+                "kind": "ScalarField",
+                "name": "summary",
+                "storageKey": "summary(stripTags:false)"
+              }
             ],
-            "storageKey": null
-          },
-          (v6/*: any*/)
+            "type": "ImageSummary",
+            "abstractKey": "__isImageSummary"
+          }
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "2f2971fff6c38d065f75c40130d7d88a",
+    "cacheID": "e764a12fdbc6921c621b62ae92ffecc1",
     "id": null,
     "metadata": {},
     "name": "episodeQuery",
     "operationKind": "query",
-    "text": "query episodeQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    name\n    summary\n    seasonAndNumber\n    image {\n      medium\n      id\n    }\n    id\n  }\n}\n"
+    "text": "query episodeQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    name\n    seasonAndNumber\n    ...imageSummary\n    id\n  }\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n"
   }
 };
 })();
-(node as any).hash = 'd527dab3f94266d2f1db62d499458bd1';
+(node as any).hash = 'f4c2e523fbb945f243c22f91203ba3ce';
 export default node;

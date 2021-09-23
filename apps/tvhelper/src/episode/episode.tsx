@@ -7,11 +7,8 @@ export const episodeQuery = graphql`
   query episodeQuery($id: ID!) {
     episode(id: $id) {
       name
-      summary
       seasonAndNumber
-      image {
-        medium
-      }
+      ...imageSummary
     }
   }
 `;
@@ -34,7 +31,7 @@ export default function Episode({ episodeId }: Readonly<Props>): JSX.Element {
           {data?.episode?.seasonAndNumber} - {data?.episode?.name}
         </Heading>
       </Box>
-      <ImageSummary url={data?.episode?.image?.medium} summary={data?.episode?.summary} />
+      <ImageSummary alt={data?.episode.name ?? ''} dataRef={data.episode} />
     </Container>
   );
 }
