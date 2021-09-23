@@ -1,10 +1,10 @@
 import { graphql, useFragment } from 'react-relay';
 import { Heading, Container, Box } from '@tbergq/components';
 import { TvShowPage_tvShow$key as TvShowType } from '__generated__/TvShowPage_tvShow.graphql';
+import ImageSummary from 'components/image-summary/image-summary';
 
 import Episodes from './episodes/Episodes';
-import TvShowImage from './TvShowImage';
-import { classNames } from './TvShowPage.css';
+import ToggleFavoriteButton from './toggle-favorite-button';
 
 type Props = Readonly<{
   tvShow: TvShowType;
@@ -18,9 +18,9 @@ const TvShowPage = (props: Props): JSX.Element => {
         network {
           name
         }
-        summary(stripTags: false)
-        ...TvShowImage_tvShow
+        ...toggleFavoriteButton
         ...Episodes_episodes
+        ...imageSummary
       }
     `,
     props.tvShow,
@@ -32,20 +32,14 @@ const TvShowPage = (props: Props): JSX.Element => {
     <Container>
       <Box paddingTop="xxxLarge">
         <Heading>{name}</Heading>
-        <Box
-          display="flex"
-          paddingY="xxxLarge"
-          gap="increased"
-          flexDirection={{
-            mediumMobile: 'column',
-            tablet: 'row',
-          }}
-        >
-          <Box position="relative" className={classNames.imageContainer}>
-            <TvShowImage tvShow={data} />
+
+        <Box paddingY="xxxLarge">
+          <Box position="relative">
+            <ImageSummary alt={data?.name ?? ''} dataRef={data} />
+            <ToggleFavoriteButton tvShow={data} />
           </Box>
-          <Box flex="1" dangerouslySetInnerHTML={{ __html: data.summary }} />
         </Box>
+
         <Box paddingLeft="xxxLarge" paddingBottom="xxxLarge">
           <strong>Network: </strong>
           {data.network?.name}
