@@ -34,13 +34,13 @@ const TvShowPage = (props: Props): JSX.Element => {
         <Heading>{name}</Heading>
 
         <Box paddingY="xxxLarge">
-          <Box position="relative">
-            <ImageSummary alt={data?.name ?? ''} dataRef={data} />
-            <ToggleFavoriteButton tvShow={data} />
-          </Box>
+          <ImageSummary alt={data?.name ?? ''} dataRef={data} />
         </Box>
 
-        <Box paddingLeft="xxxLarge" paddingBottom="xxxLarge">
+        <Box alignItems="center" paddingBottom="xxxLarge" display="flex">
+          <Box marginRight="increased">
+            <ToggleFavoriteButton tvShow={data} />
+          </Box>
           <strong>Network: </strong>
           {data.network?.name}
         </Box>
