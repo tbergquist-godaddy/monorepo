@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@vanilla-extract/esbuild-plugin": "^2.0.0",
-    "esbuild": "^0.12.9"
+    "esbuild": "^0.13.1"
   },
   "peerDependencies": {
     "react": ">=17.0.2"
