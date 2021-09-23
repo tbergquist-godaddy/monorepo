@@ -3,6 +3,7 @@ import GlobalID from '@adeira/graphql-global-id';
 import { GraphQLDate } from 'graphql-iso-date';
 import { isEpisodeWatchedResolver, IEpisodeDTO } from 'episode';
 import { GraphqlContextType } from 'services/createGraphqlContext';
+import ImageSummary from 'application/interfaces/image-summary';
 
 import TvHelperImage from '../../tvhelper/common/types/output/TvHelperImage';
 import Summary from '../../tvhelper/common/types/output/Summary';
@@ -11,6 +12,7 @@ import TvShow from './TvShow';
 export default new GraphQLObjectType<IEpisodeDTO, GraphqlContextType>({
   name: 'Episode',
   description: 'Episodes of the tv show',
+  interfaces: [ImageSummary],
   fields: () => ({
     id: GlobalID(({ id }) => id),
     image: {

@@ -9,6 +9,7 @@ import { GraphQLDate } from 'graphql-iso-date';
 import GlobalID from '@adeira/graphql-global-id';
 import { isFavoritesResolver } from 'favorite';
 import { ITvshowDTO } from 'tvshow';
+import ImageSummary from 'application/interfaces/image-summary';
 
 import TvHelperImage from '../../tvhelper/common/types/output/TvHelperImage';
 import Summary from '../../tvhelper/common/types/output/Summary';
@@ -22,7 +23,7 @@ import { register } from '../../node/typeStore';
 const TvShowEntity: GraphQLObjectType = new GraphQLObjectType<ITvshowDTO, GraphqlContextType>({
   name: 'TvShow',
   description: 'Information about a tv show',
-  interfaces: [nodeInterface],
+  interfaces: [nodeInterface, ImageSummary],
   fields: {
     id: GlobalID(({ id }) => id),
     name: {
