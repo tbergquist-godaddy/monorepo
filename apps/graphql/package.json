@@ -59,7 +59,7 @@
     "@types/password-hash": "^1.2.20",
     "@types/ramda": "^0.27.40",
     "babel-plugin-module-resolver": "^4.1.0",
-    "esbuild": "^0.12.9",
+    "esbuild": "^0.13.1",
     "esbuild-plugin-alias": "^0.1.2",
     "faker": "^5.5.3",
     "mockdate": "^3.0.5",
