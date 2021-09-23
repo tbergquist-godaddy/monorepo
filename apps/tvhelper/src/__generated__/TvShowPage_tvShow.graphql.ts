@@ -9,8 +9,7 @@ export type TvShowPage_tvShow = {
     readonly network: {
         readonly name: string | null;
     } | null;
-    readonly summary: string | null;
-    readonly " $fragmentRefs": FragmentRefs<"TvShowImage_tvShow" | "Episodes_episodes">;
+    readonly " $fragmentRefs": FragmentRefs<"toggleFavoriteButton" | "Episodes_episodes" | "imageSummary">;
     readonly " $refType": "TvShowPage_tvShow";
 };
 export type TvShowPage_tvShow$data = TvShowPage_tvShow;
@@ -49,32 +48,24 @@ return {
       "storageKey": null
     },
     {
-      "alias": null,
-      "args": [
-        {
-          "kind": "Literal",
-          "name": "stripTags",
-          "value": false
-        }
-      ],
-      "kind": "ScalarField",
-      "name": "summary",
-      "storageKey": "summary(stripTags:false)"
-    },
-    {
       "args": null,
       "kind": "FragmentSpread",
-      "name": "TvShowImage_tvShow"
+      "name": "toggleFavoriteButton"
     },
     {
       "args": null,
       "kind": "FragmentSpread",
       "name": "Episodes_episodes"
+    },
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "imageSummary"
     }
   ],
   "type": "TvShow",
   "abstractKey": null
 };
 })();
-(node as any).hash = 'ee9fd474fa23f7051d10d661ca217950';
+(node as any).hash = 'e5f5465123646dfad0efb81333a2c1e6';
 export default node;

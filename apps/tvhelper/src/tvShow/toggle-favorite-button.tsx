@@ -1,25 +1,21 @@
 import { graphql, useFragment } from 'react-relay';
 import { IconButton } from '@tbergq/components';
 import { MdFavorite } from 'react-icons/md';
-import { TvShowImage_tvShow$key as TvShow } from '__generated__/TvShowImage_tvShow.graphql';
+import { toggleFavoriteButton$key } from '__generated__/toggleFavoriteButton.graphql';
 
 import useAddFavorite from './mutations/useAddFavorite';
 import useDeleteFavorite from './mutations/useDeleteFavorite';
-import { classNames } from './TvShowImage.css';
+import { classNames } from './toggle-favorite-button.css';
 
 type Props = Readonly<{
-  tvShow: TvShow;
+  tvShow: toggleFavoriteButton$key;
 }>;
 
 const TvShowImage = (props: Props): JSX.Element => {
   const data = useFragment(
     graphql`
-      fragment TvShowImage_tvShow on TvShow {
+      fragment toggleFavoriteButton on TvShow {
         id
-        name
-        image {
-          medium
-        }
         isFavorite
       }
     `,
@@ -29,7 +25,6 @@ const TvShowImage = (props: Props): JSX.Element => {
   const [addFavorite, addLoading] = useAddFavorite();
   const [deleteFavorite, deleteLoading] = useDeleteFavorite();
   const isLoading = addLoading || deleteLoading;
-  const src = data?.image?.medium ?? '';
   const isFavorite = data?.isFavorite === true;
   const notLoggedIn = data?.isFavorite == null;
 
@@ -58,22 +53,20 @@ const TvShowImage = (props: Props): JSX.Element => {
       }
     }
   };
+  if (notLoggedIn) {
+    return null;
+  }
   return (
-    <>
-      <img className={classNames.image} loading="lazy" src={src} alt={data?.name} />
-      {notLoggedIn === false && (
-        <IconButton
-          loading={isLoading}
-          color={isFavorite ? 'danger' : 'primary'}
-          onClick={onToggleFavorite}
-          dataTest="toggleFavoriteButton"
-          ariaLabel={isFavorite ? 'Delete favorite' : 'Add favorite'}
-          className={classNames.favoriteButton}
-        >
-          <MdFavorite />
-        </IconButton>
-      )}
-    </>
+    <IconButton
+      loading={isLoading}
+      color={isFavorite ? 'danger' : 'primary'}
+      onClick={onToggleFavorite}
+      dataTest="toggleFavoriteButton"
+      ariaLabel={isFavorite ? 'Delete favorite' : 'Add favorite'}
+      className={classNames.favoriteButton}
+    >
+      <MdFavorite />
+    </IconButton>
   );
 };
 

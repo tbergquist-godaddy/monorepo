@@ -47,25 +47,29 @@ fragment Episodes_episodes on TvShow {
   }
 }
 
-fragment TvShowImage_tvShow on TvShow {
-  id
-  name
-  image {
-    medium
-    id
-  }
-  isFavorite
-}
-
 fragment TvShowPage_tvShow on TvShow {
   name
   network {
     name
     id
   }
-  summary(stripTags: false)
-  ...TvShowImage_tvShow
+  ...toggleFavoriteButton
   ...Episodes_episodes
+  ...imageSummary
+}
+
+fragment imageSummary on ImageSummary {
+  __isImageSummary: __typename
+  image {
+    medium
+    id
+  }
+  summary(stripTags: false)
+}
+
+fragment toggleFavoriteButton on TvShow {
+  id
+  isFavorite
 }
 */
 
@@ -166,38 +170,6 @@ return {
               },
               {
                 "alias": null,
-                "args": [
-                  {
-                    "kind": "Literal",
-                    "name": "stripTags",
-                    "value": false
-                  }
-                ],
-                "kind": "ScalarField",
-                "name": "summary",
-                "storageKey": "summary(stripTags:false)"
-              },
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "TvHelperImage",
-                "kind": "LinkedField",
-                "name": "image",
-                "plural": false,
-                "selections": [
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "medium",
-                    "storageKey": null
-                  },
-                  (v2/*: any*/)
-                ],
-                "storageKey": null
-              },
-              {
-                "alias": null,
                 "args": null,
                 "kind": "ScalarField",
                 "name": "isFavorite",
@@ -243,6 +215,45 @@ return {
                   }
                 ],
                 "storageKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "TvHelperImage",
+                    "kind": "LinkedField",
+                    "name": "image",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "medium",
+                        "storageKey": null
+                      },
+                      (v2/*: any*/)
+                    ],
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": [
+                      {
+                        "kind": "Literal",
+                        "name": "stripTags",
+                        "value": false
+                      }
+                    ],
+                    "kind": "ScalarField",
+                    "name": "summary",
+                    "storageKey": "summary(stripTags:false)"
+                  }
+                ],
+                "type": "ImageSummary",
+                "abstractKey": "__isImageSummary"
               }
             ],
             "type": "TvShow",
@@ -254,12 +265,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "5f137ad05795d07d39ae3fd02a228ec4",
+    "cacheID": "00a55278a7e86cf1e712d9c918a4a1d5",
     "id": null,
     "metadata": {},
     "name": "TvShowQuery",
     "operationKind": "query",
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment TvShowImage_tvShow on TvShow {\n  id\n  name\n  image {\n    medium\n    id\n  }\n  isFavorite\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  summary(stripTags: false)\n  ...TvShowImage_tvShow\n  ...Episodes_episodes\n}\n"
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  ...toggleFavoriteButton\n  ...Episodes_episodes\n  ...imageSummary\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n\nfragment toggleFavoriteButton on TvShow {\n  id\n  isFavorite\n}\n"
   }
 };
 })();
