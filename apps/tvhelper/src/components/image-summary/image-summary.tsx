@@ -1,11 +1,24 @@
 import { Box } from '@tbergq/components';
+import { graphql, useFragment } from 'react-relay';
+import { imageSummary$key } from '__generated__/imageSummary.graphql';
 
 type Props = {
-  url: string;
-  summary: string;
+  alt: string;
+  dataRef: imageSummary$key | null | undefined;
 };
 
-export default function ImageSummary({ url, summary }: Readonly<Props>): JSX.Element {
+export default function ImageSummary({ dataRef, alt }: Readonly<Props>): JSX.Element {
+  const data = useFragment(
+    graphql`
+      fragment imageSummary on ImageSummary {
+        image {
+          medium
+        }
+        summary(stripTags: false)
+      }
+    `,
+    dataRef,
+  );
   return (
     <Box
       display="flex"
@@ -17,9 +30,9 @@ export default function ImageSummary({ url, summary }: Readonly<Props>): JSX.Ele
       }}
     >
       <Box position="relative">
-        <img src={url} alt="TODO" />
+        <img src={data?.image?.medium} alt={alt} />
       </Box>
-      <Box flex="1" dangerouslySetInnerHTML={{ __html: summary }} />
+      <Box flex="1" dangerouslySetInnerHTML={{ __html: data?.summary }} />
     </Box>
   );
 }
