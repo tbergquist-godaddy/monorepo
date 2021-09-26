@@ -3,8 +3,7 @@ import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
 import { Checkbox } from '@tbergq/components';
 import { Episode_episode$key as EpisodeType } from '__generated__/Episode_episode.graphql';
-import useMarkAsWatchedMutation from 'commands/use-mark-as-watched';
-import useDeleteAsWatchedMutation from 'commands/use-delete-as-watched';
+import useToggleWatched from 'commands/use-toggle-watched';
 
 import { classNames } from './Episode.css';
 
@@ -16,21 +15,18 @@ const Episode = (props: Props): JSX.Element => {
   const data = useFragment<EpisodeType>(
     graphql`
       fragment Episode_episode on Episode {
-        id
         name
         seasonAndNumber
         airdate
         summary
         watched
+        ...useToggleWatched
       }
     `,
     props.episode,
   );
-  const episodeId = data?.id;
-  const [deleteAsWatchedMutation, deleteLoading] = useDeleteAsWatchedMutation(episodeId);
-  const [markAsWatchedMutation, markLoading] = useMarkAsWatchedMutation(episodeId);
+  const [toggle, isMutating] = useToggleWatched(data);
 
-  const isMutating = deleteLoading || markLoading;
   const name = data?.name ?? '';
   const airdate = typeof data?.airdate === 'string' ? data?.airdate : null;
   const rawDate = airdate != null ? new Date(airdate) : null;
@@ -39,42 +35,11 @@ const Episode = (props: Props): JSX.Element => {
   const summary = data?.summary ?? '';
   const watched = data?.watched === true;
 
-  const markAsWatched = () => {
-    markAsWatchedMutation({
-      optimisticResponse: {
-        markAsWatched: {
-          success: true,
-          episode: {
-            id: episodeId,
-            watched: true,
-          },
-        },
-      },
-    });
-  };
-
-  const unMarkAsWatched = () => {
-    deleteAsWatchedMutation({
-      optimisticResponse: {
-        deleteWatchedEpisode: {
-          success: true,
-          episode: {
-            id: episodeId,
-            watched: false,
-          },
-        },
-      },
-    });
-  };
-  function toggleWatched() {
+  const toggleWatched = () => {
     if (!isMutating) {
-      if (!watched) {
-        markAsWatched();
-      } else {
-        unMarkAsWatched();
-      }
+      toggle();
     }
-  }
+  };
 
   const onClick = (e) => {
     e.stopPropagation();
