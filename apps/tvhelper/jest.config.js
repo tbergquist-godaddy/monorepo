@@ -9,4 +9,7 @@ module.exports = {
     '<rootDir>/scripts/setupTest.js',
   ],
   testMatch: ['**/__tests__/**/?(*.)+(spec|test).{ts,tsx}'],
+  moduleNameMapper: {
+    '^commands/(.*)': '<rootDir>/src/commands/$1',
+  },
 };
