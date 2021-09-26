@@ -3,13 +3,13 @@ import { style, composeStyles } from '@vanilla-extract/css';
 import { atoms } from '../sprinkles.css';
 import { theme } from '../theme.css';
 
-const base = composeStyles(
+const base = style([
   atoms({
     borderRadius: 'normal',
     cursor: 'pointer',
     outline: 'none',
   }),
-  style({
+  {
     'border': 'none',
     'lineHeight': 1.5,
     ':hover': {
@@ -18,8 +18,8 @@ const base = composeStyles(
     ':active': {
       transform: 'translateY(2px)',
     },
-  }),
-);
+  },
+]);
 const disabled = atoms({
   cursor: 'not-allowed',
 });
@@ -61,6 +61,19 @@ export const classNames = {
       color: 'dangerContrast',
     }),
   ),
+  success: style([
+    style([
+      atoms({
+        backgroundColor: 'success',
+        color: 'white',
+      }),
+      {
+        ':focus-visible': {
+          boxShadow: `${theme.boxShadow.active} ${theme.color.dangerActive}`,
+        },
+      },
+    ]),
+  ]),
   small: atoms({
     fontSize: 'small',
     paddingX: 'tiny',
@@ -76,4 +89,5 @@ export const classNames = {
     paddingX: 'normal',
     paddingY: 'increased',
   }),
+  link: atoms({ textDecoration: 'none' }),
 };

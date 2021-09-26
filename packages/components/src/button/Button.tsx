@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from 'react';
+import { MouseEvent, ReactNode, createElement } from 'react';
 import cn from 'classnames';
 
 import Loading from '../loading/Loading';
@@ -17,6 +17,7 @@ type Props = Readonly<{
   dataTest?: string;
   ariaLabel?: string;
   className?: string;
+  href?: string;
 }>;
 
 export default function Button({
@@ -26,22 +27,31 @@ export default function Button({
   children,
   dataTest,
   ariaLabel,
-  type = 'button',
+  type,
   className,
+  href,
   ...rest
-}: Props) {
-  return (
-    <button
-      aria-label={ariaLabel}
-      data-test={dataTest}
-      disabled={loading === true}
-      {...rest}
-      type={type === 'button' ? 'button' : 'submit'}
-      className={cn(classNames.base, classNames[color], classNames[size], className, {
+}: Props): JSX.Element {
+  const buttonType = (() => {
+    if (href != null) {
+      return null;
+    }
+    return type === 'button' ? 'button' : 'submit';
+  })();
+  return createElement(
+    href != null ? 'a' : 'button',
+    {
+      'aria-label': ariaLabel,
+      'data-test': dataTest,
+      'disabled': loading === true,
+      ...rest,
+      'type': buttonType,
+      'className': cn(classNames.base, classNames[color], classNames[size], className, {
         [classNames.disabled]: loading,
-      })}
-    >
-      {loading === true ? <Loading /> : children}
-    </button>
+        [classNames.link]: href != null,
+      }),
+      'href': href,
+    },
+    loading === true ? <Loading /> : children,
   );
 }

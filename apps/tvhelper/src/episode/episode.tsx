@@ -3,6 +3,8 @@ import { graphql, useLazyLoadQuery } from 'react-relay';
 import { episodeQuery as EpisodeQuery } from '__generated__/episodeQuery.graphql';
 import { Container, Heading, Box } from '@tbergq/components';
 
+import ActionBar from './action-bar';
+
 export const episodeQuery = graphql`
   query episodeQuery($id: ID!) {
     episode(id: $id) {
@@ -32,6 +34,9 @@ export default function Episode({ episodeId }: Readonly<Props>): JSX.Element {
         </Heading>
       </Box>
       <ImageSummary alt={data?.episode.name ?? ''} dataRef={data.episode} />
+      <Box paddingY="normal">
+        <ActionBar />
+      </Box>
     </Container>
   );
 }
