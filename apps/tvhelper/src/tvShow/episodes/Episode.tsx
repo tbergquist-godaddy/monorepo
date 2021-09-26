@@ -3,9 +3,9 @@ import { format } from 'date-fns';
 import { isLoggedIn } from '@tbergq/utils';
 import { Checkbox } from '@tbergq/components';
 import { Episode_episode$key as EpisodeType } from '__generated__/Episode_episode.graphql';
+import useMarkAsWatchedMutation from 'commands/use-mark-as-watched';
+import useDeleteAsWatchedMutation from 'commands/use-delete-as-watched';
 
-import useMarkAsWatchedMutation from './mutation/useMarkAsWatched';
-import useDeleteAsWatchedMutation from './mutation/useDeleteAsWatched';
 import { classNames } from './Episode.css';
 
 type Props = Readonly<{
@@ -26,8 +26,9 @@ const Episode = (props: Props): JSX.Element => {
     `,
     props.episode,
   );
-  const [deleteAsWatchedMutation, deleteLoading] = useDeleteAsWatchedMutation();
-  const [markAsWatchedMutation, markLoading] = useMarkAsWatchedMutation();
+  const episodeId = data?.id;
+  const [deleteAsWatchedMutation, deleteLoading] = useDeleteAsWatchedMutation(episodeId);
+  const [markAsWatchedMutation, markLoading] = useMarkAsWatchedMutation(episodeId);
 
   const isMutating = deleteLoading || markLoading;
   const name = data?.name ?? '';
@@ -39,39 +40,31 @@ const Episode = (props: Props): JSX.Element => {
   const watched = data?.watched === true;
 
   const markAsWatched = () => {
-    const episodeId = data?.id;
-    if (episodeId != null) {
-      markAsWatchedMutation({
-        variables: { episodeId },
-        optimisticResponse: {
-          markAsWatched: {
-            success: true,
-            episode: {
-              id: episodeId,
-              watched: true,
-            },
+    markAsWatchedMutation({
+      optimisticResponse: {
+        markAsWatched: {
+          success: true,
+          episode: {
+            id: episodeId,
+            watched: true,
           },
         },
-      });
-    }
+      },
+    });
   };
 
   const unMarkAsWatched = () => {
-    const episodeId = data?.id;
-    if (episodeId != null) {
-      deleteAsWatchedMutation({
-        variables: { episodeId },
-        optimisticResponse: {
-          deleteWatchedEpisode: {
-            success: true,
-            episode: {
-              id: episodeId,
-              watched: false,
-            },
+    deleteAsWatchedMutation({
+      optimisticResponse: {
+        deleteWatchedEpisode: {
+          success: true,
+          episode: {
+            id: episodeId,
+            watched: false,
           },
         },
-      });
-    }
+      },
+    });
   };
   function toggleWatched() {
     if (!isMutating) {
