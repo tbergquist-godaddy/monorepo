@@ -11,7 +11,7 @@ export type episodeQueryResponse = {
     readonly episode: {
         readonly name: string | null;
         readonly seasonAndNumber: string | null;
-        readonly " $fragmentRefs": FragmentRefs<"imageSummary">;
+        readonly " $fragmentRefs": FragmentRefs<"imageSummary" | "actionBar">;
     } | null;
 };
 export type episodeQuery = {
@@ -29,8 +29,14 @@ query episodeQuery(
     name
     seasonAndNumber
     ...imageSummary
+    ...actionBar
     id
   }
+}
+
+fragment actionBar on Episode {
+  watched
+  ...useToggleWatched
 }
 
 fragment imageSummary on ImageSummary {
@@ -40,6 +46,11 @@ fragment imageSummary on ImageSummary {
     id
   }
   summary(stripTags: false)
+}
+
+fragment useToggleWatched on Episode {
+  id
+  watched
 }
 */
 
@@ -100,6 +111,11 @@ return {
             "args": null,
             "kind": "FragmentSpread",
             "name": "imageSummary"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "actionBar"
           }
         ],
         "storageKey": null
@@ -124,6 +140,13 @@ return {
         "selections": [
           (v2/*: any*/),
           (v3/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "watched",
+            "storageKey": null
+          },
           (v4/*: any*/),
           {
             "kind": "InlineFragment",
@@ -170,14 +193,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e764a12fdbc6921c621b62ae92ffecc1",
+    "cacheID": "c74a1158a945e4b90a3016e717feccb3",
     "id": null,
     "metadata": {},
     "name": "episodeQuery",
     "operationKind": "query",
-    "text": "query episodeQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    name\n    seasonAndNumber\n    ...imageSummary\n    id\n  }\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n"
+    "text": "query episodeQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    name\n    seasonAndNumber\n    ...imageSummary\n    ...actionBar\n    id\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n  ...useToggleWatched\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n\nfragment useToggleWatched on Episode {\n  id\n  watched\n}\n"
   }
 };
 })();
-(node as any).hash = 'f4c2e523fbb945f243c22f91203ba3ce';
+(node as any).hash = '1883b22f35c655325f11e7fc3cd2d47e';
 export default node;

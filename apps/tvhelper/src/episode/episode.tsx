@@ -11,6 +11,7 @@ export const episodeQuery = graphql`
       name
       seasonAndNumber
       ...imageSummary
+      ...actionBar
     }
   }
 `;
@@ -35,7 +36,7 @@ export default function Episode({ episodeId }: Readonly<Props>): JSX.Element {
       </Box>
       <ImageSummary alt={data?.episode.name ?? ''} dataRef={data.episode} />
       <Box paddingY="normal">
-        <ActionBar />
+        <ActionBar dataRef={data.episode} />
       </Box>
     </Container>
   );
