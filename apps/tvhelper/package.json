@@ -48,6 +48,8 @@
     "@tbergq/test-utils": "0.0.1",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^13.2.1",
     "@types/react-relay": "^11.0.1",
     "@types/relay-runtime": "^12.0.0",
     "@vanilla-extract/webpack-plugin": "^2.0.0",

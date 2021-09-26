@@ -24,3 +24,13 @@ it('handles loading state', () => {
   expect(button).toBeInTheDocument();
   expect(button.getAttribute('disabled')).toBe('');
 });
+
+it('has an accessible name with aria-label', () => {
+  render(<Button aria-label="test">{null}</Button>);
+  expect(screen.getByRole('button', { name: 'test' })).toBeInTheDocument();
+});
+
+it('is a link when passed an href', () => {
+  render(<Button href="/">test</Button>);
+  expect(screen.getByRole('link')).toBeInTheDocument();
+});
