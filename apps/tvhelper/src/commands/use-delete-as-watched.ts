@@ -17,12 +17,21 @@ type MutateConfig = Omit<UseMutationConfig<MutationType>, 'variables'>;
 
 export default function useDeleteAsWatched(
   episodeId: string,
-): [(config: MutateConfig) => Disposable, boolean] {
+): [(config?: MutateConfig) => Disposable, boolean] {
   const [markAsNotWatched, loading] = useMutation<MutationType>(mutation);
 
   const mutate = (config: MutateConfig) => {
     return markAsNotWatched({
       variables: { episodeId },
+      optimisticResponse: {
+        deleteWatchedEpisode: {
+          success: true,
+          episode: {
+            id: episodeId,
+            watched: false,
+          },
+        },
+      },
       ...config,
     });
   };

@@ -5,12 +5,12 @@
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type Episode_episode = {
-    readonly id: string;
     readonly name: string | null;
     readonly seasonAndNumber: string | null;
     readonly airdate: unknown | null;
     readonly summary: string | null;
     readonly watched: boolean | null;
+    readonly " $fragmentRefs": FragmentRefs<"useToggleWatched">;
     readonly " $refType": "Episode_episode";
 };
 export type Episode_episode$data = Episode_episode;
@@ -21,19 +21,20 @@ export type Episode_episode$key = {
 
 
 
-const node: ReaderFragment = {
+const node: ReaderFragment = (function(){
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "watched",
+  "storageKey": null
+};
+return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
   "name": "Episode_episode",
   "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "id",
-      "storageKey": null
-    },
     {
       "alias": null,
       "args": null,
@@ -62,16 +63,25 @@ const node: ReaderFragment = {
       "name": "summary",
       "storageKey": null
     },
+    (v0/*: any*/),
     {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "watched",
-      "storageKey": null
+      "kind": "InlineDataFragmentSpread",
+      "name": "useToggleWatched",
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "id",
+          "storageKey": null
+        },
+        (v0/*: any*/)
+      ]
     }
   ],
   "type": "Episode",
   "abstractKey": null
 };
-(node as any).hash = 'b37a76627f44969c23b45279d8831218';
+})();
+(node as any).hash = 'f7591c6cbe86c4bf5169cb641db01992';
 export default node;

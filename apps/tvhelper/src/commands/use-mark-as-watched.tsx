@@ -17,11 +17,20 @@ type MutateConfig = Omit<UseMutationConfig<MutationType>, 'variables'>;
 
 export default function useMarkAsWatched(
   episodeId: string,
-): [(config: MutateConfig) => Disposable, boolean] {
+): [(config?: MutateConfig) => Disposable, boolean] {
   const [markAsWatched, loading] = useMutation<MutationType>(mutation);
-  const mutate = (config: UseMutationConfig<MutationType>) => {
+  const mutate = (config?: UseMutationConfig<MutationType>) => {
     return markAsWatched({
       variables: { episodeId },
+      optimisticResponse: {
+        markAsWatched: {
+          success: true,
+          episode: {
+            id: episodeId,
+            watched: true,
+          },
+        },
+      },
       ...config,
     });
   };

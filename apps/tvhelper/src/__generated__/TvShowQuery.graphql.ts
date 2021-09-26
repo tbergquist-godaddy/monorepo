@@ -31,12 +31,12 @@ query TvShowQuery(
 }
 
 fragment Episode_episode on Episode {
-  id
   name
   seasonAndNumber
   airdate
   summary
   watched
+  ...useToggleWatched
 }
 
 fragment Episodes_episodes on TvShow {
@@ -70,6 +70,11 @@ fragment imageSummary on ImageSummary {
 fragment toggleFavoriteButton on TvShow {
   id
   isFavorite
+}
+
+fragment useToggleWatched on Episode {
+  id
+  watched
 }
 */
 
@@ -265,12 +270,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "00a55278a7e86cf1e712d9c918a4a1d5",
+    "cacheID": "b9cd205c5081d1e301c9e5ef372beb4d",
     "id": null,
     "metadata": {},
     "name": "TvShowQuery",
     "operationKind": "query",
-    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  ...toggleFavoriteButton\n  ...Episodes_episodes\n  ...imageSummary\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n\nfragment toggleFavoriteButton on TvShow {\n  id\n  isFavorite\n}\n"
+    "text": "query TvShowQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...TvShowPage_tvShow\n    id\n  }\n}\n\nfragment Episode_episode on Episode {\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n  ...useToggleWatched\n}\n\nfragment Episodes_episodes on TvShow {\n  episodes {\n    id\n    seasonAndNumber\n    ...Episode_episode\n  }\n}\n\nfragment TvShowPage_tvShow on TvShow {\n  name\n  network {\n    name\n    id\n  }\n  ...toggleFavoriteButton\n  ...Episodes_episodes\n  ...imageSummary\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n\nfragment toggleFavoriteButton on TvShow {\n  id\n  isFavorite\n}\n\nfragment useToggleWatched on Episode {\n  id\n  watched\n}\n"
   }
 };
 })();
