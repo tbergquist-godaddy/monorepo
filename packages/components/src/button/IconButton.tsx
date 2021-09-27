@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { ReactNode } from 'react';
+import { ReactNode, createElement } from 'react';
 
 import { ColorScheme, Sizes } from './Button';
 import Loading from '../loading/Loading';
@@ -16,6 +16,8 @@ type Props = Readonly<{
   dataTest?: string;
   ariaLabel: string;
   className?: string;
+  title?: string;
+  href?: string;
 }>;
 
 export default function IconButton({
@@ -28,15 +30,22 @@ export default function IconButton({
   type = 'button',
   className,
   ...rest
-}: Props) {
-  return (
-    <button
-      disabled={loading}
-      {...rest}
-      aria-label={ariaLabel}
-      data-test={dataTest}
-      type={type === 'button' ? 'button' : 'submit'}
-      className={cn(
+}: Props): JSX.Element {
+  const buttonType = (() => {
+    if (rest.href != null) {
+      return null;
+    }
+    return type === 'button' ? 'button' : 'submit';
+  })();
+  return createElement(
+    rest.href != null ? 'a' : 'button',
+    {
+      'disabled': loading,
+      ...rest,
+      'aria-label': ariaLabel,
+      'data-test': dataTest,
+      'type': buttonType,
+      'className': cn(
         iconButtonClassNames.base,
         classNames[color],
         iconButtonClassNames[size],
@@ -44,9 +53,8 @@ export default function IconButton({
         {
           [classNames.disabled]: loading,
         },
-      )}
-    >
-      {loading ? <Loading /> : children}
-    </button>
+      ),
+    },
+    loading ? <Loading /> : children,
   );
 }

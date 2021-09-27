@@ -1,21 +1,12 @@
-import { atoms, theme } from '@tbergq/components';
-import { composeStyles, style } from '@vanilla-extract/css';
-
-const hoverFocus = {
-  backgroundColor: theme.color.gray,
-  outline: 'none',
-};
+import { atoms } from '@tbergq/components';
+import { style } from '@vanilla-extract/css';
 
 export const classNames = {
-  listItem: composeStyles(
-    style({
+  listItem: style([
+    {
       marginTop: '1px',
       marginBottom: '-1px',
-      selectors: {
-        '&:hover': hoverFocus,
-        '&:focus': hoverFocus,
-      },
-    }),
+    },
     atoms({
       border: 'none',
       background: 'none',
@@ -29,9 +20,8 @@ export const classNames = {
       borderBottomStyle: 'solid',
       fontSize: 'normal',
       fontFamily: 'default',
-      cursor: 'pointer',
     }),
-  ),
+  ]),
   description: atoms({
     color: 'secondary',
     fontSize: 'small',

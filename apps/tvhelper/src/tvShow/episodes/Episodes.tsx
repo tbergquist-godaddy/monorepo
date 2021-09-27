@@ -2,8 +2,8 @@ import { ReactNode, useMemo } from 'react';
 import { graphql, useFragment } from 'react-relay';
 import type { Episodes_episodes$key as EpisodeType } from '__generated__/Episodes_episodes.graphql';
 import { Box } from '@tbergq/components';
+import Episode from 'episodes/episode-list-item';
 
-import Episode from './Episode';
 import { classNames } from './Episodes.css';
 
 type Props = Readonly<{
@@ -17,7 +17,7 @@ const Episodes = (props: Props): JSX.Element => {
         episodes {
           id
           seasonAndNumber
-          ...Episode_episode
+          ...episodeListItem
         }
       }
     `,
@@ -59,7 +59,7 @@ const Episodes = (props: Props): JSX.Element => {
             <h2 className={classNames.title}>{`Season ${parseInt(key, 10).toString()}`}</h2>
             <Box overflow="hidden">
               {episodes.map((episode) => (
-                <Episode key={episode?.id} episode={episode} />
+                <Episode key={episode?.id} episodeRef={episode} />
               ))}
             </Box>
           </Box>

@@ -6,10 +6,11 @@ import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type notSeenEpisodeList = {
     readonly notSeenEpisodes: {
+        readonly __id: string;
         readonly edges: ReadonlyArray<{
             readonly node: {
                 readonly id: string;
-                readonly " $fragmentRefs": FragmentRefs<"notSeenEpisodeListItem">;
+                readonly " $fragmentRefs": FragmentRefs<"episodeListItem">;
             } | null;
         } | null> | null;
     } | null;
@@ -26,15 +27,26 @@ export type notSeenEpisodeList$key = {
 const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
-  "metadata": null,
+  "metadata": {
+    "connection": [
+      {
+        "count": null,
+        "cursor": null,
+        "direction": "forward",
+        "path": [
+          "notSeenEpisodes"
+        ]
+      }
+    ]
+  },
   "name": "notSeenEpisodeList",
   "selections": [
     {
-      "alias": null,
+      "alias": "notSeenEpisodes",
       "args": null,
       "concreteType": "EpisodeConnection",
       "kind": "LinkedField",
-      "name": "notSeenEpisodes",
+      "name": "__NotSeenEpisodeList_notSeenEpisodes_connection",
       "plural": false,
       "selections": [
         {
@@ -61,15 +73,66 @@ const node: ReaderFragment = {
                   "storageKey": null
                 },
                 {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "__typename",
+                  "storageKey": null
+                },
+                {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "notSeenEpisodeListItem"
+                  "name": "episodeListItem"
                 }
               ],
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "cursor",
               "storageKey": null
             }
           ],
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "PageInfo",
+          "kind": "LinkedField",
+          "name": "pageInfo",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endCursor",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "hasNextPage",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "kind": "ClientExtension",
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "__id",
+              "storageKey": null
+            }
+          ]
         }
       ],
       "storageKey": null
@@ -78,5 +141,5 @@ const node: ReaderFragment = {
   "type": "TvHelperViewer",
   "abstractKey": null
 };
-(node as any).hash = '09550acf5ba5bc11cca261e0023e750a';
+(node as any).hash = '05819351862b25db383c9d621e4a5b03';
 export default node;

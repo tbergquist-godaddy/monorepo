@@ -8,7 +8,7 @@ export type Episodes_episodes = {
     readonly episodes: ReadonlyArray<{
         readonly id: string;
         readonly seasonAndNumber: string | null;
-        readonly " $fragmentRefs": FragmentRefs<"Episode_episode">;
+        readonly " $fragmentRefs": FragmentRefs<"episodeListItem">;
     } | null> | null;
     readonly " $refType": "Episodes_episodes";
 };
@@ -51,7 +51,7 @@ const node: ReaderFragment = {
         {
           "args": null,
           "kind": "FragmentSpread",
-          "name": "Episode_episode"
+          "name": "episodeListItem"
         }
       ],
       "storageKey": null
@@ -60,5 +60,5 @@ const node: ReaderFragment = {
   "type": "TvShow",
   "abstractKey": null
 };
-(node as any).hash = 'c31dfb8b38dfcd39b29d480557854c1a';
+(node as any).hash = 'd39f6ebf6b773b4c842183d558a35d8a';
 export default node;

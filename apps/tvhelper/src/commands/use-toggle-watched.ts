@@ -1,10 +1,18 @@
 import { graphql, readInlineData } from 'react-relay';
 import { useToggleWatched$key } from '__generated__/useToggleWatched.graphql';
 
-import useMarkAsWatched from './use-mark-as-watched';
-import useMarkAsUnwatched from './use-delete-as-watched';
+import useMarkAsWatched, { MarkAsWatchedConfig } from './use-mark-as-watched';
+import useMarkAsUnwatched, { DeleteAsWatchedMutationConfig } from './use-delete-as-watched';
 
-export default function useToggleWatched(fragmentRef: useToggleWatched$key): [() => void, boolean] {
+export type ToggleConfig = {
+  deleteConfig?: DeleteAsWatchedMutationConfig;
+  markAsWatchedConfig?: MarkAsWatchedConfig;
+};
+
+export default function useToggleWatched(
+  fragmentRef: useToggleWatched$key,
+  config?: ToggleConfig,
+): [() => void, boolean] {
   const data = readInlineData(
     graphql`
       fragment useToggleWatched on Episode @inline {
@@ -21,9 +29,9 @@ export default function useToggleWatched(fragmentRef: useToggleWatched$key): [()
 
   const toggle = () => {
     if (data?.watched === true) {
-      deleteAsWatchedMutation();
+      deleteAsWatchedMutation(config?.deleteConfig);
     } else if (data?.watched === false) {
-      markAsWatchedMutation();
+      markAsWatchedMutation(config?.markAsWatchedConfig);
     }
   };
 

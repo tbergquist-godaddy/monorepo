@@ -12,6 +12,7 @@ export const theme = createGlobalTheme(':root', {
     'gray': '#e2e2e2',
     'gray.100': '#cccccc',
     'white': '#fff',
+    'whiteActive': 'rgba(0,0,0,0.1)',
     'black': '#000',
   },
   boxShadow: {
