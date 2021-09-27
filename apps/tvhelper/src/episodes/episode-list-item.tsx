@@ -6,7 +6,9 @@ import { IconButton, Box } from '@tbergq/components';
 import { BiDetail } from 'react-icons/bi';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import Link from 'next/link';
-import useToggleWatched, { ToggleConfig } from 'commands/use-toggle-watched';
+import useToggleWatched, {
+  ToggleConfig,
+} from 'modules/episode/operations/mutations/use-toggle-watched';
 
 import { classNames } from './episode-list-item.css';
 

@@ -7,6 +7,7 @@ import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
 import { actionBarTestQuery } from '__generated__/actionBarTestQuery.graphql';
 
 import ActionBar from '../action-bar';
+import useEpisode from '../../models/use-episode';
 
 jest.mock('next/router');
 
@@ -15,13 +16,22 @@ const TestRenderer = () => {
     graphql`
       query actionBarTestQuery @relay_test_operation {
         episode(id: "1") {
+          id
+          watched
           ...actionBar
         }
       }
     `,
     {},
   );
-  return <ActionBar dataRef={data?.episode} />;
+  const {
+    models: { isMutating },
+    operations: { toggleEpisodeWatched },
+  } = useEpisode({ episodeId: data?.episode?.id, watched: data?.episode?.watched });
+
+  return (
+    <ActionBar isMutating={isMutating} actions={{ toggleEpisodeWatched }} dataRef={data?.episode} />
+  );
 };
 
 const setup = () => {

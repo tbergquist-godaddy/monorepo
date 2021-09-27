@@ -7,6 +7,8 @@ import { FragmentRefs } from "relay-runtime";
 export type actionBarTestQueryVariables = {};
 export type actionBarTestQueryResponse = {
     readonly episode: {
+        readonly id: string;
+        readonly watched: boolean | null;
         readonly " $fragmentRefs": FragmentRefs<"actionBar">;
     } | null;
 };
@@ -20,18 +22,13 @@ export type actionBarTestQuery = {
 /*
 query actionBarTestQuery {
   episode(id: "1") {
-    ...actionBar
     id
+    watched
+    ...actionBar
   }
 }
 
 fragment actionBar on Episode {
-  watched
-  ...useToggleWatched
-}
-
-fragment useToggleWatched on Episode {
-  id
   watched
 }
 */
@@ -43,7 +40,21 @@ var v0 = [
     "name": "id",
     "value": "1"
   }
-];
+],
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "watched",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": [],
@@ -59,6 +70,8 @@ return {
         "name": "episode",
         "plural": false,
         "selections": [
+          (v1/*: any*/),
+          (v2/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -85,27 +98,15 @@ return {
         "name": "episode",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "watched",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          }
+          (v1/*: any*/),
+          (v2/*: any*/)
         ],
         "storageKey": "episode(id:\"1\")"
       }
     ]
   },
   "params": {
-    "cacheID": "0f15e83fcd48ea93baa55c7a26ff2eae",
+    "cacheID": "7cb70f7274614dd86a78cbca4130dcd5",
     "id": null,
     "metadata": {
       "relayTestingSelectionTypeInfo": {
@@ -131,9 +132,9 @@ return {
     },
     "name": "actionBarTestQuery",
     "operationKind": "query",
-    "text": "query actionBarTestQuery {\n  episode(id: \"1\") {\n    ...actionBar\n    id\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n  ...useToggleWatched\n}\n\nfragment useToggleWatched on Episode {\n  id\n  watched\n}\n"
+    "text": "query actionBarTestQuery {\n  episode(id: \"1\") {\n    id\n    watched\n    ...actionBar\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n}\n"
   }
 };
 })();
-(node as any).hash = 'a08d0562f7cfb02158eb7fbae23c507f';
+(node as any).hash = '74fa1aafbb31006bc2e8588fbf2672af';
 export default node;

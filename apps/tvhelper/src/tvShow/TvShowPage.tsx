@@ -1,7 +1,7 @@
 import { graphql, useFragment } from 'react-relay';
 import { Heading, Container, Box } from '@tbergq/components';
 import { TvShowPage_tvShow$key as TvShowType } from '__generated__/TvShowPage_tvShow.graphql';
-import ImageSummary from 'components/image-summary/image-summary';
+import ImageSummary from 'modules/image-summary/image-summary';
 
 import Episodes from './episodes/Episodes';
 import ToggleFavoriteButton from './toggle-favorite-button';
