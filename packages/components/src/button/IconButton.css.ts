@@ -22,4 +22,11 @@ export const classNames = {
     fontSize: 'large',
     padding: 'increased',
   }),
+  white: atoms({
+    background: 'none',
+    backgroundColor: 'white',
+  }),
+  danger: atoms({
+    backgroundColor: 'danger',
+  }),
 };

@@ -14,6 +14,7 @@ const mutation = graphql`
 `;
 
 type MutateConfig = Omit<UseMutationConfig<MutationType>, 'variables'>;
+export type DeleteAsWatchedMutationConfig = MutateConfig;
 
 export default function useDeleteAsWatched(
   episodeId: string,

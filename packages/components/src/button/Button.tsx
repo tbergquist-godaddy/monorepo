@@ -4,7 +4,7 @@ import cn from 'classnames';
 import Loading from '../loading/Loading';
 import { classNames } from './Button.css';
 
-export type ColorScheme = 'primary' | 'secondary' | 'success' | 'danger';
+export type ColorScheme = 'primary' | 'secondary' | 'success' | 'danger' | 'white';
 export type Sizes = 'small' | 'normal' | 'large';
 
 type Props = Readonly<{

@@ -4,25 +4,43 @@
 
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type Episode_episode = {
+export type episodeListItem = {
+    readonly id: string;
     readonly name: string | null;
     readonly seasonAndNumber: string | null;
     readonly airdate: unknown | null;
     readonly summary: string | null;
     readonly watched: boolean | null;
+    readonly tvShow: {
+        readonly name: string | null;
+    } | null;
     readonly " $fragmentRefs": FragmentRefs<"useToggleWatched">;
-    readonly " $refType": "Episode_episode";
+    readonly " $refType": "episodeListItem";
 };
-export type Episode_episode$data = Episode_episode;
-export type Episode_episode$key = {
-    readonly " $data"?: Episode_episode$data;
-    readonly " $fragmentRefs": FragmentRefs<"Episode_episode">;
+export type episodeListItem$data = episodeListItem;
+export type episodeListItem$key = {
+    readonly " $data"?: episodeListItem$data;
+    readonly " $fragmentRefs": FragmentRefs<"episodeListItem">;
 };
 
 
 
 const node: ReaderFragment = (function(){
 var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+},
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -33,15 +51,10 @@ return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "Episode_episode",
+  "name": "episodeListItem",
   "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "name",
-      "storageKey": null
-    },
+    (v0/*: any*/),
+    (v1/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -63,19 +76,25 @@ return {
       "name": "summary",
       "storageKey": null
     },
-    (v0/*: any*/),
+    (v2/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "TvShow",
+      "kind": "LinkedField",
+      "name": "tvShow",
+      "plural": false,
+      "selections": [
+        (v1/*: any*/)
+      ],
+      "storageKey": null
+    },
     {
       "kind": "InlineDataFragmentSpread",
       "name": "useToggleWatched",
       "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        },
-        (v0/*: any*/)
+        (v0/*: any*/),
+        (v2/*: any*/)
       ]
     }
   ],
@@ -83,5 +102,5 @@ return {
   "abstractKey": null
 };
 })();
-(node as any).hash = 'f7591c6cbe86c4bf5169cb641db01992';
+(node as any).hash = '1ec77f441023bb85087df64023bf015a';
 export default node;

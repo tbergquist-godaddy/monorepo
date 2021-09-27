@@ -74,6 +74,21 @@ export const classNames = {
       },
     ]),
   ]),
+  white: style([
+    atoms({
+      color: 'black',
+      backgroundColor: 'white',
+    }),
+    {
+      ':focus-visible': {
+        boxShadow: `${theme.boxShadow.active} ${theme.color.whiteActive}`,
+      },
+      ':hover': {
+        boxShadow: `${theme.boxShadow.active} ${theme.color.whiteActive}`,
+      },
+      'transition': 'box-shadow 0.2s ease-in-out',
+    },
+  ]),
   small: atoms({
     fontSize: 'small',
     paddingX: 'tiny',

@@ -28,25 +28,40 @@ query notSeenEpisodesQuery {
   }
 }
 
+fragment episodeListItem on Episode {
+  id
+  name
+  seasonAndNumber
+  airdate
+  summary
+  watched
+  ...useToggleWatched
+  tvShow {
+    name
+    id
+  }
+}
+
 fragment notSeenEpisodeList on TvHelperViewer {
-  notSeenEpisodes {
+  notSeenEpisodes(first: 1000) {
     edges {
       node {
         id
-        ...notSeenEpisodeListItem
+        ...episodeListItem
+        __typename
       }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
     }
   }
 }
 
-fragment notSeenEpisodeListItem on Episode {
-  name
-  airdate
-  seasonAndNumber
-  tvShow {
-    id
-    name
-  }
+fragment useToggleWatched on Episode {
+  id
+  watched
 }
 */
 
@@ -55,10 +70,24 @@ var v0 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
+  "name": "__typename",
+  "storageKey": null
+},
+v1 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 1000
+  }
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v1 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -106,19 +135,13 @@ return {
         "name": "viewer",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "__typename",
-            "storageKey": null
-          },
+          (v0/*: any*/),
           {
             "kind": "InlineFragment",
             "selections": [
               {
                 "alias": null,
-                "args": null,
+                "args": (v1/*: any*/),
                 "concreteType": "EpisodeConnection",
                 "kind": "LinkedField",
                 "name": "notSeenEpisodes",
@@ -140,8 +163,15 @@ return {
                         "name": "node",
                         "plural": false,
                         "selections": [
-                          (v0/*: any*/),
-                          (v1/*: any*/),
+                          (v2/*: any*/),
+                          (v3/*: any*/),
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "seasonAndNumber",
+                            "storageKey": null
+                          },
                           {
                             "alias": null,
                             "args": null,
@@ -153,7 +183,14 @@ return {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
-                            "name": "seasonAndNumber",
+                            "name": "summary",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "watched",
                             "storageKey": null
                           },
                           {
@@ -164,21 +201,75 @@ return {
                             "name": "tvShow",
                             "plural": false,
                             "selections": [
-                              (v0/*: any*/),
-                              (v1/*: any*/)
+                              (v3/*: any*/),
+                              (v2/*: any*/)
                             ],
                             "storageKey": null
-                          }
+                          },
+                          (v0/*: any*/)
                         ],
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "cursor",
                         "storageKey": null
                       }
                     ],
                     "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "PageInfo",
+                    "kind": "LinkedField",
+                    "name": "pageInfo",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "endCursor",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "hasNextPage",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  },
+                  {
+                    "kind": "ClientExtension",
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "__id",
+                        "storageKey": null
+                      }
+                    ]
                   }
                 ],
-                "storageKey": null
+                "storageKey": "notSeenEpisodes(first:1000)"
               },
-              (v0/*: any*/)
+              {
+                "alias": null,
+                "args": (v1/*: any*/),
+                "filters": null,
+                "handle": "connection",
+                "key": "NotSeenEpisodeList_notSeenEpisodes",
+                "kind": "LinkedHandle",
+                "name": "notSeenEpisodes"
+              },
+              (v2/*: any*/)
             ],
             "type": "TvHelperViewer",
             "abstractKey": null
@@ -189,12 +280,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "94bb64015f70844e7e013f5a83e42a42",
+    "cacheID": "aeede320a59e76da0be9ce9402cb8c8c",
     "id": null,
     "metadata": {},
     "name": "notSeenEpisodesQuery",
     "operationKind": "query",
-    "text": "query notSeenEpisodesQuery {\n  viewer {\n    __typename\n    ...notSeenEpisodeList\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment notSeenEpisodeList on TvHelperViewer {\n  notSeenEpisodes {\n    edges {\n      node {\n        id\n        ...notSeenEpisodeListItem\n      }\n    }\n  }\n}\n\nfragment notSeenEpisodeListItem on Episode {\n  name\n  airdate\n  seasonAndNumber\n  tvShow {\n    id\n    name\n  }\n}\n"
+    "text": "query notSeenEpisodesQuery {\n  viewer {\n    __typename\n    ...notSeenEpisodeList\n    ... on TvHelperViewer {\n      id\n    }\n  }\n}\n\nfragment episodeListItem on Episode {\n  id\n  name\n  seasonAndNumber\n  airdate\n  summary\n  watched\n  ...useToggleWatched\n  tvShow {\n    name\n    id\n  }\n}\n\nfragment notSeenEpisodeList on TvHelperViewer {\n  notSeenEpisodes(first: 1000) {\n    edges {\n      node {\n        id\n        ...episodeListItem\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n\nfragment useToggleWatched on Episode {\n  id\n  watched\n}\n"
   }
 };
 })();
