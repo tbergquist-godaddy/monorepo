@@ -9,6 +9,9 @@ export type ToggleConfig = {
   markAsWatchedConfig?: MarkAsWatchedConfig;
 };
 
+/**
+ * @deprecated The method should not be used
+ */
 export default function useToggleWatched(
   fragmentRef: useToggleWatched$key,
   config?: ToggleConfig,

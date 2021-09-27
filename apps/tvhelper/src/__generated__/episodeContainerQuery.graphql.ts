@@ -4,39 +4,43 @@
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type episodeQueryVariables = {
+export type episodeContainerQueryVariables = {
     id: string;
 };
-export type episodeQueryResponse = {
+export type episodeContainerQueryResponse = {
     readonly episode: {
-        readonly name: string | null;
-        readonly seasonAndNumber: string | null;
-        readonly " $fragmentRefs": FragmentRefs<"imageSummary" | "actionBar">;
+        readonly id: string;
+        readonly watched: boolean | null;
+        readonly " $fragmentRefs": FragmentRefs<"episode">;
     } | null;
 };
-export type episodeQuery = {
-    readonly response: episodeQueryResponse;
-    readonly variables: episodeQueryVariables;
+export type episodeContainerQuery = {
+    readonly response: episodeContainerQueryResponse;
+    readonly variables: episodeContainerQueryVariables;
 };
 
 
 
 /*
-query episodeQuery(
+query episodeContainerQuery(
   $id: ID!
 ) {
   episode(id: $id) {
-    name
-    seasonAndNumber
-    ...imageSummary
-    ...actionBar
     id
+    watched
+    ...episode
   }
 }
 
 fragment actionBar on Episode {
   watched
-  ...useToggleWatched
+}
+
+fragment episode on Episode {
+  name
+  seasonAndNumber
+  ...imageSummary
+  ...actionBar
 }
 
 fragment imageSummary on ImageSummary {
@@ -46,11 +50,6 @@ fragment imageSummary on ImageSummary {
     id
   }
   summary(stripTags: false)
-}
-
-fragment useToggleWatched on Episode {
-  id
-  watched
 }
 */
 
@@ -73,21 +72,14 @@ v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "name",
+  "name": "id",
   "storageKey": null
 },
 v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "seasonAndNumber",
-  "storageKey": null
-},
-v4 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
+  "name": "watched",
   "storageKey": null
 };
 return {
@@ -95,7 +87,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "episodeQuery",
+    "name": "episodeContainerQuery",
     "selections": [
       {
         "alias": null,
@@ -110,12 +102,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "imageSummary"
-          },
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "actionBar"
+            "name": "episode"
           }
         ],
         "storageKey": null
@@ -128,7 +115,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "episodeQuery",
+    "name": "episodeContainerQuery",
     "selections": [
       {
         "alias": null,
@@ -144,10 +131,16 @@ return {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "watched",
+            "name": "name",
             "storageKey": null
           },
-          (v4/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "seasonAndNumber",
+            "storageKey": null
+          },
           {
             "kind": "InlineFragment",
             "selections": [
@@ -166,7 +159,7 @@ return {
                     "name": "medium",
                     "storageKey": null
                   },
-                  (v4/*: any*/)
+                  (v2/*: any*/)
                 ],
                 "storageKey": null
               },
@@ -193,14 +186,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c74a1158a945e4b90a3016e717feccb3",
+    "cacheID": "2739930d0fc378d0f865a2c4f3f7aa3c",
     "id": null,
     "metadata": {},
-    "name": "episodeQuery",
+    "name": "episodeContainerQuery",
     "operationKind": "query",
-    "text": "query episodeQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    name\n    seasonAndNumber\n    ...imageSummary\n    ...actionBar\n    id\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n  ...useToggleWatched\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n\nfragment useToggleWatched on Episode {\n  id\n  watched\n}\n"
+    "text": "query episodeContainerQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    id\n    watched\n    ...episode\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n}\n\nfragment episode on Episode {\n  name\n  seasonAndNumber\n  ...imageSummary\n  ...actionBar\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n"
   }
 };
 })();
-(node as any).hash = '1883b22f35c655325f11e7fc3cd2d47e';
+(node as any).hash = 'd46bded01e2adbaccd1a6b2554d07c37';
 export default node;

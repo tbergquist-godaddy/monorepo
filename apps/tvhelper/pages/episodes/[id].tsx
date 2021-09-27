@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import { invariant } from '@adeira/js';
-import Episode, { episodeQuery } from 'episode/episode';
+import Episode, { episodeQuery } from 'modules/episode/episode-container';
 import makeGetServerSideProps from 'services/get-serverside-props';
 
 type Props = {

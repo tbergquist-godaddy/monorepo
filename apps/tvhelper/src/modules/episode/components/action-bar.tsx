@@ -1,30 +1,36 @@
 import { Button, Box } from '@tbergq/components';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import { useRouter } from 'next/router';
-import useToggleWatched from 'commands/use-toggle-watched';
 import { graphql, useFragment } from 'react-relay';
 import { actionBar$key } from '__generated__/actionBar.graphql';
+import { Maybe } from 'types';
+
+import { Actions } from '../models/use-episode';
 
 type Props = {
   dataRef: actionBar$key;
+  actions: Actions;
+  isMutating: Maybe<boolean>;
 };
 
-export default function ActionBar({ dataRef }: Readonly<Props>): JSX.Element {
+export default function ActionBar({
+  dataRef,
+  actions: { toggleEpisodeWatched },
+  isMutating,
+}: Readonly<Props>): JSX.Element {
   const data = useFragment(
     graphql`
       fragment actionBar on Episode {
         watched
-        ...useToggleWatched
       }
     `,
     dataRef,
   );
   const isWatched = data?.watched === true;
-  const [toggleWatched, loading] = useToggleWatched(data);
   const { back } = useRouter();
 
   const watchedText = (() => {
-    if (loading) {
+    if (isMutating) {
       return 'Loading...';
     }
     return isWatched ? `Seen at TODO` : 'not yet seen';
@@ -36,9 +42,9 @@ export default function ActionBar({ dataRef }: Readonly<Props>): JSX.Element {
         Back
       </Button>
       <Button
-        loading={loading}
+        loading={isMutating}
         ariaLabel={isWatched ? 'Mark as not watched' : 'Mark as watched'}
-        onClick={toggleWatched}
+        onClick={toggleEpisodeWatched}
         color={isWatched ? 'danger' : 'success'}
       >
         {isWatched ? <MdVisibilityOff /> : <MdVisibility />}
