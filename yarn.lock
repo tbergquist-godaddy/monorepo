@@ -109,11 +109,11 @@
     "@babel/runtime" "^7.12.1"
 
 "@adeira/js@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/js/-/js-2.1.0.tgz#499842cb6d4039331c5e8bf519f8db2898b17e90"
-  integrity sha512-oicensIS7cf4R4hxDwKTHSwDLNA+V6jD90KGqSCqDupQepOceCfI/uXk4OClDtAmJioOMT4t7QAewmH5pC0VdA==
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@adeira/js/-/js-2.1.1.tgz#7e871f0a881cd3e6de4acf351bcb5d940971d642"
+  integrity sha512-VbFeYe7Z3PEAKUvX3PAwJSX/bVjGMh23MtcLX+52prti/klI7Uy7r1cc7rHeJFR4lP4qBvMw6eWgUZWVlSabSg==
   dependencies:
-    "@babel/runtime" "^7.12.13"
+    "@babel/runtime" "^7.15.4"
 
 "@adeira/monorepo-npm-publisher@^2.0.0":
   version "2.0.0"
