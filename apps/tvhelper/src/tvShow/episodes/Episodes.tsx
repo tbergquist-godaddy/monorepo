@@ -51,12 +51,24 @@ const Episodes = (props: Props): JSX.Element => {
     return map;
   }, [episodes]);
 
+  const seasonArray = Array.from(seasonMap);
+  // TODO: Add link component to tbergq/components
   return (
     <>
-      {Array.from(seasonMap).map<ReactNode>(([key, episodes]) => (
+      <Box display="flex" gap="normal" paddingY="normal" flexWrap="wrap">
+        {seasonArray.map<ReactNode>(([key]) => (
+          <a href={`#season-${key}`} key={key}>
+            {`Season ${key}`}
+          </a>
+        ))}
+      </Box>
+      {seasonArray.map<ReactNode>(([key, episodes]) => (
         <div className={classNames.card} key={key}>
           <Box padding="xxxLarge">
-            <h2 className={classNames.title}>{`Season ${parseInt(key, 10).toString()}`}</h2>
+            <h2 id={`season-${key}`} className={classNames.title}>{`Season ${parseInt(
+              key,
+              10,
+            ).toString()}`}</h2>
             <Box overflow="hidden">
               {episodes.map((episode) => (
                 <Episode key={episode?.id} episodeRef={episode} />

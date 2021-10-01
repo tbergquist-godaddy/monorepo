@@ -48,6 +48,7 @@ const responsiveStyles = createAtomicStyles({
     flex: [1, 2],
     display: ['none', 'flex', 'block', 'inline', 'grid'],
     flexDirection: ['row', 'column'],
+    flexWrap: ['wrap'],
     justifyContent: [
       'stretch',
       'flex-start',
