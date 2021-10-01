@@ -69,7 +69,7 @@ export const classNames = {
       }),
       {
         ':focus-visible': {
-          boxShadow: `${theme.boxShadow.active} ${theme.color.dangerActive}`,
+          boxShadow: `${theme.boxShadow.active} ${theme.color.successActive}`,
         },
       },
     ]),

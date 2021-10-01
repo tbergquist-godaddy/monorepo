@@ -19,6 +19,12 @@ danger.args = {
   children: 'danger',
 };
 
+export const success = Template.bind({});
+success.args = {
+  color: 'success',
+  children: 'success',
+};
+
 export const small = Template.bind({});
 small.args = {
   size: 'small',
