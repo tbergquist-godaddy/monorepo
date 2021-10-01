@@ -3,25 +3,16 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'TRUE',
 });
-const { config } = require('dotenv');
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+const withPlugins = require('next-compose-plugins');
 
 const withVanillaExtract = createVanillaExtractPlugin();
 
-config();
-
-const { GRAPHQL_URL } = process.env;
-
-module.exports = withVanillaExtract(
-  withBundleAnalyzer({
-    images: {
-      domains: ['static.tvmaze.com'],
-    },
-    env: {
-      GRAPHQL_URL,
-    },
-    eslint: {
-      ignoreDuringBuilds: true,
-    },
-  }),
-);
+module.exports = withPlugins([withBundleAnalyzer, withVanillaExtract], {
+  images: {
+    domains: ['static.tvmaze.com'],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+});
