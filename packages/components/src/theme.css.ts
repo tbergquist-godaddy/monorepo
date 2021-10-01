@@ -9,6 +9,7 @@ export const theme = createGlobalTheme(':root', {
     'danger': '#dc3545',
     'dangerActive': 'rgba(225,83,97,.5)',
     'success': '#28a745',
+    'successActive': 'rgba(40, 167, 69,0.5)',
     'gray': '#e2e2e2',
     'gray.100': '#cccccc',
     'white': '#fff',
