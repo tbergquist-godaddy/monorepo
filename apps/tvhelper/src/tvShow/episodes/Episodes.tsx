@@ -1,7 +1,7 @@
 import { ReactNode, useMemo } from 'react';
 import { graphql, useFragment } from 'react-relay';
 import type { Episodes_episodes$key as EpisodeType } from '__generated__/Episodes_episodes.graphql';
-import { Box } from '@tbergq/components';
+import { Box, Link } from '@tbergq/components';
 import Episode from 'episodes/episode-list-item';
 
 import { classNames } from './Episodes.css';
@@ -52,14 +52,13 @@ const Episodes = (props: Props): JSX.Element => {
   }, [episodes]);
 
   const seasonArray = Array.from(seasonMap);
-  // TODO: Add link component to tbergq/components
   return (
     <>
       <Box display="flex" gap="normal" paddingY="normal" flexWrap="wrap">
         {seasonArray.map<ReactNode>(([key]) => (
-          <a href={`#season-${key}`} key={key}>
+          <Link href={`#season-${key}`} key={key}>
             {`Season ${key}`}
-          </a>
+          </Link>
         ))}
       </Box>
       {seasonArray.map<ReactNode>(([key, episodes]) => (
