@@ -1,8 +1,6 @@
 import { createElement, ReactNode } from 'react';
 
-import { atoms } from '../sprinkles.css';
-
-type Atoms = Parameters<typeof atoms>[0];
+import { atoms, Atoms } from '../sprinkles.css';
 
 interface Props extends Atoms {
   children: ReactNode;

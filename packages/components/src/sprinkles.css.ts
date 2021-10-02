@@ -1,4 +1,4 @@
-import { createAtomicStyles, createAtomsFn } from '@vanilla-extract/sprinkles';
+import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles';
 
 import { theme } from './theme.css';
 
@@ -32,6 +32,7 @@ const colors = {
   'black': theme.color.black,
 };
 
+export const colorKeys = Object.keys(colors);
 const conditions = {
   mediumMobile: {},
   largeMobile: { '@media': 'screen and (min-width: 576px)' },
@@ -40,7 +41,7 @@ const conditions = {
   largeDesktop: { '@media': 'screen and (min-width: 1200px)' },
 };
 
-const responsiveStyles = createAtomicStyles({
+const responsiveStyles = defineProperties({
   conditions,
   defaultCondition: 'mediumMobile',
   properties: {
@@ -91,7 +92,7 @@ const borderWidths = {
 };
 const borderStyle: Array<'solid'> = ['solid'];
 
-const borderStyles = createAtomicStyles({
+const borderStyles = defineProperties({
   properties: {
     borderRadius: borderValues,
     borderBottomLeftRadius: borderValues,
@@ -105,7 +106,7 @@ const borderStyles = createAtomicStyles({
   },
 });
 
-const colorStyles = createAtomicStyles({
+const colorStyles = defineProperties({
   properties: {
     color: colors,
     backgroundColor: colors,
@@ -113,7 +114,9 @@ const colorStyles = createAtomicStyles({
   },
 });
 
-const fontStyles = createAtomicStyles({
+export type ColorSchemes = keyof typeof colors;
+
+const fontStyles = defineProperties({
   properties: {
     fontFamily: { default: theme.fontFamily.default },
     fontWeight: [400, 500, 700],
@@ -131,7 +134,7 @@ const fontStyles = createAtomicStyles({
   },
 });
 
-const otherStyles = createAtomicStyles({
+const otherStyles = defineProperties({
   conditions,
   defaultCondition: 'mediumMobile',
   properties: {
@@ -156,7 +159,7 @@ const otherStyles = createAtomicStyles({
   },
 });
 
-export const atoms = createAtomsFn(
+export const atoms = createSprinkles(
   responsiveStyles,
   borderStyles,
   colorStyles,

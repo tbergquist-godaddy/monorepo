@@ -13,6 +13,7 @@ export { default as Spinner } from './loading/Spinner';
 export { default as Stack } from './stack/Stack';
 export { default as Toast } from './toast/Toast';
 export { useShowToast, ToastProvider } from './toast/ToastContext';
+export { default as Link } from './link/link';
 
 export { default as Container } from './Container';
 
