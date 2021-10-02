@@ -2,6 +2,7 @@ import { globalStyle } from '@vanilla-extract/css';
 
 globalStyle('html', {
   height: '100%',
+  scrollBehavior: 'smooth',
 });
 
 globalStyle('body', {
