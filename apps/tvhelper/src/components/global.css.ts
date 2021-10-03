@@ -1,8 +1,10 @@
 import { globalStyle } from '@vanilla-extract/css';
 
+const navbarOffset = '60px';
 globalStyle('html', {
   height: '100%',
   scrollBehavior: 'smooth',
+  scrollPadding: navbarOffset,
 });
 
 globalStyle('body', {
@@ -12,7 +14,7 @@ globalStyle('body', {
 });
 
 globalStyle('main', {
-  marginTop: '60px',
+  marginTop: navbarOffset,
 });
 
 globalStyle('#nprogress .bar', {
