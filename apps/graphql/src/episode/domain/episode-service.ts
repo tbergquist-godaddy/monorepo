@@ -75,7 +75,15 @@ export default class EpisodeService implements IEpisodeService {
       }
     }
 
-    return notSeen;
+    return notSeen.sort((a, b) => {
+      // Newest first
+      if (new Date(a.airdate) > new Date(b.airdate)) {
+        return -1;
+      } else if (new Date(a.airdate) < new Date(b.airdate)) {
+        return 1;
+      }
+      return 0;
+    });
   }
 
   async getByTvshowId(tvshowId: number): Promise<IEpisodeDTO[]> {
