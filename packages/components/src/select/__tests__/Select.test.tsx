@@ -36,6 +36,7 @@ it('calls the onChange callback', async () => {
   expect(select).toBeInTheDocument();
   expect(select).toHaveValue('');
 
+  // eslint-disable-next-line testing-library/prefer-user-event
   fireEvent.change(select, { target: { value: 'no', name: 'select' } });
   await waitFor(() =>
     expect(onChange).toHaveBeenCalledWith(

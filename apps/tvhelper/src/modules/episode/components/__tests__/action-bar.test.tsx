@@ -73,13 +73,9 @@ it('toggles watches status', async () => {
 
   userEvent.click(button);
 
-  await waitFor(() =>
-    expect(
-      screen.getByRole('button', {
-        name: 'Mark as not watched',
-      }),
-    ).toBeInTheDocument(),
-  );
+  await screen.findByRole('button', {
+    name: 'Mark as not watched',
+  });
 });
 
 it('calls router back', async () => {

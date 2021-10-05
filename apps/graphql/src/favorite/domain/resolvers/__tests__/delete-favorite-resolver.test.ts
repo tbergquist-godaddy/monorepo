@@ -31,14 +31,14 @@ const setup = (user: User = null) => {
 
 it('returns null if user is null', async () => {
   const { resolve } = setup();
-  expect(await resolve()).toEqual({ success: false, id: null });
+  await expect(resolve()).resolves.toEqual({ success: false, id: null });
 });
 
 it('returns success if adding succeeds', async () => {
   const { resolve, deleteFavorite, serieId } = setup({ id: '1' });
   deleteFavorite.mockResolvedValue(true);
 
-  expect(await resolve()).toEqual({ success: true, id: serieId });
+  await expect(resolve()).resolves.toEqual({ success: true, id: serieId });
   expect(deleteFavorite).toHaveBeenCalledWith('1', 1);
 });
 
@@ -46,7 +46,7 @@ it('returns success false if adding fails', async () => {
   const { resolve, deleteFavorite } = setup({ id: '1' });
   deleteFavorite.mockResolvedValue(false);
 
-  expect(await resolve()).toEqual({ success: false, id: null });
+  await expect(resolve()).resolves.toEqual({ success: false, id: null });
   expect(deleteFavorite).toHaveBeenCalledWith('1', 1);
 });
 
@@ -54,6 +54,6 @@ it('returns success false if adding throws', async () => {
   const { resolve, deleteFavorite } = setup({ id: '1' });
   deleteFavorite.mockRejectedValue(new Error('Oh no'));
 
-  expect(await resolve()).toEqual({ success: false, id: null });
+  await expect(resolve()).resolves.toEqual({ success: false, id: null });
   expect(deleteFavorite).toHaveBeenCalledWith('1', 1);
 });

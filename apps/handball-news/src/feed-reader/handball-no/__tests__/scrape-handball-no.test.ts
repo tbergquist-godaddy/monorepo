@@ -25,7 +25,7 @@ it('gets the rss feed and the image url and dimensions', async () => {
     }),
   );
 
-  expect(await scrapeHandballNo()).toMatchInlineSnapshot(`
+  await expect(scrapeHandballNo()).resolves.toMatchInlineSnapshot(`
 Array [
   Object {
     "content": "

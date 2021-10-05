@@ -1,4 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import Checkbox from '../Checkbox';
 
@@ -7,7 +8,7 @@ it('changes from not checked to checked', () => {
   const checkbox = screen.getByLabelText('Check me');
   expect(checkbox).not.toBeChecked();
 
-  fireEvent.click(checkbox);
+  userEvent.click(checkbox);
 
   expect(checkbox).toBeChecked();
 });
@@ -17,7 +18,7 @@ it('calls the onChange callback when passed', () => {
   render(<Checkbox label="Check me" onChange={onChange} />);
   const checkbox = screen.getByLabelText('Check me');
 
-  fireEvent.click(checkbox);
+  userEvent.click(checkbox);
 
   expect(onChange).toHaveBeenCalledWith(expect.any(Object));
 });

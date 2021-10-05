@@ -43,7 +43,7 @@ describe('getByUserName', () => {
 
     getByUserName.mockResolvedValue(user);
 
-    expect(await service.getByUserName('lol')).toEqual({
+    await expect(service.getByUserName('lol')).resolves.toEqual({
       id: user._id,
       username: user.username,
       email: user.email,
@@ -61,7 +61,7 @@ describe('getByUserNames', () => {
     ];
     getByUserNames.mockResolvedValue(users);
 
-    expect(await service.getByUserNames(['user_1', 'user_2', 'user_3'])).toEqual([
+    await expect(service.getByUserNames(['user_1', 'user_2', 'user_3'])).resolves.toEqual([
       {
         email: 'u@1.com',
         id: '1',
@@ -84,7 +84,7 @@ describe('verify password', () => {
     user.password = hash.generate(password);
     getByUserName.mockResolvedValue(user);
 
-    expect(await service.verifyPassword(user.username, password)).toBe(true);
+    await expect(service.verifyPassword(user.username, password)).resolves.toBe(true);
   });
 
   it('returns false when password is incorrect', async () => {
@@ -93,7 +93,7 @@ describe('verify password', () => {
     user.password = hash.generate(password);
     getByUserName.mockResolvedValue(user);
 
-    expect(await service.verifyPassword(user.username, 'password')).toBe(false);
+    await expect(service.verifyPassword(user.username, 'password')).resolves.toBe(false);
   });
 });
 
@@ -103,7 +103,7 @@ describe('change password', () => {
     const { service, getByUserName, user } = setup();
     getByUserName.mockResolvedValue(user);
 
-    expect(await service.changePassword(user.username, '213', '123')).toBe(false);
+    await expect(service.changePassword(user.username, '213', '123')).resolves.toBe(false);
 
     spy.mockRestore();
   });
@@ -114,7 +114,7 @@ describe('change password', () => {
     const error = new Error('not found');
     getByUserName.mockRejectedValue(error);
 
-    expect(await service.changePassword('user', '213', '123')).toBe(false);
+    await expect(service.changePassword('user', '213', '123')).resolves.toBe(false);
     expect(spy).toHaveBeenCalledWith('Failed to change password', error);
     spy.mockRestore();
   });
@@ -129,7 +129,7 @@ describe('change password', () => {
     getByUserName.mockResolvedValue(user);
     saveUser.mockResolvedValue(true);
 
-    expect(await service.changePassword(user.username, '213', '123')).toBe(true);
+    await expect(service.changePassword(user.username, '213', '123')).resolves.toBe(true);
     expect(saveUser).toHaveBeenCalledWith({
       ...user,
       password: 'hashed_password',
@@ -145,7 +145,7 @@ describe('createUser', () => {
     const { _id, ...newUser } = user;
     createUser.mockResolvedValue(user);
 
-    expect(await service.createUser(newUser)).toEqual({
+    await expect(service.createUser(newUser)).resolves.toEqual({
       id: '1',
       email: user.email,
       username: user.username,

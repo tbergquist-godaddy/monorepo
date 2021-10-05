@@ -43,7 +43,7 @@ describe('getByUsername', () => {
       toObject: () => user,
     });
 
-    expect(await repository.getByUserName('lol')).toEqual(user);
+    await expect(repository.getByUserName('lol')).resolves.toEqual(user);
   });
 
   it('returns null if findOne throws', async () => {
@@ -51,7 +51,7 @@ describe('getByUsername', () => {
     const { repository, findOne } = setup();
     findOne.mockRejectedValue(new Error('Dang'));
 
-    expect(await repository.getByUserName('lol')).toBeNull();
+    await expect(repository.getByUserName('lol')).resolves.toBeNull();
     expect(spy).toHaveBeenCalledWith('failed to fetch user: lol', new Error('Dang'));
     spy.mockRestore();
   });
@@ -59,7 +59,7 @@ describe('getByUsername', () => {
   it('returns undefined if findOne returns null', async () => {
     const { repository, findOne } = setup();
     findOne.mockResolvedValue(null);
-    expect(await repository.getByUserName('lol')).toBeUndefined();
+    await expect(repository.getByUserName('lol')).resolves.toBeUndefined();
   });
 });
 
@@ -69,7 +69,7 @@ describe('getByUserNames', () => {
     const users = [null, { toObject: () => user }, null];
     find.mockResolvedValue(users);
 
-    expect(await repository.getByUserNames(['lars', 'lol', 'tore'])).toEqual([
+    await expect(repository.getByUserNames(['lars', 'lol', 'tore'])).resolves.toEqual([
       undefined,
       user,
       undefined,
@@ -82,7 +82,7 @@ describe('getByUserNames', () => {
     const error = new Error('dang');
     find.mockRejectedValue(error);
 
-    expect(await repository.getByUserNames(['lars', 'lol', 'tore'])).toBeNull();
+    await expect(repository.getByUserNames(['lars', 'lol', 'tore'])).resolves.toBeNull();
     expect(spy).toHaveBeenCalledWith('failed to fetch users', ['lars', 'lol', 'tore'], error);
     spy.mockRestore();
   });
@@ -93,14 +93,14 @@ describe('saveUser', () => {
     const { repository, updateOne, user } = setup();
     updateOne.mockResolvedValue({ matchedCount: 1 });
 
-    expect(await repository.saveUser(user)).toBe(true);
+    await expect(repository.saveUser(user)).resolves.toBe(true);
   });
 
   it('returns false when no records were updated', async () => {
     const { repository, updateOne, user } = setup();
     updateOne.mockResolvedValue({ matchedCount: 0 });
 
-    expect(await repository.saveUser(user)).toBe(false);
+    await expect(repository.saveUser(user)).resolves.toBe(false);
   });
 
   it('returns false when update throws', async () => {
@@ -109,7 +109,7 @@ describe('saveUser', () => {
     const error = new Error('Failed');
     updateOne.mockRejectedValue(error);
 
-    expect(await repository.saveUser(user)).toBe(false);
+    await expect(repository.saveUser(user)).resolves.toBe(false);
     expect(spy).toHaveBeenCalledWith('Failed to update user', user, error);
     spy.mockRestore();
   });
@@ -128,7 +128,7 @@ describe('createUser', () => {
       toObject: () => ({ ...newUser, _id: '1' }),
     });
 
-    expect(await repository.createUser(newUser)).toEqual({ ...newUser, _id: '1' });
+    await expect(repository.createUser(newUser)).resolves.toEqual({ ...newUser, _id: '1' });
   });
 
   it('throws the error if creation fails', async () => {

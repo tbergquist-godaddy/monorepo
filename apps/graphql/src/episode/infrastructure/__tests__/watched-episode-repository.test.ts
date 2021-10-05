@@ -30,7 +30,7 @@ describe('addWatchedEpisode', () => {
     const { create, repository, watchedEpisode } = setup();
     create.mockResolvedValue({ toObject: () => watchedEpisode });
 
-    expect(await repository.addWatchedEpisode('123', 213)).toEqual(watchedEpisode);
+    await expect(repository.addWatchedEpisode('123', 213)).resolves.toEqual(watchedEpisode);
     expect(create).toHaveBeenCalledWith({ userId: '123', episodeId: 213 });
   });
 
@@ -39,7 +39,7 @@ describe('addWatchedEpisode', () => {
     const { repository, create } = setup();
     const error = new Error('Fail');
     create.mockRejectedValue(error);
-    expect(await repository.addWatchedEpisode('123', 123)).toBeNull();
+    await expect(repository.addWatchedEpisode('123', 123)).resolves.toBeNull();
     expect(spy).toHaveBeenCalledWith('Failed to add episode', error);
     spy.mockRestore();
   });
@@ -52,7 +52,7 @@ describe('deleteWatchedEpisode', () => {
     const error = new Error('Fail');
     deleteOne.mockRejectedValue(error);
 
-    expect(await repository.deleteWatchedEpisode('123', 123)).toBe(false);
+    await expect(repository.deleteWatchedEpisode('123', 123)).resolves.toBe(false);
     expect(deleteOne).toHaveBeenCalledWith({ userId: '123', episodeId: 123 });
     expect(spy).toHaveBeenCalledWith('Failed to delete episode', error);
     spy.mockRestore();
@@ -62,7 +62,7 @@ describe('deleteWatchedEpisode', () => {
     const { deleteOne, repository } = setup();
     deleteOne.mockResolvedValue({ deletedCount: 0 });
 
-    expect(await repository.deleteWatchedEpisode('123', 123)).toBe(false);
+    await expect(repository.deleteWatchedEpisode('123', 123)).resolves.toBe(false);
     expect(deleteOne).toHaveBeenCalledWith({ userId: '123', episodeId: 123 });
   });
 
@@ -70,7 +70,7 @@ describe('deleteWatchedEpisode', () => {
     const { deleteOne, repository } = setup();
     deleteOne.mockResolvedValue({ deletedCount: 1 });
 
-    expect(await repository.deleteWatchedEpisode('123', 123)).toBe(true);
+    await expect(repository.deleteWatchedEpisode('123', 123)).resolves.toBe(true);
     expect(deleteOne).toHaveBeenCalledWith({ userId: '123', episodeId: 123 });
   });
 });

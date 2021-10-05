@@ -25,11 +25,11 @@ const setup = () => {
 it('returns success true when create succeeds', async () => {
   const { resolve, createUser } = setup();
   createUser.mockResolvedValue({});
-  expect(await resolve()).toEqual({ success: true });
+  await expect(resolve()).resolves.toEqual({ success: true });
 });
 
 it('returns success false when create user failed', async () => {
   const { resolve, createUser } = setup();
   createUser.mockResolvedValue(null);
-  expect(await resolve()).toEqual({ success: false });
+  await expect(resolve()).resolves.toEqual({ success: false });
 });

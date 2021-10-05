@@ -25,7 +25,7 @@ const setup = (username: string | undefined | null = null) => {
 it('returns a password error when user is not logged in', async () => {
   const { resolve } = setup();
 
-  expect(await resolve()).toEqual({
+  await expect(resolve()).resolves.toEqual({
     isInvalidPassword: false,
     message: 'You must be logged in to change password',
   });
@@ -35,7 +35,7 @@ it('returns a password error when password is wrong', async () => {
   const { resolve, changePassword } = setup('rusle_biffen');
   changePassword.mockResolvedValue(false);
 
-  expect(await resolve()).toEqual({
+  await expect(resolve()).resolves.toEqual({
     isInvalidPassword: true,
     message: 'Wrong credentials',
   });
@@ -45,5 +45,5 @@ it('returns success true when all is good', async () => {
   const { resolve, changePassword } = setup('rusle_biffen');
   changePassword.mockResolvedValue(true);
 
-  expect(await resolve()).toEqual({ success: true });
+  await expect(resolve()).resolves.toEqual({ success: true });
 });
