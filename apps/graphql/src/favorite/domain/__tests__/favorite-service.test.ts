@@ -36,7 +36,9 @@ describe('getFavorites', () => {
     const favorites = [[{ _id: '123', userId: '123', serieId: 123 }]];
     favoritesFn.mockResolvedValue(favorites);
 
-    expect(await service.getFavorites('123')).toEqual([{ id: '123', userId: '123', serieId: 123 }]);
+    await expect(service.getFavorites('123')).resolves.toEqual([
+      { id: '123', userId: '123', serieId: 123 },
+    ]);
   });
 });
 
@@ -45,14 +47,14 @@ describe('isFavorite', () => {
     const { isFavoriteFn, service } = setup();
     isFavoriteFn.mockResolvedValue([true]);
 
-    expect(await service.isFavorite('123', 123)).toBe(true);
+    await expect(service.isFavorite('123', 123)).resolves.toBe(true);
   });
 
   it('returns false if it is not a favorite', async () => {
     const { isFavoriteFn, service } = setup();
     isFavoriteFn.mockResolvedValue([false]);
 
-    expect(await service.isFavorite('123', 123)).toBe(false);
+    await expect(service.isFavorite('123', 123)).resolves.toBe(false);
   });
 });
 
@@ -66,7 +68,7 @@ describe('addFavorite', () => {
     };
     addFavorite.mockResolvedValue(favorite);
 
-    expect(await service.addFavorite(favorite.userId, favorite.serieId)).toEqual({
+    await expect(service.addFavorite(favorite.userId, favorite.serieId)).resolves.toEqual({
       id: favorite._id,
       userId: favorite.userId,
       serieId: favorite.serieId,

@@ -1,4 +1,5 @@
-import { render, fireEvent, act } from '@tbergq/test-utils';
+import { render, waitFor } from '@tbergq/test-utils';
+import userEvent from '@testing-library/user-event';
 import { Formik } from 'formik';
 
 import SearchForm from '../SearchForm';
@@ -14,7 +15,7 @@ const TestRenderer = () => (
 );
 
 describe('SearchForm', () => {
-  it('sets intial input value correctly', () => {
+  it('sets initial input value correctly', () => {
     const { getByTestId } = render(<TestRenderer />);
     expect(getByTestId('SearchFormInput').value).not.toBeNull();
   });
@@ -23,9 +24,7 @@ describe('SearchForm', () => {
     const { getByTestId } = render(<TestRenderer />);
     const input = getByTestId('SearchFormInput');
 
-    await act(async () => {
-      await fireEvent.change(input, { target: { value: 'test' } });
-    });
-    expect(input.value).toEqual('test');
+    userEvent.type(input, 'test');
+    await waitFor(() => expect(input.value).toBe('test'));
   });
 });

@@ -89,7 +89,7 @@ describe('getByTvshowId', () => {
 
     load.mockResolvedValue([[episode]]);
 
-    expect(await service.getByTvshowId(123)).toEqual([
+    await expect(service.getByTvshowId(123)).resolves.toEqual([
       {
         ...episode,
         seasonAndNumber: 'S01E01',
@@ -103,7 +103,7 @@ describe('getByTvshowId', () => {
     const error = new Error('error');
     load.mockRejectedValue(error);
 
-    expect(await service.getByTvshowId(123)).toEqual([]);
+    await expect(service.getByTvshowId(123)).resolves.toEqual([]);
     expect(spy).toHaveBeenCalledWith('Failed to fetch episodes', { tvshowId: 123 }, error);
     spy.mockRestore();
   });

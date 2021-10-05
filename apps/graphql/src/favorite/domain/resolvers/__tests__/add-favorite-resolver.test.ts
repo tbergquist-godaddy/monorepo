@@ -39,7 +39,7 @@ const setup = (user: User = null) => {
 it('returns false if you are not logged in', async () => {
   const { resolve } = setup();
 
-  expect(await resolve()).toEqual({ success: false, tvShow: null });
+  await expect(resolve()).resolves.toEqual({ success: false, tvShow: null });
 });
 
 it('returns success if all goes well', async () => {
@@ -48,7 +48,7 @@ it('returns success if all goes well', async () => {
   addFavorite.mockResolvedValue({ id: '1', userId: '123', serieId: 123 });
   getById.mockResolvedValue(tvShow);
 
-  expect(await resolve()).toEqual({ success: true, tvShow });
+  await expect(resolve()).resolves.toEqual({ success: true, tvShow });
 });
 
 it('returns success even if fetching tv detail fails', async () => {
@@ -56,7 +56,7 @@ it('returns success even if fetching tv detail fails', async () => {
   addFavorite.mockResolvedValue({ id: '1', userId: '123', serieId: 123 });
   getById.mockRejectedValue(new Error('Failed to fetch'));
 
-  expect(await resolve()).toEqual({ success: true, tvShow: null });
+  await expect(resolve()).resolves.toEqual({ success: true, tvShow: null });
 });
 
 it('returns success false if adding favorite failed', async () => {
@@ -65,7 +65,7 @@ it('returns success false if adding favorite failed', async () => {
   addFavorite.mockRejectedValue(new Error('Duplicate key'));
   getById.mockResolvedValue(tvShow);
 
-  expect(await resolve()).toEqual({ success: false, tvShow: null });
+  await expect(resolve()).resolves.toEqual({ success: false, tvShow: null });
 });
 
 it('returns success false if add favorite returns null', async () => {
@@ -74,5 +74,5 @@ it('returns success false if add favorite returns null', async () => {
   addFavorite.mockResolvedValue(null);
   getById.mockResolvedValue(tvShow);
 
-  expect(await resolve()).toEqual({ success: false, tvShow: null });
+  await expect(resolve()).resolves.toEqual({ success: false, tvShow: null });
 });

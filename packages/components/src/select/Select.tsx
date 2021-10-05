@@ -26,7 +26,7 @@ export default function Select({
   placeholder,
   error,
   ...rest
-}: Readonly<Props>) {
+}: Readonly<Props>): JSX.Element {
   const seed = useUIDSeed();
   const id = seed('select');
 

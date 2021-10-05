@@ -1,4 +1,5 @@
-import { fireEvent, screen, render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import Button from '../Button';
 
@@ -7,7 +8,7 @@ it('calls onClick callback', () => {
   render(<Button onClick={onClick}>test</Button>);
 
   const button = screen.getByText('test');
-  fireEvent.click(button);
+  userEvent.click(button);
   expect(onClick).toHaveBeenCalledWith(expect.any(Object));
 });
 

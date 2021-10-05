@@ -1,4 +1,5 @@
-import { fireEvent, screen, render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MdFavorite } from 'react-icons/md';
 
 import IconButton from '../IconButton';
@@ -12,7 +13,7 @@ it('calls onClick callback', () => {
   );
 
   const button = screen.getByTestId('button');
-  fireEvent.click(button);
+  userEvent.click(button);
   // Called with click event
   expect(onClick).toHaveBeenCalledWith(expect.any(Object));
 });

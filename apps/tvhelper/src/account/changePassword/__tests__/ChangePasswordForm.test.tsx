@@ -1,6 +1,7 @@
 import { RelayEnvironmentProvider } from 'react-relay';
 import { createMockEnvironment } from 'relay-test-utils';
-import { render, act, fireEvent, waitFor } from '@tbergq/test-utils';
+import { render, screen } from '@tbergq/test-utils';
+import userEvent from '@testing-library/user-event';
 
 import ChangePasswordForm from '../ChangePasswordForm';
 
@@ -29,30 +30,25 @@ const getInputs = (container) => {
 };
 
 it('show required warnings', async () => {
-  const { container, getAllByText } = render(<TestRenderer />);
+  const { container, findAllByText } = render(<TestRenderer />);
 
   const button = container.querySelector('button[type="submit"]');
-  fireEvent.click(button);
+  userEvent.click(button);
 
-  const errors = await waitFor(() => getAllByText(/is a required field/i));
+  const errors = await findAllByText(/is a required field/i);
   expect(errors).toHaveLength(3);
 });
 
 it('show error if confirm password does not match new password', async () => {
-  const { container, getByText } = render(<TestRenderer />);
+  const { container } = render(<TestRenderer />);
   const { password, newPassword, confirmPassword } = getInputs(container);
 
   const button = container.querySelector('button[type="submit"]');
-  await act(async () => {
-    await fireEvent.change(password, { target: { name: 'password', value: '123' } });
-    await fireEvent.change(confirmPassword, { target: { name: 'confirmPassword', value: '1235' } });
-    await fireEvent.change(newPassword, { target: { name: 'newPassword', value: '1234' } });
-  });
+  await userEvent.type(password, '123');
+  await userEvent.type(confirmPassword, '1235');
+  await userEvent.type(newPassword, '1234');
+  await userEvent.click(button);
 
-  await act(async () => {
-    await fireEvent.click(button);
-  });
-
-  const error = getByText("Passwords don't match");
+  const error = await screen.findByText("Passwords don't match");
   expect(error).toBeInTheDocument();
 });

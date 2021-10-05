@@ -31,7 +31,7 @@ it('resolves correctly when password is incorrect', async () => {
   const { resolve, verifyPassword } = setup();
   verifyPassword.mockResolvedValue(false);
 
-  expect(await resolve()).toEqual({ success: false, token: null });
+  await expect(resolve()).resolves.toEqual({ success: false, token: null });
 });
 
 it('resolves correctly if verify throws', async () => {
@@ -39,7 +39,7 @@ it('resolves correctly if verify throws', async () => {
   const error = new Error('wrong password');
   verifyPassword.mockRejectedValue(error);
 
-  expect(await resolve()).toEqual({ success: false, token: null });
+  await expect(resolve()).resolves.toEqual({ success: false, token: null });
   expect(log).toHaveBeenCalledWith('login failed', error);
 });
 
@@ -51,7 +51,7 @@ it('returns a signedToken when password is correct', async () => {
   const token = 'signedToken';
   const verify = jest.spyOn(jwt, 'sign').mockImplementation(() => token);
 
-  expect(await resolve()).toEqual({
+  await expect(resolve()).resolves.toEqual({
     success: true,
     token,
   });
