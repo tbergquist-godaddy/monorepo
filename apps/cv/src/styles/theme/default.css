@@ -1,0 +1,10 @@
+:root {
+  /* spacing */
+  --spacing-small: 8px;
+  --spacing-normal: 16px;
+  --spacing-large: 24px;
+  --spacing-x-large: 32px;
+
+  /* color */
+  --color-text-black: #302b2b;
+}
