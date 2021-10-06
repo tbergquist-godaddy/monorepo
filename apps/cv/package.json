@@ -1,0 +1,11 @@
+{
+  "name": "@tbergq/cv",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "scripts": {
+    "dev": "live-server src/"
+  }
+}
