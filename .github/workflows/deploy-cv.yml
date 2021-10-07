@@ -1,0 +1,27 @@
+name: Deploy cv
+
+# on: [push]
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'apps/cv/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: 16.x
+      - name: deploy graphql
+        run: |
+          yarn install --frozen-lockfile
+          yarn workspace @tbergq/cv build
+          cd apps/cv
+          yarn vercel --prod --confirm --token=${ZEIT_TOKEN}
+        env:
+          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
