@@ -1,0 +1,24 @@
+@import url('./styles/utility.css');
+
+@import url('./styles/pages/curriculum.css');
+
+@import url('./styles/base/reset.css');
+@import url('./styles/base/typography.css');
+
+@import url('./styles/theme/default.css');
+
+@import url('./styles/layout/grid.css');
+
+@import url('./styles/components/item-list.css');
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  line-height: 1.5;
+  color: var(--color-text-black);
+}
