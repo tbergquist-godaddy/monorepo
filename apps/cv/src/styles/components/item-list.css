@@ -4,9 +4,15 @@
 }
 
 .ItemList li {
-  display: flex;
+  display: block;
   padding-inline-start: var(--spacing-normal);
   padding-block: var(--spacing-small);
+}
+
+@media (min-width: 768px) {
+  .ItemList li {
+    display: flex;
+  }
 }
 
 .ItemList_Date {
