@@ -1,16 +1,12 @@
 import { GraphQLNonNull, GraphQLList, GraphQLInputObjectType } from 'graphql';
-import { StoredOperationRepository } from '@tbergq/graphql-persistence';
+import { IStoredOperationDTO } from 'stored-operation';
+import { GraphqlContextType } from 'services/createGraphqlContext';
 
 import CreatedStoredOperation from '../types/output/StoredOperationMutation';
 import StoredOperationInput from '../types/input/StoredOperationInput';
 
-type StoredOperationType = {
-  readonly operationId: string;
-  readonly text: string;
-};
-
 type Args = {
-  storedOperations: ReadonlyArray<StoredOperationType>;
+  storedOperations: ReadonlyArray<IStoredOperationDTO>;
 };
 
 export default {
@@ -25,10 +21,11 @@ export default {
   resolve: async (
     _: unknown,
     args: Args,
+    { storedOperationService }: GraphqlContextType,
   ): Promise<{
-    createdOperations: any;
+    createdOperations: ReadonlyArray<IStoredOperationDTO>;
   }> => {
-    const addedOperations = await StoredOperationRepository.addOperations(args.storedOperations);
+    const addedOperations = await storedOperationService.addOperations(args.storedOperations);
     return {
       createdOperations: addedOperations ?? [],
     };

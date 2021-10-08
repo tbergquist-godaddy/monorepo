@@ -4,7 +4,6 @@ import cors from 'cors';
 import compression from 'compression';
 import morgan from 'morgan';
 import passport from 'passport';
-import { graphqlConnection } from '@tbergq/graphql-persistence';
 import { invariant } from '@adeira/js';
 import { config } from 'dotenv';
 import passportJwt from 'passport-jwt';
@@ -15,7 +14,7 @@ import Schema from './application/Schema';
 import createGraphqlContext from './services/createGraphqlContext';
 import { jwtFromRequest, tokenToUser, attachUserToRequest } from './services/auth';
 import getPersistedQuery from './middleware/getPersistedQuery';
-import { tvHelperConnection } from './connection';
+import { tvHelperConnection, storedOperationConnection } from './connection';
 
 config();
 
@@ -57,7 +56,7 @@ invariant(TVHELPER_DB_URL != null, 'Expected to have db url for graphql, but did
 (async () => {
   await Promise.all([
     tvHelperConnection.openUri(TVHELPER_DB_URL, {}),
-    graphqlConnection.openUri(GRAPHQL_DB_URL, {}),
+    storedOperationConnection.openUri(GRAPHQL_DB_URL, {}),
   ]);
 
   if (process.env.NODE_ENV === 'production') {
