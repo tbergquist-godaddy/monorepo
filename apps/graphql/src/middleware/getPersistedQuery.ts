@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser';
 import type { Request, Response } from 'express';
-import { StoredOperationRepository } from '@tbergq/graphql-persistence';
+import { StoredOperationService } from 'stored-operation';
 
 const jsonParser = bodyParser.json();
 
@@ -10,7 +10,8 @@ export default function matchQueryMiddleware(): (req: Request, res: Response, ne
       const { queryId } = req.body;
 
       if (typeof queryId === 'string') {
-        const query = await StoredOperationRepository.getOperationText(queryId);
+        const service = new StoredOperationService();
+        const query = await service.getOperationText(queryId);
 
         if (query != null) {
           // eslint-disable-next-line require-atomic-updates
