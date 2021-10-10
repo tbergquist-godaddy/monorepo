@@ -7,5 +7,3 @@ yarn-error.log
 persisted-queries.json
 .env
 .env.local
-.flow.saved_state
-.flow.saved_state_file_changes

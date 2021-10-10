@@ -1,5 +1,3 @@
-// @flow
-
 /* eslint-disable no-unused-vars */
 const OFF = 0;
 const WARN = 1;
@@ -8,7 +6,13 @@ const ERROR = 2;
 
 module.exports = {
   root: true,
-  extends: ['@adeira/eslint-config/strict'],
+  extends: [
+    '@adeira/eslint-config/base',
+    '@adeira/eslint-config/jest',
+    '@adeira/eslint-config/next',
+    '@adeira/eslint-config/react',
+    '@adeira/eslint-config/relay',
+  ],
   plugins: ['@typescript-eslint'],
   // adjust the rules as needed
   parser: 'babel-eslint',
@@ -20,14 +24,10 @@ module.exports = {
   },
   rules: {
     'jsx-a11y/accessible-emoji': 'off',
-    'flowtype/require-valid-file-annotation': 'off',
-    'flowtype/require-readonly-react-props': 'off',
-    'flowtype/no-types-missing-file-annotation': 'off',
     'strict': OFF,
     'import/no-unresolved': OFF,
     'node/file-extension-in-import': OFF,
     'react/react-in-jsx-scope': OFF,
-    'flowtype/require-inexact-type': OFF,
     'import/extensions': [ERROR, 'never', { json: 'always', graphql: 'always', css: 'always' }],
     'import/no-extraneous-dependencies': [
       ERROR,

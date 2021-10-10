@@ -7,9 +7,7 @@
   "scripts": {
     "test": "yarn lerna run test",
     "lint": "yarn lerna run lint",
-    "typecheck": "yarn run flow --max-warnings=0",
-    "test-ci": "yarn typecheck && yarn lint --parallel && yarn test --parallel",
-    "migrate": "yarn adeira-flow-migrate types-first node_modules/.bin/flow",
+    "test-ci": "yarn lint --parallel && yarn test --parallel",
     "build": "yarn lerna run build"
   },
   "workspaces": [
@@ -34,7 +32,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.29.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "flow-bin": "^0.151.0",
     "jest": "^27.0.1",
     "jest-styled-components": "^7.0.4",
     "lerna": "^4.0.0",
