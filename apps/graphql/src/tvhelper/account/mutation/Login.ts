@@ -1,5 +1,5 @@
 import { GraphQLString, GraphQLNonNull } from 'graphql';
-import { LoginType } from '@tbergq/graphql-services';
+import LoginType from 'application/models/login-type';
 
 import { loginResolver } from '../../../account';
 

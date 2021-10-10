@@ -6,7 +6,6 @@ on:
     branches: [master]
     paths:
       - 'apps/graphql/**'
-      - 'packages/graphql-services/**'
 
 jobs:
   build:

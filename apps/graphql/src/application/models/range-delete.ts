@@ -1,8 +1,6 @@
-// @flow
-
 import { GraphQLObjectType, GraphQLBoolean, GraphQLID } from 'graphql';
 
-export default (new GraphQLObjectType({
+export default new GraphQLObjectType({
   name: 'RangeDelete',
   description: 'Return type used for range delete mutations',
   fields: {
@@ -13,4 +11,4 @@ export default (new GraphQLObjectType({
       type: GraphQLID,
     },
   },
-}): GraphQLObjectType);
+});

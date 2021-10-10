@@ -1,5 +1,5 @@
 import { GraphQLID, GraphQLNonNull } from 'graphql';
-import { RangeDelete } from '@tbergq/graphql-services';
+import RangeDelete from 'application/models/range-delete';
 import { deleteFavoriteResolver } from 'favorite';
 
 export default {

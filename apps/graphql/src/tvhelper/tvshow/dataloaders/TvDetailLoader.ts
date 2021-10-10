@@ -1,12 +1,12 @@
 import DataLoader from 'dataloader';
-import { fetch } from '@tbergq/graphql-services';
+import fetch from 'services/fetch';
 
 import { TvShow } from '../TvShow';
 
 const fetchTvDetail = async (ids: ReadonlyArray<string>) => {
   const responses = await Promise.all(
     ids.map((id) =>
-      fetch(
+      fetch<any>(
         `http://api.tvmaze.com/shows/${id}?embed[]=episodes&embed[]=nextepisode&embed[]=previousepisode&embed[]=cast`,
       ),
     ),
