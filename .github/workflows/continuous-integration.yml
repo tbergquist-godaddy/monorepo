@@ -23,7 +23,6 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn run build
-          yarn run typecheck
           yarn run lint --since origin/master --parallel
           yarn run test --since origin/master
         env:

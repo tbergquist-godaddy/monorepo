@@ -124,7 +124,7 @@ const defaultTheme = {
 
 export default defaultTheme;
 
-export type DefaultTheme = typeof defaultTheme;
+/*:: export type DefaultTheme = typeof defaultTheme;
 export type ThemeColors = $ReadOnly<{
   'backgroundColor': string,
   'borderColor': string,
@@ -138,3 +138,4 @@ export type ThemeColors = $ReadOnly<{
     backgroundColor: string,
   },
 }>;
+ */
