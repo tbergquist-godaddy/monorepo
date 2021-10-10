@@ -1,9 +1,11 @@
 import fetch, { RequestInit } from 'node-fetch';
 import { log } from 'crosscutting';
+import { __DEV__ } from 'environment';
 
 interface AnyObject {
   [key: string]: unknown;
 }
+
 const Fetch = async <T = AnyObject>(url: string, options?: RequestInit): Promise<T> => {
   if (__DEV__) {
     log(url);
