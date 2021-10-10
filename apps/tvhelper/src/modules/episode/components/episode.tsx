@@ -32,7 +32,7 @@ export default function Episode({ episodeRef, isMutating, actions }: Readonly<Pr
           {data?.seasonAndNumber} - {data?.name}
         </Heading>
       </Box>
-      <ImageSummary alt={data.name ?? ''} dataRef={data} />
+      <ImageSummary alt={data?.name ?? ''} dataRef={data} />
       <Box paddingY="normal">
         <ActionBar actions={actions} isMutating={isMutating} dataRef={data} />
       </Box>
