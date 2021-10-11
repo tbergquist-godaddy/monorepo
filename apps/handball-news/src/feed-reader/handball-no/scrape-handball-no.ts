@@ -37,13 +37,13 @@ export default async function scrapeHandballNo(): Promise<Array<Feed>> {
     const title = item.querySelector('h2')?.textContent ?? '';
     const content = item.querySelector('.fixedHeightIntro')?.textContent ?? '';
     const image = item.querySelector('img');
-    const link = `${HANDBALL_NO}${anchor.getAttribute('href')}`;
+    const link = `${HANDBALL_NO}${anchor?.getAttribute('href')}`;
 
     feed.push({
       content,
       guid: v4(),
       image: {
-        url: `${HANDBALL_NO}${image.getAttribute('src')}`,
+        url: `${HANDBALL_NO}${image?.getAttribute('src')}`,
         height: 360, // TODO Fix size
         width: 640,
       },
