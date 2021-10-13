@@ -5088,9 +5088,9 @@
     "@vanilla-extract/integration" "^1.4.0"
 
 "@vanilla-extract/css@^1.0.0", "@vanilla-extract/css@^1.5.0":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.6.1.tgz#39c3b58f2b5f1b728e901b059c5021b8769d5a99"
-  integrity sha512-MTR8pHVV80/B4H37JqyUwC8GUwA6DMdClcjgrU98svLrnmWq2Y8BWox9OQAOovoOwGtZwkJhjTQUmPkK0D13Bw==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.6.2.tgz#5deea31f2d55be206bc2dc7bece956f115517cbe"
+  integrity sha512-khWHNQ0KLLn68jt54Xp2GqKzViyBE0xGU8dlv9JVqOlTX06FG7MqDL0FbZW1/nvOGcHZv94WZzp6cayk+rjokA==
   dependencies:
     "@emotion/hash" "^0.8.0"
     "@vanilla-extract/private" "^1.0.1"
@@ -5098,9 +5098,9 @@
     css-what "^5.0.1"
     cssesc "^3.0.0"
     csstype "^3.0.7"
-    dedent "^0.7.0"
     deep-object-diff "^1.1.0"
     deepmerge "^4.2.2"
+    outdent "^0.8.0"
 
 "@vanilla-extract/esbuild-plugin@^2.0.0":
   version "2.0.0"
@@ -16432,6 +16432,11 @@ osenv@^0.1.4, osenv@^0.1.5:
   dependencies:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
+
+outdent@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/outdent/-/outdent-0.8.0.tgz#2ebc3e77bf49912543f1008100ff8e7f44428eb0"
+  integrity sha512-KiOAIsdpUTcAXuykya5fnVVT+/5uS0Q1mrkRHcF89tpieSmY33O/tmc54CqwA+bfhbtEfZUNLHaPUiB9X3jt1A==
 
 outvariant@^1.2.0:
   version "1.2.1"
