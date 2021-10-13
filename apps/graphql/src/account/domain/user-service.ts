@@ -28,9 +28,17 @@ export default class UserService implements IUserService {
     this.#repository = repository;
   }
 
+  #hashPassword: (password: string) => string = (password: string) => {
+    return generate(password);
+  };
+
   async createUser(user: Omit<IUser, '_id' | 'id'>): Promise<MaybeUser> {
     try {
-      const newUser = await this.#repository.createUser(user);
+      const { password, ...rest } = user;
+      const newUser = await this.#repository.createUser({
+        ...rest,
+        password: this.#hashPassword(password),
+      });
       return this.mapUserToDTO(newUser);
     } catch {
       return null;
@@ -50,7 +58,7 @@ export default class UserService implements IUserService {
         return false;
       }
 
-      user.password = generate(newPassword);
+      user.password = this.#hashPassword(newPassword);
       return this.#repository.saveUser(user);
     } catch (e) {
       log('Failed to change password', e);
