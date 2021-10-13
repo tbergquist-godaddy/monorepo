@@ -150,5 +150,14 @@ describe('createUser', () => {
       email: user.email,
       username: user.username,
     });
+    expect(createUser).toHaveBeenCalledWith(
+      expect.objectContaining({
+        email: newUser.email,
+        username: newUser.username,
+      }),
+    );
+    expect(createUser).not.toHaveBeenCalledWith(
+      expect.objectContaining({ password: newUser.password }),
+    );
   });
 });
