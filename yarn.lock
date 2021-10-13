@@ -3645,16 +3645,16 @@
     react-select "^3.2.0"
 
 "@storybook/addon-viewport@^6.2.9":
-  version "6.3.10"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-6.3.10.tgz#35fffca83087e8c89cf594afb4b9e8ccf240b376"
-  integrity sha512-KyR7yajCD1bbiRZthgxYC/7iy3NWp9k6QKR18fq/hEKbNWNoiN00ddFfFJ3sizJUGKourGOoIbSHZlwqI6rtmg==
+  version "6.3.11"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-6.3.11.tgz#c81a7f87e9aa51d0900cf1b920391117ac2a24d0"
+  integrity sha512-j26P/S/fR9gGs9kL7SNEIIAw8UIkcBBqCgDOcH+HlphhNcQJHeuSBKZY2gOsayjoUxV6TT2tL2SlW+XWp8ys2A==
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/core-events" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/addons" "6.3.11"
+    "@storybook/api" "6.3.11"
+    "@storybook/client-logger" "6.3.11"
+    "@storybook/components" "6.3.11"
+    "@storybook/core-events" "6.3.11"
+    "@storybook/theming" "6.3.11"
     core-js "^3.8.2"
     global "^4.4.0"
     memoizerific "^1.11.3"
