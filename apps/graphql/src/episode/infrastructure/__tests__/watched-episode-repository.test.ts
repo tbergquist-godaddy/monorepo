@@ -57,7 +57,9 @@ describe('addWatchedEpisode', () => {
   });
 
   it('returns null if creation fails', async () => {
+    const spy = jest.spyOn(crosscutting, 'log').mockImplementation();
     await expect(repository.addWatchedEpisode('123', 123)).resolves.toBeNull();
+    spy.mockRestore();
   });
 });
 

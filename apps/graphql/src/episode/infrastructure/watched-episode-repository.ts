@@ -8,7 +8,7 @@ type MaybeEpisode = IWatchedEpisode | null | undefined;
 export interface IWatchedEpisodeRepository {
   addWatchedEpisode: (userId: string, episodeId: number) => Promise<MaybeEpisode>;
   deleteWatchedEpisode: (userId: string, episodeId: number) => Promise<boolean>;
-  isWatched: (userId: string, episodeId: number[]) => Promise<MaybeEpisode[]>;
+  getWatchedEpisodes: (userId: string, episodeId: number[]) => Promise<MaybeEpisode[]>;
 }
 
 export default class WatchedEpisodeRepository implements IWatchedEpisodeRepository {
@@ -18,7 +18,7 @@ export default class WatchedEpisodeRepository implements IWatchedEpisodeReposito
     this.#model = model;
   }
 
-  async isWatched(userId: string, episodeIds: number[]): Promise<MaybeEpisode[]> {
+  async getWatchedEpisodes(userId: string, episodeIds: number[]): Promise<MaybeEpisode[]> {
     const episodes = await this.#model.find({ userId, episodeId: { $in: episodeIds } });
 
     return episodes?.map((episode) => episode?.toObject());

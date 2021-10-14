@@ -7,6 +7,7 @@ export interface IWatchedEpisode {
   id: string;
   userId: string;
   episodeId: number;
+  createdAt?: Date;
 }
 
 const WatchedEpisodesSchema = new Schema<IWatchedEpisode>(
