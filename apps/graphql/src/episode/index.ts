@@ -9,3 +9,4 @@ export { default as markAsWatchedResolver } from './domain/resolvers/mark-as-wat
 export { default as deleteWatchedResolver } from './domain/resolvers/delete-watched-resolver';
 export { default as isEpisodeWatchedResolver } from './domain/resolvers/is-episode-watched-resolver';
 export { default as notSeenEpisodeResolver } from './domain/resolvers/not-seen-episodes-resolver';
+export { default as getSeenDateResolver } from './domain/resolvers/get-seen-date-resolver';
