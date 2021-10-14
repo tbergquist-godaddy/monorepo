@@ -1,4 +1,4 @@
-# @generated SignedSource<<b2a310b66f321d35a75a9cddd7d5d23a>>
+# @generated SignedSource<<7e0aedd369eb09e3f4bef097e1ffdc9f>>
 
 # <BREAKING-CHANGES-LOG>
 #  TYPE_REMOVED: ExericseConnection was removed.
@@ -100,6 +100,11 @@ type Episode implements ImageSummary {
   summary(stripTags: Boolean = true): String
   tvShow: TvShow
   watched: Boolean
+
+  """
+  Note that null does not necessarily mean not seen. The seen date stamp was added at a later stage
+  """
+  watchedDate: Date
 }
 
 """A connection to a list of items."""

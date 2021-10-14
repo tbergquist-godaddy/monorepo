@@ -57,6 +57,7 @@ const setup = () => {
     addWatchedEpisode: jest.fn(),
     deleteWatchedEpisode: jest.fn(),
     isEpisodeWatched: jest.fn(),
+    getWatchedEpisode: jest.fn(),
   };
 
   const episodesLoader: EpisodesLoader = new DataLoader(load);

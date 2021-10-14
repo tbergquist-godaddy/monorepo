@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean } from 'graphql';
 import GlobalID from '@adeira/graphql-global-id';
 import { GraphQLDate } from 'graphql-iso-date';
-import { isEpisodeWatchedResolver, IEpisodeDTO } from 'episode';
+import { isEpisodeWatchedResolver, IEpisodeDTO, getSeenDateResolver } from 'episode';
 import { GraphqlContextType } from 'services/createGraphqlContext';
 import ImageSummary from 'application/interfaces/image-summary';
 
@@ -44,6 +44,13 @@ export default new GraphQLObjectType<IEpisodeDTO, GraphqlContextType>({
     watched: {
       type: GraphQLBoolean,
       resolve: isEpisodeWatchedResolver,
+    },
+
+    watchedDate: {
+      type: GraphQLDate,
+      resolve: getSeenDateResolver,
+      description:
+        'Note that null does not necessarily mean not seen. The seen date stamp was added at a later stage',
     },
 
     tvShow: {
