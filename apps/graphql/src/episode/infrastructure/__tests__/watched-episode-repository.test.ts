@@ -1,76 +1,89 @@
 import * as crosscutting from 'crosscutting';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import { Connection, Types } from 'mongoose';
 
+import { tvHelperConnection } from '../../../connection';
 import WatchedEpisodeRepository from '../watched-episode-repository';
 
-const setup = () => {
-  const watchedEpisode = {
-    id: '2',
-    userId: '3',
-    episodeId: 4,
-  };
-  const create = jest.fn();
-  const deleteOne = jest.fn();
-  const model: any = {
-    create,
-    deleteOne,
-  };
+let connection: Connection;
+let mongoServer: MongoMemoryServer;
+let repository: WatchedEpisodeRepository;
 
-  const repository = new WatchedEpisodeRepository(model);
-
-  return {
-    repository,
-    create,
-    watchedEpisode,
-    deleteOne,
-  };
+const testUser: any = {
+  email: 'test@test.no',
+  password: 'lol',
+  username: 'testern',
 };
+
+beforeAll(async () => {
+  mongoServer = await MongoMemoryServer.create();
+  connection = await tvHelperConnection.openUri(mongoServer.getUri());
+});
+
+beforeEach(async () => {
+  repository = new WatchedEpisodeRepository();
+
+  const user = await connection.collection('users').insertOne(testUser);
+  // eslint-disable-next-line require-atomic-updates
+  testUser.id = user.insertedId;
+});
+
+afterEach(async () => {
+  await connection.dropCollection('users');
+  delete testUser.id;
+});
+
+afterAll(async () => {
+  if (connection) {
+    await connection.close();
+  }
+  if (mongoServer) {
+    await mongoServer.stop();
+  }
+});
+
+const clean = () => connection.dropCollection('watchedepisodes');
 
 describe('addWatchedEpisode', () => {
   it('returns the created object on success', async () => {
-    const { create, repository, watchedEpisode } = setup();
-    create.mockResolvedValue({ toObject: () => watchedEpisode });
-
-    await expect(repository.addWatchedEpisode('123', 213)).resolves.toEqual(watchedEpisode);
-    expect(create).toHaveBeenCalledWith({ userId: '123', episodeId: 213 });
+    await expect(repository.addWatchedEpisode(testUser.id, 4)).resolves.toEqual(
+      expect.objectContaining({
+        episodeId: 4,
+        userId: testUser.id.toString(),
+        createdAt: expect.any(Date),
+      }),
+    );
+    await clean();
   });
 
   it('returns null if creation fails', async () => {
-    const spy = jest.spyOn(crosscutting, 'log').mockImplementation();
-    const { repository, create } = setup();
-    const error = new Error('Fail');
-    create.mockRejectedValue(error);
     await expect(repository.addWatchedEpisode('123', 123)).resolves.toBeNull();
-    expect(spy).toHaveBeenCalledWith('Failed to add episode', error);
-    spy.mockRestore();
   });
 });
 
 describe('deleteWatchedEpisode', () => {
   it('returns false when deletion fails', async () => {
     const spy = jest.spyOn(crosscutting, 'log').mockImplementation();
-    const { deleteOne, repository } = setup();
-    const error = new Error('Fail');
-    deleteOne.mockRejectedValue(error);
 
     await expect(repository.deleteWatchedEpisode('123', 123)).resolves.toBe(false);
-    expect(deleteOne).toHaveBeenCalledWith({ userId: '123', episodeId: 123 });
-    expect(spy).toHaveBeenCalledWith('Failed to delete episode', error);
+    expect(spy).toHaveBeenCalledWith('Failed to delete episode', expect.any(Error));
     spy.mockRestore();
   });
 
   it('returns false if deletedCount is less than 1', async () => {
-    const { deleteOne, repository } = setup();
-    deleteOne.mockResolvedValue({ deletedCount: 0 });
-
-    await expect(repository.deleteWatchedEpisode('123', 123)).resolves.toBe(false);
-    expect(deleteOne).toHaveBeenCalledWith({ userId: '123', episodeId: 123 });
+    await expect(
+      repository.deleteWatchedEpisode(new Types.ObjectId().toString(), 123),
+    ).resolves.toBe(false);
   });
 
   it('returns true if deletedCount is greater than 0', async () => {
-    const { deleteOne, repository } = setup();
-    deleteOne.mockResolvedValue({ deletedCount: 1 });
-
-    await expect(repository.deleteWatchedEpisode('123', 123)).resolves.toBe(true);
-    expect(deleteOne).toHaveBeenCalledWith({ userId: '123', episodeId: 123 });
+    const userId = new Types.ObjectId();
+    const episodeId = 4;
+    await connection.collection('watchedepisodes').insertOne({
+      userId,
+      episodeId,
+    });
+    await expect(repository.deleteWatchedEpisode(userId.toString(), episodeId)).resolves.toBe(true);
+    await clean();
   });
 });

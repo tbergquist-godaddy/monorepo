@@ -9,18 +9,23 @@ export interface IWatchedEpisode {
   episodeId: number;
 }
 
-const WatchedEpisodesSchema = new Schema<IWatchedEpisode>({
-  // @ts-ignore: Fix later, this works
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'users',
-    required: true,
+const WatchedEpisodesSchema = new Schema<IWatchedEpisode>(
+  {
+    // @ts-ignore: Fix later, this works
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'users',
+      required: true,
+    },
+    episodeId: {
+      type: Number,
+      required: true,
+    },
   },
-  episodeId: {
-    type: Number,
-    required: true,
+  {
+    timestamps: true,
   },
-});
+);
 
 WatchedEpisodesSchema.virtual('id').get(function (this: IWatchedEpisode): string {
   return this._id.toString();
