@@ -63,6 +63,7 @@ it('toggles watches status', async () => {
   await renderComponent({
     Episode: () => ({
       watched: false,
+      watchedDate: null,
     }),
   });
 
@@ -73,14 +74,21 @@ it('toggles watches status', async () => {
 
   userEvent.click(button);
 
-  await screen.findByRole('button', {
-    name: 'Mark as not watched',
-  });
+  await expect(
+    screen.findByRole('button', {
+      name: 'Mark as not watched',
+    }),
+  ).resolves.toBeInTheDocument();
 });
 
 it('calls router back', async () => {
   const { renderComponent, back } = setup();
-  await renderComponent(null);
+  await renderComponent({
+    Episode: () => ({
+      watched: false,
+      watchedDate: null,
+    }),
+  });
 
   const backlink = screen.getByRole('button', {
     name: 'Back',

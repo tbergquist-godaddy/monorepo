@@ -13,6 +13,7 @@ export type useMarkAsWatchedMutationResponse = {
         readonly episode: {
             readonly id: string;
             readonly watched: boolean | null;
+            readonly watchedDate: unknown | null;
         } | null;
     } | null;
 };
@@ -32,6 +33,7 @@ mutation useMarkAsWatchedMutation(
     episode {
       id
       watched
+      watchedDate
     }
   }
 }
@@ -88,6 +90,13 @@ v1 = [
             "kind": "ScalarField",
             "name": "watched",
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "watchedDate",
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -114,14 +123,14 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "0d5aac00154b4862f60b77984c849ee4",
+    "cacheID": "1ecc7655f76f7238df238e86410c936e",
     "id": null,
     "metadata": {},
     "name": "useMarkAsWatchedMutation",
     "operationKind": "mutation",
-    "text": "mutation useMarkAsWatchedMutation(\n  $episodeId: ID!\n) {\n  markAsWatched(episodeId: $episodeId) {\n    success\n    episode {\n      id\n      watched\n    }\n  }\n}\n"
+    "text": "mutation useMarkAsWatchedMutation(\n  $episodeId: ID!\n) {\n  markAsWatched(episodeId: $episodeId) {\n    success\n    episode {\n      id\n      watched\n      watchedDate\n    }\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = '10a6424652ff8696bb636459a30603d4';
+(node as any).hash = '3eccd4053653306483588a913391299b';
 export default node;

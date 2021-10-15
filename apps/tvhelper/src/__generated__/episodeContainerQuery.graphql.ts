@@ -35,6 +35,7 @@ query episodeContainerQuery(
 
 fragment actionBar on Episode {
   watched
+  ...watchedDate
 }
 
 fragment episode on Episode {
@@ -51,6 +52,11 @@ fragment imageSummary on ImageSummary {
     id
   }
   summary(stripTags: false)
+}
+
+fragment watchedDate on Episode {
+  watchedDate
+  watched
 }
 */
 
@@ -143,6 +149,13 @@ return {
             "storageKey": null
           },
           {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "watchedDate",
+            "storageKey": null
+          },
+          {
             "kind": "InlineFragment",
             "selections": [
               {
@@ -187,12 +200,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "2739930d0fc378d0f865a2c4f3f7aa3c",
+    "cacheID": "b40a708ed416f0f4fc27fa31a2dccf0b",
     "id": null,
     "metadata": {},
     "name": "episodeContainerQuery",
     "operationKind": "query",
-    "text": "query episodeContainerQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    id\n    watched\n    ...episode\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n}\n\nfragment episode on Episode {\n  name\n  seasonAndNumber\n  ...imageSummary\n  ...actionBar\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n"
+    "text": "query episodeContainerQuery(\n  $id: ID!\n) {\n  episode(id: $id) {\n    id\n    watched\n    ...episode\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n  ...watchedDate\n}\n\nfragment episode on Episode {\n  name\n  seasonAndNumber\n  ...imageSummary\n  ...actionBar\n}\n\nfragment imageSummary on ImageSummary {\n  __isImageSummary: __typename\n  image {\n    medium\n    id\n  }\n  summary(stripTags: false)\n}\n\nfragment watchedDate on Episode {\n  watchedDate\n  watched\n}\n"
   }
 };
 })();

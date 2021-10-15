@@ -6,6 +6,7 @@ import { actionBar$key } from '__generated__/actionBar.graphql';
 import { Maybe } from 'types';
 
 import { Actions } from '../models/use-episode';
+import WatchedDate from './watched-date';
 
 type Props = {
   dataRef: actionBar$key;
@@ -22,19 +23,13 @@ export default function ActionBar({
     graphql`
       fragment actionBar on Episode {
         watched
+        ...watchedDate
       }
     `,
     dataRef,
   );
   const isWatched = data?.watched === true;
   const { back } = useRouter();
-
-  const watchedText = (() => {
-    if (isMutating) {
-      return 'Loading...';
-    }
-    return isWatched ? `Seen at TODO` : 'not yet seen';
-  })();
 
   return (
     <Box display="flex" gap="normal" alignItems="center">
@@ -49,7 +44,7 @@ export default function ActionBar({
       >
         {isWatched ? <MdVisibilityOff /> : <MdVisibility />}
       </Button>
-      <div>{watchedText}</div>
+      <WatchedDate dataRef={data} isMutating={isMutating} />
     </Box>
   );
 }
