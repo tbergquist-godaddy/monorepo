@@ -5,30 +5,37 @@ import { IEpisode } from '../infrastructure/entities/episode';
 import makeEpisodesLoader, { EpisodesLoader } from './dataloaders/episodes-loader';
 import { IEpisodeDTO } from './dto/episode-dto';
 import { IWatchedEpisodeService } from './watched-episode-service';
+import makeEpisodeLoader, { EpisodeLoader } from './dataloaders/episode-loader';
 
 export interface IEpisodeService {
   getByTvshowId(tvshowId: number): Promise<IEpisodeDTO[]>;
   getNotSeenEpisodes(userId: string): Promise<IEpisodeDTO[]>;
+  getEpisode(episodeId: number): Promise<IEpisodeDTO>;
 }
 
 type EpisodeServiceConstructor = {
   favoriteService: IFavoriteService;
   watchedEpisodeService: IWatchedEpisodeService;
   episodesLoader?: EpisodesLoader;
+  episodeLoader?: EpisodeLoader;
 };
+
 export default class EpisodeService implements IEpisodeService {
   #episodesLoader: EpisodesLoader;
   #favoriteService: IFavoriteService;
   #watchedEpisodeService: IWatchedEpisodeService;
+  #episodeLoader: EpisodeLoader;
 
   constructor({
     favoriteService,
     episodesLoader = makeEpisodesLoader(),
+    episodeLoader = makeEpisodeLoader(),
     watchedEpisodeService,
   }: EpisodeServiceConstructor) {
     this.#episodesLoader = episodesLoader;
     this.#favoriteService = favoriteService;
     this.#watchedEpisodeService = watchedEpisodeService;
+    this.#episodeLoader = episodeLoader;
   }
 
   mapToDTO(episode: IEpisode): IEpisodeDTO {
@@ -39,6 +46,11 @@ export default class EpisodeService implements IEpisodeService {
         .padStart(2, '0')}`,
     };
   }
+
+  getEpisode: (episodeId: number) => Promise<IEpisodeDTO> = async (episodeId: number) => {
+    const episode = await this.#episodeLoader.load(episodeId);
+    return this.mapToDTO(episode);
+  };
 
   async getNotSeenEpisodes(userId: string): Promise<IEpisodeDTO[]> {
     const favorites = await this.#favoriteService.getFavorites(userId);
