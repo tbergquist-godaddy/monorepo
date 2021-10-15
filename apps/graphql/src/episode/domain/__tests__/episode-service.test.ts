@@ -5,6 +5,7 @@ import faker from 'faker';
 import { IEpisode } from '../../infrastructure/entities/episode';
 import EpisodeService from '../episode-service';
 import { EpisodesLoader } from '../dataloaders/episodes-loader';
+import { EpisodeLoader } from '../dataloaders/episode-loader';
 
 type EpisodeProps = {
   id?: number;
@@ -45,6 +46,7 @@ const makeFutureEpisode = (): IEpisode => {
 
 const setup = () => {
   const load = jest.fn();
+  const loadEpisode = jest.fn();
 
   const favoriteService = {
     getFavorites: jest.fn(),
@@ -61,10 +63,12 @@ const setup = () => {
   };
 
   const episodesLoader: EpisodesLoader = new DataLoader(load);
+  const episodeLoader: EpisodeLoader = new DataLoader(loadEpisode);
   const service = new EpisodeService({
     episodesLoader,
     favoriteService,
     watchedEpisodeService,
+    episodeLoader,
   });
 
   return {
@@ -72,6 +76,7 @@ const setup = () => {
     load,
     favoriteService,
     watchedEpisodeService,
+    loadEpisode,
   };
 };
 
@@ -153,5 +158,17 @@ describe('getNotSeenEpisodes', () => {
         expect.objectContaining({ id: 3 }),
       ]),
     );
+  });
+});
+
+describe('getEpisode', () => {
+  it('returns an episode', async () => {
+    const { service, loadEpisode } = setup();
+    const episode = makeFutureEpisode();
+    loadEpisode.mockResolvedValue([episode]);
+
+    const { airdate, ...rest } = episode;
+
+    await expect(service.getEpisode(1)).resolves.toEqual(expect.objectContaining(rest));
   });
 });

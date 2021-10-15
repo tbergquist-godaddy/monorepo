@@ -1,4 +1,5 @@
 import { fromGlobalId } from '@adeira/graphql-global-id';
+import { IEpisodeDTO } from 'episode';
 import { GraphqlContextType } from 'services/createGraphqlContext';
 
 type Args = {
@@ -7,24 +8,29 @@ type Args = {
 
 type Resolver = {
   success: boolean;
-  episode: null | { id: string; isWatched: boolean };
+  episode: null | { id: string; isWatched: boolean } | IEpisodeDTO;
 };
 
 export default async function markAsWatchedResolver(
   _: unknown,
   args: Args,
-  { user, watchedEpisodeService }: GraphqlContextType,
+  { user, watchedEpisodeService, episodeService }: GraphqlContextType,
 ): Promise<Resolver> {
   const userId = user?.id;
-  const episodeId = fromGlobalId(args.episodeId);
+  const episodeId = parseInt(fromGlobalId(args.episodeId), 10);
   const failedObject = { success: false, episode: null };
   if (userId == null) {
     return failedObject;
   }
-  const result = await watchedEpisodeService.addWatchedEpisode(parseInt(episodeId, 10));
 
-  if (result == null) {
+  const watchedEpisode = await watchedEpisodeService.addWatchedEpisode(episodeId);
+
+  if (watchedEpisode == null) {
     return failedObject;
   }
-  return { success: true, episode: { id: episodeId, isWatched: true } };
+  const episode = await episodeService.getEpisode(episodeId);
+  return {
+    success: true,
+    episode,
+  };
 }
