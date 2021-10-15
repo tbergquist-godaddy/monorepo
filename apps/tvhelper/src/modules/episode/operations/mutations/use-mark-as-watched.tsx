@@ -1,5 +1,6 @@
 import { Disposable, graphql, useMutation, UseMutationConfig } from 'react-relay';
 import type { useMarkAsWatchedMutation as MutationType } from '__generated__/useMarkAsWatchedMutation.graphql';
+import { format } from 'date-fns';
 
 const mutation = graphql`
   mutation useMarkAsWatchedMutation($episodeId: ID!) {
@@ -8,6 +9,7 @@ const mutation = graphql`
       episode {
         id
         watched
+        watchedDate
       }
     }
   }
@@ -29,6 +31,7 @@ export default function useMarkAsWatched(
           episode: {
             id: episodeId,
             watched: true,
+            watchedDate: format(new Date(), 'yyyy-mm-dd'),
           },
         },
       },

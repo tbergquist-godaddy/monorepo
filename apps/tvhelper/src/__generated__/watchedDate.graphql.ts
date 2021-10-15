@@ -5,15 +5,15 @@
 import { ReaderFragment } from "relay-runtime";
 
 import { FragmentRefs } from "relay-runtime";
-export type actionBar = {
+export type watchedDate = {
+    readonly watchedDate: unknown | null;
     readonly watched: boolean | null;
-    readonly " $fragmentRefs": FragmentRefs<"watchedDate">;
-    readonly " $refType": "actionBar";
+    readonly " $refType": "watchedDate";
 };
-export type actionBar$data = actionBar;
-export type actionBar$key = {
-    readonly " $data"?: actionBar$data;
-    readonly " $fragmentRefs": FragmentRefs<"actionBar">;
+export type watchedDate$data = watchedDate;
+export type watchedDate$key = {
+    readonly " $data"?: watchedDate$data;
+    readonly " $fragmentRefs": FragmentRefs<"watchedDate">;
 };
 
 
@@ -22,23 +22,25 @@ const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "actionBar",
+  "name": "watchedDate",
   "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "watchedDate",
+      "storageKey": null
+    },
     {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
       "name": "watched",
       "storageKey": null
-    },
-    {
-      "args": null,
-      "kind": "FragmentSpread",
-      "name": "watchedDate"
     }
   ],
   "type": "Episode",
   "abstractKey": null
 };
-(node as any).hash = '0f4c17524145e1ee569d003caa3fa8d7';
+(node as any).hash = '7c89572aec088b0b1d3f4d20c3de01f5';
 export default node;

@@ -31,6 +31,12 @@ query actionBarTestQuery {
 
 fragment actionBar on Episode {
   watched
+  ...watchedDate
+}
+
+fragment watchedDate on Episode {
+  watchedDate
+  watched
 }
 */
 
@@ -100,14 +106,21 @@ return {
         "plural": false,
         "selections": [
           (v1/*: any*/),
-          (v2/*: any*/)
+          (v2/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "watchedDate",
+            "storageKey": null
+          }
         ],
         "storageKey": "episode(id:\"1\")"
       }
     ]
   },
   "params": {
-    "cacheID": "7cb70f7274614dd86a78cbca4130dcd5",
+    "cacheID": "20c4f488c79ee5d8ecaa2b91928d41d2",
     "id": null,
     "metadata": {
       "relayTestingSelectionTypeInfo": {
@@ -128,12 +141,18 @@ return {
           "nullable": true,
           "plural": false,
           "type": "Boolean"
+        },
+        "episode.watchedDate": {
+          "enumValues": null,
+          "nullable": true,
+          "plural": false,
+          "type": "Date"
         }
       }
     },
     "name": "actionBarTestQuery",
     "operationKind": "query",
-    "text": "query actionBarTestQuery {\n  episode(id: \"1\") {\n    id\n    watched\n    ...actionBar\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n}\n"
+    "text": "query actionBarTestQuery {\n  episode(id: \"1\") {\n    id\n    watched\n    ...actionBar\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n  ...watchedDate\n}\n\nfragment watchedDate on Episode {\n  watchedDate\n  watched\n}\n"
   }
 };
 })();
