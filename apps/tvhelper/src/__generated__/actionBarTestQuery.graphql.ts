@@ -31,6 +31,10 @@ query actionBarTestQuery {
 
 fragment actionBar on Episode {
   watched
+  tvShow {
+    id
+    name
+  }
   ...watchedDate
 }
 
@@ -61,6 +65,12 @@ v2 = {
   "kind": "ScalarField",
   "name": "watched",
   "storageKey": null
+},
+v3 = {
+  "enumValues": null,
+  "nullable": false,
+  "plural": false,
+  "type": "ID"
 };
 return {
   "fragment": {
@@ -110,6 +120,25 @@ return {
           {
             "alias": null,
             "args": null,
+            "concreteType": "TvShow",
+            "kind": "LinkedField",
+            "name": "tvShow",
+            "plural": false,
+            "selections": [
+              (v1/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "kind": "ScalarField",
             "name": "watchedDate",
             "storageKey": null
@@ -120,7 +149,7 @@ return {
     ]
   },
   "params": {
-    "cacheID": "20c4f488c79ee5d8ecaa2b91928d41d2",
+    "cacheID": "86375edb7f5acab66f5541a331f23378",
     "id": null,
     "metadata": {
       "relayTestingSelectionTypeInfo": {
@@ -130,11 +159,19 @@ return {
           "plural": false,
           "type": "Episode"
         },
-        "episode.id": {
+        "episode.id": (v3/*: any*/),
+        "episode.tvShow": {
           "enumValues": null,
-          "nullable": false,
+          "nullable": true,
           "plural": false,
-          "type": "ID"
+          "type": "TvShow"
+        },
+        "episode.tvShow.id": (v3/*: any*/),
+        "episode.tvShow.name": {
+          "enumValues": null,
+          "nullable": true,
+          "plural": false,
+          "type": "String"
         },
         "episode.watched": {
           "enumValues": null,
@@ -152,7 +189,7 @@ return {
     },
     "name": "actionBarTestQuery",
     "operationKind": "query",
-    "text": "query actionBarTestQuery {\n  episode(id: \"1\") {\n    id\n    watched\n    ...actionBar\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n  ...watchedDate\n}\n\nfragment watchedDate on Episode {\n  watchedDate\n  watched\n}\n"
+    "text": "query actionBarTestQuery {\n  episode(id: \"1\") {\n    id\n    watched\n    ...actionBar\n  }\n}\n\nfragment actionBar on Episode {\n  watched\n  tvShow {\n    id\n    name\n  }\n  ...watchedDate\n}\n\nfragment watchedDate on Episode {\n  watchedDate\n  watched\n}\n"
   }
 };
 })();

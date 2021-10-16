@@ -30,9 +30,9 @@ export default class EpisodeRepository {
   }
 
   getById: (serieId: number) => Promise<IEpisode> = async (serieId: number) => {
-    const res = await this.#fetchFn(`${this.#baseUrl}/episodes/${serieId}`);
+    const res = await this.#fetchFn(`${this.#baseUrl}/episodes/${serieId}?embed=show`);
     const episode = await res.json();
-    return this.#mapToIEpisode(episode);
+    return this.#mapToIEpisode(episode, episode._embedded.show.id);
   };
 
   getByTvshowId: (tvshowId: number) => Promise<IEpisode[]> = async (tvshowId: number) => {

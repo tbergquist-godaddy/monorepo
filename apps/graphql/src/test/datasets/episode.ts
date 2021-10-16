@@ -19,4 +19,9 @@ export default {
       href: 'http://api.tvmaze.com/episodes/123',
     },
   },
+  _embedded: {
+    show: {
+      id: 123,
+    },
+  },
 };
