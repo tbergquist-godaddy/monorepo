@@ -11,8 +11,6 @@ import { log } from 'crosscutting';
 import { TvshowService, ITvshowService } from 'tvshow';
 import { StoredOperationService, IStoredOperationService } from 'stored-operation';
 
-import getTvhelperLoaders, { TvHelperDataLoaders } from '../tvhelper/getDataloaders';
-
 type LoggedInUser = any;
 
 export type GraphqlContextType = {
@@ -24,9 +22,6 @@ export type GraphqlContextType = {
   readonly episodeService: IEpisodeService;
   readonly storedOperationService: IStoredOperationService;
   readonly log: typeof log;
-  readonly dataLoader: {
-    readonly tvhelper: TvHelperDataLoaders;
-  };
 };
 
 export default function createContext(request: Request): GraphqlContextType {
@@ -46,8 +41,5 @@ export default function createContext(request: Request): GraphqlContextType {
     tvshowService: new TvshowService(episodeService),
     episodeService,
     storedOperationService: new StoredOperationService(),
-    dataLoader: {
-      tvhelper: getTvhelperLoaders(),
-    },
   };
 }

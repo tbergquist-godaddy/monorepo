@@ -1,11 +1,15 @@
 import { style } from '@vanilla-extract/css';
 
 import { theme } from '../theme.css';
+import { atoms } from '../sprinkles.css';
 
 export const classNames = {
   link: style([
+    atoms({
+      outline: 'none',
+      paddingY: 'normal',
+    }),
     {
-      'outline': 'none',
       ':hover': {
         opacity: 0.7,
       },
@@ -13,7 +17,7 @@ export const classNames = {
         opacity: 0.7,
       },
       ':visited': {
-        color: theme.color['gray.100'],
+        color: theme.color.linkVisited,
       },
     },
   ]),

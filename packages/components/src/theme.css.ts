@@ -15,6 +15,7 @@ export const theme = createGlobalTheme(':root', {
     'white': '#fff',
     'whiteActive': 'rgba(0,0,0,0.1)',
     'black': '#000',
+    'linkVisited': '#cc14ad',
   },
   boxShadow: {
     active: '0 0 0 0.2rem',

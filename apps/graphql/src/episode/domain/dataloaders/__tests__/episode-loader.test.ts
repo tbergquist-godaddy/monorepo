@@ -14,7 +14,7 @@ it('returns an episode', async () => {
   const { loader } = setup();
   const id = 123;
   server.use(
-    rest.get(`http://api.tvmaze.com/episodes/${id}`, (_, res, ctx) => {
+    rest.get(`http://api.tvmaze.com/episodes/${id}?embed=show`, (_, res, ctx) => {
       return res(ctx.status(200), ctx.json(episode));
     }),
   );
@@ -30,7 +30,7 @@ it('returns an episode', async () => {
             "number": 11,
             "season": 1,
             "summary": "<p>The next person on Arrow's list is Diggle's commanding officer and mentor from Afghanistan, Ted Gaynor. Oliver suspects Ted is responsible for recent armoured truck robberies, but Diggle defends Ted and takes a job at Ted's security company to keep an eye on him. Oliver decides to make a move on Ted, which puts him at odds with Diggle. Meanwhile, Thea suspects that Moira is having an affair with Malcolm. Tommy and Laurel have an awkward dinner with Malcolm.</p>",
-            "tvshowId": null,
+            "tvshowId": 123,
           }
         `);
 });
