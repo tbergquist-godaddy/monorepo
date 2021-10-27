@@ -6,7 +6,7 @@
   "dependencies": {
     "@adeira/fetch": "^2.1.0",
     "@adeira/js": "^2.1.0",
-    "@next/bundle-analyzer": "^11.0.0",
+    "@next/bundle-analyzer": "^12.0.1",
     "@tbergq/components": "^0",
     "@tbergq/formik-wrapper": "^0.0.1",
     "@tbergq/theme": "^0.0.1",
