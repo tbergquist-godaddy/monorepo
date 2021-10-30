@@ -5174,9 +5174,9 @@
     outdent "^0.8.0"
 
 "@vanilla-extract/next-plugin@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/next-plugin/-/next-plugin-1.0.0.tgz#32378c98254817dc3af5a847cede48da91bee45c"
-  integrity sha512-728O1S9wpfNpi7e0TpdETr4CFwHuLo6aGlE1H46fr3FxrKvnWvr+5aZNvq2zVLxvJaBrTAZsJ2R7PxV6wgeZeg==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/next-plugin/-/next-plugin-1.0.1.tgz#8a718eff3dbe00e889da11bcb1b5bc341c76e7ec"
+  integrity sha512-e0PIc75Tb5DCdSRZXd7Ph0eAv8VadPrh6NfCzP+S8lLEqeOFrNDVOOjKErlj1ngGNk3R+W/BcMDwJ8SKk+GQig==
   dependencies:
     "@vanilla-extract/webpack-plugin" "^2.0.0"
 
