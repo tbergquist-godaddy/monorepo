@@ -7618,9 +7618,9 @@ chrome-trace-event@^1.0.2:
   integrity sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg==
 
 chromecast-api@^0.3.4:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/chromecast-api/-/chromecast-api-0.3.4.tgz#7c4a30f29dc8a76aa725da893c926dcfb616d647"
-  integrity sha512-b7+qyms+78cRMUiygPW/x8E5SL3gFRycmZDO5JWKYp0NS3wY4S620j0Xo6oQumQFMKUEvnVlEIPqPcDwzlam3A==
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/chromecast-api/-/chromecast-api-0.3.5.tgz#a314489cc329d71fce3379715619aaf7cc590b5e"
+  integrity sha512-8lJFxqnOBihRzEcGPMduOYAB/OOuU/uJnqF0Bsm+ct1df6bzwyskBWfc0hsQXpdJkuacHtfBXsbctBTgOPEY1g==
   dependencies:
     castv2-client "1.2.0"
     debug "^4.1.1"
