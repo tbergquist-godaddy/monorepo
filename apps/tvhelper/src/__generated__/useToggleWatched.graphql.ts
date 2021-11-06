@@ -12,7 +12,7 @@ export type useToggleWatched = {
 };
 export type useToggleWatched$data = useToggleWatched;
 export type useToggleWatched$key = {
-    readonly " $data"?: useToggleWatched$data;
+    readonly " $data"?: useToggleWatched$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"useToggleWatched">;
 };
 

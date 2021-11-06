@@ -17,7 +17,7 @@ export type TvShowListItem_data = {
 };
 export type TvShowListItem_data$data = TvShowListItem_data;
 export type TvShowListItem_data$key = {
-    readonly " $data"?: TvShowListItem_data$data;
+    readonly " $data"?: TvShowListItem_data$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"TvShowListItem_data">;
 };
 

@@ -21,7 +21,7 @@ export type Favorites_favorites = {
 };
 export type Favorites_favorites$data = Favorites_favorites;
 export type Favorites_favorites$key = {
-    readonly " $data"?: Favorites_favorites$data;
+    readonly " $data"?: Favorites_favorites$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"Favorites_favorites">;
 };
 

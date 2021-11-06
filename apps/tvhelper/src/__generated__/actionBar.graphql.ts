@@ -16,7 +16,7 @@ export type actionBar = {
 };
 export type actionBar$data = actionBar;
 export type actionBar$key = {
-    readonly " $data"?: actionBar$data;
+    readonly " $data"?: actionBar$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"actionBar">;
 };
 

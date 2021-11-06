@@ -18,7 +18,7 @@ export type FavoriteListItem_favorite = {
 };
 export type FavoriteListItem_favorite$data = FavoriteListItem_favorite;
 export type FavoriteListItem_favorite$key = {
-    readonly " $data"?: FavoriteListItem_favorite$data;
+    readonly " $data"?: FavoriteListItem_favorite$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"FavoriteListItem_favorite">;
 };
 

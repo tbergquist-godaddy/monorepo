@@ -12,7 +12,7 @@ export type watchedDate = {
 };
 export type watchedDate$data = watchedDate;
 export type watchedDate$key = {
-    readonly " $data"?: watchedDate$data;
+    readonly " $data"?: watchedDate$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"watchedDate">;
 };
 

@@ -20,7 +20,7 @@ export type episodeListItem = {
 };
 export type episodeListItem$data = episodeListItem;
 export type episodeListItem$key = {
-    readonly " $data"?: episodeListItem$data;
+    readonly " $data"?: episodeListItem$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"episodeListItem">;
 };
 

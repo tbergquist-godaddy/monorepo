@@ -13,7 +13,7 @@ export type episode = {
 };
 export type episode$data = episode;
 export type episode$key = {
-    readonly " $data"?: episode$data;
+    readonly " $data"?: episode$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"episode">;
 };
 

@@ -10,8 +10,8 @@ export type ChangePasswordFormMutationVariables = {
 };
 export type ChangePasswordFormMutationResponse = {
     readonly tvHelperChangePassword: {
-        readonly success?: boolean | null;
-        readonly message?: string | null;
+        readonly success?: boolean | null | undefined;
+        readonly message?: string | null | undefined;
     } | null;
 };
 export type ChangePasswordFormMutation = {

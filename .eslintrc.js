@@ -9,7 +9,6 @@ module.exports = {
   extends: [
     '@adeira/eslint-config/base',
     '@adeira/eslint-config/jest',
-    '@adeira/eslint-config/next',
     '@adeira/eslint-config/react',
     '@adeira/eslint-config/relay',
   ],

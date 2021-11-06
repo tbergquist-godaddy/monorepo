@@ -5,6 +5,7 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
+    '@adeira/eslint-config/next',
   ],
   rules: {
     'flowtype/require-valid-file-annotation': 'off',

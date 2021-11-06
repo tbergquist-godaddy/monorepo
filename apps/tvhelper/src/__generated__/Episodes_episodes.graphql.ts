@@ -15,7 +15,7 @@ export type Episodes_episodes = {
 };
 export type Episodes_episodes$data = Episodes_episodes;
 export type Episodes_episodes$key = {
-    readonly " $data"?: Episodes_episodes$data;
+    readonly " $data"?: Episodes_episodes$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"Episodes_episodes">;
 };
 
