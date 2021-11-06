@@ -5,7 +5,7 @@ WORKDIR /build
 COPY package.json lerna.json yarn.lock ./
 COPY apps/handball-news/package.json ./apps/handball-news/package.json
 
-RUN yarn install --frozen-lockfile
+RUN yarn install --immutable
 
 FROM node:16-alpine as builder
 

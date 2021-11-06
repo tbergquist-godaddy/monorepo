@@ -19,7 +19,7 @@ jobs:
           node-version: 16.x
       - name: deploy graphql
         run: |
-          yarn install --frozen-lockfile
+          yarn install --immutable
           yarn workspace @tbergq/cv build
           cd apps/cv
           yarn vercel --prod --confirm --token=${ZEIT_TOKEN}

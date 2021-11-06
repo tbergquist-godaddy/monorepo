@@ -12,7 +12,7 @@ COPY packages/theme/package.json ./packages/theme/package.json
 COPY packages/formik-wrapper/package.json ./packages/formik-wrapper/package.json
 COPY packages/esbuild-tools/package.json ./packages/esbuild-tools/package.json
 
-RUN yarn install --frozen-lockfile
+RUN yarn install --immutable
 
 FROM node:16-alpine as builder
 

@@ -19,7 +19,7 @@ jobs:
           node-version: 14.x
       - name: deploy graphql
         run: |
-          yarn install --frozen-lockfile
+          yarn install --immutable
           yarn run build
           yarn workspace @tbergq/graphql es-build
           cd apps/graphql

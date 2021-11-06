@@ -20,7 +20,7 @@ jobs:
       - name: deploy handball-news
         run: |
           docker login -u tbergq -p "${{ secrets.DOCKER_HUB_TOKEN }}"
-          yarn install --frozen-lockfile
+          yarn install --immutable
           yarn global add heroku
           heroku container:login
           docker build . -t handball-news:latest -f apps/handball-news/Dockerfile
