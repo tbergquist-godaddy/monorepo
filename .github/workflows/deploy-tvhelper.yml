@@ -24,7 +24,7 @@ jobs:
       - name: deploy tvhelper
         run: |
           docker login -u tbergq -p "${{ secrets.DOCKER_HUB_TOKEN }}"
-          yarn install --frozen-lockfile
+          yarn install --immutable
           yarn global add heroku
           heroku container:login
           yarn workspace @tbergq/tvhelper relay-compiler --language typescript --persistOutput persisted-queries.json
