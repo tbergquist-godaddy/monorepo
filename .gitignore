@@ -7,3 +7,13 @@ yarn-error.log
 persisted-queries.json
 .env
 .env.local
+
+#yarn
+.yarn/*
+# 👇 could be turned on, but not sure github allows such a size
+# !.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

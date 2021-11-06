@@ -12,7 +12,7 @@ export type toggleFavoriteButton = {
 };
 export type toggleFavoriteButton$data = toggleFavoriteButton;
 export type toggleFavoriteButton$key = {
-    readonly " $data"?: toggleFavoriteButton$data;
+    readonly " $data"?: toggleFavoriteButton$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"toggleFavoriteButton">;
 };
 

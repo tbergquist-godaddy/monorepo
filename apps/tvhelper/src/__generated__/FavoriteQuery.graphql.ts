@@ -8,11 +8,11 @@ import { FragmentRefs } from "relay-runtime";
 export type SortBy = "NAME" | "NEXT_EPISODE" | "PREVIOUS_EPISODE" | "STATUS" | "%future added value";
 export type SortDirection = "ASC" | "DESC" | "%future added value";
 export type SortOptions = {
-    sortBy?: SortBy | null;
-    sortDirection?: SortDirection | null;
+    sortBy?: SortBy | null | undefined;
+    sortDirection?: SortDirection | null | undefined;
 };
 export type FavoriteQueryVariables = {
-    options?: SortOptions | null;
+    options?: SortOptions | null | undefined;
 };
 export type FavoriteQueryResponse = {
     readonly viewer: {

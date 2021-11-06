@@ -15,7 +15,7 @@ export type TvShowPage_tvShow = {
 };
 export type TvShowPage_tvShow$data = TvShowPage_tvShow;
 export type TvShowPage_tvShow$key = {
-    readonly " $data"?: TvShowPage_tvShow$data;
+    readonly " $data"?: TvShowPage_tvShow$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"TvShowPage_tvShow">;
 };
 

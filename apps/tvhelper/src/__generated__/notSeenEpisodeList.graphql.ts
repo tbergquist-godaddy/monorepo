@@ -19,7 +19,7 @@ export type notSeenEpisodeList = {
 };
 export type notSeenEpisodeList$data = notSeenEpisodeList;
 export type notSeenEpisodeList$key = {
-    readonly " $data"?: notSeenEpisodeList$data;
+    readonly " $data"?: notSeenEpisodeList$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"notSeenEpisodeList">;
 };
 

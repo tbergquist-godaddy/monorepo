@@ -14,7 +14,7 @@ export type imageSummary = {
 };
 export type imageSummary$data = imageSummary;
 export type imageSummary$key = {
-    readonly " $data"?: imageSummary$data;
+    readonly " $data"?: imageSummary$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"imageSummary">;
 };
 

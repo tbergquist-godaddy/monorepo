@@ -16,7 +16,7 @@ export type SearchResults_results = {
 };
 export type SearchResults_results$data = SearchResults_results;
 export type SearchResults_results$key = {
-    readonly " $data"?: SearchResults_results$data;
+    readonly " $data"?: SearchResults_results$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"SearchResults_results">;
 };
 
