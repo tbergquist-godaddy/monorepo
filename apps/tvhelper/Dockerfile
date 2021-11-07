@@ -1,4 +1,4 @@
-FROM node:16-alpine as deps
+FROM node:17-alpine as deps
 
 WORKDIR /build
 
@@ -14,7 +14,7 @@ COPY packages/esbuild-tools/package.json ./packages/esbuild-tools/package.json
 
 RUN yarn install --immutable
 
-FROM node:16-alpine as builder
+FROM node:17-alpine as builder
 
 WORKDIR /build
 ENV NODE_ENV=production
@@ -43,7 +43,7 @@ COPY package.json lerna.json tsconfig.json ./
 
 RUN yarn lerna run build
 
-FROM node:16-alpine as runner
+FROM node:17-alpine as runner
 
 WORKDIR /build
 
