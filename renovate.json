@@ -1,5 +1,6 @@
 {
   "extends": ["config:base"],
   "labels": ["dependencies", "automerge"],
-  "assignees": ["tbergq"]
+  "assignees": ["tbergq"],
+  "lockFileMaintenance": { "enabled": true }
 }
