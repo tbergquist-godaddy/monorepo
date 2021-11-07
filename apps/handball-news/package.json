@@ -5,9 +5,9 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^2.1.0",
-    "@chakra-ui/icons": "^1.0.15",
-    "@chakra-ui/react": "^1.6.6",
-    "@chakra-ui/theme-tools": "^1.1.9",
+    "@chakra-ui/icons": "1.0.17",
+    "@chakra-ui/react": "1.6.12",
+    "@chakra-ui/theme-tools": "1.2.3",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "date-fns": "^2.23.0",
