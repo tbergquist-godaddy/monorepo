@@ -6016,7 +6016,7 @@ __metadata:
     "@types/adeira__js": ^2.1.0
     cross-fetch: ^3.1.4
     date-fns: ^2.23.0
-    framer-motion: ^5
+    framer-motion: 5.2.1
     i18next-parser: ^5.0.0
     jest: ^27.0.6
     msw: 0.35.0
@@ -14958,14 +14958,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^5":
-  version: 5.0.1
-  resolution: "framer-motion@npm:5.0.1"
+"framer-motion@npm:5.2.1":
+  version: 5.2.1
+  resolution: "framer-motion@npm:5.2.1"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     framesync: 6.0.1
     hey-listen: ^1.0.8
-    popmotion: 10.0.2
+    popmotion: 11.0.0
     style-value-types: 5.0.0
     tslib: ^2.1.0
   peerDependencies:
@@ -14974,7 +14974,7 @@ __metadata:
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: f3b5c8879c8a04b7340f18086add982727a4d24489d09fe4cdabff61d70667da869b51013474deef579a95369fbd4fb979af4cdb3ac819aac9d491a1e644fd61
+  checksum: e19e1eb063617965ad6783b62ae2437e69f6718244a5800c7c8cbe9d14b8c259bfd90edf33d34c02bcf37d5c4d03a41ef7f478f0ba16a17b57375d5dcc334379
   languageName: node
   linkType: hard
 
@@ -23142,15 +23142,15 @@ opn@latest:
   languageName: node
   linkType: hard
 
-"popmotion@npm:10.0.2":
-  version: 10.0.2
-  resolution: "popmotion@npm:10.0.2"
+"popmotion@npm:11.0.0":
+  version: 11.0.0
+  resolution: "popmotion@npm:11.0.0"
   dependencies:
     framesync: ^6.0.1
     hey-listen: ^1.0.8
     style-value-types: 5.0.0
     tslib: ^2.1.0
-  checksum: 6c793f637a5dd9861edca257eac523c2d6c1d895399e9320562c26c2f2a2d1288af1892925af5bc88e091e0444b4478f352772b7d1a5ba1b972cd889d1560d4a
+  checksum: 0e214895269bb3c9d2c5cbed2229d399cdea118f40cfd95f96b176439edf09d16becdef3dc3b820a6f53ab02a14e6047f04c89ee6991ddbd8b8194d7cfa59f0b
   languageName: node
   linkType: hard
 
