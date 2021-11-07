@@ -17,3 +17,6 @@ persisted-queries.json
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# TypeScript incremental compilation cache
+*.tsbuildinfo
