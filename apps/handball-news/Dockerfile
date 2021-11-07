@@ -1,4 +1,4 @@
-FROM node:16-alpine as deps
+FROM node:17-alpine as deps
 
 WORKDIR /build
 
@@ -7,7 +7,7 @@ COPY apps/handball-news/package.json ./apps/handball-news/package.json
 
 RUN yarn install --immutable
 
-FROM node:16-alpine as builder
+FROM node:17-alpine as builder
 
 WORKDIR /build
 ENV NODE_ENV=production
@@ -23,7 +23,7 @@ COPY package.json lerna.json tsconfig.json ./
 
 RUN yarn workspace @tbergq/handball-news build:app
 
-FROM node:16-alpine as runner
+FROM node:17-alpine as runner
 
 WORKDIR /build
 
