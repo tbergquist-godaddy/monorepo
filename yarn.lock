@@ -6142,7 +6142,7 @@ __metadata:
     "@adeira/monorepo-utils": ^0.11.0
     "@babel/cli": ^7.13.16
     babel-loader: ^8.2.2
-    chromecast-api: ^0.3.4
+    chromecast-api: ^0.4.0
     compression: ^1.7.4
     concurrently: ^6.1.0
     copy-webpack-plugin: ^9.0.0
@@ -10502,19 +10502,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromecast-api@npm:^0.3.4":
-  version: 0.3.4
-  resolution: "chromecast-api@npm:0.3.4"
+"chromecast-api@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "chromecast-api@npm:0.4.0"
   dependencies:
     castv2-client: 1.2.0
     debug: ^4.1.1
     dns-txt: ^2.0.2
-    mime: ^2.3.1
+    mime: ^3.0.0
     multicast-dns: ^7.2.0
     node-ssdp: ^4.0.0
     xml2js: ^0.4.23
     youtube-remote: ^1.0.0
-  checksum: e887218579db2588d11ca7c4d43aab7b447ac7b227439011c3ee9b405dffb7947bd88251fdc9a544c953f6ae38242003416a8c87ad200dbb6a3c0d3af9a304de
+  checksum: f8e979d3cb8cec54fbdc77d570324d680f6d65b35a44a14518d1ba93a23ec67aaf1bac8dea1c76f7d06cfa0dfb32eaed44e3487881bc10fef0dd361ee3423bb7
   languageName: node
   linkType: hard
 
@@ -20445,6 +20445,15 @@ __metadata:
   bin:
     mime: cli.js
   checksum: dd3c93d433d41a09f6a1cfa969b653b769899f3bd573e7bfcea33bdc8b0cc4eba57daa2f95937369c2bd2b6d39d62389b11a4309fe40d1d3a1b736afdedad0ff
+  languageName: node
+  linkType: hard
+
+"mime@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "mime@npm:3.0.0"
+  bin:
+    mime: cli.js
+  checksum: f43f9b7bfa64534e6b05bd6062961681aeb406a5b53673b53b683f27fcc4e739989941836a355eef831f4478923651ecc739f4a5f6e20a76487b432bfd4db928
   languageName: node
   linkType: hard
 
