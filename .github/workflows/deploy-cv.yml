@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@v2.4.1
         with:
           node-version: 16.x
-      - name: deploy graphql
+      - name: deploy cv
         run: |
           yarn install --immutable
           yarn workspace @tbergq/cv build
