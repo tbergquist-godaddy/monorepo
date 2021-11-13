@@ -1,33 +1,56 @@
-name: Continuous Integration
-
-on: [push]
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  build:
+  main:
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [16.x]
-
+    if: ${{ github.event_name != 'pull_request' }}
     steps:
-      - uses: actions/checkout@v2.4.0
-      - run: |
-          git fetch --no-tags --prune --depth=1 origin +refs/heads/master:refs/remotes/origin/master
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.4.1
+      - uses: actions/checkout@v2
+        name: Checkout [main]
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: yarn install, build, and test
-        run: |
-          yarn install --immutable
-          yarn run build
-          yarn run lint --since origin/master --parallel
-          yarn run test --since origin/master
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - run: yarn install --immutable
+      - run: yarn nx affected --target=build --parallel --max-parallel=3 --base=origin/master
+      - run: yarn nx affected --target=test --parallel --max-parallel=2 --base=origin/master
+      - run: yarn nx affected --target=lint --parallel --max-parallel=2 --base=origin/master
         env:
           DB_URL_TJ: ${{ secrets.DB_URL_TJ }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
           GRAPHQL_URL: ${{ secrets.GRAPHQL_URL }}
           HANDBALL_PLANET_URL: ${{ secrets.HANDBALL_PLANET_URL }}
           HANDBALL_NO: ${{ secrets.HANDBALL_NO }}
+          NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - run: yarn install --immutable
+      - run: yarn nx affected --target=build --parallel --max-parallel=3 --base=origin/master
+      - run: yarn nx affected --target=test --parallel --max-parallel=2 --base=origin/master
+      - run: yarn nx affected --target=lint --parallel --max-parallel=2 --base=origin/master
+        env:
+          DB_URL_TJ: ${{ secrets.DB_URL_TJ }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          GRAPHQL_URL: ${{ secrets.GRAPHQL_URL }}
+          HANDBALL_PLANET_URL: ${{ secrets.HANDBALL_PLANET_URL }}
+          HANDBALL_NO: ${{ secrets.HANDBALL_NO }}
+          NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
