@@ -2,7 +2,8 @@ FROM node:17-alpine as deps
 
 WORKDIR /build
 
-COPY package.json lerna.json yarn.lock ./
+COPY package.json lerna.json yarn.lock .yarnrc.yml ./
+COPY .yarn/ ./.yarn/
 COPY apps/tvhelper/package.json ./apps/tvhelper/package.json
 COPY packages/test-utils/package.json ./packages/test-utils/package.json
 COPY packages/test-preset/package.json ./packages/test-preset/package.json
@@ -12,7 +13,7 @@ COPY packages/theme/package.json ./packages/theme/package.json
 COPY packages/formik-wrapper/package.json ./packages/formik-wrapper/package.json
 COPY packages/esbuild-tools/package.json ./packages/esbuild-tools/package.json
 
-RUN yarn install --immutable
+RUN yarn install
 
 FROM node:17-alpine as builder
 
@@ -41,6 +42,8 @@ COPY packages/esbuild-tools ./packages/esbuild-tools
 
 COPY package.json lerna.json tsconfig.json ./
 
+RUN yarn workspace @tbergq/tvhelper relay-compiler --language typescript --persistOutput persisted-queries.json
+RUN yarn workspace @tbergq/tvhelper persist-queries
 RUN yarn lerna run build
 
 FROM node:17-alpine as runner

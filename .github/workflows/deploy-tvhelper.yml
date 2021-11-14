@@ -24,10 +24,7 @@ jobs:
       - name: deploy tvhelper
         run: |
           docker login -u tbergq -p "${{ secrets.DOCKER_HUB_TOKEN }}"
-          yarn install --immutable
           yarn dlx heroku container:login
-          yarn workspace @tbergq/tvhelper relay-compiler --language typescript --persistOutput persisted-queries.json
-          yarn workspace @tbergq/tvhelper persist-queries
           docker build . -t tvhelper:latest -f apps/tvhelper/Dockerfile
           docker tag tvhelper:latest registry.heroku.com/tbergq-tvhelper/web
           docker push registry.heroku.com/tbergq-tvhelper/web
