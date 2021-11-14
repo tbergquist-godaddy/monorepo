@@ -33,7 +33,7 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development yarn run nodemon -w ./src --verbose --ignore __tests__/ --ignore __mocks__/ --exec ts-node -r tsconfig-paths/register src/index.ts",
-    "es-build": "node esbuild.js",
+    "build": "node esbuild.js",
     "test": "yarn test-only && yarn test-bc && yarn typecheck",
     "test-only": "jest",
     "test-bc": "yarn ts-node -r tsconfig-paths/register scripts/test-bc.ts",

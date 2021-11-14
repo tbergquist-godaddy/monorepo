@@ -17,11 +17,11 @@ jobs:
         uses: actions/setup-node@v2.4.1
         with:
           node-version: 16.x
-      - name: deploy graphql
+      - name: deploy cv
         run: |
           yarn install --immutable
-          yarn workspace @tbergq/cv build
+          yarn nx build @tbergq/cv
           cd apps/cv
-          yarn vercel --prod --confirm --token=${ZEIT_TOKEN}
+          yarn dlx vercel --prod --confirm --token=${ZEIT_TOKEN}
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}

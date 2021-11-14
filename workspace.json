@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "projects": {
+    "@tbergq/cv": {
+      "root": "apps/cv"
+    },
+    "@tbergq/graphql": {
+      "root": "apps/graphql"
+    },
+    "@tbergq/handball-news": {
+      "root": "apps/handball-news"
+    },
+    "@tbergq/tvhelper": {
+      "root": "apps/tvhelper"
+    },
+    "@tbergq/videostream": {
+      "root": "apps/video-stream"
+    },
+    "@tbergq/components": {
+      "root": "packages/components"
+    },
+    "@tbergq/esbuild-tools": {
+      "root": "packages/esbuild-tools"
+    },
+    "@tbergq/formik-wrapper": {
+      "root": "packages/formik-wrapper"
+    },
+    "@tbergq/test-preset": {
+      "root": "packages/test-preset"
+    },
+    "@tbergq/test-utils": {
+      "root": "packages/test-utils"
+    },
+    "@tbergq/theme": {
+      "root": "packages/theme"
+    },
+    "@tbergq/utils": {
+      "root": "packages/utils"
+    }
+  }
+}

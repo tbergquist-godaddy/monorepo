@@ -5,10 +5,11 @@
   "main": "index.js",
   "sideEffects": false,
   "scripts": {
-    "test": "yarn lerna run test",
-    "lint": "yarn lerna run lint",
-    "test-ci": "yarn lint --parallel && yarn test --parallel",
-    "build": "yarn lerna run build"
+    "test": "yarn nx affected:test",
+    "lint": "yarn nx affected:lint",
+    "test-ci": "yarn lint && yarn test",
+    "test-ci-all": "yarn nx run-many --target=build --all && yarn nx run-many --target=test --all && yarn nx run-many --target=lint --all",
+    "build": "yarn nx affected:build"
   },
   "workspaces": [
     "packages/*",
@@ -23,6 +24,10 @@
     "@adeira/monorepo-npm-publisher": "^2.0.0",
     "@babel/core": "^7.14.6",
     "@babel/preset-typescript": "^7.13.0",
+    "@nrwl/cli": "latest",
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/tao": "latest",
+    "@nrwl/workspace": "latest",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^12.0.0",
     "@types/classnames": "^2.3.1",

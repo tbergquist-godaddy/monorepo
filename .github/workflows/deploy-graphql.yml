@@ -20,8 +20,7 @@ jobs:
       - name: deploy graphql
         run: |
           yarn install --immutable
-          yarn run build
-          yarn workspace @tbergq/graphql es-build
+          yarn nx build @tbergq/graphql
           cd apps/graphql
           yarn vercel --prod --confirm --token=${ZEIT_TOKEN}
         env:
