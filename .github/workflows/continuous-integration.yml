@@ -2,16 +2,16 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
 
 jobs:
-  main:
+  master:
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
-        name: Checkout [main]
+        name: Checkout [master]
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
