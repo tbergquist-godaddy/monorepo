@@ -6154,7 +6154,7 @@ __metadata:
     react-icons: ^4.3.1
     react-relay: ^12.0.0
     relay-compiler: ^12.0.0
-    relay-compiler-language-typescript: ^14.0.0
+    relay-compiler-language-typescript: ^15.0.0
     relay-config: ^12.0.0
     relay-runtime: ^12.0.0
     relay-test-utils: ^12.0.0
@@ -25321,9 +25321,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler-language-typescript@npm:^14.0.0":
-  version: 14.3.0
-  resolution: "relay-compiler-language-typescript@npm:14.3.0"
+"relay-compiler-language-typescript@npm:^15.0.0":
+  version: 15.0.0
+  resolution: "relay-compiler-language-typescript@npm:15.0.0"
   dependencies:
     invariant: ^2.2.4
   peerDependencies:
@@ -25331,8 +25331,8 @@ __metadata:
     "@types/relay-runtime": ">=12.0.0"
     relay-compiler: ">=12.0.0"
     relay-runtime: ">=12.0.0"
-    typescript: ">=4.2.3"
-  checksum: 46ce092f9c68a22f04b56653051749ac3080a92b245de02b48382b5df8909c24a438a01cea86cc51374b36db5fccfd5e6774b98785b87541d06889fb5cd77054
+    typescript: ">=4.5.0"
+  checksum: 1d60db63ce0dfdf4b8435b3970228da7999b372a7355808b9d5ffcb6a8abb580b8eda96a490f9f63935449f1ada26a418aeb497bb122994788807c3d4d05d22c
   languageName: node
   linkType: hard
 
