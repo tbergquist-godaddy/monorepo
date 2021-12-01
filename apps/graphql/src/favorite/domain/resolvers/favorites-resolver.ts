@@ -30,10 +30,10 @@ export default async function favoritesResolver(
   const serieIds = savedFavorites.map((item) => item.serieId);
   const favorites = await tvshowService.getByIds(serieIds);
 
-  const sortBy =
-    args.options.sortDirection === 'ascending'
-      ? R.ascend(R.path(args.options.sortBy.split('.')))
-      : R.descend(R.path(args.options.sortBy.split('.')));
+  const path = R.path<Date | string>(args.options.sortBy.split('.'));
 
+  // @ts-ignore: Type 'string | Date | undefined' is not assignable to type 'Ord'
+  const sortBy = args.options.sortDirection === 'ascending' ? R.ascend(path) : R.descend(path);
+  // @ts-ignore: Type 'number' is not assignable to type '(a: ITvshowDTO | null, b: ITvshowDTO | null) => number
   return connectionFromArray(R.sort(sortBy, favorites), args);
 }
