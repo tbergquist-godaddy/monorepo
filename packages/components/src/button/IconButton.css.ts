@@ -1,15 +1,18 @@
-import { style, composeStyles } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { atoms } from '../sprinkles.css';
 import { classNames as buttonClassNames } from './Button.css';
 
 export const classNames = {
-  base: composeStyles(
+  base: style([
     buttonClassNames.base,
-    style({
-      lineHeight: 1,
+    atoms({
+      borderRadius: 'round',
     }),
-  ),
+    {
+      lineHeight: 0,
+    },
+  ]),
   small: atoms({
     fontSize: 'small',
     padding: 'small',
