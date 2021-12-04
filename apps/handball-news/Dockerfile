@@ -2,7 +2,7 @@ FROM node:17-alpine as deps
 
 WORKDIR /build
 
-COPY package.json lerna.json yarn.lock ./
+COPY package.json yarn.lock ./
 COPY apps/handball-news/package.json ./apps/handball-news/package.json
 
 RUN yarn install --immutable
@@ -19,7 +19,7 @@ COPY --from=deps  /build/apps/handball-news/ ./apps/handball-news/
 
 COPY apps/handball-news ./apps/handball-news
 
-COPY package.json lerna.json tsconfig.json ./
+COPY package.json tsconfig.json ./
 
 RUN yarn workspace @tbergq/handball-news build:app
 
