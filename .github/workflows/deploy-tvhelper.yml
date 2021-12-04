@@ -1,15 +1,15 @@
 name: Deploy tvhelper
 
-# on: [push]
-on:
-  push:
-    branches: [master]
-    paths:
-      - 'apps/tvhelper/**'
-      - 'packages/components/**'
-      - 'packages/theme/**'
-      - 'packages/utils/**'
-      - 'packages/formik-wrapper/**'
+on: [push]
+# on:
+#   push:
+#     branches: [master]
+#     paths:
+#       - 'apps/tvhelper/**'
+#       - 'packages/components/**'
+#       - 'packages/theme/**'
+#       - 'packages/utils/**'
+#       - 'packages/formik-wrapper/**'
 
 jobs:
   build:
