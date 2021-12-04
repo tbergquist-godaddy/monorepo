@@ -6134,7 +6134,7 @@ __metadata:
     jest: ^27.0.6
     msw: 0.36.0
     next: ^12.0.1
-    next-i18next: ^9.0.0
+    next-i18next: ^10.0.0
     node-cache: ^5.1.2
     node-html-parser: ^5.0.0
     react: ^17.0.2
@@ -21371,9 +21371,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-i18next@npm:^9.0.0":
-  version: 9.2.0
-  resolution: "next-i18next@npm:9.2.0"
+"next-i18next@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "next-i18next@npm:10.0.0"
   dependencies:
     "@babel/runtime": ^7.13.17
     "@types/hoist-non-react-statics": ^3.3.1
@@ -21385,7 +21385,7 @@ __metadata:
   peerDependencies:
     next: ">= 10.0.0"
     react: ">= 16.8.0"
-  checksum: 1f8cedf192c3bd3041ba437a28462b9466c50a9dd1fb7e7b0293f79ec41d6c146930e0fc7fa161f0859c6476cef68cafb5a18c9c67d4870564ee919ca60fd577
+  checksum: f28fc8b5e3b7b9e83ed65f51ae5f0ac1bdbfd3b3ee4465a8ad97d4f7dacc1ebbad3f7b0a3c58af5f711b8f60e9ef3b332db19b293aa121b190d4132eea5306c3
   languageName: node
   linkType: hard
 
