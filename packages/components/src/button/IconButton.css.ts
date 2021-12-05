@@ -32,4 +32,12 @@ export const classNames = {
   danger: atoms({
     backgroundColor: 'danger',
   }),
+  icon: style({
+    height: '1rem',
+    width: '1rem',
+  }),
+  largeIcon: style({
+    height: `${20 / 16}rem`,
+    width: `${20 / 16}rem`,
+  }),
 };

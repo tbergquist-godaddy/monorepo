@@ -36,7 +36,7 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "start:local": "next start -p 3020",
-    "analyze": "export ANALYZE=TRUE && next build",
+    "analyze": "ANALYZE=TRUE next build",
     "persist-queries": "yarn babel-node scripts/persistQueries.js",
     "lint": "eslint '**/*.{ts,tsx,js}' --fix --report-unused-disable-directives",
     "test": "yarn typecheck && yarn test-only && yarn relay --validate",
