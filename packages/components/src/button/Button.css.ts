@@ -34,7 +34,7 @@ export const classNames = {
       },
     }),
     atoms({
-      backgroundColor: 'primary',
+      backgroundColor: 'secondary',
       color: 'primaryContrast',
       borderColor: 'primary',
     }),
