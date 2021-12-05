@@ -48,6 +48,7 @@ jobs:
           HANDBALL_PLANET_URL: ${{ secrets.HANDBALL_PLANET_URL }}
           HANDBALL_NO: ${{ secrets.HANDBALL_NO }}
           NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
+          COMPONENTS_PROJECT_TOKEN: ${{ secrets.COMPONENTS_PROJECT_TOKEN }}
   pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
