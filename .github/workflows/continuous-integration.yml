@@ -51,7 +51,14 @@ jobs:
       - run: yarn nx affected --target=build --parallel --max-parallel=3
       - run: yarn nx affected --target=test --parallel --max-parallel=2
       - run: yarn nx affected --target=lint --parallel --max-parallel=2
-      - run: yarn nx affected --target=chromatic
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.COMPONENTS_PROJECT_TOKEN }}
+          buildScriptName: 'chromatic:test'
+          workingDir: 'packages/components'
         env:
           DB_URL_TJ: ${{ secrets.DB_URL_TJ }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
