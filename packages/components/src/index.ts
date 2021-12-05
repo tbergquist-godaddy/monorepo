@@ -20,6 +20,6 @@ export { default as Container } from './Container';
 // Layout
 export { MediaContextProvider, Media, createMediaStyle } from './Media';
 
-// vanilla-extract
+// vanilla-extract functions
 export { theme } from './theme.css';
 export { atoms } from './sprinkles.css';

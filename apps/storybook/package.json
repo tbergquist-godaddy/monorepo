@@ -1,0 +1,25 @@
+{
+  "name": "@tbergq/storybook",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-a11y": "^6.4.7",
+    "@storybook/addon-actions": "^6.4.7",
+    "@storybook/addon-docs": "^6.4.7",
+    "@storybook/addon-essentials": "^6.4.7",
+    "@storybook/addon-knobs": "^6.4.0",
+    "@storybook/addon-links": "^6.4.7",
+    "@storybook/addon-viewport": "^6.4.7",
+    "@storybook/builder-webpack5": "^6.4.7",
+    "@storybook/manager-webpack5": "^6.4.7",
+    "@storybook/react": "^6.4.7",
+    "babel-loader": "^8.2.3",
+    "chromatic": "^6.1.0"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "storybook:build": "yarn build-storybook -o ./public",
+    "chromatic:test": "yarn chromatic --project-token=\"$COMPONENTS_PROJECT_TOKEN\" --build-script-name=storybook:build --preserve-missing --exit-once-uploaded"
+  }
+}

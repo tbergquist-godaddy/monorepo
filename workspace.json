@@ -36,6 +36,9 @@
     },
     "@tbergq/utils": {
       "root": "packages/utils"
+    },
+    "@tbergq/storybook": {
+      "root": "apps/storybook"
     }
   }
 }
