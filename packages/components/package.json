@@ -40,6 +40,7 @@
     "@types/shortid": "^0.0.29",
     "@vanilla-extract/babel-plugin": "^1.0.0",
     "@vanilla-extract/webpack-plugin": "^2.0.0",
+    "chromatic": "^6.1.0",
     "rimraf": "^3.0.2"
   },
   "scripts": {
@@ -51,6 +52,6 @@
     "test-only": "jest",
     "generate:types": "tsc -d --emitDeclarationOnly --outDir dist/es",
     "storybook:build": "yarn build-storybook -o ./public",
-    "chromatic": "yarn dlx chromatic --project-token=\"$COMPONENTS_PROJECT_TOKEN\" --build-script-name=storybook:build"
+    "chromatic:test": "yarn chromatic --project-token=\"$COMPONENTS_PROJECT_TOKEN\" --build-script-name=storybook:build"
   }
 }

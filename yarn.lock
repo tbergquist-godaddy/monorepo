@@ -6110,6 +6110,7 @@ __metadata:
     "@vanilla-extract/css": ^1.0.0
     "@vanilla-extract/sprinkles": ^1.0.0
     "@vanilla-extract/webpack-plugin": ^2.0.0
+    chromatic: ^6.1.0
     classnames: ^2.3.1
     react-animate-height: ^2.0.23
     react-icons: ^4.3.1
@@ -10705,6 +10706,17 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: c57cf9dd0791e2f18a5ee9c1a299ae6e801ff58fee96dc8bfd0dcb4738a6ce58dd252a3605b1c93c6418fe4f9d5093b28ffbf4d66648cb2a9c67eaef9679be2f
+  languageName: node
+  linkType: hard
+
+"chromatic@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "chromatic@npm:6.1.0"
+  bin:
+    chroma: bin/main.cjs
+    chromatic: bin/main.cjs
+    chromatic-cli: bin/main.cjs
+  checksum: 2de5227f5d5f9da973f47dfba2a4092eac83cef74ea78101eb81c80c8f50f6f43904c3b499838e60a178de02c3518c0bb80241f8df4266894919c87f7a2ed318
   languageName: node
   linkType: hard
 
