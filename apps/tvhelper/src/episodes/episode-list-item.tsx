@@ -65,7 +65,7 @@ export default function EpisodeListItem({
         <span className={classNames.description}>{summary}</span>
       </span>
       <Box display="flex" gap="small">
-        <Link href={href}>
+        <Link href={href} passHref>
           <IconButton href={href} color="white" title="Episode details">
             <BiDetail />
           </IconButton>
@@ -75,6 +75,7 @@ export default function EpisodeListItem({
             title={watched ? 'Seen' : 'Not seen'}
             onClick={onClick}
             color={watched ? 'success' : 'danger'}
+            loading={isMutating}
           >
             {watched ? <BsEye /> : <BsEyeSlash />}
           </IconButton>
