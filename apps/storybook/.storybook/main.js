@@ -15,7 +15,8 @@ const getAffected = () => {
     .map((name) => name.replace('\n', ''))
     .join(',');
 };
-const stories = [];
+// Cannot publish a storybook with no stories
+const stories = ['../src/**/*.stories.@(js|jsx|ts|tsx)'];
 
 const { PROJECTS } = process.env;
 const projects = (PROJECTS ?? getAffected()).split(',');
@@ -31,7 +32,7 @@ for (const project of projects) {
   const relativePath = path.relative(__dirname, absolutePath);
   stories.push(path.join(relativePath, '**/*.stories.@(js|jsx|ts|tsx)'));
 }
-console.log({ stories });
+
 module.exports = {
   stories,
   addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-a11y'],
