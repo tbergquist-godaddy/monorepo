@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
 import makeGetServerSideProps from 'services/get-serverside-props';
 
-import LoginScene from '../src/login/LoginScene';
+import LoginScene from '../login/LoginScene';
 
 type Props = Readonly<{
   loginFailed: boolean;

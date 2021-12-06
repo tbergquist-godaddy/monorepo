@@ -7150,7 +7150,6 @@ __metadata:
     "@tbergq/formik-wrapper": ^0.0.1
     "@tbergq/test-utils": 0.0.1
     "@tbergq/theme": ^0.0.1
-    "@tbergq/utils": ^0
     "@testing-library/jest-dom": ^5.12.0
     "@testing-library/react": ^12.0.0
     "@testing-library/react-hooks": ^7.0.2
@@ -7168,6 +7167,7 @@ __metadata:
     dotenv: ^10.0.0
     eslint-config-next: ^12.0.1
     formik: ^2.2.6
+    jest: ^27.4.3
     js-cookie: ^3.0.0
     jwt-decode: ^3.1.2
     next: ^12.0.1
@@ -7187,17 +7187,6 @@ __metadata:
     relay-test-utils: ^12.0.0
     rimraf: ^3.0.2
     yup: ^0.32.9
-  languageName: unknown
-  linkType: soft
-
-"@tbergq/utils@^0, @tbergq/utils@workspace:packages/utils":
-  version: 0.0.0-use.local
-  resolution: "@tbergq/utils@workspace:packages/utils"
-  dependencies:
-    "@babel/cli": ^7.13.16
-    js-cookie: ^3.0.0
-    next-cookies: ^2.0.3
-    rimraf: ^3.0.2
   languageName: unknown
   linkType: soft
 
@@ -20425,7 +20414,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.0.1, jest@npm:^27.0.6":
+"jest@npm:^27.0.1, jest@npm:^27.0.6, jest@npm:^27.4.3":
   version: 27.4.3
   resolution: "jest@npm:27.4.3"
   dependencies:

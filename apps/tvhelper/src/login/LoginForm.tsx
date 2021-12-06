@@ -1,6 +1,6 @@
 import { useShowToast, Button, Box } from '@tbergq/components';
 import { FormikInput as Input } from '@tbergq/formik-wrapper';
-import { TOKEN_KEY } from '@tbergq/utils';
+import { TOKEN_KEY } from 'environment';
 import Router from 'next/router';
 import cookie from 'js-cookie';
 import { useMutation, graphql } from 'react-relay';

@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
 import { fetchQuery, GraphQLTaggedNode } from 'react-relay';
 import cookies from 'next-cookies';
-import { TOKEN_KEY } from '@tbergq/utils';
+import { TOKEN_KEY } from 'environment';
 
 import { createEnvironment, makeFetchQuery } from './relay';
 
