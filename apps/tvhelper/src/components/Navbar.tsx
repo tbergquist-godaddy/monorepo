@@ -1,17 +1,9 @@
 import { Navbar as DSNavbar } from '@tbergq/components';
-import jwtDecode from 'jwt-decode';
+import { useAuth } from 'components/auth-provider';
 
 import NavbarRight from './NavbarRight';
 import NavLink from './NavLink';
 import NavItem from './nav-item';
-
-type Props = {
-  token: string | undefined;
-};
-
-interface Claims {
-  username: string;
-}
 
 function NavbarLeft({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element {
   if (!isLoggedIn) {
@@ -28,14 +20,13 @@ function NavbarLeft({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element {
     </>
   );
 }
-function Navbar(props: Props): JSX.Element {
-  const username = props.token == null ? null : jwtDecode<Claims>(props.token).username;
-  const loggedIn = username != null;
+function Navbar(): JSX.Element {
+  const { username, isLoggedIn } = useAuth();
 
   return (
     <DSNavbar
       brand="Tvhelper"
-      headerLeft={<NavbarLeft isLoggedIn={loggedIn} />}
+      headerLeft={<NavbarLeft isLoggedIn={isLoggedIn} />}
       headerRight={<NavbarRight username={username} />}
     />
   );

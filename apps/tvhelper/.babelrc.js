@@ -10,6 +10,7 @@ module.exports = {
         root: ['./src'],
         alias: {
           components: './src/components',
+          environment: './src/environment',
         },
       },
     ],

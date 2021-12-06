@@ -1,29 +1,13 @@
-// @flow strict-local
-
 import fetch from '@adeira/fetch';
-import { TOKEN_KEY } from '@tbergq/utils';
+import { TOKEN_KEY } from 'environment';
 import { addYears } from 'date-fns';
 import { invariant } from '@adeira/js';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-/* ::
-type Request = {
-  +body: { [key: string]: string, ... },
-  +method: 'GET' | 'POST',
-};
-
-type LoginResponse = {
-  +data: {
-    +tvHelperLogin: ?{
-      +token: ?string,
-      +success: ?boolean,
-    },
-  },
-};
- */
 const { GRAPHQL_URL } = process.env;
 invariant(GRAPHQL_URL != null, 'You need to set GRAPHQL_URL');
 
-export default async function login(req /* : Request */, res /* : http$ServerResponse */) {
+export default async function login(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { username, password } = req.body;
     try {

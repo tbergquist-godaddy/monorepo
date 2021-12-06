@@ -1,4 +1,4 @@
-import { isLoggedIn } from '@tbergq/utils';
+import { useAuth } from 'components/auth-provider';
 import { format } from 'date-fns';
 import { graphql, useFragment } from 'react-relay';
 import { episodeListItem$key } from '__generated__/episodeListItem.graphql';
@@ -23,6 +23,7 @@ export default function EpisodeListItem({
   includeShowName = false,
   toggleConfig,
 }: Readonly<Props>): JSX.Element {
+  const { isLoggedIn } = useAuth();
   const data = useFragment<episodeListItem$key>(
     graphql`
       fragment episodeListItem on Episode {
@@ -70,7 +71,7 @@ export default function EpisodeListItem({
             <BiDetail />
           </IconButton>
         </Link>
-        {isLoggedIn() && (
+        {isLoggedIn && (
           <IconButton
             title={watched ? 'Seen' : 'Not seen'}
             onClick={onClick}
