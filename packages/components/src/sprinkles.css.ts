@@ -1,6 +1,7 @@
 import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles';
 
 import { theme } from './theme.css';
+import { breakpoints } from './Media';
 
 const space = {
   none: '0',
@@ -35,10 +36,10 @@ const colors = {
 export const colorKeys = Object.keys(colors);
 const conditions = {
   mediumMobile: {},
-  largeMobile: { '@media': 'screen and (min-width: 576px)' },
-  tablet: { '@media': 'screen and (min-width: 768px)' },
-  desktop: { '@media': 'screen and (min-width: 992px)' },
-  largeDesktop: { '@media': 'screen and (min-width: 1200px)' },
+  largeMobile: { '@media': `screen and (min-width: ${breakpoints.largeMobile}px)` },
+  tablet: { '@media': `screen and (min-width: ${breakpoints.tablet}px)` },
+  desktop: { '@media': `screen and (min-width: ${breakpoints.desktop}px)` },
+  largeDesktop: { '@media': `screen and (min-width: ${breakpoints.largeDesktop}px)` },
 };
 
 const responsiveStyles = defineProperties({
