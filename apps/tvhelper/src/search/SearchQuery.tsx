@@ -1,5 +1,6 @@
 import { QueryRenderer, graphql, useRelayEnvironment } from 'react-relay';
 import { Spinner, Box } from '@tbergq/components';
+import { SearchQueryResponse } from '__generated__/SearchQuery.graphql';
 
 import SearchResults from './searchResults/SearchResults';
 
@@ -15,6 +16,11 @@ export const searchQuery = graphql`
   }
 `;
 
+type RenderProps = {
+  error: Error | null;
+  props: SearchQueryResponse | null;
+  retry: (() => void) | null;
+};
 export default function SearchQuery({ query }: Props): JSX.Element {
   const environment = useRelayEnvironment();
 
@@ -24,7 +30,7 @@ export default function SearchQuery({ query }: Props): JSX.Element {
       environment={environment}
       variables={{ query }}
       fetchPolicy="store-and-network"
-      render={({ props, error }: any) => {
+      render={({ props, error }: RenderProps) => {
         if (props) {
           return <SearchResults results={props?.searchTvShow} />;
         }

@@ -2,3 +2,4 @@
 **/__generated__/
 **/dist/
 next-env.d.ts
+.next/

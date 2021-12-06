@@ -50,6 +50,7 @@ const setup = () => {
     );
     await waitFor(() => expect(screen.queryByText('loading')).not.toBeInTheDocument());
   };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (useRouter as any).mockImplementation(() => ({ back }));
   return {
     renderComponent,
