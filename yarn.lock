@@ -7129,7 +7129,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@tbergq/theme@0.0.1, @tbergq/theme@^0.0.1, @tbergq/theme@workspace:packages/theme":
+"@tbergq/theme@0.0.1, @tbergq/theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "@tbergq/theme@workspace:packages/theme"
   dependencies:
@@ -7149,7 +7149,6 @@ __metadata:
     "@tbergq/components": ^0
     "@tbergq/formik-wrapper": ^0.0.1
     "@tbergq/test-utils": 0.0.1
-    "@tbergq/theme": ^0.0.1
     "@testing-library/jest-dom": ^5.12.0
     "@testing-library/react": ^12.0.0
     "@testing-library/react-hooks": ^7.0.2
@@ -7165,6 +7164,7 @@ __metadata:
     css-loader: ^6.0.0
     date-fns: ^2.22.1
     dotenv: ^10.0.0
+    eslint: ^7.29.0
     eslint-config-next: ^12.0.1
     formik: ^2.2.6
     jest: ^27.4.3

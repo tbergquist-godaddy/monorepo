@@ -44,10 +44,10 @@ it('show error if confirm password does not match new password', async () => {
   const { password, newPassword, confirmPassword } = getInputs(container);
 
   const button = container.querySelector('button[type="submit"]');
-  await userEvent.type(password, '123');
-  await userEvent.type(confirmPassword, '1235');
-  await userEvent.type(newPassword, '1234');
-  await userEvent.click(button);
+  userEvent.type(password, '123');
+  userEvent.type(confirmPassword, '1235');
+  userEvent.type(newPassword, '1234');
+  userEvent.click(button);
 
   const error = await screen.findByText("Passwords don't match");
   expect(error).toBeInTheDocument();

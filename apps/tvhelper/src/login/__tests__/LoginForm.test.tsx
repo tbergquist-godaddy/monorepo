@@ -26,9 +26,9 @@ describe('LoginForm', () => {
     const username = screen.getByLabelText('Username');
     const password = screen.getByLabelText('Password');
 
-    await userEvent.type(username, 'user');
-    await userEvent.type(password, 'pw');
-    await userEvent.click(button);
+    userEvent.type(username, 'user');
+    userEvent.type(password, 'pw');
+    userEvent.click(button);
     await waitFor(() => expect(button).toBeDisabled());
 
     act(() => {
@@ -60,9 +60,9 @@ describe('LoginForm', () => {
     const username = screen.getByLabelText('Username');
     const password = screen.getByLabelText('Password');
 
-    await userEvent.type(username, 'user');
-    await userEvent.type(password, 'pw');
-    await userEvent.click(button);
+    userEvent.type(username, 'user');
+    userEvent.type(password, 'pw');
+    userEvent.click(button);
 
     await waitFor(() => expect(button).toBeDisabled());
     act(() => {

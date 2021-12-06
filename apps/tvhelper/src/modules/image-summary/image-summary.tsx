@@ -31,6 +31,7 @@ export default function ImageSummary({ dataRef, alt }: Readonly<Props>): JSX.Ele
       }}
     >
       <Box position="relative">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className={classNames.image} src={data?.image?.medium} alt={alt} />
       </Box>
       <Box flex="1" dangerouslySetInnerHTML={{ __html: data?.summary }} />

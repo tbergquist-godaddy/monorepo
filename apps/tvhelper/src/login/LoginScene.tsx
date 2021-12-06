@@ -25,7 +25,8 @@ export default function Login(props: Props): JSX.Element {
           <Box paddingTop="xxxLarge">
             {props.loginFailed ? <LoginError /> : null}
             <Link prefetch={true} href="/signup">
-              <a href="/signup">Don&lsquo;t have an account? Signup</a>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a>Don&lsquo;t have an account? Signup</a>
             </Link>
           </Box>
         </Box>
