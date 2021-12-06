@@ -39,6 +39,9 @@
     },
     "@tbergq/storybook": {
       "root": "apps/storybook"
+    },
+    "@tbergq/team-assistant-gql": {
+      "root": "apps/team-assistant-gql"
     }
   }
 }
