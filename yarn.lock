@@ -2872,6 +2872,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cobraz/nestjs-dataloader@npm:^0.0.3-alpha":
+  version: 0.0.3-alpha
+  resolution: "@cobraz/nestjs-dataloader@npm:0.0.3-alpha"
+  dependencies:
+    dataloader: ^2.0.0
+  peerDependencies:
+    "@apollo/gateway": ^0.41.0
+    "@nestjs/common": ^8.0.6
+    "@nestjs/core": ^8.0.6
+    "@nestjs/graphql": ^9.0.4
+    graphql: ^15.5.3
+    reflect-metadata: ^0.1.12
+  checksum: 26ddf4402f5974d37a3ad58ab2353aeb10536b2fcbd79de03684558838b1de982c75f4a18cb4abb0a09874aaea90fd111ad565ad52642650414e5c3290437635
+  languageName: node
+  linkType: hard
+
 "@cspotcode/source-map-consumer@npm:0.8.0":
   version: 0.8.0
   resolution: "@cspotcode/source-map-consumer@npm:0.8.0"
@@ -7114,6 +7130,7 @@ __metadata:
   resolution: "@tbergq/team-assistant-gql@workspace:apps/team-assistant-gql"
   dependencies:
     "@adeira/graphql-global-id": ^2.0.1
+    "@cobraz/nestjs-dataloader": ^0.0.3-alpha
     "@nestjs/cli": ^8.1.5
     "@nestjs/common": ^8.2.3
     "@nestjs/core": ^8.2.3
@@ -7124,9 +7141,12 @@ __metadata:
     apollo-server-express: ^3.5.0
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
+    dataloader: ^2.0.0
+    eslint: ^7.29.0
     graphql: ^15
     prisma: ^3.6.0
     reflect-metadata: ^0.1.13
+    rxjs: ^7.4.0
   languageName: unknown
   linkType: soft
 
@@ -27575,7 +27595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.2.0":
+"rxjs@npm:^7.2.0, rxjs@npm:^7.4.0":
   version: 7.4.0
   resolution: "rxjs@npm:7.4.0"
   dependencies:

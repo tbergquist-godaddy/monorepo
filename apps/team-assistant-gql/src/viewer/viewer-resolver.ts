@@ -1,5 +1,7 @@
 import { Query, Resolver } from '@nestjs/graphql';
-import { PrismaService } from 'src/prisma/prisma-service';
+import { Loader } from '@cobraz/nestjs-dataloader';
+import { UserLoader } from 'src/user/user-dataloader';
+import DataLoader from 'dataloader';
 
 import { Unauthorized } from './models/unauthorized';
 import { User } from '../user/models/user';
@@ -7,12 +9,12 @@ import { Viewer } from './models/viewer';
 
 @Resolver(() => Viewer)
 export class ViewerResolver {
-  constructor(private readonly prisma: PrismaService) {}
-
   @Query(() => Viewer)
-  async viewer(): Promise<User | Unauthorized> {
-    const users = await this.prisma.user.findMany();
+  async viewer(
+    @Loader(UserLoader) userLoader: DataLoader<User['id'], User>,
+  ): Promise<User | Unauthorized> {
+    const user = await userLoader.load('ckwxawwk200244bqzhgriibqm');
 
-    return users[0] ?? { reason: 'Unauthorized' };
+    return user ?? { reason: 'Unauthorized' };
   }
 }

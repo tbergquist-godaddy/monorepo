@@ -2,6 +2,7 @@
   "name": "@tbergq/team-assistant-gql",
   "dependencies": {
     "@adeira/graphql-global-id": "^2.0.1",
+    "@cobraz/nestjs-dataloader": "^0.0.3-alpha",
     "@nestjs/common": "^8.2.3",
     "@nestjs/core": "^8.2.3",
     "@nestjs/graphql": "^9.1.2",
@@ -10,8 +11,10 @@
     "apollo-server-express": "^3.5.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "dataloader": "^2.0.0",
     "graphql": "^15",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.4.0"
   },
   "scripts": {
     "start:dev": "nest start --watch",
@@ -21,6 +24,7 @@
   "devDependencies": {
     "@nestjs/cli": "^8.1.5",
     "@types/adeira__graphql-global-id": "^1.2.0",
+    "eslint": "^7.29.0",
     "prisma": "^3.6.0"
   }
 }
