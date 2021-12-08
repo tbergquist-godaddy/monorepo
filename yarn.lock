@@ -5409,6 +5409,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "@prisma/client@npm:3.6.0"
+  dependencies:
+    "@prisma/engines-version": 3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: 83835117d60d100cf0933f60933603f5b85833414ad4dae9ea6b18f99190030317de459bbb573e928f764b476733676722fd90637292defae887dd974a2914a1
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727":
+  version: 3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727
+  resolution: "@prisma/engines-version@npm:3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727"
+  checksum: 40adea282d62b7d8d03696f3f9f1c6da271671955f5305d3750d07f80eff7bcfad89430e97215183d027895487c4ab36373fc8f59df1a537eb2ab18458168993
+  languageName: node
+  linkType: hard
+
+"@prisma/engines@npm:3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727":
+  version: 3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727
+  resolution: "@prisma/engines@npm:3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727"
+  checksum: 3eb1e40dbd6ca8e8bd727048393b9fd993b415bcc1efca2f6bac5b0a60da8e73c2dd35602c4083b29fc31fd17a2cc9ba0522afe1b6499a68663ecdf5f833cdb3
+  languageName: node
+  linkType: hard
+
 "@protobufjs/aspromise@npm:^1.1.1, @protobufjs/aspromise@npm:^1.1.2":
   version: 1.1.2
   resolution: "@protobufjs/aspromise@npm:1.1.2"
@@ -7085,15 +7113,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@tbergq/team-assistant-gql@workspace:apps/team-assistant-gql"
   dependencies:
+    "@adeira/graphql-global-id": ^2.0.1
     "@nestjs/cli": ^8.1.5
     "@nestjs/common": ^8.2.3
     "@nestjs/core": ^8.2.3
     "@nestjs/graphql": ^9.1.2
     "@nestjs/platform-express": ^8.2.3
+    "@prisma/client": ^3.6.0
+    "@types/adeira__graphql-global-id": ^1.2.0
     apollo-server-express: ^3.5.0
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
     graphql: ^15
+    prisma: ^3.6.0
     reflect-metadata: ^0.1.13
   languageName: unknown
   linkType: soft
@@ -25343,6 +25375,18 @@ __metadata:
   version: 1.0.3
   resolution: "pretty-hrtime@npm:1.0.3"
   checksum: bae0e6832fe13c3de43d1a3d43df52bf6090499d74dc65a17f5552cb1a94f1f8019a23284ddf988c3c408a09678d743901e1d8f5b7a71bec31eeeac445bef371
+  languageName: node
+  linkType: hard
+
+"prisma@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "prisma@npm:3.6.0"
+  dependencies:
+    "@prisma/engines": 3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727
+  bin:
+    prisma: build/index.js
+    prisma2: build/index.js
+  checksum: 365718b1e0ed8491aedb79bda39c500e8fddae0d62f57ed0ab3786c6709bd79d43b61c3603847b165b5a3de1e983b64388902a9ed55d4d5cb5878d67af23da8b
   languageName: node
   linkType: hard
 

@@ -1,16 +1,18 @@
 import { Query, Resolver } from '@nestjs/graphql';
+import { PrismaService } from 'src/prisma/prisma-service';
 
 import { Unauthorized } from './models/unauthorized';
-import { User } from './models/user';
+import { User } from '../user/models/user';
 import { Viewer } from './models/viewer';
 
 @Resolver(() => Viewer)
 export class ViewerResolver {
+  constructor(private readonly prisma: PrismaService) {}
+
   @Query(() => Viewer)
-  viewer(): User | Unauthorized {
-    const user = new User();
-    user.id = '1';
-    user.email = 'test@test.com';
-    return user;
+  async viewer(): Promise<User | Unauthorized> {
+    const users = await this.prisma.user.findMany();
+
+    return users[0] ?? { reason: 'Unauthorized' };
   }
 }
