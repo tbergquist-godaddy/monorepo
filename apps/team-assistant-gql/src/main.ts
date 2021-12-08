@@ -11,6 +11,6 @@ async function bootstrap() {
 
   await app.listen(TAS_GQL_PORT ?? 3003);
   // eslint-disable-next-line no-console
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  console.log(`Application is running on: ${await app.getUrl()}/graphql`);
 }
 bootstrap();

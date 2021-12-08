@@ -1,10 +1,12 @@
 {
   "name": "@tbergq/team-assistant-gql",
   "dependencies": {
+    "@adeira/graphql-global-id": "^2.0.1",
     "@nestjs/common": "^8.2.3",
     "@nestjs/core": "^8.2.3",
     "@nestjs/graphql": "^9.1.2",
     "@nestjs/platform-express": "^8.2.3",
+    "@prisma/client": "^3.6.0",
     "apollo-server-express": "^3.5.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
@@ -17,6 +19,8 @@
     "build": "nest build"
   },
   "devDependencies": {
-    "@nestjs/cli": "^8.1.5"
+    "@nestjs/cli": "^8.1.5",
+    "@types/adeira__graphql-global-id": "^1.2.0",
+    "prisma": "^3.6.0"
   }
 }
