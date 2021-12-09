@@ -7090,7 +7090,7 @@ __metadata:
     framer-motion: ^5
     i18next-parser: ^5.0.0
     jest: ^27.0.6
-    msw: 0.36.1
+    msw: 0.36.3
     next: ^12.0.1
     next-i18next: ^10.0.0
     node-cache: ^5.1.2
@@ -22606,9 +22606,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:0.36.1":
-  version: 0.36.1
-  resolution: "msw@npm:0.36.1"
+"msw@npm:0.36.3":
+  version: 0.36.3
+  resolution: "msw@npm:0.36.3"
   dependencies:
     "@mswjs/cookies": ^0.1.6
     "@mswjs/interceptors": ^0.12.7
@@ -22632,7 +22632,7 @@ __metadata:
     yargs: ^17.3.0
   bin:
     msw: cli/index.js
-  checksum: 8bad6a406ec30ac585277cf642473a08447a64a4d017659e501bbd285dd51a60c9efc2cdbe3432ec8ae2a549c59e900388d9eb4a76de5702cc7721ae4af37e7b
+  checksum: c418eb6a9fa4f46ae873c61744bca420e10497e06eab45fbc8dd34b36655826d9c43d34c2241b5af082290ebf9f242e1889985334e7bf926acfe0328bce71e0a
   languageName: node
   linkType: hard
 
