@@ -1,4 +1,4 @@
-import { Query, Resolver } from '@nestjs/graphql';
+import { Context, Query, Resolver } from '@nestjs/graphql';
 import { Loader } from '@cobraz/nestjs-dataloader';
 import { UserLoader } from 'src/user/user-dataloader';
 import DataLoader from 'dataloader';
@@ -12,9 +12,10 @@ export class ViewerResolver {
   @Query(() => Viewer)
   async viewer(
     @Loader(UserLoader) userLoader: DataLoader<User['id'], User>,
+    @Context('user') user: User,
   ): Promise<User | Unauthorized> {
-    const user = await userLoader.load('ckwxawwk200244bqzhgriibqm');
+    const u = await userLoader.load(user.id);
 
-    return user ?? { reason: 'Unauthorized' };
+    return u ?? { reason: 'Unauthorized' };
   }
 }

@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""The team model"""
+type Team {
+  id: ID!
+  name: String
+}
+
 type Query {
   viewer: Viewer!
 }
@@ -12,6 +18,7 @@ union Viewer = User | Unauthorized
 type User {
   id: ID!
   email: String!
+  teams: [Team!]
 }
 
 """Model returned for not authorized user"""

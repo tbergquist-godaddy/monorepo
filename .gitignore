@@ -8,6 +8,8 @@ persisted-queries.json
 .env
 .env.local
 
+**/coverage/**
+
 #yarn
 .yarn/*
 !.yarn/patches
