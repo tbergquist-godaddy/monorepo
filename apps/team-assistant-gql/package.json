@@ -19,12 +19,14 @@
   "scripts": {
     "start:dev": "nest start --watch",
     "lint": "eslint ./src/**/*.ts --report-unused-disable-directives",
-    "build": "nest build"
+    "build": "nest build",
+    "test": "jest"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.1.5",
     "@types/adeira__graphql-global-id": "^1.2.0",
     "eslint": "^7.29.0",
+    "jest": "^27.4.4",
     "prisma": "^3.6.0"
   }
 }
