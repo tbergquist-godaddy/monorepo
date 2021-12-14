@@ -7275,12 +7275,14 @@ __metadata:
     "@nestjs/platform-express": ^8.2.3
     "@prisma/client": ^3.6.0
     "@types/adeira__graphql-global-id": ^1.2.0
+    "@types/graphql-relay": ^0.7.0
     apollo-server-express: ^3.5.0
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
     dataloader: ^2.0.0
     eslint: ^7.29.0
     graphql: ^15
+    graphql-relay: ^0.9.0
     jest: ^27.4.4
     prisma: ^3.6.0
     reflect-metadata: ^0.1.13
@@ -7836,6 +7838,15 @@ __metadata:
   dependencies:
     graphql: ^15.1.0
   checksum: 97ec12d499bcdfae4b76fb02540b56cfa0158f5df21c137389c399bb95df7929cd4fc3f34d1619ee4a2f5cea2455273f1dd6d1172a973716b2283e67ac046610
+  languageName: node
+  linkType: hard
+
+"@types/graphql-relay@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@types/graphql-relay@npm:0.7.0"
+  dependencies:
+    graphql-relay: "*"
+  checksum: 47145d590b6c4c8a1d1eea14169dcdd84b81217ab016540c4e779f6eba0311cb63c3f72a706875748cd4d3f4fd6670f0138621f3eb9fc7b199c322af0448d721
   languageName: node
   linkType: hard
 
@@ -17527,6 +17538,15 @@ __metadata:
   peerDependencies:
     graphql: ^0.5.0 || ^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0
   checksum: 829d1a26976c24525c098f29b58930bd992c5afb1db9006a0e7ec2b28299b0a911972257f4bcfff0709dc79202db359ab20bafc025db2651d54edf852b9829c6
+  languageName: node
+  linkType: hard
+
+"graphql-relay@npm:*, graphql-relay@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "graphql-relay@npm:0.9.0"
+  peerDependencies:
+    graphql: ^15.5.3
+  checksum: 9b5c77e5f74249807de19ee748da057c6d333817a611a15a0013ad4f11f394ecb2f2039d0d03fd8c8429a03f39dfde64731b8e65f413db912335984a31fcb08d
   languageName: node
   linkType: hard
 
