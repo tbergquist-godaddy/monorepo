@@ -8,6 +8,23 @@ type Team {
   name: String
 }
 
+type TeamConnection {
+  edges: [Edge!]!
+  pageInfo: PageInfo!
+}
+
+type Edge {
+  node: Team!
+  cursor: String!
+}
+
+type PageInfo {
+  startCursor: String
+  endCursor: String
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+}
+
 type Query {
   viewer: Viewer!
 }
@@ -18,7 +35,7 @@ union Viewer = User | Unauthorized
 type User {
   id: ID!
   email: String!
-  teams: [Team!]
+  teams(first: Int, last: Int, before: String, after: String): TeamConnection
 }
 
 """Model returned for not authorized user"""
