@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import crypto from 'crypto';
+import { randomBytes, pbkdf2Sync } from 'crypto';
 
 const SALT_LENGTH = 16;
 const ITERATIONS = 100000;
@@ -9,12 +9,12 @@ const DIGEST = 'sha512';
 @Injectable()
 export class AuthService {
   #generateHash = (password: string, salt: string) => {
-    const buffer = crypto.pbkdf2Sync(password, salt, ITERATIONS, KEY_LENGTH, DIGEST);
+    const buffer = pbkdf2Sync(password, salt, ITERATIONS, KEY_LENGTH, DIGEST);
     return buffer.toString('hex');
   };
 
   hashPassword(password: string) {
-    const salt = crypto.randomBytes(SALT_LENGTH).toString('base64');
+    const salt = randomBytes(SALT_LENGTH).toString('base64');
     const hash = this.#generateHash(password, salt);
 
     return { hash, salt };

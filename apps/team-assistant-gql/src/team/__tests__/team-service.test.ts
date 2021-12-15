@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { PrismaService } from 'src/prisma/prisma-service';
 
 import { TeamService } from '../team-service';
