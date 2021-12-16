@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ViewerModule } from 'src/viewer/viewer-module';
 import { PrismaModule } from 'src/prisma/prisma-module';
@@ -7,8 +7,9 @@ import { TeamModule } from 'src/team/team-module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { DataLoaderInterceptor } from '@cobraz/nestjs-dataloader';
 import { AuthModule } from 'src/auth/auth-module';
+import { AuthMiddleware } from 'src/auth/auth-middleware';
 
-const { NODE_ENV, USER_ID } = process.env;
+const { NODE_ENV } = process.env;
 
 @Module({
   imports: [
@@ -21,10 +22,11 @@ const { NODE_ENV, USER_ID } = process.env;
       autoSchemaFile: 'schema.gql',
       playground: NODE_ENV !== 'production',
       introspection: NODE_ENV !== 'production',
-      context: ({ req }) => ({
-        req,
-        user: { id: USER_ID },
-      }),
+      context: ({ req }) => {
+        return {
+          user: req.user,
+        };
+      },
     }),
   ],
   providers: [
@@ -34,4 +36,8 @@ const { NODE_ENV, USER_ID } = process.env;
     },
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(AuthMiddleware).forRoutes({ path: '*', method: RequestMethod.POST });
+  }
+}

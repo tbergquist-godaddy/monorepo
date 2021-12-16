@@ -32,6 +32,10 @@ type User {
   teams(first: Int, last: Int, before: String, after: String): TeamConnection
 }
 
+type AuthResponse {
+  token: String
+}
+
 type Query {
   viewer: Viewer!
 }
@@ -45,4 +49,10 @@ type Unauthorized {
 
 type Mutation {
   createUser(password: String!, email: String!): User
+  login(input: LoginInput!): AuthResponse!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
 }

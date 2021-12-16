@@ -2,6 +2,7 @@
   "name": "@tbergq/team-assistant-gql",
   "dependencies": {
     "@adeira/graphql-global-id": "^2.0.1",
+    "@adeira/js": "^2.1.1",
     "@cobraz/nestjs-dataloader": "^0.0.3-alpha",
     "@nestjs/common": "^8.2.3",
     "@nestjs/core": "^8.2.3",
@@ -12,15 +13,17 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "dataloader": "^2.0.0",
+    "express": "^4.17.1",
     "graphql": "^15",
     "graphql-relay": "^0.9.0",
+    "jsonwebtoken": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.4.0"
   },
   "scripts": {
     "start:dev": "nest start --watch",
     "lint": "eslint ./src/**/*.ts --report-unused-disable-directives",
-    "build": "nest build",
+    "build": "yarn prisma generate && nest build",
     "test": "jest"
   },
   "devDependencies": {

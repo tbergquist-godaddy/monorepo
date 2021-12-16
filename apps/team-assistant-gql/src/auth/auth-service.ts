@@ -1,34 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { randomBytes, pbkdf2Sync } from 'crypto';
-
-const SALT_LENGTH = 16;
-const ITERATIONS = 100000;
-const KEY_LENGTH = 64;
-const DIGEST = 'sha512';
+import { User } from '@prisma/client';
+import * as jwt from 'jsonwebtoken';
+import { jwtSecret } from 'src/environment';
 
 @Injectable()
 export class AuthService {
-  #generateHash = (password: string, salt: string) => {
-    const buffer = pbkdf2Sync(password, salt, ITERATIONS, KEY_LENGTH, DIGEST);
-    return buffer.toString('hex');
-  };
-
-  hashPassword(password: string) {
-    const salt = randomBytes(SALT_LENGTH).toString('base64');
-    const hash = this.#generateHash(password, salt);
-
-    return { hash, salt };
+  signToken(user: User) {
+    const payload = { email: user.email, sub: user.id };
+    return {
+      token: jwt.sign(payload, jwtSecret, { expiresIn: '1d' }),
+    };
   }
 
-  isPasswordCorrect({
-    hashedPassword,
-    password,
-    salt,
-  }: {
-    hashedPassword: string;
-    password: string;
-    salt: string;
-  }) {
-    return hashedPassword === this.#generateHash(password, salt);
+  verifyToken(token: string) {
+    try {
+      jwt.verify(token, jwtSecret);
+      return jwt.decode(token);
+    } catch {
+      return null;
+    }
   }
 }
