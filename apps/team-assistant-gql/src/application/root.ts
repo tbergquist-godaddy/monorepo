@@ -8,6 +8,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { DataLoaderInterceptor } from '@cobraz/nestjs-dataloader';
 import { AuthModule } from 'src/auth/auth-module';
 import { AuthMiddleware } from 'src/auth/auth-middleware';
+import { ValidationsModule } from 'src/validations/validations-module';
 
 const { NODE_ENV } = process.env;
 
@@ -18,6 +19,7 @@ const { NODE_ENV } = process.env;
     UserModule,
     TeamModule,
     AuthModule,
+    ValidationsModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
       playground: NODE_ENV !== 'production',
