@@ -7,12 +7,18 @@ import { Team } from 'src/team/models/team-model';
 import DataLoader from 'dataloader';
 import { GetConnectionArgs } from 'src/connection/connection-args';
 import { connectionFromPromisedArray } from 'graphql-relay';
+import { ValidationsService } from 'src/validations/validations-service';
 
 import { UserService } from './user-service';
+import { CreateUserInput } from './models/create-user-input';
+import { CreateUserResponse } from './models/create-user-response';
 
 @Resolver(() => User)
 export class UserResolver {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly validationService: ValidationsService,
+  ) {}
 
   @ResolveField()
   id(@Parent() { id }: User) {
@@ -28,12 +34,30 @@ export class UserResolver {
     return connectionFromPromisedArray<Team>(teamLoader.load(id), connectionArgs);
   }
 
-  @Mutation(() => User, { nullable: true })
-  async createUser(@Args('email') email: string, @Args('password') password: string) {
-    const user = await this.userService.createUser(email, password);
-    return {
-      id: user.id,
-      email: user.email,
-    };
+  @Mutation(() => CreateUserResponse, { nullable: true })
+  async createUser(@Args('user') { email, password }: CreateUserInput) {
+    const isValidEmail = this.validationService.isValidEmail(email);
+    if (password === '') {
+      return {
+        message: 'Password is required',
+        code: 'PASSWORD_REQUIRED',
+      };
+    }
+    if (!isValidEmail) {
+      return {
+        message: `${email} is not a valid email`,
+        code: 'INVALID_EMAIL',
+      };
+    }
+
+    try {
+      const user = await this.userService.createUser(email, password);
+      return user;
+    } catch {
+      return {
+        message: 'User already exists',
+        code: 'USER_ALREADY_EXISTS',
+      };
+    }
   }
 }

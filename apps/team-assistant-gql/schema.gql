@@ -25,13 +25,6 @@ type PageInfo {
   hasNextPage: Boolean!
 }
 
-"""User model"""
-type User {
-  id: ID!
-  email: String!
-  teams(first: Int, last: Int, before: String, after: String): TeamConnection
-}
-
 type AuthResponse {
   token: String
 }
@@ -42,14 +35,38 @@ type Query {
 
 union Viewer = User | Unauthorized
 
+"""User model"""
+type User {
+  id: ID!
+  email: String!
+  teams(first: Int, last: Int, before: String, after: String): TeamConnection
+}
+
 """Model returned for not authorized user"""
 type Unauthorized {
   reason: String!
 }
 
 type Mutation {
-  createUser(password: String!, email: String!): User
+  createUser(user: CreateUserInput!): CreateUserResponse
   login(input: LoginInput!): AuthResponse!
+}
+
+union CreateUserResponse = User | CreateUserError
+
+type CreateUserError implements GeneralError {
+  message: String!
+  code: String!
+}
+
+interface GeneralError {
+  message: String!
+  code: String!
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
 }
 
 input LoginInput {
