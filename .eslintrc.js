@@ -14,7 +14,7 @@ module.exports = {
   ],
   plugins: ['@typescript-eslint'],
   // adjust the rules as needed
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   env: {
     jest: true,
     node: true,
@@ -25,7 +25,7 @@ module.exports = {
     'jsx-a11y/accessible-emoji': 'off',
     'strict': OFF,
     'import/no-unresolved': OFF,
-    'node/file-extension-in-import': OFF,
+    'n/file-extension-in-import': OFF,
     'react/react-in-jsx-scope': OFF,
     'import/extensions': [ERROR, 'never', { json: 'always', graphql: 'always', css: 'always' }],
     'import/no-extraneous-dependencies': [
