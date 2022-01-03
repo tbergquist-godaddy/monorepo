@@ -7,9 +7,9 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
   ],
   rules: {
-    'flowtype/require-valid-file-annotation': 'off',
-    'flowtype/require-readonly-react-props': 'off',
-    'flowtype/no-types-missing-file-annotation': 'off',
+    'ft-flow/require-valid-file-annotation': 'off',
+    'ft-flow/require-readonly-react-props': 'off',
+    'ft-flow/no-types-missing-file-annotation': 'off',
     'relay/generated-flow-types': 'warn',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
