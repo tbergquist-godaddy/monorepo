@@ -7320,7 +7320,7 @@ __metadata:
     "@types/react-relay": ^11.0.1
     "@types/relay-runtime": ^12.0.0
     "@vanilla-extract/css": ^1.0.0
-    "@vanilla-extract/next-plugin": ^1.0.0
+    "@vanilla-extract/next-plugin": ^2.0.0
     "@vanilla-extract/webpack-plugin": ^2.0.0
     "@zeit/next-css": ^1.0.1
     babel-plugin-module-resolver: ^4.1.0
@@ -8655,14 +8655,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vanilla-extract/next-plugin@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "@vanilla-extract/next-plugin@npm:1.0.1"
+"@vanilla-extract/next-plugin@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "@vanilla-extract/next-plugin@npm:2.0.1"
   dependencies:
-    "@vanilla-extract/webpack-plugin": ^2.0.0
+    "@vanilla-extract/webpack-plugin": ^2.1.5
+    browserslist: ^4.19.1
   peerDependencies:
-    next: ">=11.0.0"
-  checksum: 2666925f715314b1d522e2b0f6a75553dba5de920aa42e063057de2080e55834ce4082e606f9e8df201b45b09978b0959f541390dd743f1a0fdc46e78ed71099
+    next: ">=12.0.5"
+  checksum: b310ea7b7fefa1e27d1e74f4037a97bf52cc111bcc49962046fdbaea57692439b47d388f460022e735ef04ab531b50211bdd570de73d9ac6c5d3be45950d89cc
   languageName: node
   linkType: hard
 
@@ -8682,7 +8683,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vanilla-extract/webpack-plugin@npm:^2.0.0":
+"@vanilla-extract/webpack-plugin@npm:^2.0.0, @vanilla-extract/webpack-plugin@npm:^2.1.5":
   version: 2.1.5
   resolution: "@vanilla-extract/webpack-plugin@npm:2.1.5"
   dependencies:
