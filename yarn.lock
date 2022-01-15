@@ -7253,7 +7253,7 @@ __metadata:
     eslint: ^8.6.0
     express: ^4.17.1
     graphql: ^15
-    graphql-relay: ^0.9.0
+    graphql-relay: ^0.10.0
     jest: ^27.4.4
     joi: ^17.5.0
     jsonwebtoken: ^8.5.1
@@ -17623,21 +17623,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-relay@npm:*":
+"graphql-relay@npm:*, graphql-relay@npm:^0.10.0":
   version: 0.10.0
   resolution: "graphql-relay@npm:0.10.0"
   peerDependencies:
     graphql: ^16.2.0
   checksum: 74b2b608ed7c18cc405d53fa7e482a68442a4dc7c0748bba029c59e1d23c6c6e5b8193c775eb73f6bb0dce49501f66af0453eb0b0f0362374cef9f97528852c0
-  languageName: node
-  linkType: hard
-
-"graphql-relay@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "graphql-relay@npm:0.9.0"
-  peerDependencies:
-    graphql: ^15.5.3
-  checksum: 9b5c77e5f74249807de19ee748da057c6d333817a611a15a0013ad4f11f394ecb2f2039d0d03fd8c8429a03f39dfde64731b8e65f413db912335984a31fcb08d
   languageName: node
   linkType: hard
 
