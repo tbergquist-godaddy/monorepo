@@ -58,7 +58,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "esbuild": "^0.14.0",
     "esbuild-plugin-alias": "^0.2.0",
-    "faker": "^5.5.3",
+    "faker": "^6.0.0",
     "mockdate": "^3.0.5",
     "mockingoose": "^2.15.2",
     "mongodb-client-encryption": "^1.2.5",
