@@ -31,5 +31,14 @@
   },
   "affected": {
     "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "yarn.lock": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "workspace.json": "*",
+    "tsconfig.json": "*"
   }
 }
