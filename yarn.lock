@@ -7156,7 +7156,7 @@ __metadata:
     compression: ^1.7.4
     cors: ^2.8.5
     dataloader: ^2.0.0
-    dotenv: ^10.0.0
+    dotenv: ^14.0.0
     esbuild: ^0.14.0
     esbuild-plugin-alias: ^0.2.0
     express: ^4.17.1
@@ -7337,7 +7337,7 @@ __metadata:
     babel-plugin-relay: ^12.0.0
     css-loader: ^6.0.0
     date-fns: ^2.22.1
-    dotenv: ^10.0.0
+    dotenv: ^14.0.0
     eslint: ^8.6.0
     eslint-config-next: ^12.0.7
     formik: ^2.2.6
@@ -14298,10 +14298,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^10.0.0, dotenv@npm:~10.0.0":
-  version: 10.0.0
-  resolution: "dotenv@npm:10.0.0"
-  checksum: f412c5fe8c24fbe313d302d2500e247ba8a1946492db405a4de4d30dd0eb186a88a43f13c958c5a7de303938949c4231c56994f97d05c4bc1f22478d631b4005
+"dotenv@npm:^14.0.0":
+  version: 14.2.0
+  resolution: "dotenv@npm:14.2.0"
+  checksum: 85a0e44918ef49e64c278f757dab50a156b9a6ca67f708876fd81d265e575e35b67387fc681d910df99368d6c1edca66cd546edeb0f7db3b499cb876c999233e
   languageName: node
   linkType: hard
 
@@ -14316,6 +14316,13 @@ __metadata:
   version: 9.0.2
   resolution: "dotenv@npm:9.0.2"
   checksum: 6b7980330a653089bc9b83362248547791151ee74f9881eb223ac2f4d641b174b708f77315d88708b551d45b4177afd3ba71bca4832f8807e003f71c2a0f83e7
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:~10.0.0":
+  version: 10.0.0
+  resolution: "dotenv@npm:10.0.0"
+  checksum: f412c5fe8c24fbe313d302d2500e247ba8a1946492db405a4de4d30dd0eb186a88a43f13c958c5a7de303938949c4231c56994f97d05c4bc1f22478d631b4005
   languageName: node
   linkType: hard
 
