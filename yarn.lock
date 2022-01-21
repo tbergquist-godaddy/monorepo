@@ -7327,7 +7327,7 @@ __metadata:
     "@testing-library/react": ^12.0.0
     "@testing-library/react-hooks": ^7.0.2
     "@testing-library/user-event": ^13.2.1
-    "@types/react-relay": ^11.0.1
+    "@types/react-relay": ^13.0.0
     "@types/relay-runtime": ^12.0.0
     "@vanilla-extract/css": ^1.0.0
     "@vanilla-extract/next-plugin": ^2.0.0
@@ -7353,7 +7353,7 @@ __metadata:
     react-content-loader: ^6.0.3
     react-dom: ^17.0.2
     react-icons: ^4.3.1
-    react-relay: ^12.0.0
+    react-relay: ^13.0.0
     relay-compiler: ^12.0.0
     relay-compiler-language-typescript: ^15.0.0
     relay-config: ^12.0.0
@@ -8222,13 +8222,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-relay@npm:^11.0.1":
-  version: 11.0.3
-  resolution: "@types/react-relay@npm:11.0.3"
+"@types/react-relay@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "@types/react-relay@npm:13.0.0"
   dependencies:
     "@types/react": "*"
     "@types/relay-runtime": "*"
-  checksum: 334691eea36f11dffd20a0a521afcb039671decd1607b70034e6f87827677c613f6e731e4cfd98ac6a40a460a00a40b9bb57c8dc35b2742c905e4616147e5607
+  checksum: 3ffe36084c20dc8b0197cdf3dc616b16ca6bc2661c705319582a8b6a53e1b73920a28fd4c1750d07bf96584907550cbef9b18da47f81572282de9c6569ece97b
   languageName: node
   linkType: hard
 
@@ -16251,7 +16251,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fbjs@npm:^3.0.0":
+"fbjs@npm:^3.0.0, fbjs@npm:^3.0.2":
   version: 3.0.2
   resolution: "fbjs@npm:3.0.2"
   dependencies:
@@ -26666,18 +26666,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-relay@npm:^12.0.0":
-  version: 12.0.0
-  resolution: "react-relay@npm:12.0.0"
+"react-relay@npm:^13.0.0":
+  version: 13.0.1
+  resolution: "react-relay@npm:13.0.1"
   dependencies:
     "@babel/runtime": ^7.0.0
-    fbjs: ^3.0.0
+    fbjs: ^3.0.2
     invariant: ^2.2.4
     nullthrows: ^1.1.1
-    relay-runtime: 12.0.0
+    relay-runtime: 13.0.1
   peerDependencies:
     react: ^16.9.0 || ^17
-  checksum: 3fde82d4b11deceba92bd9eb7649377ae4dd1fa736a4ddf97a7ba887851c4ffbecdf8b40a2a18d7af1c8c9bc73a6404aebd90482c345466fe763770cc211bf27
+  checksum: 5c30320ffcd3ed5fd97793bf06c5d1d75b625b34d9986f0d0abfd5c46373c6bb7abce136b6a5c00fddb290e9cc6a8f6e137c5a33f56cc86264cd0653dd7285b4
   languageName: node
   linkType: hard
 
@@ -27370,6 +27370,17 @@ __metadata:
     fbjs: ^3.0.0
     invariant: ^2.2.4
   checksum: 51cdc8a5e04188982452ae4e7c6ac7d6375ee769130d24ce8e8f9cdd45aa7e11ecd68670f56e30dcee1b4974585e88ecce19e69a9868b80cda0db7678c3b8f0a
+  languageName: node
+  linkType: hard
+
+"relay-runtime@npm:13.0.1":
+  version: 13.0.1
+  resolution: "relay-runtime@npm:13.0.1"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    fbjs: ^3.0.2
+    invariant: ^2.2.4
+  checksum: cc1a72e08f333db790efe38575cf188716186cfb85adc66171aa86a7392ef1cbbe4fc1488f64583a6c10359f13b63a4dce1bfe0e8aec58e2b45000036abe8475
   languageName: node
   linkType: hard
 
