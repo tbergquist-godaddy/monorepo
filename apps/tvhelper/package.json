@@ -53,7 +53,7 @@
     "@types/relay-runtime": "^12.0.0",
     "@vanilla-extract/webpack-plugin": "^2.0.0",
     "babel-plugin-module-resolver": "^4.1.0",
-    "babel-plugin-relay": "^12.0.0",
+    "babel-plugin-relay": "^13.0.0",
     "css-loader": "^6.0.0",
     "eslint": "^8.6.0",
     "eslint-config-next": "^12.0.7",
