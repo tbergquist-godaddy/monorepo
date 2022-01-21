@@ -7328,7 +7328,7 @@ __metadata:
     "@testing-library/react-hooks": ^7.0.2
     "@testing-library/user-event": ^13.2.1
     "@types/react-relay": ^11.0.1
-    "@types/relay-runtime": ^12.0.0
+    "@types/relay-runtime": ^13.0.0
     "@vanilla-extract/css": ^1.0.0
     "@vanilla-extract/next-plugin": ^2.0.0
     "@vanilla-extract/webpack-plugin": ^2.0.0
@@ -7357,7 +7357,7 @@ __metadata:
     relay-compiler: ^12.0.0
     relay-compiler-language-typescript: ^15.0.0
     relay-config: ^12.0.0
-    relay-runtime: ^12.0.0
+    relay-runtime: ^13.0.0
     relay-test-utils: ^12.0.0
     rimraf: ^3.0.2
     yup: ^0.32.9
@@ -8261,10 +8261,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/relay-runtime@npm:*, @types/relay-runtime@npm:^12.0.0":
+"@types/relay-runtime@npm:*":
   version: 12.0.1
   resolution: "@types/relay-runtime@npm:12.0.1"
   checksum: 99d1805ea9664b114af64aa54a52536b73f8e8a436346cff5f5bb67a363cebf1f504a021d26cd7bbb61c3488f8b12740888b4ecd21b988e34e7b18c228c66609
+  languageName: node
+  linkType: hard
+
+"@types/relay-runtime@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "@types/relay-runtime@npm:13.0.0"
+  checksum: 6823a7fd020f80af3a0d54b43fb6bf4d3d79ecf34f8503fb9a492fb49163f6b918eeec146330e2092fc2e982b6db38157ba62bfc26ed6459205f73cda5316a5a
   languageName: node
   linkType: hard
 
@@ -16251,7 +16258,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fbjs@npm:^3.0.0":
+"fbjs@npm:^3.0.0, fbjs@npm:^3.0.2":
   version: 3.0.2
   resolution: "fbjs@npm:3.0.2"
   dependencies:
@@ -27362,7 +27369,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-runtime@npm:12.0.0, relay-runtime@npm:^12.0.0":
+"relay-runtime@npm:12.0.0":
   version: 12.0.0
   resolution: "relay-runtime@npm:12.0.0"
   dependencies:
@@ -27370,6 +27377,17 @@ __metadata:
     fbjs: ^3.0.0
     invariant: ^2.2.4
   checksum: 51cdc8a5e04188982452ae4e7c6ac7d6375ee769130d24ce8e8f9cdd45aa7e11ecd68670f56e30dcee1b4974585e88ecce19e69a9868b80cda0db7678c3b8f0a
+  languageName: node
+  linkType: hard
+
+"relay-runtime@npm:^13.0.0":
+  version: 13.0.1
+  resolution: "relay-runtime@npm:13.0.1"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    fbjs: ^3.0.2
+    invariant: ^2.2.4
+  checksum: cc1a72e08f333db790efe38575cf188716186cfb85adc66171aa86a7392ef1cbbe4fc1488f64583a6c10359f13b63a4dce1bfe0e8aec58e2b45000036abe8475
   languageName: node
   linkType: hard
 
