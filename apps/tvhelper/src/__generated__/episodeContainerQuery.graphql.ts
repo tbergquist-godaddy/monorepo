@@ -1,68 +1,31 @@
+/**
+ * @generated SignedSource<<4a38e6e3246fe34a86f1c615e0332743>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
+import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type episodeContainerQueryVariables = {
-    id: string;
+export type episodeContainerQuery$variables = {
+  id: string;
 };
-export type episodeContainerQueryResponse = {
-    readonly episode: {
-        readonly id: string;
-        readonly watched: boolean | null;
-        readonly " $fragmentRefs": FragmentRefs<"episode">;
-    } | null;
+export type episodeContainerQueryVariables = episodeContainerQuery$variables;
+export type episodeContainerQuery$data = {
+  readonly episode: {
+    readonly id: string;
+    readonly watched: boolean | null;
+    readonly " $fragmentSpreads": FragmentRefs<"episode">;
+  } | null;
 };
+export type episodeContainerQueryResponse = episodeContainerQuery$data;
 export type episodeContainerQuery = {
-    readonly response: episodeContainerQueryResponse;
-    readonly variables: episodeContainerQueryVariables;
+  variables: episodeContainerQueryVariables;
+  response: episodeContainerQuery$data;
 };
-
-
-
-/*
-query episodeContainerQuery(
-  $id: ID!
-) {
-  episode(id: $id) {
-    id
-    watched
-    ...episode
-  }
-}
-
-fragment actionBar on Episode {
-  watched
-  tvShow {
-    id
-    name
-  }
-  ...watchedDate
-}
-
-fragment episode on Episode {
-  name
-  seasonAndNumber
-  ...imageSummary
-  ...actionBar
-}
-
-fragment imageSummary on ImageSummary {
-  __isImageSummary: __typename
-  image {
-    medium
-    id
-  }
-  summary(stripTags: false)
-}
-
-fragment watchedDate on Episode {
-  watchedDate
-  watched
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = [
@@ -154,26 +117,6 @@ return {
             "storageKey": null
           },
           {
-            "alias": null,
-            "args": null,
-            "concreteType": "TvShow",
-            "kind": "LinkedField",
-            "name": "tvShow",
-            "plural": false,
-            "selections": [
-              (v2/*: any*/),
-              (v4/*: any*/)
-            ],
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "watchedDate",
-            "storageKey": null
-          },
-          {
             "kind": "InlineFragment",
             "selections": [
               {
@@ -211,6 +154,26 @@ return {
             ],
             "type": "ImageSummary",
             "abstractKey": "__isImageSummary"
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "TvShow",
+            "kind": "LinkedField",
+            "name": "tvShow",
+            "plural": false,
+            "selections": [
+              (v2/*: any*/),
+              (v4/*: any*/)
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "watchedDate",
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -227,5 +190,7 @@ return {
   }
 };
 })();
-(node as any).hash = 'd46bded01e2adbaccd1a6b2554d07c37';
+
+(node as any).hash = "d46bded01e2adbaccd1a6b2554d07c37";
+
 export default node;

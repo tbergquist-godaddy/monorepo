@@ -1,48 +1,29 @@
+/**
+ * @generated SignedSource<<f71949f4b4e2d8820e8fc70b1ff4abd9>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
+import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type actionBarTestQueryVariables = {};
-export type actionBarTestQueryResponse = {
-    readonly episode: {
-        readonly id: string;
-        readonly watched: boolean | null;
-        readonly " $fragmentRefs": FragmentRefs<"actionBar">;
-    } | null;
+export type actionBarTestQuery$variables = {};
+export type actionBarTestQueryVariables = actionBarTestQuery$variables;
+export type actionBarTestQuery$data = {
+  readonly episode: {
+    readonly id: string;
+    readonly watched: boolean | null;
+    readonly " $fragmentSpreads": FragmentRefs<"actionBar">;
+  } | null;
 };
+export type actionBarTestQueryResponse = actionBarTestQuery$data;
 export type actionBarTestQuery = {
-    readonly response: actionBarTestQueryResponse;
-    readonly variables: actionBarTestQueryVariables;
+  variables: actionBarTestQueryVariables;
+  response: actionBarTestQuery$data;
 };
-
-
-
-/*
-query actionBarTestQuery {
-  episode(id: "1") {
-    id
-    watched
-    ...actionBar
-  }
-}
-
-fragment actionBar on Episode {
-  watched
-  tvShow {
-    id
-    name
-  }
-  ...watchedDate
-}
-
-fragment watchedDate on Episode {
-  watchedDate
-  watched
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = [
@@ -193,5 +174,7 @@ return {
   }
 };
 })();
-(node as any).hash = '74fa1aafbb31006bc2e8588fbf2672af';
+
+(node as any).hash = "74fa1aafbb31006bc2e8588fbf2672af";
+
 export default node;

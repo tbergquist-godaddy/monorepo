@@ -1,27 +1,30 @@
+/**
+ * @generated SignedSource<<43bdce1291a9ce3f96c262f2cc4c4cbb>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type TvShowListItem_data = {
-    readonly id: string;
-    readonly name: string | null;
-    readonly status: string | null;
-    readonly rating: number | null;
-    readonly image: {
-        readonly medium: string | null;
-    } | null;
-    readonly " $refType": "TvShowListItem_data";
+export type TvShowListItem_data$data = {
+  readonly id: string;
+  readonly name: string | null;
+  readonly status: string | null;
+  readonly rating: number | null;
+  readonly image: {
+    readonly medium: string | null;
+  } | null;
+  readonly " $fragmentType": "TvShowListItem_data";
 };
-export type TvShowListItem_data$data = TvShowListItem_data;
+export type TvShowListItem_data = TvShowListItem_data$data;
 export type TvShowListItem_data$key = {
-    readonly " $data"?: TvShowListItem_data$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"TvShowListItem_data">;
+  readonly " $data"?: TvShowListItem_data$data;
+  readonly " $fragmentSpreads": FragmentRefs<"TvShowListItem_data">;
 };
-
-
 
 const node: ReaderFragment = {
   "argumentDefinitions": [],
@@ -79,5 +82,7 @@ const node: ReaderFragment = {
   "type": "TvShow",
   "abstractKey": null
 };
-(node as any).hash = '41497783a7b76833b7b7d4de4e4a335f';
+
+(node as any).hash = "41497783a7b76833b7b7d4de4e4a335f";
+
 export default node;

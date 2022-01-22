@@ -1,54 +1,29 @@
+/**
+ * @generated SignedSource<<97d9f093f1b289b3a186b57d4b7b2a37>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
+import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type SearchQueryVariables = {
-    query: string;
+export type SearchQuery$variables = {
+  query: string;
 };
-export type SearchQueryResponse = {
-    readonly searchTvShow: {
-        readonly " $fragmentRefs": FragmentRefs<"SearchResults_results">;
-    } | null;
+export type SearchQueryVariables = SearchQuery$variables;
+export type SearchQuery$data = {
+  readonly searchTvShow: {
+    readonly " $fragmentSpreads": FragmentRefs<"SearchResults_results">;
+  } | null;
 };
+export type SearchQueryResponse = SearchQuery$data;
 export type SearchQuery = {
-    readonly response: SearchQueryResponse;
-    readonly variables: SearchQueryVariables;
+  variables: SearchQueryVariables;
+  response: SearchQuery$data;
 };
-
-
-
-/*
-query SearchQuery(
-  $query: String!
-) {
-  searchTvShow(query: $query) {
-    ...SearchResults_results
-  }
-}
-
-fragment SearchResults_results on TvShowConnection {
-  edges {
-    node {
-      id
-      ...TvShowListItem_data
-    }
-  }
-}
-
-fragment TvShowListItem_data on TvShow {
-  id
-  name
-  status
-  rating
-  image {
-    medium
-    id
-  }
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = [
@@ -191,5 +166,7 @@ return {
   }
 };
 })();
-(node as any).hash = 'c69f5a9aeaf684503729d266883c255c';
+
+(node as any).hash = "c69f5a9aeaf684503729d266883c255c";
+
 export default node;

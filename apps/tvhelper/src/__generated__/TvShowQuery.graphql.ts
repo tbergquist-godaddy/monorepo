@@ -1,88 +1,29 @@
+/**
+ * @generated SignedSource<<35c240e239b4ad006e869d26e6a91f6d>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
+import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type TvShowQueryVariables = {
-    id: string;
+export type TvShowQuery$variables = {
+  id: string;
 };
-export type TvShowQueryResponse = {
-    readonly node: {
-        readonly " $fragmentRefs": FragmentRefs<"TvShowPage_tvShow">;
-    } | null;
+export type TvShowQueryVariables = TvShowQuery$variables;
+export type TvShowQuery$data = {
+  readonly node: {
+    readonly " $fragmentSpreads": FragmentRefs<"TvShowPage_tvShow">;
+  } | null;
 };
+export type TvShowQueryResponse = TvShowQuery$data;
 export type TvShowQuery = {
-    readonly response: TvShowQueryResponse;
-    readonly variables: TvShowQueryVariables;
+  variables: TvShowQueryVariables;
+  response: TvShowQuery$data;
 };
-
-
-
-/*
-query TvShowQuery(
-  $id: ID!
-) {
-  node(id: $id) {
-    __typename
-    ...TvShowPage_tvShow
-    id
-  }
-}
-
-fragment Episodes_episodes on TvShow {
-  episodes {
-    id
-    seasonAndNumber
-    ...episodeListItem
-  }
-}
-
-fragment TvShowPage_tvShow on TvShow {
-  name
-  network {
-    name
-    id
-  }
-  ...toggleFavoriteButton
-  ...Episodes_episodes
-  ...imageSummary
-}
-
-fragment episodeListItem on Episode {
-  id
-  name
-  seasonAndNumber
-  airdate
-  summary
-  watched
-  ...useToggleWatched
-  tvShow {
-    name
-    id
-  }
-}
-
-fragment imageSummary on ImageSummary {
-  __isImageSummary: __typename
-  image {
-    medium
-    id
-  }
-  summary(stripTags: false)
-}
-
-fragment toggleFavoriteButton on TvShow {
-  id
-  isFavorite
-}
-
-fragment useToggleWatched on Episode {
-  id
-  watched
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = [
@@ -296,5 +237,7 @@ return {
   }
 };
 })();
-(node as any).hash = '9d89cc467b4de158a456a5c7a5f0877e';
+
+(node as any).hash = "9d89cc467b4de158a456a5c7a5f0877e";
+
 export default node;

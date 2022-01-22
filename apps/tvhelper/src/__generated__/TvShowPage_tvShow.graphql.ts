@@ -1,25 +1,28 @@
+/**
+ * @generated SignedSource<<70f9e9eebebfc19340c93520c44a809b>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type TvShowPage_tvShow = {
+export type TvShowPage_tvShow$data = {
+  readonly name: string | null;
+  readonly network: {
     readonly name: string | null;
-    readonly network: {
-        readonly name: string | null;
-    } | null;
-    readonly " $fragmentRefs": FragmentRefs<"toggleFavoriteButton" | "Episodes_episodes" | "imageSummary">;
-    readonly " $refType": "TvShowPage_tvShow";
+  } | null;
+  readonly " $fragmentSpreads": FragmentRefs<"toggleFavoriteButton" | "Episodes_episodes" | "imageSummary">;
+  readonly " $fragmentType": "TvShowPage_tvShow";
 };
-export type TvShowPage_tvShow$data = TvShowPage_tvShow;
+export type TvShowPage_tvShow = TvShowPage_tvShow$data;
 export type TvShowPage_tvShow$key = {
-    readonly " $data"?: TvShowPage_tvShow$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"TvShowPage_tvShow">;
+  readonly " $data"?: TvShowPage_tvShow$data;
+  readonly " $fragmentSpreads": FragmentRefs<"TvShowPage_tvShow">;
 };
-
-
 
 const node: ReaderFragment = (function(){
 var v0 = {
@@ -68,5 +71,7 @@ return {
   "abstractKey": null
 };
 })();
-(node as any).hash = 'e5f5465123646dfad0efb81333a2c1e6';
+
+(node as any).hash = "e5f5465123646dfad0efb81333a2c1e6";
+
 export default node;

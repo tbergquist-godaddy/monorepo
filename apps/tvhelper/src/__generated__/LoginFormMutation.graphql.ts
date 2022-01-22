@@ -1,37 +1,30 @@
+/**
+ * @generated SignedSource<<d9ca1592884f5cd3b6723301a64cfe0d>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
-export type LoginFormMutationVariables = {
-    username: string;
-    password: string;
+import { ConcreteRequest, Mutation } from 'relay-runtime';
+export type LoginFormMutation$variables = {
+  username: string;
+  password: string;
 };
-export type LoginFormMutationResponse = {
-    readonly tvHelperLogin: {
-        readonly success: boolean | null;
-        readonly token: string | null;
-    } | null;
+export type LoginFormMutationVariables = LoginFormMutation$variables;
+export type LoginFormMutation$data = {
+  readonly tvHelperLogin: {
+    readonly success: boolean | null;
+    readonly token: string | null;
+  } | null;
 };
+export type LoginFormMutationResponse = LoginFormMutation$data;
 export type LoginFormMutation = {
-    readonly response: LoginFormMutationResponse;
-    readonly variables: LoginFormMutationVariables;
+  variables: LoginFormMutationVariables;
+  response: LoginFormMutation$data;
 };
-
-
-
-/*
-mutation LoginFormMutation(
-  $username: String!
-  $password: String!
-) {
-  tvHelperLogin(username: $username, password: $password) {
-    success
-    token
-  }
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = {
@@ -115,5 +108,7 @@ return {
   }
 };
 })();
-(node as any).hash = '1af9da321112febbfad699f2b675b051';
+
+(node as any).hash = "1af9da321112febbfad699f2b675b051";
+
 export default node;

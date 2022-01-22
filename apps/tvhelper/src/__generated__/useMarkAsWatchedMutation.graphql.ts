@@ -1,43 +1,33 @@
+/**
+ * @generated SignedSource<<af8241551af99b62101d94ec4016d289>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
-export type useMarkAsWatchedMutationVariables = {
-    episodeId: string;
+import { ConcreteRequest, Mutation } from 'relay-runtime';
+export type useMarkAsWatchedMutation$variables = {
+  episodeId: string;
 };
-export type useMarkAsWatchedMutationResponse = {
-    readonly markAsWatched: {
-        readonly success: boolean | null;
-        readonly episode: {
-            readonly id: string;
-            readonly watched: boolean | null;
-            readonly watchedDate: unknown | null;
-        } | null;
+export type useMarkAsWatchedMutationVariables = useMarkAsWatchedMutation$variables;
+export type useMarkAsWatchedMutation$data = {
+  readonly markAsWatched: {
+    readonly success: boolean | null;
+    readonly episode: {
+      readonly id: string;
+      readonly watched: boolean | null;
+      readonly watchedDate: any | null;
     } | null;
+  } | null;
 };
+export type useMarkAsWatchedMutationResponse = useMarkAsWatchedMutation$data;
 export type useMarkAsWatchedMutation = {
-    readonly response: useMarkAsWatchedMutationResponse;
-    readonly variables: useMarkAsWatchedMutationVariables;
+  variables: useMarkAsWatchedMutationVariables;
+  response: useMarkAsWatchedMutation$data;
 };
-
-
-
-/*
-mutation useMarkAsWatchedMutation(
-  $episodeId: ID!
-) {
-  markAsWatched(episodeId: $episodeId) {
-    success
-    episode {
-      id
-      watched
-      watchedDate
-    }
-  }
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = [
@@ -132,5 +122,7 @@ return {
   }
 };
 })();
-(node as any).hash = '3eccd4053653306483588a913391299b';
+
+(node as any).hash = "3eccd4053653306483588a913391299b";
+
 export default node;

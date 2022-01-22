@@ -1,41 +1,32 @@
+/**
+ * @generated SignedSource<<52b55b73a41a33bc862613834309ca9f>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
-export type useDeleteAsWatchedMutationVariables = {
-    episodeId: string;
+import { ConcreteRequest, Mutation } from 'relay-runtime';
+export type useDeleteAsWatchedMutation$variables = {
+  episodeId: string;
 };
-export type useDeleteAsWatchedMutationResponse = {
-    readonly deleteWatchedEpisode: {
-        readonly success: boolean | null;
-        readonly episode: {
-            readonly id: string;
-            readonly watched: boolean | null;
-        } | null;
+export type useDeleteAsWatchedMutationVariables = useDeleteAsWatchedMutation$variables;
+export type useDeleteAsWatchedMutation$data = {
+  readonly deleteWatchedEpisode: {
+    readonly success: boolean | null;
+    readonly episode: {
+      readonly id: string;
+      readonly watched: boolean | null;
     } | null;
+  } | null;
 };
+export type useDeleteAsWatchedMutationResponse = useDeleteAsWatchedMutation$data;
 export type useDeleteAsWatchedMutation = {
-    readonly response: useDeleteAsWatchedMutationResponse;
-    readonly variables: useDeleteAsWatchedMutationVariables;
+  variables: useDeleteAsWatchedMutationVariables;
+  response: useDeleteAsWatchedMutation$data;
 };
-
-
-
-/*
-mutation useDeleteAsWatchedMutation(
-  $episodeId: ID!
-) {
-  deleteWatchedEpisode(episodeId: $episodeId) {
-    success
-    episode {
-      id
-      watched
-    }
-  }
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = [
@@ -123,5 +114,7 @@ return {
   }
 };
 })();
-(node as any).hash = '9d2c91d1a4e0b21e014e9395036e26cd';
+
+(node as any).hash = "9d2c91d1a4e0b21e014e9395036e26cd";
+
 export default node;

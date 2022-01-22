@@ -1,75 +1,36 @@
+/**
+ * @generated SignedSource<<83ba6ecbff2ccacd3921a13e074852d0>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
+import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type SortBy = "NAME" | "NEXT_EPISODE" | "PREVIOUS_EPISODE" | "STATUS" | "%future added value";
 export type SortDirection = "ASC" | "DESC" | "%future added value";
 export type SortOptions = {
-    sortBy?: SortBy | null | undefined;
-    sortDirection?: SortDirection | null | undefined;
+  sortBy?: SortBy | null;
+  sortDirection?: SortDirection | null;
 };
-export type FavoritesQueryVariables = {
-    options?: SortOptions | null | undefined;
-    first?: number | null | undefined;
+export type FavoritesQuery$variables = {
+  options?: SortOptions | null;
+  first?: number | null;
 };
-export type FavoritesQueryResponse = {
-    readonly viewer: {
-        readonly " $fragmentRefs": FragmentRefs<"Favorites_favorites">;
-    } | null;
+export type FavoritesQueryVariables = FavoritesQuery$variables;
+export type FavoritesQuery$data = {
+  readonly viewer: {
+    readonly " $fragmentSpreads": FragmentRefs<"Favorites_favorites">;
+  } | null;
 };
+export type FavoritesQueryResponse = FavoritesQuery$data;
 export type FavoritesQuery = {
-    readonly response: FavoritesQueryResponse;
-    readonly variables: FavoritesQueryVariables;
+  variables: FavoritesQueryVariables;
+  response: FavoritesQuery$data;
 };
-
-
-
-/*
-query FavoritesQuery(
-  $options: SortOptions
-  $first: Int
-) {
-  viewer {
-    __typename
-    ...Favorites_favorites_42u0Wi
-    ... on TvHelperViewer {
-      id
-    }
-  }
-}
-
-fragment FavoriteListItem_favorite on TvShow {
-  name
-  nextEpisode
-  previousEpisode
-  id
-  status
-  image {
-    medium
-    id
-  }
-}
-
-fragment Favorites_favorites_42u0Wi on TvHelperViewer {
-  favorites(options: $options, first: $first) {
-    pageInfo {
-      hasNextPage
-      endCursor
-    }
-    edges {
-      node {
-        id
-        ...FavoriteListItem_favorite
-        __typename
-      }
-      cursor
-    }
-  }
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = {
@@ -304,5 +265,7 @@ return {
   }
 };
 })();
-(node as any).hash = 'a572f2277702799afd708e52797304d6';
+
+(node as any).hash = "a572f2277702799afd708e52797304d6";
+
 export default node;

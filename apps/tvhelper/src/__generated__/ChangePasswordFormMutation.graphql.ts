@@ -1,42 +1,30 @@
+/**
+ * @generated SignedSource<<15a0664331741cefea6321c452bea82b>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
-export type ChangePasswordFormMutationVariables = {
-    password: string;
-    newPassword: string;
+import { ConcreteRequest, Mutation } from 'relay-runtime';
+export type ChangePasswordFormMutation$variables = {
+  password: string;
+  newPassword: string;
 };
-export type ChangePasswordFormMutationResponse = {
-    readonly tvHelperChangePassword: {
-        readonly success?: boolean | null | undefined;
-        readonly message?: string | null | undefined;
-    } | null;
+export type ChangePasswordFormMutationVariables = ChangePasswordFormMutation$variables;
+export type ChangePasswordFormMutation$data = {
+  readonly tvHelperChangePassword: {
+    readonly success?: boolean | null;
+    readonly message?: string | null;
+  } | null;
 };
+export type ChangePasswordFormMutationResponse = ChangePasswordFormMutation$data;
 export type ChangePasswordFormMutation = {
-    readonly response: ChangePasswordFormMutationResponse;
-    readonly variables: ChangePasswordFormMutationVariables;
+  variables: ChangePasswordFormMutationVariables;
+  response: ChangePasswordFormMutation$data;
 };
-
-
-
-/*
-mutation ChangePasswordFormMutation(
-  $password: String!
-  $newPassword: String!
-) {
-  tvHelperChangePassword(password: $password, newPassword: $newPassword) {
-    __typename
-    ... on ChangePasswordResponse {
-      success
-    }
-    ... on ChangePasswordError {
-      message
-    }
-  }
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = {
@@ -157,5 +145,7 @@ return {
   }
 };
 })();
-(node as any).hash = '82e55a8530cecc78b3863d8488df4bbd';
+
+(node as any).hash = "82e55a8530cecc78b3863d8488df4bbd";
+
 export default node;
