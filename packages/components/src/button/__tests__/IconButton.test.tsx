@@ -29,5 +29,5 @@ it('handles loading state', () => {
   const button = screen.getByTestId('loading');
 
   expect(button).toBeInTheDocument();
-  expect(button.getAttribute('disabled')).toBe('');
+  expect(button).toBeDisabled();
 });
