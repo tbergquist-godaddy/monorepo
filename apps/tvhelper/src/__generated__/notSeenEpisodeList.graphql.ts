@@ -1,29 +1,32 @@
+/**
+ * @generated SignedSource<<7cd260508912b9578a1271cba156422f>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type notSeenEpisodeList = {
-    readonly notSeenEpisodes: {
-        readonly __id: string;
-        readonly edges: ReadonlyArray<{
-            readonly node: {
-                readonly id: string;
-                readonly " $fragmentRefs": FragmentRefs<"episodeListItem">;
-            } | null;
-        } | null> | null;
-    } | null;
-    readonly " $refType": "notSeenEpisodeList";
+export type notSeenEpisodeList$data = {
+  readonly notSeenEpisodes: {
+    readonly __id: string;
+    readonly edges: ReadonlyArray<{
+      readonly node: {
+        readonly id: string;
+        readonly " $fragmentSpreads": FragmentRefs<"episodeListItem">;
+      } | null;
+    } | null> | null;
+  } | null;
+  readonly " $fragmentType": "notSeenEpisodeList";
 };
-export type notSeenEpisodeList$data = notSeenEpisodeList;
+export type notSeenEpisodeList = notSeenEpisodeList$data;
 export type notSeenEpisodeList$key = {
-    readonly " $data"?: notSeenEpisodeList$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"notSeenEpisodeList">;
+  readonly " $data"?: notSeenEpisodeList$data;
+  readonly " $fragmentSpreads": FragmentRefs<"notSeenEpisodeList">;
 };
-
-
 
 const node: ReaderFragment = {
   "argumentDefinitions": [],
@@ -74,16 +77,16 @@ const node: ReaderFragment = {
                   "storageKey": null
                 },
                 {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "episodeListItem"
+                },
+                {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",
                   "name": "__typename",
                   "storageKey": null
-                },
-                {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "episodeListItem"
                 }
               ],
               "storageKey": null
@@ -142,5 +145,7 @@ const node: ReaderFragment = {
   "type": "TvHelperViewer",
   "abstractKey": null
 };
-(node as any).hash = '05819351862b25db383c9d621e4a5b03';
+
+(node as any).hash = "05819351862b25db383c9d621e4a5b03";
+
 export default node;

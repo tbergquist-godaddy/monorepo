@@ -1,26 +1,29 @@
+/**
+ * @generated SignedSource<<84c86d4c653faf345d77e369c3afe5df>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type SearchResults_results = {
-    readonly edges: ReadonlyArray<{
-        readonly node: {
-            readonly id: string;
-            readonly " $fragmentRefs": FragmentRefs<"TvShowListItem_data">;
-        } | null;
-    } | null> | null;
-    readonly " $refType": "SearchResults_results";
+export type SearchResults_results$data = {
+  readonly edges: ReadonlyArray<{
+    readonly node: {
+      readonly id: string;
+      readonly " $fragmentSpreads": FragmentRefs<"TvShowListItem_data">;
+    } | null;
+  } | null> | null;
+  readonly " $fragmentType": "SearchResults_results";
 };
-export type SearchResults_results$data = SearchResults_results;
+export type SearchResults_results = SearchResults_results$data;
 export type SearchResults_results$key = {
-    readonly " $data"?: SearchResults_results$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"SearchResults_results">;
+  readonly " $data"?: SearchResults_results$data;
+  readonly " $fragmentSpreads": FragmentRefs<"SearchResults_results">;
 };
-
-
 
 const node: ReaderFragment = {
   "argumentDefinitions": [],
@@ -66,5 +69,7 @@ const node: ReaderFragment = {
   "type": "TvShowConnection",
   "abstractKey": null
 };
-(node as any).hash = '551ef5468ff2f5ee7af497265c38cc9e';
+
+(node as any).hash = "551ef5468ff2f5ee7af497265c38cc9e";
+
 export default node;

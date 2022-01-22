@@ -1,70 +1,27 @@
+/**
+ * @generated SignedSource<<7fe381867ca3a6185856d273eec8a7e0>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
+import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type notSeenEpisodesQueryVariables = {};
-export type notSeenEpisodesQueryResponse = {
-    readonly viewer: {
-        readonly " $fragmentRefs": FragmentRefs<"notSeenEpisodeList">;
-    } | null;
+export type notSeenEpisodesQuery$variables = {};
+export type notSeenEpisodesQueryVariables = notSeenEpisodesQuery$variables;
+export type notSeenEpisodesQuery$data = {
+  readonly viewer: {
+    readonly " $fragmentSpreads": FragmentRefs<"notSeenEpisodeList">;
+  } | null;
 };
+export type notSeenEpisodesQueryResponse = notSeenEpisodesQuery$data;
 export type notSeenEpisodesQuery = {
-    readonly response: notSeenEpisodesQueryResponse;
-    readonly variables: notSeenEpisodesQueryVariables;
+  variables: notSeenEpisodesQueryVariables;
+  response: notSeenEpisodesQuery$data;
 };
-
-
-
-/*
-query notSeenEpisodesQuery {
-  viewer {
-    __typename
-    ...notSeenEpisodeList
-    ... on TvHelperViewer {
-      id
-    }
-  }
-}
-
-fragment episodeListItem on Episode {
-  id
-  name
-  seasonAndNumber
-  airdate
-  summary
-  watched
-  ...useToggleWatched
-  tvShow {
-    name
-    id
-  }
-}
-
-fragment notSeenEpisodeList on TvHelperViewer {
-  notSeenEpisodes(first: 1000) {
-    edges {
-      node {
-        id
-        ...episodeListItem
-        __typename
-      }
-      cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-}
-
-fragment useToggleWatched on Episode {
-  id
-  watched
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = {
@@ -290,5 +247,7 @@ return {
   }
 };
 })();
-(node as any).hash = '3a4cf0331a752f6088d400d203157c73';
+
+(node as any).hash = "3a4cf0331a752f6088d400d203157c73";
+
 export default node;

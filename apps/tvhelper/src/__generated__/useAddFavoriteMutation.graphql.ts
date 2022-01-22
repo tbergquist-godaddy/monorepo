@@ -1,45 +1,34 @@
+/**
+ * @generated SignedSource<<608ac0939a7eb59303c90caee88a85df>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
-export type useAddFavoriteMutationVariables = {
-    serieId: string;
+import { ConcreteRequest, Mutation } from 'relay-runtime';
+export type useAddFavoriteMutation$variables = {
+  serieId: string;
 };
-export type useAddFavoriteMutationResponse = {
-    readonly addFavorite: {
-        readonly success: boolean | null;
-        readonly tvShow: {
-            readonly node: {
-                readonly id: string;
-                readonly isFavorite: boolean | null;
-            } | null;
-        } | null;
+export type useAddFavoriteMutationVariables = useAddFavoriteMutation$variables;
+export type useAddFavoriteMutation$data = {
+  readonly addFavorite: {
+    readonly success: boolean | null;
+    readonly tvShow: {
+      readonly node: {
+        readonly id: string;
+        readonly isFavorite: boolean | null;
+      } | null;
     } | null;
+  } | null;
 };
+export type useAddFavoriteMutationResponse = useAddFavoriteMutation$data;
 export type useAddFavoriteMutation = {
-    readonly response: useAddFavoriteMutationResponse;
-    readonly variables: useAddFavoriteMutationVariables;
+  variables: useAddFavoriteMutationVariables;
+  response: useAddFavoriteMutation$data;
 };
-
-
-
-/*
-mutation useAddFavoriteMutation(
-  $serieId: ID!
-) {
-  addFavorite(serieId: $serieId) {
-    success
-    tvShow {
-      node {
-        id
-        isFavorite
-      }
-    }
-  }
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = [
@@ -138,5 +127,7 @@ return {
   }
 };
 })();
-(node as any).hash = 'f8e196df65842bb0faf134fee1682047';
+
+(node as any).hash = "f8e196df65842bb0faf134fee1682047";
+
 export default node;

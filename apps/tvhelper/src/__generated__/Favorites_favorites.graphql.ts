@@ -1,31 +1,34 @@
+/**
+ * @generated SignedSource<<49a809dcfb1e2f8192ac42157f19aab4>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type Favorites_favorites = {
-    readonly favorites: {
-        readonly pageInfo: {
-            readonly hasNextPage: boolean;
-        };
-        readonly edges: ReadonlyArray<{
-            readonly node: {
-                readonly id: string;
-                readonly " $fragmentRefs": FragmentRefs<"FavoriteListItem_favorite">;
-            } | null;
-        } | null> | null;
-    } | null;
-    readonly " $refType": "Favorites_favorites";
+export type Favorites_favorites$data = {
+  readonly favorites: {
+    readonly pageInfo: {
+      readonly hasNextPage: boolean;
+    };
+    readonly edges: ReadonlyArray<{
+      readonly node: {
+        readonly id: string;
+        readonly " $fragmentSpreads": FragmentRefs<"FavoriteListItem_favorite">;
+      } | null;
+    } | null> | null;
+  } | null;
+  readonly " $fragmentType": "Favorites_favorites";
 };
-export type Favorites_favorites$data = Favorites_favorites;
+export type Favorites_favorites = Favorites_favorites$data;
 export type Favorites_favorites$key = {
-    readonly " $data"?: Favorites_favorites$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"Favorites_favorites">;
+  readonly " $data"?: Favorites_favorites$data;
+  readonly " $fragmentSpreads": FragmentRefs<"Favorites_favorites">;
 };
-
-
 
 const node: ReaderFragment = {
   "argumentDefinitions": [
@@ -121,16 +124,16 @@ const node: ReaderFragment = {
                   "storageKey": null
                 },
                 {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "FavoriteListItem_favorite"
+                },
+                {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",
                   "name": "__typename",
                   "storageKey": null
-                },
-                {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "FavoriteListItem_favorite"
                 }
               ],
               "storageKey": null
@@ -152,5 +155,7 @@ const node: ReaderFragment = {
   "type": "TvHelperViewer",
   "abstractKey": null
 };
-(node as any).hash = '7679187c9df51d98b24dc6f14df0d0b0';
+
+(node as any).hash = "7679187c9df51d98b24dc6f14df0d0b0";
+
 export default node;

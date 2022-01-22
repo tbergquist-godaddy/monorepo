@@ -1,22 +1,25 @@
+/**
+ * @generated SignedSource<<fec70213ed835318707618e9d3de1896>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type watchedDate = {
-    readonly watchedDate: unknown | null;
-    readonly watched: boolean | null;
-    readonly " $refType": "watchedDate";
+export type watchedDate$data = {
+  readonly watchedDate: any | null;
+  readonly watched: boolean | null;
+  readonly " $fragmentType": "watchedDate";
 };
-export type watchedDate$data = watchedDate;
+export type watchedDate = watchedDate$data;
 export type watchedDate$key = {
-    readonly " $data"?: watchedDate$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"watchedDate">;
+  readonly " $data"?: watchedDate$data;
+  readonly " $fragmentSpreads": FragmentRefs<"watchedDate">;
 };
-
-
 
 const node: ReaderFragment = {
   "argumentDefinitions": [],
@@ -42,5 +45,7 @@ const node: ReaderFragment = {
   "type": "Episode",
   "abstractKey": null
 };
-(node as any).hash = '7c89572aec088b0b1d3f4d20c3de01f5';
+
+(node as any).hash = "7c89572aec088b0b1d3f4d20c3de01f5";
+
 export default node;

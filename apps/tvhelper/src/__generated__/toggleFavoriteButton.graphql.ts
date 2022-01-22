@@ -1,22 +1,25 @@
+/**
+ * @generated SignedSource<<b3736d901b5d25f0649f347842454240>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type toggleFavoriteButton = {
-    readonly id: string;
-    readonly isFavorite: boolean | null;
-    readonly " $refType": "toggleFavoriteButton";
+export type toggleFavoriteButton$data = {
+  readonly id: string;
+  readonly isFavorite: boolean | null;
+  readonly " $fragmentType": "toggleFavoriteButton";
 };
-export type toggleFavoriteButton$data = toggleFavoriteButton;
+export type toggleFavoriteButton = toggleFavoriteButton$data;
 export type toggleFavoriteButton$key = {
-    readonly " $data"?: toggleFavoriteButton$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"toggleFavoriteButton">;
+  readonly " $data"?: toggleFavoriteButton$data;
+  readonly " $fragmentSpreads": FragmentRefs<"toggleFavoriteButton">;
 };
-
-
 
 const node: ReaderFragment = {
   "argumentDefinitions": [],
@@ -42,5 +45,7 @@ const node: ReaderFragment = {
   "type": "TvShow",
   "abstractKey": null
 };
-(node as any).hash = 'db5aad87990b98af9a26e058c1945fdd';
+
+(node as any).hash = "db5aad87990b98af9a26e058c1945fdd";
+
 export default node;

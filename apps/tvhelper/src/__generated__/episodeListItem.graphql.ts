@@ -1,30 +1,33 @@
+/**
+ * @generated SignedSource<<92f4c28ee4e7e21aa0d37800f559717b>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type episodeListItem = {
-    readonly id: string;
+export type episodeListItem$data = {
+  readonly id: string;
+  readonly name: string | null;
+  readonly seasonAndNumber: string | null;
+  readonly airdate: any | null;
+  readonly summary: string | null;
+  readonly watched: boolean | null;
+  readonly tvShow: {
     readonly name: string | null;
-    readonly seasonAndNumber: string | null;
-    readonly airdate: unknown | null;
-    readonly summary: string | null;
-    readonly watched: boolean | null;
-    readonly tvShow: {
-        readonly name: string | null;
-    } | null;
-    readonly " $fragmentRefs": FragmentRefs<"useToggleWatched">;
-    readonly " $refType": "episodeListItem";
+  } | null;
+  readonly " $fragmentSpreads": FragmentRefs<"useToggleWatched">;
+  readonly " $fragmentType": "episodeListItem";
 };
-export type episodeListItem$data = episodeListItem;
+export type episodeListItem = episodeListItem$data;
 export type episodeListItem$key = {
-    readonly " $data"?: episodeListItem$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"episodeListItem">;
+  readonly " $data"?: episodeListItem$data;
+  readonly " $fragmentSpreads": FragmentRefs<"episodeListItem">;
 };
-
-
 
 const node: ReaderFragment = (function(){
 var v0 = {
@@ -79,6 +82,14 @@ return {
     },
     (v2/*: any*/),
     {
+      "kind": "InlineDataFragmentSpread",
+      "name": "useToggleWatched",
+      "selections": [
+        (v0/*: any*/),
+        (v2/*: any*/)
+      ]
+    },
+    {
       "alias": null,
       "args": null,
       "concreteType": "TvShow",
@@ -89,19 +100,13 @@ return {
         (v1/*: any*/)
       ],
       "storageKey": null
-    },
-    {
-      "kind": "InlineDataFragmentSpread",
-      "name": "useToggleWatched",
-      "selections": [
-        (v0/*: any*/),
-        (v2/*: any*/)
-      ]
     }
   ],
   "type": "Episode",
   "abstractKey": null
 };
 })();
-(node as any).hash = '1ec77f441023bb85087df64023bf015a';
+
+(node as any).hash = "1ec77f441023bb85087df64023bf015a";
+
 export default node;

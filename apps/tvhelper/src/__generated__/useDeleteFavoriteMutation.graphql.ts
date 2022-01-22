@@ -1,35 +1,29 @@
+/**
+ * @generated SignedSource<<4be13777de751b7d241da2f3bb7903e5>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
-export type useDeleteFavoriteMutationVariables = {
-    serieId: string;
+import { ConcreteRequest, Mutation } from 'relay-runtime';
+export type useDeleteFavoriteMutation$variables = {
+  serieId: string;
 };
-export type useDeleteFavoriteMutationResponse = {
-    readonly deleteFavorite: {
-        readonly success: boolean | null;
-        readonly id: string | null;
-    } | null;
+export type useDeleteFavoriteMutationVariables = useDeleteFavoriteMutation$variables;
+export type useDeleteFavoriteMutation$data = {
+  readonly deleteFavorite: {
+    readonly success: boolean | null;
+    readonly id: string | null;
+  } | null;
 };
+export type useDeleteFavoriteMutationResponse = useDeleteFavoriteMutation$data;
 export type useDeleteFavoriteMutation = {
-    readonly response: useDeleteFavoriteMutationResponse;
-    readonly variables: useDeleteFavoriteMutationVariables;
+  variables: useDeleteFavoriteMutationVariables;
+  response: useDeleteFavoriteMutation$data;
 };
-
-
-
-/*
-mutation useDeleteFavoriteMutation(
-  $serieId: ID!
-) {
-  deleteFavorite(serieId: $serieId) {
-    success
-    id
-  }
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = [
@@ -99,5 +93,7 @@ return {
   }
 };
 })();
-(node as any).hash = '9d3f1395124253308db494c7b72547bd';
+
+(node as any).hash = "9d3f1395124253308db494c7b72547bd";
+
 export default node;

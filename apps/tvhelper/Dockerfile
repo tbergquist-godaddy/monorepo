@@ -39,8 +39,6 @@ COPY packages/esbuild-tools ./packages/esbuild-tools
 
 COPY package.json lerna.json tsconfig.json ./
 
-RUN yarn workspace @tbergq/tvhelper relay-compiler --language typescript --persistOutput persisted-queries.json
-RUN yarn workspace @tbergq/tvhelper persist-queries
 RUN yarn lerna run build
 
 FROM node:17-alpine as runner
@@ -56,5 +54,5 @@ COPY --from=builder /build/apps/tvhelper ./apps/tvhelper
 COPY --from=builder /build/packages ./packages
 
 EXPOSE 3020
-
+ENV PORT=3020
 CMD ["yarn", "workspace", "@tbergq/tvhelper", "start"]

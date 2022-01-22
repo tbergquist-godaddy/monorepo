@@ -23,16 +23,20 @@ export default function useToggleWatched(
         watched
       }
     `,
+    // @ts-ignore: Error when upgrading relay
     fragmentRef,
   );
+  // @ts-ignore: Error when upgrading relay
   const episodeId = data?.id;
 
   const [deleteAsWatchedMutation, deleteLoading] = useMarkAsUnwatched(episodeId);
   const [markAsWatchedMutation, markLoading] = useMarkAsWatched(episodeId);
 
   const toggle = () => {
+    // @ts-ignore: Error when upgrading relay
     if (data?.watched === true) {
       deleteAsWatchedMutation(config?.deleteConfig);
+      // @ts-ignore: Error when upgrading relay
     } else if (data?.watched === false) {
       markAsWatchedMutation(config?.markAsWatchedConfig);
     }

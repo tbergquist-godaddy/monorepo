@@ -1,28 +1,31 @@
+/**
+ * @generated SignedSource<<8d2b4448bb5a7eb297119bb5898bf33d>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
+import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type FavoriteListItem_favorite = {
-    readonly name: string | null;
-    readonly nextEpisode: unknown | null;
-    readonly previousEpisode: unknown | null;
-    readonly id: string;
-    readonly status: string | null;
-    readonly image: {
-        readonly medium: string | null;
-    } | null;
-    readonly " $refType": "FavoriteListItem_favorite";
+export type FavoriteListItem_favorite$data = {
+  readonly name: string | null;
+  readonly nextEpisode: any | null;
+  readonly previousEpisode: any | null;
+  readonly id: string;
+  readonly status: string | null;
+  readonly image: {
+    readonly medium: string | null;
+  } | null;
+  readonly " $fragmentType": "FavoriteListItem_favorite";
 };
-export type FavoriteListItem_favorite$data = FavoriteListItem_favorite;
+export type FavoriteListItem_favorite = FavoriteListItem_favorite$data;
 export type FavoriteListItem_favorite$key = {
-    readonly " $data"?: FavoriteListItem_favorite$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"FavoriteListItem_favorite">;
+  readonly " $data"?: FavoriteListItem_favorite$data;
+  readonly " $fragmentSpreads": FragmentRefs<"FavoriteListItem_favorite">;
 };
-
-
 
 const node: ReaderFragment = {
   "argumentDefinitions": [],
@@ -87,5 +90,7 @@ const node: ReaderFragment = {
   "type": "TvShow",
   "abstractKey": null
 };
-(node as any).hash = 'f5be8c9bfed9dcea574147dbce5c98e3';
+
+(node as any).hash = "f5be8c9bfed9dcea574147dbce5c98e3";
+
 export default node;
