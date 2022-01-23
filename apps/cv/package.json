@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
     "autoprefixer": "^10.3.7",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
@@ -15,11 +17,19 @@
     "gulp-rename": "^2.0.0",
     "http-server": "^14.0.0",
     "live-server": "^1.2.1",
-    "postcss": "^8.3.9"
+    "postcss": "^8.3.9",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.5.0"
   },
   "scripts": {
     "dev": "live-server src/",
-    "build": "rimraf dist && gulp",
-    "start": "http-server dist -o -p 8080"
+    "build": "rimraf dist && yarn ts-node src/index.tsx && gulp",
+    "start": "http-server dist -o -p 8080",
+    "storybook": "PROJECTS=@tbergq/cv yarn workspace @tbergq/storybook storybook"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "shortid": "^2.2.16"
   }
 }

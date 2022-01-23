@@ -18,7 +18,7 @@ function css() {
 }
 
 function html() {
-  return src('src/*.html')
+  return src('dist/*.html')
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(dest('./dist'));
 }
@@ -36,4 +36,8 @@ function injectCSS() {
     .pipe(dest('./dist'));
 }
 
-exports.default = series(css, html, injectCSS);
+function copy() {
+  return src('favicon.ico').pipe(dest('./dist'));
+}
+
+exports.default = series(css, html, injectCSS, copy);

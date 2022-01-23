@@ -21,3 +21,7 @@
 .u-display-flex {
   display: flex;
 }
+
+.u-section-title {
+  border-bottom: 1px solid var(--color-text-black);
+}
