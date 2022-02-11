@@ -7204,7 +7204,7 @@ __metadata:
     copy-webpack-plugin: ^10.0.0
     cors: ^2.8.5
     css-loader: ^6.0.0
-    electron: ^16.0.0
+    electron: ^17.0.0
     electron-builder: ^22.11.1
     express: ^4.17.1
     file-loader: ^6.2.0
@@ -14012,16 +14012,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^16.0.0":
-  version: 16.0.7
-  resolution: "electron@npm:16.0.7"
+"electron@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "electron@npm:17.0.0"
   dependencies:
     "@electron/get": ^1.13.0
     "@types/node": ^14.6.2
     extract-zip: ^1.0.3
   bin:
     electron: cli.js
-  checksum: 9ca82da3739ad737b736c9f5ff9d0e4883f69cb55128d65c39b559ad26b95502d7fb54899e01d744ee4d1d8d1414fe0a77750ed30ed187e90737562b823e1ee1
+  checksum: c945a1a5475ba66ca70637b150b3f10ea9d28b1f2167a9d8d2137e087785f647e1153f4335f898238470392ed689e3d207b2b96928025c5dd092d6f601e21414
   languageName: node
   linkType: hard
 
