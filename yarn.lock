@@ -3260,7 +3260,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/merge@npm:8.2.1, @graphql-tools/merge@npm:^8.2.1":
+"@graphql-tools/merge@npm:8.2.2":
+  version: 8.2.2
+  resolution: "@graphql-tools/merge@npm:8.2.2"
+  dependencies:
+    "@graphql-tools/utils": ^8.5.1
+    tslib: ~2.3.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 66f1752d12d7563a4b676c9b0129b48b26dc44a93aaf86caf579070b394b8f2823586be4b25dbb6d5ae805dbdac8960602b6e886960ee97eee358177ed0a0e5d
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/merge@npm:^8.2.1":
   version: 8.2.1
   resolution: "@graphql-tools/merge@npm:8.2.1"
   dependencies:
@@ -3300,18 +3312,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:8.5.5":
-  version: 8.5.5
-  resolution: "@graphql-tools/utils@npm:8.5.5"
-  dependencies:
-    tslib: ~2.3.0
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: e23c78ba268d1e56546b96c7bd0e4df36cbeac4941c6e1547d6e59f0b8d5312e937f788efd03a5ab21701ac348d2f567cb92acac27171ddf77c57de483fa5902
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/utils@npm:^8.5.1, @graphql-tools/utils@npm:^8.6.0":
+"@graphql-tools/utils@npm:8.6.1, @graphql-tools/utils@npm:^8.5.1, @graphql-tools/utils@npm:^8.6.0":
   version: 8.6.1
   resolution: "@graphql-tools/utils@npm:8.6.1"
   dependencies:
@@ -4705,27 +4706,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/graphql@npm:^9.1.2":
-  version: 9.2.2
-  resolution: "@nestjs/graphql@npm:9.2.2"
+"@nestjs/graphql@npm:^10.0.0":
+  version: 10.0.2
+  resolution: "@nestjs/graphql@npm:10.0.2"
   dependencies:
-    "@graphql-tools/merge": 8.2.1
+    "@graphql-tools/merge": 8.2.2
     "@graphql-tools/schema": 8.3.1
-    "@graphql-tools/utils": 8.5.5
+    "@graphql-tools/utils": 8.6.1
     "@nestjs/mapped-types": 1.0.1
-    chokidar: 3.5.2
+    chokidar: 3.5.3
     fast-glob: 3.2.11
     graphql-tag: 2.12.6
     graphql-ws: 5.5.5
-    iterall: 1.3.0
     lodash: 4.17.21
     normalize-path: 3.0.0
     subscriptions-transport-ws: 0.11.0
     tslib: 2.3.1
     uuid: 8.3.2
-    ws: 8.4.2
+    ws: 8.5.0
   peerDependencies:
-    "@apollo/subgraph": ^0.1.5
+    "@apollo/subgraph": ^0.1.5 || ^0.3.0
     "@nestjs/common": ^8.2.3
     "@nestjs/core": ^8.2.3
     graphql: ^15.8.0 || ^16.0.0
@@ -4736,7 +4736,7 @@ __metadata:
       optional: true
     ts-morph:
       optional: true
-  checksum: 32f6647f9c08c6c631024b0e68fe6b2fb07e674105f5f1e66d64351fb8f6ddc32ce50238152cb0018d0e8032e0e2cbdc932d38d21eb335ebf6bf74e69e7d826b
+  checksum: f4a4e37e826a6ca6ad50c143cf9ce35c9a7fd37b80e480394fbc0151f64786ecb0f075d3a860b68b7d6c04cab30930f7d5424af1cf6d331af2b361e93b9c8b2a
   languageName: node
   linkType: hard
 
@@ -7188,7 +7188,7 @@ __metadata:
     "@nestjs/cli": ^8.1.5
     "@nestjs/common": ^8.2.3
     "@nestjs/core": ^8.2.3
-    "@nestjs/graphql": ^9.1.2
+    "@nestjs/graphql": ^10.0.0
     "@nestjs/platform-express": ^8.2.3
     "@nestjs/testing": ^8.2.3
     "@prisma/client": ^3.6.0
@@ -11839,6 +11839,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chokidar@npm:3.5.3, chokidar@npm:^3.4.0, chokidar@npm:^3.4.1, chokidar@npm:^3.4.2, chokidar@npm:^3.5.1, chokidar@npm:^3.5.2":
+  version: 3.5.3
+  resolution: "chokidar@npm:3.5.3"
+  dependencies:
+    anymatch: ~3.1.2
+    braces: ~3.0.2
+    fsevents: ~2.3.2
+    glob-parent: ~5.1.2
+    is-binary-path: ~2.1.0
+    is-glob: ~4.0.1
+    normalize-path: ~3.0.0
+    readdirp: ~3.6.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: b49fcde40176ba007ff361b198a2d35df60d9bb2a5aab228279eb810feae9294a6b4649ab15981304447afe1e6ffbf4788ad5db77235dc770ab777c6e771980c
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:^2.0.0, chokidar@npm:^2.0.4, chokidar@npm:^2.1.8":
   version: 2.1.8
   resolution: "chokidar@npm:2.1.8"
@@ -11859,25 +11878,6 @@ __metadata:
     fsevents:
       optional: true
   checksum: 0c43e89cbf0268ef1e1f41ce8ec5233c7ba022c6f3282c2ef6530e351d42396d389a1148c5a040f291cf1f4083a4c6b2f51dad3f31c726442ea9a337de316bcf
-  languageName: node
-  linkType: hard
-
-"chokidar@npm:^3.4.0, chokidar@npm:^3.4.1, chokidar@npm:^3.4.2, chokidar@npm:^3.5.1, chokidar@npm:^3.5.2":
-  version: 3.5.3
-  resolution: "chokidar@npm:3.5.3"
-  dependencies:
-    anymatch: ~3.1.2
-    braces: ~3.0.2
-    fsevents: ~2.3.2
-    glob-parent: ~5.1.2
-    is-binary-path: ~2.1.0
-    is-glob: ~4.0.1
-    normalize-path: ~3.0.0
-    readdirp: ~3.6.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  checksum: b49fcde40176ba007ff361b198a2d35df60d9bb2a5aab228279eb810feae9294a6b4649ab15981304447afe1e6ffbf4788ad5db77235dc770ab777c6e771980c
   languageName: node
   linkType: hard
 
@@ -19678,7 +19678,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iterall@npm:1.3.0, iterall@npm:^1.2.1":
+"iterall@npm:^1.2.1":
   version: 1.3.0
   resolution: "iterall@npm:1.3.0"
   checksum: c78b99678f8c99be488cca7f33e4acca9b72c1326e050afbaf023f086e55619ee466af0464af94a0cb3f292e60cb5bac53a8fd86bd4249ecad26e09f17bb158b
@@ -31888,9 +31888,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:8.4.2, ws@npm:^8.1.0, ws@npm:^8.2.3":
-  version: 8.4.2
-  resolution: "ws@npm:8.4.2"
+"ws@npm:8.5.0":
+  version: 8.5.0
+  resolution: "ws@npm:8.5.0"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ^5.0.2
@@ -31899,7 +31899,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 4369caaac8d1092a73871f5cf1d87fcbb995dc4183a1bc48e4f451bc2d02d0a8bf7c17edf1da18e2be3c773b09262275356b256d1c55bc7ca096154293ba2a8c
+  checksum: 76f2f90e40344bf18fd544194e7067812fb1372b2a37865678d8f12afe4b478ff2ebc0c7c0aff82cd5e6b66fc43d889eec0f1865c2365d8f7a66d92da7744a77
   languageName: node
   linkType: hard
 
@@ -31915,6 +31915,21 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: 0c2ffc9a539dd61dd2b00ff6cc5c98a3371e2521011fe23da4b3578bb7ac26cbdf7ca8a68e8e08023c122ae247013216dde2a20c908de415a6bcc87bdef68c87
+  languageName: node
+  linkType: hard
+
+"ws@npm:^8.1.0, ws@npm:^8.2.3":
+  version: 8.4.2
+  resolution: "ws@npm:8.4.2"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ^5.0.2
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 4369caaac8d1092a73871f5cf1d87fcbb995dc4183a1bc48e4f451bc2d02d0a8bf7c17edf1da18e2be3c773b09262275356b256d1c55bc7ca096154293ba2a8c
   languageName: node
   linkType: hard
 
