@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<84c86d4c653faf345d77e369c3afe5df>>
+ * @generated SignedSource<<09dbd4f2d522e0f243d7d6ce0c54b4c5>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -19,7 +19,6 @@ export type SearchResults_results$data = {
   } | null> | null;
   readonly " $fragmentType": "SearchResults_results";
 };
-export type SearchResults_results = SearchResults_results$data;
 export type SearchResults_results$key = {
   readonly " $data"?: SearchResults_results$data;
   readonly " $fragmentSpreads": FragmentRefs<"SearchResults_results">;

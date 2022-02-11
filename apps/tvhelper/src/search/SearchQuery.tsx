@@ -1,6 +1,6 @@
 import { QueryRenderer, graphql, useRelayEnvironment } from 'react-relay';
 import { Spinner, Box } from '@tbergq/components';
-import { SearchQueryResponse } from '__generated__/SearchQuery.graphql';
+import { SearchQuery$data as SearchQueryResponse } from '__generated__/SearchQuery.graphql';
 
 import SearchResults from './searchResults/SearchResults';
 

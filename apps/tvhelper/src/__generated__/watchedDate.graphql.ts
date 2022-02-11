@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<fec70213ed835318707618e9d3de1896>>
+ * @generated SignedSource<<8d8b814f4ac2893abac00c897dbe9f51>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,6 @@ export type watchedDate$data = {
   readonly watched: boolean | null;
   readonly " $fragmentType": "watchedDate";
 };
-export type watchedDate = watchedDate$data;
 export type watchedDate$key = {
   readonly " $data"?: watchedDate$data;
   readonly " $fragmentSpreads": FragmentRefs<"watchedDate">;

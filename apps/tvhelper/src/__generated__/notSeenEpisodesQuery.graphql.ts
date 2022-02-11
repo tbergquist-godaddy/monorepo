@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7fe381867ca3a6185856d273eec8a7e0>>
+ * @generated SignedSource<<9434de55c4f3116140b280975ab5be3d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,15 +11,13 @@
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type notSeenEpisodesQuery$variables = {};
-export type notSeenEpisodesQueryVariables = notSeenEpisodesQuery$variables;
 export type notSeenEpisodesQuery$data = {
   readonly viewer: {
     readonly " $fragmentSpreads": FragmentRefs<"notSeenEpisodeList">;
   } | null;
 };
-export type notSeenEpisodesQueryResponse = notSeenEpisodesQuery$data;
 export type notSeenEpisodesQuery = {
-  variables: notSeenEpisodesQueryVariables;
+  variables: notSeenEpisodesQuery$variables;
   response: notSeenEpisodesQuery$data;
 };
 

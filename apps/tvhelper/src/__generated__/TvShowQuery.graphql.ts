@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<35c240e239b4ad006e869d26e6a91f6d>>
+ * @generated SignedSource<<a82d632ff1d6be1dd4408fc7934b63a3>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,15 +13,13 @@ import { FragmentRefs } from "relay-runtime";
 export type TvShowQuery$variables = {
   id: string;
 };
-export type TvShowQueryVariables = TvShowQuery$variables;
 export type TvShowQuery$data = {
   readonly node: {
     readonly " $fragmentSpreads": FragmentRefs<"TvShowPage_tvShow">;
   } | null;
 };
-export type TvShowQueryResponse = TvShowQuery$data;
 export type TvShowQuery = {
-  variables: TvShowQueryVariables;
+  variables: TvShowQuery$variables;
   response: TvShowQuery$data;
 };
 

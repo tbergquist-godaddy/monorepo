@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7cd260508912b9578a1271cba156422f>>
+ * @generated SignedSource<<b6d32e57c8f2ce0b0a6f0a1d14df8946>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -22,7 +22,6 @@ export type notSeenEpisodeList$data = {
   } | null;
   readonly " $fragmentType": "notSeenEpisodeList";
 };
-export type notSeenEpisodeList = notSeenEpisodeList$data;
 export type notSeenEpisodeList$key = {
   readonly " $data"?: notSeenEpisodeList$data;
   readonly " $fragmentSpreads": FragmentRefs<"notSeenEpisodeList">;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e1b1f23bbc06173c9d6a7652c745db19>>
+ * @generated SignedSource<<a50164d8107c75468ce0b7cbfc3ca68e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -19,15 +19,13 @@ export type SortOptions = {
 export type FavoriteQuery$variables = {
   options?: SortOptions | null;
 };
-export type FavoriteQueryVariables = FavoriteQuery$variables;
 export type FavoriteQuery$data = {
   readonly viewer: {
     readonly " $fragmentSpreads": FragmentRefs<"Favorites_favorites">;
   } | null;
 };
-export type FavoriteQueryResponse = FavoriteQuery$data;
 export type FavoriteQuery = {
-  variables: FavoriteQueryVariables;
+  variables: FavoriteQuery$variables;
   response: FavoriteQuery$data;
 };
 

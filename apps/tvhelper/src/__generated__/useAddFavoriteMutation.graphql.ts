@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<608ac0939a7eb59303c90caee88a85df>>
+ * @generated SignedSource<<c186adf7e941361e137d670b6f3fdc75>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,7 +12,6 @@ import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type useAddFavoriteMutation$variables = {
   serieId: string;
 };
-export type useAddFavoriteMutationVariables = useAddFavoriteMutation$variables;
 export type useAddFavoriteMutation$data = {
   readonly addFavorite: {
     readonly success: boolean | null;
@@ -24,9 +23,8 @@ export type useAddFavoriteMutation$data = {
     } | null;
   } | null;
 };
-export type useAddFavoriteMutationResponse = useAddFavoriteMutation$data;
 export type useAddFavoriteMutation = {
-  variables: useAddFavoriteMutationVariables;
+  variables: useAddFavoriteMutation$variables;
   response: useAddFavoriteMutation$data;
 };
 

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2a3db5729e835dd4c241f9fa4c55c8ca>>
+ * @generated SignedSource<<42e9a534569214093a6091554471d19a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -19,7 +19,6 @@ export type actionBar$data = {
   readonly " $fragmentSpreads": FragmentRefs<"watchedDate">;
   readonly " $fragmentType": "actionBar";
 };
-export type actionBar = actionBar$data;
 export type actionBar$key = {
   readonly " $data"?: actionBar$data;
   readonly " $fragmentSpreads": FragmentRefs<"actionBar">;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e7789c5a657b5a7bb2f9370f5d0a9b63>>
+ * @generated SignedSource<<8c9f610acddf8a502371564342423708>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,15 +14,13 @@ export type useCreateUserMutation$variables = {
   password: string;
   email: string;
 };
-export type useCreateUserMutationVariables = useCreateUserMutation$variables;
 export type useCreateUserMutation$data = {
   readonly createUser: {
     readonly success: boolean | null;
   } | null;
 };
-export type useCreateUserMutationResponse = useCreateUserMutation$data;
 export type useCreateUserMutation = {
-  variables: useCreateUserMutationVariables;
+  variables: useCreateUserMutation$variables;
   response: useCreateUserMutation$data;
 };
 

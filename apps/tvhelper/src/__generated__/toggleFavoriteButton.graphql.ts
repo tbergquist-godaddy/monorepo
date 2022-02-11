@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b3736d901b5d25f0649f347842454240>>
+ * @generated SignedSource<<298a9ed482e117f91ef198867d7df954>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,6 @@ export type toggleFavoriteButton$data = {
   readonly isFavorite: boolean | null;
   readonly " $fragmentType": "toggleFavoriteButton";
 };
-export type toggleFavoriteButton = toggleFavoriteButton$data;
 export type toggleFavoriteButton$key = {
   readonly " $data"?: toggleFavoriteButton$data;
   readonly " $fragmentSpreads": FragmentRefs<"toggleFavoriteButton">;

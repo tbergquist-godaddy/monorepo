@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2b8bbb36d63842fdb434a535f2be551e>>
+ * @generated SignedSource<<aa9594b1fc61719f3f0619c0a6a67d87>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -17,7 +17,6 @@ export type imageSummary$data = {
   readonly summary: string | null;
   readonly " $fragmentType": "imageSummary";
 };
-export type imageSummary = imageSummary$data;
 export type imageSummary$key = {
   readonly " $data"?: imageSummary$data;
   readonly " $fragmentSpreads": FragmentRefs<"imageSummary">;

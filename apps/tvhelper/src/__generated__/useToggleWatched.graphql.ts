@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<aca1a69dd4c84e0da54486e639e3d287>>
+ * @generated SignedSource<<207c2d55302a49e5653970fde7c708b3>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,7 +15,6 @@ export type useToggleWatched$data = {
   readonly watched: boolean | null;
   readonly " $fragmentType": "useToggleWatched";
 };
-export type useToggleWatched = useToggleWatched$data;
 export type useToggleWatched$key = {
   readonly " $data"?: useToggleWatched$data;
   readonly " $fragmentSpreads": FragmentRefs<"useToggleWatched">;

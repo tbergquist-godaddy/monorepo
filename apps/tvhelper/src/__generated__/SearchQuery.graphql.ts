@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<97d9f093f1b289b3a186b57d4b7b2a37>>
+ * @generated SignedSource<<511bd197dc219a60bdfcd108f43b641b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,15 +13,13 @@ import { FragmentRefs } from "relay-runtime";
 export type SearchQuery$variables = {
   query: string;
 };
-export type SearchQueryVariables = SearchQuery$variables;
 export type SearchQuery$data = {
   readonly searchTvShow: {
     readonly " $fragmentSpreads": FragmentRefs<"SearchResults_results">;
   } | null;
 };
-export type SearchQueryResponse = SearchQuery$data;
 export type SearchQuery = {
-  variables: SearchQueryVariables;
+  variables: SearchQuery$variables;
   response: SearchQuery$data;
 };
 

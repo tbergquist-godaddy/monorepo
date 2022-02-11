@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<15a0664331741cefea6321c452bea82b>>
+ * @generated SignedSource<<dd8265729c188936622913c75e3f2d57>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,16 +13,14 @@ export type ChangePasswordFormMutation$variables = {
   password: string;
   newPassword: string;
 };
-export type ChangePasswordFormMutationVariables = ChangePasswordFormMutation$variables;
 export type ChangePasswordFormMutation$data = {
   readonly tvHelperChangePassword: {
     readonly success?: boolean | null;
     readonly message?: string | null;
   } | null;
 };
-export type ChangePasswordFormMutationResponse = ChangePasswordFormMutation$data;
 export type ChangePasswordFormMutation = {
-  variables: ChangePasswordFormMutationVariables;
+  variables: ChangePasswordFormMutation$variables;
   response: ChangePasswordFormMutation$data;
 };
 

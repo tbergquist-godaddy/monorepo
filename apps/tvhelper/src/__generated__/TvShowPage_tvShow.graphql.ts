@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<70f9e9eebebfc19340c93520c44a809b>>
+ * @generated SignedSource<<1868eedcbf4d804702c49a85dcda4c84>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -18,7 +18,6 @@ export type TvShowPage_tvShow$data = {
   readonly " $fragmentSpreads": FragmentRefs<"toggleFavoriteButton" | "Episodes_episodes" | "imageSummary">;
   readonly " $fragmentType": "TvShowPage_tvShow";
 };
-export type TvShowPage_tvShow = TvShowPage_tvShow$data;
 export type TvShowPage_tvShow$key = {
   readonly " $data"?: TvShowPage_tvShow$data;
   readonly " $fragmentSpreads": FragmentRefs<"TvShowPage_tvShow">;

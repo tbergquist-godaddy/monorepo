@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<52b55b73a41a33bc862613834309ca9f>>
+ * @generated SignedSource<<b7d09164b1d553588137da8076655197>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,7 +12,6 @@ import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type useDeleteAsWatchedMutation$variables = {
   episodeId: string;
 };
-export type useDeleteAsWatchedMutationVariables = useDeleteAsWatchedMutation$variables;
 export type useDeleteAsWatchedMutation$data = {
   readonly deleteWatchedEpisode: {
     readonly success: boolean | null;
@@ -22,9 +21,8 @@ export type useDeleteAsWatchedMutation$data = {
     } | null;
   } | null;
 };
-export type useDeleteAsWatchedMutationResponse = useDeleteAsWatchedMutation$data;
 export type useDeleteAsWatchedMutation = {
-  variables: useDeleteAsWatchedMutationVariables;
+  variables: useDeleteAsWatchedMutation$variables;
   response: useDeleteAsWatchedMutation$data;
 };
 
