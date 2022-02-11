@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<49a809dcfb1e2f8192ac42157f19aab4>>
+ * @generated SignedSource<<f61f8d534635122a789f514f6f30ff29>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -24,7 +24,6 @@ export type Favorites_favorites$data = {
   } | null;
   readonly " $fragmentType": "Favorites_favorites";
 };
-export type Favorites_favorites = Favorites_favorites$data;
 export type Favorites_favorites$key = {
   readonly " $data"?: Favorites_favorites$data;
   readonly " $fragmentSpreads": FragmentRefs<"Favorites_favorites">;

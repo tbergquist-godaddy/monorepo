@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ab2fde4b3ada2adf91695c37e455578a>>
+ * @generated SignedSource<<607162f6d9187d176631308a4c8a6448>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,7 +16,6 @@ export type episode$data = {
   readonly " $fragmentSpreads": FragmentRefs<"imageSummary" | "actionBar">;
   readonly " $fragmentType": "episode";
 };
-export type episode = episode$data;
 export type episode$key = {
   readonly " $data"?: episode$data;
   readonly " $fragmentSpreads": FragmentRefs<"episode">;

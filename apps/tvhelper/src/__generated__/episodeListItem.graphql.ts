@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<92f4c28ee4e7e21aa0d37800f559717b>>
+ * @generated SignedSource<<4b29dc1afb13a9681c4b630f67751f5f>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -23,7 +23,6 @@ export type episodeListItem$data = {
   readonly " $fragmentSpreads": FragmentRefs<"useToggleWatched">;
   readonly " $fragmentType": "episodeListItem";
 };
-export type episodeListItem = episodeListItem$data;
 export type episodeListItem$key = {
   readonly " $data"?: episodeListItem$data;
   readonly " $fragmentSpreads": FragmentRefs<"episodeListItem">;

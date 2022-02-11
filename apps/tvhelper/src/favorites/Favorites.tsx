@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from 'react';
 import { Heading, Select, Box } from '@tbergq/components';
 import { createRefetchContainer, graphql, RelayRefetchProp } from 'react-relay';
-import { Favorites_favorites as FavoritesType } from '__generated__/Favorites_favorites.graphql';
+import { Favorites_favorites$data as FavoritesType } from '__generated__/Favorites_favorites.graphql';
 import dynamic from 'next/dynamic';
 
 import FavoriteListItem from './FavoriteListItem';

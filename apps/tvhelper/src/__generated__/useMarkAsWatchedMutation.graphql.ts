@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<af8241551af99b62101d94ec4016d289>>
+ * @generated SignedSource<<cdca72187b6187130102a6b4426e47f9>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,7 +12,6 @@ import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type useMarkAsWatchedMutation$variables = {
   episodeId: string;
 };
-export type useMarkAsWatchedMutationVariables = useMarkAsWatchedMutation$variables;
 export type useMarkAsWatchedMutation$data = {
   readonly markAsWatched: {
     readonly success: boolean | null;
@@ -23,9 +22,8 @@ export type useMarkAsWatchedMutation$data = {
     } | null;
   } | null;
 };
-export type useMarkAsWatchedMutationResponse = useMarkAsWatchedMutation$data;
 export type useMarkAsWatchedMutation = {
-  variables: useMarkAsWatchedMutationVariables;
+  variables: useMarkAsWatchedMutation$variables;
   response: useMarkAsWatchedMutation$data;
 };
 

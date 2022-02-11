@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4a38e6e3246fe34a86f1c615e0332743>>
+ * @generated SignedSource<<88f7a6cc055681173e2f6bd8847a072c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,7 +13,6 @@ import { FragmentRefs } from "relay-runtime";
 export type episodeContainerQuery$variables = {
   id: string;
 };
-export type episodeContainerQueryVariables = episodeContainerQuery$variables;
 export type episodeContainerQuery$data = {
   readonly episode: {
     readonly id: string;
@@ -21,9 +20,8 @@ export type episodeContainerQuery$data = {
     readonly " $fragmentSpreads": FragmentRefs<"episode">;
   } | null;
 };
-export type episodeContainerQueryResponse = episodeContainerQuery$data;
 export type episodeContainerQuery = {
-  variables: episodeContainerQueryVariables;
+  variables: episodeContainerQuery$variables;
   response: episodeContainerQuery$data;
 };
 

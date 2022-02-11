@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f71949f4b4e2d8820e8fc70b1ff4abd9>>
+ * @generated SignedSource<<a62e3e337fe5cab8905ab956fb39d474>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,7 +11,6 @@
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type actionBarTestQuery$variables = {};
-export type actionBarTestQueryVariables = actionBarTestQuery$variables;
 export type actionBarTestQuery$data = {
   readonly episode: {
     readonly id: string;
@@ -19,9 +18,8 @@ export type actionBarTestQuery$data = {
     readonly " $fragmentSpreads": FragmentRefs<"actionBar">;
   } | null;
 };
-export type actionBarTestQueryResponse = actionBarTestQuery$data;
 export type actionBarTestQuery = {
-  variables: actionBarTestQueryVariables;
+  variables: actionBarTestQuery$variables;
   response: actionBarTestQuery$data;
 };
 

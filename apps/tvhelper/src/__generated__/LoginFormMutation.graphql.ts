@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d9ca1592884f5cd3b6723301a64cfe0d>>
+ * @generated SignedSource<<63116cf2fd157f412684f4c048621a1f>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,16 +13,14 @@ export type LoginFormMutation$variables = {
   username: string;
   password: string;
 };
-export type LoginFormMutationVariables = LoginFormMutation$variables;
 export type LoginFormMutation$data = {
   readonly tvHelperLogin: {
     readonly success: boolean | null;
     readonly token: string | null;
   } | null;
 };
-export type LoginFormMutationResponse = LoginFormMutation$data;
 export type LoginFormMutation = {
-  variables: LoginFormMutationVariables;
+  variables: LoginFormMutation$variables;
   response: LoginFormMutation$data;
 };
 

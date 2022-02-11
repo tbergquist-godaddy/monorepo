@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4be13777de751b7d241da2f3bb7903e5>>
+ * @generated SignedSource<<27dd93c8e7a5c8d019950fa8d9e3f66c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,16 +12,14 @@ import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type useDeleteFavoriteMutation$variables = {
   serieId: string;
 };
-export type useDeleteFavoriteMutationVariables = useDeleteFavoriteMutation$variables;
 export type useDeleteFavoriteMutation$data = {
   readonly deleteFavorite: {
     readonly success: boolean | null;
     readonly id: string | null;
   } | null;
 };
-export type useDeleteFavoriteMutationResponse = useDeleteFavoriteMutation$data;
 export type useDeleteFavoriteMutation = {
-  variables: useDeleteFavoriteMutationVariables;
+  variables: useDeleteFavoriteMutation$variables;
   response: useDeleteFavoriteMutation$data;
 };
 

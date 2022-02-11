@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<43bdce1291a9ce3f96c262f2cc4c4cbb>>
+ * @generated SignedSource<<28cf62838cbe22be39a16e966ee96b25>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -20,7 +20,6 @@ export type TvShowListItem_data$data = {
   } | null;
   readonly " $fragmentType": "TvShowListItem_data";
 };
-export type TvShowListItem_data = TvShowListItem_data$data;
 export type TvShowListItem_data$key = {
   readonly " $data"?: TvShowListItem_data$data;
   readonly " $fragmentSpreads": FragmentRefs<"TvShowListItem_data">;
