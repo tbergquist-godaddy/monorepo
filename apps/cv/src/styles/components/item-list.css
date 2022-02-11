@@ -14,6 +14,11 @@
     display: flex;
   }
 }
+@media print {
+  .ItemList li {
+    display: flex;
+  }
+}
 
 .ItemList_Date {
   flex: 0;
