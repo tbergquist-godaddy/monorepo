@@ -7122,7 +7122,7 @@ __metadata:
     "@tbergq/theme": 0.0.1
     "@testing-library/react": ^12.0.0
     "@testing-library/user-event": 13.5.0
-    relay-test-utils: 13.0.1
+    relay-test-utils: 13.1.1
     rimraf: ^3.0.2
   peerDependencies:
     react: ^17.0.0
@@ -26369,7 +26369,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-test-utils@npm:13.0.1, relay-test-utils@npm:^13.0.1":
+"relay-runtime@npm:13.1.1":
+  version: 13.1.1
+  resolution: "relay-runtime@npm:13.1.1"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    fbjs: ^3.0.2
+    invariant: ^2.2.4
+  checksum: b9f8777ce2842a6043fcb056d71dbae1560afaec4f1037a0e7e4607ca4d775310523324fd115356d4dee377933ad77d1c94159a8c4ce15dec538734093ff4454
+  languageName: node
+  linkType: hard
+
+"relay-test-utils@npm:13.1.1":
+  version: 13.1.1
+  resolution: "relay-test-utils@npm:13.1.1"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    fbjs: ^3.0.2
+    invariant: ^2.2.4
+    relay-runtime: 13.1.1
+  checksum: 2d9a28af4d09404135c10606bbdac228438c8881cc3ef6deec9f7fcf89a9c85dcde3afb9c17c286097e452ed95c8242e6d9cff854eb95e3c76b219ace8a19526
+  languageName: node
+  linkType: hard
+
+"relay-test-utils@npm:^13.0.1":
   version: 13.0.1
   resolution: "relay-test-utils@npm:13.0.1"
   dependencies:
