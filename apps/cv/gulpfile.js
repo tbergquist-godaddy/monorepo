@@ -39,5 +39,8 @@ function injectCSS() {
 function copy() {
   return src('favicon.ico').pipe(dest('./dist'));
 }
+function copyFonts() {
+  return src('src/styles/typography/fonts/*').pipe(dest('./dist/styles/typography/fonts'));
+}
 
-exports.default = series(css, html, injectCSS, copy);
+exports.default = series(css, html, injectCSS, copy, copyFonts);
