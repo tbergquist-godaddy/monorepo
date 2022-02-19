@@ -43,13 +43,13 @@ it('returns favorites', async () => {
 describe('isFavorite', () => {
   it('returns true if the serie exits', async () => {
     const { repository, exists } = setup();
-    exists.mockResolvedValue(true);
+    exists.mockResolvedValue({ _id: 4 });
     await expect(repository.isFavorite('123', 123)).resolves.toBe(true);
   });
 
   it('returns false if the serie does not exit', async () => {
     const { repository, exists } = setup();
-    exists.mockResolvedValue(false);
+    exists.mockResolvedValue(null);
     await expect(repository.isFavorite('123', 123)).resolves.toBe(false);
   });
 });
