@@ -46,8 +46,9 @@ export default class FavoriteRepository implements IFavoriteRepository {
     }
   }
 
-  isFavorite(userId: string, serieId: number): Promise<boolean> {
-    return this.#model.exists({ userId, serieId });
+  async isFavorite(userId: string, serieId: number): Promise<boolean> {
+    const model = await this.#model.exists({ userId, serieId });
+    return model?._id != null;
   }
 
   async getFavorites(userIds: string[]): Promise<IFavorite[]> {
