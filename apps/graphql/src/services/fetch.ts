@@ -1,4 +1,6 @@
-import fetch, { RequestInit } from 'node-fetch';
+// @ts-ignore: for now
+import fetch from '@adeira/fetch';
+import { RequestInit } from 'node-fetch';
 import { log } from 'crosscutting';
 import { __DEV__ } from 'environment';
 
@@ -10,13 +12,13 @@ const Fetch = async <T = AnyObject>(url: string, options?: RequestInit): Promise
   if (__DEV__) {
     log(url);
   }
-
+  let response;
   try {
     const defaultHeaders = {
       'Content-Type': 'application/json',
     };
 
-    const response = await fetch(url, {
+    response = await fetch(url, {
       ...options,
       headers: {
         ...defaultHeaders,
@@ -27,7 +29,7 @@ const Fetch = async <T = AnyObject>(url: string, options?: RequestInit): Promise
     const json = await response.json();
     return json;
   } catch (err) {
-    log(err);
+    log(err, { response });
     throw err;
   }
 };
