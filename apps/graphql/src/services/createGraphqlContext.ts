@@ -10,6 +10,7 @@ import {
 import { log } from 'crosscutting';
 import { TvshowService, ITvshowService } from 'tvshow';
 import { StoredOperationService, IStoredOperationService } from 'stored-operation';
+import { ImageService, IImageService } from 'image';
 
 type LoggedInUser = any;
 
@@ -22,6 +23,7 @@ export type GraphqlContextType = {
   readonly episodeService: IEpisodeService;
   readonly storedOperationService: IStoredOperationService;
   readonly log: typeof log;
+  readonly imageService: IImageService;
 };
 
 export default function createContext(request: Request): GraphqlContextType {
@@ -38,8 +40,9 @@ export default function createContext(request: Request): GraphqlContextType {
     userService: new UserService(),
     favoriteService,
     watchedEpisodeService,
-    tvshowService: new TvshowService(episodeService),
+    tvshowService: new TvshowService(),
     episodeService,
     storedOperationService: new StoredOperationService(),
+    imageService: new ImageService(),
   };
 }

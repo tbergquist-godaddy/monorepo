@@ -7030,6 +7030,7 @@ __metadata:
     graphql: ^15.1.0
     graphql-depth-limit: ^1.1.0
     graphql-iso-date: ^3.6.1
+    jest: ^27.0.0
     json-stable-stringify: ^1.0.1
     jsonwebtoken: ^8.5.1
     mockdate: ^3.0.5
@@ -20133,7 +20134,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.0.1, jest@npm:^27.0.6, jest@npm:^27.4.3, jest@npm:^27.4.4":
+"jest@npm:^27.0.0, jest@npm:^27.0.1, jest@npm:^27.0.6, jest@npm:^27.4.3, jest@npm:^27.4.4":
   version: 27.5.1
   resolution: "jest@npm:27.5.1"
   dependencies:

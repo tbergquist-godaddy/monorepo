@@ -1,12 +1,13 @@
 export interface ITvshowDTO {
   id: number;
   name: string;
-  status: string;
+  status?: string;
   premiered: string;
-  image: {
+  image?: {
     medium: string;
     original: string;
   };
+  posterPath?: string;
   rating: number;
   summary: string;
   cast?: null;

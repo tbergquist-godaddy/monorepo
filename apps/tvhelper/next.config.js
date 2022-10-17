@@ -15,7 +15,7 @@ const { GRAPHQL_URL } = process.env;
 module.exports = withVanillaExtract(
   withBundleAnalyzer({
     images: {
-      domains: ['static.tvmaze.com'],
+      domains: ['static.tvmaze.com', 'image.tmdb.org'],
     },
     env: {
       GRAPHQL_URL,

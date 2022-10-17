@@ -10,6 +10,7 @@ import GlobalID from '@adeira/graphql-global-id';
 import { isFavoritesResolver } from 'favorite';
 import { ITvshowDTO } from 'tvshow';
 import ImageSummary from 'application/interfaces/image-summary';
+import { Maybe } from 'graphql/jsutils/Maybe';
 
 import TvHelperImage from '../../tvhelper/common/types/output/TvHelperImage';
 import Summary from '../../tvhelper/common/types/output/Summary';
@@ -31,12 +32,22 @@ const TvShowEntity: GraphQLObjectType = new GraphQLObjectType<ITvshowDTO, Graphq
     },
     status: {
       type: GraphQLString,
+      resolve: async ({ status, id }: ITvshowDTO, _, { tvshowService }): Promise<Maybe<string>> => {
+        if (status == null) {
+          const tvShow = await tvshowService.getById(id);
+          return tvShow?.status;
+        }
+        return status;
+      },
     },
     premiered: {
       type: GraphQLDate,
     },
     image: {
       type: TvHelperImage,
+      resolve: ({ image, posterPath }: ITvshowDTO) => {
+        return image ?? posterPath;
+      },
     },
     rating: {
       type: GraphQLFloat,

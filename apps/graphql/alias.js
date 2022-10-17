@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   'crosscutting': path.resolve(__dirname, 'src', 'crosscutting', 'index.ts'),
+  'environment': path.resolve(__dirname, 'src', 'environment', 'index.ts'),
   'account': path.resolve(__dirname, 'src', 'account', 'index.ts'),
   'favorite': path.resolve(__dirname, 'src', 'favorite', 'index.ts'),
   'episode': path.resolve(__dirname, 'src', 'episode', 'index.ts'),
@@ -14,4 +15,5 @@ module.exports = {
     'services',
     'createGraphqlContext.ts',
   ),
+  'services': path.resolve(__dirname, 'src', 'services'),
 };

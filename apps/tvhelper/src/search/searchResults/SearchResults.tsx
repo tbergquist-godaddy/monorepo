@@ -24,7 +24,7 @@ const SearchResults = (props: Props): JSX.Element => {
     props.results,
   );
 
-  const edges = data.edges ?? [];
+  const edges = data?.edges ?? [];
   return (
     <div className={classNames.gridContainer}>
       {edges.map<ReactNode>((item) => (

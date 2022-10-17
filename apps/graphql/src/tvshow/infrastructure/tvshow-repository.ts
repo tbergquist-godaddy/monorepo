@@ -1,4 +1,6 @@
 import { log, fetch } from 'crosscutting';
+import { TMDB_API_KEY } from 'environment';
+import ExternalRepository from 'services/external-repository';
 
 import { ITvshow, SearchTvShowResponse, TvShowServer } from './entities/tvshow';
 
@@ -7,29 +9,34 @@ export interface ITvshowRepository {
   getById: (id: number) => Promise<ITvshow | null>;
 }
 
-export default class TvshowRepository implements ITvshowRepository {
+export default class TvshowRepository extends ExternalRepository implements ITvshowRepository {
   #fetchFn: typeof fetch;
-  #baseUrl: string;
 
-  constructor(fetchFn: typeof fetch = fetch, baseUrl = 'http://api.tvmaze.com') {
+  constructor(fetchFn: typeof fetch = fetch, baseUrl = 'https://api.themoviedb.org/3') {
+    super(baseUrl);
     this.#fetchFn = fetchFn;
-    this.#baseUrl = baseUrl;
+  }
+
+  getUrl(pathname: string, urlParams?: Record<string, string> | undefined): string {
+    return super.getUrl(pathname, {
+      ...urlParams,
+      api_key: TMDB_API_KEY,
+    });
   }
 
   async getById(id: number): Promise<ITvshow | null> {
     try {
-      const response = await this.#fetchFn(`${this.#baseUrl}/shows/${id}`);
+      const response = await this.#fetchFn(this.getUrl(`/tv/${id}`));
       const serverData: TvShowServer = await response.json();
-
       return {
         id: serverData.id,
         name: serverData.name,
-        image: serverData.image,
-        network: serverData.network,
-        premiered: serverData.premiered,
-        summary: serverData.summary,
+        posterPath: serverData.poster_path,
+        network: serverData.networks[0],
+        premiered: serverData.first_air_date,
+        summary: serverData.overview,
         status: serverData.status,
-        rating: serverData.rating.average,
+        rating: serverData.vote_average,
       };
     } catch (error) {
       log('Failed to fetch tvshow', { id }, error);
@@ -39,21 +46,17 @@ export default class TvshowRepository implements ITvshowRepository {
 
   async search(query: string): Promise<ITvshow[]> {
     try {
-      const response = await this.#fetchFn(
-        `${this.#baseUrl}/search/shows?q=${encodeURIComponent(query)}`,
-      );
+      const response = await this.#fetchFn(this.getUrl('/search/tv', { query }));
       const json: SearchTvShowResponse = await response.json();
-
-      return json.map(({ show }) => {
+      const results = json.results;
+      return results.map((show) => {
+        // TODO: Fetch from https://developers.themoviedb.org/3/configuration/get-api-configuration
         return {
           id: show.id,
           name: show.name,
-          image: show.image,
-          network: show.network,
-          premiered: show.premiered,
-          summary: show.summary,
-          status: show.status,
-          rating: show.rating.average,
+          posterPath: show.poster_path,
+          summary: show.overview,
+          rating: show.vote_average,
         };
       });
     } catch (error) {
