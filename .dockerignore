@@ -3,7 +3,6 @@
 **/build/
 **/__flowtests__/
 **/__tests__/
-.git/
 **/*.env
 **/.env.local
 **/.next

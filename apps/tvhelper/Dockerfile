@@ -1,58 +1,30 @@
-FROM node:17-alpine as deps
+FROM node:18 as base
+WORKDIR /app
 
-WORKDIR /build
+COPY package.json workspace.json nx.json yarn.lock .yarnrc.yml ./
+COPY packages packages
+COPY apps apps
+COPY .yarn ./.yarn
+RUN find packages \! -name "package.json" -mindepth 2 -maxdepth 2 -print | xargs rm -rf
+RUN find apps \! -name "package.json" -mindepth 2 -maxdepth 2 -print | xargs rm -rf
+ENTRYPOINT echo "copier Dockerfile stage"
 
-COPY package.json lerna.json yarn.lock .yarnrc.yml ./
-COPY .yarn/ ./.yarn/
-COPY apps/tvhelper/package.json ./apps/tvhelper/package.json
-COPY packages/test-utils/package.json ./packages/test-utils/package.json
-COPY packages/test-preset/package.json ./packages/test-preset/package.json
-COPY packages/components/package.json ./packages/components/package.json
-COPY packages/theme/package.json ./packages/theme/package.json
-COPY packages/formik-wrapper/package.json ./packages/formik-wrapper/package.json
-COPY packages/esbuild-tools/package.json ./packages/esbuild-tools/package.json
-
+FROM base as installer
 RUN yarn install
+ENTRYPOINT echo "installer Dockerfile stage"
 
-FROM node:17-alpine as builder
+FROM installer as builder
+ENV GRAPHQL_URL=https://tbergq-graphql.vercel.app/graphql/
+COPY . .
+RUN yarn nx run @tbergq/tvhelper:build
+ENTRYPOINT echo "builder Dockerfile stage"
 
-WORKDIR /build
+FROM node:18-alpine as runner
+WORKDIR /app
+COPY --from=builder app .
 ENV NODE_ENV=production
 ENV GRAPHQL_URL=https://tbergq-graphql.vercel.app/graphql/
 
-COPY --from=deps  /build/node_modules ./node_modules
-COPY --from=deps  /build/apps/tvhelper/ ./apps/tvhelper/
-COPY --from=deps  /build/packages/test-utils/ ./packages/test-utils/
-COPY --from=deps  /build/packages/test-preset/ ./packages/test-preset/
-COPY --from=deps  /build/packages/components/ ./packages/components/
-COPY --from=deps  /build/packages/theme/ ./packages/theme/
-COPY --from=deps  /build/packages/formik-wrapper/ ./packages/formik-wrapper/
-COPY --from=deps  /build/packages/esbuild-tools/ ./packages/esbuild-tools/
-
-COPY apps/tvhelper ./apps/tvhelper
-COPY packages/test-utils ./packages/test-utils/
-COPY packages/test-preset ./packages/test-preset/
-COPY packages/components ./packages/components/
-COPY packages/theme ./packages/theme/
-COPY packages/formik-wrapper ./packages/formik-wrapper/
-COPY packages/esbuild-tools ./packages/esbuild-tools
-
-COPY package.json lerna.json tsconfig.json ./
-
-RUN yarn lerna run build
-
-FROM node:17-alpine as runner
-
-WORKDIR /build
-
-ENV NODE_ENV=production
-ENV GRAPHQL_URL=https://tbergq-graphql.vercel.app/graphql/
-
-COPY --from=builder /build/node_modules ./node_modules
-COPY --from=builder /build/package.json ./package.json
-COPY --from=builder /build/apps/tvhelper ./apps/tvhelper
-COPY --from=builder /build/packages ./packages
-
-EXPOSE 3020
-ENV PORT=3020
+EXPOSE 8080
+ENV PORT=8080
 CMD ["yarn", "workspace", "@tbergq/tvhelper", "start"]
