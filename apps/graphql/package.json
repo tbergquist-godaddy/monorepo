@@ -64,7 +64,7 @@
     "mockingoose": "^2.15.2",
     "mongodb-client-encryption": "^2.3.0",
     "mongodb-memory-server": "^8.0.0",
-    "msw": "^0.39.0",
+    "msw": "^0.49.0",
     "nodemon": "^2.0.7",
     "rimraf": "^3.0.2",
     "ts-node": "^10.4.0",
