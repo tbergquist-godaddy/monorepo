@@ -94,16 +94,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adeira/graphql-bc-checker@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@adeira/graphql-bc-checker@npm:0.4.0"
+"@adeira/graphql-bc-checker@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@adeira/graphql-bc-checker@npm:0.5.0"
   dependencies:
     "@adeira/signed-source": ^2.0.0
-    "@babel/runtime": ^7.14.5
-    chalk: ^4.1.1
+    "@babel/runtime": ^7.17.9
+    chalk: ^4.1.2
   peerDependencies:
-    graphql: ^15.0.0
-  checksum: 628862b20cf4121c2c0363fb86fc1f678738d4895618bb078a8bd4ddfca100dad3fe96a38e483e15819a2c827b32fe48614656cc3963a9eb0fde286b9986445e
+    graphql: ^16.4.0
+  checksum: 4ffec3953cf87f1f11a0785c34da805ef09f42d895dd184f78aeccd2627d82f21684449f7fbb6c7d6c7dfed7426bac256cb6451060dd7b6713fcd1b64f6c9549
   languageName: node
   linkType: hard
 
@@ -1926,12 +1926,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.16.0, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.4, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.16.0, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.4, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.17.2
   resolution: "@babel/runtime@npm:7.17.2"
   dependencies:
     regenerator-runtime: ^0.13.4
   checksum: a48702d271ecc59c09c397856407afa29ff980ab537b3da58eeee1aeaa0f545402d340a1680c9af58aec94dfdcbccfb6abb211991b74686a86d03d3f6956cacd
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.17.9":
+  version: 7.20.6
+  resolution: "@babel/runtime@npm:7.20.6"
+  dependencies:
+    regenerator-runtime: ^0.13.11
+  checksum: 42a8504db21031b1859fbc0f52d698a3d2f5ada9519eb76c6f96a7e657d8d555732a18fe71ef428a67cc9fc81ca0d3562fb7afdc70549c5fec343190cbaa9b03
   languageName: node
   linkType: hard
 
@@ -5574,7 +5583,7 @@ __metadata:
   resolution: "@tbergq/graphql@workspace:apps/graphql"
   dependencies:
     "@adeira/fetch": ^2.1.0
-    "@adeira/graphql-bc-checker": ^0.4.0
+    "@adeira/graphql-bc-checker": ^0.5.0
     "@adeira/graphql-global-id": ^2.0.1
     "@adeira/graphql-relay": ^0.3.0
     "@adeira/js": ^2.1.0
@@ -22548,6 +22557,13 @@ __metadata:
   version: 1.4.2
   resolution: "regenerate@npm:1.4.2"
   checksum: 3317a09b2f802da8db09aa276e469b57a6c0dd818347e05b8862959c6193408242f150db5de83c12c3fa99091ad95fb42a6db2c3329bfaa12a0ea4cbbeb30cb0
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.11":
+  version: 0.13.11
+  resolution: "regenerator-runtime@npm:0.13.11"
+  checksum: 27481628d22a1c4e3ff551096a683b424242a216fee44685467307f14d58020af1e19660bf2e26064de946bad7eff28950eae9f8209d55723e2d9351e632bbb4
   languageName: node
   linkType: hard
 
