@@ -5613,7 +5613,7 @@ __metadata:
     express: ^4.17.1
     express-graphql: ^0.12.0
     faker: ^5.5.3
-    graphql: ^15.1.0
+    graphql: ^16.0.0
     graphql-depth-limit: ^1.1.0
     graphql-iso-date: ^3.6.1
     json-stable-stringify: ^1.0.1
@@ -14331,6 +14331,13 @@ __metadata:
   version: 16.6.0
   resolution: "graphql@npm:16.6.0"
   checksum: bf1d9e3c1938ce3c1a81e909bd3ead1ae4707c577f91cff1ca2eca474bfbc7873d5d7b942e1e9777ff5a8304421dba57a4b76d7a29eb19de8711cb70e3c2415e
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^16.0.0":
+  version: 16.0.1
+  resolution: "graphql@npm:16.0.1"
+  checksum: e2fbddc78ac93b84af5b1871cdced5ce796102373b91f888983e8bae26856788833aa641f5da15b9e4da05cef2edcc82b744a86a27e7e1ef6c9ce422571ab16c
   languageName: node
   linkType: hard
 
