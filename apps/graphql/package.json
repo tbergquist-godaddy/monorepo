@@ -55,7 +55,7 @@
     "@types/passport": "^1.0.6",
     "@types/passport-jwt": "^3.0.5",
     "@types/password-hash": "^1.2.20",
-    "@types/ramda": "^0.27.40",
+    "@types/ramda": "^0.28.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "esbuild": "^0.14.0",
     "esbuild-plugin-alias": "^0.2.0",

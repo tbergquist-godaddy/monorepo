@@ -5592,7 +5592,7 @@ __metadata:
     "@types/passport": ^1.0.6
     "@types/passport-jwt": ^3.0.5
     "@types/password-hash": ^1.2.20
-    "@types/ramda": ^0.27.40
+    "@types/ramda": ^0.28.0
     babel-plugin-module-resolver: ^4.1.0
     body-parser: ^1.19.0
     compression: ^1.7.4
@@ -6424,12 +6424,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ramda@npm:^0.27.40":
-  version: 0.27.64
-  resolution: "@types/ramda@npm:0.27.64"
+"@types/ramda@npm:^0.28.0":
+  version: 0.28.20
+  resolution: "@types/ramda@npm:0.28.20"
   dependencies:
     ts-toolbelt: ^6.15.1
-  checksum: 8512be3bf220d63df398fe333aafb21a48e1967300afa629f21de5e35e757bdf37323bd59a67da025ab549520bc9c9119e6ca9702a95948eef5bd17ae9b319d2
+  checksum: 02c1e958a09724079acd975aefd2e9ae1327097f941c661ca596e2a8e16df3bd0f0755a16ab378eeb562d8624d7614a3159de2a0129e7d8522a2d79699390818
   languageName: node
   linkType: hard
 
