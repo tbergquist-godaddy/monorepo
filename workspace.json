@@ -1,9 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "@tbergq/cv": {
-      "root": "apps/cv"
-    },
     "@tbergq/graphql": {
       "root": "apps/graphql"
     },
