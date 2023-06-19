@@ -5562,7 +5562,7 @@ __metadata:
     "@adeira/js": ^2.1.0
     "@adeira/monorepo-utils": ^0.11.0
     "@adeira/test-utils": ^0.6.0
-    "@types/adeira__graphql-global-id": ^1.2.0
+    "@types/adeira__graphql-global-id": ^2.0.0
     "@types/adeira__js": ^2.1.0
     "@types/compression": ^1.7.0
     "@types/cors": ^2.8.10
@@ -5872,12 +5872,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/adeira__graphql-global-id@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@types/adeira__graphql-global-id@npm:1.2.0"
+"@types/adeira__graphql-global-id@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "@types/adeira__graphql-global-id@npm:2.1.0"
   dependencies:
-    graphql: ^15.4.0
-  checksum: 0ccc6c7d6b1805502fa73555535ccea3ca7c217348d35279a7af37707cb2e3d73936fc1d69d1b715e4b7e737a3694f03373045e790bc308a088333d339fa0a6e
+    graphql: ^15.0.0 || ^16.0.0
+  checksum: eff54d3798c2e80e2f69bbd598f703a22f0e688b9bc8b4b3d00a33d1409bc9dce05dbee50b1c44ffab5581af3d8140279090ab44d9c20d928e5a0ea6a5e2f9af
   languageName: node
   linkType: hard
 
@@ -13507,7 +13507,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^14.0.0 || ^15.0.0, graphql@npm:^15.1.0, graphql@npm:^15.4.0":
+"graphql@npm:^14.0.0 || ^15.0.0, graphql@npm:^15.1.0":
   version: 15.8.0
   resolution: "graphql@npm:15.8.0"
   checksum: 423325271db8858428641b9aca01699283d1fe5b40ef6d4ac622569ecca927019fce8196208b91dd1d8eb8114f00263fe661d241d0eb40c10e5bfd650f86ec5e
