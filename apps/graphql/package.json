@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.6.0",
-    "@types/adeira__graphql-global-id": "^1.2.0",
+    "@types/adeira__graphql-global-id": "^2.0.0",
     "@types/adeira__js": "^2.1.0",
     "@types/compression": "^1.7.0",
     "@types/cors": "^2.8.10",
