@@ -17297,8 +17297,6 @@ __metadata:
     webpack-sources: ^1.1.0
   peerDependencies:
     webpack: ^4.4.0
-  bin:
-    mini-css-extract-plugin: ""
   checksum: e79393bcd2bbaf945ded237d1096e6450a9137eb0cadcc682891d0d436f80b93d44ba1fb3c52b99e98aeeb48e5953d46494cd2c0367c601ef9117f775c62901b
   languageName: node
   linkType: hard
@@ -23498,11 +23496,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^4.4.4#~builtin<compat/typescript>":
   version: 4.5.5
-  resolution: "typescript@patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bcec9a"
+  resolution: "typescript@patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=f1b8ea"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 858c61fa63f7274ca4aaaffeced854d550bf416cff6e558c4884041b3311fb662f476f167cf5c9f8680c607239797e26a2ee0bcc6467fbc05bfcb218e1c6c671
+  checksum: 18b7e5a61aeccc4324e23bb07309665b143623f7bc3fb361b4148c8b120993a6f51144747f2a8cf88d9d318b90df5eb5d796f926033c8e76380a3737b4c35fa0
   languageName: node
   linkType: hard
 
