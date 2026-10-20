@@ -2243,6 +2243,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@faker-js/faker@npm:^5.5.3":
+  version: 5.5.3
+  resolution: "@faker-js/faker@npm:5.5.3"
+  checksum: d248a042e47ac00613d2d7cc29d4504cc5e5d843162454eede8c35f31c74b19a8fd7cecc0d5ea9e3fbbfc812abc51143c3699e51049fd64300e23e6588e76d39
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.0.1":
   version: 1.1.2
   resolution: "@gar/promisify@npm:1.1.2"
@@ -5562,6 +5569,7 @@ __metadata:
     "@adeira/js": ^2.1.0
     "@adeira/monorepo-utils": ^0.11.0
     "@adeira/test-utils": ^0.6.0
+    "@faker-js/faker": ^5.5.3
     "@types/adeira__graphql-global-id": ^1.2.0
     "@types/adeira__js": ^2.1.0
     "@types/compression": ^1.7.0
@@ -5585,7 +5593,6 @@ __metadata:
     esbuild-plugin-alias: ^0.2.0
     express: ^4.17.1
     express-graphql: ^0.12.0
-    faker: ^5.5.3
     graphql: ^15.1.0
     graphql-depth-limit: ^1.1.0
     graphql-iso-date: ^3.6.1
@@ -12282,13 +12289,6 @@ __metadata:
   version: 1.4.1
   resolution: "extsprintf@npm:1.4.1"
   checksum: a2f29b241914a8d2bad64363de684821b6b1609d06ae68d5b539e4de6b28659715b5bea94a7265201603713b7027d35399d10b0548f09071c5513e65e8323d33
-  languageName: node
-  linkType: hard
-
-"faker@npm:^5.5.3":
-  version: 5.5.3
-  resolution: "faker@npm:5.5.3"
-  checksum: 684fd64c8d3897e54248f95b4f6319f75d97691b8500cd13adf4af2c28f9204f766c1d1aaa6b41338f0beaaa87256c3132f8708a1a8f189d122b92f6b98081c3
   languageName: node
   linkType: hard
 
