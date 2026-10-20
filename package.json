@@ -48,5 +48,5 @@
   "resolutions": {
     "typescript": "^4.4.4"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@3.8.7"
 }
